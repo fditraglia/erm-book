@@ -1,7 +1,18 @@
 # A Crash Course in R Programming {#rcrash}
 
+This chapter will give you the bare minimum knowledge of R that you'll need to work through the rest of the book.
+While I won't assume any prior knowledge of R, I *will* assume that you've had some prior exposure to basic programming.
+Perhaps you know a little C or you've dabbled in Python.
+If you understand `if` and `else`, know the difference between `for` and `while` loops, and have written a simple function before, your background will be more than sufficient.  
+If you lack this background, don't despair! 
+You can still read and understand this book if you're willing to put in a bit of extra work in the early stages.
+If you've never done any programming before, I'd suggest reading [Hands-On Programming with R](https://rstudio-education.github.io/hopr/) alongside this chapter.
+It's freely available online and does an excellent job of introducing fundamental programming concepts. 
 
-It's time to learn some R! *R* you ready?^[This is the first of many terrible puns you will encounter in this book.]
+- [Advanced R](https://adv-r.hadley.nz/)
+- [R for Data Science](https://r4ds.had.co.nz/)
+
+*R* you ready?^[This is the first of many terrible puns you will encounter in this book.]
 
 Are you certain?
 
