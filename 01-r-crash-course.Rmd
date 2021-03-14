@@ -44,16 +44,6 @@ Parentheses can be used to change the order of operations:
 3 * (4 + 3) / 2
 ```
 
-::: {.exercise}  
-Write R code to calculate the number of Use R to compute the length of the hypotenuse of a right triangle whose sides have lengths 4 and 7.
-:::
-
-::: {.solution}  
-One possibility: <!-- Need to have at least one line of text for it to work-->
-```{r}
-sqrt(4^2 + 7^2)
-```
-
 ### Exponents, Logarithms, and Trigonometry
 
 ```{r}
@@ -61,17 +51,16 @@ sqrt(4^2 + 7^2)
 ```
 
 
-
-:::{.exercise}  
+```{exercise, name = "Pythagorean Theorem"}
 Use R to compute the length of the hypotenuse of a right triangle whose sides have lengths 4 and 7.
-:::
+```
 
-:::{.solution}  
-blah albh
+<!-- ANS_START -->
+**Solution**
 ```{r}
 sqrt(4^2 + 7^2)
 ```
-:::
+<!-- ANS_END -->
 
 
 ```{r arithmetic}
