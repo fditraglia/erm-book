@@ -1,0 +1,3 @@
+# A Crash Course in R Programming {#rcrash}
+
+It's time to learn some R! *R* you ready?^[This is the first of many terrible puns you will encounter in this book.]
