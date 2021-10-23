@@ -1,0 +1,21 @@
+# A Crash Course in R Programming {#inference}
+
+> If philosophy is outlawed, only outlaws will do philosophy 
+> -- <cite>Andrew Gelman</cite>^[<https://statmodeling.stat.columbia.edu/2010/06/29/hey_dude_ya_don/>]    
+
+On learning of my plan to include this lecture in ERM, a colleague remarked "but isn't that just *philosophy*? I thought this was supposed to be a course about empirical research methods!"
+If I had been quicker on my feet, I would have replied by slightly re-writing a famous quote from the end of Keynes's *General Theory*:
+> the ideas of philosophers, both when they are right and when they are wrong, are more powerful than is commonly understood. Indeed social science is ruled by little else. Applied economists, who believe themselves to be quite exempt from any philosophical influences, are usually the slaves of some defunct philosopher of science. 
+
+Less eloquently, but more directly: whenever we use data and statistical inference to learn about the world, there's an awful lot of philosophy in the background. 
+We rarely talk about it explicitly, but it's there all the same.
+
+- Today bring out of the shadows and ask: what does statistical inference actually *mean* and how does it relate to the business of *doing science*
+- What does Fisher say?
+- What do Neyman and Pearson say?
+- What do "textbook" Bayesians say? 
+- Critiques of these views. Also Gelman and Shalizi.
+- Problem of induction
+- Bayesian Evasion; Frequentist Evasion
+- Bayesian and Frequentist evasion
+- Also talk about Gelman & Shalizi. Doesn't seem to think we're doing induction. I don't know that I entirely agree. I sort of prefer the Leamer chapter 9 view. Tie in with Popper. Also model checking as abduction? (Peirce?) Leamer: various chapters but especially chapter 9?
