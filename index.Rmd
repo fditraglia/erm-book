@@ -1,5 +1,5 @@
 ---
-title: "Empirical Research Methods"
+title: "Core Empirical Research Methods"
 author: "Francis J. DiTraglia"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -14,11 +14,10 @@ output:
 
 # Preface {-}
 
-"The only way to learn how to do research is by doing research."
+You've probably heard that "the only way to learn how to do research is by doing research." Like most familiar sayings, this one has contains a deep kernel of truth. You can't learn applied econometrics by watching someone else do it: you have to roll up your sleeves, sit down at your computer, and get your hands dirty with real data. But I sometimes hear this phrase used in a different way, as an excuse for passing over practical skills in the graduate economics curriculum. "The sharpest students will figure this stuff out for themselves anyway" is a common refrain. Or perhaps "it's only when students have a research question of their own that they'll be motivated to learn." Indeed: to do research you have to be something of an autodidact, capable of teaching yourself new skills on the fly. And there's nothing like a pressing problem to provide the required impetus. But these arguments prove too much. Why teach microeconomic theory? Smart and motivated students can pick up any number of excellent textbooks and choose from a cornucopia of YouTube videos.
 
-You have probably heard this truism more than once 
-- The only way to learn how to do research is to do research.
-- An assumption that
+
+## Pre-requisites {-}
 
 
 ## Why not Stata? {-}
@@ -36,14 +35,14 @@ If you want support for multicore computing, the price is even higher: an 8-core
 There is no discount for Government or nonprofits, but as an Oxford faculty member, I can obtain an 8-core version of Stata for the low price of \$595 per year.
 In contrast, the tools that we will learn in this book, mainly R and C++, are completely free.
 This is particularly important in the modern world of high-performance cluster computing.
-If you want to run your code on a multicore machine in Google's cloud, something we'll cover in this book, you do not wan to be paying a software license fee for every core that you use.
+If you want to run your code on a multicore machine on Amazon, Google, or Microsoft cloud servers, you do not wan to be paying a software license fee for every core that you use.
 
 Second, Stata is almost comically behind the times.
 Let's see what's new in Stata version 16, released in February 2020.^[<https://www.stata.com/new-in-stata/>]
-At the top of the list is the LASSO, a wildly popular technique for high-dimensional regression that we'll cover in this book.
+At the top of the list is the LASSO, a wildly popular technique for high-dimensional regression. 
 Rob Tibshirani developed this method in a seminal paper from 1996, so it only took 24 years for it to be incorporated into Stata.^[[Tibshirani (1996) - Regression Shrinkage and Selection via the Lasso](https://rss.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.2517-6161.1996.tb02080.x)]
 Fortunately, Tibshirani and his co-authors made it easy for Stata, by releasing open-source software to implement the LASSO and related methods in R over a decade ago.^[[Friedman et al (2010) - Regularization Paths for Generalized Linear Models via Coordinate Descent](https://www.jstatsoft.org/article/view/v033i01)]
-Next on the list of new Stata features is linear programming, a technique that came to prominence in the late 1940s and which is also covered in this book.^[For a history of linear programming, see [Dantzig (1983)](https://link.springer.com/content/pdf/10.1007/978-3-642-68874-4_4.pdf). To be completely fair, the linear programming [algorithm](https://www.stata.com/new-in-stata/linear-programming/)
+Next on the list of new Stata features is linear programming, a technique that came to prominence in the late 1940s.^[For a history of linear programming, see [Dantzig (1983)](https://link.springer.com/content/pdf/10.1007/978-3-642-68874-4_4.pdf). To be completely fair, the linear programming [algorithm](https://www.stata.com/new-in-stata/linear-programming/)
 implemented in Stata 16 was only developed in 1992, a lag of merely 28 years.] 
 Stata 16 also has the ability to call "any Python package"--something you can do for free in R using [reticulate](https://github.com/rstudio/reticulate) or in Python itself for that matter--and "truly reproducible reporting." 
 Reproducible reporting is incredibly valuable, and it's something that we'll cover in detail below. 
