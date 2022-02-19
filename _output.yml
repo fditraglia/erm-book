@@ -1,0 +1,16 @@
+bookdown::gitbook:
+  css: assets/style.css
+  includes:
+    #before_body: assets/big-image.html
+    #after_body: assets/footer.html
+  highlight: tango
+  config:
+    toc:
+      collapse: section
+      before: |
+        <li class="toc-logo"><a href="./"><center><img src="images/core-erm-logo.png", width = 200px></center></a></li>
+    sharing:
+      github: yes
+      facebook: no
+      twitter: yes
+      all: no

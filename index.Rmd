@@ -4,11 +4,10 @@ author: "Francis J. DiTraglia"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-output:
+#output:
+  #bookdown::gitbook: default
+  #css: toc.css
   #bookdown::tufte_html_book:
-    #toc: yes
-    #css: toc.css
-  bookdown::gitbook: default
   #bookdown::pdf_book: default
 ---
 

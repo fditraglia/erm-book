@@ -1,1 +1,13 @@
+book_filename: "erm-book"
+repo: "https://github.com/fditraglia/erm-book/"
 output_dir: "docs"
+delet_merged_file: true
+language:
+  ui:
+    chapter_name: 'Chapter '
+  new_session: yes # Each chapter is knitted as its own Rmd file
+  # Use this later to change the order of chapters if desired
+  #  rmd_files: [
+  #  "index.Rmd",
+  #"01-r-crash-course.Rmd"
+    #]
