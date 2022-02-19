@@ -13,17 +13,22 @@ documentclass: book
 
 # Preface {-}
 
-You've probably heard that "the only way to learn how to do research is by doing research." Like most familiar sayings, this one has contains a deep kernel of truth. You can't learn applied econometrics by watching someone else do it: you have to roll up your sleeves, sit down at your computer, and get your hands dirty with real data. But I sometimes hear this phrase used in a different way, as an excuse for passing over practical skills in the graduate economics curriculum. "The sharpest students will figure this stuff out for themselves anyway" is a common refrain. Or perhaps "it's only when students have a research question of their own that they'll be motivated to learn." Indeed: to do research you have to be something of an autodidact, capable of teaching yourself new skills on the fly. And there's nothing like a pressing problem to provide the required impetus. But these arguments prove too much. Why teach microeconomic theory? Smart and motivated students can pick up any number of excellent textbooks and choose from a cornucopia of YouTube videos.
+## About This Book {-}
+
+Supervising undergraduate, masters-level, and doctoral research students has shown me just how many of the skills that I take for granted in my day-to-day work were never taught in a course, but acquired through years of painful trial-and-error. You've probably heard that "the only way to learn how to do research is by doing research." Indeed: classroom exercises are always somewhat artificial, and there is no substitute for getting your hands dirty with a problem that really matters to you. But trial-and-error is a slow and clumsy way to gain proficiency, and throwing students in at the deep end is neither a recipe for academic success nor for mental well-being. The goal of this book is to put some structure around the process through which students learn to do empirical work in economics, building skills and confidence step-by-step, and providing a firm foundation for later self-directed reading and research.
+
+A key theme of this book is the importance of reproducible research using open-source tools. In recent years, many headline empirical findings across the social sciences have failed to replicate. In some particularly famous examples, running the original authors' code on their own data produced results markedly different from those in the published paper. In others, impressive results vanished after coding or data merging errors were corrected. While there have been instances of outright fraud, many of these replication failures resulted from honest mistakes. Reproducible research is about creating a clean and fully-documented path from raw data to final results, making errors less likely to occur and easier to find when they do. It also allows other researchers, or our future selves, to build on past work, expanding the sum total of knowledge. Of course I can only replicate your research if I can run your code, and this is why open-source software is so important. Fortunately there are many fantastic open-source programming languages to choose from. This book uses R, the *lingua franca* of statistics and an increasingly popular choice among economists. 
 
 
 ## Pre-requisites {-}
 
+This book does not assume advanced knowledge of programming, mathematics, or econometrics, but it does have some pre-requisites. My target audience is first-year graduate students and final-year undergraduates in economics. I assume that you've taken an econometrics course that uses matrix notation and that you have *basic familiarity* with R programming. If you haven't used R before, I suggest reading [Hands-On Programming with R](https://rstudio-education.github.io/hopr/). It's free, short, and will get you up to speed quickly. 
 
 ## Why not Stata? {-}
 
 [Stata](https://stata.com) remains a popular choice among applied microeconomists.
 There's a good chance that you have have encountered it in your undergraduate studies or working as a research assistant.
-In its favor, Stata is easy-to-use, and makes it relatively painless to implement "textbook" econometric methods.
+In its favor, Stata is easy-to-use, and makes it relatively painless to implement "textbook" econometric methods.^[Arguably, Stata is *too easy to learn* precisely because of the incentives faced by a software developer with monopoly power: see Hal Varian's paper: [Economic Incentives in Software Design](https://people.ischool.berkeley.edu/~hal/Papers/Software.pdf). Monopolist may make software *too easy* to learn.] 
 So why not use Stata?
 Before beginning my polemic I should be absolutely clear that Stata users are not bad people: love the sinner, hate the sin.
 Here begins the sermon.
@@ -34,7 +39,7 @@ If you want support for multicore computing, the price is even higher: an 8-core
 There is no discount for Government or nonprofits, but as an Oxford faculty member, I can obtain an 8-core version of Stata for the low price of \$595 per year.
 In contrast, the tools that we will learn in this book, mainly R and C++, are completely free.
 This is particularly important in the modern world of high-performance cluster computing.
-If you want to run your code on a multicore machine on Amazon, Google, or Microsoft cloud servers, you do not wan to be paying a software license fee for every core that you use.
+If you're considering running your code on a multicore machine on Amazon, Google, or Microsoft cloud servers, you don't want to pay a software license fee for every core that you use.
 
 Second, Stata is almost comically behind the times.
 Let's see what's new in Stata version 16, released in February 2020.^[<https://www.stata.com/new-in-stata/>]
@@ -65,9 +70,9 @@ Fortunately, as we'll see below, intrepid open-source programmers have developed
 ## Why not Matlab? {-}
 
 Matlab is much more capable and much less out-of-date than Stata, but many of the same critiques apply: it's expensive, and it's not open source.
-There is an open-source clone called `octave`. 
+<!--There is an open-source clone called `octave`. 
 There's also an open-source C++ library called `Armadillo` with syntax almost identical to that of Matlab.
-We'll see how easy it is to use `Armadillo` from R with only the rudiments of C++ background.
+We'll see how easy it is to use `Armadillo` from R with only the rudiments of C++ background.-->
 
 ## Why R? {-}
 
@@ -80,7 +85,7 @@ We'll see how easy it is to use `Armadillo` from R with only the rudiments of C+
 ## Some Half-truths about R {-}
 
 - R is slow. This is true, sort of. But then we have amazing tools like Rcpp
-- R is hard to learn. It's certainly harder to learn than something like STATA, but it's also much more powerful. Also, Hal Varian's paper: [Economic Incentives in Software Design](https://people.ischool.berkeley.edu/~hal/Papers/Software.pdf). Monopolist may make software *too easy* to learn.
+- R is hard to learn. It's certainly harder to learn than something like STATA, but it's also much more powerful. 
 - Economists don't use R. Anecdotally, this seems to be a generational divide: open source tools are the norm and there are lots of R packages for econometrics. 
 
 

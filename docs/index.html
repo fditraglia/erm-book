@@ -55,69 +55,6 @@
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  background-color: #f8f8f8; }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ef2929; } /* Alert */
-code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
-code span.bn { color: #0000cf; } /* BaseN */
-code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
-code span.co { color: #8f5902; font-style: italic; } /* Comment */
-code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code span.dt { color: #204a87; } /* DataType */
-code span.dv { color: #0000cf; } /* DecVal */
-code span.er { color: #a40000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code span.ot { color: #8f5902; } /* Other */
-code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
-code span.ss { color: #4e9a06; } /* SpecialString */
-code span.st { color: #4e9a06; } /* String */
-code span.va { color: #000000; } /* Variable */
-code span.vs { color: #4e9a06; } /* VerbatimString */
-code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 
 <link rel="stylesheet" href="assets/style.css" type="text/css" />
@@ -138,6 +75,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i>About This Book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-requisites"><i class="fa fa-check"></i>Pre-requisites</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-stata"><i class="fa fa-check"></i>Why not Stata?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab"><i class="fa fa-check"></i>Why not Matlab?</a></li>
@@ -168,7 +106,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3.15" data-path="rcrash.html"><a href="rcrash.html#loading-external-data-data-summary"><i class="fa fa-check"></i><b>1.3.15</b> Loading External Data &amp; Data Summary</a></li>
 <li class="chapter" data-level="1.3.16" data-path="rcrash.html"><a href="rcrash.html#more-on-data.table-access"><i class="fa fa-check"></i><b>1.3.16</b> More on <code>data.table</code> Access</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="rcrash.html"><a href="rcrash.html#part-3-exercises"><i class="fa fa-check"></i><b>1.4</b> Part 3: Exercises</a></li>
 </ul></li>
 </ul>
 
@@ -194,35 +131,40 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
-<p>You’ve probably heard that “the only way to learn how to do research is by doing research.” Like most familiar sayings, this one has contains a deep kernel of truth. You can’t learn applied econometrics by watching someone else do it: you have to roll up your sleeves, sit down at your computer, and get your hands dirty with real data. But I sometimes hear this phrase used in a different way, as an excuse for passing over practical skills in the graduate economics curriculum. “The sharpest students will figure this stuff out for themselves anyway” is a common refrain. Or perhaps “it’s only when students have a research question of their own that they’ll be motivated to learn.” Indeed: to do research you have to be something of an autodidact, capable of teaching yourself new skills on the fly. And there’s nothing like a pressing problem to provide the required impetus. But these arguments prove too much. Why teach microeconomic theory? Smart and motivated students can pick up any number of excellent textbooks and choose from a cornucopia of YouTube videos.</p>
+<div id="about-this-book" class="section level2 unnumbered">
+<h2>About This Book</h2>
+<p>Supervising undergraduate, masters-level, and doctoral research students has shown me just how many of the skills that I take for granted in my day-to-day work were never taught in a course, but acquired through years of painful trial-and-error. You’ve probably heard that “the only way to learn how to do research is by doing research.” Indeed: classroom exercises are always somewhat artificial, and there is no substitute for getting your hands dirty with a problem that really matters to you. But trial-and-error is a slow and clumsy way to gain proficiency, and throwing students in at the deep end is neither a recipe for academic success nor for mental well-being. The goal of this book is to put some structure around the process through which students learn to do empirical work in economics, building skills and confidence step-by-step, and providing a firm foundation for later self-directed reading and research.</p>
+<p>A key theme of this book is the importance of reproducible research using open-source tools. In recent years, many headline empirical findings across the social sciences have failed to replicate. In some particularly famous examples, running the original authors’ code on their own data produced results markedly different from those in the published paper. In others, impressive results vanished after coding or data merging errors were corrected. While there have been instances of outright fraud, many of these replication failures resulted from honest mistakes. Reproducible research is about creating a clean and fully-documented path from raw data to final results, making errors less likely to occur and easier to find when they do. It also allows other researchers, or our future selves, to build on past work, expanding the sum total of knowledge. Of course I can only replicate your research if I can run your code, and this is why open-source software is so important. Fortunately there are many fantastic open-source programming languages to choose from. This book uses R, the <em>lingua franca</em> of statistics and an increasingly popular choice among economists.</p>
+</div>
 <div id="pre-requisites" class="section level2 unnumbered">
 <h2>Pre-requisites</h2>
+<p>This book does not assume advanced knowledge of programming, mathematics, or econometrics, but it does have some pre-requisites. My target audience is first-year graduate students and final-year undergraduates in economics. I assume that you’ve taken an econometrics course that uses matrix notation and that you have <em>basic familiarity</em> with R programming. If you haven’t used R before, I suggest reading <a href="https://rstudio-education.github.io/hopr/">Hands-On Programming with R</a>. It’s free, short, and will get you up to speed quickly.</p>
 </div>
 <div id="why-not-stata" class="section level2 unnumbered">
 <h2>Why not Stata?</h2>
 <p><a href="https://stata.com">Stata</a> remains a popular choice among applied microeconomists.
 There’s a good chance that you have have encountered it in your undergraduate studies or working as a research assistant.
-In its favor, Stata is easy-to-use, and makes it relatively painless to implement “textbook” econometric methods.
+In its favor, Stata is easy-to-use, and makes it relatively painless to implement “textbook” econometric methods.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
 So why not use Stata?
 Before beginning my polemic I should be absolutely clear that Stata users are not bad people: love the sinner, hate the sin.
 Here begins the sermon.</p>
 <p>First, Stata is expensive.
-The price for a Business single-user Stata license is $765 <em>per year</em>.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
+The price for a Business single-user Stata license is $765 <em>per year</em>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
 If you want support for multicore computing, the price is even higher: an 8-core version of Stata costs $1,395 annually.
 There is no discount for Government or nonprofits, but as an Oxford faculty member, I can obtain an 8-core version of Stata for the low price of $595 per year.
 In contrast, the tools that we will learn in this book, mainly R and C++, are completely free.
 This is particularly important in the modern world of high-performance cluster computing.
-If you want to run your code on a multicore machine on Amazon, Google, or Microsoft cloud servers, you do not wan to be paying a software license fee for every core that you use.</p>
+If you’re considering running your code on a multicore machine on Amazon, Google, or Microsoft cloud servers, you don’t want to pay a software license fee for every core that you use.</p>
 <p>Second, Stata is almost comically behind the times.
-Let’s see what’s new in Stata version 16, released in February 2020.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
+Let’s see what’s new in Stata version 16, released in February 2020.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
 At the top of the list is the LASSO, a wildly popular technique for high-dimensional regression.
-Rob Tibshirani developed this method in a seminal paper from 1996, so it only took 24 years for it to be incorporated into Stata.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
-Fortunately, Tibshirani and his co-authors made it easy for Stata, by releasing open-source software to implement the LASSO and related methods in R over a decade ago.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
-Next on the list of new Stata features is linear programming, a technique that came to prominence in the late 1940s.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>
+Rob Tibshirani developed this method in a seminal paper from 1996, so it only took 24 years for it to be incorporated into Stata.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
+Fortunately, Tibshirani and his co-authors made it easy for Stata, by releasing open-source software to implement the LASSO and related methods in R over a decade ago.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>
+Next on the list of new Stata features is linear programming, a technique that came to prominence in the late 1940s.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>
 Stata 16 also has the ability to call “any Python package”–something you can do for free in R using <a href="https://github.com/rstudio/reticulate">reticulate</a> or in Python itself for that matter–and “truly reproducible reporting.”
 Reproducible reporting is incredibly valuable, and it’s something that we’ll cover in detail below.
-It’s also been available in R, completely free of charge, since at least 2002.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>
-I suppose we shouldn’t expect too much of a statistical computing package that only added support for matrix programming in 2005, a full 20 years after Stata version 1.0.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
+It’s also been available in R, completely free of charge, since at least 2002.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>
+I suppose we shouldn’t expect too much of a statistical computing package that only added support for matrix programming in 2005, a full 20 years after Stata version 1.0.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
 <p>Third, Stata is a black box.
 Because the underlying source code is kept secret, there’s no way for a Stata user to know for certain what’s happening under the hood.
 A few years ago I tried to determine precisely what instrument set Stata was using in its implementation of a well-known dynamic panel estimator.
@@ -239,9 +181,9 @@ Fortunately, as we’ll see below, intrepid open-source programmers have develop
 <div id="why-not-matlab" class="section level2 unnumbered">
 <h2>Why not Matlab?</h2>
 <p>Matlab is much more capable and much less out-of-date than Stata, but many of the same critiques apply: it’s expensive, and it’s not open source.
-There is an open-source clone called <code>octave</code>.
-There’s also an open-source C++ library called <code>Armadillo</code> with syntax almost identical to that of Matlab.
-We’ll see how easy it is to use <code>Armadillo</code> from R with only the rudiments of C++ background.</p>
+<!--There is an open-source clone called `octave`. 
+There's also an open-source C++ library called `Armadillo` with syntax almost identical to that of Matlab.
+We'll see how easy it is to use `Armadillo` from R with only the rudiments of C++ background.--></p>
 </div>
 <div id="why-r" class="section level2 unnumbered">
 <h2>Why R?</h2>
@@ -257,7 +199,7 @@ We’ll see how easy it is to use <code>Armadillo</code> from R with only the ru
 <h2>Some Half-truths about R</h2>
 <ul>
 <li>R is slow. This is true, sort of. But then we have amazing tools like Rcpp</li>
-<li>R is hard to learn. It’s certainly harder to learn than something like STATA, but it’s also much more powerful. Also, Hal Varian’s paper: <a href="https://people.ischool.berkeley.edu/~hal/Papers/Software.pdf">Economic Incentives in Software Design</a>. Monopolist may make software <em>too easy</em> to learn.</li>
+<li>R is hard to learn. It’s certainly harder to learn than something like STATA, but it’s also much more powerful.</li>
 <li>Economists don’t use R. Anecdotally, this seems to be a generational divide: open source tools are the norm and there are lots of R packages for econometrics.</li>
 </ul>
 </div>
@@ -272,14 +214,15 @@ A good resource aimed at economists is the <code>quantecon.org</code>: <a href="
 <div class="footnotes">
 <hr />
 <ol start="1">
-<li id="fn1"><p>These figures were accurate as of March 2021. For the latest prices, see <a href="https://www.stata.com/order/dl/" class="uri">https://www.stata.com/order/dl/</a>.<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p><a href="https://www.stata.com/new-in-stata/" class="uri">https://www.stata.com/new-in-stata/</a><a href="index.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p><a href="https://rss.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.2517-6161.1996.tb02080.x">Tibshirani (1996) - Regression Shrinkage and Selection via the Lasso</a><a href="index.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p><a href="https://www.jstatsoft.org/article/view/v033i01">Friedman et al (2010) - Regularization Paths for Generalized Linear Models via Coordinate Descent</a><a href="index.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>For a history of linear programming, see <a href="https://link.springer.com/content/pdf/10.1007/978-3-642-68874-4_4.pdf">Dantzig (1983)</a>. To be completely fair, the linear programming <a href="https://www.stata.com/new-in-stata/linear-programming/">algorithm</a>
-implemented in Stata 16 was only developed in 1992, a lag of merely 28 years.<a href="index.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>Reproducible reporting in R started with <a href="https://cran.r-project.org/doc/Rnews/Rnews_2002-3.pdf">sweave</a>. These days we have a fantastic successor package called <a href="https://yihui.org/knitr/">knitr</a>, which I cover below.<a href="index.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>The “Mata” programming language was added in Stata 9: <a href="https://www.stata.com/stata9/" class="uri">https://www.stata.com/stata9/</a>. For a timeline of Stata versions, see <a href="https://www.stata.com/support/faqs/resources/history-of-stata/" class="uri">https://www.stata.com/support/faqs/resources/history-of-stata/</a>.<a href="index.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Arguably, Stata is <em>too easy to learn</em> precisely because of the incentives faced by a software developer with monopoly power: see Hal Varian’s paper: <a href="https://people.ischool.berkeley.edu/~hal/Papers/Software.pdf">Economic Incentives in Software Design</a>. Monopolist may make software <em>too easy</em> to learn.<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>These figures were accurate as of March 2021. For the latest prices, see <a href="https://www.stata.com/order/dl/" class="uri">https://www.stata.com/order/dl/</a>.<a href="index.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://www.stata.com/new-in-stata/" class="uri">https://www.stata.com/new-in-stata/</a><a href="index.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://rss.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.2517-6161.1996.tb02080.x">Tibshirani (1996) - Regression Shrinkage and Selection via the Lasso</a><a href="index.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p><a href="https://www.jstatsoft.org/article/view/v033i01">Friedman et al (2010) - Regularization Paths for Generalized Linear Models via Coordinate Descent</a><a href="index.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>For a history of linear programming, see <a href="https://link.springer.com/content/pdf/10.1007/978-3-642-68874-4_4.pdf">Dantzig (1983)</a>. To be completely fair, the linear programming <a href="https://www.stata.com/new-in-stata/linear-programming/">algorithm</a>
+implemented in Stata 16 was only developed in 1992, a lag of merely 28 years.<a href="index.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Reproducible reporting in R started with <a href="https://cran.r-project.org/doc/Rnews/Rnews_2002-3.pdf">sweave</a>. These days we have a fantastic successor package called <a href="https://yihui.org/knitr/">knitr</a>, which I cover below.<a href="index.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>The “Mata” programming language was added in Stata 9: <a href="https://www.stata.com/stata9/" class="uri">https://www.stata.com/stata9/</a>. For a timeline of Stata versions, see <a href="https://www.stata.com/support/faqs/resources/history-of-stata/" class="uri">https://www.stata.com/support/faqs/resources/history-of-stata/</a>.<a href="index.html#fnref8" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
