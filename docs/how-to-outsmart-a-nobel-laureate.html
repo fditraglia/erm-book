@@ -147,9 +147,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html"><i class="fa fa-check"></i><b>1</b> How to Outsmart a Nobel Laureate</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#the-hot-hand"><i class="fa fa-check"></i><b>1.1</b> The Hot Hand</a></li>
-<li class="chapter" data-level="1.2" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#hidden-solutions-and-hints"><i class="fa fa-check"></i><b>1.2</b> Hidden solutions and hints</a>
+<li class="chapter" data-level="1.2" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#update-from-here-down"><i class="fa fa-check"></i><b>1.2</b> Update from here down!</a></li>
+<li class="chapter" data-level="1.3" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#hidden-solutions-and-hints"><i class="fa fa-check"></i><b>1.3</b> Hidden solutions and hints</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#example-problem"><i class="fa fa-check"></i><b>1.2.1</b> Example problem</a></li>
+<li class="chapter" data-level="1.3.1" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#example-problem"><i class="fa fa-check"></i><b>1.3.1</b> Example problem</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="using-webexercises.html"><a href="using-webexercises.html"><i class="fa fa-check"></i><b>2</b> Using <code>webexercises</code></a>
@@ -187,23 +188,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Lesson 1</span> How to Outsmart a Nobel Laureate</h1>
 <div id="the-hot-hand" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> The Hot Hand</h2>
+<p>If you've read 2002 Nobel Laureate Daniel Kahneman's best-selling book <a href="https://www.google.co.uk/books/edition/Thinking_Fast_and_Slow/AV9x8XakdV0C?hl=en&amp;gbpv=1&amp;dq=thinking+fast+and+slow&amp;printsec=frontcover"><em>Thinking Fast and Slow</em></a>, you may remember this passage about the <em>hot hand illusion</em>, a supposed illustration of the human tendency to see patterns in random noise:</p>
 <blockquote>
 <p>Amos [Tversky] and his students Tom Gilovich and Robert Vallone caused a stir with their study of misperceptions of randomness in basketball. The "fact" that players occasionally acquire a hot hand is generally accepted by players, coaches, and fans. The inference is irresistible: a player sinks three or four baskets in a row and you cannot help forming the causal judgment that this player is now hot, with a temporarily increased propensity to score. Players on both teams adapt to this judgment—teammates are more likely to pass to the hot scorer and the defense is more likely to doubleteam. Analysis of thousands of sequences of shots led to a disappointing conclusion: there is no such thing as a hot hand in professional basketball, either in shooting from the field or scoring from the foul line. Of course, some players are more accurate than others, but the sequence of successes and missed shots satisfies all tests of randomness. The hot hand is entirely in the eye of the beholders, who are consistently too quick to perceive order and causality in randomness. The hot hand is a massive and widespread cognitive illusion.</p>
 </blockquote>
-<ul>
-<li>Explain idea behind hot hand: more likely to make a basket if you've just made one.</li>
-<li>Sport fans and commentators long claimed this existed; Kahneman et al said it's an illusion; lots of papers on this; add some quotes</li>
-<li>In this case the academics turned out to be wrong: Miller &amp; Sanjurjo (2018) showed that the statistical methods researchers had used to study the hot hand were flawed.</li>
-<li>Biased <em>against</em> finding evidence of a hot hand even if it exists. Turns out that <em>there is</em> a hot hand phenonmenon.</li>
-<li>Here's what I find interesting about this.</li>
-<li>Viewed from one perspective, this is a very subtle error: the probabilistic intuition behind it is relatively complicated, M&amp;S even wrote a simpler follow-up paper to try to get the intuition across. Subtle enough to be missed by Nobel laureates!</li>
-<li>On the other hand, this is a boneheaded error: anyone with a rudimentary knowledge of programming could have coded up a simulation in under an hour to reveal the problem. No one bothered until M&amp;S.</li>
-<li>The moral: simulation is a <em>superpower</em>. It's not a replacement for theory, but a potent complement. If you find a pattern you don't understand in a simulation, this can spur you to try to understand the mathematics behind it.</li>
-<li>Swiss Army Knife metaphor: simulation is like the knife, arguably the most important tool in the box, weapon in the arsenal.</li>
-<li>Today you'll carry out a simulation establishing the bias of methods previously used to look for a hot hand.</li>
-<li>Along the way, you'll learn some helpful tools for simulation more broadly and a useful pattern for keeping your simulation code organized.</li>
-<li>Maybe even a touch of parallel computing!</li>
-</ul>
+<p>The research that Kahneman mentions was published in a famous paper by <a href="https://labs.la.utexas.edu/gilden/files/2016/04/Gilo.Vallone.Tversky.pdf">Gilovich, Vallone &amp; Tversky (1985)</a>, and later summarized for a general audience in <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/c323/hothand.pdf">Gilovich &amp; Tversky (1989)</a>. The abstract of the original paper says it all:</p>
+<blockquote>
+<p>Basketball players and fans alike tend to believe that a player's chance of hitting a shot are greater following a hit than following a miss on the previous shot. However, detailed analyses of the shooting records of the Philadelphia 76ers provided no evidence for a positive correlation between the outcomes of successive shots. The same conclusions emerged from free-throw records of the Boston Celtics, and from a controlled shooting experiment with the men and women of Cornell's varsity teams. The outcomes of previous shots influenced Cornell players' predictions but not their performance. The belief in the hot hand and the "detection" of streaks in random sequences is attributed to a general misconception of chance according to which even short random sequences are thought to be highly representative of their generating process.</p>
+</blockquote>
+<p>Between 1985 and 2011, when Kahneman's book was published, this result was replicated numerous times under a variety of different conditions, making it one of the better-documented biases in human decision-making. But it turns out that the hot-hand illusion is <em>itself</em> an illusion.</p>
+<p>In a recent issue of <em>Econometrica</em>, <a href="https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA14943">Miller &amp; Sanjurjo (2018)</a> point out a subtle but consequential error in the statistical tests used in the hot hand literature. It turns out that these tests were biased <em>against</em> detecting evidence of a hot hand, even if it did in fact exist. Correcting this mistake and re-analyzing Gilovich, Vallone and Tversky's original dataset "reveals significant evidence of streak shooting, with large effect sizes." The hot hand is real.</p>
+<p>There are some helpful lessons that we can draw from this episode. First, we all make mistakes--even Nobel Laureates! Second, successful replications tell us less than we might hope: they could easily <em>reproduce</em> the bias of the original study. But in my view, the real lesson of the hot hand affair is much simpler: <strong>you should always run a simulation study.</strong></p>
+<p>The probabilistic error that led so many researchers to draw the wrong conclusion about the hot hand is really quite subtle.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> But at the same time, anyone who knows basic programming could have detected the mistake in five minutes if only they had bothered to look. In economics and statistics, simulation is a <em>superpower</em>. It helps us to understand our models, check for mistakes, and make unexpected connections, some of which may even lead to new theoretical results. If you'll pardon my continuation of the Swiss Army Knife metaphor, simulation is the knife: arguably the most useful tool in your toolbox. In this lesson, we'll cover some basic tools for carrying out a simulation experiment in R and use them to shed some light on the illusion of the hot hand illusion.</p>
+</div>
+<div id="update-from-here-down" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Update from here down!</h2>
 <ol style="list-style-type: decimal">
 <li>Some basic simulation commands in R: <code>sample()</code>, <code>rbinom()</code>, <code>rnorm()</code>, etc. Read the help files.</li>
 <li>Write a function <code>draw_sim_data()</code> that makes 100 Bernoulli(1/2) draws. Optional arguments <code>p</code> and <code>n</code>? This simulates data when there is <em>no hot hand</em></li>
@@ -241,7 +240,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-25"><a href="how-to-outsmart-a-nobel-laureate.html#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(sim_results)</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <pre><code>## Warning: Removed 30 rows containing non-finite values (stat_bin).</code></pre>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sim_results, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 0.4602045</code></pre>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ones &lt;- which(x == 1)</span></span>
@@ -253,14 +252,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-7"><a href="how-to-outsmart-a-nobel-laureate.html#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#foo$lengths</span></span>
 <span id="cb6-8"><a href="how-to-outsmart-a-nobel-laureate.html#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#foo$values</span></span></code></pre></div>
 </div>
-<div id="hidden-solutions-and-hints" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> Hidden solutions and hints</h2>
+<div id="hidden-solutions-and-hints" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Hidden solutions and hints</h2>
 <p>You can fence off a solution area that will be hidden behind a button using <code>hide()</code> before the solution and <code>unhide()</code> after, each as inline R code. Pass the text you want to appear on the button to the <code>hide()</code> function.</p>
 <p>If the solution is an RMarkdown code chunk, instead of using <code>hide()</code> and <code>unhide()</code>, simply set the <code>webex.hide</code> chunk option to TRUE, or set it to the string you wish to display on the button.</p>
-<div id="example-problem" class="section level3" number="1.2.1">
-<h3><span class="header-section-number">1.2.1</span> Example problem</h3>
+<div id="example-problem" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Example problem</h3>
 <p><strong>Recreate the scatterplot below, using the built-in <code>cars</code> dataset.</strong></p>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <div class="webex-solution">
 <button>
 I need a hint
@@ -290,6 +289,12 @@ Click here to see the solution
 
 </div>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>See <a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.33.3.144">Miller &amp; Sanjurjo (2019)</a> for a more accessible explanation that connects to several related probability puzzles.<a href="how-to-outsmart-a-nobel-laureate.html#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
 <script>
 
