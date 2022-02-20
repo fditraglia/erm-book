@@ -121,6 +121,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
 </head>
 
 <body>
@@ -171,6 +172,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="rcrash.html"><a href="rcrash.html#part-3-exercises"><i class="fa fa-check"></i><b>1.4</b> Part 3: Exercises</a></li>
 </ul></li>
+<li class="chapter" data-level="2" data-path="using-webexercises.html"><a href="using-webexercises.html"><i class="fa fa-check"></i><b>2</b> Using <code>webexercises</code></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="using-webexercises.html"><a href="using-webexercises.html#tally-the-number-of-correct-answers-total_correct"><i class="fa fa-check"></i><b>2.1</b> Tally the number of correct answers: <code>total_correct()</code></a></li>
+<li class="chapter" data-level="2.2" data-path="using-webexercises.html"><a href="using-webexercises.html#create-a-truefalse-question-torf"><i class="fa fa-check"></i><b>2.2</b> Create a TRUE/FALSE question: <code>torf()</code></a></li>
+<li class="chapter" data-level="2.3" data-path="using-webexercises.html"><a href="using-webexercises.html#create-fill-in-the-blank-questions-fitb"><i class="fa fa-check"></i><b>2.3</b> Create fill-in-the-blank Questions: <code>fitb()</code></a></li>
+<li class="chapter" data-level="2.4" data-path="using-webexercises.html"><a href="using-webexercises.html#create-a-multiple-choice-question-mcq-mcqlong"><i class="fa fa-check"></i><b>2.4</b> Create a multiple choice question: <code>mcq(), mcqlong()</code></a></li>
+<li class="chapter" data-level="2.5" data-path="using-webexercises.html"><a href="using-webexercises.html#hide-solutions-create-hints"><i class="fa fa-check"></i><b>2.5</b> Hide Solutions / Create Hints</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="using-webexercises.html"><a href="using-webexercises.html#example-1-inline-hint-and-solution"><i class="fa fa-check"></i><b>2.5.1</b> Example 1: Inline Hint and Solution</a></li>
+<li class="chapter" data-level="2.5.2" data-path="using-webexercises.html"><a href="using-webexercises.html#example-2-chunk-solution-that-doesnt-execute"><i class="fa fa-check"></i><b>2.5.2</b> Example 2: Chunk solution that doesn't execute</a></li>
+<li class="chapter" data-level="2.5.3" data-path="using-webexercises.html"><a href="using-webexercises.html#example-3-chunk-solution-that-evaluates"><i class="fa fa-check"></i><b>2.5.3</b> Example 3: Chunk solution that evaluates</a></li>
+<li class="chapter" data-level="2.5.4" data-path="using-webexercises.html"><a href="using-webexercises.html#example-4-show-the-output-hide-the-code"><i class="fa fa-check"></i><b>2.5.4</b> Example 4: Show the output, hide the code</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -194,6 +209,177 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>You may want to try searching to find the page's new location, or use
 the table of contents to find the page you are looking for.</p>
 </div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
             </section>
 
           </div>
@@ -254,6 +440,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

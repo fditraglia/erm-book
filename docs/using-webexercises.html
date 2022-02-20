@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Core Empirical Research Methods</title>
-  <meta name="description" content="Core Empirical Research Methods" />
+  <title>Lesson 2 Using webexercises | Core Empirical Research Methods</title>
+  <meta name="description" content="Lesson 2 Using webexercises | Core Empirical Research Methods" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Core Empirical Research Methods" />
+  <meta property="og:title" content="Lesson 2 Using webexercises | Core Empirical Research Methods" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Core Empirical Research Methods" />
+  <meta name="twitter:title" content="Lesson 2 Using webexercises | Core Empirical Research Methods" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
+<link rel="prev" href="rcrash.html"/>
 
-<link rel="next" href="rcrash.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -203,109 +203,175 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Core Empirical Research Methods</h1>
-<p class="author"><em>Francis J. DiTraglia</em></p>
-<p class="date"><em>2022-02-20</em></p>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div id="about-this-book" class="section level2 unnumbered">
-<h2>About This Book</h2>
-<p>Supervising undergraduate, masters-level, and doctoral research students has shown me just how many of the skills that I take for granted in my day-to-day work were never taught in a course, but acquired through years of painful trial-and-error. You've probably heard that "the only way to learn how to do research is by doing research." Indeed: classroom exercises are always somewhat artificial, and there is no substitute for getting your hands dirty with a problem that really matters to you. But trial-and-error is a slow and clumsy way to gain proficiency, and throwing students in at the deep end is neither a recipe for academic success nor for mental well-being. The goal of this book is to put some structure around the process through which students learn to do empirical work in economics, building skills and confidence step-by-step, and providing a foundation for later self-directed reading and research.</p>
-<p>The book is divided into twenty-odd short chapters called <em>lessons</em>.<br />
-- Why the Swiss Army Knife?</p>
-<p>A key theme of this book is the importance of reproducible research using open-source tools. In recent years, many headline empirical findings across the social sciences have failed to replicate. In some particularly famous examples, running the original authors' code on their own data produced results markedly different from those in the published paper. In others, impressive results vanished after coding or data merging errors were corrected. While there have been instances of outright fraud, many of these replication failures resulted from honest mistakes. Reproducible research is about creating a clean and fully-documented path from raw data to final results, making errors less likely to occur and easier to find when they do. It also allows other researchers, or our future selves, to build on past work, expanding the sum total of knowledge. Of course I can only replicate your research if I can run your code, and this is why open-source software is so important. Fortunately there are many fantastic open-source programming languages to choose from. This book uses R, the <em>lingua franca</em> of statistics and an increasingly popular choice among economists.</p>
-</div>
-<div id="pre-requisites" class="section level2 unnumbered">
-<h2>Pre-requisites</h2>
-<p>This book does not assume advanced knowledge of programming, mathematics, or econometrics, but it does have some pre-requisites. My target audience is first-year graduate students and final-year undergraduates in economics. I assume that you've taken an econometrics course that uses matrix notation and that you have <em>basic familiarity</em> with R programming. If you haven't used R before, I suggest reading <a href="https://rstudio-education.github.io/hopr/">Hands-On Programming with R</a>. It's free, short, and will get you up to speed quickly.</p>
-</div>
-<div id="why-not-stata" class="section level2 unnumbered">
-<h2>Why not Stata?</h2>
-<p><a href="https://stata.com">Stata</a> remains a popular choice among applied microeconomists.
-There's a good chance that you have have encountered it in your undergraduate studies or working as a research assistant.
-In its favor, Stata is easy-to-use, and makes it relatively painless to implement "textbook" econometric methods.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
-So why not use Stata?
-Before beginning my polemic I should be absolutely clear that Stata users are not bad people: love the sinner, hate the sin.
-Here begins the sermon.</p>
-<p>First, Stata is expensive.
-The price for a Business single-user Stata license is $765 <em>per year</em>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
-If you want support for multicore computing, the price is even higher: an 8-core version of Stata costs $1,395 annually.
-There is no discount for Government or nonprofits, but as an Oxford faculty member, I can obtain an 8-core version of Stata for the low price of $595 per year.
-In contrast, the tools that we will learn in this book, mainly R and C++, are completely free.
-This is particularly important in the modern world of high-performance cluster computing.
-If you're considering running your code on a multicore machine on Amazon, Google, or Microsoft cloud servers, you don't want to pay a software license fee for every core that you use.</p>
-<p>Second, Stata is almost comically behind the times.
-Let's see what's new in Stata version 16, released in February 2020.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
-At the top of the list is the LASSO, a wildly popular technique for high-dimensional regression.
-Rob Tibshirani developed this method in a seminal paper from 1996, so it only took 24 years for it to be incorporated into Stata.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
-Fortunately, Tibshirani and his co-authors made it easy for Stata, by releasing open-source software to implement the LASSO and related methods in R over a decade ago.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>
-Next on the list of new Stata features is linear programming, a technique that came to prominence in the late 1940s.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>
-Stata 16 also has the ability to call "any Python package"--something you can do for free in R using <a href="https://github.com/rstudio/reticulate">reticulate</a> or in Python itself for that matter--and "truly reproducible reporting."
-Reproducible reporting is incredibly valuable, and it's something that we'll cover in detail below.
-It's also been available in R, completely free of charge, since at least 2002.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>
-I suppose we shouldn't expect too much of a statistical computing package that only added support for matrix programming in 2005, a full 20 years after Stata version 1.0.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
-<p>Third, Stata is a black box.
-Because the underlying source code is kept secret, there's no way for a Stata user to know for certain what's happening under the hood.
-A few years ago I tried to determine precisely what instrument set Stata was using in its implementation of a well-known dynamic panel estimator.
-The documentation was vague, so resorted to reverse-engineering the Stata results by trial-and-error in R.
-We never did get the results to match perfectly.
-In contrast, if you're not sure what a particular R function or package is doing, you can simply read the source code and find out.</p>
-<p>Fourth, and most importantly, Stata makes it hard to share with others.
-If I don't own a copy of Stata, I can't replicate your work.
-Even if I do own a copy of Stata, I still may not be able to so do: Stata's proprietary binary data formats are updated fairly regularly and do not maintain backwards compatibility.
-Datafiles created in Stata version 16, for example, cannot be opened in Stata 13.
-Indeed, depending on the number of variables included in your dataset, Stata 16 files cannot necessarily be opened even in Stata 15.
-Fortunately, as we'll see below, intrepid open-source programmers have developed free software to unlock data from Stata's proprietary and ever-changing binary formats.</p>
-</div>
-<div id="why-not-matlab" class="section level2 unnumbered">
-<h2>Why not Matlab?</h2>
-<p>Matlab is much more capable and much less out-of-date than Stata, but many of the same critiques apply: it's expensive, and it's not open source.
-<!--There is an open-source clone called `octave`. 
-There's also an open-source C++ library called `Armadillo` with syntax almost identical to that of Matlab.
-We'll see how easy it is to use `Armadillo` from R with only the rudiments of C++ background.--></p>
-</div>
-<div id="why-r" class="section level2 unnumbered">
-<h2>Why R?</h2>
+<div id="using-webexercises" class="section level1" number="2">
+<h1><span class="header-section-number">Lesson 2</span> Using <code>webexercises</code></h1>
+<p>Let's take a look at some of the tools that <code>webexercises</code> provides us. It can be used to</p>
 <ul>
-<li>R is Free</li>
-<li>R has cutting-edge methods (CRAN task views)</li>
-<li>R is open-source: you can check the source code for yourself!</li>
-<li>R supports open science</li>
-<li>Great community</li>
+<li>tally up the number of correct answers: <code>total_correct()</code></li>
+<li>create TRUE/FALSE questions: <code>torf()</code></li>
+<li>create fill-in-the-blank questions: <code>fitb()</code></li>
+<li>create multiple choice questions: <code>mcq()</code> or <code>longmcq()</code></li>
+<li>hide solutions / create hints: <code>hide()</code>, <code>unhide()</code>, or <code>webex.hide = TRUE</code></li>
+</ul>
+<p>We'll now examine each of these possibilities in detail.</p>
+<div id="tally-the-number-of-correct-answers-total_correct" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Tally the number of correct answers: <code>total_correct()</code></h2>
+<p>Suppose that you want to keep track of how many questions a user has answered correctly so far. You can do this with the <code>total_correct()</code> function. The <code>elem</code> and <code>args</code> arguments control formatting: <code>elem</code> is used to set header styles, say you wanted <code>h3</code> instead of <code>h2</code>, and <code>args</code> feeds in raw CSS if you want to make manual tweaks:</p>
+<h3 style="color:#003366;" id="webex-total_correct">
+</h3>
+<p>It doesn't matter where you put <code>total_correct()</code> in your document: it will still work as expected. In this document, for example, it appears near the top. Nevertheless, as you work down to the bottom and answer more questions, the tally will update dynamically.</p>
+</div>
+<div id="create-a-truefalse-question-torf" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Create a TRUE/FALSE question: <code>torf()</code></h2>
+<p>Supply the correct answer as the first argument to <code>torf()</code>. This should either be <code>TRUE</code> or <code>FALSE</code>, e.g.</p>
+<ul>
+<li>True or False: <span class="math inline">\(\pi\)</span> is a rational number. <select class='webex-select'><option value='blank'></option><option value=''>TRUE</option><option value='answer'>FALSE</option></select></li>
 </ul>
 </div>
-<div id="some-half-truths-about-r" class="section level2 unnumbered">
-<h2>Some Half-truths about R</h2>
+<div id="create-fill-in-the-blank-questions-fitb" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Create fill-in-the-blank Questions: <code>fitb()</code></h2>
+<p>As with <code>torf()</code>, supply the correct answer as the first argument of <code>fitb()</code>. The difference is that <code>fitb()</code> allows you to supply something <em>other than</em> <code>TRUE</code> or <code>FALSE</code> as the correct answer, and displays a text field rather than a drop-down menu:</p>
 <ul>
-<li>R is slow. This is true, sort of. But then we have amazing tools like Rcpp</li>
-<li>R is hard to learn. It's certainly harder to learn than something like STATA, but it's also much more powerful.</li>
-<li>Economists don't use R. Anecdotally, this seems to be a generational divide: open source tools are the norm and there are lots of R packages for econometrics.</li>
+<li><span class="math inline">\(8 \times 9 =\)</span> <input class='webex-solveme nospaces' size='2' data-answer='["72"]'/></li>
 </ul>
+<p>This correct answer doesn't have to be hard-coded: you can do calculations in place or supply the name of an R object created elsewhere in your RMarkdown document. This allows you to create a <em>dynamic</em> question and answer. Here's an example in which the question is <em>randomly generated</em> when you knit this document:</p>
+<ul>
+<li>The square root of 4 is: <input class='webex-solveme nospaces' size='1' data-answer='["2"]'/></li>
+</ul>
+<p>If the correct answer is <code>E</code>, but a user enters <code>e</code>, this will be marked as incorrect: <code>fitb()</code> is <em>case sensitive</em>. To turn this off, set <code>ignore_case = TRUE</code>.</p>
+<ul>
+<li>What is the letter after D? <input class='webex-solveme nospaces ignorecase' size='1' data-answer='["E"]'/></li>
+</ul>
+<p>By default <code>fitb()</code> <em>ignores whitespace</em>. For example, <code>rnorm ( 3 )</code> is counted as a correct answer to the following:</p>
+<ul>
+<li>Write R code to make three independent standard normal draws. <input class='webex-solveme nospaces' size='8' data-answer='["rnorm(3)"]'/></li>
+</ul>
+<p>If you want <code>fitb()</code> to treat whitespace as meaningful, set <code>ignore_ws = TRUE</code>.</p>
+<p>Some fill-in-the-blank questions have more than one correct answer. To create such a question, simply supply a vector as the first argument to <code>fitb()</code>:</p>
+<ul>
+<li>Type a vowel: <input class='webex-solveme nospaces ignorecase' size='1' data-answer='["A","E","I","O","U"]'/></li>
+</ul>
+<p>Want to do something more complicated? No problem! You can supply regular expressions as a solution to <code>fitb()</code> as follows:</p>
+<ul>
+<li>Type any 3 letters: <input class='webex-solveme nospaces regex' size='3' data-answer='["^[a-zA-Z]{3}$"]'/></li>
+</ul>
+<p>Here's an example with multiple correct answers to a coding question:</p>
+<ul>
+<li>How do you load the tidyverse package? <input class='webex-solveme nospaces' size='20' data-answer='["library( tidyverse )","library( \"tidyverse\" )","library( &apos;tidyverse&apos; )"]'/></li>
+</ul>
+<p><strong>I'm not clear on what the <code>width</code> argument does. Look it up!</strong></p>
 </div>
-<div id="why-not-julia-or-python" class="section level2 unnumbered">
-<h2>Why not Julia or Python?</h2>
-<p>On balance, I prefer R/C++ in my day-to-day work but Python and Julia are great options too and you should most certainly give them a try.
-A good resource aimed at economists is the <code>quantecon.org</code>: <a href="https://python.quantecon.org/" class="uri">https://python.quantecon.org/</a> and <a href="https://julia.quantecon.org/" class="uri">https://julia.quantecon.org/</a></p>
-<!-- If you need PDF output, uncomment bookdown::pdf_book above in YAML. You will need a LaTeX installation, e.g., https://yihui.name/tinytex/ -->
+<div id="create-a-multiple-choice-question-mcq-mcqlong" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Create a multiple choice question: <code>mcq(), mcqlong()</code></h2>
+<p>Use <code>mcq()</code> to create a "short" multiple choice question. The first argument is a vector of answers in which the <em>correct</em> answer is given the name <code>answer</code> and all other elements are un-named, e.g. <code>c('Harris', 'Trump', answer = 'Biden', 'Clinton')</code> in the following:</p>
+<ul>
+<li>Who was elected president of the United States in November 2020? <select class='webex-select'><option value='blank'></option><option value=''>Harris</option><option value=''>Trump</option><option value='answer'>Biden</option><option value=''>Clinton</option></select></li>
+</ul>
+<p>To create a multiple choice question with radio buttons rather than a dropdown menu, use <code>mcqlong()</code>. This tends to result in nicer formatting than a drop-down if the answers to your question are "long," hence the name of the function. When your answers are long, inline R code can be hard to read. To avoid this problem, you can set up your multiple choice answers in a vector within an R chunk with <code>echo=FALSE</code> and then supply that vector as the first argument to <code>longmcq()</code> in an inline R chunk. For example:</p>
+<p><strong>Which of these statements about p-values is correct?</strong></p>
+<div id="radio_USNKZGOJPJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_USNKZGOJPJ" value=""></input> <span>A p-value is the probability that the null hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_USNKZGOJPJ" value="answer"></input> <span>A p-value is the probability of observing a test statistic at least as extreme as the one we actually observed, assuming that the null hypothesis is true.</span></label><label><input type="radio" autocomplete="off" name="radio_USNKZGOJPJ" value=""></input> <span>The p-value is the probability of making a mistake when testing a hypothesis.</span></label>
+</div>
+<p><strong>What is true about a 95% confidence interval for the population mean <span class="math inline">\(\mu\)</span>?</strong></p>
+<div id="radio_VFSKFBVBQH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_VFSKFBVBQH" value=""></input> <span>The probability that <span class="math inline">\(\mu\)</span> lies in our confidence interval equals 0.95.</span></label><label><input type="radio" autocomplete="off" name="radio_VFSKFBVBQH" value="answer"></input> <span>If we repeatedly draw a sample of the same size from the same population, and construct an interval in this way for each sample, then approximately 95% of the intervals will contain <span class="math inline">\(\mu\)</span>.</span></label><label><input type="radio" autocomplete="off" name="radio_VFSKFBVBQH" value=""></input> <span>Approximately 95% of the values in our dataset will fall within the confidence interval.</span></label>
+</div>
+</div>
+<div id="hide-solutions-create-hints" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Hide Solutions / Create Hints</h2>
+<p>This is the main piece of functionality that I was hoping to use for my Core ERM course: hiding hints and solutions to exercises and providing buttons that students can click to reveal them.</p>
+<p>There are two ways to do this: inline, and using R chunks. For inline hints and solutions, put <code>hide()</code> before and <code>unhide()</code> after the hint or solution. Each of these should be inserted as inline R code. Provide a text string as an argument to <code>hide()</code> to control the text displayed on the button. Here's an example:</p>
+<div id="example-1-inline-hint-and-solution" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Example 1: Inline Hint and Solution</h3>
+<p><strong>Make a histogram of 100 independent standard normal draws.</strong></p>
+<div class="webex-solution">
+<button>
+Show Hint
+</button>
+<p>Look at the R help functions for <code>rnorm()</code> and <code>hist()</code>.</p>
+</div>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<p><code>hist(rnorm(100))</code></p>
+</div>
+<p>The hide/unhide patter is most useful for hints, where you don't actually want to run any code, and only want to display a sentence or two. For solutions, whether or not you want to run them, it's you'll probably want to use an R chunk. To do this, set the <code>webex.hide</code> option to <code>TRUE</code>. Alternatively you can set <code>webex.hide = 'Your Text Here'</code> to control the text that appears on the button. For a solution that <em>doesn't evaluate</em>, set <code>eval = FALSE</code>.</p>
+</div>
+<div id="example-2-chunk-solution-that-doesnt-execute" class="section level3" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Example 2: Chunk solution that doesn't execute</h3>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="using-webexercises.html#cb282-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb282-2"><a href="using-webexercises.html#cb282-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x)</span></code></pre></div>
+</div>
+</div>
+<div id="example-3-chunk-solution-that-evaluates" class="section level3" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> Example 3: Chunk solution that evaluates</h3>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="using-webexercises.html#cb283-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb283-2"><a href="using-webexercises.html#cb283-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+</div>
+<p>Sometimes you may want to start by both explaining the exercise <em>and</em> showing the desired output, while hiding the code used to generate it. To avoid re-typing code, create a <em>named chunk</em> with the chunk option <code>echo = FALSE</code>. This chunk will display the output only, not the code used to generate it. Then create an <em>empty chunk</em> below it with the same name but set <code>eval = FALSE</code> and <code>webex.hide=TRUE</code> or <code>webex.hide='Your Text Here'</code>. For this second chunk <em>don't set</em> <code>echo = FALSE</code>.</p>
+</div>
+<div id="example-4-show-the-output-hide-the-code" class="section level3" number="2.5.4">
+<h3><span class="header-section-number">2.5.4</span> Example 4: Show the output, hide the code</h3>
+<p>The <code>mtcars</code> dataset contains the following variables:</p>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="using-webexercises.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<p>Write code to generate the following plot using this dataset:
+<img src="erm-book_files/figure-html/example4-1.png" width="672" /></p>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="using-webexercises.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mpg <span class="sc">~</span> disp, <span class="at">data =</span> mtcars, </span>
+<span id="cb286-2"><a href="using-webexercises.html#cb286-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Fuel Efficiency (mpg) versus Engine Displacement (cc)&quot;</span>)</span></code></pre></div>
+</div>
+<!-- TO CHANGE WIDGET COLOURS:
+  move command below out of this HTML comment area
+  and then re-compile;
+  unfilled becomes yellow, correct becomes pink 
+     
+
+<style>
+    .webex-solveme { border-color: #FFFF00; }
+    .webex-solveme.webex-correct { border-color: #FF3399; }
+</style>
+
+
+-->
 
 </div>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Arguably, Stata is <em>too easy to learn</em> precisely because of the incentives faced by a software developer with monopoly power: see Hal Varian's paper: <a href="https://people.ischool.berkeley.edu/~hal/Papers/Software.pdf">Economic Incentives in Software Design</a>. Monopolist may make software <em>too easy</em> to learn.<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>These figures were accurate as of March 2021. For the latest prices, see <a href="https://www.stata.com/order/dl/" class="uri">https://www.stata.com/order/dl/</a>.<a href="index.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p><a href="https://www.stata.com/new-in-stata/" class="uri">https://www.stata.com/new-in-stata/</a><a href="index.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p><a href="https://rss.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.2517-6161.1996.tb02080.x">Tibshirani (1996) - Regression Shrinkage and Selection via the Lasso</a><a href="index.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p><a href="https://www.jstatsoft.org/article/view/v033i01">Friedman et al (2010) - Regularization Paths for Generalized Linear Models via Coordinate Descent</a><a href="index.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>For a history of linear programming, see <a href="https://link.springer.com/content/pdf/10.1007/978-3-642-68874-4_4.pdf">Dantzig (1983)</a>. To be completely fair, the linear programming <a href="https://www.stata.com/new-in-stata/linear-programming/">algorithm</a>
-implemented in Stata 16 was only developed in 1992, a lag of merely 28 years.<a href="index.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>Reproducible reporting in R started with <a href="https://cran.r-project.org/doc/Rnews/Rnews_2002-3.pdf">sweave</a>. These days we have a fantastic successor package called <a href="https://yihui.org/knitr/">knitr</a>, which I cover below.<a href="index.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>The "Mata" programming language was added in Stata 9: <a href="https://www.stata.com/stata9/" class="uri">https://www.stata.com/stata9/</a>. For a timeline of Stata versions, see <a href="https://www.stata.com/support/faqs/resources/history-of-stata/" class="uri">https://www.stata.com/support/faqs/resources/history-of-stata/</a>.<a href="index.html#fnref8" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
 
 /* update total correct if #webex-total_correct exists */
@@ -482,8 +548,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
+<a href="rcrash.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
-<a href="rcrash.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,0 +1,160 @@
+# Using `webexercises`
+Let's take a look at some of the tools that `webexercises` provides us. It can be used to
+
+- tally up the number of correct answers: `total_correct()`
+- create TRUE/FALSE questions: `torf()`
+- create fill-in-the-blank questions: `fitb()`
+- create multiple choice questions: `mcq()` or `longmcq()`
+- hide solutions / create hints: `hide()`, `unhide()`, or `webex.hide = TRUE`
+
+We'll now examine each of these possibilities in detail.
+
+## Tally the number of correct answers: `total_correct()`
+
+Suppose that you want to keep track of how many questions a user has answered correctly so far. You can do this with the `total_correct()` function. The `elem` and `args` arguments control formatting: `elem` is used to set header styles, say you wanted `h3` instead of `h2`, and `args` feeds in raw CSS if you want to make manual tweaks:
+
+`r total_correct(elem = "h3", args = "style='color:#003366;'")`
+
+It doesn't matter where you put `total_correct()` in your document: it will still work as expected. In this document, for example, it appears near the top. Nevertheless, as you work down to the bottom and answer more questions, the tally will update dynamically.
+
+## Create a TRUE/FALSE question: `torf()`
+
+Supply the correct answer as the first argument to `torf()`. This should either be `TRUE` or `FALSE`, e.g.
+
+- True or False: $\pi$ is a rational number. `r torf(FALSE)`
+
+## Create fill-in-the-blank Questions: `fitb()`
+
+As with `torf()`, supply the correct answer as the first argument of `fitb()`. The difference is that `fitb()` allows you to supply something *other than* `TRUE` or `FALSE` as the correct answer, and displays a text field rather than a drop-down menu:
+
+- $8 \times 9 =$ `r fitb(72)`
+
+This correct answer doesn't have to be hard-coded: you can do calculations in place or supply the name of an R object created elsewhere in your RMarkdown document. This allows you to create a *dynamic* question and answer. Here's an example in which the question is *randomly generated* when you knit this document:
+
+```{r echo = FALSE}
+x <- sample(2:8, 1)
+```
+
+- The square root of `r x^2` is: `r fitb(x)`
+
+If the correct answer is `E`, but a user enters `e`, this will be marked as incorrect: `fitb()` is *case sensitive*. To turn this off, set `ignore_case = TRUE`.
+
+- What is the letter after D? `r fitb("E", ignore_case = TRUE)`
+
+By default `fitb()` *ignores whitespace*. For example, `rnorm ( 3 )` is counted as a correct answer to the following:
+
+- Write R code to make three independent standard normal draws. `r fitb("rnorm(3)")` 
+
+If you want `fitb()` to treat whitespace as meaningful, set `ignore_ws = TRUE`.
+
+Some fill-in-the-blank questions have more than one correct answer. To create such a question, simply supply a vector as the first argument to `fitb()`:
+
+- Type a vowel: `r fitb(c("A", "E", "I", "O" , "U"), ignore_case = TRUE)`
+
+Want to do something more complicated? No problem! You can supply regular expressions as a solution to `fitb()` as follows:
+
+- Type any 3 letters: `r fitb("^[a-zA-Z]{3}$", width = 3, regex = TRUE)`
+
+Here's an example with multiple correct answers to a coding question:
+
+- How do you load the tidyverse package? `r fitb(c("library( tidyverse )", "library( \"tidyverse\" )", "library( 'tidyverse' )"), ignore_ws = TRUE, width = "20")`
+
+**I'm not clear on what the `width` argument does. Look it up!**
+
+
+## Create a multiple choice question: `mcq(), mcqlong()`
+
+Use `mcq()` to create a "short" multiple choice question. The first argument is a vector of answers in which the *correct* answer is given the name `answer` and all other elements are un-named, e.g. `c('Harris', 'Trump', answer = 'Biden', 'Clinton')` in the following: 
+
+- Who was elected president of the United States in November 2020? `r mcq(c('Harris', 'Trump', answer = 'Biden', 'Clinton'))`
+
+To create a multiple choice question with radio buttons rather than a dropdown menu, use `mcqlong()`. This tends to result in nicer formatting than a drop-down if the answers to your question are "long," hence the name of the function. When your answers are long, inline R code can be hard to read. To avoid this problem, you can set up your multiple choice answers in a vector within an R chunk with `echo=FALSE` and then supply that vector as the first argument to `longmcq()` in an inline R chunk. For example:
+
+**Which of these statements about p-values is correct?**
+
+```{r, echo = FALSE}
+opts_p <- c(
+   "A p-value is the probability that the null hypothesis is true",
+   answer = "A p-value is the probability of observing a test statistic at least as extreme as the one we actually observed, assuming that the null hypothesis is true.",
+   "The p-value is the probability of making a mistake when testing a hypothesis."
+)
+```
+
+`r longmcq(opts_p)`
+
+**What is true about a 95% confidence interval for the population mean $\mu$?**
+
+```{r, echo = FALSE}
+# use sample() to randomise the order
+opts_ci <- sample(c(
+  answer = "If we repeatedly draw a sample of the same size from the same population, and construct an interval in this way for each sample, then approximately 95% of the intervals will contain $\\mu$.",
+  "Approximately 95% of the values in our dataset will fall within the confidence interval.",
+  "The probability that $\\mu$ lies in our confidence interval equals 0.95."
+))
+```
+
+`r longmcq(opts_ci)`
+
+## Hide Solutions / Create Hints 
+
+This is the main piece of functionality that I was hoping to use for my Core ERM course: hiding hints and solutions to exercises and providing buttons that students can click to reveal them.
+
+There are two ways to do this: inline, and using R chunks. For inline hints and solutions, put `hide()` before and `unhide()` after the hint or solution. Each of these should be inserted as inline R code. Provide a text string as an argument to `hide()` to control the text displayed on the button. Here's an example:
+
+### Example 1: Inline Hint and Solution
+
+**Make a histogram of 100 independent standard normal draws.**
+
+`r hide('Show Hint')`
+
+Look at the R help functions for `rnorm()` and `hist()`.
+
+`r unhide()`
+
+`r hide('Show Solution')`
+
+`hist(rnorm(100))`
+
+`r unhide()`
+
+The hide/unhide patter is most useful for hints, where you don't actually want to run any code, and only want to display a sentence or two. For solutions, whether or not you want to run them, it's you'll probably want to use an R chunk. To do this, set the `webex.hide` option to `TRUE`. Alternatively you can set `webex.hide = 'Your Text Here'` to control the text that appears on the button. For a solution that *doesn't evaluate*, set `eval = FALSE`.
+
+### Example 2: Chunk solution that doesn't execute
+
+```{r, eval = FALSE, webex.hide = 'Show Solution'}
+x <- rnorm(100)
+hist(x)
+```
+
+### Example 3: Chunk solution that evaluates
+
+```{r, webex.hide = 'Show Solution'}
+x <- rnorm(100)
+hist(x)
+```
+
+Sometimes you may want to start by both explaining the exercise *and* showing the desired output, while hiding the code used to generate it. To avoid re-typing code, create a *named chunk* with the chunk option `echo = FALSE`. This chunk will display the output only, not the code used to generate it. Then create an *empty chunk* below it with the same name but set `eval = FALSE` and `webex.hide=TRUE` or `webex.hide='Your Text Here'`. For this second chunk *don't set* `echo = FALSE`.
+
+### Example 4: Show the output, hide the code
+
+The `mtcars` dataset contains the following variables:
+```{r}
+head(mtcars)
+```
+Write code to generate the following plot using this dataset:
+```{r example4, echo = FALSE}
+plot(mpg ~ disp, data = mtcars, 
+     main = "Fuel Efficiency (mpg) versus Engine Displacement (cc)")
+```
+```{r example4, eval = FALSE, webex.hide='Show Solution'}
+```
+
+
+
+<!-- TO CHANGE WIDGET COLOURS:
+  move command below out of this HTML comment area
+  and then re-compile;
+  unfilled becomes yellow, correct becomes pink 
+     
+`r style_widgets("#FFFF00", "#FF3399")`
+-->

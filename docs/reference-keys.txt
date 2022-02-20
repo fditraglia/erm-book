@@ -1,4 +1,4 @@
-exr:unnamed-chunk-3
+exr:unnamed-chunk-5
 rcrash
 installing-r-and-rstudio
 working-with-r-scripts
@@ -25,3 +25,13 @@ more-on-data.table-access
 fact-1-you-can-use-the-same-principles-to-select-subsets-of-vectors-and-data.tables-by-position
 fact-2-there-are-three-ways-to-access-the-columns-of-a-data.table-by-name.
 part-3-exercises
+using-webexercises
+tally-the-number-of-correct-answers-total_correct
+create-a-truefalse-question-torf
+create-fill-in-the-blank-questions-fitb
+create-a-multiple-choice-question-mcq-mcqlong
+hide-solutions-create-hints
+example-1-inline-hint-and-solution
+example-2-chunk-solution-that-doesnt-execute
+example-3-chunk-solution-that-evaluates
+example-4-show-the-output-hide-the-code

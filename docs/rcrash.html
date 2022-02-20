@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="index.html"/>
-
+<link rel="next" href="using-webexercises.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -121,6 +121,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
 </head>
 
 <body>
@@ -171,6 +172,20 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="rcrash.html"><a href="rcrash.html#part-3-exercises"><i class="fa fa-check"></i><b>1.4</b> Part 3: Exercises</a></li>
 </ul></li>
+<li class="chapter" data-level="2" data-path="using-webexercises.html"><a href="using-webexercises.html"><i class="fa fa-check"></i><b>2</b> Using <code>webexercises</code></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="using-webexercises.html"><a href="using-webexercises.html#tally-the-number-of-correct-answers-total_correct"><i class="fa fa-check"></i><b>2.1</b> Tally the number of correct answers: <code>total_correct()</code></a></li>
+<li class="chapter" data-level="2.2" data-path="using-webexercises.html"><a href="using-webexercises.html#create-a-truefalse-question-torf"><i class="fa fa-check"></i><b>2.2</b> Create a TRUE/FALSE question: <code>torf()</code></a></li>
+<li class="chapter" data-level="2.3" data-path="using-webexercises.html"><a href="using-webexercises.html#create-fill-in-the-blank-questions-fitb"><i class="fa fa-check"></i><b>2.3</b> Create fill-in-the-blank Questions: <code>fitb()</code></a></li>
+<li class="chapter" data-level="2.4" data-path="using-webexercises.html"><a href="using-webexercises.html#create-a-multiple-choice-question-mcq-mcqlong"><i class="fa fa-check"></i><b>2.4</b> Create a multiple choice question: <code>mcq(), mcqlong()</code></a></li>
+<li class="chapter" data-level="2.5" data-path="using-webexercises.html"><a href="using-webexercises.html#hide-solutions-create-hints"><i class="fa fa-check"></i><b>2.5</b> Hide Solutions / Create Hints</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="using-webexercises.html"><a href="using-webexercises.html#example-1-inline-hint-and-solution"><i class="fa fa-check"></i><b>2.5.1</b> Example 1: Inline Hint and Solution</a></li>
+<li class="chapter" data-level="2.5.2" data-path="using-webexercises.html"><a href="using-webexercises.html#example-2-chunk-solution-that-doesnt-execute"><i class="fa fa-check"></i><b>2.5.2</b> Example 2: Chunk solution that doesn't execute</a></li>
+<li class="chapter" data-level="2.5.3" data-path="using-webexercises.html"><a href="using-webexercises.html#example-3-chunk-solution-that-evaluates"><i class="fa fa-check"></i><b>2.5.3</b> Example 3: Chunk solution that evaluates</a></li>
+<li class="chapter" data-level="2.5.4" data-path="using-webexercises.html"><a href="using-webexercises.html#example-4-show-the-output-hide-the-code"><i class="fa fa-check"></i><b>2.5.4</b> Example 4: Show the output, hide the code</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -190,14 +205,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="rcrash" class="section level1" number="1">
 <h1><span class="header-section-number">Lesson 1</span> A Crash Course in R Programming</h1>
-<p>This chapter will give you the bare minimum knowledge of R that you’ll need to work through the rest of the book.
-While I won’t assume any prior knowledge of R, I <em>will</em> assume that you’ve had some prior exposure to basic programming.
-Perhaps you know a little C or you’ve dabbled in Python.
+<p>This chapter will give you the bare minimum knowledge of R that you'll need to work through the rest of the book.
+While I won't assume any prior knowledge of R, I <em>will</em> assume that you've had some prior exposure to basic programming.
+Perhaps you know a little C or you've dabbled in Python.
 If you understand <code>if</code> and <code>else</code>, know the difference between <code>for</code> and <code>while</code> loops, and have written a simple function before, your background will be more than sufficient.<br />
-If you lack this background, don’t despair!
-You can still read and understand this book if you’re willing to put in a bit of extra work in the early stages.
-If you’ve never done any programming before, I’d suggest reading <a href="https://rstudio-education.github.io/hopr/">Hands-On Programming with R</a> alongside this chapter.
-It’s freely available online and does an excellent job of introducing fundamental programming concepts.</p>
+If you lack this background, don't despair!
+You can still read and understand this book if you're willing to put in a bit of extra work in the early stages.
+If you've never done any programming before, I'd suggest reading <a href="https://rstudio-education.github.io/hopr/">Hands-On Programming with R</a> alongside this chapter.
+It's freely available online and does an excellent job of introducing fundamental programming concepts.</p>
 <ul>
 <li><a href="https://adv-r.hadley.nz/">Advanced R</a></li>
 <li><a href="https://r4ds.had.co.nz/">R for Data Science</a></li>
@@ -209,22 +224,22 @@ It’s freely available online and does an excellent job of introducing fundamen
 <p>Carry out the following two steps <em>in order</em></p>
 <ol style="list-style-type: decimal">
 <li><p>Go to <a href="http://cran.r-project.org/" class="uri">http://cran.r-project.org/</a> and install the version of R for your operating system.</p></li>
-<li><p>Go to <a href="http://rstudio.org/download/desktop" class="uri">http://rstudio.org/download/desktop</a> and click the link listed under “Recommended for Your System”. Follow the instructions to install RStudio.</p></li>
+<li><p>Go to <a href="http://rstudio.org/download/desktop" class="uri">http://rstudio.org/download/desktop</a> and click the link listed under "Recommended for Your System". Follow the instructions to install RStudio.</p></li>
 </ol>
-<p>To make sure this worked, open the program RStudio and go to File &gt; New &gt; R Script. This will open a blank text document. In the document, type the text given in the box below and then click and drag to highlight both lines of code and click the button marked “Run.” If everything is working correctly, the console should display <code>TRUE</code>.</p>
+<p>To make sure this worked, open the program RStudio and go to File &gt; New &gt; R Script. This will open a blank text document. In the document, type the text given in the box below and then click and drag to highlight both lines of code and click the button marked "Run." If everything is working correctly, the console should display <code>TRUE</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="rcrash.html#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">5</span></span>
 <span id="cb1-2"><a href="rcrash.html#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">==</span> <span class="dv">5</span></span></code></pre></div>
-<p>Congratulations: you’ve just written your first R script! To save it, go to File &gt; Save As, and choose a name. NOTE: Always save your scripts as .R files so they’ll open in RStudio by default.</p>
+<p>Congratulations: you've just written your first R script! To save it, go to File &gt; Save As, and choose a name. NOTE: Always save your scripts as .R files so they'll open in RStudio by default.</p>
 </div>
 <div id="working-with-r-scripts" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Working with R Scripts</h2>
-<p>Note that you can run one line of your script at a time by moving your cursor to that line and pressing CONTROL-ENTER or COMMAND-RETURN depending on whether you’re running Mac OSX, Linux or Windows. Another helpful shortcut is CONTROL-A (COMMAND-A on Mac) which highlights all of the lines of code in the text editor.</p>
+<p>Note that you can run one line of your script at a time by moving your cursor to that line and pressing CONTROL-ENTER or COMMAND-RETURN depending on whether you're running Mac OSX, Linux or Windows. Another helpful shortcut is CONTROL-A (COMMAND-A on Mac) which highlights all of the lines of code in the text editor.</p>
 <p>Explain how we proceed: save it somewhere where you can find it, how to work using the script, the console, help files, etc.</p>
 </div>
 <div id="the-absolute-basics" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> The Absolute Basics</h2>
 <p>Here are some of the most fundamental things you can do with R.
-If you’re having trouble installing R and or RStudio, fear not!
+If you're having trouble installing R and or RStudio, fear not!
 A simple way to run snippets of R code in a browser is <a href="https://rdrr.io/snippets" class="uri">https://rdrr.io/snippets</a>.
 You can also run a fully-fledged version of RStudio for free here <a href="https://rstudio.cloud/plans/free" class="uri">https://rstudio.cloud/plans/free</a> until you get your local installation working correctly.
 (Note that you are limited to 15 free hours per month.)</p>
@@ -242,7 +257,7 @@ Parentheses can be used to change the order of operations:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="rcrash.html#cb6-1" aria-hidden="true" tabindex="-1"></a>?log</span></code></pre></div>
 ffalse{-91-80-121-116-104-97-103-111-114-101-97-110-32-84-104-101-111-114-101-109-93-}
 <div class="exercise">
-<span id="exr:unnamed-chunk-3" class="exercise"><strong>Exercise 1.1  \iffalse (Pythagorean Theorem)  </strong></span>Use R to compute the length of the hypotenuse of a right triangle whose sides have lengths 4 and 7.
+<span id="exr:unnamed-chunk-5" class="exercise"><strong>Exercise 1.1  \iffalse (Pythagorean Theorem)  </strong></span>Use R to compute the length of the hypotenuse of a right triangle whose sides have lengths 4 and 7.
 </div>
 <!-- ANS_START -->
 <p><strong>Solution</strong></p>
@@ -298,8 +313,8 @@ ffalse{-91-80-121-116-104-97-103-111-114-101-97-110-32-84-104-101-111-114-101-10
 </div>
 <div id="variables" class="section level3" number="1.3.5">
 <h3><span class="header-section-number">1.3.5</span> Variables</h3>
-<p>Just like in algebra, variables are a great form of shorthand. Instead of writing 3.1415926… all the time, we can just write <code>pi</code>.</p>
-<p>Assignment to a variable happens from right to left – the value on the right side gets assigned to the <em>name</em> on the left side. You can use nearly anything as a variable name in R. The only rules are:</p>
+<p>Just like in algebra, variables are a great form of shorthand. Instead of writing 3.1415926... all the time, we can just write <code>pi</code>.</p>
+<p>Assignment to a variable happens from right to left -- the value on the right side gets assigned to the <em>name</em> on the left side. You can use nearly anything as a variable name in R. The only rules are:</p>
 <ol style="list-style-type: decimal">
 <li><code>.</code> and <code>_</code> are OK, but no other symbols.</li>
 <li>Your variable name must not start with a number or <code>_</code> (<code>2squared</code> and <code>_one</code> are illegal).</li>
@@ -327,7 +342,7 @@ ffalse{-91-80-121-116-104-97-103-111-114-101-97-110-32-84-104-101-111-114-101-10
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="rcrash.html#cb49-1" aria-hidden="true" tabindex="-1"></a>foo_bar <span class="ot">=</span> foo <span class="sc">-</span> bar</span>
 <span id="cb49-2"><a href="rcrash.html#cb49-2" aria-hidden="true" tabindex="-1"></a>foo_bar</span></code></pre></div>
 <pre><code>## [1] -2</code></pre>
-<p>Note: In programmer speak, <code>=</code> here is an “assignment operator” – it’s the thing used to assign values to a variable name. R also has a second assignment operator that you’re bound to see sooner or later, <code>&lt;-</code>. So <code>x &lt;- 42</code> and <code>x = 42</code> are <em>identical</em>, and both accomplish the task of assigning the value of <code>42</code> to the name <code>x</code>. We’ll try to stick with using <code>=</code> since it’s easier to type and in some ways more intuitive. See <a href="http://stackoverflow.com/questions/1741820/assignment-operators-in-r-and">this</a> wonderful post for some more history and a very subtle difference between the two operators that you needn’t concern yourself with for now.</p>
+<p>Note: In programmer speak, <code>=</code> here is an "assignment operator" -- it's the thing used to assign values to a variable name. R also has a second assignment operator that you're bound to see sooner or later, <code>&lt;-</code>. So <code>x &lt;- 42</code> and <code>x = 42</code> are <em>identical</em>, and both accomplish the task of assigning the value of <code>42</code> to the name <code>x</code>. We'll try to stick with using <code>=</code> since it's easier to type and in some ways more intuitive. See <a href="http://stackoverflow.com/questions/1741820/assignment-operators-in-r-and">this</a> wonderful post for some more history and a very subtle difference between the two operators that you needn't concern yourself with for now.</p>
 </div>
 <div id="vectors-types" class="section level3" number="1.3.6">
 <h3><span class="header-section-number">1.3.6</span> Vectors &amp; Types</h3>
@@ -338,23 +353,23 @@ ffalse{-91-80-121-116-104-97-103-111-114-101-97-110-32-84-104-101-111-114-101-10
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="rcrash.html#cb53-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>)</span>
 <span id="cb53-2"><a href="rcrash.html#cb53-2" aria-hidden="true" tabindex="-1"></a>y</span></code></pre></div>
 <pre><code>## [1] &quot;a&quot; &quot;b&quot; &quot;c&quot;</code></pre>
-<p><code>4</code>, <code>7</code>, and <code>9</code> are “related” because they’re all numbers; <code>a</code>, <code>b</code> and <code>c</code> are all letters. Having variables is becoming more convenient – instead of having to write <code>c(4, 7, 9)</code> all the time, we can just write <code>x</code>.</p>
-<p>What happens when we try and combine things that aren’t so obviously related?</p>
+<p><code>4</code>, <code>7</code>, and <code>9</code> are "related" because they're all numbers; <code>a</code>, <code>b</code> and <code>c</code> are all letters. Having variables is becoming more convenient -- instead of having to write <code>c(4, 7, 9)</code> all the time, we can just write <code>x</code>.</p>
+<p>What happens when we try and combine things that aren't so obviously related?</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="rcrash.html#cb55-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="cn">TRUE</span>, <span class="st">&quot;three&quot;</span>)</span>
 <span id="cb55-2"><a href="rcrash.html#cb55-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [1] &quot;1&quot;     &quot;TRUE&quot;  &quot;three&quot;</code></pre>
-<p>Note the quotation marks. R has converted <code>1</code> and <code>TRUE</code> into text representations. That’s because <code>1</code> and <code>TRUE</code> are different _type_s than <code>"three"</code>. There are four basic types of variables your likely to encounter in this class, listed here in heirarchical order:</p>
+<p>Note the quotation marks. R has converted <code>1</code> and <code>TRUE</code> into text representations. That's because <code>1</code> and <code>TRUE</code> are different _type_s than <code>"three"</code>. There are four basic types of variables your likely to encounter in this class, listed here in heirarchical order:</p>
 <ol style="list-style-type: decimal">
 <li><code>logical</code>: <code>TRUE</code> or <code>FALSE</code></li>
 <li><code>integer</code>: <code>0L</code>, <code>-1L</code>, <code>1L</code>, etc. A (real) number without a decimal part. Technical note: they take up less space in the computer than numbers with decimals.</li>
 <li><code>numeric</code>: <code>pi</code>, <code>0.34</code>, <code>1.4043</code>, etc. A real number.</li>
 <li><code>character</code>: <code>"some words"</code>, <code>"more words"</code>, etc.</li>
 </ol>
-<p>Vectors are converted to the highest number on this list present – <code>x</code> above has <code>"three"</code> so the whole vector becomes a <code>character</code>.</p>
+<p>Vectors are converted to the highest number on this list present -- <code>x</code> above has <code>"three"</code> so the whole vector becomes a <code>character</code>.</p>
 </div>
 <div id="vector-arithmetic-and-functions" class="section level3" number="1.3.7">
 <h3><span class="header-section-number">1.3.7</span> Vector Arithmetic and Functions</h3>
-<p>Vectors make it easy to do many computations all at once – adding one to a list of numbers, dividing all of them by 3, etc. And as long as two vectors are the same length, we can combine them in natural ways:</p>
+<p>Vectors make it easy to do many computations all at once -- adding one to a list of numbers, dividing all of them by 3, etc. And as long as two vectors are the same length, we can combine them in natural ways:</p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="rcrash.html#cb57-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb57-2"><a href="rcrash.html#cb57-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">+</span> <span class="dv">4</span></span></code></pre></div>
 <pre><code>## [1] 5 6 7</code></pre>
@@ -375,7 +390,7 @@ ffalse{-91-80-121-116-104-97-103-111-114-101-97-110-32-84-104-101-111-114-101-10
 <pre><code>## [1] FALSE FALSE  TRUE</code></pre>
 <div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="rcrash.html#cb73-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&gt;=</span> <span class="dv">2</span></span></code></pre></div>
 <pre><code>## [1] FALSE  TRUE  TRUE</code></pre>
-<p>Just like in math, a function is a way of mapping input to output, and just like in most math classes, you can spot functions since they use parentheses: <code>()</code>. We’ve already seen the _c_oncatenate function <code>c</code> used (for example) to create vectors.</p>
+<p>Just like in math, a function is a way of mapping input to output, and just like in most math classes, you can spot functions since they use parentheses: <code>()</code>. We've already seen the _c_oncatenate function <code>c</code> used (for example) to create vectors.</p>
 <p>We can also apply any number of ubiquitous functions to our vector input. Just a small taste:</p>
 <div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="rcrash.html#cb75-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb75-2"><a href="rcrash.html#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="co">#sum: add up the elements of a vector</span></span>
@@ -429,7 +444,7 @@ ffalse{-91-80-121-116-104-97-103-111-114-101-97-110-32-84-104-101-111-114-101-10
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="rcrash.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="co">#other times we care less about the gap and more</span></span>
 <span id="cb105-2"><a href="rcrash.html#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  more about how many points we get out</span></span>
 <span id="cb105-3"><a href="rcrash.html#cb105-3" aria-hidden="true" tabindex="-1"></a>w <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length.out =</span> <span class="dv">20</span>)</span></code></pre></div>
-<p>In addition to math/arithmetic functions, there is a litany of basic programming functions that you’re likely to use all of the time:</p>
+<p>In addition to math/arithmetic functions, there is a litany of basic programming functions that you're likely to use all of the time:</p>
 <div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="rcrash.html#cb106-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">99</span><span class="sc">:</span><span class="dv">32</span></span>
 <span id="cb106-2"><a href="rcrash.html#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="co">#length: how many elements (items) are there in x?</span></span>
 <span id="cb106-3"><a href="rcrash.html#cb106-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(x)</span></code></pre></div>
@@ -482,7 +497,7 @@ ffalse{-91-80-121-116-104-97-103-111-114-101-97-110-32-84-104-101-111-114-101-10
 <pre><code>## [1] 6</code></pre>
 <div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="rcrash.html#cb136-1" aria-hidden="true" tabindex="-1"></a>x[<span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)]</span></code></pre></div>
 <pre><code>## [1] 7</code></pre>
-<p>Most commonly we’ll do something that’s identical to the above but reads more naturally:</p>
+<p>Most commonly we'll do something that's identical to the above but reads more naturally:</p>
 <div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="rcrash.html#cb138-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb138-2"><a href="rcrash.html#cb138-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">&gt;</span> <span class="dv">0</span></span></code></pre></div>
 <pre><code>## [1] FALSE FALSE  TRUE</code></pre>
@@ -499,7 +514,7 @@ ffalse{-91-80-121-116-104-97-103-111-114-101-97-110-32-84-104-101-111-114-101-10
 </div>
 <div id="named-vectors" class="section level3" number="1.3.9">
 <h3><span class="header-section-number">1.3.9</span> Named Vectors</h3>
-<p>It’s also often useful to <em>name</em> our vectors to help organize the information. Suppose we were keeping track of the ages of the Trumps:</p>
+<p>It's also often useful to <em>name</em> our vectors to help organize the information. Suppose we were keeping track of the ages of the Trumps:</p>
 <div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="rcrash.html#cb147-1" aria-hidden="true" tabindex="-1"></a>trump_ages <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">70</span>, <span class="dv">46</span>, <span class="dv">38</span>, <span class="dv">34</span>, <span class="dv">32</span>, <span class="dv">22</span>, <span class="dv">9</span>)</span></code></pre></div>
 <p>This is nice, but much more useful if we keep track of who each element represents:</p>
 <div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="rcrash.html#cb148-1" aria-hidden="true" tabindex="-1"></a>trump_ages <span class="ot">=</span> <span class="fu">c</span>(<span class="at">Donald =</span> <span class="dv">70</span>, <span class="at">Melania =</span> <span class="dv">46</span>, <span class="at">Donald_Jr =</span> <span class="dv">38</span>, <span class="at">Ivanka =</span> <span class="dv">34</span>,</span>
@@ -524,14 +539,14 @@ ffalse{-91-80-121-116-104-97-103-111-114-101-97-110-32-84-104-101-111-114-101-10
 </div>
 <div id="getting-help-documentation" class="section level3" number="1.3.10">
 <h3><span class="header-section-number">1.3.10</span> Getting Help: Documentation</h3>
-<p>If you’re unsure of how something works in R – what the arguments are to a function, how it works, etc. – your first step is to check the documentation:</p>
+<p>If you're unsure of how something works in R -- what the arguments are to a function, how it works, etc. -- your first step is to check the documentation:</p>
 <div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="rcrash.html#cb156-1" aria-hidden="true" tabindex="-1"></a>?sum</span>
 <span id="cb156-2"><a href="rcrash.html#cb156-2" aria-hidden="true" tabindex="-1"></a>?cos</span>
 <span id="cb156-3"><a href="rcrash.html#cb156-3" aria-hidden="true" tabindex="-1"></a>?<span class="st">&quot;=&quot;</span></span></code></pre></div>
 </div>
 <div id="lists" class="section level3" number="1.3.11">
 <h3><span class="header-section-number">1.3.11</span> Lists</h3>
-<p>We saw above that R doesn’t like vectors to have different types: <code>c(TRUE, 1, "Frank")</code> becomes <code>c("TRUE", "1", "Frank")</code>. But storing objects with different types is absolutely fundamental to data analysis.</p>
+<p>We saw above that R doesn't like vectors to have different types: <code>c(TRUE, 1, "Frank")</code> becomes <code>c("TRUE", "1", "Frank")</code>. But storing objects with different types is absolutely fundamental to data analysis.</p>
 <p>R has a different type of object besides a vector used to store data of different types side-by-side: a <code>list</code>:</p>
 <div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="rcrash.html#cb157-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">list</span>(<span class="cn">TRUE</span>, <span class="dv">1</span>, <span class="st">&quot;Frank&quot;</span>)</span>
 <span id="cb157-2"><a href="rcrash.html#cb157-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
@@ -587,7 +602,7 @@ ffalse{-91-80-121-116-104-97-103-111-114-101-97-110-32-84-104-101-111-114-101-10
 <p>Complementing this core of the most common operations are external <em>packages</em>, which are basically sets of functions designed to accomplish specific tasks.</p>
 <p>Best of all, unlike some super-expensive programming languages, all of the thousands of packages available to R users (most importantly through CRAN, the <strong>C</strong>omprehensive <strong>R</strong> <strong>A</strong>rchive <strong>N</strong>etwork) are <em>completely free of charge</em>.</p>
 <p>The two most important things to know about packages for now is where to find them, how to install them, and how to load them.</p>
-<p>We’ll work extensively with the <code>data.table</code> package, which was built for working with huge data sets.</p>
+<p>We'll work extensively with the <code>data.table</code> package, which was built for working with huge data sets.</p>
 <div id="where-to-find-packages" class="section level4" number="1.3.12.1">
 <h4><span class="header-section-number">1.3.12.1</span> Where to find packages</h4>
 <p>Long story short: Google. Got a particular statistical technique in mind? The best R package for this is almost always the top Google result if asked correctly.</p>
@@ -603,13 +618,13 @@ ffalse{-91-80-121-116-104-97-103-111-114-101-97-110-32-84-104-101-111-114-101-10
 <h4><span class="header-section-number">1.3.12.3</span> How to load packages</h4>
 <p>Just add it to your library!</p>
 <div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="rcrash.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code></pre></div>
-<p><em>Et voila</em>! You’ll now have access to all of the awesome functions in the <code>data.table</code> package. You can also Google “tutorial data.table” (or in general “tutorial [package name]”) and you’re very likely to find a trove of sites trying to help you learn the package.</p>
+<p><em>Et voila</em>! You'll now have access to all of the awesome functions in the <code>data.table</code> package. You can also Google "tutorial data.table" (or in general "tutorial [package name]") and you're very likely to find a trove of sites trying to help you learn the package.</p>
 </div>
 </div>
 <div id="data.tables" class="section level3" number="1.3.13">
 <h3><span class="header-section-number">1.3.13</span> <code>data.table</code>s</h3>
 <p>Data sets are the lifeblood of a data lover!</p>
-<p>As mentioned above, data sets in R basically <code>list</code>s where every element has the same length. In basic R, this is done with a <code>data.frame</code>, but it’ll be easier for a beginner to understand the syntax of a <code>data.table</code>, so you can forget about <code>data.frame</code>s for now.</p>
+<p>As mentioned above, data sets in R basically <code>list</code>s where every element has the same length. In basic R, this is done with a <code>data.frame</code>, but it'll be easier for a beginner to understand the syntax of a <code>data.table</code>, so you can forget about <code>data.frame</code>s for now.</p>
 <p>We can build a <code>data.table</code> from scratch with the <code>data.table</code> command. This command lets you build up a <code>data.table</code> from several vectors of the same length:</p>
 <div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="rcrash.html#cb165-1" aria-hidden="true" tabindex="-1"></a>foo <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
 <span id="cb165-2"><a href="rcrash.html#cb165-2" aria-hidden="true" tabindex="-1"></a>bar <span class="ot">=</span> <span class="dv">2</span> <span class="sc">*</span> foo</span>
@@ -633,7 +648,7 @@ ffalse{-91-80-121-116-104-97-103-111-114-101-97-110-32-84-104-101-111-114-101-10
 </div>
 <div id="subsetting-data" class="section level3" number="1.3.14">
 <h3><span class="header-section-number">1.3.14</span> Subsetting data</h3>
-<p>When you’re working with data, you’ll often want to look at subsets that satisfy a particular condition. First we’ll set up a simple <code>data.table</code>:</p>
+<p>When you're working with data, you'll often want to look at subsets that satisfy a particular condition. First we'll set up a simple <code>data.table</code>:</p>
 <div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="rcrash.html#cb169-1" aria-hidden="true" tabindex="-1"></a>location <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;New York&quot;</span>, <span class="st">&quot;Chicago&quot;</span>, <span class="st">&quot;Boston&quot;</span>, <span class="st">&quot;Boston&quot;</span>, <span class="st">&quot;New York&quot;</span>)</span>
 <span id="cb169-2"><a href="rcrash.html#cb169-2" aria-hidden="true" tabindex="-1"></a>salary <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">70000</span>, <span class="dv">80000</span>, <span class="dv">60000</span>, <span class="dv">50000</span>, <span class="dv">45000</span>)</span>
 <span id="cb169-3"><a href="rcrash.html#cb169-3" aria-hidden="true" tabindex="-1"></a>title <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Office Manager&quot;</span>, <span class="st">&quot;Research Assistant&quot;</span>, <span class="st">&quot;Analyst&quot;</span>, <span class="st">&quot;Office Manager&quot;</span>, <span class="st">&quot;Analyst&quot;</span>)</span>
@@ -651,14 +666,14 @@ ffalse{-91-80-121-116-104-97-103-111-114-101-97-110-32-84-104-101-111-114-101-10
 <pre><code>##    location salary          title hours
 ## 1: New York  70000 Office Manager    50
 ## 2: New York  45000        Analyst    50</code></pre>
-<p>Notice the use of the <em>double equal sign</em>. This command is <em>testing a logical condition</em>. If you use a single equals sign, this won’t work since <code>=</code> is what is used to name the arguments to a function in R. The preceding command looks at the <code>data.table</code> <code>jobsearch</code> and then the column <code>location</code> and checks which entries satisfy the condition that the <code>location</code> is <code>"New York"</code>. Finally, the function returns <em>only these rows</em> of the <code>data.table</code>.</p>
+<p>Notice the use of the <em>double equal sign</em>. This command is <em>testing a logical condition</em>. If you use a single equals sign, this won't work since <code>=</code> is what is used to name the arguments to a function in R. The preceding command looks at the <code>data.table</code> <code>jobsearch</code> and then the column <code>location</code> and checks which entries satisfy the condition that the <code>location</code> is <code>"New York"</code>. Finally, the function returns <em>only these rows</em> of the <code>data.table</code>.</p>
 <p>Now suppose you wanted to extract only those jobs that pay more than $50,000. The command for this is as follows:</p>
 <div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="rcrash.html#cb173-1" aria-hidden="true" tabindex="-1"></a>jobsearch[salary <span class="sc">&gt;</span> <span class="dv">50000</span>]</span></code></pre></div>
 <pre><code>##    location salary              title hours
 ## 1: New York  70000     Office Manager    50
 ## 2:  Chicago  80000 Research Assistant    56
 ## 3:   Boston  60000            Analyst    65</code></pre>
-<p>Finally, suppose the most you’re willing to work per week is 50 hours. Here are the jobs you should consider:</p>
+<p>Finally, suppose the most you're willing to work per week is 50 hours. Here are the jobs you should consider:</p>
 <div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="rcrash.html#cb175-1" aria-hidden="true" tabindex="-1"></a>jobsearch[hours <span class="sc">&lt;=</span> <span class="dv">50</span>]</span></code></pre></div>
 <pre><code>##    location salary          title hours
 ## 1: New York  70000 Office Manager    50
@@ -667,13 +682,13 @@ ffalse{-91-80-121-116-104-97-103-111-114-101-97-110-32-84-104-101-111-114-101-10
 </div>
 <div id="loading-external-data-data-summary" class="section level3" number="1.3.15">
 <h3><span class="header-section-number">1.3.15</span> Loading External Data &amp; Data Summary</h3>
-<p>The vast majority of the time, you won’t be using data that you type in by hand – you’ll be importing data from external sources. One of the most common ways to find such data is in comma-separated format – such files are structured such that each row represents a row of data, and columns are separated by a comma (actually, any separating character is possible), e.g., like this:</p>
+<p>The vast majority of the time, you won't be using data that you type in by hand -- you'll be importing data from external sources. One of the most common ways to find such data is in comma-separated format -- such files are structured such that each row represents a row of data, and columns are separated by a comma (actually, any separating character is possible), e.g., like this:</p>
 <pre><code>name,age,company
 Mike,24,BCG
 Rodrigo,25,Uber
 Frank,28,FMC
 Ethan,22,AirBnB</code></pre>
-<p>It’s very easy to read files like this into R very quickly using <code>fread</code>. The weather site Weather Underground offers lots of historical data in such tabular format. E.g., the data on <a href="https://www.wunderground.com/history/airport/KPHL/2017/1/10/MonthlyHistory.html">this</a> page about the weather recorded at Philadelphia International Airport is available as a .csv online <a href="https://www.wunderground.com/history/airport/KPHL/2017/1/10/MonthlyHistory.html?format=1">here</a>.</p>
+<p>It's very easy to read files like this into R very quickly using <code>fread</code>. The weather site Weather Underground offers lots of historical data in such tabular format. E.g., the data on <a href="https://www.wunderground.com/history/airport/KPHL/2017/1/10/MonthlyHistory.html">this</a> page about the weather recorded at Philadelphia International Airport is available as a .csv online <a href="https://www.wunderground.com/history/airport/KPHL/2017/1/10/MonthlyHistory.html?format=1">here</a>.</p>
 <p>We can read this into R like so:</p>
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="rcrash.html#cb178-1" aria-hidden="true" tabindex="-1"></a>weather <span class="ot">=</span> <span class="fu">fread</span>(<span class="st">&#39;http://michaelchirico.github.io/philly_weather_data.csv&#39;</span>)</span>
 <span id="cb178-2"><a href="rcrash.html#cb178-2" aria-hidden="true" tabindex="-1"></a>weather</span></code></pre></div>
@@ -837,12 +852,12 @@ Ethan,22,AirBnB</code></pre>
 ## [19] &quot;Max Gust SpeedMPH&quot;         &quot;PrecipitationIn&quot;          
 ## [21] &quot;CloudCover&quot;                &quot;Events&quot;                   
 ## [23] &quot;WindDirDegrees&quot;</code></pre>
-<p>NB: More typically, instead of a URL, you’ll give <code>fread</code> the path to where a .csv file is stored on your computer.</p>
+<p>NB: More typically, instead of a URL, you'll give <code>fread</code> the path to where a .csv file is stored on your computer.</p>
 </div>
 <div id="more-on-data.table-access" class="section level3" number="1.3.16">
 <h3><span class="header-section-number">1.3.16</span> More on <code>data.table</code> Access</h3>
-<p>One of the most fundamental R skills you’ll need to learn is how to access parts of a <code>data.table</code> or vector. This can be a little confusing at first since there are usually <em>several different ways to accomplish the same thing</em>. This section is intended to add more clarity to some of the material on <code>data.table</code>s from above. The <em>best way to learn this is to play around with different commands and see what happens</em>. There are some exercises at the end of the tutorial to do just that. If you don’t get the result you were expecting, try to think about why.</p>
-<p>First I’ll build a simple <code>data.table</code> from the following vectors:</p>
+<p>One of the most fundamental R skills you'll need to learn is how to access parts of a <code>data.table</code> or vector. This can be a little confusing at first since there are usually <em>several different ways to accomplish the same thing</em>. This section is intended to add more clarity to some of the material on <code>data.table</code>s from above. The <em>best way to learn this is to play around with different commands and see what happens</em>. There are some exercises at the end of the tutorial to do just that. If you don't get the result you were expecting, try to think about why.</p>
+<p>First I'll build a simple <code>data.table</code> from the following vectors:</p>
 <div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="rcrash.html#cb184-1" aria-hidden="true" tabindex="-1"></a>person <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Linus&quot;</span>, <span class="st">&quot;Snoopy&quot;</span>, <span class="st">&quot;Lucy&quot;</span>, <span class="st">&quot;Woodstock&quot;</span>)</span>
 <span id="cb184-2"><a href="rcrash.html#cb184-2" aria-hidden="true" tabindex="-1"></a>age <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">2</span>)</span>
 <span id="cb184-3"><a href="rcrash.html#cb184-3" aria-hidden="true" tabindex="-1"></a>weight <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">1</span>)</span>
@@ -887,7 +902,7 @@ Ethan,22,AirBnB</code></pre>
 ## 2:   8     25
 ## 3:   6     50
 ## 4:   2      1</code></pre>
-<p>If you leave the part <em>after</em> the comma blank (or don’t include it at all), you get all the columns:</p>
+<p>If you leave the part <em>after</em> the comma blank (or don't include it at all), you get all the columns:</p>
 <div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="rcrash.html#cb200-1" aria-hidden="true" tabindex="-1"></a>my.data.table[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>), ]</span></code></pre></div>
 <pre><code>##    person age weight
 ## 1:  Linus   5     40
@@ -902,7 +917,7 @@ Ethan,22,AirBnB</code></pre>
 <p>The first way is to use <code>[["COLUMN NAME GOES HERE"]]</code></p>
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="rcrash.html#cb204-1" aria-hidden="true" tabindex="-1"></a>my.data.table[[<span class="st">&quot;weight&quot;</span>]]</span></code></pre></div>
 <pre><code>## [1] 40 25 50  1</code></pre>
-<p>The second is to use <code>$</code>, which is often faster to type since it doesn’t require the use of quotation marks:</p>
+<p>The second is to use <code>$</code>, which is often faster to type since it doesn't require the use of quotation marks:</p>
 <div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="rcrash.html#cb206-1" aria-hidden="true" tabindex="-1"></a>my.data.table<span class="sc">$</span>weight</span></code></pre></div>
 <pre><code>## [1] 40 25 50  1</code></pre>
 <p>Both of the preceding methods are limited in that they only allow us to reference a single column. We can reference multiple columns as follows:</p>
@@ -931,13 +946,13 @@ Ethan,22,AirBnB</code></pre>
 ## 2:    Snoopy   8
 ## 3:      Lucy   6
 ## 4: Woodstock   2</code></pre>
-<p>In some cases it’s easier to access columns of a <code>data.table</code> <em>by name</em> and in others it’s easier to access them <em>by position</em>.</p>
+<p>In some cases it's easier to access columns of a <code>data.table</code> <em>by name</em> and in others it's easier to access them <em>by position</em>.</p>
 </div>
 </div>
 </div>
 <div id="part-3-exercises" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Part 3: Exercises</h2>
-<p><strong>If you can’t get R and RStudio to work on your computer, you can do the exercises on the R Fiddle website</strong></p>
+<p><strong>If you can't get R and RStudio to work on your computer, you can do the exercises on the R Fiddle website</strong></p>
 <p><a href="http://www.r-fiddle.org/#/" class="uri">http://www.r-fiddle.org/#/</a></p>
 <ol style="list-style-type: decimal">
 <li>Calculate how many minutes there are in a January</li>
@@ -992,7 +1007,7 @@ Ethan,22,AirBnB</code></pre>
 ## [22] &quot;Go Penn&quot; &quot;Go Penn&quot; &quot;Go Penn&quot; &quot;Go Penn&quot; &quot;Go Penn&quot; &quot;Go Penn&quot; &quot;Go Penn&quot;
 ## [29] &quot;Go Penn&quot; &quot;Go Penn&quot;</code></pre>
 <ol start="6" style="list-style-type: decimal">
-<li>Create a vector called <code>x</code> containing the sequence -1, -0.9, … 0, 0.1, …, 0.9, 1 and then display the result</li>
+<li>Create a vector called <code>x</code> containing the sequence -1, -0.9, ... 0, 0.1, ..., 0.9, 1 and then display the result</li>
 </ol>
 <div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="rcrash.html#cb226-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)</span>
 <span id="cb226-2"><a href="rcrash.html#cb226-2" aria-hidden="true" tabindex="-1"></a>x</span></code></pre></div>
@@ -1016,26 +1031,26 @@ Ethan,22,AirBnB</code></pre>
 <span id="cb231-2"><a href="rcrash.html#cb231-2" aria-hidden="true" tabindex="-1"></a>wizards[<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)] <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Hermione&quot;</span>, <span class="st">&quot;Ginny&quot;</span>, <span class="st">&quot;Malfoy&quot;</span>)</span>
 <span id="cb231-3"><a href="rcrash.html#cb231-3" aria-hidden="true" tabindex="-1"></a>wizards[<span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>] <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Hermione&quot;</span>, <span class="st">&quot;Ginny&quot;</span>, <span class="st">&quot;Malfoy&quot;</span>)</span></code></pre></div>
 <ol start="10" style="list-style-type: decimal">
-<li>Someone who hasn’t read Harry Potter needs labels to determine who these characters are. Assign names to the elements of the vector <code>wizards</code>: Lead, Friend, Friend, Wife, Rival. Display the result.</li>
+<li>Someone who hasn't read Harry Potter needs labels to determine who these characters are. Assign names to the elements of the vector <code>wizards</code>: Lead, Friend, Friend, Wife, Rival. Display the result.</li>
 </ol>
 <div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="rcrash.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(wizards) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Lead&quot;</span>, <span class="st">&quot;Friend&quot;</span>, <span class="st">&quot;Friend&quot;</span>, <span class="st">&quot;Wife&quot;</span>, <span class="st">&quot;Rival&quot;</span>)</span>
 <span id="cb232-2"><a href="rcrash.html#cb232-2" aria-hidden="true" tabindex="-1"></a>wizards</span></code></pre></div>
 <pre><code>##       Lead     Friend     Friend       Wife      Rival 
 ##    &quot;Harry&quot;      &quot;Ron&quot; &quot;Hermione&quot;    &quot;Ginny&quot;   &quot;Malfoy&quot;</code></pre>
 <ol start="11" style="list-style-type: decimal">
-<li>An avid reader of Harry Potter argues that Malfoy is not Harry’s rival by the end of the series. Change Rival to Ex-Rival.</li>
+<li>An avid reader of Harry Potter argues that Malfoy is not Harry's rival by the end of the series. Change Rival to Ex-Rival.</li>
 </ol>
 <div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="rcrash.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(wizards)[<span class="dv">5</span>] <span class="ot">=</span> <span class="st">&quot;Ex-Rival&quot;</span></span>
 <span id="cb234-2"><a href="rcrash.html#cb234-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(wizards)</span></code></pre></div>
 <pre><code>## [1] &quot;Lead&quot;     &quot;Friend&quot;   &quot;Friend&quot;   &quot;Wife&quot;     &quot;Ex-Rival&quot;</code></pre>
 <ol start="12" style="list-style-type: decimal">
-<li>In 2009 Steve’s income was $50,000 and his total expenses were $35,000. In 2010 his income was $52,000 and his expenses were $34,000. In 2011, his income was $52,500 and his expenses were $38,000. Finally, in 2012 Steve’s earnings were $48,000 and his expenses were $40,000. Create three vectors to store this information in parallel: <code>years</code>, <code>income</code> and <code>expenses</code>.</li>
+<li>In 2009 Steve's income was $50,000 and his total expenses were $35,000. In 2010 his income was $52,000 and his expenses were $34,000. In 2011, his income was $52,500 and his expenses were $38,000. Finally, in 2012 Steve's earnings were $48,000 and his expenses were $40,000. Create three vectors to store this information in parallel: <code>years</code>, <code>income</code> and <code>expenses</code>.</li>
 </ol>
 <div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="rcrash.html#cb236-1" aria-hidden="true" tabindex="-1"></a>years <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2009</span>, <span class="dv">2010</span>, <span class="dv">2011</span>, <span class="dv">2012</span>)</span>
 <span id="cb236-2"><a href="rcrash.html#cb236-2" aria-hidden="true" tabindex="-1"></a>income <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">50000</span>, <span class="dv">52000</span>, <span class="dv">52500</span>, <span class="dv">48000</span>)</span>
 <span id="cb236-3"><a href="rcrash.html#cb236-3" aria-hidden="true" tabindex="-1"></a>expenses <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">35000</span>, <span class="dv">34000</span>, <span class="dv">38000</span>, <span class="dv">40000</span>)</span></code></pre></div>
 <ol start="13" style="list-style-type: decimal">
-<li>Following on from the previous question, calculate Steve’s annual savings and store this in a vector called <code>savings</code>.</li>
+<li>Following on from the previous question, calculate Steve's annual savings and store this in a vector called <code>savings</code>.</li>
 </ol>
 <div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="rcrash.html#cb237-1" aria-hidden="true" tabindex="-1"></a>savings <span class="ot">=</span> income <span class="sc">-</span> expenses</span></code></pre></div>
 <ol start="14" style="list-style-type: decimal">
@@ -1080,7 +1095,7 @@ Ethan,22,AirBnB</code></pre>
 </ol>
 <div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="rcrash.html#cb252-1" aria-hidden="true" tabindex="-1"></a>trojan.war <span class="ot">=</span> <span class="fu">data.table</span>(person, age, description)</span></code></pre></div>
 <ol start="21" style="list-style-type: decimal">
-<li>Suppose you wanted to display only the column of <code>trojan.war</code> that contains each person’s <code>description</code>. What command would you use?</li>
+<li>Suppose you wanted to display only the column of <code>trojan.war</code> that contains each person's <code>description</code>. What command would you use?</li>
 </ol>
 <div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="rcrash.html#cb253-1" aria-hidden="true" tabindex="-1"></a><span class="co">#There are many different ways to do this:</span></span>
 <span id="cb253-2"><a href="rcrash.html#cb253-2" aria-hidden="true" tabindex="-1"></a>trojan.war[, <span class="dv">3</span>] </span></code></pre></div>
@@ -1146,7 +1161,7 @@ Ethan,22,AirBnB</code></pre>
 ## 2:    Athena        Wise
 ## 3: Aphrodite   Conniving</code></pre>
 <ol start="24" style="list-style-type: decimal">
-<li>By now you’re probably tired of this data set. A passenger manifest for the Titanic is stored at <a href="http://www.ditraglia.com/econ103/titanic3.csv" class="uri">http://www.ditraglia.com/econ103/titanic3.csv</a>. Read this file and store it in a dataframe called <code>titanic</code>.</li>
+<li>By now you're probably tired of this data set. A passenger manifest for the Titanic is stored at <a href="http://www.ditraglia.com/econ103/titanic3.csv" class="uri">http://www.ditraglia.com/econ103/titanic3.csv</a>. Read this file and store it in a dataframe called <code>titanic</code>.</li>
 </ol>
 <div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="rcrash.html#cb273-1" aria-hidden="true" tabindex="-1"></a>titanic <span class="ot">=</span> <span class="fu">fread</span>(<span class="st">&quot;http://www.ditraglia.com/econ103/titanic3.csv&quot;</span>)</span></code></pre></div>
 <ol start="25" style="list-style-type: decimal">
@@ -1158,7 +1173,7 @@ Ethan,22,AirBnB</code></pre>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="rcrash.html#cb276-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prod</span>(x)</span></code></pre></div>
 <pre><code>## [1] 185794560</code></pre>
 <ol start="26" style="list-style-type: decimal">
-<li>The column <code>survived</code> in the <code>titanic</code> data has a value of “1” to indicate that the passenger in that row survived the disaster. Display only the rows of <code>titanic</code> corresponding to passengers that survived.</li>
+<li>The column <code>survived</code> in the <code>titanic</code> data has a value of "1" to indicate that the passenger in that row survived the disaster. Display only the rows of <code>titanic</code> corresponding to passengers that survived.</li>
 </ol>
 <div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="rcrash.html#cb278-1" aria-hidden="true" tabindex="-1"></a>titanic[survived <span class="sc">==</span> <span class="dv">1</span>]</span></code></pre></div>
 <pre><code>##      pclass survived                                            name    sex
@@ -1198,7 +1213,7 @@ Ethan,22,AirBnB</code></pre>
 ## 499:                                
 ## 500:</code></pre>
 <ol start="27" style="list-style-type: decimal">
-<li>The column <code>sex</code> in the <code>titanic</code> data indicates each passenger’s sex. Display only the rows of <code>titanic</code> corresponding to men.</li>
+<li>The column <code>sex</code> in the <code>titanic</code> data indicates each passenger's sex. Display only the rows of <code>titanic</code> corresponding to men.</li>
 </ol>
 <div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="rcrash.html#cb280-1" aria-hidden="true" tabindex="-1"></a>titanic[sex <span class="sc">==</span> <span class="st">&#39;male&#39;</span>]</span></code></pre></div>
 <pre><code>##      pclass survived                                 name  sex   age sibsp
@@ -1240,34 +1255,190 @@ Ethan,22,AirBnB</code></pre>
 
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="footnotes">
 <hr />
 <ol start="9">
 <li id="fn9"><p>This is the first of many terrible puns you will encounter in this book.<a href="rcrash.html#fnref9" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="using-webexercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -1321,6 +1492,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

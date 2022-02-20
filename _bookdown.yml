@@ -1,13 +1,9 @@
-book_filename: "erm-book"
-repo: "https://github.com/fditraglia/erm-book/"
-output_dir: "docs"
-delet_merged_file: true
+book_filename: erm-book
+repo: https://github.com/fditraglia/erm-book/
+output_dir: docs
+delete_merged_file: yes
 language:
   ui:
     chapter_name: 'Lesson '
-  new_session: yes # Each chapter is knitted as its own Rmd file
-  # Use this later to change the order of chapters if desired
-  #  rmd_files: [
-  #  "index.Rmd",
-  #"01-r-crash-course.Rmd"
-    #]
+  new_session: yes
+before_chapter_script: R/webex.R

@@ -1,8 +1,9 @@
 bookdown::gitbook:
-  css: style.css
+  css:
+  - style.css
+  - include/webex.css
   includes:
-    #before_body: assets/big-image.html
-    #after_body: assets/footer.html
+    after_body: include/webex.js
   highlight: tango
   config:
     toc:
@@ -14,3 +15,4 @@ bookdown::gitbook:
       facebook: no
       twitter: yes
       all: no
+  md_extensions: -smart
