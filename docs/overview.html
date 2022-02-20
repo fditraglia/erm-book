@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | Lab 01 - Simulation and the Hot Hand</title>
-  <meta name="description" content="Page not found | Lab 01 - Simulation and the Hot Hand" />
+  <title>Lesson 3 Overview | Lab 01 - Simulation and the Hot Hand</title>
+  <meta name="description" content="Lesson 3 Overview | Lab 01 - Simulation and the Hot Hand" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | Lab 01 - Simulation and the Hot Hand" />
+  <meta property="og:title" content="Lesson 3 Overview | Lab 01 - Simulation and the Hot Hand" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | Lab 01 - Simulation and the Hot Hand" />
+  <meta name="twitter:title" content="Lesson 3 Overview | Lab 01 - Simulation and the Hot Hand" />
   
   
   
@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
+<link rel="prev" href="using-webexercises.html"/>
 
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -207,12 +207,123 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="overview" class="section level1" number="3">
+<h1><span class="header-section-number">Lesson 3</span> Overview</h1>
+<ul>
+<li>Explain idea behind hot hand: more likely to make a basket if you've just made one.</li>
+<li>Sport fans and commentators long claimed this existed; Kahneman et al said it's an illusion; lots of papers on this; add some quotes</li>
+<li>In this case the academics turned out to be wrong: Miller &amp; Sanjurjo (2018) showed that the statistical methods researchers had used to study the hot hand were flawed.</li>
+<li>Biased <em>against</em> finding evidence of a hot hand even if it exists. Turns out that <em>there is</em> a hot hand phenonmenon.</li>
+<li>Here's what I find interesting about this.</li>
+<li>Viewed from one perspective, this is a very subtle error: the probabilistic intuition behind it is relatively complicated, M&amp;S even wrote a simpler follow-up paper to try to get the intuition across. Subtle enough to be missed by Nobel laureates!</li>
+<li>On the other hand, this is a boneheaded error: anyone with a rudimentary knowledge of programming could have coded up a simulation in under an hour to reveal the problem. No one bothered until M&amp;S.</li>
+<li>The moral: simulation is a <em>superpower</em>. It's not a replacement for theory, but a potent complement. If you find a pattern you don't understand in a simulation, this can spur you to try to understand the mathematics behind it.</li>
+<li>Swiss Army Knife metaphor: simulation is like the knife, arguably the most important tool in the box, weapon in the arsenal.</li>
+<li>Today you'll carry out a simulation establishing the bias of methods previously used to look for a hot hand.</li>
+<li>Along the way, you'll learn some helpful tools for simulation more broadly and a useful pattern for keeping your simulation code organized.</li>
+<li>Maybe even a touch of parallel computing!</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Some basic simulation commands in R: <code>sample()</code>, <code>rbinom()</code>, <code>rnorm()</code>, etc. Read the help files.</li>
+<li>Write a function <code>draw_sim_data()</code> that makes 100 Bernoulli(1/2) draws. Optional arguments <code>p</code> and <code>n</code>? This simulates data when there is <em>no hot hand</em></li>
+<li><code>set.seed()</code> what does it do?</li>
+<li>Think about how to calculate the estimator: fraction of times that three ones are followed by another one compared to another zero. Suppose you had a function <code>is_after_3_ones()</code> that took a vector of 0 and 1 and returned, for each element, whether it is after three ones. How would you use it? Write this function.</li>
+<li>Put everything together with <code>replicate()</code> to do a simple sim for <span class="math inline">\(p=1/2\)</span> and <span class="math inline">\(n = 100\)</span>.</li>
+<li>How about trying different values of <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>? Need to keep results organized: <code>apply()</code> family of functions (or maybe the tidy equivalents?)</li>
+<li>Try doing it in parallel with <code>mclapply()</code>. First explain the basic idea of parallel and why this is "embarrassingly parallel." Show them how to time the code, illustrate with <code>sys.sleep()</code>.</li>
+<li>For the students who finish very quickly, have some extensions: a markov chain DGP, and <code>is_after_k_ones()</code></li>
+</ol>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="overview.html#cb287-1" aria-hidden="true" tabindex="-1"></a>dgp <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">p =</span> <span class="fl">0.5</span>) {</span>
+<span id="cb287-2"><a href="overview.html#cb287-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbinom</span>(n, <span class="dv">1</span>, p)</span>
+<span id="cb287-3"><a href="overview.html#cb287-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb287-4"><a href="overview.html#cb287-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb287-5"><a href="overview.html#cb287-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Maybe have a challenge to write the version for after k ones, but start by</span></span>
+<span id="cb287-6"><a href="overview.html#cb287-6" aria-hidden="true" tabindex="-1"></a><span class="co"># asking them to do the one for after 3 ones</span></span>
+<span id="cb287-7"><a href="overview.html#cb287-7" aria-hidden="true" tabindex="-1"></a>is_after_k_ones <span class="ot">&lt;-</span> <span class="cf">function</span>(x, k) {</span>
+<span id="cb287-8"><a href="overview.html#cb287-8" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>)</span>
+<span id="cb287-9"><a href="overview.html#cb287-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> (k<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span><span class="fu">length</span>(x)) {</span>
+<span id="cb287-10"><a href="overview.html#cb287-10" aria-hidden="true" tabindex="-1"></a>    out[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(x[(i <span class="sc">-</span> k)<span class="sc">:</span>(i <span class="sc">-</span> <span class="dv">1</span>)]) <span class="sc">==</span> k</span>
+<span id="cb287-11"><a href="overview.html#cb287-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb287-12"><a href="overview.html#cb287-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
+<span id="cb287-13"><a href="overview.html#cb287-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb287-14"><a href="overview.html#cb287-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb287-15"><a href="overview.html#cb287-15" aria-hidden="true" tabindex="-1"></a>get_est <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb287-16"><a href="overview.html#cb287-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">#ones &lt;- which(x == 1)</span></span>
+<span id="cb287-17"><a href="overview.html#cb287-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">#mean(x[ones + 1], na.rm = TRUE)</span></span>
+<span id="cb287-18"><a href="overview.html#cb287-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(x[<span class="fu">is_after_k_ones</span>(x, <span class="dv">3</span>)], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb287-19"><a href="overview.html#cb287-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb287-20"><a href="overview.html#cb287-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb287-21"><a href="overview.html#cb287-21" aria-hidden="true" tabindex="-1"></a>n_reps <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
+<span id="cb287-22"><a href="overview.html#cb287-22" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb287-23"><a href="overview.html#cb287-23" aria-hidden="true" tabindex="-1"></a>sim_results <span class="ot">&lt;-</span> <span class="fu">replicate</span>(n_reps, <span class="fu">get_est</span>(<span class="fu">dgp</span>()))</span>
+<span id="cb287-24"><a href="overview.html#cb287-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb287-25"><a href="overview.html#cb287-25" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(sim_results)</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 30 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="overview.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sim_results, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 0.4602045</code></pre>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="overview.html#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ones &lt;- which(x == 1)</span></span>
+<span id="cb292-2"><a href="overview.html#cb292-2" aria-hidden="true" tabindex="-1"></a><span class="co">#x[which(x == 1) + 1]</span></span>
+<span id="cb292-3"><a href="overview.html#cb292-3" aria-hidden="true" tabindex="-1"></a><span class="co">#runs &lt;- rle(x)</span></span>
+<span id="cb292-4"><a href="overview.html#cb292-4" aria-hidden="true" tabindex="-1"></a><span class="co">#foo &lt;- rle(x)</span></span>
+<span id="cb292-5"><a href="overview.html#cb292-5" aria-hidden="true" tabindex="-1"></a><span class="co">#str(foo)</span></span>
+<span id="cb292-6"><a href="overview.html#cb292-6" aria-hidden="true" tabindex="-1"></a><span class="co">#x</span></span>
+<span id="cb292-7"><a href="overview.html#cb292-7" aria-hidden="true" tabindex="-1"></a><span class="co">#foo$lengths</span></span>
+<span id="cb292-8"><a href="overview.html#cb292-8" aria-hidden="true" tabindex="-1"></a><span class="co">#foo$values</span></span></code></pre></div>
+<div id="hidden-solutions-and-hints" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Hidden solutions and hints</h2>
+<p>You can fence off a solution area that will be hidden behind a button using <code>hide()</code> before the solution and <code>unhide()</code> after, each as inline R code. Pass the text you want to appear on the button to the <code>hide()</code> function.</p>
+<p>If the solution is an RMarkdown code chunk, instead of using <code>hide()</code> and <code>unhide()</code>, simply set the <code>webex.hide</code> chunk option to TRUE, or set it to the string you wish to display on the button.</p>
+<div id="example-problem" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Example problem</h3>
+<p><strong>Recreate the scatterplot below, using the built-in <code>cars</code> dataset.</strong></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<div class="webex-solution">
+<button>
+I need a hint
+</button>
+<p>See the documentation for <code>plot()</code> (<code>?plot</code>)</p>
 </div>
+<!-- note: you could also just set webex.hide to TRUE -->
+<div class="webex-solution">
+<button>
+Click here to see the solution
+</button>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="overview.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cars<span class="sc">$</span>speed, cars<span class="sc">$</span>dist)</span></code></pre></div>
+</div>
+<!-- TO CHANGE WIDGET COLOURS:
+  move command below out of this HTML comment area
+  and then re-compile;
+  unfilled becomes yellow, correct becomes pink 
+     
+
+<style>
+    .webex-solveme { border-color: #FFFF00; }
+    .webex-solveme.webex-correct { border-color: #FF3399; }
+</style>
+
+
+-->
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script>
 
 /* update total correct if #webex-total_correct exists */
@@ -389,7 +500,7 @@ window.onload = function() {
           </div>
         </div>
       </div>
-
+<a href="using-webexercises.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

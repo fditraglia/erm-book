@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lesson 2 Using webexercises | Empirical Research Methods</title>
-  <meta name="description" content="Lesson 2 Using webexercises | Empirical Research Methods" />
+  <title>Lesson 2 Using webexercises | Lab 01 - Simulation and the Hot Hand</title>
+  <meta name="description" content="Lesson 2 Using webexercises | Lab 01 - Simulation and the Hot Hand" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lesson 2 Using webexercises | Empirical Research Methods" />
+  <meta property="og:title" content="Lesson 2 Using webexercises | Lab 01 - Simulation and the Hot Hand" />
   <meta property="og:type" content="book" />
   
   
@@ -16,12 +16,12 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lesson 2 Using webexercises | Empirical Research Methods" />
+  <meta name="twitter:title" content="Lesson 2 Using webexercises | Lab 01 - Simulation and the Hot Hand" />
   
   
   
 
-<meta name="author" content="Francis J. DiTraglia" />
+<meta name="author" content="Frank" />
 
 
 <meta name="date" content="2022-02-20" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="rcrash.html"/>
-
+<link rel="next" href="overview.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -183,6 +183,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5.4" data-path="using-webexercises.html"><a href="using-webexercises.html#example-4-show-the-output-hide-the-code"><i class="fa fa-check"></i><b>2.5.4</b> Example 4: Show the output, hide the code</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>3</b> Overview</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="overview.html"><a href="overview.html#hidden-solutions-and-hints"><i class="fa fa-check"></i><b>3.1</b> Hidden solutions and hints</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="overview.html"><a href="overview.html#example-problem"><i class="fa fa-check"></i><b>3.1.1</b> Example problem</a></li>
+</ul></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -192,7 +199,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Empirical Research Methods</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lab 01 - Simulation and the Hot Hand</a>
           </h1>
         </div>
 
@@ -233,7 +240,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>This correct answer doesn't have to be hard-coded: you can do calculations in place or supply the name of an R object created elsewhere in your RMarkdown document. This allows you to create a <em>dynamic</em> question and answer. Here's an example in which the question is <em>randomly generated</em> when you knit this document:</p>
 <ul>
-<li>The square root of 64 is: <input class='webex-solveme nospaces' size='1' data-answer='["8"]'/></li>
+<li>The square root of 9 is: <input class='webex-solveme nospaces' size='1' data-answer='["3"]'/></li>
 </ul>
 <p>If the correct answer is <code>E</code>, but a user enters <code>e</code>, this will be marked as incorrect: <code>fitb()</code> is <em>case sensitive</em>. To turn this off, set <code>ignore_case = TRUE</code>.</p>
 <ul>
@@ -266,12 +273,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>To create a multiple choice question with radio buttons rather than a dropdown menu, use <code>mcqlong()</code>. This tends to result in nicer formatting than a drop-down if the answers to your question are "long," hence the name of the function. When your answers are long, inline R code can be hard to read. To avoid this problem, you can set up your multiple choice answers in a vector within an R chunk with <code>echo=FALSE</code> and then supply that vector as the first argument to <code>longmcq()</code> in an inline R chunk. For example:</p>
 <p><strong>Which of these statements about p-values is correct?</strong></p>
-<div id="radio_FTDJIVGMVU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_FTDJIVGMVU" value=""></input> <span>A p-value is the probability that the null hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_FTDJIVGMVU" value="answer"></input> <span>A p-value is the probability of observing a test statistic at least as extreme as the one we actually observed, assuming that the null hypothesis is true.</span></label><label><input type="radio" autocomplete="off" name="radio_FTDJIVGMVU" value=""></input> <span>The p-value is the probability of making a mistake when testing a hypothesis.</span></label>
+<div id="radio_QOKXUIGNPI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QOKXUIGNPI" value=""></input> <span>A p-value is the probability that the null hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_QOKXUIGNPI" value="answer"></input> <span>A p-value is the probability of observing a test statistic at least as extreme as the one we actually observed, assuming that the null hypothesis is true.</span></label><label><input type="radio" autocomplete="off" name="radio_QOKXUIGNPI" value=""></input> <span>The p-value is the probability of making a mistake when testing a hypothesis.</span></label>
 </div>
 <p><strong>What is true about a 95% confidence interval for the population mean <span class="math inline">\(\mu\)</span>?</strong></p>
-<div id="radio_PBAJQGXGRE" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_PBAJQGXGRE" value=""></input> <span>The probability that <span class="math inline">\(\mu\)</span> lies in our confidence interval equals 0.95.</span></label><label><input type="radio" autocomplete="off" name="radio_PBAJQGXGRE" value=""></input> <span>Approximately 95% of the values in our dataset will fall within the confidence interval.</span></label><label><input type="radio" autocomplete="off" name="radio_PBAJQGXGRE" value="answer"></input> <span>If we repeatedly draw a sample of the same size from the same population, and construct an interval in this way for each sample, then approximately 95% of the intervals will contain <span class="math inline">\(\mu\)</span>.</span></label>
+<div id="radio_QXKIAJWYNY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QXKIAJWYNY" value="answer"></input> <span>If we repeatedly draw a sample of the same size from the same population, and construct an interval in this way for each sample, then approximately 95% of the intervals will contain <span class="math inline">\(\mu\)</span>.</span></label><label><input type="radio" autocomplete="off" name="radio_QXKIAJWYNY" value=""></input> <span>Approximately 95% of the values in our dataset will fall within the confidence interval.</span></label><label><input type="radio" autocomplete="off" name="radio_QXKIAJWYNY" value=""></input> <span>The probability that <span class="math inline">\(\mu\)</span> lies in our confidence interval equals 0.95.</span></label>
 </div>
 </div>
 <div id="hide-solutions-create-hints" class="section level2" number="2.5">
@@ -354,21 +361,6 @@ Show Solution
 </div>
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
 
 /* update total correct if #webex-total_correct exists */
@@ -545,8 +537,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="rcrash.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="rcrash.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="overview.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
