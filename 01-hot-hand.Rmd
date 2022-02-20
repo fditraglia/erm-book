@@ -1,4 +1,9 @@
 # How to Outsmart a Nobel Laureate 
+
+## The Hot Hand
+
+> Amos [Tversky] and his students Tom Gilovich and Robert Vallone caused a stir with their study of misperceptions of randomness in basketball. The "fact" that players occasionally acquire a hot hand is generally accepted by players, coaches, and fans. The inference is irresistible: a player sinks three or four baskets in a row and you cannot help forming the causal judgment that this player is now hot, with a temporarily increased propensity to score. Players on both teams adapt to this judgment—teammates are more likely to pass to the hot scorer and the defense is more likely to doubleteam. Analysis of thousands of sequences of shots led to a disappointing conclusion: there is no such thing as a hot hand in professional basketball, either in shooting from the field or scoring from the foul line. Of course, some players are more accurate than others, but the sequence of successes and missed shots satisfies all tests of randomness. The hot hand is entirely in the eye of the beholders, who are consistently too quick to perceive order and causality in randomness. The hot hand is a massive and widespread cognitive illusion.
+
 - Explain idea behind hot hand: more likely to make a basket if you've just made one.
 - Sport fans and commentators long claimed this existed; Kahneman et al said it's an illusion; lots of papers on this; add some quotes
 - In this case the academics turned out to be wrong: Miller \& Sanjurjo (2018) showed that the statistical methods researchers had used to study the hot hand were flawed.
@@ -21,7 +26,7 @@
 7. Try doing it in parallel with `mclapply()`. First explain the basic idea of parallel and why this is "embarrassingly parallel." Show them how to time the code, illustrate with `sys.sleep()`. 
 8. For the students who finish very quickly, have some extensions: a markov chain DGP, and `is_after_k_ones()`
 
-```{r}
+```{r, cache=TRUE}
 dgp <- function(n = 100, p = 0.5) {
   rbinom(n, 1, p)
 }

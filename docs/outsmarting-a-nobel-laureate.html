@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Empirical Research Methods</title>
-  <meta name="description" content="Empirical Research Methods" />
+  <title>Lesson 1 Outsmarting a Nobel Laureate | Empirical Research Methods</title>
+  <meta name="description" content="Lesson 1 Outsmarting a Nobel Laureate | Empirical Research Methods" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Empirical Research Methods" />
+  <meta property="og:title" content="Lesson 1 Outsmarting a Nobel Laureate | Empirical Research Methods" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Empirical Research Methods" />
+  <meta name="twitter:title" content="Lesson 1 Outsmarting a Nobel Laureate | Empirical Research Methods" />
   
   
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="how-to-outsmart-a-nobel-laureate.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="using-webexercises.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -144,12 +144,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-stata"><i class="fa fa-check"></i>Why not Stata?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab-julia-or-python"><i class="fa fa-check"></i>Why not Matlab, Julia, or Python?</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html"><i class="fa fa-check"></i><b>1</b> How to Outsmart a Nobel Laureate</a>
+<li class="chapter" data-level="1" data-path="outsmarting-a-nobel-laureate.html"><a href="outsmarting-a-nobel-laureate.html"><i class="fa fa-check"></i><b>1</b> Outsmarting a Nobel Laureate</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#the-hot-hand"><i class="fa fa-check"></i><b>1.1</b> The Hot Hand</a></li>
-<li class="chapter" data-level="1.2" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#hidden-solutions-and-hints"><i class="fa fa-check"></i><b>1.2</b> Hidden solutions and hints</a>
+<li class="chapter" data-level="1.1" data-path="outsmarting-a-nobel-laureate.html"><a href="outsmarting-a-nobel-laureate.html#the-hot-hand"><i class="fa fa-check"></i><b>1.1</b> The Hot Hand</a></li>
+<li class="chapter" data-level="1.2" data-path="outsmarting-a-nobel-laureate.html"><a href="outsmarting-a-nobel-laureate.html#hidden-solutions-and-hints"><i class="fa fa-check"></i><b>1.2</b> Hidden solutions and hints</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#example-problem"><i class="fa fa-check"></i><b>1.2.1</b> Example problem</a></li>
+<li class="chapter" data-level="1.2.1" data-path="outsmarting-a-nobel-laureate.html"><a href="outsmarting-a-nobel-laureate.html#example-problem"><i class="fa fa-check"></i><b>1.2.1</b> Example problem</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="using-webexercises.html"><a href="using-webexercises.html"><i class="fa fa-check"></i><b>2</b> Using <code>webexercises</code></a>
@@ -183,76 +183,110 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Empirical Research Methods</h1>
-<p class="author"><em>Francis J. DiTraglia</em></p>
-<p class="date"><em>2022-02-20</em></p>
+<div id="outsmarting-a-nobel-laureate" class="section level1" number="1">
+<h1><span class="header-section-number">Lesson 1</span> Outsmarting a Nobel Laureate</h1>
+<div id="the-hot-hand" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> The Hot Hand</h2>
+<ul>
+<li>Explain idea behind hot hand: more likely to make a basket if you've just made one.</li>
+<li>Sport fans and commentators long claimed this existed; Kahneman et al said it's an illusion; lots of papers on this; add some quotes</li>
+<li>In this case the academics turned out to be wrong: Miller &amp; Sanjurjo (2018) showed that the statistical methods researchers had used to study the hot hand were flawed.</li>
+<li>Biased <em>against</em> finding evidence of a hot hand even if it exists. Turns out that <em>there is</em> a hot hand phenonmenon.</li>
+<li>Here's what I find interesting about this.</li>
+<li>Viewed from one perspective, this is a very subtle error: the probabilistic intuition behind it is relatively complicated, M&amp;S even wrote a simpler follow-up paper to try to get the intuition across. Subtle enough to be missed by Nobel laureates!</li>
+<li>On the other hand, this is a boneheaded error: anyone with a rudimentary knowledge of programming could have coded up a simulation in under an hour to reveal the problem. No one bothered until M&amp;S.</li>
+<li>The moral: simulation is a <em>superpower</em>. It's not a replacement for theory, but a potent complement. If you find a pattern you don't understand in a simulation, this can spur you to try to understand the mathematics behind it.</li>
+<li>Swiss Army Knife metaphor: simulation is like the knife, arguably the most important tool in the box, weapon in the arsenal.</li>
+<li>Today you'll carry out a simulation establishing the bias of methods previously used to look for a hot hand.</li>
+<li>Along the way, you'll learn some helpful tools for simulation more broadly and a useful pattern for keeping your simulation code organized.</li>
+<li>Maybe even a touch of parallel computing!</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>Some basic simulation commands in R: <code>sample()</code>, <code>rbinom()</code>, <code>rnorm()</code>, etc. Read the help files.</li>
+<li>Write a function <code>draw_sim_data()</code> that makes 100 Bernoulli(1/2) draws. Optional arguments <code>p</code> and <code>n</code>? This simulates data when there is <em>no hot hand</em></li>
+<li><code>set.seed()</code> what does it do?</li>
+<li>Think about how to calculate the estimator: fraction of times that three ones are followed by another one compared to another zero. Suppose you had a function <code>is_after_3_ones()</code> that took a vector of 0 and 1 and returned, for each element, whether it is after three ones. How would you use it? Write this function.</li>
+<li>Put everything together with <code>replicate()</code> to do a simple sim for <span class="math inline">\(p=1/2\)</span> and <span class="math inline">\(n = 100\)</span>.</li>
+<li>How about trying different values of <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>? Need to keep results organized: <code>apply()</code> family of functions (or maybe the tidy equivalents?)</li>
+<li>Try doing it in parallel with <code>mclapply()</code>. First explain the basic idea of parallel and why this is "embarrassingly parallel." Show them how to time the code, illustrate with <code>sys.sleep()</code>.</li>
+<li>For the students who finish very quickly, have some extensions: a markov chain DGP, and <code>is_after_k_ones()</code></li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="outsmarting-a-nobel-laureate.html#cb1-1" aria-hidden="true" tabindex="-1"></a>dgp <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">p =</span> <span class="fl">0.5</span>) {</span>
+<span id="cb1-2"><a href="outsmarting-a-nobel-laureate.html#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbinom</span>(n, <span class="dv">1</span>, p)</span>
+<span id="cb1-3"><a href="outsmarting-a-nobel-laureate.html#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-4"><a href="outsmarting-a-nobel-laureate.html#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="outsmarting-a-nobel-laureate.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Maybe have a challenge to write the version for after k ones, but start by</span></span>
+<span id="cb1-6"><a href="outsmarting-a-nobel-laureate.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># asking them to do the one for after 3 ones</span></span>
+<span id="cb1-7"><a href="outsmarting-a-nobel-laureate.html#cb1-7" aria-hidden="true" tabindex="-1"></a>is_after_k_ones <span class="ot">&lt;-</span> <span class="cf">function</span>(x, k) {</span>
+<span id="cb1-8"><a href="outsmarting-a-nobel-laureate.html#cb1-8" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>)</span>
+<span id="cb1-9"><a href="outsmarting-a-nobel-laureate.html#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> (k<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span><span class="fu">length</span>(x)) {</span>
+<span id="cb1-10"><a href="outsmarting-a-nobel-laureate.html#cb1-10" aria-hidden="true" tabindex="-1"></a>    out[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(x[(i <span class="sc">-</span> k)<span class="sc">:</span>(i <span class="sc">-</span> <span class="dv">1</span>)]) <span class="sc">==</span> k</span>
+<span id="cb1-11"><a href="outsmarting-a-nobel-laureate.html#cb1-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-12"><a href="outsmarting-a-nobel-laureate.html#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
+<span id="cb1-13"><a href="outsmarting-a-nobel-laureate.html#cb1-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-14"><a href="outsmarting-a-nobel-laureate.html#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="outsmarting-a-nobel-laureate.html#cb1-15" aria-hidden="true" tabindex="-1"></a>get_est <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1-16"><a href="outsmarting-a-nobel-laureate.html#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">#ones &lt;- which(x == 1)</span></span>
+<span id="cb1-17"><a href="outsmarting-a-nobel-laureate.html#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">#mean(x[ones + 1], na.rm = TRUE)</span></span>
+<span id="cb1-18"><a href="outsmarting-a-nobel-laureate.html#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(x[<span class="fu">is_after_k_ones</span>(x, <span class="dv">3</span>)], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-19"><a href="outsmarting-a-nobel-laureate.html#cb1-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-20"><a href="outsmarting-a-nobel-laureate.html#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="outsmarting-a-nobel-laureate.html#cb1-21" aria-hidden="true" tabindex="-1"></a>n_reps <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
+<span id="cb1-22"><a href="outsmarting-a-nobel-laureate.html#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb1-23"><a href="outsmarting-a-nobel-laureate.html#cb1-23" aria-hidden="true" tabindex="-1"></a>sim_results <span class="ot">&lt;-</span> <span class="fu">replicate</span>(n_reps, <span class="fu">get_est</span>(<span class="fu">dgp</span>()))</span>
+<span id="cb1-24"><a href="outsmarting-a-nobel-laureate.html#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-25"><a href="outsmarting-a-nobel-laureate.html#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(sim_results)</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Removed 30 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="outsmarting-a-nobel-laureate.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sim_results, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 0.4602045</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="outsmarting-a-nobel-laureate.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ones &lt;- which(x == 1)</span></span>
+<span id="cb6-2"><a href="outsmarting-a-nobel-laureate.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#x[which(x == 1) + 1]</span></span>
+<span id="cb6-3"><a href="outsmarting-a-nobel-laureate.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#runs &lt;- rle(x)</span></span>
+<span id="cb6-4"><a href="outsmarting-a-nobel-laureate.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#foo &lt;- rle(x)</span></span>
+<span id="cb6-5"><a href="outsmarting-a-nobel-laureate.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#str(foo)</span></span>
+<span id="cb6-6"><a href="outsmarting-a-nobel-laureate.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#x</span></span>
+<span id="cb6-7"><a href="outsmarting-a-nobel-laureate.html#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#foo$lengths</span></span>
+<span id="cb6-8"><a href="outsmarting-a-nobel-laureate.html#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#foo$values</span></span></code></pre></div>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div id="about-this-book" class="section level2 unnumbered">
-<h2>About This Book</h2>
-<p>Supervising undergraduate, masters-level, and doctoral research students has shown me just how many of the skills that I take for granted in my day-to-day work were never taught in a course, but acquired through years of painful trial-and-error. You've probably heard that "the only way to learn how to do research is by doing research." Indeed: classroom exercises are always somewhat artificial, and there is no substitute for getting your hands dirty with a problem that really matters to you. But trial-and-error is a slow and clumsy way to gain proficiency, and throwing students in at the deep end is neither a recipe for academic success nor for mental well-being. The goal of this book is to put some structure around the process through which students learn to do empirical work in economics, building a strong foundation for later self-directed reading and research.</p>
-<p>The book is divided into twenty-odd short chapters called <em>lessons</em>, each designed to take between one and two hours to complete. Broadly speaking, the material is a mix of applied econometrics, data science, and research skills. In keeping with the Swiss Army Knife logo, the idea is to teach you lots of little things that will come in handy later. While the topics covered below are something of a miscellany, there are strong connections between the lessons. For best results, complete them <em>in order</em>.</p>
-<p>A key theme that runs throughout the lessons is the importance of reproducible research using open-source tools. Reproducible research is about creating a clean and fully-documented path from raw data to final results, making errors less likely to occur and easier to find when they do. It also allows other researchers, or our future selves, to build on past work, expanding the sum total of knowledge. Of course I can only replicate your research if I can run your code, and this is why open-source software is so important. Fortunately there are many fantastic open-source programming languages to choose from. This book uses R, the <em>lingua franca</em> of statistics and an increasingly popular choice among economists.</p>
+<div id="hidden-solutions-and-hints" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Hidden solutions and hints</h2>
+<p>You can fence off a solution area that will be hidden behind a button using <code>hide()</code> before the solution and <code>unhide()</code> after, each as inline R code. Pass the text you want to appear on the button to the <code>hide()</code> function.</p>
+<p>If the solution is an RMarkdown code chunk, instead of using <code>hide()</code> and <code>unhide()</code>, simply set the <code>webex.hide</code> chunk option to TRUE, or set it to the string you wish to display on the button.</p>
+<div id="example-problem" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Example problem</h3>
+<p><strong>Recreate the scatterplot below, using the built-in <code>cars</code> dataset.</strong></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="webex-solution">
+<button>
+I need a hint
+</button>
+<p>See the documentation for <code>plot()</code> (<code>?plot</code>)</p>
 </div>
-<div id="pre-requisites" class="section level2 unnumbered">
-<h2>Pre-requisites</h2>
-<p>This book does not assume advanced knowledge of programming, mathematics, or econometrics, but it does have some pre-requisites. My target audience is first-year graduate students and final-year undergraduates in economics. At Oxford, I use this book to teach a first-year master's level course on <em>Empirical Research Methods</em> that comes after students have completed 16 weeks of basic statistics and econometrics. I assume that you've taken an econometrics course that uses matrix notation and that you have <em>basic familiarity</em> with R programming. If you need to brush up on econometrics, I recommend <a href="https://www.google.co.uk/books/edition/A_Guide_to_Modern_Econometrics/uEFm6pAJZhoC?hl=en&amp;gbpv=1&amp;dq=marno+verbeek+guide+to+modern+econometrics&amp;printsec=frontcover">Marno Verbeek's <em>Guide to Modern Econometrics</em></a>. I've linked to the third edition because it is particularly inexpensive to buy a used copy, but any edition will do. At a more advanced level, Bruce Hansen's <a href="https://ssc.wisc.edu/~bhansen/econometrics/">two volume series <em>Econometrics</em></a> is both excellent and free to download online. If you haven't used R before or feel the need for a bit of review, I suggest reading <a href="https://rstudio-education.github.io/hopr/">Hands-On Programming with R</a>. It's free, short, and will get you up to speed quickly.</p>
+<!-- note: you could also just set webex.hide to TRUE -->
+<div class="webex-solution">
+<button>
+Click here to see the solution
+</button>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="outsmarting-a-nobel-laureate.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cars<span class="sc">$</span>speed, cars<span class="sc">$</span>dist)</span></code></pre></div>
 </div>
-<div id="why-not-stata" class="section level2 unnumbered">
-<h2>Why not Stata?</h2>
-<p>Given that much of the material discussed below falls under the broad category of "applied microeconometrics" you may wonder why I chose R rather than <a href="https://stata.com">Stata</a>. Indeed, Stata is easy-to-use, and makes it relatively painless to implement "textbook" microeconometric methods.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> So why don't I like Stata? Before beginning my polemic I should be absolutely clear that Stata users are not bad people: hate the sine, love the sinner. Here begins the sermon.</p>
-<p>First, Stata is expensive.
-The price for a Business single-user Stata license is $765 <em>per year</em>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
-If you want support for multicore computing, the price is even higher: an 8-core version of Stata costs $1,395 annually.
-There is no discount for Government or nonprofits, but as an Oxford faculty member, I can obtain an 8-core version of Stata for the low price of $595 per year, or around 9% of my annual research allowance.
-In contrast, the tools that we will learn in this book, mainly R and C++, are completely free.
-This is particularly important in the modern world of high-performance cluster computing.
-If you're considering running your code on a multicore machine on Amazon, Google, or Microsoft cloud servers, you don't want to pay a software license fee for every core that you use.</p>
-<p>Second, Stata is almost comically behind the times.
-Let's see what's new in Stata version 16, released in February 2020.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
-At the top of the list is the LASSO, a wildly popular technique for high-dimensional regression.
-Rob Tibshirani developed this method in a seminal paper from 1996, so it only took 24 years for it to be incorporated into Stata.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
-Fortunately, Tibshirani and his co-authors made it easy for Stata, by releasing open-source software to implement the LASSO and related methods in R over a decade ago.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>
-Next on the list of new Stata features is linear programming, a technique that came to prominence in the late 1940s.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>
-Stata 16 also has the ability to call "any Python package"--something you can do for free in R using <a href="https://github.com/rstudio/reticulate">reticulate</a> or in Python itself for that matter--and "truly reproducible reporting."
-Reproducible reporting is incredibly valuable, and it's something that we'll cover in detail below.
-It's also been available in R, completely free of charge, since at least 2002.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>
-I suppose we shouldn't expect too much of a statistical computing package that only added support for matrix programming in 2005, a full 20 years after Stata version 1.0.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
-<p>Third, Stata is a black box.
-Because the underlying source code is kept secret, there's no way for a Stata user to know for certain what's happening under the hood.
-A few years ago I tried to determine precisely what instrument set Stata was using in its implementation of a well-known dynamic panel estimator.
-The documentation was vague, so resorted to reverse-engineering the Stata results by trial-and-error in R.
-We never did get the results to match perfectly.
-In contrast, if you're not sure what a particular R function or package is doing, you can simply read the source code and find out.</p>
-<p>Fourth, and most importantly, Stata makes it hard to share with others.
-If I don't own a copy of Stata, I can't replicate your work.
-Even if I do own a copy of Stata, I still may not be able to so do: Stata's proprietary binary data formats are updated fairly regularly and do not maintain backwards compatibility.
-Datafiles created in Stata version 16, for example, cannot be opened in Stata 13.
-Indeed, depending on the number of variables included in your dataset, Stata 16 files cannot necessarily be opened even in Stata 15.
-Fortunately, as we'll see below, intrepid open-source programmers have developed free software to unlock data from Stata's proprietary and ever-changing binary formats.</p>
-</div>
-<div id="why-not-matlab-julia-or-python" class="section level2 unnumbered">
-<h2>Why not Matlab, Julia, or Python?</h2>
-<p>Unlike Stata, Matlab is a <em>bona fide</em> programming language and a fairly capable one at that. Nevertheless, my other critiques of Stata from above still apply: Matlab is extremely expensive, and it's not open source. In contrast, I have nothing bad to say about Python and Julia: they're great languages and you should consider learning one or both of them! A good resources aimed at economists is the <code>quantecon.org</code>: <a href="https://python.quantecon.org/" class="uri">https://python.quantecon.org/</a> and <a href="https://julia.quantecon.org/" class="uri">https://julia.quantecon.org/</a>. In the end I decided to choose <em>one language</em> and R struck me as the best choice <em>for the moment</em>. In five or ten years time, I could easily imagine re-writing this book in Julia, but as of this writing R has the advantage of maturity and a large, and generally extremely supportive community of users. Even if you ultimately decide that R isn't for you, fear not! After learning the material in this book, you'll find it fairly easy to transition to Python or Julia, should you so choose.</p>
-<p><strong>Now let's get started!</strong></p>
+<!-- TO CHANGE WIDGET COLOURS:
+  move command below out of this HTML comment area
+  and then re-compile;
+  unfilled becomes yellow, correct becomes pink 
+     
+
+<style>
+    .webex-solveme { border-color: #FFFF00; }
+    .webex-solveme.webex-correct { border-color: #FF3399; }
+</style>
+
+
+-->
 
 </div>
 </div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>Arguably, Stata is <em>too easy to learn</em> precisely because of the incentives faced by a software developer with monopoly power: see Hal Varian's paper: <a href="https://people.ischool.berkeley.edu/~hal/Papers/Software.pdf">Economic Incentives in Software Design</a>. Monopolist may make software <em>too easy</em> to learn.<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>These figures were accurate as of March 2021. For the latest prices, see <a href="https://www.stata.com/order/dl/" class="uri">https://www.stata.com/order/dl/</a>.<a href="index.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p><a href="https://www.stata.com/new-in-stata/" class="uri">https://www.stata.com/new-in-stata/</a><a href="index.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p><a href="https://rss.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.2517-6161.1996.tb02080.x">Tibshirani (1996) - Regression Shrinkage and Selection via the Lasso</a><a href="index.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p><a href="https://www.jstatsoft.org/article/view/v033i01">Friedman et al (2010) - Regularization Paths for Generalized Linear Models via Coordinate Descent</a><a href="index.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>For a history of linear programming, see <a href="https://link.springer.com/content/pdf/10.1007/978-3-642-68874-4_4.pdf">Dantzig (1983)</a>. To be completely fair, the linear programming <a href="https://www.stata.com/new-in-stata/linear-programming/">algorithm</a>
-implemented in Stata 16 was only developed in 1992, a lag of merely 28 years.<a href="index.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>Reproducible reporting in R started with <a href="https://cran.r-project.org/doc/Rnews/Rnews_2002-3.pdf">sweave</a>. These days we have a fantastic successor package called <a href="https://yihui.org/knitr/">knitr</a>, which I cover below.<a href="index.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>The "Mata" programming language was added in Stata 9: <a href="https://www.stata.com/stata9/" class="uri">https://www.stata.com/stata9/</a>. For a timeline of Stata versions, see <a href="https://www.stata.com/support/faqs/resources/history-of-stata/" class="uri">https://www.stata.com/support/faqs/resources/history-of-stata/</a>.<a href="index.html#fnref8" class="footnote-back">↩︎</a></p></li>
-</ol>
 </div>
 <script>
 
@@ -430,8 +464,8 @@ window.onload = function() {
           </div>
         </div>
       </div>
-
-<a href="how-to-outsmart-a-nobel-laureate.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="using-webexercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
