@@ -1,5 +1,5 @@
 ---
-title: "Core Empirical Research Methods"
+title: "Empirical Research Methods"
 author: "Francis J. DiTraglia"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -10,31 +10,26 @@ documentclass: book
 
 ## About This Book {-}
 
-Supervising undergraduate, masters-level, and doctoral research students has shown me just how many of the skills that I take for granted in my day-to-day work were never taught in a course, but acquired through years of painful trial-and-error. You've probably heard that "the only way to learn how to do research is by doing research." Indeed: classroom exercises are always somewhat artificial, and there is no substitute for getting your hands dirty with a problem that really matters to you. But trial-and-error is a slow and clumsy way to gain proficiency, and throwing students in at the deep end is neither a recipe for academic success nor for mental well-being. The goal of this book is to put some structure around the process through which students learn to do empirical work in economics, building skills and confidence step-by-step, and providing a foundation for later self-directed reading and research.
+Supervising undergraduate, masters-level, and doctoral research students has shown me just how many of the skills that I take for granted in my day-to-day work were never taught in a course, but acquired through years of painful trial-and-error. You've probably heard that "the only way to learn how to do research is by doing research." Indeed: classroom exercises are always somewhat artificial, and there is no substitute for getting your hands dirty with a problem that really matters to you. But trial-and-error is a slow and clumsy way to gain proficiency, and throwing students in at the deep end is neither a recipe for academic success nor for mental well-being. The goal of this book is to put some structure around the process through which students learn to do empirical work in economics, building a strong foundation for later self-directed reading and research.
 
-The book is divided into twenty-odd short chapters called *lessons*.   
-- Why the Swiss Army Knife?
+The book is divided into twenty-odd short chapters called *lessons*, each designed to take between one and two hours to complete. Broadly speaking, the material is a mix of applied econometrics, data science, and research skills. In keeping with the Swiss Army Knife logo, the idea is to teach you lots of little things that will come in handy later. While the topics covered below are something of a miscellany, there are strong connections between the lessons. For best results, complete them *in order*. 
 
-A key theme of this book is the importance of reproducible research using open-source tools. In recent years, many headline empirical findings across the social sciences have failed to replicate. In some particularly famous examples, running the original authors' code on their own data produced results markedly different from those in the published paper. In others, impressive results vanished after coding or data merging errors were corrected. While there have been instances of outright fraud, many of these replication failures resulted from honest mistakes. Reproducible research is about creating a clean and fully-documented path from raw data to final results, making errors less likely to occur and easier to find when they do. It also allows other researchers, or our future selves, to build on past work, expanding the sum total of knowledge. Of course I can only replicate your research if I can run your code, and this is why open-source software is so important. Fortunately there are many fantastic open-source programming languages to choose from. This book uses R, the *lingua franca* of statistics and an increasingly popular choice among economists. 
+A key theme that runs throughout the lessons is the importance of reproducible research using open-source tools. Reproducible research is about creating a clean and fully-documented path from raw data to final results, making errors less likely to occur and easier to find when they do. It also allows other researchers, or our future selves, to build on past work, expanding the sum total of knowledge. Of course I can only replicate your research if I can run your code, and this is why open-source software is so important. Fortunately there are many fantastic open-source programming languages to choose from. This book uses R, the *lingua franca* of statistics and an increasingly popular choice among economists. 
 
 
 ## Pre-requisites {-}
 
-This book does not assume advanced knowledge of programming, mathematics, or econometrics, but it does have some pre-requisites. My target audience is first-year graduate students and final-year undergraduates in economics. I assume that you've taken an econometrics course that uses matrix notation and that you have *basic familiarity* with R programming. If you haven't used R before, I suggest reading [Hands-On Programming with R](https://rstudio-education.github.io/hopr/). It's free, short, and will get you up to speed quickly. 
+This book does not assume advanced knowledge of programming, mathematics, or econometrics, but it does have some pre-requisites. My target audience is first-year graduate students and final-year undergraduates in economics. At Oxford, I use this book to teach a first-year master's level course on *Empirical Research Methods* that comes after students have completed 16 weeks of basic statistics and econometrics. I assume that you've taken an econometrics course that uses matrix notation and that you have *basic familiarity* with R programming. If you need to brush up on econometrics, I recommend [Marno Verbeek's *Guide to Modern Econometrics*](https://www.google.co.uk/books/edition/A_Guide_to_Modern_Econometrics/uEFm6pAJZhoC?hl=en&gbpv=1&dq=marno+verbeek+guide+to+modern+econometrics&printsec=frontcover). I've linked to the third edition because it is particularly inexpensive used, buy any edition will do. At a more advanced level, Bruce Hansen's [two volume series *Econometrics*](https://ssc.wisc.edu/~bhansen/econometrics/) is both excellent and free to download online. If you haven't used R before or feel the need for a bit of review, I suggest reading [Hands-On Programming with R](https://rstudio-education.github.io/hopr/). It's free, short, and will get you up to speed quickly. 
+
 
 ## Why not Stata? {-}
 
-[Stata](https://stata.com) remains a popular choice among applied microeconomists.
-There's a good chance that you have have encountered it in your undergraduate studies or working as a research assistant.
-In its favor, Stata is easy-to-use, and makes it relatively painless to implement "textbook" econometric methods.^[Arguably, Stata is *too easy to learn* precisely because of the incentives faced by a software developer with monopoly power: see Hal Varian's paper: [Economic Incentives in Software Design](https://people.ischool.berkeley.edu/~hal/Papers/Software.pdf). Monopolist may make software *too easy* to learn.] 
-So why not use Stata?
-Before beginning my polemic I should be absolutely clear that Stata users are not bad people: love the sinner, hate the sin.
-Here begins the sermon.
+Given that much of the material discussed below falls under the broad category of "applied microeconometrics" you may wonder why I chose R rather than [Stata](https://stata.com). Indeed, Stata is easy-to-use, and makes it relatively painless to implement "textbook" microeconometric methods.^[Arguably, Stata is *too easy to learn* precisely because of the incentives faced by a software developer with monopoly power: see Hal Varian's paper: [Economic Incentives in Software Design](https://people.ischool.berkeley.edu/~hal/Papers/Software.pdf). Monopolist may make software *too easy* to learn.] So why don't I like Stata? Before beginning my polemic I should be absolutely clear that Stata users are not bad people: hate the sine, love the sinner. Here begins the sermon.
 
 First, Stata is expensive.
 The price for a Business single-user Stata license is \$765 *per year*.^[These figures were accurate as of March 2021. For the latest prices, see <https://www.stata.com/order/dl/>.]
 If you want support for multicore computing, the price is even higher: an 8-core version of Stata costs \$1,395 annually.
-There is no discount for Government or nonprofits, but as an Oxford faculty member, I can obtain an 8-core version of Stata for the low price of \$595 per year.
+There is no discount for Government or nonprofits, but as an Oxford faculty member, I can obtain an 8-core version of Stata for the low price of \$595 per year, or around 9\% of my annual research allowance.
 In contrast, the tools that we will learn in this book, mainly R and C++, are completely free.
 This is particularly important in the modern world of high-performance cluster computing.
 If you're considering running your code on a multicore machine on Amazon, Google, or Microsoft cloud servers, you don't want to pay a software license fee for every core that you use.
@@ -65,32 +60,15 @@ Datafiles created in Stata version 16, for example, cannot be opened in Stata 13
 Indeed, depending on the number of variables included in your dataset, Stata 16 files cannot necessarily be opened even in Stata 15.
 Fortunately, as we'll see below, intrepid open-source programmers have developed free software to unlock data from Stata's proprietary and ever-changing binary formats.
 
-## Why not Matlab? {-}
+## Why not Matlab, Julia, or Python? {-}
 
-Matlab is much more capable and much less out-of-date than Stata, but many of the same critiques apply: it's expensive, and it's not open source.
-<!--There is an open-source clone called `octave`. 
-There's also an open-source C++ library called `Armadillo` with syntax almost identical to that of Matlab.
-We'll see how easy it is to use `Armadillo` from R with only the rudiments of C++ background.-->
+Unlike Stata, Matlab is a *bona fide* programming language and a fairly capable one at that. Nevertheless, my other critiques of Stata from above still apply: Matlab is extremely expensive, and it's not open source. In contrast, I have nothing bad to say about Python and Julia: they're great languages and you should consider learning one or both of them! A good resources aimed at economists is the `quantecon.org`: <https://python.quantecon.org/> and <https://julia.quantecon.org/>. In the end I decided to choose *one language* and R struck me as the best choice *for the moment*. In five or ten years time, I could easily imagine re-writing this book in Julia, but as of this writing R has the advantage of maturity and a large, and generally extremely supportive community of users. Even if you ultimately decide that R isn't for you, fear not! After learning the material in this book, you'll find it fairly easy to transition to Python or Julia, should you so choose.
 
-## Why R? {-}
-
-- R is Free
-- R has cutting-edge methods (CRAN task views)
-- R is open-source: you can check the source code for yourself!
-- R supports open science
-- Great community
-
-## Some Half-truths about R {-}
-
-- R is slow. This is true, sort of. But then we have amazing tools like Rcpp
-- R is hard to learn. It's certainly harder to learn than something like STATA, but it's also much more powerful. 
-- Economists don't use R. Anecdotally, this seems to be a generational divide: open source tools are the norm and there are lots of R packages for econometrics. 
+**Now let's get started!**
 
 
-## Why not Julia or Python? {-}
-
-On balance, I prefer R/C++ in my day-to-day work but Python and Julia are great options too and you should most certainly give them a try.
-A good resource aimed at economists is the `quantecon.org`: <https://python.quantecon.org/> and <https://julia.quantecon.org/> 
 
 
-<!-- If you need PDF output, uncomment bookdown::pdf_book above in YAML. You will need a LaTeX installation, e.g., https://yihui.name/tinytex/ -->
+
+
+

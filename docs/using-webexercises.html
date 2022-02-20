@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lesson 2 Using webexercises | Core Empirical Research Methods</title>
-  <meta name="description" content="Lesson 2 Using webexercises | Core Empirical Research Methods" />
+  <title>Lesson 2 Using webexercises | Empirical Research Methods</title>
+  <meta name="description" content="Lesson 2 Using webexercises | Empirical Research Methods" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lesson 2 Using webexercises | Core Empirical Research Methods" />
+  <meta property="og:title" content="Lesson 2 Using webexercises | Empirical Research Methods" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lesson 2 Using webexercises | Core Empirical Research Methods" />
+  <meta name="twitter:title" content="Lesson 2 Using webexercises | Empirical Research Methods" />
   
   
   
@@ -142,10 +142,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i>About This Book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-requisites"><i class="fa fa-check"></i>Pre-requisites</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-stata"><i class="fa fa-check"></i>Why not Stata?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab"><i class="fa fa-check"></i>Why not Matlab?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i>Why R?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#some-half-truths-about-r"><i class="fa fa-check"></i>Some Half-truths about R</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-julia-or-python"><i class="fa fa-check"></i>Why not Julia or Python?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab-julia-or-python"><i class="fa fa-check"></i>Why not Matlab, Julia, or Python?</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="rcrash.html"><a href="rcrash.html"><i class="fa fa-check"></i><b>1</b> A Crash Course in R Programming</a>
 <ul>
@@ -195,7 +192,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Core Empirical Research Methods</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Empirical Research Methods</a>
           </h1>
         </div>
 
@@ -236,7 +233,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>This correct answer doesn't have to be hard-coded: you can do calculations in place or supply the name of an R object created elsewhere in your RMarkdown document. This allows you to create a <em>dynamic</em> question and answer. Here's an example in which the question is <em>randomly generated</em> when you knit this document:</p>
 <ul>
-<li>The square root of 4 is: <input class='webex-solveme nospaces' size='1' data-answer='["2"]'/></li>
+<li>The square root of 64 is: <input class='webex-solveme nospaces' size='1' data-answer='["8"]'/></li>
 </ul>
 <p>If the correct answer is <code>E</code>, but a user enters <code>e</code>, this will be marked as incorrect: <code>fitb()</code> is <em>case sensitive</em>. To turn this off, set <code>ignore_case = TRUE</code>.</p>
 <ul>
@@ -269,12 +266,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>To create a multiple choice question with radio buttons rather than a dropdown menu, use <code>mcqlong()</code>. This tends to result in nicer formatting than a drop-down if the answers to your question are "long," hence the name of the function. When your answers are long, inline R code can be hard to read. To avoid this problem, you can set up your multiple choice answers in a vector within an R chunk with <code>echo=FALSE</code> and then supply that vector as the first argument to <code>longmcq()</code> in an inline R chunk. For example:</p>
 <p><strong>Which of these statements about p-values is correct?</strong></p>
-<div id="radio_USNKZGOJPJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_USNKZGOJPJ" value=""></input> <span>A p-value is the probability that the null hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_USNKZGOJPJ" value="answer"></input> <span>A p-value is the probability of observing a test statistic at least as extreme as the one we actually observed, assuming that the null hypothesis is true.</span></label><label><input type="radio" autocomplete="off" name="radio_USNKZGOJPJ" value=""></input> <span>The p-value is the probability of making a mistake when testing a hypothesis.</span></label>
+<div id="radio_FTDJIVGMVU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_FTDJIVGMVU" value=""></input> <span>A p-value is the probability that the null hypothesis is true</span></label><label><input type="radio" autocomplete="off" name="radio_FTDJIVGMVU" value="answer"></input> <span>A p-value is the probability of observing a test statistic at least as extreme as the one we actually observed, assuming that the null hypothesis is true.</span></label><label><input type="radio" autocomplete="off" name="radio_FTDJIVGMVU" value=""></input> <span>The p-value is the probability of making a mistake when testing a hypothesis.</span></label>
 </div>
 <p><strong>What is true about a 95% confidence interval for the population mean <span class="math inline">\(\mu\)</span>?</strong></p>
-<div id="radio_VFSKFBVBQH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VFSKFBVBQH" value=""></input> <span>The probability that <span class="math inline">\(\mu\)</span> lies in our confidence interval equals 0.95.</span></label><label><input type="radio" autocomplete="off" name="radio_VFSKFBVBQH" value="answer"></input> <span>If we repeatedly draw a sample of the same size from the same population, and construct an interval in this way for each sample, then approximately 95% of the intervals will contain <span class="math inline">\(\mu\)</span>.</span></label><label><input type="radio" autocomplete="off" name="radio_VFSKFBVBQH" value=""></input> <span>Approximately 95% of the values in our dataset will fall within the confidence interval.</span></label>
+<div id="radio_PBAJQGXGRE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PBAJQGXGRE" value=""></input> <span>The probability that <span class="math inline">\(\mu\)</span> lies in our confidence interval equals 0.95.</span></label><label><input type="radio" autocomplete="off" name="radio_PBAJQGXGRE" value=""></input> <span>Approximately 95% of the values in our dataset will fall within the confidence interval.</span></label><label><input type="radio" autocomplete="off" name="radio_PBAJQGXGRE" value="answer"></input> <span>If we repeatedly draw a sample of the same size from the same population, and construct an interval in this way for each sample, then approximately 95% of the intervals will contain <span class="math inline">\(\mu\)</span>.</span></label>
 </div>
 </div>
 <div id="hide-solutions-create-hints" class="section level2" number="2.5">

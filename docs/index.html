@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Core Empirical Research Methods</title>
-  <meta name="description" content="Core Empirical Research Methods" />
+  <title>Empirical Research Methods</title>
+  <meta name="description" content="Empirical Research Methods" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Core Empirical Research Methods" />
+  <meta property="og:title" content="Empirical Research Methods" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Core Empirical Research Methods" />
+  <meta name="twitter:title" content="Empirical Research Methods" />
   
   
   
@@ -142,10 +142,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i>About This Book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-requisites"><i class="fa fa-check"></i>Pre-requisites</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-stata"><i class="fa fa-check"></i>Why not Stata?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab"><i class="fa fa-check"></i>Why not Matlab?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-r"><i class="fa fa-check"></i>Why R?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#some-half-truths-about-r"><i class="fa fa-check"></i>Some Half-truths about R</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-julia-or-python"><i class="fa fa-check"></i>Why not Julia or Python?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab-julia-or-python"><i class="fa fa-check"></i>Why not Matlab, Julia, or Python?</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="rcrash.html"><a href="rcrash.html"><i class="fa fa-check"></i><b>1</b> A Crash Course in R Programming</a>
 <ul>
@@ -195,7 +192,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Core Empirical Research Methods</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Empirical Research Methods</a>
           </h1>
         </div>
 
@@ -204,7 +201,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Core Empirical Research Methods</h1>
+<h1 class="title">Empirical Research Methods</h1>
 <p class="author"><em>Francis J. DiTraglia</em></p>
 <p class="date"><em>2022-02-20</em></p>
 </div>
@@ -212,27 +209,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1>Preface</h1>
 <div id="about-this-book" class="section level2 unnumbered">
 <h2>About This Book</h2>
-<p>Supervising undergraduate, masters-level, and doctoral research students has shown me just how many of the skills that I take for granted in my day-to-day work were never taught in a course, but acquired through years of painful trial-and-error. You've probably heard that "the only way to learn how to do research is by doing research." Indeed: classroom exercises are always somewhat artificial, and there is no substitute for getting your hands dirty with a problem that really matters to you. But trial-and-error is a slow and clumsy way to gain proficiency, and throwing students in at the deep end is neither a recipe for academic success nor for mental well-being. The goal of this book is to put some structure around the process through which students learn to do empirical work in economics, building skills and confidence step-by-step, and providing a foundation for later self-directed reading and research.</p>
-<p>The book is divided into twenty-odd short chapters called <em>lessons</em>.<br />
-- Why the Swiss Army Knife?</p>
-<p>A key theme of this book is the importance of reproducible research using open-source tools. In recent years, many headline empirical findings across the social sciences have failed to replicate. In some particularly famous examples, running the original authors' code on their own data produced results markedly different from those in the published paper. In others, impressive results vanished after coding or data merging errors were corrected. While there have been instances of outright fraud, many of these replication failures resulted from honest mistakes. Reproducible research is about creating a clean and fully-documented path from raw data to final results, making errors less likely to occur and easier to find when they do. It also allows other researchers, or our future selves, to build on past work, expanding the sum total of knowledge. Of course I can only replicate your research if I can run your code, and this is why open-source software is so important. Fortunately there are many fantastic open-source programming languages to choose from. This book uses R, the <em>lingua franca</em> of statistics and an increasingly popular choice among economists.</p>
+<p>Supervising undergraduate, masters-level, and doctoral research students has shown me just how many of the skills that I take for granted in my day-to-day work were never taught in a course, but acquired through years of painful trial-and-error. You've probably heard that "the only way to learn how to do research is by doing research." Indeed: classroom exercises are always somewhat artificial, and there is no substitute for getting your hands dirty with a problem that really matters to you. But trial-and-error is a slow and clumsy way to gain proficiency, and throwing students in at the deep end is neither a recipe for academic success nor for mental well-being. The goal of this book is to put some structure around the process through which students learn to do empirical work in economics, building a strong foundation for later self-directed reading and research.</p>
+<p>The book is divided into twenty-odd short chapters called <em>lessons</em>, each designed to take between one and two hours to complete. Broadly speaking, the material is a mix of applied econometrics, data science, and research skills. In keeping with the Swiss Army Knife logo, the idea is to teach you lots of little things that will come in handy later. While the topics covered below are something of a miscellany, there are strong connections between the lessons. For best results, complete them <em>in order</em>.</p>
+<p>A key theme that runs throughout the lessons is the importance of reproducible research using open-source tools. Reproducible research is about creating a clean and fully-documented path from raw data to final results, making errors less likely to occur and easier to find when they do. It also allows other researchers, or our future selves, to build on past work, expanding the sum total of knowledge. Of course I can only replicate your research if I can run your code, and this is why open-source software is so important. Fortunately there are many fantastic open-source programming languages to choose from. This book uses R, the <em>lingua franca</em> of statistics and an increasingly popular choice among economists.</p>
 </div>
 <div id="pre-requisites" class="section level2 unnumbered">
 <h2>Pre-requisites</h2>
-<p>This book does not assume advanced knowledge of programming, mathematics, or econometrics, but it does have some pre-requisites. My target audience is first-year graduate students and final-year undergraduates in economics. I assume that you've taken an econometrics course that uses matrix notation and that you have <em>basic familiarity</em> with R programming. If you haven't used R before, I suggest reading <a href="https://rstudio-education.github.io/hopr/">Hands-On Programming with R</a>. It's free, short, and will get you up to speed quickly.</p>
+<p>This book does not assume advanced knowledge of programming, mathematics, or econometrics, but it does have some pre-requisites. My target audience is first-year graduate students and final-year undergraduates in economics. At Oxford, I use this book to teach a first-year master's level course on <em>Empirical Research Methods</em> that comes after students have completed 16 weeks of basic statistics and econometrics. I assume that you've taken an econometrics course that uses matrix notation and that you have <em>basic familiarity</em> with R programming. If you need to brush up on econometrics, I recommend <a href="https://www.google.co.uk/books/edition/A_Guide_to_Modern_Econometrics/uEFm6pAJZhoC?hl=en&amp;gbpv=1&amp;dq=marno+verbeek+guide+to+modern+econometrics&amp;printsec=frontcover">Marno Verbeek's <em>Guide to Modern Econometrics</em></a>. I've linked to the third edition because it is particularly inexpensive used, buy any edition will do. At a more advanced level, Bruce Hansen's <a href="https://ssc.wisc.edu/~bhansen/econometrics/">two volume series <em>Econometrics</em></a> is both excellent and free to download online. If you haven't used R before or feel the need for a bit of review, I suggest reading <a href="https://rstudio-education.github.io/hopr/">Hands-On Programming with R</a>. It's free, short, and will get you up to speed quickly.</p>
 </div>
 <div id="why-not-stata" class="section level2 unnumbered">
 <h2>Why not Stata?</h2>
-<p><a href="https://stata.com">Stata</a> remains a popular choice among applied microeconomists.
-There's a good chance that you have have encountered it in your undergraduate studies or working as a research assistant.
-In its favor, Stata is easy-to-use, and makes it relatively painless to implement "textbook" econometric methods.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
-So why not use Stata?
-Before beginning my polemic I should be absolutely clear that Stata users are not bad people: love the sinner, hate the sin.
-Here begins the sermon.</p>
+<p>Given that much of the material discussed below falls under the broad category of "applied microeconometrics" you may wonder why I chose R rather than <a href="https://stata.com">Stata</a>. Indeed, Stata is easy-to-use, and makes it relatively painless to implement "textbook" microeconometric methods.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> So why don't I like Stata? Before beginning my polemic I should be absolutely clear that Stata users are not bad people: hate the sine, love the sinner. Here begins the sermon.</p>
 <p>First, Stata is expensive.
 The price for a Business single-user Stata license is $765 <em>per year</em>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
 If you want support for multicore computing, the price is even higher: an 8-core version of Stata costs $1,395 annually.
-There is no discount for Government or nonprofits, but as an Oxford faculty member, I can obtain an 8-core version of Stata for the low price of $595 per year.
+There is no discount for Government or nonprofits, but as an Oxford faculty member, I can obtain an 8-core version of Stata for the low price of $595 per year, or around 9% of my annual research allowance.
 In contrast, the tools that we will learn in this book, mainly R and C++, are completely free.
 This is particularly important in the modern world of high-performance cluster computing.
 If you're considering running your code on a multicore machine on Amazon, Google, or Microsoft cloud servers, you don't want to pay a software license fee for every core that you use.</p>
@@ -259,36 +250,10 @@ Datafiles created in Stata version 16, for example, cannot be opened in Stata 13
 Indeed, depending on the number of variables included in your dataset, Stata 16 files cannot necessarily be opened even in Stata 15.
 Fortunately, as we'll see below, intrepid open-source programmers have developed free software to unlock data from Stata's proprietary and ever-changing binary formats.</p>
 </div>
-<div id="why-not-matlab" class="section level2 unnumbered">
-<h2>Why not Matlab?</h2>
-<p>Matlab is much more capable and much less out-of-date than Stata, but many of the same critiques apply: it's expensive, and it's not open source.
-<!--There is an open-source clone called `octave`. 
-There's also an open-source C++ library called `Armadillo` with syntax almost identical to that of Matlab.
-We'll see how easy it is to use `Armadillo` from R with only the rudiments of C++ background.--></p>
-</div>
-<div id="why-r" class="section level2 unnumbered">
-<h2>Why R?</h2>
-<ul>
-<li>R is Free</li>
-<li>R has cutting-edge methods (CRAN task views)</li>
-<li>R is open-source: you can check the source code for yourself!</li>
-<li>R supports open science</li>
-<li>Great community</li>
-</ul>
-</div>
-<div id="some-half-truths-about-r" class="section level2 unnumbered">
-<h2>Some Half-truths about R</h2>
-<ul>
-<li>R is slow. This is true, sort of. But then we have amazing tools like Rcpp</li>
-<li>R is hard to learn. It's certainly harder to learn than something like STATA, but it's also much more powerful.</li>
-<li>Economists don't use R. Anecdotally, this seems to be a generational divide: open source tools are the norm and there are lots of R packages for econometrics.</li>
-</ul>
-</div>
-<div id="why-not-julia-or-python" class="section level2 unnumbered">
-<h2>Why not Julia or Python?</h2>
-<p>On balance, I prefer R/C++ in my day-to-day work but Python and Julia are great options too and you should most certainly give them a try.
-A good resource aimed at economists is the <code>quantecon.org</code>: <a href="https://python.quantecon.org/" class="uri">https://python.quantecon.org/</a> and <a href="https://julia.quantecon.org/" class="uri">https://julia.quantecon.org/</a></p>
-<!-- If you need PDF output, uncomment bookdown::pdf_book above in YAML. You will need a LaTeX installation, e.g., https://yihui.name/tinytex/ -->
+<div id="why-not-matlab-julia-or-python" class="section level2 unnumbered">
+<h2>Why not Matlab, Julia, or Python?</h2>
+<p>Unlike Stata, Matlab is a <em>bona fide</em> programming language and a fairly capable one at that. Nevertheless, my other critiques of Stata from above still apply: Matlab is extremely expensive, and it's not open source. In contrast, I have nothing bad to say about Python and Julia: they're great languages and you should consider learning one or both of them! A good resources aimed at economists is the <code>quantecon.org</code>: <a href="https://python.quantecon.org/" class="uri">https://python.quantecon.org/</a> and <a href="https://julia.quantecon.org/" class="uri">https://julia.quantecon.org/</a>. In the end I decided to choose <em>one language</em> and R struck me as the best choice <em>for the moment</em>. In five or ten years time, I could easily imagine re-writing this book in Julia, but as of this writing R has the advantage of maturity and a large, and generally extremely supportive community of users. Even if you ultimately decide that R isn't for you, fear not! After learning the material in this book, you'll find it fairly easy to transition to Python or Julia, should you so choose.</p>
+<p><strong>Now let's get started!</strong></p>
 
 </div>
 </div>
