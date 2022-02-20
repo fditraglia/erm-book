@@ -22,6 +22,8 @@ The probabilistic error that led so many researchers to draw the wrong conclusio
 
 ## Update from here down!
 
+**Should I introduce `knitr` and `Rmarkdown` in this lesson or the next one?**
+
 1. Some basic simulation commands in R: `sample()`, `rbinom()`, `rnorm()`, etc. Read the help files.
 2. Write a function `draw_sim_data()` that makes 100 Bernoulli(1/2) draws. Optional arguments `p` and `n`? This simulates data when there is *no hot hand*
 3. `set.seed()` what does it do?

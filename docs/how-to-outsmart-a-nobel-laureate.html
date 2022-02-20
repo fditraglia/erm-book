@@ -199,10 +199,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Between 1985 and 2011, when Kahneman's book was published, this result was replicated numerous times under a variety of different conditions, making it one of the better-documented biases in human decision-making. But it turns out that the hot-hand illusion is <em>itself</em> an illusion.</p>
 <p>In a recent issue of <em>Econometrica</em>, <a href="https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA14943">Miller &amp; Sanjurjo (2018)</a> point out a subtle but consequential error in the statistical tests used in the hot hand literature. It turns out that these tests were biased <em>against</em> detecting evidence of a hot hand, even if it did in fact exist. Correcting this mistake and re-analyzing Gilovich, Vallone and Tversky's original dataset "reveals significant evidence of streak shooting, with large effect sizes." The hot hand is real.</p>
 <p>There are some helpful lessons that we can draw from this episode. First, we all make mistakes--even Nobel Laureates! Second, successful replications tell us less than we might hope: they could easily <em>reproduce</em> the bias of the original study. But in my view, the real lesson of the hot hand affair is much simpler: <strong>you should always run a simulation study.</strong></p>
-<p>The probabilistic error that led so many researchers to draw the wrong conclusion about the hot hand is really quite subtle.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> But at the same time, anyone who knows basic programming could have detected the mistake in five minutes if only they had bothered to look. In economics and statistics, simulation is a <em>superpower</em>. It helps us to understand our models, check for mistakes, and make unexpected connections, some of which may even lead to new theoretical results. If you'll pardon my continuation of the Swiss Army Knife metaphor, simulation is the knife: arguably the most useful tool in your toolbox. In this lesson, we'll cover some basic tools for carrying out a simulation experiment in R and use them to shed some light on the illusion of the hot hand illusion.</p>
+<p>The probabilistic error that led so many researchers to draw the wrong conclusion about the hot hand is really quite subtle.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> But at the same time, anyone who knows basic programming could have detected the mistake in five minutes if only they had bothered to look. In economics and statistics, simulation is a <em>superpower</em>. It helps us to understand our models, check for mistakes, and make unexpected connections, some of which may even lead to new theoretical results. If you'll pardon my continuation of the Swiss Army Knife metaphor, simulation is the knife: arguably the most useful tool in your toolbox. In this lesson, we'll cover some basic tools for carrying out a simulation experiment in R and use them to shed some light on the illusion of the hot hand illusion.</p>
 </div>
 <div id="update-from-here-down" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> Update from here down!</h2>
+<p><strong>Should I introduce <code>knitr</code> and <code>Rmarkdown</code> in this lesson or the next one?</strong></p>
 <ol style="list-style-type: decimal">
 <li>Some basic simulation commands in R: <code>sample()</code>, <code>rbinom()</code>, <code>rnorm()</code>, etc. Read the help files.</li>
 <li>Write a function <code>draw_sim_data()</code> that makes 100 Bernoulli(1/2) draws. Optional arguments <code>p</code> and <code>n</code>? This simulates data when there is <em>no hot hand</em></li>
@@ -240,7 +241,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-25"><a href="how-to-outsmart-a-nobel-laureate.html#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(sim_results)</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <pre><code>## Warning: Removed 30 rows containing non-finite values (stat_bin).</code></pre>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sim_results, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 0.4602045</code></pre>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ones &lt;- which(x == 1)</span></span>
@@ -259,7 +260,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="example-problem" class="section level3" number="1.3.1">
 <h3><span class="header-section-number">1.3.1</span> Example problem</h3>
 <p><strong>Recreate the scatterplot below, using the built-in <code>cars</code> dataset.</strong></p>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <div class="webex-solution">
 <button>
 I need a hint
@@ -292,8 +293,8 @@ Click here to see the solution
 </div>
 <div class="footnotes">
 <hr />
-<ol start="1">
-<li id="fn1"><p>See <a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.33.3.144">Miller &amp; Sanjurjo (2019)</a> for a more accessible explanation that connects to several related probability puzzles.<a href="how-to-outsmart-a-nobel-laureate.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<ol start="9">
+<li id="fn9"><p>See <a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.33.3.144">Miller &amp; Sanjurjo (2019)</a> for a more accessible explanation that connects to several related probability puzzles.<a href="how-to-outsmart-a-nobel-laureate.html#fnref9" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <script>
