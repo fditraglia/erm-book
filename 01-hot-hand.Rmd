@@ -207,6 +207,32 @@ Depending on the complexity of each of these functions, it may be helpful to wri
 
 Each function is a self-contained entity that we can think about and test in isolation. Once we're sure that each function is working correctly 
 
+```{r}
+draw_sim_data <- function(n, s_sq) {
+  rnorm(n, sd = sqrt(s_sq))
+}
+get_estimate <- function(x) {
+  sum((x - mean(x))^2) / length(x) # divides by n not (n-1)
+}
+get_bias <- function(n, s_sq, n_reps = 5000) {
+  draw_sim_replication <- function() {
+    sim_data <- draw_sim_data(n, s_sq)
+    get_estimate(sim_data)
+  }
+  sim_replications <- replicate(n_reps, draw_sim_replication())
+  mean(sim_replications - s_sq)
+}
+set.seed(420508570)
+get_bias(5, 1)
+get_bias(10, 2)
+sim_parameters <- expand.grid(n = 3:10, s_sq = c(1, 2, 3))
+#sim_results <- lapply(1:nrow(sim_parameters), 
+#                      function(i) get_bias(n = sim_parameters$n[i],
+#                                           s_sq = sim_parameters$s_sq[i]))
+#cbind(sim_parameters, sim_results)
+```
+
+
 
 ## Update from here down!
 
