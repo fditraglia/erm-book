@@ -1,6 +1,6 @@
 # How to Outsmart a Nobel Laureate 
 
-## The Hot Hand
+## Is the Hot Hand an Illusion?
 
 If you've read 2002 Nobel Laureate Daniel Kahneman's best-selling book [*Thinking Fast and Slow*](https://www.google.co.uk/books/edition/Thinking_Fast_and_Slow/AV9x8XakdV0C?hl=en&gbpv=1&dq=thinking+fast+and+slow&printsec=frontcover), you may remember this passage about the *hot hand illusion*, a supposed illustration of the human tendency to see patterns in random noise:
 
@@ -19,16 +19,19 @@ There are some helpful lessons that we can draw from this episode. First, we all
 The probabilistic error that led so many researchers to draw the wrong conclusion about the hot hand is really quite subtle.^[See [Miller \& Sanjurjo (2019)](https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.33.3.144) for a more accessible explanation that connects to several related probability puzzles.] But at the same time, anyone who knows basic programming could have detected the mistake in five minutes if only they had bothered to look. In economics and statistics, simulation is a *superpower*. It helps us to understand our models, check for mistakes, and make unexpected connections, some of which may even lead to new theoretical results. If you'll pardon my continuation of the Swiss Army Knife metaphor, simulation is the knife: arguably the most useful tool in your toolbox. In this lesson, we'll cover some basic tools for carrying out a simulation experiment in R and use them to shed some light on the illusion of the hot hand illusion.
 
 ## Drawing Random Data in R
+
+Before we can use simulations to study the illusion of the hot hand illusion, we need to review the basics of drawing random data in R. We'll examine the functions `sample()`, `rbinom()` and `set.seed()` in detail. I'll also point you to a large number functions for simulating from well-known probability distributions in R. Finally, you'll have a chance to practice what you've learned by solving a few short exercises.
+
 ### `sample()`
 R has many helpful built-in functions for making simulated random draws. The simplest is `sample()`, which makes `size` random draws without replacement from a vector `x`. To test this out, I'll create a very simple vector
 ```{r}
 my_vector <- c('there', 'is', 'no', 'largest', 'integer')
 ```
-The following line of code makes two draws *without replacement*
+The following line of code makes two draws *without replacement* from `my_vector`
 ```{r}
 sample(x = my_vector, size = 2) # without replacement
 ```
-If I run the same line of code again, I may not get the same result: it's random!^[Technically, "random" draws made on a computer are only [pseudorandom](https://en.wikipedia.org/wiki/Pseudorandomness).]
+If I run the same line of code again, I may not get the same result: it's random!^[Technically, "random" draws made on a computer are only [pseudorandom](https://en.wikipedia.org/wiki/Pseudorandomness). We'll discuss this further below.]
 ```{r}
 sample(x = my_vector, size = 2) # without replacement
 ```
@@ -37,9 +40,10 @@ To draw *with replacement*, set `replace = TRUE`
 ```{r}
 sample(x = my_vector, size = 7, replace = TRUE) # with replacement
 ```
-The argument names `x` and `size` are optional.
-```{r}
-sample(my_vector, 7, replace = TRUE)
+As usual in R, the argument names `x`, `size`, and `replace` are optional. But it is considered good coding style to explicitly supply an argument name whenever we're *overriding* a function's default behavior. This makes it easier for anyone reading our code to understand what's happening. Since `sample()` defaults to making draws *without* replacement, it's a good idea to write `replace = TRUE` rather then simply `TRUE`. But even without writing `replace = `, the code will still work as long as we supply all of the arguments in the correct *order*:
+```{r, error=TRUE}
+sample(my_vector, 7, TRUE) # bad style
+sample(my_vector, 7, replace = TRUE) # good style
 ```
 
 
@@ -68,29 +72,85 @@ These functions follow a consistent naming convention. They being with either `d
 | `d/p/q/runif` | [Uniform](https://en.wikipedia.org/wiki/Continuous_uniform_distribution) |
 | `d/p/q/rweibull` | [Weibull](https://en.wikipedia.org/wiki/Weibull_distribution) |
 
-There's a single help file for all of the `d/p/q/r` functions for a particular distribution. For example, if you enter `?dbeta` and the console you'll be shown the help files for `dbeta()`, `pbeta()`, `qbeta()`, and `rbeta()`.
+There's a single help file for all of the `d/p/q/r` functions for a particular distribution. For example, if you enter `?dbeta` at the console you'll be shown the help files for `dbeta()`, `pbeta()`, `qbeta()`, and `rbeta()`.
 
-For the purposes of this chapter we'll need a bit of familiarity with `rbinom()`, the function for drawing from a [Binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution). Recall that a Binomial$(m,p)$ random variable equals the number of heads in $m$ independent tosses of a coin with $\mathbb{P}(\text{Heads})=p$. More formally, it equals the number of *successes* in $m$ independent Bernoulli *trials*, each with probability of success $p$.
-The function `rbinom()` takes three arguments: `size` is the number of trials, `prob` is the probability of success on, and `n` is the desired number of Binomial trials. For example, we can make a single draw from a Binomial$(10, 1/2)$ distribution as follows
+To get a feel for how these functions work, let's take a look at `rbinom()`, the function for drawing from a [Binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution). Recall that a Binomial$(m,p)$ random variable equals the number of heads in $m$ independent tosses of a coin with $\mathbb{P}(\text{Heads})=p$. Or to use a bit of probability jargon, it equals the number of *successes* in $m$ independent *Bernoulli trials*, each with probability of success $p$.^[A Bernoulli trial is a model for a possibly biased coin flip: if $X \sim \text{Bernoulli}(p)$ then $\mathbb{P}(X=1) = p$ and $\mathbb{P}(X=0) = 1-p$.] If $X$ is a Binomial random variable with parameters $m$ and $p$, traditionally written as $X \sim \text{Binomial}(m, p)$ then $X$ must take on a value in the set $\{0, 1, 2, ..., m\}$ and the probability that it takes on a particular value $x$ in this set is 
+$$
+\mathbb{P}(X = x) = \binom{m}{x} p^x (1 - p)^x
+$$
+The function `rbinom()` makes random draws with the probabilities given by this formula. Its takes three arguments: `size` is the number of trials, $m$ in the formula, `prob` is the probability of success, $p$ in the formula, and `n` is the desired number of Binomial draws. For example, we can make a single draw from a Binomial$(m = 10, p =1 /2)$ distribution as follows
 ```{r}
 rbinom(n = 1, size = 10, prob = 0.5)
 ```
+and fifteen draws from the same distribution by changing `n` to `10`
+```{r}
+rbinom(n = 15, size = 10, prob = 0.5)
+```
+It's important not to confuse `n` with `size`. The former tells R how many *Binomial* draws to make. The latter tells R the value of the parameter $m$ of the Binomial$(m, p)$ distribution.
 
+Perhaps you remember that if $X \sim \text{Binomial}(m, p)$ then $\mathbb{E}[X] = mp$ and $\text{Var}= np(1-p)$. We can approximate these results numerically by simulating a large number of draws, say 5000, from a Binomial distribution:
+```{r}
+m <- 20
+p <- 0.25
+n_sims <- 5000
+sim_draws <- rbinom(n_sims, m, p)
+```
+and then comparing the theoretical value for $\mathbb{E}(X)$ to a simulation-based approximation:
+```{r}
+c(EV_Theoretical = m * p, 
+  EV_Simulation = mean(sim_draws))
+```
+and similarly for $\text{Var}(X)$
+```{r}
+c(Var_Theoretical = m * p * (1 - p), 
+  Var_Simulation = var(sim_draws))
+```
+Reassuringly, our simulation results are very close to the theoretical values. They would be even closer if we used a larger value for `n_sims`.
 
 ### `set.seed()`
 
-A key theme of this book is the importance of *reproducible research*. 
+A key theme of this book is the importance of *reproducible research*. Anyone else who wants to check your work should be able to obtain *exactly the same results as you did* by running your code. But this seems to be at odds with the idea of simulating random data. For example, if I run `rbinom(10, 4, 0.6)` repeatedly, I'll most likely get different results each time:
+```{r}
+rbinom(10, 4, 0.6)
+rbinom(10, 4, 0.6)
+rbinom(10, 4, 0.6)
+```
+The function `set.seed()` allows us to ensure that we obtain the *same* simulation draws whenever we re-run the same simulation code. To use it, we simply choose a *seed*, any integer between negative and positive $2^{31} - 1$, and supply it as an argument to `set.seed()`. Simulation draws made on a computer aren't really random: they're only *pseudo-random*. This means that they "look" random and pass statistical tests for randomness in spite of being generated by a completely deterministic algorithm. Setting the *seed* sets the *initial condition* of the pseudorandom number generator. Because the algorithm is deterministic, the same initial condition always leads to the same sequence of draws. This is what allows us to replicate our simulation draws. Each time we make another draw, the seed changes. But we can always return it to its previous state using `set.seed()`. For example, suppose I set the seed to `1`. and re-run my code from above as follows
+```{r}
+set.seed(1)
+x1 <- rbinom(10, 4, 0.6)
+x1
+```
+If I run `rbinom(10, 4, 0.6)` again, I will most likely *not* get the same result, because the state of the pseudorandom number generator has changed:
+```{r}
+x2 <- rbinom(10, 4, 0.6)
+x2
+identical(x1, x2) # safe/reliable way to test if two objects are exactly equal
+```
+but if I reset the seed to `1` I'll obtain exactly the same result as before:
+```{r}
+set.seed(1)
+x3 <- rbinom(10, 4, 0.6)
+x3
+identical(x3, x1)
+```
+
+*Whenever* you write simulation code, start by choosing a seed and adding the line `set.seed(MY-SEED-GOES HERE)` to the top of your R script. You'll often see people use `set.seed(12345)` or `set.seed(54321)`. When I'm not feeling lazy, I like to generate a *truly random number* to use as my seed. The website [random.org](https://random.org) provides free access to *bona fide* random numbers generated from atmospheric noise. The "True Random Number Generator" on the top right of their main page allows you to make uniform integer draws on a range from "Min" to "Max." Using the widest possible range, $\pm1\times 10^9$, I generated the seed `420508570` which I'll use in the following exercises.
 
 ### Exercises
+Set your seed to `420508570` at the start of your solution code for each of these exercises to obtain results that match the solutions.
+
 1. Run `sample(x = my_vector, size = 10)`. What happens and why?
 `r hide("Show Solution")`
 R will throw an error. You can't make ten draws *without replacement* from a set of five objects:
 ```{r, error=TRUE}
+set.seed(420508570)
 sample(x = my_vector, size = 10)
 ```
 `r unhide()`
 2. Write a line of code that makes five draws without replacement from the set of numbers $\{1, 2, 3, ..., 100\}$.
 ```{r webex.hide="Show Solution"}
+set.seed(420508570)
 sample(1:100, 5)
 ```
 3. Create a vector of thirty elements called `urn` that represents an urn containing ten blue balls and twenty red balls. Draw five balls with replacement from `urn` and store the draws in a vector called `draws`. Then write a line of code to count up the number of blue balls in `draws`.
@@ -98,11 +158,55 @@ sample(1:100, 5)
 Use `rep()` and `c()` to construct `urn`. Use `==` and `sum()` to count up the number of blue balls in `draws`. See the relevant help files for details, e.g. `?rep`.
 `r unhide()`
 ```{r webex.hide="Show Solution"}
+set.seed(420508570)
 urn <- c(rep('blue', 10), rep('red', 20))
 draws <- sample(urn, 5, replace = TRUE)
 draws
 sum(draws == 'blue')
 ```
+4. Make 1000 draws from a normal distribution with mean 5 and variance 4 and store them in a vector called `normal_sims`. Calculate the mean and variance of your draws, and plot a histogram.
+`r hide("Show Hint")`
+Consult the help file for `rnorm()` paying close attention to the fact that R specifies the normal distribution in terms of a mean and *standard deviation* rather than a mean and *variance*. You can plot a histogram with any number of functions: e.g. the base R function `hist()` or `qplot()` from the `ggplot2` package.
+`r unhide()`
+```{r webex.hide="Show Solution"}
+set.seed(420508570)
+normal_sims <- rnorm(1000, 5, 2) # Variance = 4; Standard Dev. = 2
+mean(normal_sims)
+var(normal_sims)
+ggplot2::qplot(normal_sims, bins = 25)
+```
+5. There is no built-in R function called `rbern()` for simulating draws from the [Bernoulli Distribution](https://en.wikipedia.org/wiki/Bernoulli_distribution) with probability of success $p$. Write one of your own and use it to make ten Bernoulli(0.8) draws. Your function `rbern()` should take two arguments: the number of draws `n` and the probability of success `p`.
+`r hide("Show Hint")`
+There are various ways to do this. The simplest is by setting the arguments of `rbinom()` appropriately.
+`r unhide()`
+```{r webex.hide="Show Solution"}
+rbern <- function(n, p) {
+# Make n random draws from a Bernoulli(p) distribution
+  rbinom(n, size = 1, prob = p)
+}
+set.seed(420508570)
+rbern(10, 0.8)
+```
+
+## The Skeleton of a Simulation Study
+
+While the specific details will vary, nearly every simulation study has the same basic structure: 
+
+1. Generate simulated data.
+2. Calculate an estimate from the simulated data.
+3. Repeat steps 1 and 2 many times, saving each of the estimates.
+4. Summarize the results.
+
+Thinking in terms of this structure helps us to write code that is easier to understand, easier to generalize, and faster to run. The key is to break these steps down into *functions* that carry out a single, well-defined task. Generally these will include:
+
+a. A function to generate simulated data.
+b. A function to calculate an estimate from the data.
+c. A function that "glues together" a. and b.
+
+Depending on the complexity of each of these functions, it may be helpful to write additional "helper functions" that carry out specific sub-tasks. This probably sounds a bit abstract, to let's see how it works using a simple example.
+
+Each function is a self-contained entity that we can think about and test in isolation. Once we're sure that each function is working correctly 
+
 
 ## Update from here down!
 
@@ -156,38 +260,3 @@ mean(sim_results, na.rm = TRUE)
 ```
 
 
-## Hidden solutions and hints
-
-You can fence off a solution area that will be hidden behind a button using `hide()` before the solution and `unhide()` after, each as inline R code.  Pass the text you want to appear on the button to the `hide()` function.
-
-If the solution is an RMarkdown code chunk, instead of using `hide()` and `unhide()`, simply set the `webex.hide` chunk option to TRUE, or set it to the string you wish to display on the button.
-
-### Example problem
-
-**Recreate the scatterplot below, using the built-in `cars` dataset.**
-
-```{r echo = FALSE}
-with(cars, plot(speed, dist))
-```
-
-
-`r hide("I need a hint")`
-
-See the documentation for `plot()` (`?plot`)
-
-`r unhide()`
-
-
-<!-- note: you could also just set webex.hide to TRUE -->
-
-```{r eval = FALSE, webex.hide="Click here to see the solution"}
-plot(cars$speed, cars$dist)
-```
-
-<!-- TO CHANGE WIDGET COLOURS:
-  move command below out of this HTML comment area
-  and then re-compile;
-  unfilled becomes yellow, correct becomes pink 
-     
-`r style_widgets("#FFFF00", "#FF3399")`
--->
