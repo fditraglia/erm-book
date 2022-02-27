@@ -201,16 +201,46 @@ Thinking in terms of this structure helps us to write code that is easier to und
 
 a. A function to generate simulated data.
 b. A function to calculate an estimate from the data.
-c. A function that "glues together" a. and b.
+c. A function that repeatedly calls a. and b. and summarizes the results.
 
-Depending on the complexity of each of these functions, it may be helpful to write additional "helper functions" that carry out specific sub-tasks. This probably sounds a bit abstract, to let's see how it works using a simple example.
+This may sound a bit abstract, so let's see how it works in practice. My introductory statistics students often ask me why the sample variance, $S^2$, divides by $(n-1)$ rather than the sample size $n$:
+$$
+S^2 \equiv \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X}_n)^2
+$$
+The answer is that dividing by $(n-1)$ yields an *unbiased estimator*: if $X_1, ..., X_n$ are a random sample from a population with mean $\mu$ and variance $\sigma^2$, then $\mathbb{E}[S^2] = \sigma^2$. So what would happen if we divided by $n$ instead? Consider the estimator $\widehat{\sigma}^2$ defined by
+$$
+\widehat{\sigma}^2 \equiv \frac{1}{n}\sum_{i=1}^n (X_i - \bar{X}_n)^2.
+$$
+If $X_i \sim \text{Normal}(\mu, \sigma^2)$ then $\widehat{\sigma}^2$ is in fact the *maximum likelihood estimator* for $\sigma^2$. With a bit of algebra, we can show that $\mathbb{E}[\widehat{\sigma}^2] = (n-1)\sigma^2/n$.^[To see this, first rewrite $\sum_{i=1}^n (X_i - \bar{X}_n)^2$ as $\sum_{i=1}^n (X_i - \mu)^2 - n(\bar{X}_n - \mu)^2$. This step is just algebra. Then take expectations, using the fact that the $X_i$ are independent and identically distributed.]
+It follows that
+$$
+\text{Bias}(\widehat{\sigma}^2) \equiv \mathbb{E}[\widehat{\sigma}^2 - \sigma^2] = -\sigma^2/n
+$$
+so $\widehat{\sigma}^2$ is biased *downwards*. Because the bias goes to zero as the sample size grows, however, it is still a consistent estimator of $\sigma^2$.
 
-Each function is a self-contained entity that we can think about and test in isolation. Once we're sure that each function is working correctly 
+Another way to see that $\widehat{\sigma}^2$ is biased is by carrying out a simulation study. To do this, we generate data from a distribution with a *known* variance and calculate $\widehat{\sigma}^2$. Then we generate a *new* dataset from the same distribution and again calculate the corresponding value of $\widehat{\sigma}^2$. Repeating this a large number of times, we end up with many estimates $\widehat{\sigma}^2$, each based on a dataset of the same size drawn independently from the same population. This collection of estimates gives us an *approximation* to the sampling distribution of $\widehat{\sigma}^2$. Using this approximation, we can get a good estimate of $\text{Bias}(\widehat{\sigma}^2)$ by comparing the sample mean of our simulated estimates $\widehat{\sigma}^2$ to the *true* variance $\sigma^2$. 
 
+The first thing we need is a function to generate simulated data. Let's draw the $X_1, ..., X_n$ from a normal distribution with mean zero and variance `s_sq`. To do this, we write a simple R function as follows:
 ```{r}
 draw_sim_data <- function(n, s_sq) {
   rnorm(n, sd = sqrt(s_sq))
 }
+```
+The nice thing about writing such a function is that we can test that it's working correctly. For example, suppose you were worried that `draw_sim_data` does *not* in fact generate `n` draws from a normal distribution with mean zero and variance `s_sq`. Then you could simply draw a large sample and check! Everything seems to work as expected:
+```{r}
+set.seed(420508570)
+test_sims <- draw_sim_data(5000, 9)
+length(test_sims)
+mean(test_sims)
+var(test_sims)
+qqnorm(test_sims)
+qqline(test_sims)
+```
+
+
+
+
+```{r}
 get_estimate <- function(x) {
   sum((x - mean(x))^2) / length(x) # divides by n not (n-1)
 }
@@ -226,15 +256,25 @@ set.seed(420508570)
 get_bias(5, 1)
 get_bias(10, 2)
 sim_parameters <- expand.grid(n = 3:10, s_sq = c(1, 2, 3))
-#sim_results <- lapply(1:nrow(sim_parameters), 
-#                      function(i) get_bias(n = sim_parameters$n[i],
-#                                           s_sq = sim_parameters$s_sq[i]))
-#cbind(sim_parameters, sim_results)
+sim_results <- lapply(1:nrow(sim_parameters), 
+                      function(i) get_bias(n = sim_parameters$n[i],
+                                           s_sq = sim_parameters$s_sq[i]))
+sim_results <- do.call(rbind, sim_results)
+cbind(sim_parameters, sim_results)
 ```
 
+## Projects
 
+### The Hot Hand Revisited
+In the lesson we generated iid data. Now try simulating from a first-order Markov chain for various different parameters. How do the results change?
 
-## Update from here down!
+### Which estimator of the variance is *really* better?
+Compare the RMSE of two variance estimators: the unbiased estimator and the MLE.
+
+### Optimal Stopping
+Simulate the secretary problem; try to find the optimal stopping rule.
+
+## DRAFT MATERIAL
 
 **Should I introduce `knitr` and `Rmarkdown` in this lesson or the next one?**
 
