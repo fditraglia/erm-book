@@ -157,12 +157,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#the-skeleton-of-a-simulation-study"><i class="fa fa-check"></i><b>1.4</b> The Skeleton of a Simulation Study</a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#draw_sim_data"><i class="fa fa-check"></i><b>1.4.1</b> <code>draw_sim_data()</code></a></li>
-<li class="chapter" data-level="1.4.2" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#get_estimate"><i class="fa fa-check"></i><b>1.4.2</b> <code>get_estimate()</code></a></li>
-<li class="chapter" data-level="1.4.3" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#get_bias"><i class="fa fa-check"></i><b>1.4.3</b> <code>get_bias()</code></a></li>
-<li class="chapter" data-level="1.4.4" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#running-the-simulation-study"><i class="fa fa-check"></i><b>1.4.4</b> Running the Simulation Study</a></li>
-<li class="chapter" data-level="1.4.5" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#expand.grid-and-map"><i class="fa fa-check"></i><b>1.4.5</b> <code>expand.grid()</code> and <code>Map()</code></a></li>
-<li class="chapter" data-level="1.4.6" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#bonus-parallel-computing-with-mclapply"><i class="fa fa-check"></i><b>1.4.6</b> Bonus: Parallel Computing with <code>mclapply()</code></a></li>
+<li class="chapter" data-level="1.4.1" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#a-biased-estimator-of-sigma2"><i class="fa fa-check"></i><b>1.4.1</b> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span></a></li>
+<li class="chapter" data-level="1.4.2" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#draw_sim_data"><i class="fa fa-check"></i><b>1.4.2</b> <code>draw_sim_data()</code></a></li>
+<li class="chapter" data-level="1.4.3" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#get_estimate"><i class="fa fa-check"></i><b>1.4.3</b> <code>get_estimate()</code></a></li>
+<li class="chapter" data-level="1.4.4" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#get_bias"><i class="fa fa-check"></i><b>1.4.4</b> <code>get_bias()</code></a></li>
+<li class="chapter" data-level="1.4.5" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#running-the-simulation-study"><i class="fa fa-check"></i><b>1.4.5</b> Running the Simulation Study</a></li>
+<li class="chapter" data-level="1.4.6" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#expand.grid-and-map"><i class="fa fa-check"></i><b>1.4.6</b> <code>expand.grid()</code> and <code>Map()</code></a></li>
+<li class="chapter" data-level="1.4.7" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#bonus-parallel-computing-with-mclapply"><i class="fa fa-check"></i><b>1.4.7</b> Bonus: Parallel Computing with <code>mclapply()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="1.5" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#your-turn-simulating-the-hot-hand"><i class="fa fa-check"></i><b>1.5</b> Your Turn: Simulating the Hot Hand</a></li>
 <li class="chapter" data-level="1.6" data-path="how-to-outsmart-a-nobel-laureate.html"><a href="how-to-outsmart-a-nobel-laureate.html#further-reading"><i class="fa fa-check"></i><b>1.6</b> Further Reading</a></li>
@@ -218,9 +219,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Basketball players and fans alike tend to believe that a player's chance of hitting a shot are greater following a hit than following a miss on the previous shot. However, detailed analyses of the shooting records of the Philadelphia 76ers provided no evidence for a positive correlation between the outcomes of successive shots. The same conclusions emerged from free-throw records of the Boston Celtics, and from a controlled shooting experiment with the men and women of Cornell's varsity teams. The outcomes of previous shots influenced Cornell players' predictions but not their performance. The belief in the hot hand and the "detection" of streaks in random sequences is attributed to a general misconception of chance according to which even short random sequences are thought to be highly representative of their generating process.</p>
 </blockquote>
 <p>Between 1985 and 2011, when Kahneman's book was published, this result was replicated numerous times under a variety of different conditions, making it one of the better-documented biases in human decision-making. But it turns out that the hot-hand illusion is <em>itself</em> an illusion.</p>
-<p>In a recent issue of <em>Econometrica</em>, <a href="https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA14943">Miller &amp; Sanjurjo (2018)</a> point out a subtle but consequential error in the statistical tests used in the hot hand literature. It turns out that these tests were biased <em>against</em> detecting evidence of a hot hand, even if it did in fact exist. Correcting this mistake and re-analyzing Gilovich, Vallone and Tversky's original dataset "reveals significant evidence of streak shooting, with large effect sizes." The hot hand is real, and the literature has now shifted to trying to estimate the <em>size</em> of the effect.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a></p>
+<p>In a recent issue of <em>Econometrica</em>, <a href="https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA14943">Miller &amp; Sanjurjo (2018)</a> point out a subtle but consequential error in the statistical tests used in the hot hand literature. It turns out that these tests were biased <em>against</em> detecting evidence of a hot hand, even if it did in fact exist. Correcting this mistake and re-analyzing Gilovich, Vallone and Tversky's original dataset "reveals significant evidence of streak shooting, with large effect sizes." The hot hand is real, and the literature has now shifted to trying to estimate the <em>size</em> of the effect.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <p>There are some helpful lessons that we can draw from this episode. First, we all make mistakes--even Nobel Laureates! Second, successful replications tell us less than we might hope: they could easily <em>reproduce</em> the bias of the original study. But in my view, the real lesson of the hot hand affair is much simpler: <strong>you should always run a simulation study.</strong></p>
-<p>The probabilistic error that led so many researchers to draw the wrong conclusion about the hot hand is really quite subtle.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> But at the same time, anyone who knows basic programming could have detected the mistake in five minutes if only they had bothered to look. In economics and statistics, simulation is a <em>superpower</em>. It helps us to understand our models, check for mistakes, and make unexpected connections, some of which may even lead to new theoretical results. If you'll pardon my continuation of the Swiss Army Knife metaphor, simulation is the knife: arguably the most useful tool in your toolbox. In this lesson, we'll cover some basic tools for carrying out a simulation experiment in R and use them to shed some light on the illusion of the hot hand illusion.</p>
+<p>The probabilistic error that led so many researchers to draw the wrong conclusion about the hot hand is really quite subtle.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> But at the same time, anyone who knows basic programming could have detected the mistake in five minutes if only they had bothered to look. In economics and statistics, simulation is a <em>superpower</em>. It helps us to understand our models, check for mistakes, and make unexpected connections, some of which may even lead to new theoretical results. If you'll pardon my continuation of the Swiss Army Knife metaphor, simulation is the knife: arguably the most useful tool in your toolbox. In this lesson, we'll cover some basic tools for carrying out a simulation experiment in R and use them to shed some light on the illusion of the hot hand illusion.</p>
 </div>
 <div id="r-functions-introduced-in-this-lesson" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> R Functions Introduced in this Lesson</h2>
@@ -245,22 +246,22 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb1-1" aria-hidden="true" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;there&#39;</span>, <span class="st">&#39;is&#39;</span>, <span class="st">&#39;no&#39;</span>, <span class="st">&#39;largest&#39;</span>, <span class="st">&#39;integer&#39;</span>)</span></code></pre></div>
 <p>The following line of code makes two draws <em>without replacement</em> from <code>my_vector</code></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_vector, <span class="at">size =</span> <span class="dv">2</span>) <span class="co"># without replacement</span></span></code></pre></div>
-<pre><code>## [1] &quot;integer&quot; &quot;no&quot;</code></pre>
-<p>If I run the same line of code again, I may not get the same result: it's random!<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a></p>
+<pre><code>## [1] &quot;largest&quot; &quot;there&quot;</code></pre>
+<p>If I run the same line of code again, I may not get the same result: it's random!<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_vector, <span class="at">size =</span> <span class="dv">2</span>) <span class="co"># without replacement</span></span></code></pre></div>
-<pre><code>## [1] &quot;there&quot;   &quot;integer&quot;</code></pre>
+<pre><code>## [1] &quot;no&quot;      &quot;integer&quot;</code></pre>
 <p>To draw <em>with replacement</em>, set <code>replace = TRUE</code></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_vector, <span class="at">size =</span> <span class="dv">7</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># with replacement</span></span></code></pre></div>
-<pre><code>## [1] &quot;no&quot;      &quot;is&quot;      &quot;integer&quot; &quot;largest&quot; &quot;is&quot;      &quot;is&quot;      &quot;there&quot;</code></pre>
+<pre><code>## [1] &quot;is&quot;      &quot;integer&quot; &quot;integer&quot; &quot;there&quot;   &quot;is&quot;      &quot;is&quot;      &quot;largest&quot;</code></pre>
 <p>As usual in R, the argument names <code>x</code>, <code>size</code>, and <code>replace</code> are optional. But it is considered good coding style to explicitly supply an argument name whenever we're <em>overriding</em> a function's default behavior. This makes it easier for anyone reading our code to understand what's happening. Since <code>sample()</code> defaults to making draws <em>without</em> replacement, it's a good idea to write <code>replace = TRUE</code> rather then simply <code>TRUE</code>. But even without writing <code>replace =</code>, the code will still work as long as we supply all of the arguments in the correct <em>order</em>:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(my_vector, <span class="dv">7</span>, <span class="cn">TRUE</span>) <span class="co"># bad style</span></span></code></pre></div>
-<pre><code>## [1] &quot;there&quot;   &quot;there&quot;   &quot;largest&quot; &quot;largest&quot; &quot;no&quot;      &quot;integer&quot; &quot;integer&quot;</code></pre>
+<pre><code>## [1] &quot;integer&quot; &quot;no&quot;      &quot;integer&quot; &quot;there&quot;   &quot;largest&quot; &quot;largest&quot; &quot;there&quot;</code></pre>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(my_vector, <span class="dv">7</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># good style</span></span></code></pre></div>
-<pre><code>## [1] &quot;largest&quot; &quot;largest&quot; &quot;is&quot;      &quot;integer&quot; &quot;no&quot;      &quot;there&quot;   &quot;no&quot;</code></pre>
+<pre><code>## [1] &quot;integer&quot; &quot;no&quot;      &quot;there&quot;   &quot;integer&quot; &quot;integer&quot; &quot;integer&quot; &quot;no&quot;</code></pre>
 </div>
 <div id="probability-distributions-in-r" class="section level3" number="1.3.2">
 <h3><span class="header-section-number">1.3.2</span> Probability Distributions in R</h3>
-<p>As a programming language targeted at statistical applications, R supplies built-in functions for all of the most common probability distributions.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>
+<p>As a programming language targeted at statistical applications, R supplies built-in functions for all of the most common probability distributions.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
 These functions follow a consistent naming convention. They being with either <code>d</code>, <code>p</code>, <code>q</code>, or <code>r</code> and are followed by an abbreviated name for a particular probability distribution. The prefix <code>d</code> denotes a <em>density</em> function (or mass function for a discrete distribution); <code>p</code> denotes a <em>cumulative distribution function</em> (CDF), <code>q</code> denotes a <em>quantile</em> function, and <code>r</code> denotes a function for making <em>random draws</em> from a particular distribution. For example: <code>dunif()</code> gives the probability density function of a uniform random variable, <code>pnorm()</code> gives the CDF of a normal random variable, <code>qchisq()</code> gives the quantile function of a Chi-squared, and <code>rbinom</code> allows us to make random draws from a Binomial distribution. The following table gives a full list of the relevant commands.</p>
 <table>
 <thead>
@@ -341,16 +342,16 @@ These functions follow a consistent naming convention. They being with either <c
 </tbody>
 </table>
 <p>There's a single help file for all of the <code>d/p/q/r</code> functions for a particular distribution. For example, if you enter <code>?dbeta</code> at the console you'll be shown the help files for <code>dbeta()</code>, <code>pbeta()</code>, <code>qbeta()</code>, and <code>rbeta()</code>.</p>
-<p>To get a feel for how these functions work, let's take a look at <code>rbinom()</code>, the function for drawing from a <a href="https://en.wikipedia.org/wiki/Binomial_distribution">Binomial distribution</a>. Recall that a Binomial<span class="math inline">\((m,p)\)</span> random variable equals the number of heads in <span class="math inline">\(m\)</span> independent tosses of a coin with <span class="math inline">\(\mathbb{P}(\text{Heads})=p\)</span>. Or to use a bit of probability jargon, it equals the number of <em>successes</em> in <span class="math inline">\(m\)</span> independent <em>Bernoulli trials</em>, each with probability of success <span class="math inline">\(p\)</span>.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> If <span class="math inline">\(X\)</span> is a Binomial random variable with parameters <span class="math inline">\(m\)</span> and <span class="math inline">\(p\)</span>, traditionally written as <span class="math inline">\(X \sim \text{Binomial}(m, p)\)</span> then <span class="math inline">\(X\)</span> must take on a value in the set <span class="math inline">\(\{0, 1, 2, ..., m\}\)</span> and the probability that it takes on a particular value <span class="math inline">\(x\)</span> in this set is
+<p>To get a feel for how these functions work, let's take a look at <code>rbinom()</code>, the function for drawing from a <a href="https://en.wikipedia.org/wiki/Binomial_distribution">Binomial distribution</a>. Recall that a Binomial<span class="math inline">\((m,p)\)</span> random variable equals the number of heads in <span class="math inline">\(m\)</span> independent tosses of a coin with <span class="math inline">\(\mathbb{P}(\text{Heads})=p\)</span>. Or to use a bit of probability jargon, it equals the number of <em>successes</em> in <span class="math inline">\(m\)</span> independent <em>Bernoulli trials</em>, each with probability of success <span class="math inline">\(p\)</span>.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> If <span class="math inline">\(X\)</span> is a Binomial random variable with parameters <span class="math inline">\(m\)</span> and <span class="math inline">\(p\)</span>, traditionally written as <span class="math inline">\(X \sim \text{Binomial}(m, p)\)</span> then <span class="math inline">\(X\)</span> must take on a value in the set <span class="math inline">\(\{0, 1, 2, ..., m\}\)</span> and the probability that it takes on a particular value <span class="math inline">\(x\)</span> in this set is
 <span class="math display">\[
 \mathbb{P}(X = x) = \binom{m}{x} p^x (1 - p)^x
 \]</span>
 The function <code>rbinom()</code> makes random draws with the probabilities given by this formula. Its takes three arguments: <code>size</code> is the number of trials, <span class="math inline">\(m\)</span> in the formula, <code>prob</code> is the probability of success, <span class="math inline">\(p\)</span> in the formula, and <code>n</code> is the desired number of Binomial draws. For example, we can make a single draw from a Binomial<span class="math inline">\((m = 10, p =1 /2)\)</span> distribution as follows</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<pre><code>## [1] 4</code></pre>
+<pre><code>## [1] 3</code></pre>
 <p>and fifteen draws from the same distribution by changing <code>n</code> to <code>10</code></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">15</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<pre><code>##  [1] 6 6 4 5 4 7 4 6 7 4 6 8 4 6 5</code></pre>
+<pre><code>##  [1] 4 7 7 5 5 4 5 3 5 5 3 1 5 4 6</code></pre>
 <p>It's important not to confuse <code>n</code> with <code>size</code>. The former tells R how many <em>Binomial</em> draws to make. The latter tells R the value of the parameter <span class="math inline">\(m\)</span> of the Binomial<span class="math inline">\((m, p)\)</span> distribution.</p>
 <p>Perhaps you remember that if <span class="math inline">\(X \sim \text{Binomial}(m, p)\)</span> then <span class="math inline">\(\mathbb{E}[X] = mp\)</span> and <span class="math inline">\(\text{Var}= np(1-p)\)</span>. We can approximate these results numerically by simulating a large number of draws, say 5000, from a Binomial distribution:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb16-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="dv">20</span></span>
@@ -361,23 +362,23 @@ The function <code>rbinom()</code> makes random draws with the probabilities giv
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">EV_Theoretical =</span> m <span class="sc">*</span> p, </span>
 <span id="cb17-2"><a href="how-to-outsmart-a-nobel-laureate.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">EV_Simulation =</span> <span class="fu">mean</span>(sim_draws))</span></code></pre></div>
 <pre><code>## EV_Theoretical  EV_Simulation 
-##          5.000          5.038</code></pre>
+##         5.0000         4.9724</code></pre>
 <p>and similarly for <span class="math inline">\(\text{Var}(X)\)</span></p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">Var_Theoretical =</span> m <span class="sc">*</span> p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p), </span>
 <span id="cb19-2"><a href="how-to-outsmart-a-nobel-laureate.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Var_Simulation =</span> <span class="fu">var</span>(sim_draws))</span></code></pre></div>
 <pre><code>## Var_Theoretical  Var_Simulation 
-##        3.750000        3.638484</code></pre>
+##        3.750000        3.684775</code></pre>
 <p>Reassuringly, our simulation results are very close to the theoretical values. They would be even closer if we used a larger value for <code>n_sims</code>.</p>
 </div>
 <div id="set.seed" class="section level3" number="1.3.3">
 <h3><span class="header-section-number">1.3.3</span> <code>set.seed()</code></h3>
 <p>A key theme of this book is the importance of <em>reproducible research</em>. Anyone else who wants to check your work should be able to obtain <em>exactly the same results as you did</em> by running your code. But this seems to be at odds with the idea of simulating random data. For example, if I run <code>rbinom(10, 4, 0.6)</code> repeatedly, I'll most likely get different results each time:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span></code></pre></div>
-<pre><code>##  [1] 2 2 2 3 4 2 3 1 2 3</code></pre>
+<pre><code>##  [1] 2 2 2 2 2 4 1 2 4 4</code></pre>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span></code></pre></div>
-<pre><code>##  [1] 1 4 3 4 3 2 1 2 4 2</code></pre>
+<pre><code>##  [1] 1 2 3 1 2 2 3 3 1 3</code></pre>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span></code></pre></div>
-<pre><code>##  [1] 3 2 3 3 2 3 3 4 3 3</code></pre>
+<pre><code>##  [1] 2 4 3 3 2 2 3 3 3 0</code></pre>
 <p>The function <code>set.seed()</code> allows us to ensure that we obtain the <em>same</em> simulation draws whenever we re-run the same simulation code. To use it, we simply choose a <em>seed</em>, any integer between negative and positive <span class="math inline">\((2^{31} - 1)\)</span>, and supply it as an argument to <code>set.seed()</code>. Simulation draws made on a computer aren't really random: they're only <a href="https://en.wikipedia.org/wiki/Pseudorandomness">pseudo-random</a>. This means that they "look" random and pass statistical tests for randomness but are in fact generated by a completely deterministic algorithm. Setting the seed sets the <em>initial condition</em> of the pseudorandom number generator. Because the algorithm is deterministic, the same initial condition always leads to the same results. This is what allows us to replicate our simulation draws. Each time we make another draw, the seed changes. But we can always return it to its previous state using <code>set.seed()</code>. For example, suppose I set the seed to <code>1</code>. and re-run my code from above as follows</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb27-2"><a href="how-to-outsmart-a-nobel-laureate.html#cb27-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span>
@@ -396,7 +397,7 @@ The function <code>rbinom()</code> makes random draws with the probabilities giv
 <pre><code>##  [1] 3 3 2 1 3 1 1 2 2 4</code></pre>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(x3, x1)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<p><em>Whenever</em> you write simulation code, start by choosing a seed and adding the line <code>set.seed(MY-SEED-GOES HERE)</code> to the top of your R script. You'll often see people use <code>set.seed(12345)</code> or <code>set.seed(54321)</code>. When I'm not feeling lazy, I like to generate a <em>truly random number</em> to use as my seed. The website <a href="https://random.org">random.org</a> provides free access to <em>bona fide</em> random numbers generated from atmospheric noise. The "True Random Number Generator" on the top right of their main page allows you to make uniform integer draws on a range from "Min" to "Max." Using the widest possible range, <span class="math inline">\(\pm1\times 10^9\)</span>, I generated the seed <code>420508570</code> which I'll use in the following exercises.</p>
+<p><em>Whenever</em> you write simulation code, start by choosing a seed and adding the line <code>set.seed(MY-SEED-GOES-HERE)</code> to the top of your R script. You'll often see people use <code>set.seed(12345)</code> or <code>set.seed(54321)</code>. When I'm not feeling lazy, I like to generate a <em>truly random number</em> to use as my seed. The website <a href="https://random.org">random.org</a> provides free access to <em>bona fide</em> random numbers generated from atmospheric noise. The "True Random Number Generator" on the top right of their main page allows you to make uniform integer draws on a range from "Min" to "Max." Using the widest possible range, <span class="math inline">\(\pm1\times 10^9\)</span>, I generated the seed <code>420508570</code> which I'll use in the following exercises.</p>
 </div>
 <div id="exercises" class="section level3" number="1.3.4">
 <h3><span class="header-section-number">1.3.4</span> Exercises</h3>
@@ -465,7 +466,7 @@ Show Solution
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(normal_sims)</span></code></pre></div>
 <pre><code>## [1] 3.912262</code></pre>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb49-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">qplot</span>(normal_sims, <span class="at">bins =</span> <span class="dv">25</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 </div>
 <ol start="5" style="list-style-type: decimal">
 <li>There is no built-in R function called <code>rbern()</code> for simulating draws from the <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli Distribution</a> with probability of success <span class="math inline">\(p\)</span>. Write one of your own and use it to make ten Bernoulli(0.8) draws. Your function <code>rbern()</code> should take two arguments: the number of draws <code>n</code> and the probability of success <code>p</code>.</li>
@@ -500,12 +501,15 @@ Show Solution
 <li>Summarize the results.</li>
 </ol>
 <p>Thinking in terms of this structure helps us to write code that is easier to understand, easier to generalize, and faster to run. The key is to break these steps down into <em>functions</em> that carry out a single, well-defined task. Generally these will include:</p>
-<ol style="list-style-type: lower-alpha">
+<ol style="list-style-type: lower-roman">
 <li>A function to generate simulated data.</li>
 <li>A function to calculate an estimate from the data.</li>
-<li>A function that repeatedly calls a. and b. and summarizes the results.</li>
+<li>A function that repeatedly calls i. and ii. and summarizes the results.</li>
 </ol>
-<p>This may sound a bit abstract, so let's see how it works in practice. My introductory statistics students often ask me why the sample variance, <span class="math inline">\(S^2\)</span>, divides by <span class="math inline">\((n-1)\)</span> rather than the sample size <span class="math inline">\(n\)</span>:
+<p>This may sound a bit abstract, so let's see how it works in practice.</p>
+<div id="a-biased-estimator-of-sigma2" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span></h3>
+<p>My introductory statistics students often ask me why the sample variance, <span class="math inline">\(S^2\)</span>, divides by <span class="math inline">\((n-1)\)</span> rather than the sample size <span class="math inline">\(n\)</span>:
 <span class="math display">\[
 S^2 \equiv \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X}_n)^2
 \]</span>
@@ -513,20 +517,21 @@ The answer is that dividing by <span class="math inline">\((n-1)\)</span> yields
 <span class="math display">\[
 \widehat{\sigma}^2 \equiv \frac{1}{n}\sum_{i=1}^n (X_i - \bar{X}_n)^2.
 \]</span>
-If <span class="math inline">\(X_i \sim \text{Normal}(\mu, \sigma^2)\)</span> then <span class="math inline">\(\widehat{\sigma}^2\)</span> is in fact the <em>maximum likelihood estimator</em> for <span class="math inline">\(\sigma^2\)</span>. With a bit of algebra, we can show that <span class="math inline">\(\mathbb{E}[\widehat{\sigma}^2] = (n-1)\sigma^2/n\)</span> which clearly does <em>not</em> equal the population variance.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>
+If <span class="math inline">\(X_i \sim \text{Normal}(\mu, \sigma^2)\)</span> then <span class="math inline">\(\widehat{\sigma}^2\)</span> is in fact the <em>maximum likelihood estimator</em> for <span class="math inline">\(\sigma^2\)</span>. With a bit of algebra, we can show that <span class="math inline">\(\mathbb{E}[\widehat{\sigma}^2] = (n-1)\sigma^2/n\)</span> which clearly does <em>not</em> equal the population variance.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>
 It follows that
 <span class="math display">\[
 \text{Bias}(\widehat{\sigma}^2) \equiv \mathbb{E}[\widehat{\sigma}^2 - \sigma^2] = -\sigma^2/n
 \]</span>
 so <span class="math inline">\(\widehat{\sigma}^2\)</span> is biased <em>downwards</em>. Because the bias goes to zero as the sample size grows, however, it is still a consistent estimator of <span class="math inline">\(\sigma^2\)</span>.</p>
 <p>Another way to see that <span class="math inline">\(\widehat{\sigma}^2\)</span> is biased is by carrying out a simulation study. To do this, we generate data from a distribution with a <em>known</em> variance and calculate <span class="math inline">\(\widehat{\sigma}^2\)</span>. Then we generate a <em>new</em> dataset from the same distribution and again calculate the corresponding value of <span class="math inline">\(\widehat{\sigma}^2\)</span>. Repeating this a large number of times, we end up with many estimates <span class="math inline">\(\widehat{\sigma}^2\)</span>, each based on a dataset of the same size drawn independently from the same population. This collection of estimates gives us an <em>approximation</em> to the sampling distribution of <span class="math inline">\(\widehat{\sigma}^2\)</span>. Using this approximation, we can get a good estimate of <span class="math inline">\(\text{Bias}(\widehat{\sigma}^2)\)</span> by comparing the sample mean of our simulated estimates <span class="math inline">\(\widehat{\sigma}^2\)</span> to the <em>true</em> variance <span class="math inline">\(\sigma^2\)</span>.</p>
-<div id="draw_sim_data" class="section level3" number="1.4.1">
-<h3><span class="header-section-number">1.4.1</span> <code>draw_sim_data()</code></h3>
+</div>
+<div id="draw_sim_data" class="section level3" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> <code>draw_sim_data()</code></h3>
 <p>The first thing we need is a function to generate simulated data. Let's draw the <span class="math inline">\(X_1, ..., X_n\)</span> from a normal distribution with mean zero and variance <code>s_sq</code>. To do this, we write a simple R function as follows:</p>
 <div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb52-1" aria-hidden="true" tabindex="-1"></a>draw_sim_data <span class="ot">&lt;-</span> <span class="cf">function</span>(n, s_sq) {</span>
 <span id="cb52-2"><a href="how-to-outsmart-a-nobel-laureate.html#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rnorm</span>(n, <span class="at">sd =</span> <span class="fu">sqrt</span>(s_sq))</span>
 <span id="cb52-3"><a href="how-to-outsmart-a-nobel-laureate.html#cb52-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>The nice thing about writing such a function is that we can test that it's working correctly. For example, suppose you were worried that <code>draw_sim_data</code> does <em>not</em> in fact generate <code>n</code> draws from a normal distribution with mean zero and variance <code>s_sq</code>. Then you could simply draw a large sample and check! Here I'll verify that <code>draw_sim_data()</code> returns a vector of the expected length, with the desired mean and variance, drawn from normal distribution.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a> Everything works as expected:</p>
+<p>The nice thing about writing such a function is that we can test that it's working correctly. For example, suppose you were worried that <code>draw_sim_data</code> does <em>not</em> in fact generate <code>n</code> draws from a normal distribution with mean zero and variance <code>s_sq</code>. Then you could simply draw a large sample and check! Here I'll verify that <code>draw_sim_data()</code> returns a vector of the expected length, with the desired mean and variance, drawn from normal distribution.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> Everything works as expected:</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
 <span id="cb53-2"><a href="how-to-outsmart-a-nobel-laureate.html#cb53-2" aria-hidden="true" tabindex="-1"></a>test_sims <span class="ot">&lt;-</span> <span class="fu">draw_sim_data</span>(<span class="dv">5000</span>, <span class="dv">9</span>)</span>
 <span id="cb53-3"><a href="how-to-outsmart-a-nobel-laureate.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(test_sims)</span></code></pre></div>
@@ -537,10 +542,10 @@ so <span class="math inline">\(\widehat{\sigma}^2\)</span> is biased <em>downwar
 <pre><code>## [1] 8.832994</code></pre>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(test_sims)</span>
 <span id="cb59-2"><a href="how-to-outsmart-a-nobel-laureate.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(test_sims)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
 </div>
-<div id="get_estimate" class="section level3" number="1.4.2">
-<h3><span class="header-section-number">1.4.2</span> <code>get_estimate()</code></h3>
+<div id="get_estimate" class="section level3" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> <code>get_estimate()</code></h3>
 <p>The next step is to write a function that calculates <span class="math inline">\(\widehat{\sigma}^2\)</span>. We can do this as follows:</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb60-1" aria-hidden="true" tabindex="-1"></a>get_estimate <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
 <span id="cb60-2"><a href="how-to-outsmart-a-nobel-laureate.html#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="fu">length</span>(x) <span class="co"># divides by n not (n-1)</span></span>
@@ -561,8 +566,8 @@ so <span class="math inline">\(\widehat{\sigma}^2\)</span> is biased <em>downwar
 <pre><code>## sigma_hat_sq   Sample_Var 
 ##    0.9814408    0.9816371</code></pre>
 </div>
-<div id="get_bias" class="section level3" number="1.4.3">
-<h3><span class="header-section-number">1.4.3</span> <code>get_bias()</code></h3>
+<div id="get_bias" class="section level3" number="1.4.4">
+<h3><span class="header-section-number">1.4.4</span> <code>get_bias()</code></h3>
 <p>Now we're ready to actually carry out our simulation study. The final step is to write a function called <code>get_bias()</code> that repeatedly calls <code>draw_sim_data()</code> and <code>get_estimate()</code>, stores the resulting estimates <span class="math inline">\(\widehat{\sigma}^2\)</span> and calculates a simulation estimate of the bias. Compared to the functions from above, this one will be more complicated, so I'll explain it in steps. First the code:</p>
 <div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb69-1" aria-hidden="true" tabindex="-1"></a>get_bias <span class="ot">&lt;-</span> <span class="cf">function</span>(n, s_sq, <span class="at">n_reps =</span> <span class="dv">5000</span>) {</span>
 <span id="cb69-2"><a href="how-to-outsmart-a-nobel-laureate.html#cb69-2" aria-hidden="true" tabindex="-1"></a>  draw_sim_replication <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
@@ -588,8 +593,8 @@ so <span class="math inline">\(\widehat{\sigma}^2\)</span> is biased <em>downwar
 <pre><code>## [1] TRUE</code></pre>
 <p>Finally, <code>get_bias()</code> uses the simulation replications stored in the vector <code>sim_replications</code> to approximate the bias of <span class="math inline">\(\widehat{\sigma}^2\)</span> by comparing them to the <em>true</em> value of <span class="math inline">\(\sigma^2\)</span>, namely <code>s_sq</code>. It does this by computing the simulation analogue of <span class="math inline">\(\mathbb{E}[\widehat{\sigma}^2 - \sigma^2]\)</span>, which is simply <code>mean(sim_replications - s_sq)</code>.</p>
 </div>
-<div id="running-the-simulation-study" class="section level3" number="1.4.4">
-<h3><span class="header-section-number">1.4.4</span> Running the Simulation Study</h3>
+<div id="running-the-simulation-study" class="section level3" number="1.4.5">
+<h3><span class="header-section-number">1.4.5</span> Running the Simulation Study</h3>
 <p>Now we're ready to run our simulation study: we simply need to call <code>get_bias()</code> with our desired values of <code>n</code> and <code>s_sq</code>, for example:</p>
 <div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
 <span id="cb72-2"><a href="how-to-outsmart-a-nobel-laureate.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_bias</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">s_sq =</span> <span class="dv">1</span>)</span></code></pre></div>
@@ -600,8 +605,8 @@ so <span class="math inline">\(\widehat{\sigma}^2\)</span> is biased <em>downwar
 <pre><code>## theoretical  simulation 
 ##  -0.3333333  -0.3412176</code></pre>
 </div>
-<div id="expand.grid-and-map" class="section level3" number="1.4.5">
-<h3><span class="header-section-number">1.4.5</span> <code>expand.grid()</code> and <code>Map()</code></h3>
+<div id="expand.grid-and-map" class="section level3" number="1.4.6">
+<h3><span class="header-section-number">1.4.6</span> <code>expand.grid()</code> and <code>Map()</code></h3>
 <p>Now we have a function <code>get_bias()</code> that can approximate the bias of <span class="math inline">\(\widehat{\sigma}^2\)</span> for any values of <code>n</code> and <code>s_sq</code> that we care to specify. But what if we want to carry out a simulation study over a <em>range</em> of values for <code>n</code> and <code>s_sq</code>? One way to do this is with a pair of nested <code>for</code> loops: one that iterates over different values of <code>n</code> and another that iterates over different values of <code>n_sq</code>. But this isn't a great strategy for two reasons. First, loops within loops tend to be slow in R. Second, the book-keeping required to implement this strategy is a bit involved. Fortunately there's a much better way: use <code>expand.grid()</code> and <code>Map()</code>.</p>
 <p>First we'll set up a grid of values for <code>n</code> and <code>s_sq</code>:</p>
 <div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb76-1" aria-hidden="true" tabindex="-1"></a>n_grid <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">5</span></span>
@@ -663,8 +668,8 @@ so <span class="math inline">\(\widehat{\sigma}^2\)</span> is biased <em>downwar
 <span id="cb86-6"><a href="how-to-outsmart-a-nobel-laureate.html#cb86-6" aria-hidden="true" tabindex="-1"></a><span class="co">#sim_results &lt;- do.call(rbind, sim_results)</span></span>
 <span id="cb86-7"><a href="how-to-outsmart-a-nobel-laureate.html#cb86-7" aria-hidden="true" tabindex="-1"></a><span class="co">#cbind(sim_parameters, sim_results)</span></span></code></pre></div>
 </div>
-<div id="bonus-parallel-computing-with-mclapply" class="section level3" number="1.4.6">
-<h3><span class="header-section-number">1.4.6</span> Bonus: Parallel Computing with <code>mclapply()</code></h3>
+<div id="bonus-parallel-computing-with-mclapply" class="section level3" number="1.4.7">
+<h3><span class="header-section-number">1.4.7</span> Bonus: Parallel Computing with <code>mclapply()</code></h3>
 </div>
 </div>
 <div id="your-turn-simulating-the-hot-hand" class="section level2" number="1.5">
@@ -728,7 +733,7 @@ so <span class="math inline">\(\widehat{\sigma}^2\)</span> is biased <em>downwar
 <span id="cb87-24"><a href="how-to-outsmart-a-nobel-laureate.html#cb87-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb87-25"><a href="how-to-outsmart-a-nobel-laureate.html#cb87-25" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(sim_results)</span></code></pre></div>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-36-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-35-1.png" width="672" /></p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sim_results, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 0.4620068</code></pre>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="how-to-outsmart-a-nobel-laureate.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ones &lt;- which(x == 1)</span></span>
@@ -744,14 +749,14 @@ so <span class="math inline">\(\widehat{\sigma}^2\)</span> is biased <em>downwar
 </div>
 <div class="footnotes">
 <hr />
-<ol start="10">
-<li id="fn10"><p>See for example <a href="https://www.nber.org/digest-202202/exploring-hot-hand-basketball">this write-up</a> of <a href="https://www.nber.org/papers/w29468">Lantis &amp; Nessen (2021)</a> in the <a href="https://www.nber.org/digest-2022-02">February 2022 NBER digest</a>.<a href="how-to-outsmart-a-nobel-laureate.html#fnref10" class="footnote-back">↩︎</a></p></li>
-<li id="fn11"><p>See <a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.33.3.144">Miller &amp; Sanjurjo (2019)</a> for a more accessible explanation that connects to several related probability puzzles.<a href="how-to-outsmart-a-nobel-laureate.html#fnref11" class="footnote-back">↩︎</a></p></li>
-<li id="fn12"><p>Technically, "random" draws made on a computer are only <a href="https://en.wikipedia.org/wiki/Pseudorandomness">pseudorandom</a>. We'll discuss this further below.<a href="how-to-outsmart-a-nobel-laureate.html#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p>For less common distributions, see <a href="https://cran.r-project.org/web/views/Distributions.html">CRAN Task View: Probability Distributions</a><a href="how-to-outsmart-a-nobel-laureate.html#fnref13" class="footnote-back">↩︎</a></p></li>
-<li id="fn14"><p>A Bernoulli trial is a model for a possibly biased coin flip: if <span class="math inline">\(X \sim \text{Bernoulli}(p)\)</span> then <span class="math inline">\(\mathbb{P}(X=1) = p\)</span> and <span class="math inline">\(\mathbb{P}(X=0) = 1-p\)</span>.<a href="how-to-outsmart-a-nobel-laureate.html#fnref14" class="footnote-back">↩︎</a></p></li>
-<li id="fn15"><p>To see this, first rewrite <span class="math inline">\(\sum_{i=1}^n (X_i - \bar{X}_n)^2\)</span> as <span class="math inline">\(\sum_{i=1}^n (X_i - \mu)^2 - n(\bar{X}_n - \mu)^2\)</span>. This step is just algebra. Then take expectations, using the fact that the <span class="math inline">\(X_i\)</span> are independent and identically distributed.<a href="how-to-outsmart-a-nobel-laureate.html#fnref15" class="footnote-back">↩︎</a></p></li>
-<li id="fn16"><p>If you're unfamiliar with the Normal Q-Q plot that I used to check the normality of <code>test_sims</code>, you can read about it this <a href="https://www.econometrics.blog/post/thirty-isn-t-the-magic-number/">blog post</a>.<a href="how-to-outsmart-a-nobel-laureate.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<ol start="1">
+<li id="fn1"><p>See for example <a href="https://www.nber.org/digest-202202/exploring-hot-hand-basketball">this write-up</a> of <a href="https://www.nber.org/papers/w29468">Lantis &amp; Nessen (2021)</a> in the <a href="https://www.nber.org/digest-2022-02">February 2022 NBER digest</a>.<a href="how-to-outsmart-a-nobel-laureate.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>See <a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.33.3.144">Miller &amp; Sanjurjo (2019)</a> for a more accessible explanation that connects to several related probability puzzles.<a href="how-to-outsmart-a-nobel-laureate.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Technically, "random" draws made on a computer are only <a href="https://en.wikipedia.org/wiki/Pseudorandomness">pseudorandom</a>. We'll discuss this further below.<a href="how-to-outsmart-a-nobel-laureate.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>For less common distributions, see <a href="https://cran.r-project.org/web/views/Distributions.html">CRAN Task View: Probability Distributions</a><a href="how-to-outsmart-a-nobel-laureate.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>A Bernoulli trial is a model for a possibly biased coin flip: if <span class="math inline">\(X \sim \text{Bernoulli}(p)\)</span> then <span class="math inline">\(\mathbb{P}(X=1) = p\)</span> and <span class="math inline">\(\mathbb{P}(X=0) = 1-p\)</span>.<a href="how-to-outsmart-a-nobel-laureate.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>To see this, first rewrite <span class="math inline">\(\sum_{i=1}^n (X_i - \bar{X}_n)^2\)</span> as <span class="math inline">\(\sum_{i=1}^n (X_i - \mu)^2 - n(\bar{X}_n - \mu)^2\)</span>. This step is just algebra. Then take expectations, using the fact that the <span class="math inline">\(X_i\)</span> are independent and identically distributed.<a href="how-to-outsmart-a-nobel-laureate.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>If you're unfamiliar with the Normal Q-Q plot that I used to check the normality of <code>test_sims</code>, you can read about it this <a href="https://www.econometrics.blog/post/thirty-isn-t-the-magic-number/">blog post</a>.<a href="how-to-outsmart-a-nobel-laureate.html#fnref7" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <script>

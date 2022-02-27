@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lesson 1 The Hot Hand | Empirical Research Methods</title>
+  <meta name="description" content="Lesson 1 The Hot Hand | Empirical Research Methods" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lesson 1 The Hot Hand | Empirical Research Methods" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lesson 1 The Hot Hand | Empirical Research Methods" />
+  
+  
+  
+
+<meta name="author" content="Francis J. DiTraglia" />
+
+
+<meta name="date" content="2022-02-27" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="using-webexercises.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/core-erm-logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i>About This Book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-requisites"><i class="fa fa-check"></i>Pre-requisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-stata"><i class="fa fa-check"></i>Why not Stata?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab-julia-or-python"><i class="fa fa-check"></i>Why not Matlab, Julia, or Python?</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="the-hot-hand.html"><a href="the-hot-hand.html"><i class="fa fa-check"></i><b>1</b> The Hot Hand</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="the-hot-hand.html"><a href="the-hot-hand.html#drawing-random-data-in-r"><i class="fa fa-check"></i><b>1.1</b> Drawing Random Data in R</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="the-hot-hand.html"><a href="the-hot-hand.html#sample"><i class="fa fa-check"></i><b>1.1.1</b> <code>sample()</code></a></li>
+<li class="chapter" data-level="1.1.2" data-path="the-hot-hand.html"><a href="the-hot-hand.html#probability-distributions-in-r"><i class="fa fa-check"></i><b>1.1.2</b> Probability Distributions in R</a></li>
+<li class="chapter" data-level="1.1.3" data-path="the-hot-hand.html"><a href="the-hot-hand.html#set.seed"><i class="fa fa-check"></i><b>1.1.3</b> <code>set.seed()</code></a></li>
+<li class="chapter" data-level="1.1.4" data-path="the-hot-hand.html"><a href="the-hot-hand.html#exercises"><i class="fa fa-check"></i><b>1.1.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="the-hot-hand.html"><a href="the-hot-hand.html#the-skeleton-of-a-simulation-study"><i class="fa fa-check"></i><b>1.2</b> The Skeleton of a Simulation Study</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="the-hot-hand.html"><a href="the-hot-hand.html#a-biased-estimator-of-sigma2"><i class="fa fa-check"></i><b>1.2.1</b> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span></a></li>
+<li class="chapter" data-level="1.2.2" data-path="the-hot-hand.html"><a href="the-hot-hand.html#draw_sim_data"><i class="fa fa-check"></i><b>1.2.2</b> <code>draw_sim_data()</code></a></li>
+<li class="chapter" data-level="1.2.3" data-path="the-hot-hand.html"><a href="the-hot-hand.html#get_estimate"><i class="fa fa-check"></i><b>1.2.3</b> <code>get_estimate()</code></a></li>
+<li class="chapter" data-level="1.2.4" data-path="the-hot-hand.html"><a href="the-hot-hand.html#get_bias"><i class="fa fa-check"></i><b>1.2.4</b> <code>get_bias()</code></a></li>
+<li class="chapter" data-level="1.2.5" data-path="the-hot-hand.html"><a href="the-hot-hand.html#running-the-simulation-study"><i class="fa fa-check"></i><b>1.2.5</b> Running the Simulation Study</a></li>
+<li class="chapter" data-level="1.2.6" data-path="the-hot-hand.html"><a href="the-hot-hand.html#expand.grid-and-map"><i class="fa fa-check"></i><b>1.2.6</b> <code>expand.grid()</code> and <code>Map()</code></a></li>
+<li class="chapter" data-level="1.2.7" data-path="the-hot-hand.html"><a href="the-hot-hand.html#formatting-the-results"><i class="fa fa-check"></i><b>1.2.7</b> Formatting the Results</a></li>
+<li class="chapter" data-level="1.2.8" data-path="the-hot-hand.html"><a href="the-hot-hand.html#bonus-parallel-computing-with-mcmap"><i class="fa fa-check"></i><b>1.2.8</b> Bonus: Parallel Computing with <code>mcMap()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="the-hot-hand.html"><a href="the-hot-hand.html#your-turn-simulating-the-hot-hand"><i class="fa fa-check"></i><b>1.3</b> Your Turn: Simulating the Hot Hand</a></li>
+<li class="chapter" data-level="1.4" data-path="the-hot-hand.html"><a href="the-hot-hand.html#further-reading"><i class="fa fa-check"></i><b>1.4</b> Further Reading</a></li>
+<li class="chapter" data-level="1.5" data-path="the-hot-hand.html"><a href="the-hot-hand.html#mini-projects"><i class="fa fa-check"></i><b>1.5</b> Mini Projects</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="the-hot-hand.html"><a href="the-hot-hand.html#the-hot-hand-revisited"><i class="fa fa-check"></i><b>1.5.1</b> The Hot Hand Revisited</a></li>
+<li class="chapter" data-level="1.5.2" data-path="the-hot-hand.html"><a href="the-hot-hand.html#which-estimator-of-the-variance-is-really-better"><i class="fa fa-check"></i><b>1.5.2</b> Which estimator of the variance is <em>really</em> better?</a></li>
+<li class="chapter" data-level="1.5.3" data-path="the-hot-hand.html"><a href="the-hot-hand.html#optimal-stopping"><i class="fa fa-check"></i><b>1.5.3</b> Optimal Stopping</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="the-hot-hand.html"><a href="the-hot-hand.html#draft-material"><i class="fa fa-check"></i><b>1.6</b> DRAFT MATERIAL</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="using-webexercises.html"><a href="using-webexercises.html"><i class="fa fa-check"></i><b>2</b> Using <code>webexercises</code></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="using-webexercises.html"><a href="using-webexercises.html#tally-the-number-of-correct-answers-total_correct"><i class="fa fa-check"></i><b>2.1</b> Tally the number of correct answers: <code>total_correct()</code></a></li>
+<li class="chapter" data-level="2.2" data-path="using-webexercises.html"><a href="using-webexercises.html#create-a-truefalse-question-torf"><i class="fa fa-check"></i><b>2.2</b> Create a TRUE/FALSE question: <code>torf()</code></a></li>
+<li class="chapter" data-level="2.3" data-path="using-webexercises.html"><a href="using-webexercises.html#create-fill-in-the-blank-questions-fitb"><i class="fa fa-check"></i><b>2.3</b> Create fill-in-the-blank Questions: <code>fitb()</code></a></li>
+<li class="chapter" data-level="2.4" data-path="using-webexercises.html"><a href="using-webexercises.html#create-a-multiple-choice-question-mcq-mcqlong"><i class="fa fa-check"></i><b>2.4</b> Create a multiple choice question: <code>mcq(), mcqlong()</code></a></li>
+<li class="chapter" data-level="2.5" data-path="using-webexercises.html"><a href="using-webexercises.html#hide-solutions-create-hints"><i class="fa fa-check"></i><b>2.5</b> Hide Solutions / Create Hints</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="using-webexercises.html"><a href="using-webexercises.html#example-1-inline-hint-and-solution"><i class="fa fa-check"></i><b>2.5.1</b> Example 1: Inline Hint and Solution</a></li>
+<li class="chapter" data-level="2.5.2" data-path="using-webexercises.html"><a href="using-webexercises.html#example-2-chunk-solution-that-doesnt-execute"><i class="fa fa-check"></i><b>2.5.2</b> Example 2: Chunk solution that doesn't execute</a></li>
+<li class="chapter" data-level="2.5.3" data-path="using-webexercises.html"><a href="using-webexercises.html#example-3-chunk-solution-that-evaluates"><i class="fa fa-check"></i><b>2.5.3</b> Example 3: Chunk solution that evaluates</a></li>
+<li class="chapter" data-level="2.5.4" data-path="using-webexercises.html"><a href="using-webexercises.html#example-4-show-the-output-hide-the-code"><i class="fa fa-check"></i><b>2.5.4</b> Example 4: Show the output, hide the code</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Empirical Research Methods</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="the-hot-hand" class="section level1" number="1">
+<h1><span class="header-section-number">Lesson 1</span> The Hot Hand</h1>
+<p>If you've read 2002 Nobel Laureate Daniel Kahneman's best-selling book <a href="https://www.google.co.uk/books/edition/Thinking_Fast_and_Slow/AV9x8XakdV0C?hl=en&amp;gbpv=1&amp;dq=thinking+fast+and+slow&amp;printsec=frontcover"><em>Thinking Fast and Slow</em></a>, you may remember this passage about the <em>hot hand illusion</em>, a supposed illustration of the human tendency to see patterns in random noise:</p>
+<blockquote>
+<p>Amos [Tversky] and his students Tom Gilovich and Robert Vallone caused a stir with their study of misperceptions of randomness in basketball. The "fact" that players occasionally acquire a hot hand is generally accepted by players, coaches, and fans. The inference is irresistible: a player sinks three or four baskets in a row and you cannot help forming the causal judgment that this player is now hot, with a temporarily increased propensity to score. Players on both teams adapt to this judgment—teammates are more likely to pass to the hot scorer and the defense is more likely to doubleteam. Analysis of thousands of sequences of shots led to a disappointing conclusion: there is no such thing as a hot hand in professional basketball, either in shooting from the field or scoring from the foul line. Of course, some players are more accurate than others, but the sequence of successes and missed shots satisfies all tests of randomness. The hot hand is entirely in the eye of the beholders, who are consistently too quick to perceive order and causality in randomness. The hot hand is a massive and widespread cognitive illusion.</p>
+</blockquote>
+<p>The research that Kahneman mentions was published in a famous paper by <a href="https://labs.la.utexas.edu/gilden/files/2016/04/Gilo.Vallone.Tversky.pdf">Gilovich, Vallone &amp; Tversky (1985)</a>, and later summarized for a general audience in <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/c323/hothand.pdf">Gilovich &amp; Tversky (1989)</a>. The abstract of the original paper says it all:</p>
+<blockquote>
+<p>Basketball players and fans alike tend to believe that a player's chance of hitting a shot are greater following a hit than following a miss on the previous shot. However, detailed analyses of the shooting records of the Philadelphia 76ers provided no evidence for a positive correlation between the outcomes of successive shots. The same conclusions emerged from free-throw records of the Boston Celtics, and from a controlled shooting experiment with the men and women of Cornell's varsity teams. The outcomes of previous shots influenced Cornell players' predictions but not their performance. The belief in the hot hand and the "detection" of streaks in random sequences is attributed to a general misconception of chance according to which even short random sequences are thought to be highly representative of their generating process.</p>
+</blockquote>
+<p>Between 1985 and 2011, when Kahneman's book was published, this result was replicated numerous times under a variety of different conditions, making it one of the better-documented biases in human decision-making. But it turns out that the hot-hand illusion is <em>itself</em> an illusion.</p>
+<p>In a recent issue of <em>Econometrica</em>, <a href="https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA14943">Miller &amp; Sanjurjo (2018)</a> point out a subtle but consequential error in the statistical tests used in the hot hand literature. It turns out that these tests were biased <em>against</em> detecting evidence of a hot hand, even if it did in fact exist. Correcting this mistake and re-analyzing Gilovich, Vallone and Tversky's original dataset "reveals significant evidence of streak shooting, with large effect sizes." The hot hand is real, and the literature has now shifted to trying to estimate the <em>size</em> of the effect.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>There are some helpful lessons that we can draw from this episode. First, we all make mistakes--even Nobel Laureates! Second, successful replications tell us less than we might hope: they could easily <em>reproduce</em> the bias of the original study. But in my view, the real lesson of the hot hand affair is much simpler: <strong>you should always run a simulation study.</strong></p>
+<p>The probabilistic error that led so many researchers to draw the wrong conclusion about the hot hand is really quite subtle.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> But at the same time, anyone who knows basic programming could have detected the mistake in five minutes if only they had bothered to look. In economics and statistics, simulation is a <em>superpower</em>. It helps us to understand our models, check for mistakes, and make unexpected connections, some of which may even lead to new theoretical results. If you'll pardon my continuation of the Swiss Army Knife metaphor, simulation is the knife: arguably the most useful tool in your toolbox. In this lesson, we'll cover some basic tools for carrying out a simulation experiment in R and use them to shed some light on the illusion of the hot hand illusion. The key R functions introduced in this lesson are as follows:</p>
+<ul>
+<li><code>sample()</code></li>
+<li><code>rbinom()</code></li>
+<li><code>rnorm()</code></li>
+<li><code>set.seed()</code></li>
+<li><code>identical()</code></li>
+<li><code>replicate()</code></li>
+<li><code>expand.grid()</code></li>
+<li><code>Map()</code></li>
+<li><code>mcMap()</code> from the <code>parallel</code> package</li>
+</ul>
+<div id="drawing-random-data-in-r" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Drawing Random Data in R</h2>
+<p>Before we can use simulations to study the illusion of the hot hand illusion, we need to review the basics of drawing random data in R. We'll examine the functions <code>sample()</code>, <code>rbinom()</code> and <code>set.seed()</code> in detail. I'll also point you to a large number functions for simulating from well-known probability distributions in R. Finally, you'll have a chance to practice what you've learned by solving a few short exercises.</p>
+<div id="sample" class="section level3" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> <code>sample()</code></h3>
+<p>R has many helpful built-in functions for making simulated random draws. The simplest is <code>sample()</code>, which makes <code>size</code> random draws without replacement from a vector <code>x</code>. To test this out, I'll create a very simple vector</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="the-hot-hand.html#cb1-1" aria-hidden="true" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;there&#39;</span>, <span class="st">&#39;is&#39;</span>, <span class="st">&#39;no&#39;</span>, <span class="st">&#39;largest&#39;</span>, <span class="st">&#39;integer&#39;</span>)</span></code></pre></div>
+<p>The following line of code makes two draws <em>without replacement</em> from <code>my_vector</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="the-hot-hand.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_vector, <span class="at">size =</span> <span class="dv">2</span>) <span class="co"># without replacement</span></span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot; &quot;largest&quot;</code></pre>
+<p>If I run the same line of code again, I may not get the same result: it's random!<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="the-hot-hand.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_vector, <span class="at">size =</span> <span class="dv">2</span>) <span class="co"># without replacement</span></span></code></pre></div>
+<pre><code>## [1] &quot;is&quot;    &quot;there&quot;</code></pre>
+<p>To draw <em>with replacement</em>, set <code>replace = TRUE</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="the-hot-hand.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_vector, <span class="at">size =</span> <span class="dv">7</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># with replacement</span></span></code></pre></div>
+<pre><code>## [1] &quot;no&quot;      &quot;is&quot;      &quot;no&quot;      &quot;largest&quot; &quot;no&quot;      &quot;largest&quot; &quot;no&quot;</code></pre>
+<p>As usual in R, the argument names <code>x</code>, <code>size</code>, and <code>replace</code> are optional. But it is considered good coding style to explicitly supply an argument name whenever we're <em>overriding</em> a function's default behavior. This makes it easier for anyone reading our code to understand what's happening. Since <code>sample()</code> defaults to making draws <em>without</em> replacement, it's a good idea to write <code>replace = TRUE</code> rather then simply <code>TRUE</code>. But even without writing <code>replace =</code>, the code will still work as long as we supply all of the arguments in the correct <em>order</em>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="the-hot-hand.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(my_vector, <span class="dv">7</span>, <span class="cn">TRUE</span>) <span class="co"># bad style</span></span></code></pre></div>
+<pre><code>## [1] &quot;largest&quot; &quot;no&quot;      &quot;largest&quot; &quot;is&quot;      &quot;integer&quot; &quot;is&quot;      &quot;integer&quot;</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="the-hot-hand.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(my_vector, <span class="dv">7</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># good style</span></span></code></pre></div>
+<pre><code>## [1] &quot;there&quot;   &quot;is&quot;      &quot;no&quot;      &quot;integer&quot; &quot;no&quot;      &quot;there&quot;   &quot;largest&quot;</code></pre>
+</div>
+<div id="probability-distributions-in-r" class="section level3" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Probability Distributions in R</h3>
+<p>As a programming language targeted at statistical applications, R supplies built-in functions for all of the most common probability distributions.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
+These functions follow a consistent naming convention. They being with either <code>d</code>, <code>p</code>, <code>q</code>, or <code>r</code> and are followed by an abbreviated name for a particular probability distribution. The prefix <code>d</code> denotes a <em>density</em> function (or mass function for a discrete distribution); <code>p</code> denotes a <em>cumulative distribution function</em> (CDF), <code>q</code> denotes a <em>quantile</em> function, and <code>r</code> denotes a function for making <em>random draws</em> from a particular distribution. For example: <code>dunif()</code> gives the probability density function of a uniform random variable, <code>pnorm()</code> gives the CDF of a normal random variable, <code>qchisq()</code> gives the quantile function of a Chi-squared, and <code>rbinom</code> allows us to make random draws from a Binomial distribution. The following table gives a full list of the relevant commands.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">R commands</th>
+<th align="left">Distribution</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>d/p/q/rbeta</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Beta_distribution">Beta</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>d/p/q/rbinom</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Binomial_distribution">Binomial</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>d/p/q/rcauchy</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Cauchy_distribution">Cauchy</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>d/p/q/rchisq</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Chi-squared_distribution">Chi-Squared</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>d/p/q/rexp</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Exponential_distribution">Exponential</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>d/p/q/rf</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/F-distribution">F</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>d/p/q/rgamma</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Gamma_distribution">Gamma</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>d/p/q/rgeom</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Geometric_distribution">Geometric</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>d/q/p/rhyper</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Geometric_distribution">Hypergeometric</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>d/p/q/rlogis</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Logistic_distribution">Logistic</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>d/p/q/rlnorm</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Lognormal_distribution">Log Normal</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>d/p/q/rnbinom</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Negative_binomial_distribution">Negative Binomial</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>d/p/q/rnorm</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>d/p/q/rpois</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>d/p/q/rt</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution">Student's t</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>d/p/q/runif</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>d/p/q/rweibull</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Weibull_distribution">Weibull</a></td>
+</tr>
+</tbody>
+</table>
+<p>There's a single help file for all of the <code>d/p/q/r</code> functions for a particular distribution. For example, if you enter <code>?dbeta</code> at the console you'll be shown the help files for <code>dbeta()</code>, <code>pbeta()</code>, <code>qbeta()</code>, and <code>rbeta()</code>.</p>
+<p>To get a feel for how these functions work, let's take a look at <code>rbinom()</code>, the function for drawing from a <a href="https://en.wikipedia.org/wiki/Binomial_distribution">Binomial distribution</a>. Recall that a Binomial<span class="math inline">\((m,p)\)</span> random variable equals the number of heads in <span class="math inline">\(m\)</span> independent tosses of a coin with <span class="math inline">\(\mathbb{P}(\text{Heads})=p\)</span>. Or to use a bit of probability jargon, it equals the number of <em>successes</em> in <span class="math inline">\(m\)</span> independent <em>Bernoulli trials</em>, each with probability of success <span class="math inline">\(p\)</span>.<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> If <span class="math inline">\(X\)</span> is a Binomial random variable with parameters <span class="math inline">\(m\)</span> and <span class="math inline">\(p\)</span>, traditionally written as <span class="math inline">\(X \sim \text{Binomial}(m, p)\)</span> then <span class="math inline">\(X\)</span> must take on a value in the set <span class="math inline">\(\{0, 1, 2, ..., m\}\)</span> and the probability that it takes on a particular value <span class="math inline">\(x\)</span> in this set is
+<span class="math display">\[
+\mathbb{P}(X = x) = \binom{m}{x} p^x (1 - p)^x
+\]</span>
+The function <code>rbinom()</code> makes random draws with the probabilities given by this formula. Its takes three arguments: <code>size</code> is the number of trials, <span class="math inline">\(m\)</span> in the formula, <code>prob</code> is the probability of success, <span class="math inline">\(p\)</span> in the formula, and <code>n</code> is the desired number of Binomial draws. For example, we can make a single draw from a Binomial<span class="math inline">\((m = 10, p =1 /2)\)</span> distribution as follows</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="the-hot-hand.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<p>and fifteen draws from the same distribution by changing <code>n</code> to <code>10</code></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="the-hot-hand.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">15</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<pre><code>##  [1] 4 4 3 2 6 4 4 5 5 3 5 3 5 6 3</code></pre>
+<p>It's important not to confuse <code>n</code> with <code>size</code>. The former tells R how many <em>Binomial</em> draws to make. The latter tells R the value of the parameter <span class="math inline">\(m\)</span> of the Binomial<span class="math inline">\((m, p)\)</span> distribution.</p>
+<p>Perhaps you remember that if <span class="math inline">\(X \sim \text{Binomial}(m, p)\)</span> then <span class="math inline">\(\mathbb{E}[X] = mp\)</span> and <span class="math inline">\(\text{Var}= np(1-p)\)</span>. We can approximate these results numerically by simulating a large number of draws, say 5000, from a Binomial distribution:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="the-hot-hand.html#cb16-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb16-2"><a href="the-hot-hand.html#cb16-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
+<span id="cb16-3"><a href="the-hot-hand.html#cb16-3" aria-hidden="true" tabindex="-1"></a>n_sims <span class="ot">&lt;-</span> <span class="dv">5000</span></span>
+<span id="cb16-4"><a href="the-hot-hand.html#cb16-4" aria-hidden="true" tabindex="-1"></a>sim_draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n_sims, m, p)</span></code></pre></div>
+<p>and then comparing the theoretical value for <span class="math inline">\(\mathbb{E}(X)\)</span> to a simulation-based approximation:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="the-hot-hand.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">EV_Theoretical =</span> m <span class="sc">*</span> p, </span>
+<span id="cb17-2"><a href="the-hot-hand.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">EV_Simulation =</span> <span class="fu">mean</span>(sim_draws))</span></code></pre></div>
+<pre><code>## EV_Theoretical  EV_Simulation 
+##         5.0000         4.9952</code></pre>
+<p>and similarly for <span class="math inline">\(\text{Var}(X)\)</span></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="the-hot-hand.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">Var_Theoretical =</span> m <span class="sc">*</span> p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p), </span>
+<span id="cb19-2"><a href="the-hot-hand.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Var_Simulation =</span> <span class="fu">var</span>(sim_draws))</span></code></pre></div>
+<pre><code>## Var_Theoretical  Var_Simulation 
+##        3.750000        3.778733</code></pre>
+<p>Reassuringly, our simulation results are very close to the theoretical values. They would be even closer if we used a larger value for <code>n_sims</code>.</p>
+</div>
+<div id="set.seed" class="section level3" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> <code>set.seed()</code></h3>
+<p>A key theme of this book is the importance of <em>reproducible research</em>. Anyone else who wants to check your work should be able to obtain <em>exactly the same results as you did</em> by running your code. But this seems to be at odds with the idea of simulating random data. For example, if I run <code>rbinom(10, 4, 0.6)</code> repeatedly, I'll most likely get different results each time:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="the-hot-hand.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span></code></pre></div>
+<pre><code>##  [1] 3 1 4 2 3 3 4 3 1 2</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="the-hot-hand.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span></code></pre></div>
+<pre><code>##  [1] 3 2 3 4 3 3 3 3 3 3</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="the-hot-hand.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span></code></pre></div>
+<pre><code>##  [1] 3 2 1 2 2 3 0 2 3 4</code></pre>
+<p>The function <code>set.seed()</code> allows us to ensure that we obtain the <em>same</em> simulation draws whenever we re-run the same simulation code. To use it, we simply choose a <em>seed</em>, any integer between negative and positive <span class="math inline">\((2^{31} - 1)\)</span>, and supply it as an argument to <code>set.seed()</code>. Simulation draws made on a computer aren't really random: they're only <a href="https://en.wikipedia.org/wiki/Pseudorandomness">pseudo-random</a>. This means that they "look" random and pass statistical tests for randomness but are in fact generated by a completely deterministic algorithm. Setting the seed sets the <em>initial condition</em> of the pseudorandom number generator. Because the algorithm is deterministic, the same initial condition always leads to the same results. This is what allows us to replicate our simulation draws. Each time we make another draw, the seed changes. But we can always return it to its previous state using <code>set.seed()</code>. For example, suppose I set the seed to <code>1</code>. and re-run my code from above as follows</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="the-hot-hand.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb27-2"><a href="the-hot-hand.html#cb27-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span>
+<span id="cb27-3"><a href="the-hot-hand.html#cb27-3" aria-hidden="true" tabindex="-1"></a>x1</span></code></pre></div>
+<pre><code>##  [1] 3 3 2 1 3 1 1 2 2 4</code></pre>
+<p>If I run <code>rbinom(10, 4, 0.6)</code> again, I will most likely <em>not</em> get the same result, because the state of the pseudorandom number generator has changed:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="the-hot-hand.html#cb29-1" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span>
+<span id="cb29-2"><a href="the-hot-hand.html#cb29-2" aria-hidden="true" tabindex="-1"></a>x2</span></code></pre></div>
+<pre><code>##  [1] 3 3 2 3 2 2 2 0 3 2</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="the-hot-hand.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(x1, x2) <span class="co"># safe/reliable way to test if two objects are exactly equal</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>but if I reset the seed to <code>1</code> I'll obtain exactly the same result as before:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="the-hot-hand.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb33-2"><a href="the-hot-hand.html#cb33-2" aria-hidden="true" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span>
+<span id="cb33-3"><a href="the-hot-hand.html#cb33-3" aria-hidden="true" tabindex="-1"></a>x3</span></code></pre></div>
+<pre><code>##  [1] 3 3 2 1 3 1 1 2 2 4</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="the-hot-hand.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(x3, x1)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p><em>Whenever</em> you write simulation code, start by choosing a seed and adding the line <code>set.seed(MY-SEED-GOES-HERE)</code> to the top of your R script. You'll often see people use <code>set.seed(12345)</code> or <code>set.seed(54321)</code>. When I'm not feeling lazy, I like to generate a <em>truly random number</em> to use as my seed. The website <a href="https://random.org">random.org</a> provides free access to <em>bona fide</em> random numbers generated from atmospheric noise. The "True Random Number Generator" on the top right of their main page allows you to make uniform integer draws on a range from "Min" to "Max." Using the widest possible range, <span class="math inline">\(\pm1\times 10^9\)</span>, I generated the seed <code>420508570</code> which I'll use in the following exercises.</p>
+</div>
+<div id="exercises" class="section level3" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> Exercises</h3>
+<p>Set your seed to <code>420508570</code> at the start of your solution code for each of these exercises to obtain results that match the solutions.</p>
+<ol style="list-style-type: decimal">
+<li>Run <code>sample(x = my_vector, size = 10)</code>. What happens and why?</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<p>R will throw an error. You can't make ten draws <em>without replacement</em> from a set of five objects:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="the-hot-hand.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb37-2"><a href="the-hot-hand.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_vector, <span class="at">size =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## Error in sample.int(length(x), size, replace, prob): cannot take a sample larger than the population when &#39;replace = FALSE&#39;</code></pre>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Write a line of code that makes five draws without replacement from the set of numbers <span class="math inline">\(\{1, 2, 3, ..., 100\}\)</span>.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="the-hot-hand.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb39-2"><a href="the-hot-hand.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 100  67  51  44  12</code></pre>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Create a vector of thirty elements called <code>urn</code> that represents an urn containing ten blue balls and twenty red balls. Draw five balls with replacement from <code>urn</code> and store the draws in a vector called <code>draws</code>. Then write a line of code to count up the number of blue balls in <code>draws</code>.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Hint
+</button>
+<p>Use <code>rep()</code> and <code>c()</code> to construct <code>urn</code>. Use <code>==</code> and <code>sum()</code> to count up the number of blue balls in <code>draws</code>. See the relevant help files for details, e.g. <code>?rep</code>.</p>
+</div>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="the-hot-hand.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb41-2"><a href="the-hot-hand.html#cb41-2" aria-hidden="true" tabindex="-1"></a>urn <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&#39;blue&#39;</span>, <span class="dv">10</span>), <span class="fu">rep</span>(<span class="st">&#39;red&#39;</span>, <span class="dv">20</span>))</span>
+<span id="cb41-3"><a href="the-hot-hand.html#cb41-3" aria-hidden="true" tabindex="-1"></a>draws <span class="ot">&lt;-</span> <span class="fu">sample</span>(urn, <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb41-4"><a href="the-hot-hand.html#cb41-4" aria-hidden="true" tabindex="-1"></a>draws</span></code></pre></div>
+<pre><code>## [1] &quot;blue&quot; &quot;blue&quot; &quot;red&quot;  &quot;red&quot;  &quot;red&quot;</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="the-hot-hand.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(draws <span class="sc">==</span> <span class="st">&#39;blue&#39;</span>)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Make 1000 draws from a normal distribution with mean 5 and variance 4 and store them in a vector called <code>normal_sims</code>. Calculate the mean and variance of your draws, and plot a histogram.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Hint
+</button>
+<p>Consult the help file for <code>rnorm()</code> paying close attention to the fact that R specifies the normal distribution in terms of a mean and <em>standard deviation</em> rather than a mean and <em>variance</em>. You can plot a histogram with any number of functions: e.g. the base R function <code>hist()</code> or <code>qplot()</code> from the <code>ggplot2</code> package.</p>
+</div>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="the-hot-hand.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb45-2"><a href="the-hot-hand.html#cb45-2" aria-hidden="true" tabindex="-1"></a>normal_sims <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="dv">5</span>, <span class="dv">2</span>) <span class="co"># Variance = 4; Standard Dev. = 2</span></span>
+<span id="cb45-3"><a href="the-hot-hand.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(normal_sims)</span></code></pre></div>
+<pre><code>## [1] 4.895722</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="the-hot-hand.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(normal_sims)</span></code></pre></div>
+<pre><code>## [1] 3.912262</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="the-hot-hand.html#cb49-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">qplot</span>(normal_sims, <span class="at">bins =</span> <span class="dv">25</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>There is no built-in R function called <code>rbern()</code> for simulating draws from the <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli Distribution</a> with probability of success <span class="math inline">\(p\)</span>. Write one of your own and use it to make ten Bernoulli(0.8) draws. Your function <code>rbern()</code> should take two arguments: the number of draws <code>n</code> and the probability of success <code>p</code>.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Hint
+</button>
+<p>There are various ways to do this. The simplest is by setting the arguments of <code>rbinom()</code> appropriately.</p>
+</div>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="the-hot-hand.html#cb50-1" aria-hidden="true" tabindex="-1"></a>rbern <span class="ot">&lt;-</span> <span class="cf">function</span>(n, p) {</span>
+<span id="cb50-2"><a href="the-hot-hand.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Make n random draws from a Bernoulli(p) distribution</span></span>
+<span id="cb50-3"><a href="the-hot-hand.html#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbinom</span>(n, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> p)</span>
+<span id="cb50-4"><a href="the-hot-hand.html#cb50-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb50-5"><a href="the-hot-hand.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb50-6"><a href="the-hot-hand.html#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rbern</span>(<span class="dv">10</span>, <span class="fl">0.8</span>)</span></code></pre></div>
+<pre><code>##  [1] 1 1 1 1 0 1 1 1 1 1</code></pre>
+</div>
+</div>
+</div>
+<div id="the-skeleton-of-a-simulation-study" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> The Skeleton of a Simulation Study</h2>
+<p>While the specific details will vary, nearly every simulation study has the same basic structure:</p>
+<ol style="list-style-type: decimal">
+<li>Generate simulated data.</li>
+<li>Calculate an estimate from the simulated data.</li>
+<li>Repeat steps 1 and 2 many times, saving each of the estimates.</li>
+<li>Summarize the results.</li>
+</ol>
+<p>Thinking in terms of this structure helps us to write code that is easier to understand, easier to generalize, and faster to run. The key is to break these steps down into <em>functions</em> that carry out a single, well-defined task. Generally these will include:</p>
+<ol style="list-style-type: lower-roman">
+<li>A function to generate simulated data.</li>
+<li>A function to calculate an estimate from the data.</li>
+<li>A function that repeatedly calls i. and ii. and summarizes the results.</li>
+</ol>
+<p>This may sound a bit abstract, so in the remainder of this section we'll walk through the details in a simple example: estimating the bias of the maximum likelihood estimator for the variance of a normal distribution. Along the way we'll explore three extremely helpful R functions for carrying simulation studies: <code>replicate()</code>, <code>expand.grid()</code>, and <code>Map()</code>. In the next section you'll apply what you've learned to the hot hand example.</p>
+<div id="a-biased-estimator-of-sigma2" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span></h3>
+<p>My introductory statistics students often ask me why the sample variance, <span class="math inline">\(S^2\)</span>, divides by <span class="math inline">\((n-1)\)</span> rather than the sample size <span class="math inline">\(n\)</span>:
+<span class="math display">\[
+S^2 \equiv \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X}_n)^2
+\]</span>
+The answer is that dividing by <span class="math inline">\((n-1)\)</span> yields an <em>unbiased estimator</em>: if <span class="math inline">\(X_1, ..., X_n\)</span> are a random sample from a population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, then <span class="math inline">\(\mathbb{E}[S^2] = \sigma^2\)</span>. So what would happen if we divided by <span class="math inline">\(n\)</span> instead? Consider the estimator <span class="math inline">\(\widehat{\sigma}^2\)</span> defined by
+<span class="math display">\[
+\widehat{\sigma}^2 \equiv \frac{1}{n}\sum_{i=1}^n (X_i - \bar{X}_n)^2.
+\]</span>
+If <span class="math inline">\(X_i \sim \text{Normal}(\mu, \sigma^2)\)</span> then <span class="math inline">\(\widehat{\sigma}^2\)</span> is in fact the <em>maximum likelihood estimator</em> for <span class="math inline">\(\sigma^2\)</span>. With a bit of algebra, we can show that <span class="math inline">\(\mathbb{E}[\widehat{\sigma}^2] = (n-1)\sigma^2/n\)</span> which clearly does <em>not</em> equal the population variance.<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>
+It follows that
+<span class="math display">\[
+\text{Bias}(\widehat{\sigma}^2) \equiv \mathbb{E}[\widehat{\sigma}^2 - \sigma^2] = -\sigma^2/n
+\]</span>
+so <span class="math inline">\(\widehat{\sigma}^2\)</span> is biased <em>downwards</em>. Because the bias goes to zero as the sample size grows, however, it is still a consistent estimator of <span class="math inline">\(\sigma^2\)</span>.</p>
+<p>Another way to see that <span class="math inline">\(\widehat{\sigma}^2\)</span> is biased is by carrying out a simulation study. To do this, we generate data from a distribution with a <em>known</em> variance and calculate <span class="math inline">\(\widehat{\sigma}^2\)</span>. Then we generate a <em>new</em> dataset from the same distribution and again calculate the corresponding value of <span class="math inline">\(\widehat{\sigma}^2\)</span>. Repeating this a large number of times, we end up with many estimates <span class="math inline">\(\widehat{\sigma}^2\)</span>, each based on a dataset of the same size drawn independently from the same population. This collection of estimates gives us an <em>approximation</em> to the sampling distribution of <span class="math inline">\(\widehat{\sigma}^2\)</span>. Using this approximation, we can get a good estimate of <span class="math inline">\(\text{Bias}(\widehat{\sigma}^2)\)</span> by comparing the sample mean of our simulated estimates <span class="math inline">\(\widehat{\sigma}^2\)</span> to the <em>true</em> variance <span class="math inline">\(\sigma^2\)</span>.</p>
+</div>
+<div id="draw_sim_data" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> <code>draw_sim_data()</code></h3>
+<p>The first thing we need is a function to generate simulated data. Let's draw the <span class="math inline">\(X_1, ..., X_n\)</span> from a normal distribution with mean zero and variance <code>s_sq</code>. To do this, we write a simple R function as follows:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="the-hot-hand.html#cb52-1" aria-hidden="true" tabindex="-1"></a>draw_sim_data <span class="ot">&lt;-</span> <span class="cf">function</span>(n, s_sq) {</span>
+<span id="cb52-2"><a href="the-hot-hand.html#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rnorm</span>(n, <span class="at">sd =</span> <span class="fu">sqrt</span>(s_sq))</span>
+<span id="cb52-3"><a href="the-hot-hand.html#cb52-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>The nice thing about writing such a function is that we can test that it's working correctly. For example, suppose you were worried that <code>draw_sim_data</code> does <em>not</em> in fact generate <code>n</code> draws from a normal distribution with mean zero and variance <code>s_sq</code>. Then you could simply draw a large sample and check! Here I'll verify that <code>draw_sim_data()</code> returns a vector of the expected length, with the desired mean and variance, drawn from normal distribution.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> Everything works as expected:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="the-hot-hand.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb53-2"><a href="the-hot-hand.html#cb53-2" aria-hidden="true" tabindex="-1"></a>test_sims <span class="ot">&lt;-</span> <span class="fu">draw_sim_data</span>(<span class="dv">5000</span>, <span class="dv">9</span>)</span>
+<span id="cb53-3"><a href="the-hot-hand.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(test_sims)</span></code></pre></div>
+<pre><code>## [1] 5000</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="the-hot-hand.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(test_sims)</span></code></pre></div>
+<pre><code>## [1] -0.04620928</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="the-hot-hand.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(test_sims)</span></code></pre></div>
+<pre><code>## [1] 8.832994</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="the-hot-hand.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(test_sims)</span>
+<span id="cb59-2"><a href="the-hot-hand.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(test_sims)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+</div>
+<div id="get_estimate" class="section level3" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> <code>get_estimate()</code></h3>
+<p>The next step is to write a function that calculates <span class="math inline">\(\widehat{\sigma}^2\)</span>. We can do this as follows:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="the-hot-hand.html#cb60-1" aria-hidden="true" tabindex="-1"></a>get_estimate <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb60-2"><a href="the-hot-hand.html#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="fu">length</span>(x) <span class="co"># divides by n not (n-1)</span></span>
+<span id="cb60-3"><a href="the-hot-hand.html#cb60-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Again it's a good idea to test your code before proceeding. There are several tests we could consider running. First, if all the elements of <code>x</code> are the same then <code>get_estimate()</code> should return zero because <code>(x - mean(x))</code> will simply be a vector of zeros. Everything looks good:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="the-hot-hand.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_estimate</span>(<span class="fu">rep</span>(<span class="dv">5</span>, <span class="dv">25</span>))</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="the-hot-hand.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_estimate</span>(<span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<p>Second, <code>get_estimate()</code> should not <em>in general</em> give the same result as <code>var()</code>, R's built-in function for the sample variance. This is because the latter divides by <span class="math inline">\(n\)</span> rather than <span class="math inline">\((n-1)\)</span>. But if <span class="math inline">\(n\)</span> is very large, this difference should become negligible. Again, everything works as expected:</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="the-hot-hand.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb65-2"><a href="the-hot-hand.html#cb65-2" aria-hidden="true" tabindex="-1"></a>sim_small <span class="ot">&lt;-</span> <span class="fu">draw_sim_data</span>(<span class="dv">5</span>, <span class="dv">1</span>)</span>
+<span id="cb65-3"><a href="the-hot-hand.html#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">sigma_hat_sq =</span> <span class="fu">get_estimate</span>(sim_small), <span class="at">Sample_Var =</span> <span class="fu">var</span>(sim_small))</span></code></pre></div>
+<pre><code>## sigma_hat_sq   Sample_Var 
+##    0.1710749    0.2138436</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="the-hot-hand.html#cb67-1" aria-hidden="true" tabindex="-1"></a>sim_big <span class="ot">&lt;-</span> <span class="fu">draw_sim_data</span>(<span class="dv">5000</span>, <span class="dv">1</span>)</span>
+<span id="cb67-2"><a href="the-hot-hand.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">sigma_hat_sq =</span> <span class="fu">get_estimate</span>(sim_big), <span class="at">Sample_Var =</span> <span class="fu">var</span>(sim_big))</span></code></pre></div>
+<pre><code>## sigma_hat_sq   Sample_Var 
+##    0.9814408    0.9816371</code></pre>
+</div>
+<div id="get_bias" class="section level3" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> <code>get_bias()</code></h3>
+<p>Now we're ready to actually carry out our simulation study. The final step is to write a function called <code>get_bias()</code> that repeatedly calls <code>draw_sim_data()</code> and <code>get_estimate()</code>, stores the resulting estimates <span class="math inline">\(\widehat{\sigma}^2\)</span> and calculates a simulation estimate of the bias. Compared to the functions from above, this one will be more complicated, so I'll explain it in steps. First the code:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="the-hot-hand.html#cb69-1" aria-hidden="true" tabindex="-1"></a>get_bias <span class="ot">&lt;-</span> <span class="cf">function</span>(n, s_sq, <span class="at">n_reps =</span> <span class="dv">5000</span>) {</span>
+<span id="cb69-2"><a href="the-hot-hand.html#cb69-2" aria-hidden="true" tabindex="-1"></a>  draw_sim_replication <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb69-3"><a href="the-hot-hand.html#cb69-3" aria-hidden="true" tabindex="-1"></a>    sim_data <span class="ot">&lt;-</span> <span class="fu">draw_sim_data</span>(n, s_sq)</span>
+<span id="cb69-4"><a href="the-hot-hand.html#cb69-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">get_estimate</span>(sim_data)</span>
+<span id="cb69-5"><a href="the-hot-hand.html#cb69-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb69-6"><a href="the-hot-hand.html#cb69-6" aria-hidden="true" tabindex="-1"></a>  sim_replications <span class="ot">&lt;-</span> <span class="fu">replicate</span>(n_reps, <span class="fu">draw_sim_replication</span>())</span>
+<span id="cb69-7"><a href="the-hot-hand.html#cb69-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(sim_replications <span class="sc">-</span> s_sq)</span>
+<span id="cb69-8"><a href="the-hot-hand.html#cb69-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>The function <code>get_bias()</code> takes three arguments: <code>n</code> is the sample size for each replication of the simulation experiment, <code>s_sq</code> is the <em>true</em> population variance from which we will simulate normal data, and <code>n_reps</code> is the number of simulation replications, i.e. the number of times that we want to <em>repeat</em> the simulation. The final argument, <code>n_reps</code> is <em>optional</em>: if you call <code>get_bias()</code> and supply only the first two arguments, R will set <code>n_reps</code> equal to the default value of <code>5000</code>.</p>
+<p>The first step inside of <code>get_bias()</code> <em>constructs</em> a function called <code>draw_sim_replication()</code> that doesn't take any input arguments. This may seem strange: I'll explain it in a moment. For now, focus on the steps that <code>draw_sim_replication()</code> carries out. It first runs <code>draw_sim_data(n, s_q)</code> and stores the result in a vector called <code>sim_data</code>. Next it feeds <code>sim_data</code> as an input to <code>get_estimate()</code>. In other words, it carries out <em>one replication</em> of our simulation experiment. But how does the call to <code>draw_sim_data()</code> "know" which values to use for <code>n</code> and <code>s_sq</code> given that <code>draw_sim_replication()</code> doesn't take any input arguments? The key is that <code>draw_sim_replication()</code> is created <em>inside</em> of another function: <code>get_bias()</code>. When <code>draw_sim_replication()</code> encounters a reference to <code>n</code> and <code>s_sq</code>, it substitutes the values that were supplied as arguments to <code>get_bias()</code>.</p>
+<p>Here's another way of looking at <code>draw_sim_replication()</code>. We want to be able to run our simulation study for different values of <code>n</code> and <code>s_sq</code>. After we tell <code>get_bias()</code> our desired values of <code>n</code> and <code>s_sq</code>, it constructs a function for us called <code>draw_sim_replication()</code> that <em>hard codes</em> these particular parameter values. From this point on, calling <code>draw_sim_replication()</code> does "the right thing" without our having to explicitly specify <code>n</code> and <code>s_sq</code>.</p>
+<p>The next step of <code>get_bias()</code> uses the function <code>replicate()</code> to repeatedly call the function <code>draw_sim_replication()</code> a total of <code>n_reps</code> times. The results are stored in a vector called <code>sim_replications</code>. In essence, <code>replicate()</code> is shorthand for a common way of using a <code>for</code> loop. In the following example, <code>x</code> and <code>y</code> will be identical. But constructing <code>x</code> requires much more work: we first need to set up an empty vector, and then explicitly loop over it. In contrast, <code>replicate()</code> does all of this behind the scenes to construct <code>y</code>:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="the-hot-hand.html#cb70-1" aria-hidden="true" tabindex="-1"></a>do_something <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb70-2"><a href="the-hot-hand.html#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="dv">42</span>)</span>
+<span id="cb70-3"><a href="the-hot-hand.html#cb70-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb70-4"><a href="the-hot-hand.html#cb70-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">50</span>)</span>
+<span id="cb70-5"><a href="the-hot-hand.html#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>) {</span>
+<span id="cb70-6"><a href="the-hot-hand.html#cb70-6" aria-hidden="true" tabindex="-1"></a>  x[i] <span class="ot">&lt;-</span> <span class="fu">do_something</span>()</span>
+<span id="cb70-7"><a href="the-hot-hand.html#cb70-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb70-8"><a href="the-hot-hand.html#cb70-8" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">50</span>, <span class="fu">do_something</span>())</span>
+<span id="cb70-9"><a href="the-hot-hand.html#cb70-9" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(x, y)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Finally, <code>get_bias()</code> uses the simulation replications stored in the vector <code>sim_replications</code> to approximate the bias of <span class="math inline">\(\widehat{\sigma}^2\)</span> by comparing them to the <em>true</em> value of <span class="math inline">\(\sigma^2\)</span>, namely <code>s_sq</code>. It does this by computing the simulation analogue of <span class="math inline">\(\mathbb{E}[\widehat{\sigma}^2 - \sigma^2]\)</span>, which is simply <code>mean(sim_replications - s_sq)</code>.</p>
+</div>
+<div id="running-the-simulation-study" class="section level3" number="1.2.5">
+<h3><span class="header-section-number">1.2.5</span> Running the Simulation Study</h3>
+<p>Now we're ready to run our simulation study: we simply need to call <code>get_bias()</code> with our desired values of <code>n</code> and <code>s_sq</code>, for example:</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="the-hot-hand.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb72-2"><a href="the-hot-hand.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_bias</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">s_sq =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] -0.2007312</code></pre>
+<p>It works! Up to simulation error, this result agrees with the theoretical bias of <span class="math inline">\(-\sigma^2/n = -1/5\)</span>. To see that this isn't simply a fluke, we could try different values of <code>n</code> and <code>s_sq</code>. Again, the results agree with the theoretical values:</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="the-hot-hand.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb74-2"><a href="the-hot-hand.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">theoretical =</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="at">simulation =</span> <span class="fu">get_bias</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span></code></pre></div>
+<pre><code>## theoretical  simulation 
+##  -0.3333333  -0.3412176</code></pre>
+</div>
+<div id="expand.grid-and-map" class="section level3" number="1.2.6">
+<h3><span class="header-section-number">1.2.6</span> <code>expand.grid()</code> and <code>Map()</code></h3>
+<p>Now we have a function <code>get_bias()</code> that can approximate the bias of <span class="math inline">\(\widehat{\sigma}^2\)</span> for any values of <code>n</code> and <code>s_sq</code> that we care to specify. But what if we want to carry out a simulation study over a <em>range</em> of values for <code>n</code> and <code>s_sq</code>? One way to do this is with a pair of nested <code>for</code> loops: one that iterates over different values of <code>n</code> and another that iterates over different values of <code>s_sq</code>. But this isn't a great strategy for two reasons. First, loops within loops tend to be slow in R. Second, the book-keeping required to implement this strategy is a bit involved. Fortunately there's a much better way: use <code>expand.grid()</code> and <code>Map()</code>.</p>
+<p>First we'll set up a grid of values for <code>n</code> and <code>s_sq</code>:</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="the-hot-hand.html#cb76-1" aria-hidden="true" tabindex="-1"></a>n_grid <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb76-2"><a href="the-hot-hand.html#cb76-2" aria-hidden="true" tabindex="-1"></a>n_grid</span></code></pre></div>
+<pre><code>## [1] 3 4 5</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="the-hot-hand.html#cb78-1" aria-hidden="true" tabindex="-1"></a>s_sq_grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">3</span>, <span class="at">by =</span> <span class="fl">0.5</span>)</span>
+<span id="cb78-2"><a href="the-hot-hand.html#cb78-2" aria-hidden="true" tabindex="-1"></a>s_sq_grid</span></code></pre></div>
+<pre><code>## [1] 1.0 1.5 2.0 2.5 3.0</code></pre>
+<p>Now suppose that we want to run <code>get_bias()</code> for every <em>combination</em> of values in <code>n_grid</code> and <code>s_sq_grid</code>. Using the built-in R function <code>expand.grid()</code> we can easily construct a data frame whose rows contain all of these combinations:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="the-hot-hand.html#cb80-1" aria-hidden="true" tabindex="-1"></a>parameters <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">n =</span> n_grid, <span class="at">s_sq =</span> s_sq_grid)</span>
+<span id="cb80-2"><a href="the-hot-hand.html#cb80-2" aria-hidden="true" tabindex="-1"></a>parameters</span></code></pre></div>
+<pre><code>##    n s_sq
+## 1  3  1.0
+## 2  4  1.0
+## 3  5  1.0
+## 4  3  1.5
+## 5  4  1.5
+## 6  5  1.5
+## 7  3  2.0
+## 8  4  2.0
+## 9  5  2.0
+## 10 3  2.5
+## 11 4  2.5
+## 12 5  2.5
+## 13 3  3.0
+## 14 4  3.0
+## 15 5  3.0</code></pre>
+<p>The next step is to evaluated <code>get_bias()</code> repeatedly, once for every combination of parameter values stored in the rows of <code>parameters</code>. The <code>Map()</code> function makes this easy:</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="the-hot-hand.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb82-2"><a href="the-hot-hand.html#cb82-2" aria-hidden="true" tabindex="-1"></a>bias <span class="ot">&lt;-</span> <span class="fu">Map</span>(get_bias, <span class="at">n =</span> parameters<span class="sc">$</span>n, <span class="at">s_sq =</span> parameters<span class="sc">$</span>s_sq)</span></code></pre></div>
+<p>Much like <code>replicate()</code>, <code>Map()</code> is shorthand for a common kind of <code>for</code> loop. In this case we loop over the rows of <code>parameters</code>. The first argument to <code>Map()</code> is the name of the function that we want to call repeatedly, in our case <code>get_bias()</code>. The remaining arguments are <em>vectors</em> of values. These are the arguments that <code>Map()</code> passes to <code>get_bias()</code>. The result of running the above code is a <em>list</em> of value, one for each row of <code>parameters</code>.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="the-hot-hand.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bias)</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] -0.3412176
+## 
+## [[2]]
+## [1] -0.2546259
+## 
+## [[3]]
+## [1] -0.2005197
+## 
+## [[4]]
+## [1] -0.5007384
+## 
+## [[5]]
+## [1] -0.3816447
+## 
+## [[6]]
+## [1] -0.292554</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="the-hot-hand.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(bias)</span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<p>For example, the first element of <code>bias</code> corresponds to <code>get_bias(3, 1)</code>. By setting the same seed and running this command "manually" we can verify that everything works as expected:</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="the-hot-hand.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb87-2"><a href="the-hot-hand.html#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">get_bias</span>(<span class="dv">3</span>, <span class="dv">1</span>), bias[[<span class="dv">1</span>]])</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>This pattern using <code>expand.grid()</code> and <code>Map()</code> is extremely flexible. In our example, <code>get_bias()</code> returns a scalar so <code>bias</code> is just a list of numbers. But more generally <code>Map()</code> can return a list that contains <em>any kind of object at all</em>. Here's a slightly more interesting example. The function <code>get_bias_and_var()</code> is a very slight modification of <code>get_bias()</code> from above that returns a <em>list</em> of two named elements: <code>bias</code> and <code>variance</code></p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="the-hot-hand.html#cb89-1" aria-hidden="true" tabindex="-1"></a>get_bias_and_var <span class="ot">&lt;-</span> <span class="cf">function</span>(n, s_sq, <span class="at">n_reps =</span> <span class="dv">5000</span>) {</span>
+<span id="cb89-2"><a href="the-hot-hand.html#cb89-2" aria-hidden="true" tabindex="-1"></a>  draw_sim_replication <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb89-3"><a href="the-hot-hand.html#cb89-3" aria-hidden="true" tabindex="-1"></a>    sim_data <span class="ot">&lt;-</span> <span class="fu">draw_sim_data</span>(n, s_sq)</span>
+<span id="cb89-4"><a href="the-hot-hand.html#cb89-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">get_estimate</span>(sim_data)</span>
+<span id="cb89-5"><a href="the-hot-hand.html#cb89-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb89-6"><a href="the-hot-hand.html#cb89-6" aria-hidden="true" tabindex="-1"></a>  sim_replications <span class="ot">&lt;-</span> <span class="fu">replicate</span>(n_reps, <span class="fu">draw_sim_replication</span>())</span>
+<span id="cb89-7"><a href="the-hot-hand.html#cb89-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">bias =</span> <span class="fu">mean</span>(sim_replications <span class="sc">-</span> s_sq),</span>
+<span id="cb89-8"><a href="the-hot-hand.html#cb89-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">variance =</span> <span class="fu">var</span>(sim_replications))</span>
+<span id="cb89-9"><a href="the-hot-hand.html#cb89-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>We can use this function to calculate <em>both</em> the bias and variance of the MLE <span class="math inline">\(\widehat{\sigma}^2\)</span> as follows</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="the-hot-hand.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb90-2"><a href="the-hot-hand.html#cb90-2" aria-hidden="true" tabindex="-1"></a>bias_and_variance <span class="ot">&lt;-</span> <span class="fu">Map</span>(get_bias_and_var, <span class="at">n =</span> parameters<span class="sc">$</span>n, <span class="at">s_sq =</span> parameters<span class="sc">$</span>s_sq)</span>
+<span id="cb90-3"><a href="the-hot-hand.html#cb90-3" aria-hidden="true" tabindex="-1"></a>bias_and_variance[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [[1]]
+## [[1]]$bias
+## [1] -0.3412176
+## 
+## [[1]]$variance
+## [1] 0.4554343
+## 
+## 
+## [[2]]
+## [[2]]$bias
+## [1] -0.2546259
+## 
+## [[2]]$variance
+## [1] 0.3643993
+## 
+## 
+## [[3]]
+## [[3]]$bias
+## [1] -0.2005197
+## 
+## [[3]]$variance
+## [1] 0.3243315</code></pre>
+</div>
+<div id="formatting-the-results" class="section level3" number="1.2.7">
+<h3><span class="header-section-number">1.2.7</span> Formatting the Results</h3>
+<p>We've carried out our simulation experiment, but the results are a bit messy. The parameter values are stored in a data frame called <code>parameters</code> and the biases and variances are stored in a list called <code>bias_and_var</code>. Let's format things a bit more nicely. If you have a list <code>my_list</code> whose elements are "rows" and you want to bind them together into a data frame, you can use the somewhat inscrutable command <code>do.call(rbind, my_list)</code>. For example:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="the-hot-hand.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">do.call</span>(rbind, bias_and_variance)</span></code></pre></div>
+<pre><code>##       bias       variance 
+##  [1,] -0.3412176 0.4554343
+##  [2,] -0.2546259 0.3643993
+##  [3,] -0.2005197 0.3243315
+##  [4,] -0.5007384 0.9496033
+##  [5,] -0.3816447 0.8616167
+##  [6,] -0.292554  0.7173205
+##  [7,] -0.6609821 1.781236 
+##  [8,] -0.5061243 1.538961 
+##  [9,] -0.3953514 1.326648 
+## [10,] -0.8513285 2.705087 
+## [11,] -0.6122964 2.467789 
+## [12,] -0.4727481 2.014822 
+## [13,] -0.9570253 4.124553 
+## [14,] -0.7513177 3.201657 
+## [15,] -0.567449  2.916767</code></pre>
+<p>Now we'll overwrite <code>bias_and_var</code> with the above and bind its columns, <code>cbind()</code>, with those of <code>parameters</code></p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="the-hot-hand.html#cb94-1" aria-hidden="true" tabindex="-1"></a>bias_and_variance <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, bias_and_variance)</span>
+<span id="cb94-2"><a href="the-hot-hand.html#cb94-2" aria-hidden="true" tabindex="-1"></a>sim_results <span class="ot">&lt;-</span> <span class="fu">cbind</span>(parameters, bias_and_variance)</span>
+<span id="cb94-3"><a href="the-hot-hand.html#cb94-3" aria-hidden="true" tabindex="-1"></a>sim_results</span></code></pre></div>
+<pre><code>##    n s_sq       bias  variance
+## 1  3  1.0 -0.3412176 0.4554343
+## 2  4  1.0 -0.2546259 0.3643993
+## 3  5  1.0 -0.2005197 0.3243315
+## 4  3  1.5 -0.5007384 0.9496033
+## 5  4  1.5 -0.3816447 0.8616167
+## 6  5  1.5  -0.292554 0.7173205
+## 7  3  2.0 -0.6609821  1.781236
+## 8  4  2.0 -0.5061243  1.538961
+## 9  5  2.0 -0.3953514  1.326648
+## 10 3  2.5 -0.8513285  2.705087
+## 11 4  2.5 -0.6122964  2.467789
+## 12 5  2.5 -0.4727481  2.014822
+## 13 3  3.0 -0.9570253  4.124553
+## 14 4  3.0 -0.7513177  3.201657
+## 15 5  3.0  -0.567449  2.916767</code></pre>
+<p>For extra credit, we can use the function <code>kable()</code> from the <code>knitr</code> package to make the results look even prettier</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="the-hot-hand.html#cb96-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(sim_results)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">n</th>
+<th align="right">s_sq</th>
+<th align="left">bias</th>
+<th align="left">variance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">1.0</td>
+<td align="left">-0.3412176</td>
+<td align="left">0.4554343</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">1.0</td>
+<td align="left">-0.2546259</td>
+<td align="left">0.3643993</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">1.0</td>
+<td align="left">-0.2005197</td>
+<td align="left">0.3243315</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">1.5</td>
+<td align="left">-0.5007384</td>
+<td align="left">0.9496033</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">1.5</td>
+<td align="left">-0.3816447</td>
+<td align="left">0.8616167</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">1.5</td>
+<td align="left">-0.292554</td>
+<td align="left">0.7173205</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">2.0</td>
+<td align="left">-0.6609821</td>
+<td align="left">1.781236</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">2.0</td>
+<td align="left">-0.5061243</td>
+<td align="left">1.538961</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">2.0</td>
+<td align="left">-0.3953514</td>
+<td align="left">1.326648</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">2.5</td>
+<td align="left">-0.8513285</td>
+<td align="left">2.705087</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">2.5</td>
+<td align="left">-0.6122964</td>
+<td align="left">2.467789</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">2.5</td>
+<td align="left">-0.4727481</td>
+<td align="left">2.014822</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">3.0</td>
+<td align="left">-0.9570253</td>
+<td align="left">4.124553</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">3.0</td>
+<td align="left">-0.7513177</td>
+<td align="left">3.201657</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">3.0</td>
+<td align="left">-0.567449</td>
+<td align="left">2.916767</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="bonus-parallel-computing-with-mcmap" class="section level3" number="1.2.8">
+<h3><span class="header-section-number">1.2.8</span> Bonus: Parallel Computing with <code>mcMap()</code></h3>
+<p>There's a good chance that your computer has more than one processor core. Why not use them to speed up your simulation study! If you're on Mac or Linux (RStudio Cloud counts as Linux), it's trivial to parallelize our simulation code from above using <code>mcMap()</code> from the <code>parallel</code> package. To make things more interesting, let's set up a larger parameter grid</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="the-hot-hand.html#cb97-1" aria-hidden="true" tabindex="-1"></a>parameters <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">n =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">s_sq =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code></pre></div>
+<p>The function <code>mcMap()</code> works exactly like <code>Map()</code> except that we have the option of setting an additional parameter <code>mc.cores</code>. This tells R how many of our machine's processor cores to devote to the computation. If you set <code>mc.cores = 1</code>, <code>mcMap()</code></p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="the-hot-hand.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb98-2"><a href="the-hot-hand.html#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(foo <span class="ot">&lt;-</span> parallel<span class="sc">::</span><span class="fu">mcMap</span>(get_bias_and_var, <span class="at">n =</span> parameters<span class="sc">$</span>n, <span class="at">s_sq =</span> parameters<span class="sc">$</span>s_sq, <span class="at">mc.cores =</span> <span class="dv">2</span>))</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##   2.065   0.056   2.129</code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="the-hot-hand.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb100-2"><a href="the-hot-hand.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(bar <span class="ot">&lt;-</span> <span class="fu">Map</span>(get_bias_and_var, <span class="at">n =</span> parameters<span class="sc">$</span>n, <span class="at">s_sq =</span> parameters<span class="sc">$</span>s_sq))</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##   4.022   0.028   4.050</code></pre>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="the-hot-hand.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(foo, bar)</span></code></pre></div>
+<pre><code>##   [1] &quot;Component 1: Component 1: Mean relative difference: 0.01753568&quot;   
+##   [2] &quot;Component 1: Component 2: Mean relative difference: 0.00198899&quot;   
+##   [3] &quot;Component 2: Component 1: Mean relative difference: 0.04961645&quot;   
+##   [4] &quot;Component 2: Component 2: Mean relative difference: 0.03396987&quot;   
+##   [5] &quot;Component 3: Component 1: Mean relative difference: 0.03042776&quot;   
+##   [6] &quot;Component 3: Component 2: Mean relative difference: 0.02751406&quot;   
+##   [7] &quot;Component 4: Component 1: Mean relative difference: 0.01918409&quot;   
+##   [8] &quot;Component 4: Component 2: Mean relative difference: 0.03962189&quot;   
+##   [9] &quot;Component 5: Component 1: Mean relative difference: 0.03747398&quot;   
+##  [10] &quot;Component 5: Component 2: Mean relative difference: 0.05420166&quot;   
+##  [11] &quot;Component 6: Component 1: Mean relative difference: 0.01869364&quot;   
+##  [12] &quot;Component 6: Component 2: Mean relative difference: 0.008825577&quot;  
+##  [13] &quot;Component 7: Component 1: Mean relative difference: 0.01447011&quot;   
+##  [14] &quot;Component 7: Component 2: Mean relative difference: 0.03364707&quot;   
+##  [15] &quot;Component 8: Component 1: Mean relative difference: 0.1262124&quot;    
+##  [16] &quot;Component 8: Component 2: Mean relative difference: 0.01828673&quot;   
+##  [17] &quot;Component 9: Component 1: Mean relative difference: 0.004262882&quot;  
+##  [18] &quot;Component 9: Component 2: Mean relative difference: 0.01015762&quot;   
+##  [19] &quot;Component 10: Component 1: Mean relative difference: 0.00636511&quot;  
+##  [20] &quot;Component 10: Component 2: Mean relative difference: 0.006991166&quot; 
+##  [21] &quot;Component 11: Component 1: Mean relative difference: 0.06893918&quot;  
+##  [22] &quot;Component 11: Component 2: Mean relative difference: 0.08597599&quot;  
+##  [23] &quot;Component 12: Component 1: Mean relative difference: 0.08073743&quot;  
+##  [24] &quot;Component 12: Component 2: Mean relative difference: 0.0106993&quot;   
+##  [25] &quot;Component 13: Component 1: Mean relative difference: 0.01736295&quot;  
+##  [26] &quot;Component 13: Component 2: Mean relative difference: 0.009388439&quot; 
+##  [27] &quot;Component 14: Component 1: Mean relative difference: 0.0264467&quot;   
+##  [28] &quot;Component 14: Component 2: Mean relative difference: 0.0106578&quot;   
+##  [29] &quot;Component 15: Component 1: Mean relative difference: 0.04154822&quot;  
+##  [30] &quot;Component 15: Component 2: Mean relative difference: 0.03304322&quot;  
+##  [31] &quot;Component 16: Component 1: Mean relative difference: 0.06226375&quot;  
+##  [32] &quot;Component 16: Component 2: Mean relative difference: 0.04864367&quot;  
+##  [33] &quot;Component 17: Component 1: Mean relative difference: 0.006359245&quot; 
+##  [34] &quot;Component 17: Component 2: Mean relative difference: 0.004973721&quot; 
+##  [35] &quot;Component 18: Component 1: Mean relative difference: 0.002978755&quot; 
+##  [36] &quot;Component 18: Component 2: Mean relative difference: 0.001468017&quot; 
+##  [37] &quot;Component 19: Component 1: Mean relative difference: 0.04140873&quot;  
+##  [38] &quot;Component 19: Component 2: Mean relative difference: 0.1081222&quot;   
+##  [39] &quot;Component 20: Component 1: Mean relative difference: 0.03511371&quot;  
+##  [40] &quot;Component 20: Component 2: Mean relative difference: 0.04665113&quot;  
+##  [41] &quot;Component 21: Component 1: Mean relative difference: 0.007098963&quot; 
+##  [42] &quot;Component 21: Component 2: Mean relative difference: 0.009685808&quot; 
+##  [43] &quot;Component 22: Component 1: Mean relative difference: 0.08702654&quot;  
+##  [44] &quot;Component 22: Component 2: Mean relative difference: 0.05402603&quot;  
+##  [45] &quot;Component 23: Component 1: Mean relative difference: 0.08759196&quot;  
+##  [46] &quot;Component 23: Component 2: Mean relative difference: 0.07316642&quot;  
+##  [47] &quot;Component 24: Component 1: Mean relative difference: 0.01410193&quot;  
+##  [48] &quot;Component 24: Component 2: Mean relative difference: 0.02042294&quot;  
+##  [49] &quot;Component 25: Component 1: Mean relative difference: 0.05208559&quot;  
+##  [50] &quot;Component 25: Component 2: Mean relative difference: 0.02932291&quot;  
+##  [51] &quot;Component 26: Component 1: Mean relative difference: 0.02460756&quot;  
+##  [52] &quot;Component 26: Component 2: Mean relative difference: 0.0417719&quot;   
+##  [53] &quot;Component 27: Component 1: Mean relative difference: 0.06236258&quot;  
+##  [54] &quot;Component 27: Component 2: Mean relative difference: 0.02890091&quot;  
+##  [55] &quot;Component 28: Component 1: Mean relative difference: 0.02458292&quot;  
+##  [56] &quot;Component 28: Component 2: Mean relative difference: 0.001795023&quot; 
+##  [57] &quot;Component 29: Component 1: Mean relative difference: 0.03565732&quot;  
+##  [58] &quot;Component 29: Component 2: Mean relative difference: 0.03609158&quot;  
+##  [59] &quot;Component 30: Component 1: Mean relative difference: 0.02834299&quot;  
+##  [60] &quot;Component 30: Component 2: Mean relative difference: 0.03102854&quot;  
+##  [61] &quot;Component 31: Component 1: Mean relative difference: 0.01611927&quot;  
+##  [62] &quot;Component 31: Component 2: Mean relative difference: 0.03813499&quot;  
+##  [63] &quot;Component 32: Component 1: Mean relative difference: 0.001524625&quot; 
+##  [64] &quot;Component 32: Component 2: Mean relative difference: 0.04229312&quot;  
+##  [65] &quot;Component 33: Component 1: Mean relative difference: 0.0435092&quot;   
+##  [66] &quot;Component 33: Component 2: Mean relative difference: 0.08167435&quot;  
+##  [67] &quot;Component 34: Component 1: Mean relative difference: 0.07627645&quot;  
+##  [68] &quot;Component 34: Component 2: Mean relative difference: 0.1313297&quot;   
+##  [69] &quot;Component 35: Component 1: Mean relative difference: 0.07647732&quot;  
+##  [70] &quot;Component 35: Component 2: Mean relative difference: 0.02575396&quot;  
+##  [71] &quot;Component 36: Component 1: Mean relative difference: 0.06587601&quot;  
+##  [72] &quot;Component 36: Component 2: Mean relative difference: 0.08214259&quot;  
+##  [73] &quot;Component 37: Component 1: Mean relative difference: 0.05450362&quot;  
+##  [74] &quot;Component 37: Component 2: Mean relative difference: 0.005329714&quot; 
+##  [75] &quot;Component 38: Component 1: Mean relative difference: 0.007499446&quot; 
+##  [76] &quot;Component 38: Component 2: Mean relative difference: 0.06020388&quot;  
+##  [77] &quot;Component 39: Component 1: Mean relative difference: 0.07345068&quot;  
+##  [78] &quot;Component 39: Component 2: Mean relative difference: 0.0225174&quot;   
+##  [79] &quot;Component 40: Component 1: Mean relative difference: 0.006857673&quot; 
+##  [80] &quot;Component 40: Component 2: Mean relative difference: 0.01933931&quot;  
+##  [81] &quot;Component 41: Component 1: Mean relative difference: 0.0108535&quot;   
+##  [82] &quot;Component 41: Component 2: Mean relative difference: 0.01279661&quot;  
+##  [83] &quot;Component 42: Component 1: Mean relative difference: 0.008882704&quot; 
+##  [84] &quot;Component 42: Component 2: Mean relative difference: 0.05902481&quot;  
+##  [85] &quot;Component 43: Component 1: Mean relative difference: 0.06353839&quot;  
+##  [86] &quot;Component 43: Component 2: Mean relative difference: 0.01732651&quot;  
+##  [87] &quot;Component 44: Component 1: Mean relative difference: 0.006480818&quot; 
+##  [88] &quot;Component 44: Component 2: Mean relative difference: 0.04964154&quot;  
+##  [89] &quot;Component 45: Component 1: Mean relative difference: 0.04009851&quot;  
+##  [90] &quot;Component 45: Component 2: Mean relative difference: 0.01594609&quot;  
+##  [91] &quot;Component 46: Component 1: Mean relative difference: 0.04522367&quot;  
+##  [92] &quot;Component 46: Component 2: Mean relative difference: 0.0364007&quot;   
+##  [93] &quot;Component 47: Component 1: Mean relative difference: 0.04860679&quot;  
+##  [94] &quot;Component 47: Component 2: Mean relative difference: 0.01346256&quot;  
+##  [95] &quot;Component 48: Component 1: Mean relative difference: 0.02380161&quot;  
+##  [96] &quot;Component 48: Component 2: Mean relative difference: 0.01809078&quot;  
+##  [97] &quot;Component 49: Component 1: Mean relative difference: 0.02984881&quot;  
+##  [98] &quot;Component 49: Component 2: Mean relative difference: 0.007521969&quot; 
+##  [99] &quot;Component 50: Component 1: Mean relative difference: 0.04189123&quot;  
+## [100] &quot;Component 50: Component 2: Mean relative difference: 0.05900614&quot;  
+## [101] &quot;Component 51: Component 1: Mean relative difference: 0.003848135&quot; 
+## [102] &quot;Component 51: Component 2: Mean relative difference: 0.09649735&quot;  
+## [103] &quot;Component 52: Component 1: Mean relative difference: 0.07309088&quot;  
+## [104] &quot;Component 52: Component 2: Mean relative difference: 0.03694619&quot;  
+## [105] &quot;Component 53: Component 1: Mean relative difference: 0.0682756&quot;   
+## [106] &quot;Component 53: Component 2: Mean relative difference: 0.0212654&quot;   
+## [107] &quot;Component 54: Component 1: Mean relative difference: 0.06397847&quot;  
+## [108] &quot;Component 54: Component 2: Mean relative difference: 0.00505277&quot;  
+## [109] &quot;Component 55: Component 1: Mean relative difference: 0.2096174&quot;   
+## [110] &quot;Component 55: Component 2: Mean relative difference: 0.009781524&quot; 
+## [111] &quot;Component 56: Component 1: Mean relative difference: 0.03316531&quot;  
+## [112] &quot;Component 56: Component 2: Mean relative difference: 0.014789&quot;    
+## [113] &quot;Component 57: Component 1: Mean relative difference: 0.08402717&quot;  
+## [114] &quot;Component 57: Component 2: Mean relative difference: 0.1376878&quot;   
+## [115] &quot;Component 58: Component 1: Mean relative difference: 0.04794643&quot;  
+## [116] &quot;Component 58: Component 2: Mean relative difference: 0.03042636&quot;  
+## [117] &quot;Component 59: Component 1: Mean relative difference: 0.0489751&quot;   
+## [118] &quot;Component 59: Component 2: Mean relative difference: 0.07955324&quot;  
+## [119] &quot;Component 60: Component 1: Mean relative difference: 0.05486375&quot;  
+## [120] &quot;Component 60: Component 2: Mean relative difference: 0.01393012&quot;  
+## [121] &quot;Component 61: Component 1: Mean relative difference: 0.0146585&quot;   
+## [122] &quot;Component 61: Component 2: Mean relative difference: 0.05863449&quot;  
+## [123] &quot;Component 62: Component 1: Mean relative difference: 0.004542643&quot; 
+## [124] &quot;Component 62: Component 2: Mean relative difference: 0.03083071&quot;  
+## [125] &quot;Component 63: Component 1: Mean relative difference: 0.1940146&quot;   
+## [126] &quot;Component 63: Component 2: Mean relative difference: 0.03677201&quot;  
+## [127] &quot;Component 64: Component 1: Mean relative difference: 0.2148773&quot;   
+## [128] &quot;Component 64: Component 2: Mean relative difference: 0.05187941&quot;  
+## [129] &quot;Component 65: Component 1: Mean relative difference: 0.002115213&quot; 
+## [130] &quot;Component 65: Component 2: Mean relative difference: 0.02925201&quot;  
+## [131] &quot;Component 66: Component 1: Mean relative difference: 0.03116445&quot;  
+## [132] &quot;Component 66: Component 2: Mean relative difference: 0.04516563&quot;  
+## [133] &quot;Component 67: Component 1: Mean relative difference: 0.07627155&quot;  
+## [134] &quot;Component 67: Component 2: Mean relative difference: 0.05853859&quot;  
+## [135] &quot;Component 68: Component 1: Mean relative difference: 0.03005598&quot;  
+## [136] &quot;Component 68: Component 2: Mean relative difference: 0.05553682&quot;  
+## [137] &quot;Component 69: Component 1: Mean relative difference: 0.01088897&quot;  
+## [138] &quot;Component 69: Component 2: Mean relative difference: 0.03491383&quot;  
+## [139] &quot;Component 70: Component 1: Mean relative difference: 0.03252171&quot;  
+## [140] &quot;Component 70: Component 2: Mean relative difference: 0.02222487&quot;  
+## [141] &quot;Component 71: Component 1: Mean relative difference: 0.04470418&quot;  
+## [142] &quot;Component 71: Component 2: Mean relative difference: 0.0008959806&quot;
+## [143] &quot;Component 72: Component 1: Mean relative difference: 0.02772918&quot;  
+## [144] &quot;Component 72: Component 2: Mean relative difference: 0.04295123&quot;  
+## [145] &quot;Component 73: Component 1: Mean relative difference: 0.007493254&quot; 
+## [146] &quot;Component 73: Component 2: Mean relative difference: 0.007600995&quot; 
+## [147] &quot;Component 74: Component 1: Mean relative difference: 0.008664501&quot; 
+## [148] &quot;Component 74: Component 2: Mean relative difference: 0.01809856&quot;  
+## [149] &quot;Component 75: Component 1: Mean relative difference: 0.004997917&quot; 
+## [150] &quot;Component 75: Component 2: Mean relative difference: 0.05477828&quot;  
+## [151] &quot;Component 76: Component 1: Mean relative difference: 0.05445997&quot;  
+## [152] &quot;Component 76: Component 2: Mean relative difference: 0.01015046&quot;  
+## [153] &quot;Component 77: Component 1: Mean relative difference: 0.03315338&quot;  
+## [154] &quot;Component 77: Component 2: Mean relative difference: 0.01186458&quot;  
+## [155] &quot;Component 78: Component 1: Mean relative difference: 0.02585777&quot;  
+## [156] &quot;Component 78: Component 2: Mean relative difference: 0.02258575&quot;  
+## [157] &quot;Component 79: Component 1: Mean relative difference: 0.008417846&quot; 
+## [158] &quot;Component 79: Component 2: Mean relative difference: 0.02440604&quot;  
+## [159] &quot;Component 80: Component 1: Mean relative difference: 0.09276261&quot;  
+## [160] &quot;Component 80: Component 2: Mean relative difference: 0.004161812&quot;</code></pre>
+</div>
+</div>
+<div id="your-turn-simulating-the-hot-hand" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Your Turn: Simulating the Hot Hand</h2>
+</div>
+<div id="further-reading" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Further Reading</h2>
+<p>Advanced R book for more on <code>replicate()</code> and <code>lapply()</code> as well as scoping rules for functions within functions etc.</p>
+</div>
+<div id="mini-projects" class="section level2" number="1.5">
+<h2><span class="header-section-number">1.5</span> Mini Projects</h2>
+<div id="the-hot-hand-revisited" class="section level3" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> The Hot Hand Revisited</h3>
+<p>In the lesson we generated iid data. Now try simulating from a first-order Markov chain for various different parameters. How do the results change?</p>
+</div>
+<div id="which-estimator-of-the-variance-is-really-better" class="section level3" number="1.5.2">
+<h3><span class="header-section-number">1.5.2</span> Which estimator of the variance is <em>really</em> better?</h3>
+<p>Compare the RMSE of two variance estimators: the unbiased estimator and the MLE.</p>
+</div>
+<div id="optimal-stopping" class="section level3" number="1.5.3">
+<h3><span class="header-section-number">1.5.3</span> Optimal Stopping</h3>
+<p>Simulate the secretary problem; try to find the optimal stopping rule.</p>
+</div>
+</div>
+<div id="draft-material" class="section level2" number="1.6">
+<h2><span class="header-section-number">1.6</span> DRAFT MATERIAL</h2>
+<p><strong>Should I introduce <code>knitr</code> and <code>Rmarkdown</code> in this lesson or the next one?</strong></p>
+<ol style="list-style-type: decimal">
+<li>Some basic simulation commands in R: <code>sample()</code>, <code>rbinom()</code>, <code>rnorm()</code>, etc. Read the help files.</li>
+<li>Write a function <code>draw_sim_data()</code> that makes 100 Bernoulli(1/2) draws. Optional arguments <code>p</code> and <code>n</code>? This simulates data when there is <em>no hot hand</em></li>
+<li><code>set.seed()</code> what does it do?</li>
+<li>Think about how to calculate the estimator: fraction of times that three ones are followed by another one compared to another zero. Suppose you had a function <code>is_after_3_ones()</code> that took a vector of 0 and 1 and returned, for each element, whether it is after three ones. How would you use it? Write this function.</li>
+<li>Put everything together with <code>replicate()</code> to do a simple sim for <span class="math inline">\(p=1/2\)</span> and <span class="math inline">\(n = 100\)</span>.</li>
+<li>How about trying different values of <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>? Need to keep results organized: <code>apply()</code> family of functions (or maybe the tidy equivalents?)</li>
+<li>Try doing it in parallel with <code>mclapply()</code>. First explain the basic idea of parallel and why this is "embarrassingly parallel." Show them how to time the code, illustrate with <code>sys.sleep()</code>.</li>
+<li>For the students who finish very quickly, have some extensions: a markov chain DGP, and <code>is_after_k_ones()</code></li>
+</ol>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="the-hot-hand.html#cb104-1" aria-hidden="true" tabindex="-1"></a>dgp <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">n =</span> <span class="dv">100</span>, <span class="at">p =</span> <span class="fl">0.5</span>) {</span>
+<span id="cb104-2"><a href="the-hot-hand.html#cb104-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbinom</span>(n, <span class="dv">1</span>, p)</span>
+<span id="cb104-3"><a href="the-hot-hand.html#cb104-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb104-4"><a href="the-hot-hand.html#cb104-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-5"><a href="the-hot-hand.html#cb104-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Maybe have a challenge to write the version for after k ones, but start by</span></span>
+<span id="cb104-6"><a href="the-hot-hand.html#cb104-6" aria-hidden="true" tabindex="-1"></a><span class="co"># asking them to do the one for after 3 ones</span></span>
+<span id="cb104-7"><a href="the-hot-hand.html#cb104-7" aria-hidden="true" tabindex="-1"></a>is_after_k_ones <span class="ot">&lt;-</span> <span class="cf">function</span>(x, k) {</span>
+<span id="cb104-8"><a href="the-hot-hand.html#cb104-8" aria-hidden="true" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>)</span>
+<span id="cb104-9"><a href="the-hot-hand.html#cb104-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> (k<span class="sc">+</span><span class="dv">1</span>)<span class="sc">:</span><span class="fu">length</span>(x)) {</span>
+<span id="cb104-10"><a href="the-hot-hand.html#cb104-10" aria-hidden="true" tabindex="-1"></a>    out[i] <span class="ot">&lt;-</span> <span class="fu">sum</span>(x[(i <span class="sc">-</span> k)<span class="sc">:</span>(i <span class="sc">-</span> <span class="dv">1</span>)]) <span class="sc">==</span> k</span>
+<span id="cb104-11"><a href="the-hot-hand.html#cb104-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb104-12"><a href="the-hot-hand.html#cb104-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(out)</span>
+<span id="cb104-13"><a href="the-hot-hand.html#cb104-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb104-14"><a href="the-hot-hand.html#cb104-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-15"><a href="the-hot-hand.html#cb104-15" aria-hidden="true" tabindex="-1"></a>get_est <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb104-16"><a href="the-hot-hand.html#cb104-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">#ones &lt;- which(x == 1)</span></span>
+<span id="cb104-17"><a href="the-hot-hand.html#cb104-17" aria-hidden="true" tabindex="-1"></a>  <span class="co">#mean(x[ones + 1], na.rm = TRUE)</span></span>
+<span id="cb104-18"><a href="the-hot-hand.html#cb104-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(x[<span class="fu">is_after_k_ones</span>(x, <span class="dv">3</span>)], <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb104-19"><a href="the-hot-hand.html#cb104-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb104-20"><a href="the-hot-hand.html#cb104-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-21"><a href="the-hot-hand.html#cb104-21" aria-hidden="true" tabindex="-1"></a>n_reps <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb104-22"><a href="the-hot-hand.html#cb104-22" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb104-23"><a href="the-hot-hand.html#cb104-23" aria-hidden="true" tabindex="-1"></a>sim_results <span class="ot">&lt;-</span> <span class="fu">replicate</span>(n_reps, <span class="fu">get_est</span>(<span class="fu">dgp</span>()))</span>
+<span id="cb104-24"><a href="the-hot-hand.html#cb104-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb104-25"><a href="the-hot-hand.html#cb104-25" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(sim_results)</span></code></pre></div>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="the-hot-hand.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sim_results, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 0.4620068</code></pre>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="the-hot-hand.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ones &lt;- which(x == 1)</span></span>
+<span id="cb108-2"><a href="the-hot-hand.html#cb108-2" aria-hidden="true" tabindex="-1"></a><span class="co">#x[which(x == 1) + 1]</span></span>
+<span id="cb108-3"><a href="the-hot-hand.html#cb108-3" aria-hidden="true" tabindex="-1"></a><span class="co">#runs &lt;- rle(x)</span></span>
+<span id="cb108-4"><a href="the-hot-hand.html#cb108-4" aria-hidden="true" tabindex="-1"></a><span class="co">#foo &lt;- rle(x)</span></span>
+<span id="cb108-5"><a href="the-hot-hand.html#cb108-5" aria-hidden="true" tabindex="-1"></a><span class="co">#str(foo)</span></span>
+<span id="cb108-6"><a href="the-hot-hand.html#cb108-6" aria-hidden="true" tabindex="-1"></a><span class="co">#x</span></span>
+<span id="cb108-7"><a href="the-hot-hand.html#cb108-7" aria-hidden="true" tabindex="-1"></a><span class="co">#foo$lengths</span></span>
+<span id="cb108-8"><a href="the-hot-hand.html#cb108-8" aria-hidden="true" tabindex="-1"></a><span class="co">#foo$values</span></span></code></pre></div>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>See for example <a href="https://www.nber.org/digest-202202/exploring-hot-hand-basketball">this write-up</a> of <a href="https://www.nber.org/papers/w29468">Lantis &amp; Nessen (2021)</a> in the <a href="https://www.nber.org/digest-2022-02">February 2022 NBER digest</a>.<a href="the-hot-hand.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>See <a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.33.3.144">Miller &amp; Sanjurjo (2019)</a> for a more accessible explanation that connects to several related probability puzzles.<a href="the-hot-hand.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Technically, "random" draws made on a computer are only <a href="https://en.wikipedia.org/wiki/Pseudorandomness">pseudorandom</a>. We'll discuss this further below.<a href="the-hot-hand.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>For less common distributions, see <a href="https://cran.r-project.org/web/views/Distributions.html">CRAN Task View: Probability Distributions</a><a href="the-hot-hand.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>A Bernoulli trial is a model for a possibly biased coin flip: if <span class="math inline">\(X \sim \text{Bernoulli}(p)\)</span> then <span class="math inline">\(\mathbb{P}(X=1) = p\)</span> and <span class="math inline">\(\mathbb{P}(X=0) = 1-p\)</span>.<a href="the-hot-hand.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>To see this, first rewrite <span class="math inline">\(\sum_{i=1}^n (X_i - \bar{X}_n)^2\)</span> as <span class="math inline">\(\sum_{i=1}^n (X_i - \mu)^2 - n(\bar{X}_n - \mu)^2\)</span>. This step is just algebra. Then take expectations, using the fact that the <span class="math inline">\(X_i\)</span> are independent and identically distributed.<a href="the-hot-hand.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>If you're unfamiliar with the Normal Q-Q plot that I used to check the normality of <code>test_sims</code>, you can read about it this <a href="https://www.econometrics.blog/post/thirty-isn-t-the-magic-number/">blog post</a>.<a href="the-hot-hand.html#fnref7" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="using-webexercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

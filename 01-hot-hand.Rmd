@@ -1,6 +1,4 @@
-# How to Outsmart a Nobel Laureate 
-
-## Is the Hot Hand an Illusion?
+# The Hot Hand
 
 If you've read 2002 Nobel Laureate Daniel Kahneman's best-selling book [*Thinking Fast and Slow*](https://www.google.co.uk/books/edition/Thinking_Fast_and_Slow/AV9x8XakdV0C?hl=en&gbpv=1&dq=thinking+fast+and+slow&printsec=frontcover), you may remember this passage about the *hot hand illusion*, a supposed illustration of the human tendency to see patterns in random noise:
 
@@ -16,9 +14,8 @@ In a recent issue of *Econometrica*, [Miller \& Sanjurjo (2018)](https://onlinel
 
 There are some helpful lessons that we can draw from this episode. First, we all make mistakes--even Nobel Laureates! Second, successful replications tell us less than we might hope: they could easily *reproduce* the bias of the original study. But in my view, the real lesson of the hot hand affair is much simpler: **you should always run a simulation study.** 
 
-The probabilistic error that led so many researchers to draw the wrong conclusion about the hot hand is really quite subtle.^[See [Miller \& Sanjurjo (2019)](https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.33.3.144) for a more accessible explanation that connects to several related probability puzzles.] But at the same time, anyone who knows basic programming could have detected the mistake in five minutes if only they had bothered to look. In economics and statistics, simulation is a *superpower*. It helps us to understand our models, check for mistakes, and make unexpected connections, some of which may even lead to new theoretical results. If you'll pardon my continuation of the Swiss Army Knife metaphor, simulation is the knife: arguably the most useful tool in your toolbox. In this lesson, we'll cover some basic tools for carrying out a simulation experiment in R and use them to shed some light on the illusion of the hot hand illusion.
+The probabilistic error that led so many researchers to draw the wrong conclusion about the hot hand is really quite subtle.^[See [Miller \& Sanjurjo (2019)](https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.33.3.144) for a more accessible explanation that connects to several related probability puzzles.] But at the same time, anyone who knows basic programming could have detected the mistake in five minutes if only they had bothered to look. In economics and statistics, simulation is a *superpower*. It helps us to understand our models, check for mistakes, and make unexpected connections, some of which may even lead to new theoretical results. If you'll pardon my continuation of the Swiss Army Knife metaphor, simulation is the knife: arguably the most useful tool in your toolbox. In this lesson, we'll cover some basic tools for carrying out a simulation experiment in R and use them to shed some light on the illusion of the hot hand illusion. The key R functions introduced in this lesson are as follows:
 
-## R Functions Introduced in this Lesson
 - `sample()`
 - `rbinom()`
 - `rnorm()`
@@ -147,7 +144,7 @@ x3
 identical(x3, x1)
 ```
 
-*Whenever* you write simulation code, start by choosing a seed and adding the line `set.seed(MY-SEED-GOES HERE)` to the top of your R script. You'll often see people use `set.seed(12345)` or `set.seed(54321)`. When I'm not feeling lazy, I like to generate a *truly random number* to use as my seed. The website [random.org](https://random.org) provides free access to *bona fide* random numbers generated from atmospheric noise. The "True Random Number Generator" on the top right of their main page allows you to make uniform integer draws on a range from "Min" to "Max." Using the widest possible range, $\pm1\times 10^9$, I generated the seed `420508570` which I'll use in the following exercises.
+*Whenever* you write simulation code, start by choosing a seed and adding the line `set.seed(MY-SEED-GOES-HERE)` to the top of your R script. You'll often see people use `set.seed(12345)` or `set.seed(54321)`. When I'm not feeling lazy, I like to generate a *truly random number* to use as my seed. The website [random.org](https://random.org) provides free access to *bona fide* random numbers generated from atmospheric noise. The "True Random Number Generator" on the top right of their main page allows you to make uniform integer draws on a range from "Min" to "Max." Using the widest possible range, $\pm1\times 10^9$, I generated the seed `420508570` which I'll use in the following exercises.
 
 ### Exercises
 Set your seed to `420508570` at the start of your solution code for each of these exercises to obtain results that match the solutions.
@@ -211,11 +208,14 @@ While the specific details will vary, nearly every simulation study has the same
 
 Thinking in terms of this structure helps us to write code that is easier to understand, easier to generalize, and faster to run. The key is to break these steps down into *functions* that carry out a single, well-defined task. Generally these will include:
 
-a. A function to generate simulated data.
-b. A function to calculate an estimate from the data.
-c. A function that repeatedly calls a. and b. and summarizes the results.
+i. A function to generate simulated data.
+ii. A function to calculate an estimate from the data.
+iii. A function that repeatedly calls i. and ii. and summarizes the results.
 
-This may sound a bit abstract, so let's see how it works in practice. My introductory statistics students often ask me why the sample variance, $S^2$, divides by $(n-1)$ rather than the sample size $n$:
+This may sound a bit abstract, so in the remainder of this section we'll walk through the details in a simple example: estimating the bias of the maximum likelihood estimator for the variance of a normal distribution. Along the way we'll explore three extremely helpful R functions for carrying simulation studies: `replicate()`, `expand.grid()`, and `Map()`. In the next section you'll apply what you've learned to the hot hand example.
+
+### A Biased Estimator of $\sigma^2$ 
+My introductory statistics students often ask me why the sample variance, $S^2$, divides by $(n-1)$ rather than the sample size $n$:
 $$
 S^2 \equiv \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X}_n)^2
 $$
@@ -319,7 +319,7 @@ c(theoretical = -1/3, simulation = get_bias(3, 1))
 
 ### `expand.grid()` and `Map()`
 
-Now we have a function `get_bias()` that can approximate the bias of $\widehat{\sigma}^2$ for any values of `n` and `s_sq` that we care to specify. But what if we want to carry out a simulation study over a *range* of values for `n` and `s_sq`? One way to do this is with a pair of nested `for` loops: one that iterates over different values of `n` and another that iterates over different values of `n_sq`. But this isn't a great strategy for two reasons. First, loops within loops tend to be slow in R. Second, the book-keeping required to implement this strategy is a bit involved. Fortunately there's a much better way: use `expand.grid()` and `Map()`.
+Now we have a function `get_bias()` that can approximate the bias of $\widehat{\sigma}^2$ for any values of `n` and `s_sq` that we care to specify. But what if we want to carry out a simulation study over a *range* of values for `n` and `s_sq`? One way to do this is with a pair of nested `for` loops: one that iterates over different values of `n` and another that iterates over different values of `s_sq`. But this isn't a great strategy for two reasons. First, loops within loops tend to be slow in R. Second, the book-keeping required to implement this strategy is a bit involved. Fortunately there's a much better way: use `expand.grid()` and `Map()`.
 
 First we'll set up a grid of values for `n` and `s_sq`:
 ```{r}
@@ -333,34 +333,74 @@ Now suppose that we want to run `get_bias()` for every *combination* of values i
 parameters <- expand.grid(n = n_grid, s_sq = s_sq_grid)
 parameters
 ```
-Now we can simply loop over the *rows* of `parameter_grid` rather than using a loop within a loop. This is effectively what we'll do. But rather than writing an *explicit* `for` loop, we'll use `Map()` to reduce the amount of book-keeping, much as we used `replicate()` inside the function `get_bias()` above. The following code creates a *list* called `sim_results()` that contains the results from calling `get_bias()` for each row of `parameters`
+The next step is to evaluated `get_bias()` repeatedly, once for every combination of parameter values stored in the rows of `parameters`. The `Map()` function makes this easy:
 ```{r}
 set.seed(420508570)
-sim_results <- Map(get_bias, n = parameters$n, s_sq = parameters$s_sq)
-head(sim_results)
+bias <- Map(get_bias, n = parameters$n, s_sq = parameters$s_sq)
 ```
-You can check that this works as expected by setting the same seed and "manually" running `get_bias(3, 1)`
+Much like `replicate()`, `Map()` is shorthand for a common kind of `for` loop. In this case we loop over the rows of `parameters`. The first argument to `Map()` is the name of the function that we want to call repeatedly, in our case `get_bias()`. The remaining arguments are *vectors* of values. These are the arguments that `Map()` passes to `get_bias()`. The result of running the above code is a *list* of value, one for each row of `parameters`.
+```{r}
+head(bias)
+length(bias)
+```
+For example, the first element of `bias` corresponds to `get_bias(3, 1)`. By setting the same seed and running this command "manually" we can verify that everything works as expected:
 ```{r}
 set.seed(420508570)
-identical(get_bias(3, 1), sim_results[[1]])
+identical(get_bias(3, 1), bias[[1]])
 ```
-So how does `Map()` work? Its first argument is a is the name of a *function*, in this case `get_bias`. The remaining arguments are *vectors* that give the values we want to supply as arguments to `get_bias()`. In this case we use the columns of `parameters`. 
+
+This pattern using `expand.grid()` and `Map()` is extremely flexible. In our example, `get_bias()` returns a scalar so `bias` is just a list of numbers. But more generally `Map()` can return a list that contains *any kind of object at all*. Here's a slightly more interesting example. The function `get_bias_and_var()` is a very slight modification of `get_bias()` from above that returns a *list* of two named elements: `bias` and `variance`
+```{r}
+get_bias_and_var <- function(n, s_sq, n_reps = 5000) {
+  draw_sim_replication <- function() {
+    sim_data <- draw_sim_data(n, s_sq)
+    get_estimate(sim_data)
+  }
+  sim_replications <- replicate(n_reps, draw_sim_replication())
+  list(bias = mean(sim_replications - s_sq),
+       variance = var(sim_replications))
+}
+```
+We can use this function to calculate *both* the bias and variance of the MLE $\widehat{\sigma}^2$ as follows
+```{r}
+set.seed(420508570)
+bias_and_variance <- Map(get_bias_and_var, n = parameters$n, s_sq = parameters$s_sq)
+bias_and_variance[1:3]
+```
 
 
+### Formatting the Results
+We've carried out our simulation experiment, but the results are a bit messy. The parameter values are stored in a data frame called `parameters` and the biases and variances are stored in a list called `bias_and_var`. Let's format things a bit more nicely. If you have a list `my_list` whose elements are "rows" and you want to bind them together into a data frame, you can use the somewhat inscrutable command `do.call(rbind, my_list)`. For example:
+```{r}
+do.call(rbind, bias_and_variance)
+```
+Now we'll overwrite `bias_and_var` with the above and bind its columns, `cbind()`, with those of `parameters`
+```{r}
+bias_and_variance <- do.call(rbind, bias_and_variance)
+sim_results <- cbind(parameters, bias_and_variance)
+sim_results
+```
+For extra credit, we can use the function `kable()` from the `knitr` package to make the results look even prettier
+```{r}
+knitr::kable(sim_results)
+```
 
-
+### Bonus: Parallel Computing with `mcMap()`
+There's a good chance that your computer has more than one processor core. Why not use them to speed up your simulation study! If you're on Mac or Linux (RStudio Cloud counts as Linux), it's trivial to parallelize our simulation code from above using `mcMap()` from the `parallel` package. To make things more interesting, let's set up a larger parameter grid
+```{r}
+parameters <- expand.grid(n = 3:10, s_sq = 1:10)
+```
+The function `mcMap()` works exactly like `Map()` except that we have the option of setting an additional parameter `mc.cores`. This tells R how many of our machine's processor cores to devote to the computation. If you set `mc.cores = 1`, `mcMap()` 
 
 ```{r}
-#set.seed(420508570)
-#sim_parameters <- expand.grid(n = 3:10, s_sq = c(1, 2, 3))
-#sim_results <- lapply(1:nrow(sim_parameters), 
-#                      function(i) get_bias(n = sim_parameters$n[i],
-#                                           s_sq = sim_parameters$s_sq[i]))
-#sim_results <- do.call(rbind, sim_results)
-#cbind(sim_parameters, sim_results)
+set.seed(420508570)
+system.time(foo <- parallel::mcMap(get_bias_and_var, n = parameters$n, s_sq = parameters$s_sq, mc.cores = 2))
+set.seed(420508570)
+system.time(bar <- Map(get_bias_and_var, n = parameters$n, s_sq = parameters$s_sq))
+all.equal(foo, bar)
 ```
 
-### Bonus: Parallel Computing with `mclapply()`
+
 
 ## Your Turn: Simulating the Hot Hand
 
