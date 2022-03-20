@@ -1,0 +1,480 @@
+# Mind the Gap
+
+**Write an introduction about *Gapminder* and Hans Rosling and "Factfulness." Possibly include the famous quiz and point out that exploratory data analysis can be extremely valuable. This chapter teaches some basic tools.**
+
+This lesson provides a crash course in two R packages that we'll used heavily in the material that follows: `dplyr` and `ggplot2`.
+
+The `dplyr` package provides a number of powerful but easy-to-use tools for data manipulation in R.
+A good reference is the chapter entitled "Data Transformation" in *R for Data Science*.
+We'll be making heavy use of `dplyr` throughout the semester.
+Rather than trying to explain everything in advance, let's just dive right in.
+
+- So what are these packages?
+- Base R plotting and data manipulation have their place: you need to know about them. But when you use them to do anything moderately complicated, the code gets quite verbose and hard to understand, particularly for someone who didn't write it. 
+- `dplyr` is a powerful package for data wrangling: cleaning, merging, summarizing, etc. It makes things that are tricky using base R extremely simple. Most importantly its syntax is *extremely intuitive and easy to read*. 
+- There are two alternatives to base R for data wrangling: `dplyr` and `data.table`. The latter is unambiguously *faster* than `dplyr`. If you want to work with datasets that contain a million rows or more, it's worth learning `data.table`. 
+- I've used and taught both and `dplyr` is much easier to learn in my opinion. It also has some nice features that `data.table` lacks. Link to the Stack Overflow question for more pros and cons.
+- `ggplot2` is an extremely powerful and widely-used package for data visualization. Implements "grammar of graphics" 
+- Rather than trying to give a comprehensive overview of these packages, dive in and play with them using an example.
+
+
+
+## Getting Started 
+Before we can get started, you'll need to install three packages: `dplyr`,  `ggplot2` and `gapminder`. 
+To do this, you can either click on the "Packages" tab in RStudio or use the command `install.packages()` at the R console, e.g. 
+```{r,eval=FALSE}
+install.packages('dplyr')
+install.packages('ggplot2')
+install.packages('gapminder')
+```
+You only need to install a package *once*, but you need to *load* it every time you want to use it.
+To load a package, use the `library()` command, e.g.
+```{r, message = FALSE}
+library(dplyr)
+library(ggplot2)
+library(gapminder)
+```
+Now we're ready to go!
+I could tell you all about the data contained in `gapminder`, but an important part of this book is helping you to become self-sufficient. So instead I will leave this as an exercise for the reader!
+
+### Exercise
+After loading `gapminder` enter the command `?gapminder` in the R console to view the R help file for this dataset. Read the documentation you find there to answer the following questions: 
+
+1. How many rows and columns does `gapminder` contain?
+2. What information is contained in each row and column?
+3. What is the source of the data?
+
+## `dplyr` Basics
+
+The `dplyr` package uses a special operator called the *pipe*, written `%>%` to chain together commands called *verbs* that act on objects called *tibbles*.
+In this section, we'll slowly unpack the preceding sentence by looking at some simple examples. 
+Along the way, we'll learn the most important `dplyr` *verbs*: `filter` selects rows of a dataset, `arrange` sorts a dataset, `mutate` changes or adds a column to a datset, and `select` chooses a subset of columns from a datset.
+
+
+### What is a tibble?
+Let's see what happens if we display the `gapminder` dataset:
+```{r}
+gapminder
+```
+If you're used to working with dataframes in R, this may surprise you.
+Rather than trying to print all `nrow(gapminder)` rows on the screen, R helpfully shows us a useful summary of the information contained in `gapminder`.
+This is because `gapminder` is *not* a dataframe; it's a *tibble*, often abbreviated *tbl*. For our purposes, all you really need to know about tibbles is that they are souped up versions of R dataframes that are designed to work seamlessly with `dplyr`.
+
+ 
+To learn more see the chapter "Tibbles" in *R for Data Science*.
+
+
+### Filter Rows with `filter`
+Let's run the following command in R and see what happens:
+```{r}
+gapminder %>% 
+  filter(year == 2007)
+```
+Compare the results of running this command to what we got when we typed `gapminder` into the console above.
+Rather than displaying the whole dataset, now R is only showing us the 142 rows for which the column `year` has a value of `2007`.
+
+So how does this work?
+The `%>%` symbol is called a *pipe*.
+Pipes play very nicely with `dplyr` and make our code very easy to understand.
+The operator `%>%` "pipes" the tibble `gapminder` into the function `filter()`.
+The argument `year == 2007` tells `filter()` that it should find all the rows such that the logical condition `year == 2007` is `TRUE`.
+
+Oh no! Have we accidentally deleted all of the other rows of `gapminder`?
+No: we haven't made any changes to `gapminder` at all.
+If you don't believe me try entering `gapminder` at the console.
+All that this command does is *display* a subset of `gapminder`.
+If we wanted to store the result of running this command, we'd need to assign it to a variable, for example
+```{r}
+gapminder2007 <- gapminder %>% 
+  filter(year == 2007)
+gapminder2007
+```
+We can also use `filter` to subset on two or more variables.
+For example, here we display data for the US in 2007:
+```{r}
+gapminder %>% 
+  filter(year == 2007, country == 'United States')
+```
+Notice that I always put a linebreak after the pipe operator `%>%` in my code examples. This isn't required to make the code run, but it's a good habit. As we start to write longer and more complicated `dplyr` commands, linebreaks will make it much easier to understand how our code works.
+
+### Exercise 
+1. What is the difference between `x = 3` and `x == 3` in R?
+`r hide("Show Solution")`
+The first assigns the value `3` to the variable `x`; the second tests whether `x` is equal to `3` and returns either `TRUE` or `FALSE`.
+`r unhide()`
+2. Write code that uses `filter` to choose the subset of `gapminder` for which `year` is 2002.
+`r hide("Show Solution")`
+```{r}
+gapminder %>% filter(year == 2002)
+```
+`r unhide()`
+3. When I displayed data for the US in 2007, I put quotes around `United States` but not around `year`. Why?
+`r hide("Show Solution")`
+This is because `year` contains numeric data while `country` contains character data, aka string data.
+`r unhide()`
+4. If you instead try to choose the subset with `year` equal to 2005, something will go wrong. Try it. What happens and why? 
+`r hide("Show Solution")`
+If you go back to the help file for `gapminder` you'll see that it only contains data for every fifth year. The year 2005 isn't in our dataset so `dplyr` will display an empty tibble:
+```{r}
+gapminder %>% 
+  filter(year == 2005)
+```
+`r unhide()`
+5. Write code that stores the data for Asian countries in a tibble called `gapminder_asia`. Then display this tibble. 
+`r hide("Show Solution")`
+```{r}
+gapminder_asia <- gapminder %>% 
+  filter(continent == 'Asia')
+gapminder_asia
+```
+`r unhide()`
+5. Which country had the higher life expectancy in 1977: Ireland or Brazil?
+Which had the higher GDP per capita?
+`r hide("Show Solution")`
+Ireland had both a higher life expectancy and GDP per capita:
+```{r}
+gapminder %>% 
+  filter(year == 1977, country %in% c('Ireland', 'Brazil'))
+```
+`r unhide()`
+
+
+## Sort data with `arrange`
+Suppose we wanted to sort `gapminder` by `gdpPercap`.
+To do this we can use the `arrange` command along with the pipe `%>%` as follows:
+```{r}
+gapminder %>% arrange(gdpPercap)
+```
+The logic is very similar to what we saw above for `filter`.
+Here, we pipe the tibble `gapminder` into the function `arrange()`.
+The argument `gdpPercap` tells `arrange()` that we want to sort by GDP per capita.
+Note that by default `arrange()` sorts in *ascending order*.
+If we want to sort in *descending* order, we use the function `desc()` as follows:
+```{r}
+gapminder %>% arrange(desc(gdpPercap))
+```
+
+## Exercise \#4
+1. What is the lowest life expectancy in the `gapminder` dataset? Which country and year does it correspond to?
+2. What is the highest life expectancy in the `gapminder` dataset? Which country and year does it correspond to?
+
+## Solution to Exercise \#4
+<!-- ANS_START -->
+1. The lowest life expectancy was Rwanda in 1992: 23.6 years at birth.
+```{r}
+gapminder %>% arrange(lifeExp)
+```
+2. The highest life expectancy was in 2007 in Japan: 82.6 years at birth.
+```{r}
+gapminder %>% arrange(desc(lifeExp))
+```
+<!-- ANS_END -->
+
+## Understanding the pipe: `%>%`
+Let's revisit the pipe, `%>%`, that we've used in the code examples above.
+I told you that the command `gapminder %>% filter(year == 2007)` "pipes" the tibble `gapminder` into the function `filter()`.
+But what exactly does this mean?
+Take a look at the R help file for the `dplyr` function `filter`.
+We see that `filter()` takes something called `.data` as its first argument.
+Moving on to the "Arguments" section of the help file, we see that `.data` is "A tbl" i.e. a tibble.
+To better understand what this means, let's try using `filter` *without* the pipe:
+```{r}
+filter(gapminder, year == 2007, country == 'United States')
+```
+Notice that this gives us *exactly* the same result as
+```{r}
+gapminder %>% filter(year == 2007, country == 'United States')
+```
+In other words __*The pipe is gives us an alternative way of supplying the first argument to a function*__.
+Let's try this with a more familiar R function: `mean`.
+The first argument of `mean` is a vector `x`. 
+So let's try using the pipe to compute the mean of some data:
+```{r}
+x <- c(1, 5, 2, 7, 2)
+x %>% mean
+```
+The pipe supplies a function with its *first* argument.
+If we want to specify additional arguments, we need to do so within the function call itself.
+For example, here's how we could use the pipe to compute the mean after dropping missing observations:
+```{r}
+y <- c(1, 5, NA, 7, 2)
+y %>% mean(na.rm = TRUE)
+```
+One important note about the pipe: it's *not* a base R command.
+Instead it's a command provided by the package `Magrittr`.
+(If you're familiar with the Belgian painter Magritte, you may realize that the name of this package is quite witty!)
+This package is installed automatically along with `dplyr`.
+So if we load the `tidyverse` package, which includes `dplyr`, the pipe is automatically available.
+
+## Exercise \#5
+
+1. Write R code that uses the pipe to calculate the sample variance of `z <- c(4, 1, 5, NA, 3)` excluding the missing observation from the calculation.
+2. Re-write the code from your solution to Exercise \#4 *without* using the pipe.
+
+## Solution to Exercise \#5
+<!-- ANS_START -->
+1. Use the following code:
+```{r}
+z <- c(4, 1, 5, NA, 3)
+z %>% var(na.rm = TRUE)
+```
+2. Use the following code: 
+```{r}
+arrange(gapminder,lifeExp)
+arrange(gapminder, desc(lifeExp))
+```
+<!-- ANS_END -->
+
+
+
+## Chaining commands
+In the examples we've looked at so far, the pipe doesn't seem all that useful: it's just an alternative way of specifying the first argument to a function.
+The true power and convenience of the pipe only becomes apparent we need to *chain* a series of commands together.
+For example, suppose we wanted to display the 1952 data from `gapminder` sorted by `gdpPercap` in descending order.
+Using the pipe, this is easy:
+```{r}
+gapminder %>% 
+  filter(year == 1952) %>% 
+  arrange(desc(gdpPercap))
+```
+Notice how I split the commands across multiple lines.
+This is good practice: it makes your code much easier to read.
+So what's happening when we chain commands in this way? 
+The first step in the chain `gapminder %>% filter(year == 1952)` returns a tibble: the subset of `gapminder` for which `year` is `1952`.
+The next step `%>% arrange(gdpPercap)`  pipes this *new* tibble into the function `arrange()`, giving us the desired result.
+I hope you agree with me that this is pretty intuitive: even if we didn't know anything about `dplyr` we could *almost* figure out what this code is supposed to do.
+In stark contrast, let's look at the code we'd have to use if we wanted to accomplish the same task *without* using the pipe:
+```{r}
+arrange(filter(gapminder, year == 1952), desc(gdpPercap))
+```
+There are may reasons why this code is harder to read, but the most important one is that the commands `arrange` and `filter` have to appear in the  code in the *opposite* of the order in which they are actually being carried out.
+This is because parentheses are evaluated from *inside to outside*.
+This is what's great about the pipe: it lets us write our code in a way that accords with the actual order of the steps we want to carry out.
+
+## Exercise \#6
+
+1. What was the most populous European country in 1992? Write appropriate `dplyr` code using the pipe to display the information you need to answer this question.
+2. Re-write your code from part 1. *without* using the pipe. 
+
+## Solution to Exercise \#6
+<!-- ANS_START -->
+1. The most populous European country in 1992 was Germany.
+```{r}
+gapminder %>%
+  filter(year == 1992, continent == 'Europe') %>%
+  arrange(desc(pop))
+```
+2. Use the following code: 
+```{r}
+arrange(filter(gapminder, year == 1992, continent == 'Europe'), desc(pop))
+```
+<!-- ANS_END -->
+
+## Change an existing variable or create a new one with `mutate`
+It's a little hard to read the column `pop` in `gapminder` since there are so many digits.
+Suppose that, instead of raw population, we wanted to display population *in millions*.
+This requires us to `pop` by `1000000`, which we can do using the function `mutate()` from `dplyr` as follows:
+```{r}
+gapminder %>% 
+  mutate(pop = pop / 1000000)
+```
+Note the syntax here: within `mutate()` we have an assignment statement, namely `pop = pop / 1000000`. 
+This tells R to calculate `pop / 1000000` and assign the result to `pop`, in place of the original variable.
+
+We can also use `mutate()` to create a new variable.
+The `gapminder` dataset doesn't contain overall GDP, only GDP per capita.
+To calculate GDP, we need to multiply `gdpPercap` by `pop`.
+But wait! 
+Didn't we just change pop so it's expressed in millions?
+No: we never *stored* the results of our previous command, we simply displayed them.
+Just as I discussed above, unless you *overwrite* it, the original `gapminder` dataset will be unchanged.
+With this in mind, we can create the `gdp` variable as follows:
+```{r}
+gapminder %>% mutate(gdp = pop * gdpPercap)
+```
+
+## Exercise \#7
+
+1. Explain why we used `=` rather than `==` in the `mutate()` examples above.   
+2. Which country in the Americas had the shortest life expectancy *in months* in the year 1962? Write appropriate `dplyr` code using the pipe to display the information you need to answer this question.
+
+## Solution to Exercise \#7
+<!-- ANS_START -->
+1. We used `=` because this is the assigment operator. In contrast `==` tests for equality, returning TRUE or FALSE.
+2. Bolivia had the shortest life expectancy: 521 months. 
+```{r}
+gapminder %>%
+  mutate(lifeExpMonths = 12 * lifeExp) %>%
+  filter(year == 1962, continent == 'Americas') %>%
+  arrange(lifeExpMonths)
+```
+<!-- ANS_END -->
+
+
+## A simple scatterplot using `ggplot2`
+Now that we know the basics of `dplyr`, we'll turn our attention to graphics.
+R has many powerful build-in graphics functions that may be familiar to you from Econ 103.
+In this class, however, we'll use a very powerful package for statistical visualization called `ggplot2`.
+There's nothing more for you to instead or load, since `ggplot2` is included in the `tidyverse` package, which you've already installed and loaded.
+For more details on `ggplot2` see the chapter entitled "Data Visualisation" in *R for Data Science*.
+
+We'll start off by constructing a subset of the `gapminder` dataset that contains information from the year 2007 that we'll use for our plots below.
+```{r}
+gapminder_2007 <- gapminder %>% filter(year == 2007)
+```
+
+It takes some time to grow accustomed to `ggplot2` syntax, so rather than giving you a lot of detail, we're going to look at a series of increasingly more complicated examples.
+Our first example will be a simple scatterplot using `gapminder_2007`. 
+Each point will correspond to a single country in 2007.
+Its x-coordinate will be GDP per capita and its y-coordinate will be life expectancy.
+Here's the code:
+```{r}
+ggplot(gapminder_2007) + geom_point(mapping = aes(x = gdpPercap, y = lifeExp))
+```
+We see that GDP per capita is a very strong predictor of life expectancy, although the relationship is non-linear.
+
+## Exercise \#8
+1. Using my code example as a template, make a scatterplot with `pop` on the x-axis and `lifeExp` on the y-axis using `gapminder_2007`. Does there appear to be a relationship between population and life expectancy?
+2. Repeat 1. with `gdpPercap` on the y-axis.
+
+## Solution to Exercise \#8
+<!-- ANS_START -->
+1. There is no clear relationship between population and life expectancy based on the 2007 data:
+```{r}
+ggplot(gapminder_2007) + geom_point(mapping = aes(x = pop, y = lifeExp))
+```
+2. There is no clear relationship between population and GDP per capita based on the 2007 data:
+
+```{r}
+ggplot(gapminder_2007) + geom_point(mapping = aes(x = pop, y = gdpPercap))
+```
+<!-- ANS_END -->
+
+## Plotting on the log scale
+It's fairly common to transform data onto a log scale before carrying out further analysis or plotting.
+If you've taken Econ 104, you may already be familiar with log transformations.
+If not, don't worry about it: we'll discuss them later in the course.
+For now, we'll content ourselves with learning how to transform the axes  in a `ggplot` to the log base 10 scale.
+To transform the x-axis, it's as easy as adding a `+ scale_x_log10()` to the end of our command from above:
+```{r}
+ggplot(data = gapminder_2007) + 
+  geom_point(mapping = aes(x = gdpPercap, y = lifeExp)) + 
+  scale_x_log10()
+```
+Notice how I split the code across multiple lines and ended each of the intermediate lines with the `+`.
+This makes things much easier to read.
+
+## Exercise \#9
+1. Using my code example as a template, make a scatterplot with the log base 10 of `pop` on the x-axis and `lifeExp` on the y-axis using the `gapminder_2007` dataset.
+2. Suppose that rather than putting the x-axis on the log scale, we wanted to put the *y-axis* on the log scale.
+Figure out how to do this, either by clever guesswork or a google search, and then redo my example with `gdpPercap` and `lifeExp`  with `gdpPercap` in levels and `lifeExp` in logs.
+3. Repeat 2. but with *both* axes on the log scale.
+
+## Solution to Exercise \#9
+<!-- ANS_START -->
+1. Use the following code:
+```{r}
+ggplot(data = gapminder_2007) + 
+  geom_point(mapping = aes(x = pop, y = lifeExp)) + 
+  scale_x_log10()
+```
+2. Use the following code:
+```{r}
+ggplot(data = gapminder_2007) +
+  geom_point(mapping = aes(x = gdpPercap, y = lifeExp)) + 
+  scale_y_log10()
+```
+3. Use the following code:
+```{r}
+ggplot(data = gapminder_2007) +
+  geom_point(mapping = aes(x = gdpPercap, y = lifeExp)) + 
+  scale_x_log10() + 
+  scale_y_log10()
+```
+<!-- ANS_END -->
+
+## The color and size aesthetics
+It's time to start unraveling the somewhat mysterious-looking syntax of `ggplot`.
+To make a graph using `ggplot` we use the following template:
+```{r eval=FALSE}
+ggplot(data = <DATA>) +
+  <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
+```
+replacing `<DATA>`, `<GEOM_FUNCTION>`, and `<MAPPINGS>` to specify what we want to plot and how it should appear.
+The first part is easy: we replace `<DATA>` with the dataset we want to plot, for example `gapminder_2007` in the example from above.
+The second part is also fairly straightforward: we replace `<GEOM_FUNCTION>` with the name of a function that specifies the kind of plot we want to make.
+So far we've only seen one example: `geom_point()` which tells `ggplot` that we want to make a scatterplot.
+We'll see more examples in a future lab.
+For now, I want to focus on the somewhat more complicated-looking `mapping = aes(<MAPPINGS>)`.
+
+The abbreviation `aes` is short for *aesthetic* and the code `mapping = aes(<MAPPINGS>)` defines what is called an *aesthetic mapping*.
+This is just a fancy way of saying that it tells R how we want our plot to look.
+The information we need to put in place of `<MAPPINGS>` depends on what kind of plot we're making.
+Thus far we've only examined `geom_point()` which produces a scatterplot. 
+For this kind of plot, the minimum information we need to provide is the location of each point.
+For example, in our example above we wrote `aes(x = gdpPercap, y = lifeExp)` to tell R that `gdpPercap` gives the x-axis location of each point, and `lifeExp` gives the y-axis location.
+
+When making a scatterplot with `geom_point` we are not limited to specifying the x and y coordinates of each point; we can also specify the size and color of each point.
+This gives us a useful way of displaying more than two variables in a two-dimensional plot.
+We do this using `aes`.
+For example, let's use the color of each point to indicate `continent`
+```{r}
+ggplot(data = gapminder_2007) +
+  geom_point(mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) +
+  scale_x_log10()
+```
+Notice how `ggplot` automatically generates a helpful legend.
+This plot makes it easy to see at a glance that the European countries in 2007 ten to have high GDP per capita and high life expectancy, while the African countries have the opposite.
+We can also use the *size* of each point to encode information, e.g. population:
+```{r}
+ggplot(data = gapminder_2007) +
+  geom_point(mapping = aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
+  scale_x_log10()
+```
+
+## Exercise \#10
+1. Would it make sense to set `size = continent`? What about setting `col = pop`?
+   Explain briefly.
+2. The following code is slightly different from what I've written above. What is different. Try running it. What happens? Explain briefly.
+```{r,eval=FALSE}
+ggplot(gapminder_2007) +
+  geom_point(aes(x = gdpPercap, y = lifeExp)) + 
+  scale_x_log10()  
+```
+3. Create a tibble called `gapminder_1952` that contains data from `gapminder` from 1952.
+4. Use `gapminder_1952` from the previous part  to create a scatter plot with population on the x-axis, life expectancy on the y-axis, and continent represented by the color of the points. Plot population on the log scale (base 10).
+5. Suppose that instead of indicating continent using color, you wanted all the points in the plot from 3. to be blue.
+   Consult the chapter "Visualising Data" from *R for Data Science* to find out how to do this.
+
+## Solution to Exercise \#10
+<!-- ANS_START -->
+1. Neither of these makes sense since `continent` is categorical and `pop` is continuous: `color` is useful for categorical variables and `size` for continuous ones.
+2. It still works! You don't have to explicitly write `data` or `mapping` when using `ggplot`. I only included these above for clarity.
+   In the future I'll leave them out to make my code more succinct. 
+```{r}
+ggplot(gapminder_2007) +
+  geom_point(aes(x = gdpPercap, y = lifeExp)) + 
+  scale_x_log10()  
+```
+3. Use the following code:
+```{r}
+gapminder_1952 <- gapminder %>% 
+  filter(year == 1952)
+```
+4. Use the following code:
+```{r}
+ggplot(gapminder_1952) + 
+  geom_point(aes(x = pop, y = lifeExp, color = continent)) +
+  scale_x_log10()
+```
+5. When you want color to be a variable from your dataset, put `color = <VARIABLE>` *inside* of `aes`; when you simply want to set the colors of all the points, put `color = '<COLOR>'` *outside* of `aes`, for example
+```{r}
+ggplot(gapminder_1952) + 
+  geom_point(aes(x = pop, y = lifeExp), color = 'blue') +
+  scale_x_log10()
+```
+<!-- ANS_END -->
+
+
+
+
