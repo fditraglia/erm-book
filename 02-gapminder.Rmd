@@ -44,40 +44,24 @@ After loading `gapminder` enter the command `?gapminder` in the R console to vie
 2. What information is contained in each row and column?
 3. What is the source of the data?
 
-## `dplyr` Basics
 
-The `dplyr` package uses a special operator called the *pipe*, written `%>%` to chain together commands called *verbs* that act on objects called *tibbles*.
-In this section, we'll slowly unpack the preceding sentence by looking at some simple examples. 
-Along the way, we'll learn the most important `dplyr` *verbs*: `filter` selects rows of a dataset, `arrange` sorts a dataset, `mutate` changes or adds a column to a datset, and `select` chooses a subset of columns from a datset.
-
-
-### What is a tibble?
-Let's see what happens if we display the `gapminder` dataset:
+## What is a tibble?
+The `dplyr` package uses a special operator called the *pipe*, written `%>%` to chain together commands called *verbs* that act on objects called *tibbles*. This probably sounds complicated, but it's easier that it looks. Over the next few sections we'll slowly unpack the preceding sentence by looking at a number of simple examples. But first things first: what is a tibble? Let's see what happens if we display the `gapminder` dataset:
 ```{r}
 gapminder
 ```
-If you're used to working with dataframes in R, this may surprise you.
-Rather than trying to print all `nrow(gapminder)` rows on the screen, R helpfully shows us a useful summary of the information contained in `gapminder`.
-This is because `gapminder` is *not* a dataframe; it's a *tibble*, often abbreviated *tbl*. For our purposes, all you really need to know about tibbles is that they are souped up versions of R dataframes that are designed to work seamlessly with `dplyr`.
+If you're used to working with dataframes in R, this may surprise you. Rather than trying to print all `nrow(gapminder)` rows on the screen, R helpfully shows us a useful summary of the information contained in `gapminder`. This is because `gapminder` is *not* a dataframe; it's a *tibble*, often abbreviated *tbl*. For our purposes, all you really need to know about tibbles is that they are souped up versions of R dataframes that are designed to work seamlessly with `dplyr`. To learn more see the chapter "Tibbles" in *R for Data Science*.
 
- 
-To learn more see the chapter "Tibbles" in *R for Data Science*.
-
-
-### Filter Rows with `filter`
-Let's run the following command in R and see what happens:
+## Filter Rows with `filter`
+We're ready to learn our first `dplyr` verb: `filter` selects rows.
+Here's an example:
 ```{r}
 gapminder %>% 
   filter(year == 2007)
 ```
 Compare the results of running this command to what we got when we typed `gapminder` into the console above.
 Rather than displaying the whole dataset, now R is only showing us the 142 rows for which the column `year` has a value of `2007`.
-
-So how does this work?
-The `%>%` symbol is called a *pipe*.
-Pipes play very nicely with `dplyr` and make our code very easy to understand.
-The operator `%>%` "pipes" the tibble `gapminder` into the function `filter()`.
-The argument `year == 2007` tells `filter()` that it should find all the rows such that the logical condition `year == 2007` is `TRUE`.
+So how does this work? The pipe operator `%>%` "pipes" the tibble `gapminder` into the function `filter()`. The argument `year == 2007` tells `filter()` that it should find all the rows such that the logical condition `year == 2007` is `TRUE`.
 
 Oh no! Have we accidentally deleted all of the other rows of `gapminder`?
 No: we haven't made any changes to `gapminder` at all.
@@ -97,7 +81,7 @@ gapminder %>%
 ```
 Notice that I always put a linebreak after the pipe operator `%>%` in my code examples. This isn't required to make the code run, but it's a good habit. As we start to write longer and more complicated `dplyr` commands, linebreaks will make it much easier to understand how our code works.
 
-### Exercise 
+### Exercises
 1. What is the difference between `x = 3` and `x == 3` in R?
 `r hide("Show Solution")`
 The first assigns the value `3` to the variable `x`; the second tests whether `x` is equal to `3` and returns either `TRUE` or `FALSE`.
@@ -138,37 +122,210 @@ gapminder %>%
 ```
 `r unhide()`
 
-
 ## Sort data with `arrange`
 Suppose we wanted to sort `gapminder` by `gdpPercap`.
 To do this we can use the `arrange` command along with the pipe `%>%` as follows:
 ```{r}
 gapminder %>% arrange(gdpPercap)
 ```
-The logic is very similar to what we saw above for `filter`.
-Here, we pipe the tibble `gapminder` into the function `arrange()`.
-The argument `gdpPercap` tells `arrange()` that we want to sort by GDP per capita.
-Note that by default `arrange()` sorts in *ascending order*.
-If we want to sort in *descending* order, we use the function `desc()` as follows:
+The logic is very similar to what we saw above for `filter`. We pipe the tibble `gapminder` into the function `arrange()`. The argument `gdpPercap` tells `arrange()` that we want to sort by GDP per capita. Note that by default `arrange()` sorts in *ascending order*. If we want to sort in *descending* order, we use the function `desc()` as follows:
 ```{r}
 gapminder %>% arrange(desc(gdpPercap))
 ```
 
-## Exercise \#4
+### Exercises 
 1. What is the lowest life expectancy in the `gapminder` dataset? Which country and year does it correspond to?
+`r hide("Show Solution")`
+```{r}
+gapminder %>% 
+  arrange(lifeExp)
+```
+`r unhide()`
 2. What is the highest life expectancy in the `gapminder` dataset? Which country and year does it correspond to?
+`r hide("Show Solution")`
+```{r}
+gapminder %>% 
+  arrange(desc(lifeExp))
+```
+`r unhide()`
 
-## Solution to Exercise \#4
-<!-- ANS_START -->
-1. The lowest life expectancy was Rwanda in 1992: 23.6 years at birth.
+
+## Choose columns with `select`
+We use the `select` verb to choose a subset of columns.
+For example, to display only `pop`, `country`, and `year`, we would write
 ```{r}
-gapminder %>% arrange(lifeExp)
+gapminder %>% 
+  select(pop, country, year)
 ```
-2. The highest life expectancy was in 2007 in Japan: 82.6 years at birth.
+Now suppose that we wanted to select every column *except* `pop`. 
+Here's one way to do it:
 ```{r}
-gapminder %>% arrange(desc(lifeExp))
+gapminder %>% 
+  select(country, continent, year, lifeExp, gdpPercap)
 ```
-<!-- ANS_END -->
+but that takes a lot of typing! If there were more than a handful of columns in our tibble it would be very difficult to *deselect* a column in this way.
+Fortunately there's a shortcut: use the minus sign 
+```{r}
+gapminder %>% select(-pop)
+```
+Just as we could when *selecting*, we can *deselect* multiple columns by separating their names with a comma:
+```{r}
+gapminder %>% select(-pop, -year)
+```
+
+It's easy to mix up the `dplyr` verbs `select` and `filter`.
+Here's a handy mnemonic: `filteR` filters Rows while `seleCt` selects Columns. 
+Suppose we wanted to select only the column `pop` from `gapminder`.
+
+### Exercise
+1. Select only the columns `year`, `lifeExp`, and `country` in `gapminder`.
+`r hide("Show Solution")`
+```{r}
+gapminder %>% 
+  select(year, lifeExp, country)
+```
+`r unhide()`
+2. Select all the columns *except* `year`, `lifeExp`, and `country` in `gapminder`.
+`r hide("Show Solution")`
+```{r}
+gapminder %>% 
+  select(-year, -lifeExp, -country)
+```
+`r unhide()`
+
+
+
+## The `summarize` verb
+Suppose we want to calculate the sample mean of the column `lifeExp` in `gapminder`.
+We can do this using the `summarize` verb as follows:
+```{r}
+gapminder %>% summarize(mean_lifeExp = mean(lifeExp))
+```
+Note the syntax: within `summarize` we have an *assignment statement*.
+In particular, we assign `mean(lifeExp)` to the variable `mean_lifeExp`.
+The key thing to know about `summarize` is that it always returns *collapses* a tibble with many rows into a single row.
+When we think about computing a sample mean, this makes sense: we want to summarize the column `lifeExp` as a single number.
+It doesn't actually make much sense to compute the mean of `lifeExp` because this involves averaging over different countries *and* different years.
+Instead let's compute the mean for a single year: 1952:
+```{r}
+gapminder %>% 
+  filter(year == 1952) %>%
+  summarize(mean_lifeExp = mean(lifeExp))
+```
+
+We can use summarize to compute multiple summary statistics for a single variable, the same summary statistic for multiple variables, or both:
+```{r}
+gapminder %>% 
+  filter(year == 1952) %>%
+  summarize(mean_lifeExp = mean(lifeExp),
+            sd_lifeExp = sd(lifeExp), 
+            mean_pop = mean(pop))
+```
+Note that if we *don't* explicitly use an assignment statement, R will make up names for us based on the commands that we used:
+```{r}
+gapminder %>% 
+  filter(year == 1952) %>%
+  summarize(mean(lifeExp), median(lifeExp), max(lifeExp))
+```
+
+
+### Exercise
+1. Use `summarize` to compute the 75th percentile of life expectancy in 1977.
+`r hide("Show Solution")`
+```{r}
+gapminder %>% 
+  filter(year == 1977) %>%
+  summarize(quantile(lifeExp, 0.75))
+```
+`r unhide()`
+2. Use `summarize` to compute the 75th percentile of life expectancy among Asian countries in 1977.
+`r hide("Show Solution")`
+```{r}
+gapminder %>% 
+  filter(year == 1977, continent == 'Asia') %>%
+  summarize(quantile(lifeExp, 0.75))
+```
+`r unhide()`
+
+
+## The `group_by` verb
+The true power of `summarize` is its ability to compute grouped summary statistics in combination with another `dplyr` verb: `group_by`.
+In essence, `group_by` allows us to tell `dplyr` that we don't want to work with the whole dataset at once; rather we want to work with particular *subsets* or groups.
+The basic idea is similar to what we've done using `filter` in the past.
+For example, to calculate mean population (in millions) and mean life expectancy in the year 2007, we could use the following code:
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%
+  summarize(meanPop = mean(pop) / 1000000, meanLifeExp = mean(lifeExp))
+```
+Using `group_by` we could do the same thing for *all* years in the dataset at once:
+```{r}
+gapminder %>%
+  group_by(year) %>%
+  summarize(meanPop = mean(pop) / 1000000, meanLifeExp = mean(lifeExp))
+```
+Notice what has changed in the second code block: we replaced `filter(year == 2007)` with `group_by(year)`.
+This tells `dplyr` that, rather than simply restricting attention to data from 2007, we want to form *subsets* (groups) of the dataset that correspond to the values of the `year` variable.
+Whatever comes after `group_by` will then be calculated for these subsets.
+
+Here's another example.
+Suppose we wanted to calculate mean life expectancy and total population in each *continent* during the year 2007.
+To accomplish this, we can chain together the `filter`, `group_by` and `summarize` verbs as follows:
+```{r}
+gapminder %>% 
+  filter(year == 2007) %>%
+  group_by(continent) %>%
+  summarize(meanPop = mean(pop) / 1000000, meanLifeExp = mean(lifeExp))
+```
+
+We can also use `group_by` to subset over multiple variables at once.
+For example, to calculate mean life expectancy and total population in each continent *separately* for every year, we can use the following code:
+```{r}
+gapminder %>% 
+  group_by(year, continent) %>%
+  summarize(meanPop = mean(pop) / 1000000, meanLifeExp = mean(lifeExp))
+```
+
+### Exercise
+1. Why doesn't the following code work as expected?
+```{r,eval = FALSE}
+gapminder %>%
+  summarize(meanLifeExp = mean(lifeExp)) %>%
+  group_by(year)
+```
+`r hide("Show Solution")`
+The steps are carried out in the wrong order: we need to form groups *first* and then calculate our desired summaries.
+`r unhide()`
+2. Calculate the median GDP per capita in each continent in 1977.
+`r hide("Show Solution")`
+```{r}
+gapminder %>% 
+  filter(year == 1977) %>%
+  group_by(continent) %>%
+  summarize(medGDPc = median(gdpPercap))
+```
+`r unhide()`
+3. Repeat 2. but sort your results in descending order.
+`r hide("Show Solution")`
+```{r}
+gapminder %>% 
+  filter(year == 1977) %>%
+  group_by(continent) %>%
+  summarize(medGDPc = median(gdpPercap)) %>%
+  arrange(desc(medGDPc))
+```
+`r unhide()`
+4. Calculate the mean and standard deviation of life expectancy for separately for each continent in every year *after* 1977. Sort your results in ascending order by the standard deviation of life expectancy.
+`r hide("Show Solution")`
+```{r}
+gapminder %>% 
+  filter(year > 1977) %>%
+  group_by(continent, year) %>%
+  summarize(meanGDPc = mean(gdpPercap), sdGDPc = sd(gdpPercap)) %>%
+  arrange(sdGDPc)
+```
+`r unhide()`
+
 
 ## Understanding the pipe: `%>%`
 Let's revisit the pipe, `%>%`, that we've used in the code examples above.
@@ -183,7 +340,8 @@ filter(gapminder, year == 2007, country == 'United States')
 ```
 Notice that this gives us *exactly* the same result as
 ```{r}
-gapminder %>% filter(year == 2007, country == 'United States')
+gapminder %>% 
+  filter(year == 2007, country == 'United States')
 ```
 In other words __*The pipe is gives us an alternative way of supplying the first argument to a function*__.
 Let's try this with a more familiar R function: `mean`.
@@ -198,33 +356,30 @@ If we want to specify additional arguments, we need to do so within the function
 For example, here's how we could use the pipe to compute the mean after dropping missing observations:
 ```{r}
 y <- c(1, 5, NA, 7, 2)
-y %>% mean(na.rm = TRUE)
+y %>% 
+  mean(na.rm = TRUE)
 ```
 One important note about the pipe: it's *not* a base R command.
 Instead it's a command provided by the package `Magrittr`.
 (If you're familiar with the Belgian painter Magritte, you may realize that the name of this package is quite witty!)
 This package is installed automatically along with `dplyr`.
-So if we load the `tidyverse` package, which includes `dplyr`, the pipe is automatically available.
 
-## Exercise \#5
+### Exercise
 
 1. Write R code that uses the pipe to calculate the sample variance of `z <- c(4, 1, 5, NA, 3)` excluding the missing observation from the calculation.
-2. Re-write the code from your solution to Exercise \#4 *without* using the pipe.
-
-## Solution to Exercise \#5
-<!-- ANS_START -->
-1. Use the following code:
+`r hide("Show Solution")`
 ```{r}
 z <- c(4, 1, 5, NA, 3)
 z %>% var(na.rm = TRUE)
 ```
-2. Use the following code: 
+`r unhide()`
+2. Re-write the code from your solution to Exercise \#4 *without* using the pipe.
+`r hide("Show Solution")`
 ```{r}
 arrange(gapminder,lifeExp)
 arrange(gapminder, desc(lifeExp))
 ```
-<!-- ANS_END -->
-
+`r unhide()`
 
 
 ## Chaining commands
@@ -251,24 +406,23 @@ There are may reasons why this code is harder to read, but the most important on
 This is because parentheses are evaluated from *inside to outside*.
 This is what's great about the pipe: it lets us write our code in a way that accords with the actual order of the steps we want to carry out.
 
-## Exercise \#6
+### Exercise 
 
 1. What was the most populous European country in 1992? Write appropriate `dplyr` code using the pipe to display the information you need to answer this question.
-2. Re-write your code from part 1. *without* using the pipe. 
-
-## Solution to Exercise \#6
-<!-- ANS_START -->
-1. The most populous European country in 1992 was Germany.
+`r hide("Show Solution")`
 ```{r}
 gapminder %>%
   filter(year == 1992, continent == 'Europe') %>%
   arrange(desc(pop))
 ```
-2. Use the following code: 
+`r unhide()`
+2. Re-write your code from part 1. *without* using the pipe. 
+`r hide("Show Solution")`
 ```{r}
 arrange(filter(gapminder, year == 1992, continent == 'Europe'), desc(pop))
 ```
-<!-- ANS_END -->
+`r unhide()`
+
 
 ## Change an existing variable or create a new one with `mutate`
 It's a little hard to read the column `pop` in `gapminder` since there are so many digits.
@@ -290,26 +444,30 @@ No: we never *stored* the results of our previous command, we simply displayed t
 Just as I discussed above, unless you *overwrite* it, the original `gapminder` dataset will be unchanged.
 With this in mind, we can create the `gdp` variable as follows:
 ```{r}
-gapminder %>% mutate(gdp = pop * gdpPercap)
+gapminder %>% 
+  mutate(gdp = pop * gdpPercap)
 ```
 
-## Exercise \#7
+### Exercise 
 
 1. Explain why we used `=` rather than `==` in the `mutate()` examples above.   
+`r hide("Show Solution")`
+We used `=` because this is the assigment operator. In contrast `==` tests for equality, returning `TRUE` or `FALSE`.
+`r unhide()`
 2. Which country in the Americas had the shortest life expectancy *in months* in the year 1962? Write appropriate `dplyr` code using the pipe to display the information you need to answer this question.
-
-## Solution to Exercise \#7
-<!-- ANS_START -->
-1. We used `=` because this is the assigment operator. In contrast `==` tests for equality, returning TRUE or FALSE.
-2. Bolivia had the shortest life expectancy: 521 months. 
+`r hide("Show Solution")`
 ```{r}
 gapminder %>%
   mutate(lifeExpMonths = 12 * lifeExp) %>%
   filter(year == 1962, continent == 'Americas') %>%
   arrange(lifeExpMonths)
 ```
-<!-- ANS_END -->
+`r unhide()`
 
+
+## Now on to `ggplot2`!
+Some kind of intro? Or should this be a separate lesson? 
+**I think I should split this off into a separate lesson. Add some extra `dplyr` stuff above, taken from the Econ 224 problem sets.**
 
 ## A simple scatterplot using `ggplot2`
 Now that we know the basics of `dplyr`, we'll turn our attention to graphics.
@@ -333,12 +491,14 @@ ggplot(gapminder_2007) + geom_point(mapping = aes(x = gdpPercap, y = lifeExp))
 ```
 We see that GDP per capita is a very strong predictor of life expectancy, although the relationship is non-linear.
 
-## Exercise \#8
+### Exercise
 1. Using my code example as a template, make a scatterplot with `pop` on the x-axis and `lifeExp` on the y-axis using `gapminder_2007`. Does there appear to be a relationship between population and life expectancy?
+`r hide("Show Solution")`
+`r unhide()`
 2. Repeat 1. with `gdpPercap` on the y-axis.
+`r hide("Show Solution")`
+`r unhide()`
 
-## Solution to Exercise \#8
-<!-- ANS_START -->
 1. There is no clear relationship between population and life expectancy based on the 2007 data:
 ```{r}
 ggplot(gapminder_2007) + geom_point(mapping = aes(x = pop, y = lifeExp))
@@ -348,7 +508,6 @@ ggplot(gapminder_2007) + geom_point(mapping = aes(x = pop, y = lifeExp))
 ```{r}
 ggplot(gapminder_2007) + geom_point(mapping = aes(x = pop, y = gdpPercap))
 ```
-<!-- ANS_END -->
 
 ## Plotting on the log scale
 It's fairly common to transform data onto a log scale before carrying out further analysis or plotting.
@@ -364,34 +523,34 @@ ggplot(data = gapminder_2007) +
 Notice how I split the code across multiple lines and ended each of the intermediate lines with the `+`.
 This makes things much easier to read.
 
-## Exercise \#9
+### Exercise 
 1. Using my code example as a template, make a scatterplot with the log base 10 of `pop` on the x-axis and `lifeExp` on the y-axis using the `gapminder_2007` dataset.
-2. Suppose that rather than putting the x-axis on the log scale, we wanted to put the *y-axis* on the log scale.
-Figure out how to do this, either by clever guesswork or a google search, and then redo my example with `gdpPercap` and `lifeExp`  with `gdpPercap` in levels and `lifeExp` in logs.
-3. Repeat 2. but with *both* axes on the log scale.
-
-## Solution to Exercise \#9
-<!-- ANS_START -->
-1. Use the following code:
+`r hide("Show Solution")`
 ```{r}
 ggplot(data = gapminder_2007) + 
   geom_point(mapping = aes(x = pop, y = lifeExp)) + 
   scale_x_log10()
 ```
-2. Use the following code:
+`r unhide()`
+2. Suppose that rather than putting the x-axis on the log scale, we wanted to put the *y-axis* on the log scale.
+`r hide("Show Solution")`
 ```{r}
 ggplot(data = gapminder_2007) +
   geom_point(mapping = aes(x = gdpPercap, y = lifeExp)) + 
   scale_y_log10()
 ```
-3. Use the following code:
+`r unhide()`
+Figure out how to do this, either by clever guesswork or a google search, and then redo my example with `gdpPercap` and `lifeExp`  with `gdpPercap` in levels and `lifeExp` in logs.
+3. Repeat 2. but with *both* axes on the log scale.
+`r hide("Show Solution")`
 ```{r}
 ggplot(data = gapminder_2007) +
   geom_point(mapping = aes(x = gdpPercap, y = lifeExp)) + 
   scale_x_log10() + 
   scale_y_log10()
 ```
-<!-- ANS_END -->
+`r unhide()`
+
 
 ## The color and size aesthetics
 It's time to start unraveling the somewhat mysterious-looking syntax of `ggplot`.
@@ -432,48 +591,52 @@ ggplot(data = gapminder_2007) +
   scale_x_log10()
 ```
 
-## Exercise \#10
+### Exercise
 1. Would it make sense to set `size = continent`? What about setting `col = pop`?
    Explain briefly.
+`r hide("Show Solution")`
+Neither of these makes sense since `continent` is categorical and `pop` is continuous: `color` is useful for categorical variables and `size` for continuous ones.
+`r unhide()`
 2. The following code is slightly different from what I've written above. What is different. Try running it. What happens? Explain briefly.
 ```{r,eval=FALSE}
 ggplot(gapminder_2007) +
   geom_point(aes(x = gdpPercap, y = lifeExp)) + 
   scale_x_log10()  
 ```
-3. Create a tibble called `gapminder_1952` that contains data from `gapminder` from 1952.
-4. Use `gapminder_1952` from the previous part  to create a scatter plot with population on the x-axis, life expectancy on the y-axis, and continent represented by the color of the points. Plot population on the log scale (base 10).
-5. Suppose that instead of indicating continent using color, you wanted all the points in the plot from 3. to be blue.
-   Consult the chapter "Visualising Data" from *R for Data Science* to find out how to do this.
-
-## Solution to Exercise \#10
-<!-- ANS_START -->
-1. Neither of these makes sense since `continent` is categorical and `pop` is continuous: `color` is useful for categorical variables and `size` for continuous ones.
-2. It still works! You don't have to explicitly write `data` or `mapping` when using `ggplot`. I only included these above for clarity.
-   In the future I'll leave them out to make my code more succinct. 
+`r hide("Show Solution")`
+It still works! You don't have to explicitly write `data` or `mapping` when using `ggplot`. I only included these above for clarity. In the future I'll leave them out to make my code more succinct. 
 ```{r}
 ggplot(gapminder_2007) +
   geom_point(aes(x = gdpPercap, y = lifeExp)) + 
   scale_x_log10()  
 ```
-3. Use the following code:
+`r unhide()`
+3. Create a tibble called `gapminder_1952` that contains data from `gapminder` from 1952.
+`r hide("Show Solution")`
 ```{r}
 gapminder_1952 <- gapminder %>% 
   filter(year == 1952)
 ```
-4. Use the following code:
+`r unhide()`
+4. Use `gapminder_1952` from the previous part  to create a scatter plot with population on the x-axis, life expectancy on the y-axis, and continent represented by the color of the points. Plot population on the log scale (base 10).
+`r hide("Show Solution")`
 ```{r}
 ggplot(gapminder_1952) + 
   geom_point(aes(x = pop, y = lifeExp, color = continent)) +
   scale_x_log10()
 ```
-5. When you want color to be a variable from your dataset, put `color = <VARIABLE>` *inside* of `aes`; when you simply want to set the colors of all the points, put `color = '<COLOR>'` *outside* of `aes`, for example
+`r unhide()`
+5. Suppose that instead of indicating continent using color, you wanted all the points in the plot from 3. to be blue.
+   Consult the chapter "Visualising Data" from *R for Data Science* to find out how to do this.
+`r hide("Show Solution")`
+When you want color to be a variable from your dataset, put `color = <VARIABLE>` *inside* of `aes`; when you simply want to set the colors of all the points, put `color = '<COLOR>'` *outside* of `aes`, for example
 ```{r}
 ggplot(gapminder_1952) + 
   geom_point(aes(x = pop, y = lifeExp), color = 'blue') +
   scale_x_log10()
 ```
-<!-- ANS_END -->
+`r unhide()`
+
 
 
 ## Faceting - Plotting multiple subsets at once
@@ -506,7 +669,7 @@ Notice how this plot allows us to visualize five variables *simultaneously*.
 By looking at how the plots change over time, we see a pattern of increasing GDP per capita and life expectancy throughout the world between 1952 and 2007.
 Notice in particular the dramatic improvements in both variables in the Asian economies.
 
-## Exercise \#1
+### Exercise
 
 1. What would happen if I were to run the following code? Explain briefly.
 ```{r, eval=FALSE}
@@ -515,20 +678,18 @@ ggplot(gapminder_2007) +
   scale_x_log10() +
   facet_wrap(~ year)
 ```
-2. Make a scatterplot with data from `gapminder` for the year 1977.
-   Your plot should be faceted by continent with GDP per capita on the log scale on the x-axis, life expectancy on the y-axis, and population indicated by the size of each point.
-3. What would happen if you tried to facet by `pop`? Explain briefly.
-
-## Solution to Exercise \#1
-<!-- ANS_START -->
-1. We'll only get one facet since the tibble `gapminder_2007` only has data for 2007: 
+`r hide("Show Solution")`
+We'll only get one facet since the tibble `gapminder_2007` only has data for 2007: 
 ```{r}
 ggplot(gapminder_2007) +
   geom_point(aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
   scale_x_log10() +
   facet_wrap(~ year)
 ```
-2. Use the following code:
+`r unhide()`
+2. Make a scatterplot with data from `gapminder` for the year 1977.
+   Your plot should be faceted by continent with GDP per capita on the log scale on the x-axis, life expectancy on the y-axis, and population indicated by the size of each point.
+`r hide("Show Solution")`
 ```{r}
 gapminder_1977 <- gapminder %>% 
   filter(year == 1977)
@@ -537,9 +698,10 @@ ggplot(gapminder_1977) +
   scale_x_log10() +
   facet_wrap(~ continent)
 ```
-3. You'll get something crazy if you try this.
-   Population is continuous rather than categorical so every country has a different value for this variable.
-   You'll end up with one plot for every country, containing a single point:
+`r unhide()`
+3. What would happen if you tried to facet by `pop`? Explain briefly.
+`r hide("Show Solution")`
+You'll get something crazy if you try this. Population is continuous rather than categorical so every country has a different value for this variable. You'll end up with one plot for every country, containing a single point:
 ```{r,eval= FALSE}
 # Not run: it takes a long time and looks nasty!
 gapminder_1977 <- gapminder %>% 
@@ -549,194 +711,9 @@ ggplot(gapminder_1977) +
   scale_x_log10() +
   facet_wrap(~ pop)
 ```
-<!-- ANS_END -->
-
-## `dplyr` verbs
-For the next few sections we'll take a short break from `ggplot2` and turn our attention to `dplyr`.
-In lab \#1 we learned about the pipe, `%>%`, and two `dplyr` functions: `filter()` and `arrange()`.
-In the parlance of the `dplyr` documentation, these are called "verbs."
-In `dplyr` we use `%>%` to combine these verbs in various ways to manipulate a tibble. 
-In this section and the following two, we'll learn three more `dplyr` verbs: `select`, `summarize` and `group_by`.
-
-## The `select` verb
-We use the `select` verb to select columns.
-Using `select` we could do this as follows:
-```{r}
-gapminder %>% select(pop)
-```
-To display only `pop`, `country`, and `year`, use the following:
-```{r}
-gapminder %>% select(pop, country, year)
-```
-Now suppose that we wanted to select every column *except* `pop`. 
-Here's one way to do it:
-```{r}
-gapminder %>% select(country, continent, year, lifeExp, gdpPercap)
-```
-but that takes a lot of typing!
-If there were more than a handful of columns in our tibble it would be very difficult to *deselect* a column in this way.
-Fortunately there's a shortcut: use the minus sign 
-```{r}
-gapminder %>% select(-pop)
-```
-Just as we could when *selecting*, we can *deselect* multiple columns by separating their names with a comma:
-```{r}
-gapminder %>% select(-pop, -year)
-```
-
-It's easy to mix up the `dplyr` verbs `select` and `filter`.
-Here's a handy mnemonic: `filteR` filters Rows while `seleCt` selects Columns. 
-Suppose we wanted to select only the column `pop` from `gapminder`.
-
-## Exercise \#2
-1. Select only the columns `year`, `lifeExp`, and `country` in `gapminder`.
-2. Select all the columns *except* `year`, `lifeExp`, and `country` in `gapminder`.
+`r unhide()`
 
 
-## Solution to Exercise \#2
-<!-- ANS_START -->
-1. Use the following:
-```{r}
-gapminder %>% select(year, lifeExp, country)
-```
-2. Use the following:
-```{r}
-gapminder %>% select(-year, -lifeExp, -country)
-```
-<!-- ANS_END -->
-
-## The `summarize` verb
-Suppose we want to calculate the sample mean of the column `lifeExp` in `gapminder`.
-We can do this using the `summarize` verb as follows:
-```{r}
-gapminder %>% summarize(mean_lifeExp = mean(lifeExp))
-```
-Note the syntax: within `summarize` we have an *assignment statement*.
-In particular, we assign `mean(lifeExp)` to the variable `mean_lifeExp`.
-The key thing to know about `summarize` is that it always returns *collapses* a tibble with many rows into a single row.
-When we think about computing a sample mean, this makes sense: we want to summarize the column `lifeExp` as a single number.
-It doesn't actually make much sense to compute the mean of `lifeExp` because this involves averaging over different countries *and* different years.
-Instead let's compute the mean for a single year: 1952:
-```{r}
-gapminder %>% 
-  filter(year == 1952) %>%
-  summarize(mean_lifeExp = mean(lifeExp))
-```
-
-We can use summarize to compute multiple summary statistics for a single variable, the same summary statistic for multiple variables, or both:
-```{r}
-gapminder %>% 
-  filter(year == 1952) %>%
-  summarize(mean_lifeExp = mean(lifeExp),
-            sd_lifeExp = sd(lifeExp), 
-            mean_pop = mean(pop))
-```
-Note that if we *don't* explicitly use an assignment statement, R will make up names for us based on the commands that we used:
-```{r}
-gapminder %>% 
-  filter(year == 1952) %>%
-  summarize(mean(lifeExp), median(lifeExp), max(lifeExp))
-```
-
-
-## Exercise \#3
-1. Use `summarize` to compute the 75th percentile of life expectancy in 1977.
-2. Use `summarize` to compute the 75th percentile of life expectancy among Asian countries in 1977.
-
-
-## Solution to Exercise \#3
-<!-- ANS_START -->
-1. The 75th percentile of life expectancy in 1977 was 70.4 years at birth.
-```{r}
-gapminder %>% 
-  filter(year == 1977) %>%
-  summarize(quantile(lifeExp, 0.75))
-```
-2. The 75th percentile of life expectancy in 1977 among African countries was
-```{r}
-gapminder %>% 
-  filter(year == 1977, continent == 'Asia') %>%
-  summarize(quantile(lifeExp, 0.75))
-```
-<!-- ANS_END -->
-
-## The `group_by` verb
-The true power of `summarize` is its ability to compute grouped summary statistics in combination with another `dplyr` verb: `group_by`.
-In essence, `group_by` allows us to tell `dplyr` that we don't want to work with the whole dataset at once; rather we want to work with particular *subsets* or groups.
-The basic idea is similar to what we've done using `filter` in the past.
-For example, to calculate mean population (in millions) and mean life expectancy in the year 2007, we could use the following code:
-```{r}
-gapminder %>%
-  filter(year == 2007) %>%
-  summarize(meanPop = mean(pop) / 1000000, meanLifeExp = mean(lifeExp))
-```
-Using `group_by` we could do the same thing for *all* years in the dataset at once:
-```{r}
-gapminder %>%
-  group_by(year) %>%
-  summarize(meanPop = mean(pop) / 1000000, meanLifeExp = mean(lifeExp))
-```
-Notice what has changed in the second code block: we replaced `filter(year == 2007)` with `group_by(year)`.
-This tells `dplyr` that, rather than simply restricting attention to data from 2007, we want to form *subsets* (groups) of the dataset that correspond to the values of the `year` variable.
-Whatever comes after `group_by` will then be calculated for these subsets.
-
-Here's another example.
-Suppose we wanted to calculate mean life expectancy and total population in each *continent* during the year 2007.
-To accomplish this, we can chain together the `filter`, `group_by` and `summarize` verbs as follows:
-```{r}
-gapminder %>% 
-  filter(year == 2007) %>%
-  group_by(continent) %>%
-  summarize(meanPop = mean(pop) / 1000000, meanLifeExp = mean(lifeExp))
-```
-
-We can also use `group_by` to subset over multiple variables at once.
-For example, to calculate mean life expectancy and total population in each continent *separately* for every year, we can use the following code:
-```{r}
-gapminder %>% 
-  group_by(year, continent) %>%
-  summarize(meanPop = mean(pop) / 1000000, meanLifeExp = mean(lifeExp))
-```
-
-## Exercise \#4
-1. Why doesn't the following code work as expected?
-```{r,eval = FALSE}
-gapminder %>%
-  summarize(meanLifeExp = mean(lifeExp)) %>%
-  group_by(year)
-```
-2. Calculate the median GDP per capita in each continent in 1977.
-3. Repeat 2. but sort your results in descending order.
-4. Calculate the mean and standard deviation of life expectancy for separately for each continent in every year *after* 1977. Sort your results in ascending order by the standard deviation of life expectancy.
-
-
-## Solution to Exercise \#4
-<!-- ANS_START -->
-1. The steps are carried out in the wrong order: we need to form groups *first* and then calculate our desired summaries.
-2. Use the following:
-```{r}
-gapminder %>% 
-  filter(year == 1977) %>%
-  group_by(continent) %>%
-  summarize(medGDPc = median(gdpPercap))
-```
-3. Use the following:
-```{r}
-gapminder %>% 
-  filter(year == 1977) %>%
-  group_by(continent) %>%
-  summarize(medGDPc = median(gdpPercap)) %>%
-  arrange(desc(medGDPc))
-```
-4. Use the following:
-```{r}
-gapminder %>% 
-  filter(year > 1977) %>%
-  group_by(continent, year) %>%
-  summarize(meanGDPc = mean(gdpPercap), sdGDPc = sd(gdpPercap)) %>%
-  arrange(sdGDPc)
-```
-<!-- ANS_END -->
 
 ## Plotting summarized data
 By combining `summarize` and `group_by` with `ggplot`, it's easy to make plots of grouped data.
@@ -767,19 +744,13 @@ ggplot(by_year_continent) +
 Make sure you understand how the preceding example works before attempting the exercise.
 
 
-## Exercise \#5
-1. What happens if you append `+ expand_limits(y = 0)` to the preceding `ggplot` code? 
-   Why might this be helpful in some cases?
+### Exercise
+1. What happens if you append `+ expand_limits(y = 0)` to the preceding `ggplot` code?  Why might this be helpful in some cases?
+`r hide("Show Solution")`
+The function `expand_limits()` lets us tweak the limits of our x or y-axis in a `ggplot`. In this particular example `expand_limits(y = 0)` ensures that the y-axis begins at zero. Without using this command, `ggplot` will choose the y-axis on its own so that there is no "empty space" in the plot. Sometimes we may want to override this behavior.
+`r unhide()`
 2. Make a scatter with average GDP per capita across all countries in `gapminder` in the y-axis and `year` on the x-axis.
-3. Repeat 2. broken down by continent, using color to distinguish the points. Put mean GDP per capita on the log scale.
-
-
-## Solution to Exercise \#5
-<!-- ANS_START -->
-1. The function `expand_limits()` lets us tweak the limits of our x or y-axis in a `ggplot`. In this particular example `expand_limits(y = 0)` ensures that the y-axis begins at zero.
-   Without using this command, `ggplot` will choose the y-axis on its own so that there is no "empty space" in the plot.
-   Sometimes we may want to override this behavior.
-2. Use the following:
+`r hide("Show Solution")`
 ```{r}
 by_year <- gapminder %>%
   group_by(year) %>% 
@@ -787,7 +758,9 @@ by_year <- gapminder %>%
 ggplot(by_year) +
   geom_point(aes(x = year, y = meanGDPc)) 
 ```
-3. Use the following
+`r unhide()`
+3. Repeat 2. broken down by continent, using color to distinguish the points. Put mean GDP per capita on the log scale.
+`r hide("Show Solution")`
 ```{r}
 by_year <- gapminder %>%
   group_by(year, continent) %>% 
@@ -796,7 +769,9 @@ ggplot(by_year) +
   geom_point(aes(x = year, y = meanGDPc, color = continent)) +
   scale_y_log10()
 ```
-<!-- ANS_END -->
+`r unhide()`
+
+
 
 ## Line plots
 Thus far we've only learned how to make one kind of plot with `ggplot`: a scatterplot, which we constructed using `geom_scatter()`.
@@ -814,11 +789,9 @@ ggplot(by_year_continent) +
   geom_line(aes(x = year, y = totalpopMil, color = continent)) 
 ```
 
-## Exercise \#6
+### Exercise 
 Repeat exercise 5-3 with a line plot rather than a scatterplot.
-
-## Solution to Exercise \#6
-<!-- ANS_START -->
+`r hide("Show Solution")`
 ```{r}
 by_year <- gapminder %>%
   group_by(year, continent) %>% 
@@ -827,7 +800,7 @@ ggplot(by_year) +
   geom_line(aes(x = year, y = meanGDPc, color = continent)) +
   scale_y_log10()
 ```
-<!-- ANS_END -->
+`r unhide()`
 
 ## Bar plots
 To make a bar plot, we use `geom_col()`.
@@ -851,13 +824,10 @@ ggplot(by_continent) +
 ```
 
 
-## Exercise \#7
+### Exercise
 Make a collection of bar plots faceted by year that compare mean GDP per capita across countries in a given year.
 Orient your plots so it's easy to read the continent labels.
-
-
-## Solution to Exercise \#7
-<!-- ANS_START -->
+`r hide("Show Solution")`
 ```{r, fig.width = 7, fig.height = 6}
 by_continent <- gapminder %>%
   group_by(continent) %>% 
@@ -867,7 +837,7 @@ ggplot(by_year) +
   facet_wrap(~ year) +
   coord_flip()
 ```
-<!-- ANS_END -->
+`r unhide()`
 
 
 ## Histograms
@@ -884,37 +854,43 @@ ggplot(gapminder_2007) +
   geom_histogram(aes(x = lifeExp), binwidth = 1)
 ```
 
-## Exercise \# 8
+### Exercise 
 
 1. All of the examples we've seen that use `ggplot` *besides* histograms have involved specifying both `x` and `y` within `aes()`. Why are histograms different?
+`r hide("Show Solution")`
+This is because histograms only depict a single variable while the other plots we've made show two variables at once.
+`r unhide()`
 2. What happens if you don't specify a bin width in either of my two examples? 
+`r hide("Show Solution")`
+If you don't specify a bin width, `ggplot2` will pick one for you and possibly give you a warning suggesting that you pick a better bin width manually.
+`r unhide()`
 3. Make a histogram of GDP per capita in 1977. Play around with different bin widths until you find one that gives a good summary of the data.
-4. Repeat 3. but put GDP per capita on the log scale.
-5. Compare and contrast the two different histograms you've made.
-
-## Solution to Exercise \#8
-<!-- ANS_START -->
-1. This is because histograms only depict a single variable while the other plots we've made show two variables at once.
-2. If you don't specify a bin width, `ggplot2` will pick one for you and possibly give you a warning suggesting that you pick a better bin width manually.
-3. There's no obvious *right answer* for the bin width, but here's one possibility:
+`r hide("Show Solution")`
+There's no obvious *right answer* for the bin width, but here's one possibility:
 ```{r}
 gapminder1977 <- gapminder %>%
   filter(year == 1977)
 ggplot(gapminder_1977) +
   geom_histogram(aes(x = gdpPercap), binwidth = 5000)
 ```
-4. You'll need a much smaller bin width when using the log scale, for example:
+`r unhide()`
+4. Repeat 3. but put GDP per capita on the log scale.
+`r hide("Show Solution")`
+You'll need a much smaller bin width when using the log scale, for example:
 ```{r}
 ggplot(gapminder_1977) +
   geom_histogram(aes(x = gdpPercap), binwidth = 0.2) + 
   scale_x_log10()
 ```
-5. No right answer: it's a discussion question! But the idea is to see how taking logs gets rid of the huge positive skewness in GDP per capita.
-<!-- ANS_END -->
+`r unhide()`
+5. Compare and contrast the two different histograms you've made.
+`r hide("Show Solution")`
+No right answer: it's a discussion question! But the idea is to see how taking logs gets rid of the huge positive skewness in GDP per capita.
+`r unhide()`
+
 
 ## Boxplots 
-The final kind of `ggplot` we'll learn how to produce is a boxplot.
-Recall from Econ 103 that a boxplot is a visualization of the *five-number summary* of a variable: minimum, 25th percentile, median, 75th percentile, and maximum.
+The final kind of `ggplot` we'll learn how to produce is a boxplot, a visualization of the *five-number summary* of a variable: minimum, 25th percentile, median, 75th percentile, and maximum.
 To make a boxplot in `ggplot` we use the function `geom_boxplot()`, for example:
 ```{r}
 ggplot(gapminder_2007) +
@@ -922,18 +898,13 @@ ggplot(gapminder_2007) +
 ```
 Compared to histograms, boxplots provide less detail but allow us to easily compare across groups.
 
-## Exercise \# 9
+### Exercise 
 1. What is the meaning of the little "dots" that appear in the boxplot above? Use a Google search to find out what they are and how they are computed.
-2. Use faceting to construct a collection of boxplots, each of which compares log GDP per capita across continents in a given year.
-3. Use a Google search to find out how to add a title to a `ggplot`. Use it to add a title to the plot you created in 2.
-
-
-
-## Solution to Exercise \#9
-<!-- ANS_START -->
-1. They are outliers: `ggplot` considers any observation that is more than 1.5 times the interquartile range away from the "box" to be an outlier, and adds a point to indicate it.
-   Turn your boxplots sideways to make it easier to read the continent labels.
-2. Use the following code:
+`r hide("Show Solution")`
+They are outliers: `ggplot` considers any observation that is more than 1.5 times the interquartile range away from the "box" to be an outlier, and adds a point to indicate it.
+`r unhide()`
+2. Use faceting to construct a collection of boxplots, each of which compares log GDP per capita across continents in a given year. Turn your boxplots sideways to make it easier to read the continent labels.
+`r hide("Show Solution")`
 ```{r, fig.width = 7, fig.height = 6}
 ggplot(gapminder) +
   geom_boxplot(aes(x = continent, y = gdpPercap)) +
@@ -942,7 +913,12 @@ ggplot(gapminder) +
   coord_flip() +
   ggtitle('GDP per Capita by Continent: 1952-2007')
 ```
-3. Use `ggtitle('YOUR TITLE HERE')` as I did in my solution to 2. above. 
-<!-- ANS_END -->
+`r unhide()`
+3. Use a Google search to find out how to add a title to a `ggplot`. Use it to add a title to the plot you created in 2.
+`r hide("Show Solution")`
+Use `ggtitle('YOUR TITLE HERE')` as I did in my solution to 2. above. 
+`r unhide()`
+
+
 
 
