@@ -36,18 +36,15 @@ Each row of the tibble `kids` contains information on a three-year old child. Th
 
 The columns `kid.score` gives the child's test score at age three. The remaining columns describe the child's mother: `mom.age` is mother's age at the birth of the child, `mom.hs` is a dummy variable that equals one the mother completed high school, and `mom.iq` is the mother's IQ score. Our main goal will be to predict a child's test score based on mother characteristics. But **stay alert**: in some of the exercises I may be a bit devious and ask you to predict *something else*!
 
-**Exercise**
-
-- Rename the columns to replace each instance of a "." with an underscore: "_".
-- Summary stats for the columns.
-```{r, message = FALSE}
+### Exercise
+Using a dot `.` to separate words in a variable name isn't great coding style: it's better to use an underscore `_`. Search the `dplyr` help files for the command `rename()` and then use this command to replace each instance of a `.` in the column names of `kids` with an underscore `_`.  
+```{r, message = FALSE, webex.hide = 'Show Solution'}
 library(dplyr)
 kids <- kids %>%
   rename(kid_score = kid.score,
          mom_hs = mom.hs, 
          mom_iq = mom.iq, 
          mom_age = mom.age)
-summary(kids)
 ```
 
 
@@ -57,6 +54,13 @@ $$
 \underset{\beta}{\text{minimize}} \sum_{i=1}^n (Y_i - X_i'\beta)^2. 
 $$
 In case you were wondering "but wait, where's the intercept?" I should point out that some people prefer to write $(Y_i - \beta_0 - X_i' \beta)$ rather than $(Y_i - X_i'\beta)$. To allow an intercept using my notation, simply treat the first element of my $X_i$ vector as a $1$ and the first element of my $\beta$ vector as the intercept. 
+
+### Exercise
+Suppose we want to regress the outcome $Y_i$ on an *intercept only*, in other words we want to minimize $\sum_{i=1}^n (Y_i - \beta)^2$ over $\beta$. What is the solution? Does this make sense? 
+
+`r hide("Show Solution")`
+Differentiating with respect to $\beta$, the first order condition is $-2 \sum_{i=1}^n (Y_i - \widehat{\beta}) = 0$. Because the objective function is convex, this characterizes the global minimum. Re-arranging and solving for $\widehat{\beta}$ gives $\widehat{\beta} = \frac{1}{n}\sum_{i=1}^n Y_i$. In other words $\widehat{\beta} = \bar{Y}$, the sample mean. This makes sense: the sample mean is a reasonable prediction of the next $Y$-observation if you have no other information to work with. Here we've shown that it is also the least squares solution. 
+`r unhide()`
 
 ## Linear Regression with `lm()` 
 The R function `lm()`, short for **linear model**, solves the least squares problem. Its basic syntax is `lm([formula], [dataframe])` where `[formula]` is an R *formula*--an object that describes the regression we want to run--and `[dataframe]` is the name of a data frame containing our $X$ and $Y$ observations, e.g. `kids`. R formulas can be a bit confusing when you first encounter them, so I'll explain the details in stages. For the moment, there are two symbols you need to learn: `~` and `+` 
@@ -72,14 +76,29 @@ lm(kid_score ~ mom_iq + mom_age, kids)
 
 
 
-**Exercise**
-What's the correct interpretation of the regression coefficients from the regression `lm(kid_score ~ mom_iq, kids)`? How about in `lm(kid_score ~ mom_iq, kids)`?
+### Exercise 
+1. Interpret the regression coefficients from `lm(kid_score ~ mom_iq, kids)`. 
+`r hide("Show Solution")`
+Consider two kids whose mothers differ by 1 point in `mom_iq`. We would predict that the kid whose mom has the higher value of `mom_iq` will score about 0.6 points higher in `kid_score`. 
+```{r}
+lm(kid_score ~ mom_iq, kids)
+```
 
-**Exercise**
-Run a linear regression to predict `mom_hs` using `kid_score` and `mom_iq`. 
+`r unhide()`
+2. Interpret the regression coefficients from `lm(kid_score ~ mom_hs, kids)`.
+`r hide("Show Solution")`
+A regression with *only* a dummy variable is simply a comparison of means. For kids whose mothers did not graduate from high school, we predict a test score of around 78. For kids whose mothers graduated from high school, we predict a test score that is around 12 points higher.
+```{r}
+lm(kid_score ~ mom_hs, kids)
+```
+
+`r unhide()`
+3. Run a linear regression to predict `mom_hs` using `kid_score` and `mom_iq`.
+`r hide("Show Solution")`
 ```{r}
 lm(mom_hs ~ kid_score + mom_iq, kids)
 ```
+`r unhide()`
 
 
 ## Getting More from `lm()` 
@@ -107,32 +126,39 @@ To extract the *fitted values* i.e. $\hat{Y}_i \equiv X_i'\hat{\beta}$, the pred
 fitted.values(reg1)
 ```
 
-**Exercise**
-
+### Exercise
 1. Plot a histogram of the residuals from `reg1` using `ggplot` with a bin width of 5. Is there anything noteworthy about this plot?
-2. Calculate the residuals "by hand" by subtracting the fitted values from `reg1` from the column `kid_score` in `kids`. Use the R function `all.equal` to check that this gives the same result as `resid()`.
-3. As long as you include an intercept in your regression, the residuals will sum to zero. Verify that this is true (up to machine precision!) of the residuals from `reg1` 
-4. By construction, the regression residuals are uncorrelated with any predictors included in the regression. Verify that this holds (up to machine precision!) for `reg1`.
-
-**Solution** 
-
-1. There seems to be a bit of left skewness in the residuals.
+`r hide("Show Solution")`
+There seems to be a bit of left skewness in the residuals.
 ```{r}
 library(ggplot2)
 ggplot() +
   geom_histogram(aes(x = resid(reg1)), binwidth = 5)
 ```
-
-2. They give exactly the same result:
+`r unhide()`
+2. Calculate the residuals "by hand" by subtracting the fitted values from `reg1` from the column `kid_score` in `kids`. Use the R function `all.equal` to check that this gives the same result as `resid()`.
+`r hide("Show Solution")`
+They give exactly the same result:
 ```{r}
 all.equal(resid(reg1), kids$kid_score - fitted.values(reg1))
 ```
-
-3. Close enough!
+`r unhide()`
+3. As long as you include an intercept in your regression, the residuals will sum to zero. Verify that this is true (up to machine precision!) of the residuals from `reg1` 
+`r hide("Show Solution")`
+Close enough!
 ```{r}
 sum(resid(reg1))
+```
+`r unhide()`
+4. By construction, the regression residuals are uncorrelated with any predictors included in the regression. Verify that this holds (up to machine precision!) for `reg1`.
+`r hide("Show Solution")`
+Again, close enough!
+```{r}
 cor(resid(reg1), kids$mom_iq)
 ```
+`r unhide()`
+
+
 
 
 ## Summarizing The Ouput of `lm()`
@@ -146,17 +172,17 @@ Among other things, `summary` shows us the coefficient estimates and associated 
 
 > You can *always* run a [predictive] linear regression; it's inference that requires assumptions. 
 
-**Exercise**
 
+### Exercise
 Use the `kids` tibble to run a regression that uses `kid_score` and `mom_hs` to predict `mom_iq`. Store your results in an object called `reg_reverse` and then display a summary of the regression results.
 
-```{r}
+```{r,webex.hide = 'Show Solution'}
 reg_reverse <- lm(mom_iq ~ mom_hs + kid_score, kids)
 summary(reg_reverse)
 ```
 
 
-## Using `broom()` to get what you need from `lm()`
+## Cleaning up `summary()` with `broom()` 
 We saw above that `lm()` returns a list. It turns out that `summary()`, when applied to an `lm()` object, *also* returns a list: 
 ```{r, out.lines = 10}
 str(summary(reg1))
@@ -183,36 +209,48 @@ augment(reg1, kids)
 ```
 Notice that `augment()` uses a dot "." to begin the name of any column that it merges. This avoids potential clashes with columns you already have in your dataset. After all, you'd never start a column name with a dot would you?
 
-**Exercise**
-
-To complete these exercises, you may need to consult the help files for `tidy.lm()`, `glance.lm()`, and `augment.lm()` from the `broom` package. These will tell you how the functions `tidy()`, `glance()`, and `augment()` behave when you apply them to an `lm()` object.
+### Exercise
+To answer the following, you may need to consult the help files for `tidy.lm()`, `glance.lm()`, and `augment.lm()` from the `broom` package. 
 
 1. Use `dplyr` and `tidy()` to display the regression estimate, standard error, t-statistic, and p-value for the predictor `kid_score` in `reg_reverse` from above. 
-```{r}
+```{r, webex.hide = 'Show Solution'}
 reg_reverse %>%
   tidy() %>%
   filter(term == 'kid_score')
 ```
 
 2. Use `ggplot()` and `augment()` to make a scatterplot with the fitted values from `reg_reverse` on the horizontal axis and `mom_iq` on the vertical axis. Use `geom_abline()` to add a 45-degree line to your plot 
-
-```{r}
+```{r, webex.hide = 'Show Solution'}
 augment(reg_reverse, kids) %>%
   ggplot(aes(x = .fitted, y = mom_iq)) + 
   geom_point() + 
   geom_abline(intercept = 0, slope = 1)
 ```
 
-
 3. Continuing from the preceding exercise, run a regression of `mom_iq` on the fitted values from `reg_reverse` and display the estimated regression coefficients. Compare the R-squared of this regression to that of `reg_reverse`. Explain your results.
 
+`r hide("Show Solution")`
+When we regress $Y_i$ on $\widehat{Y}_i$, the fitted values from a regression of $Y_i$ on $X_i$, we get an intercept of zero and a slope of one:
 ```{r}
 kids_augmented <- augment(reg_reverse, kids)
 reg_y_vs_fitted <- lm(mom_iq ~ .fitted, kids_augmented)  
 tidy(reg_y_vs_fitted)
-glance(reg_reverse)
-glance(reg_y_vs_fitted)
 ```
+This makes sense. Suppose we wanted to choose $\alpha_0$ and $\alpha_1$ to minimize $\sum_{i=1}^n (Y_i - \alpha_0 - \alpha_1 \widehat{Y}_i)^2$ where $\widehat{Y}_i = \widehat{\beta}_0 + X_i'\widehat{\beta}_1$. This is equivalent to minimizing 
+$$
+\sum_{i=1}^n \left[Y_i - (\alpha_0 + \widehat{\beta}_0) - X_i'(\alpha_1\widehat{\beta}_1)\right]^2.
+$$
+By construction $\widehat{\beta}_0$ and $\widehat{\beta}_1$ minimize $\sum_{i=1}^n (Y_i - \beta_0 -  X_i'\beta_1)^2$, so unless $\widehat{\alpha_0} = 0$ and $\widehat{\alpha_1} = 1$ we'd have a contradiction! Similar reasoning explains why the R-squared values for the two regressions are the same: 
+```{r}
+c(glance(reg_reverse)$r.squared, glance(reg_y_vs_fitted)$r.squared)
+```
+The R-squared of a regression equals $1 - \text{SS}_{\text{total}} / \text{SS}_{\text{residual}}$ 
+$$
+\text{SS}_{\text{total}} = \sum_{i=1}^n (Y_i - \bar{Y})^2,\quad
+\text{SS}_{\text{residual}} = \sum_{i=1}^n (Y_i - \widehat{Y}_i^2)
+$$
+The total sum of squares is the same for both regressions because they have the same outcome variable. The residual sum of squares is the same because $\widehat{\alpha}_0 = 0$ and $\widehat{\alpha}_1 = 1$ together imply that both regressions have the same fitted values.
+`r unhide()`
 
 ## Dummy Variables with `lm()`
 The column `mom_hs` in `kids` is a *dummy variable*, also known as a binary variable. It equals `1` if a child's mother graduated from college and `0` otherwise. For this reason, the coefficient on `mom_hs` in the following regression tells us the *difference of mean test scores* between kids whose mothers graduated from college and those whose mothers did not, while the intercept tells us the mean of `kid_score` for children whose mothers didn't graduate from high school: 

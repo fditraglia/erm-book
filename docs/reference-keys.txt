@@ -75,3 +75,10 @@ adding-interactions-with-and
 transforming-outcomes-and-predictors
 formulas-are-objects
 exercises-3
+exercise-16
+exercise-17
+exercise-18
+exercise-19
+exercise-20
+cleaning-up-summary-with-broom
+exercise-21
