@@ -82,3 +82,6 @@ exercise-19
 exercise-20
 cleaning-up-summary-with-broom
 exercise-21
+exercise-22
+everything-else---the-dot-.
+exercise-23

@@ -85,15 +85,8 @@ lm(kid_score ~ mom_iq, kids)
 ```
 
 `r unhide()`
-2. Interpret the regression coefficients from `lm(kid_score ~ mom_hs, kids)`.
-`r hide("Show Solution")`
-A regression with *only* a dummy variable is simply a comparison of means. For kids whose mothers did not graduate from high school, we predict a test score of around 78. For kids whose mothers graduated from high school, we predict a test score that is around 12 points higher.
-```{r}
-lm(kid_score ~ mom_hs, kids)
-```
 
-`r unhide()`
-3. Run a linear regression to predict `mom_hs` using `kid_score` and `mom_iq`.
+2. Run a linear regression to predict `mom_hs` using `kid_score` and `mom_iq`.
 `r hide("Show Solution")`
 ```{r}
 lm(mom_hs ~ kid_score + mom_iq, kids)
@@ -219,7 +212,7 @@ reg_reverse %>%
   filter(term == 'kid_score')
 ```
 
-2. Use `ggplot()` and `augment()` to make a scatterplot with the fitted values from `reg_reverse` on the horizontal axis and `mom_iq` on the vertical axis. Use `geom_abline()` to add a 45-degree line to your plot 
+2. Use `ggplot()` and `augment()` to make a scatterplot with the fitted values from `reg_reverse` on the horizontal axis and `mom_iq` on the vertical axis. Use `geom_abline()` to add a 45-degree line to your plot. (You may need to read the help file for this function.)
 ```{r, webex.hide = 'Show Solution'}
 augment(reg_reverse, kids) %>%
   ggplot(aes(x = .fitted, y = mom_iq)) + 
@@ -244,7 +237,7 @@ By construction $\widehat{\beta}_0$ and $\widehat{\beta}_1$ minimize $\sum_{i=1}
 ```{r}
 c(glance(reg_reverse)$r.squared, glance(reg_y_vs_fitted)$r.squared)
 ```
-The R-squared of a regression equals $1 - \text{SS}_{\text{total}} / \text{SS}_{\text{residual}}$ 
+The R-squared of a regression equals $1 - \text{SS}_{\text{residual}} / \text{SS}_{\text{total}}$ 
 $$
 \text{SS}_{\text{total}} = \sum_{i=1}^n (Y_i - \bar{Y})^2,\quad
 \text{SS}_{\text{residual}} = \sum_{i=1}^n (Y_i - \widehat{Y}_i^2)
@@ -269,7 +262,7 @@ lm(kid_score ~ mom_education, kids)
 ```
 Wait a minute; now the estimate is *negative*! We can't run a regression that includes an intercept and a coefficient for each level of a dummy variable--this is the dummy variable trap!--so R has excluded one of them. Rather capriciously, `lm()` has chosen to treat `High School` as the omitted category.
 
-We can override this behavior by using `fct_relevel()` from the `forcats` package. The following code tells R that we want 'No High School' to be the *first* ordered factor level, the level that `lm()` treats as the omitted category by default:
+We can override this behavior by using `fct_relevel()` from the [`forcats` package](https://forcats.tidyverse.org/). The following code tells R that we want 'No High School' to be the *first* ordered factor level, the level that `lm()` treats as the omitted category by default:
 ```{r}
 library(forcats)
 kids <- kids %>%
@@ -277,15 +270,33 @@ kids <- kids %>%
 lm(kid_score ~ mom_education, kids)
 ```
 
-**Explain about categorical variables that take on more than two values!**
+In the exercise you'll explore how `lm()` handles categorical variables that take on *more than two* values. In your econometrics class you probably learned that we can use two dummy variables to encode a three-valued categorical variable, four dummy variables to encode a four-valued categorical variable, and so on. You may wonder if we need to explicitly construct these dummy variables in R. The answer is *no*: `lm()` handles things for us automatically, as you're about to discover. This is worth putting in bold: **you don't have to explicitly construct dummy variables in R**. The `lm()` function will construct them for you.
 
+### Exercise
+1. Read the help file for the base R function `cut()`. Setting the argument `breaks` to ` c(16, 19, 23, 26, 29)`, use this function in concert with `dplyr()` to create a factor variable called `mom_age_bins` to `kids`. Use the base R function `levels()` to display the factor levels of `mom_age_bins`.
+```{r, webex.hide = 'Show Solution'}
+kids <- kids %>%
+  mutate(mom_age_bins = cut(mom_age, c(16, 19, 23, 26, 29)))
+levels(kids$mom_age_bins)
+```
+2. Run a linear regression of `kid_score` on `mom_age_bins` and display the coefficients. Explain the results. 
+`r hide("Show Solution")`
+R "expands" the factor variable `mom_age_bins` into a collection of dummy variables before running the regression. It names these dummies in an obvious way based on the levels that `mom_age_bins` takes on:
+```{r}
+lm(kid_score ~ mom_age_bins, kids)
+```
+In words: R has run a regression of `kid_score` on a constant (the intercept), a dummy for mother's age in the range `(19,23]`, a dummy for mother's age in the range `(23,26]` and a dummy for mother's age in the range `(26,29]`. 
 
-**Exercise**
+From running `levels(kids$mom_age_bins)` above, we know this means the omitted category is `(16,19]`. This corresponds to the intercept in the regression, so the average value of `kid_score` for a child whose mother's age lies in the range `(16,19]` is around 87 points. All the other coefficients are differences of means relative to this category of "teen moms." For example, kids whose mothers' age is in the range `(19,23]` score about two points lower, on average, then kids whose mothers' age is in the range `(16,19]`.
+`r unhide()`
 
-Create a categorical variable with three levels perhaps using `mom_age`? Then see what happens
+3. Re-run the preceding regression, but use `fct_relevel()` from the `forcats` package make `(26,29]` the omitted category for `mom_age_bins`. 
+```{r, webex.hide = 'Show Solution'}
+kids <- kids %>%
+  mutate(mom_age_bins = fct_relevel(mom_age_bins, '(26,29]'))
+lm(kid_score ~ mom_age_bins, kids)
+```
 
-
-This is worth putting in bold: **you never have to explicitly construct dummy variables in R**. The `lm()` function will construct them for you.
 
 
 ## Fun with R Formulas 
@@ -308,26 +319,21 @@ It's time to learn some more about R formulas. But before we do, you may ask "wh
 
 
 
-### "Everything Else" -- The Dot `.`
+### "Everything Else" - The Dot `.`
 Sometimes all you want to do is run a regression of one variable on *everything else*. If you have lots of predictors, typing out all of their names, each separated by a `+` sign, is painful and error-prone. Fortunately there's a shortcut: the dot `.`
 ```{r}
 lm(kid_score ~ ., kids)
 ```
-This command tells R to regress `kid_score` on *everything else* in `kids`. We'll encounter the dot in many guises later in this lesson and elsewhere. Wherever you see it, replace it mentally with the word "everything" and you'll never be confused. The rest will be clear from context.
+This command tells R to regress `kid_score` on *everything else* in `kids`. Notice that the coefficient `mom_educationHigh School` is `NA`, in other words **missing**. This is because you can't run a regression on `mom_hs` *and* `mom_education` at the same time: they're two versions of exactly the same information and hence are perfectly co-linear, so R drops one of them.
+
+We'll encounter the dot in many guises later in this lesson and elsewhere. Wherever you see it, replace it mentally with the word "everything" and you'll never be confused. The rest will be clear from context.
 
 ### Removing Predictors with `-`
-Suppose you wanted to regress `kid_score` on `mom_hs` and `mom_iq` but *not* `mom_age`. One way to do this is by writing out the formula explicitly:   
+The regression we ran above using the dot `.` was very silly: it included both `mom_hs` and `mom_education`, and it also included both `mom_age_bins` and `mom_age`. Suppose we wanted to run a regression of `kid_score` on everything *except* `mom_age_bins` and `mom_education`. This is easy to achieve using the minus sign `-` as follows:
 ```{r}
-lm(kid_score ~ mom_hs + mom_iq, kids)
+lm(kid_score ~ . - mom_age_bins - mom_education, kids)
 ```
-In this example, it's not too difficult to specify the formula we want by typing it out in full. But what if we had dozens of predictors and only wanted to exclude one or two? This is where the minus sign `-` comes in handy. Think of `+` as saying "add me to the regression" and `-` as saying "remove me from the regression." By combining `-` with `.` we can tell R to "add everything, then remove `mom_age`" as follows:
-```{r}
-lm(kid_score ~ . - mom_age, kids)
-```
-This use of `-` is very similar to what you've seen in the `select()` function from `dplyr`. And as in `dplyr`, we can use it to remove more than one variable. In this example, it's silly but just to show you that it works as expected:
-```{r}
-lm(kid_score ~ . - mom_age - mom_hs, kids)
-```
+Think of `+` as saying "add me to the regression" and `-` as saying "remove me from the regression." This use of `-` is very similar to what you've seen in the `select()` function from `dplyr`. And as in `dplyr`, we can use it to remove one variable or more than one. 
 
 ### The Intercept: `1`
 
@@ -339,32 +345,36 @@ In some special cases, however, we may have a reason to run a regression without
 ```{r}
 lm(kid_score ~ mom_iq - 1, kids)
 ```
-Another situation in which we may wish to remove the intercept is when running a regression with a categorical variable. As mentioned above, we can't include an intercept *and* a coefficient for each value of a categorical variable in our regression: this is the dummy variable trap. We either have to drop one level of the categorical variable (the baseline or omitted category) or drop the intercept. Above we saw how to choose which category to omit. But another option is to drop the intercept. In the first regression, the intercept equals the mean of `kid_score` for the omitted category `mom_education == "No High School"` while the intercept gives the difference of means:
+Another situation in which we may wish to remove the intercept is when running a regression with a categorical variable. We can't include an intercept *and* a coefficient for each value of a categorical variable in our regression: this is the dummy variable trap. We either have to drop one level of the categorical variable (the baseline or omitted category) or drop the intercept. Above we saw how to choose which category to omit. But another option is to drop the intercept. In the first regression, the intercept equals the mean of `kid_score` for the omitted category `mom_education == "No High School"` while the intercept gives the difference of means:
 ```{r}
 lm(kid_score ~ mom_education, kids)
 ```
 In the second, we obtain the mean of `kid_score` for each group:
 ```{r}
 lm(kid_score ~ mom_education - 1, kids)
+```
+
+### Exercise
+1. Run a regression of `mom_hs` on everything in `kids` *except* `mom_age` and `mom_hs`.
+```{r, webex.hide = 'Show Solution'}
+lm(kid_score ~ . - mom_age - mom_hs, kids)
+```
+2. Write `dplyr` code to verify that `lm(kid_score ~ mom_education - 1, kids)` does indeed calculate mean of `kid_score` for each group, as asserted.
+```{r, webex.hide = 'Show Solution'}
 kids %>% 
   group_by(mom_education) %>%
   summarize(mean(kid_score))
 ```
-
-
-
-**Exercise #4**
-What do you get if you run the regression `lm(kid_score ~ 1, kids)`? Explain.
-
-
-**Solution** 
+3. What do you get if you run the regression `lm(kid_score ~ 1, kids)`? Explain.
+`r hide("Show Solution")`
 This is a regression with *only an intercept*, so it calculates the sample mean of `kid_score`
 ```{r}
 lm(kid_score ~ 1, kids)
 kids %>%
   summarize(mean(kid_score))
 ```
-If you're still not convinced, a quick calculation shows that $\widehat{\alpha} = \bar{y}$ minimizes $\sum_{i=1}^n (y_i - \alpha)^2$ over $\alpha$, where $\bar{y} \equiv \frac{1}{n}\sum_{i=1}^n y_i$.
+See the exercise earlier in this lesson for a mathematical proof that regression with only an intercept is equivalent to computing the sample mean of $Y$.
+`r unhide()`
 
 
 ### Adding Interactions With `:`, `*`, and `^`
