@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lesson 4 Predictive Regression Part I | Empirical Research Methods</title>
+  <meta name="description" content="Lesson 4 Predictive Regression Part I | Empirical Research Methods" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lesson 4 Predictive Regression Part I | Empirical Research Methods" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lesson 4 Predictive Regression Part I | Empirical Research Methods" />
+  
+  
+  
+
+<meta name="author" content="Francis J. DiTraglia" />
+
+
+<meta name="date" content="2022-04-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="mind-the-gap-part-ii.html"/>
+
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/core-erm-logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i>About This Book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-requisites"><i class="fa fa-check"></i>Pre-requisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-stata"><i class="fa fa-check"></i>Why not Stata?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab-julia-or-python"><i class="fa fa-check"></i>Why not Matlab, Julia, or Python?</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="the-hot-hand.html"><a href="the-hot-hand.html"><i class="fa fa-check"></i><b>1</b> The Hot Hand</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="the-hot-hand.html"><a href="the-hot-hand.html#drawing-random-data-in-r"><i class="fa fa-check"></i><b>1.1</b> Drawing Random Data in R</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="the-hot-hand.html"><a href="the-hot-hand.html#sample"><i class="fa fa-check"></i><b>1.1.1</b> <code>sample()</code></a></li>
+<li class="chapter" data-level="1.1.2" data-path="the-hot-hand.html"><a href="the-hot-hand.html#probability-distributions-in-r"><i class="fa fa-check"></i><b>1.1.2</b> Probability Distributions in R</a></li>
+<li class="chapter" data-level="1.1.3" data-path="the-hot-hand.html"><a href="the-hot-hand.html#set.seed"><i class="fa fa-check"></i><b>1.1.3</b> <code>set.seed()</code></a></li>
+<li class="chapter" data-level="1.1.4" data-path="the-hot-hand.html"><a href="the-hot-hand.html#exercises"><i class="fa fa-check"></i><b>1.1.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="the-hot-hand.html"><a href="the-hot-hand.html#the-skeleton-of-a-simulation-study"><i class="fa fa-check"></i><b>1.2</b> The Skeleton of a Simulation Study</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="the-hot-hand.html"><a href="the-hot-hand.html#a-biased-estimator-of-sigma2"><i class="fa fa-check"></i><b>1.2.1</b> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span></a></li>
+<li class="chapter" data-level="1.2.2" data-path="the-hot-hand.html"><a href="the-hot-hand.html#draw_sim_data"><i class="fa fa-check"></i><b>1.2.2</b> <code>draw_sim_data()</code></a></li>
+<li class="chapter" data-level="1.2.3" data-path="the-hot-hand.html"><a href="the-hot-hand.html#get_estimate"><i class="fa fa-check"></i><b>1.2.3</b> <code>get_estimate()</code></a></li>
+<li class="chapter" data-level="1.2.4" data-path="the-hot-hand.html"><a href="the-hot-hand.html#get_bias"><i class="fa fa-check"></i><b>1.2.4</b> <code>get_bias()</code></a></li>
+<li class="chapter" data-level="1.2.5" data-path="the-hot-hand.html"><a href="the-hot-hand.html#running-the-simulation-study"><i class="fa fa-check"></i><b>1.2.5</b> Running the Simulation Study</a></li>
+<li class="chapter" data-level="1.2.6" data-path="the-hot-hand.html"><a href="the-hot-hand.html#expand.grid-and-map"><i class="fa fa-check"></i><b>1.2.6</b> <code>expand.grid()</code> and <code>Map()</code></a></li>
+<li class="chapter" data-level="1.2.7" data-path="the-hot-hand.html"><a href="the-hot-hand.html#formatting-the-results"><i class="fa fa-check"></i><b>1.2.7</b> Formatting the Results</a></li>
+<li class="chapter" data-level="1.2.8" data-path="the-hot-hand.html"><a href="the-hot-hand.html#bonus-parallel-computing-with-mcmap"><i class="fa fa-check"></i><b>1.2.8</b> Bonus: Parallel Computing with <code>mcMap()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="the-hot-hand.html"><a href="the-hot-hand.html#your-turn-simulating-the-hot-hand"><i class="fa fa-check"></i><b>1.3</b> Your Turn: Simulating the Hot Hand</a></li>
+<li class="chapter" data-level="1.4" data-path="the-hot-hand.html"><a href="the-hot-hand.html#further-reading"><i class="fa fa-check"></i><b>1.4</b> Further Reading</a></li>
+<li class="chapter" data-level="1.5" data-path="the-hot-hand.html"><a href="the-hot-hand.html#mini-projects"><i class="fa fa-check"></i><b>1.5</b> Mini Projects</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="the-hot-hand.html"><a href="the-hot-hand.html#the-hot-hand-revisited"><i class="fa fa-check"></i><b>1.5.1</b> The Hot Hand Revisited</a></li>
+<li class="chapter" data-level="1.5.2" data-path="the-hot-hand.html"><a href="the-hot-hand.html#which-estimator-of-the-variance-is-really-better"><i class="fa fa-check"></i><b>1.5.2</b> Which estimator of the variance is <em>really</em> better?</a></li>
+<li class="chapter" data-level="1.5.3" data-path="the-hot-hand.html"><a href="the-hot-hand.html#optimal-stopping"><i class="fa fa-check"></i><b>1.5.3</b> Optimal Stopping</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="the-hot-hand.html"><a href="the-hot-hand.html#draft-material"><i class="fa fa-check"></i><b>1.6</b> DRAFT MATERIAL</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html"><i class="fa fa-check"></i><b>2</b> Mind the Gap Part I</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#getting-started"><i class="fa fa-check"></i><b>2.1</b> Getting Started</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#exercise"><i class="fa fa-check"></i><b>2.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#what-is-a-tibble"><i class="fa fa-check"></i><b>2.2</b> What is a tibble?</a></li>
+<li class="chapter" data-level="2.3" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>2.3</b> Filter Rows with <code>filter</code></a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#exercises-1"><i class="fa fa-check"></i><b>2.3.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#sort-data-with-arrange"><i class="fa fa-check"></i><b>2.4</b> Sort data with <code>arrange</code></a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#exercises-2"><i class="fa fa-check"></i><b>2.4.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#choose-columns-with-select"><i class="fa fa-check"></i><b>2.5</b> Choose columns with <code>select</code></a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#exercise-1"><i class="fa fa-check"></i><b>2.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#the-summarize-verb"><i class="fa fa-check"></i><b>2.6</b> The <code>summarize</code> verb</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#exercise-2"><i class="fa fa-check"></i><b>2.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#the-group_by-verb"><i class="fa fa-check"></i><b>2.7</b> The <code>group_by</code> verb</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#exercise-3"><i class="fa fa-check"></i><b>2.7.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#understanding-the-pipe"><i class="fa fa-check"></i><b>2.8</b> Understanding the pipe: <code>%&gt;%</code></a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#exercise-4"><i class="fa fa-check"></i><b>2.8.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#chaining-commands"><i class="fa fa-check"></i><b>2.9</b> Chaining commands</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#exercise-5"><i class="fa fa-check"></i><b>2.9.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#change-an-existing-variable-or-create-a-new-one-with-mutate"><i class="fa fa-check"></i><b>2.10</b> Change an existing variable or create a new one with <code>mutate</code></a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="mind-the-gap-part-i.html"><a href="mind-the-gap-part-i.html#exercise-6"><i class="fa fa-check"></i><b>2.10.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html"><i class="fa fa-check"></i><b>3</b> Mind the Gap Part II</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#a-simple-scatterplot-using-ggplot2"><i class="fa fa-check"></i><b>3.1</b> A simple scatterplot using <code>ggplot2</code></a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#exercise-7"><i class="fa fa-check"></i><b>3.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#plotting-on-the-log-scale"><i class="fa fa-check"></i><b>3.2</b> Plotting on the log scale</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#exercise-8"><i class="fa fa-check"></i><b>3.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#the-color-and-size-aesthetics"><i class="fa fa-check"></i><b>3.3</b> The color and size aesthetics</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#exercise-9"><i class="fa fa-check"></i><b>3.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#faceting---plotting-multiple-subsets-at-once"><i class="fa fa-check"></i><b>3.4</b> Faceting - Plotting multiple subsets at once</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#exercise-10"><i class="fa fa-check"></i><b>3.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#plotting-summarized-data"><i class="fa fa-check"></i><b>3.5</b> Plotting summarized data</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#exercise-11"><i class="fa fa-check"></i><b>3.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#line-plots"><i class="fa fa-check"></i><b>3.6</b> Line plots</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#exercise-12"><i class="fa fa-check"></i><b>3.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#bar-plots"><i class="fa fa-check"></i><b>3.7</b> Bar plots</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#exercise-13"><i class="fa fa-check"></i><b>3.7.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#histograms"><i class="fa fa-check"></i><b>3.8</b> Histograms</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#exercise-14"><i class="fa fa-check"></i><b>3.8.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#boxplots"><i class="fa fa-check"></i><b>3.9</b> Boxplots</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="mind-the-gap-part-ii.html"><a href="mind-the-gap-part-ii.html#exercise-15"><i class="fa fa-check"></i><b>3.9.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html"><i class="fa fa-check"></i><b>4</b> Predictive Regression Part I</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-least-squares-problem"><i class="fa fa-check"></i><b>4.2</b> The Least Squares Problem</a></li>
+<li class="chapter" data-level="4.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#linear-regression-with-lm"><i class="fa fa-check"></i><b>4.3</b> Linear Regression with <code>lm()</code></a></li>
+<li class="chapter" data-level="4.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#getting-more-from-lm"><i class="fa fa-check"></i><b>4.4</b> Getting More from <code>lm()</code></a></li>
+<li class="chapter" data-level="4.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#summarizing-the-ouput-of-lm"><i class="fa fa-check"></i><b>4.5</b> Summarizing The Ouput of <code>lm()</code></a></li>
+<li class="chapter" data-level="4.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#using-broom-to-get-what-you-need-from-lm"><i class="fa fa-check"></i><b>4.6</b> Using <code>broom()</code> to get what you need from <code>lm()</code></a></li>
+<li class="chapter" data-level="4.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#dummy-variables-with-lm"><i class="fa fa-check"></i><b>4.7</b> Dummy Variables with <code>lm()</code></a></li>
+<li class="chapter" data-level="4.8" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#fun-with-r-formulas"><i class="fa fa-check"></i><b>4.8</b> Fun with R Formulas</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#everything-else----the-dot-."><i class="fa fa-check"></i><b>4.8.1</b> "Everything Else" -- The Dot <code>.</code></a></li>
+<li class="chapter" data-level="4.8.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#removing-predictors-with--"><i class="fa fa-check"></i><b>4.8.2</b> Removing Predictors with <code>-</code></a></li>
+<li class="chapter" data-level="4.8.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-intercept-1"><i class="fa fa-check"></i><b>4.8.3</b> The Intercept: <code>1</code></a></li>
+<li class="chapter" data-level="4.8.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#adding-interactions-with-and"><i class="fa fa-check"></i><b>4.8.4</b> Adding Interactions With <code>:</code>, <code>*</code>, and <code>^</code></a></li>
+<li class="chapter" data-level="4.8.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#transforming-outcomes-and-predictors"><i class="fa fa-check"></i><b>4.8.5</b> Transforming Outcomes and Predictors</a></li>
+<li class="chapter" data-level="4.8.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#formulas-are-objects"><i class="fa fa-check"></i><b>4.8.6</b> Formulas are objects</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercises-3"><i class="fa fa-check"></i><b>4.9</b> Exercises</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Empirical Research Methods</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="predictive-regression-part-i" class="section level1" number="4">
+<h1><span class="header-section-number">Lesson 4</span> Predictive Regression Part I</h1>
+<div id="introduction" class="section level2" number="4.1">
+<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<p>This is the first of two lessons that will teach you how to implement and interpret <em>predictive</em> linear regression in R. For the moment we won't worry about causality and we won't talk about heteroskedasticity or autocorrelation. In this first lesson, we'll introduce the basics using a simple dataset that you can download from my website and display as follows:</p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="predictive-regression-part-i.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb255-2"><a href="predictive-regression-part-i.html#cb255-2" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://ditraglia.com/econ103/child_test_data.csv&quot;</span>)</span>
+<span id="cb255-3"><a href="predictive-regression-part-i.html#cb255-3" aria-hidden="true" tabindex="-1"></a>kids</span></code></pre></div>
+<pre><code>## # A tibble: 434 × 4
+##    kid.score mom.hs mom.iq mom.age
+##        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
+##  1        65      1  121.       27
+##  2        98      1   89.4      25
+##  3        85      1  115.       27
+##  4        83      1   99.4      25
+##  5       115      1   92.7      27
+##  6        98      0  108.       18
+##  7        69      1  139.       20
+##  8       106      1  125.       23
+##  9       102      1   81.6      24
+## 10        95      1   95.1      19
+## # … with 424 more rows</code></pre>
+<p>Each row of the tibble <code>kids</code> contains information on a three-year old child. The first column gives the child's test score at age three, while the remaining columns provide information about each child's mother:</p>
+<ul>
+<li><code>kid.score</code> child test score at age 3</li>
+<li><code>mom.age</code> age of mother at birth of child</li>
+<li><code>mom.hs</code> mother completed high school? (1 = yes)</li>
+<li><code>mom.iq</code> mother's IQ score</li>
+</ul>
+<p>The columns <code>kid.score</code> gives the child's test score at age three. The remaining columns describe the child's mother: <code>mom.age</code> is mother's age at the birth of the child, <code>mom.hs</code> is a dummy variable that equals one the mother completed high school, and <code>mom.iq</code> is the mother's IQ score. Our main goal will be to predict a child's test score based on mother characteristics. But <strong>stay alert</strong>: in some of the exercises I may be a bit devious and ask you to predict <em>something else</em>!</p>
+<p><strong>Exercise</strong></p>
+<ul>
+<li>Rename the columns to replace each instance of a "." with an underscore: "_".</li>
+<li>Summary stats for the columns.</li>
+</ul>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="predictive-regression-part-i.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb257-2"><a href="predictive-regression-part-i.html#cb257-2" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
+<span id="cb257-3"><a href="predictive-regression-part-i.html#cb257-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">kid_score =</span> kid.score,</span>
+<span id="cb257-4"><a href="predictive-regression-part-i.html#cb257-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_hs =</span> mom.hs, </span>
+<span id="cb257-5"><a href="predictive-regression-part-i.html#cb257-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_iq =</span> mom.iq, </span>
+<span id="cb257-6"><a href="predictive-regression-part-i.html#cb257-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_age =</span> mom.age)</span>
+<span id="cb257-7"><a href="predictive-regression-part-i.html#cb257-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(kids)</span></code></pre></div>
+<pre><code>##    kid_score         mom_hs           mom_iq          mom_age     
+##  Min.   : 20.0   Min.   :0.0000   Min.   : 71.04   Min.   :17.00  
+##  1st Qu.: 74.0   1st Qu.:1.0000   1st Qu.: 88.66   1st Qu.:21.00  
+##  Median : 90.0   Median :1.0000   Median : 97.92   Median :23.00  
+##  Mean   : 86.8   Mean   :0.7857   Mean   :100.00   Mean   :22.79  
+##  3rd Qu.:102.0   3rd Qu.:1.0000   3rd Qu.:110.27   3rd Qu.:25.00  
+##  Max.   :144.0   Max.   :1.0000   Max.   :138.89   Max.   :29.00</code></pre>
+</div>
+<div id="the-least-squares-problem" class="section level2" number="4.2">
+<h2><span class="header-section-number">4.2</span> The Least Squares Problem</h2>
+<p>Suppose we observe a dataset with <span class="math inline">\(n\)</span> observations <span class="math inline">\((Y_i, X_i)\)</span> where <span class="math inline">\(Y_i\)</span> is an <strong>outcome</strong> variable for person <span class="math inline">\(i\)</span>--the thing we want to predict--and <span class="math inline">\(X_i\)</span> is a vector of <span class="math inline">\(p\)</span> <strong>predictor</strong> variables--the things we'll use to make our prediction. In the <code>kids</code> dataset, our outcome is <code>kid_score</code> and our predictors are <code>mom_hs</code>, <code>mom_age</code>, and <code>mom_iq</code>. Our goal is to build a model of the form <span class="math inline">\(X&#39;\beta = \sum_{j=1}^p \beta_j X_{j}\)</span> that we can use to predict <span class="math inline">\(Y\)</span> for a person who is <em>not</em> in our dataset. The constants <span class="math inline">\(\beta_j\)</span> are called <strong>coefficients</strong> and a model of this form is called a <strong>linear model</strong> because the <span class="math inline">\(\beta_j\)</span> enter linearly: they're not raised to any powers etc. Ordinary least squares (OLS) uses the observed data to find the coefficients <span class="math inline">\(\widehat{\beta}\)</span> that solve the <strong>least squares problem</strong><br />
+<span class="math display">\[
+\underset{\beta}{\text{minimize}} \sum_{i=1}^n (Y_i - X_i&#39;\beta)^2. 
+\]</span>
+In case you were wondering "but wait, where's the intercept?" I should point out that some people prefer to write <span class="math inline">\((Y_i - \beta_0 - X_i&#39; \beta)\)</span> rather than <span class="math inline">\((Y_i - X_i&#39;\beta)\)</span>. To allow an intercept using my notation, simply treat the first element of my <span class="math inline">\(X_i\)</span> vector as a <span class="math inline">\(1\)</span> and the first element of my <span class="math inline">\(\beta\)</span> vector as the intercept.</p>
+</div>
+<div id="linear-regression-with-lm" class="section level2" number="4.3">
+<h2><span class="header-section-number">4.3</span> Linear Regression with <code>lm()</code></h2>
+<p>The R function <code>lm()</code>, short for <strong>linear model</strong>, solves the least squares problem. Its basic syntax is <code>lm([formula], [dataframe])</code> where <code>[formula]</code> is an R <em>formula</em>--an object that describes the regression we want to run--and <code>[dataframe]</code> is the name of a data frame containing our <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> observations, e.g. <code>kids</code>. R formulas can be a bit confusing when you first encounter them, so I'll explain the details in stages. For the moment, there are two symbols you need to learn: <code>~</code> and <code>+</code></p>
+<p>The tilde symbol <code>~</code> is used to separate the "left hand side" and "right hand side" of a formula: the <em>outcome</em> goes on the left of the <code>~</code> and the predictors go on the right. For example, to regress <code>kid_score</code> on <code>mom_iq</code> we use the command</p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="predictive-regression-part-i.html#cb259-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq, kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kid_score ~ mom_iq, data = kids)
+## 
+## Coefficients:
+## (Intercept)       mom_iq  
+##       25.80         0.61</code></pre>
+<p>This tells R: "please solve the least squares problem to predict <code>kid_score</code> using <code>mom_iq</code> based on the data contained in <code>kids</code>." Notice that R includes an intercept in the regression automatically. This is a good default, because it seldom makes sense to run a regression without an intercept. When you want to run a regression with <em>multiple</em> right-hand side predictors, use the plus sign <code>+</code> to separate them. For example, to regress <code>kid_score</code> on <code>mom_iq</code> and <code>mom_age</code>use the command</p>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="predictive-regression-part-i.html#cb261-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">+</span> mom_age, kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kid_score ~ mom_iq + mom_age, data = kids)
+## 
+## Coefficients:
+## (Intercept)       mom_iq      mom_age  
+##     17.5962       0.6036       0.3881</code></pre>
+<p><strong>Exercise</strong>
+What's the correct interpretation of the regression coefficients from the regression <code>lm(kid_score ~ mom_iq, kids)</code>? How about in <code>lm(kid_score ~ mom_iq, kids)</code>?</p>
+<p><strong>Exercise</strong>
+Run a linear regression to predict <code>mom_hs</code> using <code>kid_score</code> and <code>mom_iq</code>.</p>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="predictive-regression-part-i.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(mom_hs <span class="sc">~</span> kid_score <span class="sc">+</span> mom_iq, kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mom_hs ~ kid_score + mom_iq, data = kids)
+## 
+## Coefficients:
+## (Intercept)    kid_score       mom_iq  
+##   -0.060135     0.002775     0.006050</code></pre>
+</div>
+<div id="getting-more-from-lm" class="section level2" number="4.4">
+<h2><span class="header-section-number">4.4</span> Getting More from <code>lm()</code></h2>
+<p>If we simply run <code>lm</code> as above, R will display only the estimated regression coefficients and the command that we used to run the regression: <code>Call</code>.
+To get more information, we need to <em>store</em> the results of our regression using the assignment operator <code>&lt;-</code> for example:</p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="predictive-regression-part-i.html#cb265-1" aria-hidden="true" tabindex="-1"></a>reg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq, kids)</span></code></pre></div>
+<p>If you run the preceding line of code in the R console, it won't produce any output. But if you check your R environment after running it, you'll see a new <code>List</code> object: <code>reg1</code>. To see what's inside this list, we can use the command <code>str</code>:</p>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="predictive-regression-part-i.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(reg1)</span></code></pre></div>
+<pre><code>## List of 12
+##  $ coefficients : Named num [1:2] 25.8 0.61
+##   ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;(Intercept)&quot; &quot;mom_iq&quot;
+##  $ residuals    : Named num [1:434] -34.68 17.69 -11.22 -3.46 32.63 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:434] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ effects      : Named num [1:434] -1808.22 190.39 -8.77 -1.96 33.73 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:434] &quot;(Intercept)&quot; &quot;mom_iq&quot; &quot;&quot; &quot;&quot; ...
+##  $ rank         : int 2
+##  $ fitted.values: Named num [1:434] 99.7 80.3 96.2 86.5 82.4 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:434] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+....</code></pre>
+<p>Don't panic: you don't need to know what all of these list elements are.
+The important thing to understand is that <code>lm</code> returns a <em>list</em> from which we can extract important information about the regression we have run.
+To extract the regression coefficient estimates, we use the function <code>coefficients()</code> or <code>coef()</code> for short</p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="predictive-regression-part-i.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(reg1)</span></code></pre></div>
+<pre><code>## (Intercept)      mom_iq 
+##  25.7997778   0.6099746</code></pre>
+<p>To extract the regression residuals, we use the function <code>residuals()</code> or <code>resid()</code> for short</p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="predictive-regression-part-i.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="fu">resid</span>(reg1)</span></code></pre></div>
+<pre><code>##            1            2            3            4            5            6 
+## -34.67839049  17.69174662 -11.21717291  -3.46152907  32.62769741   6.38284487 
+##            7            8            9           10           11           12 
+## -41.52104074   3.86488149  26.41438662  11.20806784  11.17050590 -25.66178773 
+##           13           14           15           16           17           18 
+##   3.93517580 -17.40659730  14.87699469  10.74760539   6.40273692   5.13172163 
+##           19           20           21           22           23           24 
+##  -2.44440289  15.87116678   9.04396998  11.90180808  14.47664178   0.24807074 
+##           25           26           27           28           29           30 
+##  13.66974891  -4.06297022 -14.03359486  -7.52559318   2.18354609   2.47533381 
+....</code></pre>
+<p>To extract the <em>fitted values</em> i.e. <span class="math inline">\(\hat{Y}_i \equiv X_i&#39;\hat{\beta}\)</span>, the predicted values of, we use <code>fitted.values</code></p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="predictive-regression-part-i.html#cb272-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fitted.values</span>(reg1)</span></code></pre></div>
+<pre><code>##         1         2         3         4         5         6         7         8 
+##  99.67839  80.30825  96.21717  86.46153  82.37230  91.61716 110.52104 102.13512 
+##         9        10        11        12        13        14        15        16 
+##  75.58561  83.79193  79.82949  83.66179  80.06482  95.40660  87.12301  99.25239 
+##        17        18        19        20        21        22        23        24 
+##  95.59726  93.86828 107.44440  85.12883  92.95603 103.09819  85.52336  86.75193 
+##        25        26        27        28        29        30        31        32 
+##  85.33025 100.06297  86.03359  85.52559  74.81645  95.52467  92.37138  87.90567 
+##        33        34        35        36        37        38        39        40 
+##  97.75549  92.06345  84.67978  82.44896  84.29520  91.07649  78.98774  80.30825 
+....</code></pre>
+<p><strong>Exercise</strong></p>
+<ol style="list-style-type: decimal">
+<li>Plot a histogram of the residuals from <code>reg1</code> using <code>ggplot</code> with a bin width of 5. Is there anything noteworthy about this plot?</li>
+<li>Calculate the residuals "by hand" by subtracting the fitted values from <code>reg1</code> from the column <code>kid_score</code> in <code>kids</code>. Use the R function <code>all.equal</code> to check that this gives the same result as <code>resid()</code>.</li>
+<li>As long as you include an intercept in your regression, the residuals will sum to zero. Verify that this is true (up to machine precision!) of the residuals from <code>reg1</code></li>
+<li>By construction, the regression residuals are uncorrelated with any predictors included in the regression. Verify that this holds (up to machine precision!) for <code>reg1</code>.</li>
+</ol>
+<p><strong>Solution</strong></p>
+<ol style="list-style-type: decimal">
+<li>There seems to be a bit of left skewness in the residuals.</li>
+</ol>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="predictive-regression-part-i.html#cb274-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb274-2"><a href="predictive-regression-part-i.html#cb274-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb274-3"><a href="predictive-regression-part-i.html#cb274-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">resid</span>(reg1)), <span class="at">binwidth =</span> <span class="dv">5</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-142-1.png" width="672" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>They give exactly the same result:</li>
+</ol>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="predictive-regression-part-i.html#cb275-1" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(<span class="fu">resid</span>(reg1), kids<span class="sc">$</span>kid_score <span class="sc">-</span> <span class="fu">fitted.values</span>(reg1))</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Close enough!</li>
+</ol>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="predictive-regression-part-i.html#cb277-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">resid</span>(reg1))</span></code></pre></div>
+<pre><code>## [1] 1.056155e-12</code></pre>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="predictive-regression-part-i.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="fu">resid</span>(reg1), kids<span class="sc">$</span>mom_iq)</span></code></pre></div>
+<pre><code>## [1] 3.121525e-16</code></pre>
+</div>
+<div id="summarizing-the-ouput-of-lm" class="section level2" number="4.5">
+<h2><span class="header-section-number">4.5</span> Summarizing The Ouput of <code>lm()</code></h2>
+<p>To view the "usual" summary of regression output, we use the <code>summary()</code> function:</p>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="predictive-regression-part-i.html#cb281-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg1)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kid_score ~ mom_iq, data = kids)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -56.753 -12.074   2.217  11.710  47.691 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 25.79978    5.91741    4.36 1.63e-05 ***
+## mom_iq       0.60997    0.05852   10.42  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 18.27 on 432 degrees of freedom
+## Multiple R-squared:  0.201,  Adjusted R-squared:  0.1991 
+## F-statistic: 108.6 on 1 and 432 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>Among other things, <code>summary</code> shows us the coefficient estimates and associated standard errors for each regressor. It also displays the t-value (Estimate / SE) and associated p-value for a test of the null hypothesis <span class="math inline">\(H_0\colon \beta = 0\)</span> versus <span class="math inline">\(H_1\colon \beta \neq 0\)</span>. Farther down in the output, <code>summary</code> provides the residual standard error, the R-squared, and the F-statistic and associated p-value for a test of the null hypothesis that all regression coefficients except for the intercept are zero.<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a></p>
+<p><strong>Health warning: by default, <code>lm()</code> computes standard errors and p-values under the classical regression assumptions.</strong> In particular, unless you explicitly tell R to do otherwise, it will assume that the regression errors <span class="math inline">\(\varepsilon_i \equiv Y_i - X_i&#39; \beta\)</span> are homoskedastic, and iid. If you're not quite sure what this means, or if you're worried that I'm sweeping important details under the rug, fear not: we'll revisit this in a later lesson. For the moment, let me offer you the following mantra, paraphrasing the wisdom of my <a href="https://econweb.ucsd.edu/~jhamilton/">favorite professor</a> from grad school:</p>
+<blockquote>
+<p>You can <em>always</em> run a [predictive] linear regression; it's inference that requires assumptions.</p>
+</blockquote>
+<p><strong>Exercise</strong></p>
+<p>Use the <code>kids</code> tibble to run a regression that uses <code>kid_score</code> and <code>mom_hs</code> to predict <code>mom_iq</code>. Store your results in an object called <code>reg_reverse</code> and then display a summary of the regression results.</p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="predictive-regression-part-i.html#cb283-1" aria-hidden="true" tabindex="-1"></a>reg_reverse <span class="ot">&lt;-</span> <span class="fu">lm</span>(mom_iq <span class="sc">~</span> mom_hs <span class="sc">+</span> kid_score, kids)</span>
+<span id="cb283-2"><a href="predictive-regression-part-i.html#cb283-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg_reverse)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = mom_iq ~ mom_hs + kid_score, data = kids)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -31.046 -10.412  -1.762   8.839  42.714 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 68.86638    2.82454  24.381  &lt; 2e-16 ***
+## mom_hs       6.82821    1.58450   4.309 2.03e-05 ***
+## kid_score    0.29688    0.03189   9.309  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 13.16 on 431 degrees of freedom
+## Multiple R-squared:  0.234,  Adjusted R-squared:  0.2304 
+## F-statistic: 65.82 on 2 and 431 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div id="using-broom-to-get-what-you-need-from-lm" class="section level2" number="4.6">
+<h2><span class="header-section-number">4.6</span> Using <code>broom()</code> to get what you need from <code>lm()</code></h2>
+<p>We saw above that <code>lm()</code> returns a list. It turns out that <code>summary()</code>, when applied to an <code>lm()</code> object, <em>also</em> returns a list:</p>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="predictive-regression-part-i.html#cb285-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">summary</span>(reg1))</span></code></pre></div>
+<pre><code>## List of 11
+##  $ call         : language lm(formula = kid_score ~ mom_iq, data = kids)
+##  $ terms        :Classes &#39;terms&#39;, &#39;formula&#39;  language kid_score ~ mom_iq
+##   .. ..- attr(*, &quot;variables&quot;)= language list(kid_score, mom_iq)
+##   .. ..- attr(*, &quot;factors&quot;)= int [1:2, 1] 0 1
+##   .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. .. ..$ : chr [1:2] &quot;kid_score&quot; &quot;mom_iq&quot;
+##   .. .. .. ..$ : chr &quot;mom_iq&quot;
+##   .. ..- attr(*, &quot;term.labels&quot;)= chr &quot;mom_iq&quot;
+##   .. ..- attr(*, &quot;order&quot;)= int 1
+....</code></pre>
+<p>In principle, this gives us a way of extracting particular pieces of information from a table of regression output generated by <code>summary()</code>. For example, if you carefully examine the output of <code>str(summary(reg1))</code> you'll find a named list element called <code>r.squared</code>. By accessing this element, you can pluck out the R-squared from <code>summary(reg1)</code> as follows:</p>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb287-1"><a href="predictive-regression-part-i.html#cb287-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg1)<span class="sc">$</span>r.squared</span></code></pre></div>
+<pre><code>## [1] 0.2009512</code></pre>
+<p>Similarly, you could extract F-statistics and associated degrees of freedom by accessing You could extract the information
+That wasn't so bad! But now suppose you wanted to extract the estimates, standard errors, and p-values from <code>reg1</code>. While it's <em>possible</em> to do this by poring over the output of <code>str(summary(reg1))</code>, there's a much easier way.</p>
+<p>The <a href="https://broom.tidymodels.org/"><code>broom</code> package</a> provides some extremely useful functions for extracting regression output. Best of all, the same tools apply to models that we'll meet in later lessons. Use <code>tidy()</code> to create a tibble containing regression estimates, standard errors, t-statistics, and p-values e.g.</p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="predictive-regression-part-i.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb289-2"><a href="predictive-regression-part-i.html#cb289-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(reg1)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)   25.8      5.92        4.36 1.63e- 5
+## 2 mom_iq         0.610    0.0585     10.4  7.66e-23</code></pre>
+<p>Use <code>glance()</code> to create a tibble that summarizes various measures of model fit:</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb291-1"><a href="predictive-regression-part-i.html#cb291-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(reg1)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 12
+##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
+##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     0.201         0.199  18.3      109. 7.66e-23     1 -1876. 3757. 3769.
+## # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+<p>Finally, use <code>augment()</code> to create a tibble that <em>merges</em> the tibble you used to run your regression with the corresponding regression fitted values, residuals, etc.</p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb293-1"><a href="predictive-regression-part-i.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(reg1, kids)</span></code></pre></div>
+<pre><code>## # A tibble: 434 × 10
+##    kid_score mom_hs mom_iq mom_age .fitted .resid    .hat .sigma   .cooksd
+##        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
+##  1        65      1  121.       27    99.7 -34.7  0.00688   18.2 0.0126   
+##  2        98      1   89.4      25    80.3  17.7  0.00347   18.3 0.00164  
+##  3        85      1  115.       27    96.2 -11.2  0.00475   18.3 0.000905 
+##  4        83      1   99.4      25    86.5  -3.46 0.00231   18.3 0.0000416
+##  5       115      1   92.7      27    82.4  32.6  0.00284   18.2 0.00456  
+##  6        98      0  108.       18    91.6   6.38 0.00295   18.3 0.000181 
+##  7        69      1  139.       20   111.  -41.5  0.0178    18.2 0.0478   
+##  8       106      1  125.       23   102.    3.86 0.00879   18.3 0.000200 
+##  9       102      1   81.6      24    75.6  26.4  0.00577   18.2 0.00611  
+## 10        95      1   95.1      19    83.8  11.2  0.00255   18.3 0.000483 
+## # … with 424 more rows, and 1 more variable: .std.resid &lt;dbl&gt;</code></pre>
+<p>Notice that <code>augment()</code> uses a dot "." to begin the name of any column that it merges. This avoids potential clashes with columns you already have in your dataset. After all, you'd never start a column name with a dot would you?</p>
+<p><strong>Exercise</strong></p>
+<p>To complete these exercises, you may need to consult the help files for <code>tidy.lm()</code>, <code>glance.lm()</code>, and <code>augment.lm()</code> from the <code>broom</code> package. These will tell you how the functions <code>tidy()</code>, <code>glance()</code>, and <code>augment()</code> behave when you apply them to an <code>lm()</code> object.</p>
+<ol style="list-style-type: decimal">
+<li>Use <code>dplyr</code> and <code>tidy()</code> to display the regression estimate, standard error, t-statistic, and p-value for the predictor <code>kid_score</code> in <code>reg_reverse</code> from above.</li>
+</ol>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb295-1"><a href="predictive-regression-part-i.html#cb295-1" aria-hidden="true" tabindex="-1"></a>reg_reverse <span class="sc">%&gt;%</span></span>
+<span id="cb295-2"><a href="predictive-regression-part-i.html#cb295-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb295-3"><a href="predictive-regression-part-i.html#cb295-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">&#39;kid_score&#39;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 5
+##   term      estimate std.error statistic  p.value
+##   &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 kid_score    0.297    0.0319      9.31 6.61e-19</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Use <code>ggplot()</code> and <code>augment()</code> to make a scatterplot with the fitted values from <code>reg_reverse</code> on the horizontal axis and <code>mom_iq</code> on the vertical axis. Use <code>geom_abline()</code> to add a 45-degree line to your plot</li>
+</ol>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb297-1"><a href="predictive-regression-part-i.html#cb297-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(reg_reverse, kids) <span class="sc">%&gt;%</span></span>
+<span id="cb297-2"><a href="predictive-regression-part-i.html#cb297-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> mom_iq)) <span class="sc">+</span> </span>
+<span id="cb297-3"><a href="predictive-regression-part-i.html#cb297-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb297-4"><a href="predictive-regression-part-i.html#cb297-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-153-1.png" width="672" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li>Continuing from the preceding exercise, run a regression of <code>mom_iq</code> on the fitted values from <code>reg_reverse</code> and display the estimated regression coefficients. Compare the R-squared of this regression to that of <code>reg_reverse</code>. Explain your results.</li>
+</ol>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="predictive-regression-part-i.html#cb298-1" aria-hidden="true" tabindex="-1"></a>kids_augmented <span class="ot">&lt;-</span> <span class="fu">augment</span>(reg_reverse, kids)</span>
+<span id="cb298-2"><a href="predictive-regression-part-i.html#cb298-2" aria-hidden="true" tabindex="-1"></a>reg_y_vs_fitted <span class="ot">&lt;-</span> <span class="fu">lm</span>(mom_iq <span class="sc">~</span> .fitted, kids_augmented)  </span>
+<span id="cb298-3"><a href="predictive-regression-part-i.html#cb298-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(reg_y_vs_fitted)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept) 1.96e-13    8.73    2.25e-14 1.00e+ 0
+## 2 .fitted     1.00e+ 0    0.0871  1.15e+ 1 7.85e-27</code></pre>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="predictive-regression-part-i.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(reg_reverse)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 12
+##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
+##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     0.234         0.230  13.2      65.8 1.14e-25     2 -1733. 3474. 3490.
+## # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="predictive-regression-part-i.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(reg_y_vs_fitted)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 12
+##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
+##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     0.234         0.232  13.1      132. 7.85e-27     1 -1733. 3472. 3484.
+## # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+</div>
+<div id="dummy-variables-with-lm" class="section level2" number="4.7">
+<h2><span class="header-section-number">4.7</span> Dummy Variables with <code>lm()</code></h2>
+<p>The column <code>mom_hs</code> in <code>kids</code> is a <em>dummy variable</em>, also known as a binary variable. It equals <code>1</code> if a child's mother graduated from college and <code>0</code> otherwise. For this reason, the coefficient on <code>mom_hs</code> in the following regression tells us the <em>difference of mean test scores</em> between kids whose mothers graduated from college and those whose mothers did not, while the intercept tells us the mean of <code>kid_score</code> for children whose mothers didn't graduate from high school:</p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="predictive-regression-part-i.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_hs, kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kid_score ~ mom_hs, data = kids)
+## 
+## Coefficients:
+## (Intercept)       mom_hs  
+##       77.55        11.77</code></pre>
+<p>Although it's represented using the numerical values <code>0</code> and <code>1</code>, <code>mom_hs</code> doesn't actually encode quantitative information. The numerical values are just shorthand for two different categories: <code>mom_hs</code> is a <em>categorical</em> variable. To keep from getting confused, it's good practice to make categorical variables <em>obvious</em> by storing them as character or factor data. Here I create a new column, <code>mom_education</code>, that stores the same information as <code>mom_hs</code> as a <em>factor</em>:</p>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="predictive-regression-part-i.html#cb306-1" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
+<span id="cb306-2"><a href="predictive-regression-part-i.html#cb306-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_education =</span> <span class="fu">if_else</span>(mom_hs <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&#39;High School&#39;</span>, <span class="st">&#39;No High School&#39;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb306-3"><a href="predictive-regression-part-i.html#cb306-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_education =</span> <span class="fu">factor</span>(mom_education, <span class="at">levels =</span> <span class="fu">unique</span>(mom_education)))</span></code></pre></div>
+<p>The column <code>mom_education</code> is a <em>factor</em>, R's built-in representation of a categorical variable. So what happens if we include <code>mom_education</code> in our regression in place of <code>mom_hs</code>?</p>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="predictive-regression-part-i.html#cb307-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_education, kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kid_score ~ mom_education, data = kids)
+## 
+## Coefficients:
+##                 (Intercept)  mom_educationNo High School  
+##                       89.32                       -11.77</code></pre>
+<p>Wait a minute; now the estimate is <em>negative</em>! We can't run a regression that includes an intercept and a coefficient for each level of a dummy variable--this is the dummy variable trap!--so R has excluded one of them. Rather capriciously, <code>lm()</code> has chosen to treat <code>High School</code> as the omitted category.</p>
+<p>We can override this behavior by using <code>fct_relevel()</code> from the <code>forcats</code> package. The following code tells R that we want 'No High School' to be the <em>first</em> ordered factor level, the level that <code>lm()</code> treats as the omitted category by default:</p>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="predictive-regression-part-i.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb309-2"><a href="predictive-regression-part-i.html#cb309-2" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
+<span id="cb309-3"><a href="predictive-regression-part-i.html#cb309-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_education =</span> <span class="fu">fct_relevel</span>(mom_education, <span class="st">&#39;No High School&#39;</span>))</span>
+<span id="cb309-4"><a href="predictive-regression-part-i.html#cb309-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_education, kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kid_score ~ mom_education, data = kids)
+## 
+## Coefficients:
+##              (Intercept)  mom_educationHigh School  
+##                    77.55                     11.77</code></pre>
+<p><strong>Explain about categorical variables that take on more than two values!</strong></p>
+<p><strong>Exercise</strong></p>
+<p>Create a categorical variable with three levels perhaps using <code>mom_age</code>? Then see what happens</p>
+<p>This is worth putting in bold: <strong>you never have to explicitly construct dummy variables in R</strong>. The <code>lm()</code> function will construct them for you.</p>
+</div>
+<div id="fun-with-r-formulas" class="section level2" number="4.8">
+<h2><span class="header-section-number">4.8</span> Fun with R Formulas</h2>
+<p>It's time to learn some more about R formulas. But before we do, you may ask "why bother?" It's true that you run just about any regression you need using nothing more complicated than <code>+</code> and <code>~</code> as introduced above. I know, because I did this for the better part of a decade! But a key goal of this book is showing you how to work <em>smarter</em> rather than harder, both to make your own life easier and help others replicate your work. If you ever plan to fit more than a handful of models with more than a handful of variables, it's worth your time to learn about formulas. You've already met the special symbols <code>~</code> and <code>+</code> explained in the following table. In the next few sub-sections, I'll walk you through the others: <code>.</code>, <code>-</code>, <code>1</code>, <code>:</code>, <code>*</code>, <code>^</code>, and <code>I()</code>.</p>
+<table>
+<colgroup>
+<col width="14%" />
+<col width="29%" />
+<col width="15%" />
+<col width="40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Symbol</th>
+<th align="left">Purpose</th>
+<th align="left">Example</th>
+<th align="left">In Words</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>~</code></td>
+<td align="left">separate LHS and RHS of formula</td>
+<td align="left"><code>y ~ x</code></td>
+<td align="left">regress <code>y</code> on <code>x</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>+</code></td>
+<td align="left">add variable to a formula</td>
+<td align="left"><code>y ~ x + z</code></td>
+<td align="left">regress <code>y</code> on <code>x</code> <em>and</em> <code>z</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>.</code></td>
+<td align="left">denotes "everything else"</td>
+<td align="left"><code>y ~ .</code></td>
+<td align="left">regress <code>y</code> on <em>all other variables</em> in a data frame</td>
+</tr>
+<tr class="even">
+<td align="left"><code>-</code></td>
+<td align="left">remove variable from a formula</td>
+<td align="left"><code>y ~ . - x</code></td>
+<td align="left">regress <code>y</code> on all other variables <em>except</em> <code>z</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>1</code></td>
+<td align="left">denotes intercept</td>
+<td align="left"><code>y ~ x - 1</code></td>
+<td align="left">regress <code>y</code> on <code>x</code> <em>without an intercept</em></td>
+</tr>
+<tr class="even">
+<td align="left"><code>:</code></td>
+<td align="left">construct interaction term</td>
+<td align="left"><code>y ~ x + z + x:z</code></td>
+<td align="left">regress <code>y</code> on <code>x</code>, <code>z</code>, and the product <code>x</code> times <code>z</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>*</code></td>
+<td align="left">shorthand for levels plus interaction</td>
+<td align="left"><code>y ~ x * z</code></td>
+<td align="left">regress <code>y</code> on <code>x</code>, <code>z</code>, and the product <code>x</code> times <code>z</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>^</code></td>
+<td align="left">higher order interactions</td>
+<td align="left"><code>y ~ (x + z + w)^3</code></td>
+<td align="left">regress <code>y</code> on <code>x</code>, <code>z</code>, <code>w</code>, all two-way interactions, and the three-way interactions</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>I()</code></td>
+<td align="left">"as-is" - override special meanings of other symbols from this table</td>
+<td align="left"><code>y ~ x + I(x^2)</code></td>
+<td align="left">regress <code>y</code> on <code>x</code> and <code>x</code> squared</td>
+</tr>
+</tbody>
+</table>
+<div id="everything-else----the-dot-." class="section level3" number="4.8.1">
+<h3><span class="header-section-number">4.8.1</span> "Everything Else" -- The Dot <code>.</code></h3>
+<p>Sometimes all you want to do is run a regression of one variable on <em>everything else</em>. If you have lots of predictors, typing out all of their names, each separated by a <code>+</code> sign, is painful and error-prone. Fortunately there's a shortcut: the dot <code>.</code></p>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="predictive-regression-part-i.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> ., kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kid_score ~ ., data = kids)
+## 
+## Coefficients:
+##              (Intercept)                    mom_hs                    mom_iq  
+##                  20.9847                    5.6472                    0.5625  
+##                  mom_age  mom_educationHigh School  
+##                   0.2248                        NA</code></pre>
+<p>This command tells R to regress <code>kid_score</code> on <em>everything else</em> in <code>kids</code>. We'll encounter the dot in many guises later in this lesson and elsewhere. Wherever you see it, replace it mentally with the word "everything" and you'll never be confused. The rest will be clear from context.</p>
+</div>
+<div id="removing-predictors-with--" class="section level3" number="4.8.2">
+<h3><span class="header-section-number">4.8.2</span> Removing Predictors with <code>-</code></h3>
+<p>Suppose you wanted to regress <code>kid_score</code> on <code>mom_hs</code> and <code>mom_iq</code> but <em>not</em> <code>mom_age</code>. One way to do this is by writing out the formula explicitly:</p>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="predictive-regression-part-i.html#cb313-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_hs <span class="sc">+</span> mom_iq, kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kid_score ~ mom_hs + mom_iq, data = kids)
+## 
+## Coefficients:
+## (Intercept)       mom_hs       mom_iq  
+##     25.7315       5.9501       0.5639</code></pre>
+<p>In this example, it's not too difficult to specify the formula we want by typing it out in full. But what if we had dozens of predictors and only wanted to exclude one or two? This is where the minus sign <code>-</code> comes in handy. Think of <code>+</code> as saying "add me to the regression" and <code>-</code> as saying "remove me from the regression." By combining <code>-</code> with <code>.</code> we can tell R to "add everything, then remove <code>mom_age</code>" as follows:</p>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb315-1"><a href="predictive-regression-part-i.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> . <span class="sc">-</span> mom_age, kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kid_score ~ . - mom_age, data = kids)
+## 
+## Coefficients:
+##              (Intercept)                    mom_hs                    mom_iq  
+##                  25.7315                    5.9501                    0.5639  
+## mom_educationHigh School  
+##                       NA</code></pre>
+<p>This use of <code>-</code> is very similar to what you've seen in the <code>select()</code> function from <code>dplyr</code>. And as in <code>dplyr</code>, we can use it to remove more than one variable. In this example, it's silly but just to show you that it works as expected:</p>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb317-1"><a href="predictive-regression-part-i.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> . <span class="sc">-</span> mom_age <span class="sc">-</span> mom_hs, kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kid_score ~ . - mom_age - mom_hs, data = kids)
+## 
+## Coefficients:
+##              (Intercept)                    mom_iq  mom_educationHigh School  
+##                  25.7315                    0.5639                    5.9501</code></pre>
+</div>
+<div id="the-intercept-1" class="section level3" number="4.8.3">
+<h3><span class="header-section-number">4.8.3</span> The Intercept: <code>1</code></h3>
+<p>It almost always makes sense to include an intercept when you run a linear regression. Without one, we're forced to predict that <span class="math inline">\(Y\)</span> will be zero when <span class="math inline">\(X\)</span> is zero. Because this is usually a bad idea, <code>lm()</code> includes an intercept by default:</p>
+<div class="sourceCode" id="cb319"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb319-1"><a href="predictive-regression-part-i.html#cb319-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq, kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kid_score ~ mom_iq, data = kids)
+## 
+## Coefficients:
+## (Intercept)       mom_iq  
+##       25.80         0.61</code></pre>
+<p>In some special cases, however, we may have a reason to run a regression without an intercept. R's formula syntax denotes the intercept by <code>1</code>. Armed with this knowledge, we can remove it from our regression using <code>-</code> as introduced above:</p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb321-1"><a href="predictive-regression-part-i.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">-</span> <span class="dv">1</span>, kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kid_score ~ mom_iq - 1, data = kids)
+## 
+## Coefficients:
+## mom_iq  
+## 0.8623</code></pre>
+<p>Another situation in which we may wish to remove the intercept is when running a regression with a categorical variable. As mentioned above, we can't include an intercept <em>and</em> a coefficient for each value of a categorical variable in our regression: this is the dummy variable trap. We either have to drop one level of the categorical variable (the baseline or omitted category) or drop the intercept. Above we saw how to choose which category to omit. But another option is to drop the intercept. In the first regression, the intercept equals the mean of <code>kid_score</code> for the omitted category <code>mom_education == "No High School"</code> while the intercept gives the difference of means:</p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="predictive-regression-part-i.html#cb323-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_education, kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kid_score ~ mom_education, data = kids)
+## 
+## Coefficients:
+##              (Intercept)  mom_educationHigh School  
+##                    77.55                     11.77</code></pre>
+<p>In the second, we obtain the mean of <code>kid_score</code> for each group:</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="predictive-regression-part-i.html#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_education <span class="sc">-</span> <span class="dv">1</span>, kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kid_score ~ mom_education - 1, data = kids)
+## 
+## Coefficients:
+## mom_educationNo High School     mom_educationHigh School  
+##                       77.55                        89.32</code></pre>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="predictive-regression-part-i.html#cb327-1" aria-hidden="true" tabindex="-1"></a>kids <span class="sc">%&gt;%</span> </span>
+<span id="cb327-2"><a href="predictive-regression-part-i.html#cb327-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(mom_education) <span class="sc">%&gt;%</span></span>
+<span id="cb327-3"><a href="predictive-regression-part-i.html#cb327-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(kid_score))</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   mom_education  `mean(kid_score)`
+##   &lt;fct&gt;                      &lt;dbl&gt;
+## 1 No High School              77.5
+## 2 High School                 89.3</code></pre>
+<p><strong>Exercise #4</strong>
+What do you get if you run the regression <code>lm(kid_score ~ 1, kids)</code>? Explain.</p>
+<p><strong>Solution</strong>
+This is a regression with <em>only an intercept</em>, so it calculates the sample mean of <code>kid_score</code></p>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="predictive-regression-part-i.html#cb329-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> <span class="dv">1</span>, kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kid_score ~ 1, data = kids)
+## 
+## Coefficients:
+## (Intercept)  
+##        86.8</code></pre>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="predictive-regression-part-i.html#cb331-1" aria-hidden="true" tabindex="-1"></a>kids <span class="sc">%&gt;%</span></span>
+<span id="cb331-2"><a href="predictive-regression-part-i.html#cb331-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(kid_score))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 1
+##   `mean(kid_score)`
+##               &lt;dbl&gt;
+## 1              86.8</code></pre>
+<p>If you're still not convinced, a quick calculation shows that <span class="math inline">\(\widehat{\alpha} = \bar{y}\)</span> minimizes <span class="math inline">\(\sum_{i=1}^n (y_i - \alpha)^2\)</span> over <span class="math inline">\(\alpha\)</span>, where <span class="math inline">\(\bar{y} \equiv \frac{1}{n}\sum_{i=1}^n y_i\)</span>.</p>
+</div>
+<div id="adding-interactions-with-and" class="section level3" number="4.8.4">
+<h3><span class="header-section-number">4.8.4</span> Adding Interactions With <code>:</code>, <code>*</code>, and <code>^</code></h3>
+<p>Point out that <code>*</code> and <code>^</code> are really just helpful shorthand: you can do everything with <code>:</code> and <code>+</code>. There are many different ways to specify the same formula in R, but some are easier to type and some are easier to understand that others.</p>
+</div>
+<div id="transforming-outcomes-and-predictors" class="section level3" number="4.8.5">
+<h3><span class="header-section-number">4.8.5</span> Transforming Outcomes and Predictors</h3>
+<p>What if you wanted to regress the logarithm of <code>kid_score</code> on <code>mom_age</code> and <code>mom_age^2</code>? One way to do this is by creating a new data frame:</p>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="predictive-regression-part-i.html#cb333-1" aria-hidden="true" tabindex="-1"></a>new_kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
+<span id="cb333-2"><a href="predictive-regression-part-i.html#cb333-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_kid_score =</span> <span class="fu">log</span>(kid_score),</span>
+<span id="cb333-3"><a href="predictive-regression-part-i.html#cb333-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_age_sq =</span> mom_age<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb333-4"><a href="predictive-regression-part-i.html#cb333-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(log_kid_score <span class="sc">~</span> mom_age <span class="sc">+</span> mom_age_sq, new_kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = log_kid_score ~ mom_age + mom_age_sq, data = new_kids)
+## 
+## Coefficients:
+## (Intercept)      mom_age   mom_age_sq  
+##   4.4586761   -0.0109575    0.0004214</code></pre>
+<p>It worked! But that required an awful lot of typing. What's more, I had to clutter up my R environment with <em>another</em> data frame: <code>new_kids</code>. A more elegant approach uses R's formula syntax to do all the heavy lifting. First I'll show you the syntax and then I'll explain it:</p>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="predictive-regression-part-i.html#cb335-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="fu">log</span>(kid_score) <span class="sc">~</span> mom_age <span class="sc">+</span> <span class="fu">I</span>(mom_age<span class="sc">^</span><span class="dv">2</span>), kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = log(kid_score) ~ mom_age + I(mom_age^2), data = kids)
+## 
+## Coefficients:
+##  (Intercept)       mom_age  I(mom_age^2)  
+##    4.4586761    -0.0109575     0.0004214</code></pre>
+<p>The key point here is that we can use functions <em>within an R function</em>. When <code>lm()</code> encounters <code>log(kid_score) ~ mom_age + I(mom_age^2)</code> it looks at the data frame <code>kids</code>, and then <em>parses</em> the formula to construct all the variables that it needs to run the regession. There's no need for us to construct and store these in advance: R can do everything for us.</p>
+<p>The only awkward part is the function <code>I()</code>. What on earth is that doing in our formula? Formulas have their own special syntax: a <code>+</code> inside a formula doesn't denote addition and a <code>.</code> doesn't indicate a decimal point. To <em>override</em> the special meanings of these symbols,</p>
+<p>Every programming language has words and characters with special meanings. If you try to construct a variable called <code>+TRUE^2</code>, R won't let you: <code>+</code>, <code>TRUE</code> and <code>^</code> have special meanings in R. If, for whatever strange reason, you insist upon having a variable called <code>+TRUE^2</code>, you have to <em>tell</em> R that it shouldn't interpret these symbols in the usual name. You can do this by wrapping them in backticks, as follows:</p>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="predictive-regression-part-i.html#cb337-1" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">+TRUE^2</span><span class="st">`</span> <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb337-2"><a href="predictive-regression-part-i.html#cb337-2" aria-hidden="true" tabindex="-1"></a><span class="st">`</span><span class="at">+TRUE^2</span><span class="st">`</span></span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>The role of <code>I()</code> inside an R formula is identical to that of back ticks in the creation of variable names</p>
+</div>
+<div id="formulas-are-objects" class="section level3" number="4.8.6">
+<h3><span class="header-section-number">4.8.6</span> Formulas are objects</h3>
+<p><strong>Shorten this. Don't get into too much detail, but point them to various functions for computing on and updating formulas. Say why this might be helpful: you want to run a linear probability model <em>and</em> Probit using the same LHS and RHS variables.</strong></p>
+<p>The first thing you need to know about formulas is that they're <em>objects</em>. This means we can store them, pass them into functions, and write code to modify them. Above we supplied <code>kid_score ~ mom_iq</code> as the first argument to <code>lm()</code>. Now let's try something different: we'll <em>store</em> this formula, give it a name, and then pass it to <code>lm()</code></p>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="predictive-regression-part-i.html#cb339-1" aria-hidden="true" tabindex="-1"></a>little_formula <span class="ot">&lt;-</span> kid_score <span class="sc">~</span> mom_iq</span>
+<span id="cb339-2"><a href="predictive-regression-part-i.html#cb339-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(little_formula)</span></code></pre></div>
+<pre><code>## Class &#39;formula&#39;  language kid_score ~ mom_iq
+##   ..- attr(*, &quot;.Environment&quot;)=&lt;environment: R_GlobalEnv&gt;</code></pre>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="predictive-regression-part-i.html#cb341-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(little_formula, kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = little_formula, data = kids)
+## 
+## Coefficients:
+## (Intercept)       mom_iq  
+##       25.80         0.61</code></pre>
+<p>So what? We got exactly the same results above with less typing! Before it becomes clear why storing a formula could come in handy, we need to learn some additional syntax.</p>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="predictive-regression-part-i.html#cb343-1" aria-hidden="true" tabindex="-1"></a>big_formula <span class="ot">&lt;-</span> kid_score <span class="sc">~</span> mom_iq <span class="sc">+</span> mom_hs <span class="sc">+</span> mom_age</span></code></pre></div>
+</div>
+</div>
+<div id="exercises-3" class="section level2" number="4.9">
+<h2><span class="header-section-number">4.9</span> Exercises</h2>
+<p><strong>Look for interaction between <code>mom_hs</code> and <code>mom_iq</code>, interpret results, make some plots</strong></p>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="17">
+<li id="fn17"><p>If you're rusty on the F-test, <a href="https://www.econometrics.blog/post/understanding-the-f-statistic/">this may help</a>.<a href="predictive-regression-part-i.html#fnref17" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="mind-the-gap-part-ii.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

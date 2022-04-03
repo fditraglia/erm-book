@@ -1,0 +1,376 @@
+# Predictive Regression Part I
+
+
+```{r, include = FALSE} 
+# save the built-in output hook
+hook_output <- knitr::knit_hooks$get("output")
+
+# set a new output hook to truncate text output
+knitr::knit_hooks$set(output = function(x, options) {
+  if (!is.null(n <- options$out.lines)) {
+    x <- xfun::split_lines(x)
+    if (length(x) > n) {
+      # truncate the output
+      x <- c(head(x, n), "....\n")
+    }
+    x <- paste(x, collapse = "\n")
+  }
+  hook_output(x, options)
+})
+```
+
+
+## Introduction 
+This is the first of two lessons that will teach you how to implement and interpret *predictive* linear regression in R. For the moment we won't worry about causality and we won't talk about heteroskedasticity or autocorrelation. In this first lesson, we'll introduce the basics using a simple dataset that you can download from my website and display as follows:
+```{r message=FALSE}
+library(readr)
+kids <- read_csv("http://ditraglia.com/econ103/child_test_data.csv")
+kids
+```
+Each row of the tibble `kids` contains information on a three-year old child. The first column gives the child's test score at age three, while the remaining columns provide information about each child's mother:
+
+- `kid.score` child test score at age 3
+- `mom.age` age of mother at birth of child
+- `mom.hs` mother completed high school? (1 = yes)
+- `mom.iq` mother's IQ score
+
+The columns `kid.score` gives the child's test score at age three. The remaining columns describe the child's mother: `mom.age` is mother's age at the birth of the child, `mom.hs` is a dummy variable that equals one the mother completed high school, and `mom.iq` is the mother's IQ score. Our main goal will be to predict a child's test score based on mother characteristics. But **stay alert**: in some of the exercises I may be a bit devious and ask you to predict *something else*!
+
+**Exercise**
+
+- Rename the columns to replace each instance of a "." with an underscore: "_".
+- Summary stats for the columns.
+```{r, message = FALSE}
+library(dplyr)
+kids <- kids %>%
+  rename(kid_score = kid.score,
+         mom_hs = mom.hs, 
+         mom_iq = mom.iq, 
+         mom_age = mom.age)
+summary(kids)
+```
+
+
+## The Least Squares Problem
+Suppose we observe a dataset with $n$ observations $(Y_i, X_i)$ where $Y_i$ is an **outcome** variable for person $i$--the thing we want to predict--and $X_i$ is a vector of $p$ **predictor** variables--the things we'll use to make our prediction. In the `kids` dataset, our outcome is `kid_score` and our predictors are `mom_hs`, `mom_age`, and `mom_iq`. Our goal is to build a model of the form $X'\beta = \sum_{j=1}^p \beta_j X_{j}$ that we can use to predict $Y$ for a person who is *not* in our dataset. The constants $\beta_j$ are called **coefficients** and a model of this form is called a **linear model** because the $\beta_j$ enter linearly: they're not raised to any powers etc. Ordinary least squares (OLS) uses the observed data to find the coefficients $\widehat{\beta}$ that solve the **least squares problem**   
+$$
+\underset{\beta}{\text{minimize}} \sum_{i=1}^n (Y_i - X_i'\beta)^2. 
+$$
+In case you were wondering "but wait, where's the intercept?" I should point out that some people prefer to write $(Y_i - \beta_0 - X_i' \beta)$ rather than $(Y_i - X_i'\beta)$. To allow an intercept using my notation, simply treat the first element of my $X_i$ vector as a $1$ and the first element of my $\beta$ vector as the intercept. 
+
+## Linear Regression with `lm()` 
+The R function `lm()`, short for **linear model**, solves the least squares problem. Its basic syntax is `lm([formula], [dataframe])` where `[formula]` is an R *formula*--an object that describes the regression we want to run--and `[dataframe]` is the name of a data frame containing our $X$ and $Y$ observations, e.g. `kids`. R formulas can be a bit confusing when you first encounter them, so I'll explain the details in stages. For the moment, there are two symbols you need to learn: `~` and `+` 
+
+The tilde symbol `~` is used to separate the "left hand side" and "right hand side" of a formula: the *outcome* goes on the left of the `~` and the predictors go on the right. For example, to regress `kid_score` on `mom_iq` we use the command
+```{r}
+lm(kid_score ~ mom_iq, kids)
+```
+This tells R: "please solve the least squares problem to predict `kid_score` using `mom_iq` based on the data contained in `kids`." Notice that R includes an intercept in the regression automatically. This is a good default, because it seldom makes sense to run a regression without an intercept. When you want to run a regression with *multiple* right-hand side predictors, use the plus sign `+` to separate them. For example, to regress `kid_score` on `mom_iq` and `mom_age`use the command 
+```{r}
+lm(kid_score ~ mom_iq + mom_age, kids)
+```
+
+
+
+**Exercise**
+What's the correct interpretation of the regression coefficients from the regression `lm(kid_score ~ mom_iq, kids)`? How about in `lm(kid_score ~ mom_iq, kids)`?
+
+**Exercise**
+Run a linear regression to predict `mom_hs` using `kid_score` and `mom_iq`. 
+```{r}
+lm(mom_hs ~ kid_score + mom_iq, kids)
+```
+
+
+## Getting More from `lm()` 
+If we simply run `lm` as above, R will display only the estimated regression coefficients and the command that we used to run the regression: `Call`.
+To get more information, we need to *store* the results of our regression using the assignment operator `<-` for example:
+```{r}
+reg1 <- lm(kid_score ~ mom_iq, kids)
+```
+If you run the preceding line of code in the R console, it won't produce any output. But if you check your R environment after running it, you'll see a new `List` object: `reg1`. To see what's inside this list, we can use the command `str`:
+```{r, out.lines = 10}
+str(reg1)
+```
+Don't panic: you don't need to know what all of these list elements are.
+The important thing to understand is that `lm` returns a *list* from which we can extract important information about the regression we have run.
+To extract the regression coefficient estimates, we use the function `coefficients()` or `coef()` for short
+```{r}
+coef(reg1)
+```
+To extract the regression residuals, we use the function `residuals()` or `resid()` for short
+```{r, out.lines = 10}
+resid(reg1)
+```
+To extract the *fitted values* i.e. $\hat{Y}_i \equiv X_i'\hat{\beta}$, the predicted values of, we use `fitted.values`
+```{r, out.lines = 10}
+fitted.values(reg1)
+```
+
+**Exercise**
+
+1. Plot a histogram of the residuals from `reg1` using `ggplot` with a bin width of 5. Is there anything noteworthy about this plot?
+2. Calculate the residuals "by hand" by subtracting the fitted values from `reg1` from the column `kid_score` in `kids`. Use the R function `all.equal` to check that this gives the same result as `resid()`.
+3. As long as you include an intercept in your regression, the residuals will sum to zero. Verify that this is true (up to machine precision!) of the residuals from `reg1` 
+4. By construction, the regression residuals are uncorrelated with any predictors included in the regression. Verify that this holds (up to machine precision!) for `reg1`.
+
+**Solution** 
+
+1. There seems to be a bit of left skewness in the residuals.
+```{r}
+library(ggplot2)
+ggplot() +
+  geom_histogram(aes(x = resid(reg1)), binwidth = 5)
+```
+
+2. They give exactly the same result:
+```{r}
+all.equal(resid(reg1), kids$kid_score - fitted.values(reg1))
+```
+
+3. Close enough!
+```{r}
+sum(resid(reg1))
+cor(resid(reg1), kids$mom_iq)
+```
+
+
+## Summarizing The Ouput of `lm()`
+To view the "usual" summary of regression output, we use the `summary()` function:
+```{r}
+summary(reg1)
+```
+Among other things, `summary` shows us the coefficient estimates and associated standard errors for each regressor. It also displays the t-value (Estimate / SE) and associated p-value for a test of the null hypothesis $H_0\colon \beta = 0$ versus $H_1\colon \beta \neq 0$. Farther down in the output, `summary` provides the residual standard error, the R-squared, and the F-statistic and associated p-value for a test of the null hypothesis that all regression coefficients except for the intercept are zero.^[If you're rusty on the F-test, [this may help](https://www.econometrics.blog/post/understanding-the-f-statistic/).]
+
+**Health warning: by default, `lm()` computes standard errors and p-values under the classical regression assumptions.** In particular, unless you explicitly tell R to do otherwise, it will assume that the regression errors $\varepsilon_i \equiv Y_i - X_i' \beta$ are homoskedastic, and iid. If you're not quite sure what this means, or if you're worried that I'm sweeping important details under the rug, fear not: we'll revisit this in a later lesson. For the moment, let me offer you the following mantra, paraphrasing the wisdom of my [favorite professor](https://econweb.ucsd.edu/~jhamilton/) from grad school: 
+
+> You can *always* run a [predictive] linear regression; it's inference that requires assumptions. 
+
+**Exercise**
+
+Use the `kids` tibble to run a regression that uses `kid_score` and `mom_hs` to predict `mom_iq`. Store your results in an object called `reg_reverse` and then display a summary of the regression results.
+
+```{r}
+reg_reverse <- lm(mom_iq ~ mom_hs + kid_score, kids)
+summary(reg_reverse)
+```
+
+
+## Using `broom()` to get what you need from `lm()`
+We saw above that `lm()` returns a list. It turns out that `summary()`, when applied to an `lm()` object, *also* returns a list: 
+```{r, out.lines = 10}
+str(summary(reg1))
+```
+In principle, this gives us a way of extracting particular pieces of information from a table of regression output generated by `summary()`. For example, if you carefully examine the output of `str(summary(reg1))` you'll find a named list element called `r.squared`. By accessing this element, you can pluck out the R-squared from `summary(reg1)` as follows:
+```{r}
+summary(reg1)$r.squared
+```
+Similarly, you could extract F-statistics and associated degrees of freedom by accessing You could extract the information 
+That wasn't so bad! But now suppose you wanted to extract the estimates, standard errors, and p-values from `reg1`. While it's *possible* to do this by poring over the output of `str(summary(reg1))`, there's a much easier way. 
+
+The [`broom` package](https://broom.tidymodels.org/) provides some extremely useful functions for extracting regression output. Best of all, the same tools apply to models that we'll meet in later lessons. Use `tidy()` to create a tibble containing regression estimates, standard errors, t-statistics, and p-values e.g.
+```{r}
+library(broom)
+tidy(reg1)
+```
+Use `glance()` to create a tibble that summarizes various measures of model fit: 
+```{r}
+glance(reg1)
+```
+Finally, use `augment()` to create a tibble that *merges* the tibble you used to run your regression with the corresponding regression fitted values, residuals, etc. 
+```{r}
+augment(reg1, kids)
+```
+Notice that `augment()` uses a dot "." to begin the name of any column that it merges. This avoids potential clashes with columns you already have in your dataset. After all, you'd never start a column name with a dot would you?
+
+**Exercise**
+
+To complete these exercises, you may need to consult the help files for `tidy.lm()`, `glance.lm()`, and `augment.lm()` from the `broom` package. These will tell you how the functions `tidy()`, `glance()`, and `augment()` behave when you apply them to an `lm()` object.
+
+1. Use `dplyr` and `tidy()` to display the regression estimate, standard error, t-statistic, and p-value for the predictor `kid_score` in `reg_reverse` from above. 
+```{r}
+reg_reverse %>%
+  tidy() %>%
+  filter(term == 'kid_score')
+```
+
+2. Use `ggplot()` and `augment()` to make a scatterplot with the fitted values from `reg_reverse` on the horizontal axis and `mom_iq` on the vertical axis. Use `geom_abline()` to add a 45-degree line to your plot 
+
+```{r}
+augment(reg_reverse, kids) %>%
+  ggplot(aes(x = .fitted, y = mom_iq)) + 
+  geom_point() + 
+  geom_abline(intercept = 0, slope = 1)
+```
+
+
+3. Continuing from the preceding exercise, run a regression of `mom_iq` on the fitted values from `reg_reverse` and display the estimated regression coefficients. Compare the R-squared of this regression to that of `reg_reverse`. Explain your results.
+
+```{r}
+kids_augmented <- augment(reg_reverse, kids)
+reg_y_vs_fitted <- lm(mom_iq ~ .fitted, kids_augmented)  
+tidy(reg_y_vs_fitted)
+glance(reg_reverse)
+glance(reg_y_vs_fitted)
+```
+
+## Dummy Variables with `lm()`
+The column `mom_hs` in `kids` is a *dummy variable*, also known as a binary variable. It equals `1` if a child's mother graduated from college and `0` otherwise. For this reason, the coefficient on `mom_hs` in the following regression tells us the *difference of mean test scores* between kids whose mothers graduated from college and those whose mothers did not, while the intercept tells us the mean of `kid_score` for children whose mothers didn't graduate from high school: 
+```{r}
+lm(kid_score ~ mom_hs, kids)
+```
+Although it's represented using the numerical values `0` and `1`, `mom_hs` doesn't actually encode quantitative information. The numerical values are just shorthand for two different categories: `mom_hs` is a *categorical* variable. To keep from getting confused, it's good practice to make categorical variables *obvious* by storing them as character or factor data. Here I create a new column, `mom_education`, that stores the same information as `mom_hs` as a *factor*:
+```{r}
+kids <- kids %>%
+  mutate(mom_education = if_else(mom_hs == 1, 'High School', 'No High School')) %>%
+  mutate(mom_education = factor(mom_education, levels = unique(mom_education)))
+```
+The column `mom_education` is a *factor*, R's built-in representation of a categorical variable. So what happens if we include `mom_education` in our regression in place of `mom_hs`? 
+```{r}
+lm(kid_score ~ mom_education, kids)
+```
+Wait a minute; now the estimate is *negative*! We can't run a regression that includes an intercept and a coefficient for each level of a dummy variable--this is the dummy variable trap!--so R has excluded one of them. Rather capriciously, `lm()` has chosen to treat `High School` as the omitted category.
+
+We can override this behavior by using `fct_relevel()` from the `forcats` package. The following code tells R that we want 'No High School' to be the *first* ordered factor level, the level that `lm()` treats as the omitted category by default:
+```{r}
+library(forcats)
+kids <- kids %>%
+  mutate(mom_education = fct_relevel(mom_education, 'No High School'))
+lm(kid_score ~ mom_education, kids)
+```
+
+**Explain about categorical variables that take on more than two values!**
+
+
+**Exercise**
+
+Create a categorical variable with three levels perhaps using `mom_age`? Then see what happens
+
+
+This is worth putting in bold: **you never have to explicitly construct dummy variables in R**. The `lm()` function will construct them for you.
+
+
+## Fun with R Formulas 
+
+It's time to learn some more about R formulas. But before we do, you may ask "why bother?" It's true that you run just about any regression you need using nothing more complicated than `+` and `~` as introduced above. I know, because I did this for the better part of a decade! But a key goal of this book is showing you how to work *smarter* rather than harder, both to make your own life easier and help others replicate your work. If you ever plan to fit more than a handful of models with more than a handful of variables, it's worth your time to learn about formulas. You've already met the special symbols `~` and `+` explained in the following table. In the next few sub-sections, I'll walk you through the others: `.`, `-`, `1`, `:`, `*`, `^`, and `I()`. 
+
+
+| Symbol | Purpose | Example | In Words |
+|:-------|:----------------|:--------|:----------------------|
+| `~` | separate LHS and RHS of formula | `y ~ x` | regress `y` on `x` |
+| `+` | add variable to a formula | `y ~ x + z` | regress `y` on `x` *and* `z` |
+| `.` | denotes "everything else" | `y ~ .` | regress `y` on *all other variables* in a data frame |
+| `-` | remove variable from a formula | `y ~ . - x` | regress `y` on all other variables *except* `z` |
+| `1` | denotes intercept | `y ~ x - 1` | regress `y` on `x` *without an intercept* |
+| `:` | construct interaction term | `y ~ x + z + x:z` | regress `y` on `x`, `z`, and the product `x` times `z` |
+| `*` | shorthand for levels plus interaction | `y ~ x * z` | regress `y` on `x`, `z`, and the product `x` times `z` |
+| `^` | higher order interactions | `y ~ (x + z + w)^3` | regress `y` on `x`, `z`, `w`, all two-way interactions, and the three-way interactions |
+| `I()` | "as-is" - override special meanings of other symbols from this table | `y ~ x + I(x^2)` | regress `y` on `x` and `x` squared |
+
+
+
+
+### "Everything Else" -- The Dot `.`
+Sometimes all you want to do is run a regression of one variable on *everything else*. If you have lots of predictors, typing out all of their names, each separated by a `+` sign, is painful and error-prone. Fortunately there's a shortcut: the dot `.`
+```{r}
+lm(kid_score ~ ., kids)
+```
+This command tells R to regress `kid_score` on *everything else* in `kids`. We'll encounter the dot in many guises later in this lesson and elsewhere. Wherever you see it, replace it mentally with the word "everything" and you'll never be confused. The rest will be clear from context.
+
+### Removing Predictors with `-`
+Suppose you wanted to regress `kid_score` on `mom_hs` and `mom_iq` but *not* `mom_age`. One way to do this is by writing out the formula explicitly:   
+```{r}
+lm(kid_score ~ mom_hs + mom_iq, kids)
+```
+In this example, it's not too difficult to specify the formula we want by typing it out in full. But what if we had dozens of predictors and only wanted to exclude one or two? This is where the minus sign `-` comes in handy. Think of `+` as saying "add me to the regression" and `-` as saying "remove me from the regression." By combining `-` with `.` we can tell R to "add everything, then remove `mom_age`" as follows:
+```{r}
+lm(kid_score ~ . - mom_age, kids)
+```
+This use of `-` is very similar to what you've seen in the `select()` function from `dplyr`. And as in `dplyr`, we can use it to remove more than one variable. In this example, it's silly but just to show you that it works as expected:
+```{r}
+lm(kid_score ~ . - mom_age - mom_hs, kids)
+```
+
+### The Intercept: `1`
+
+It almost always makes sense to include an intercept when you run a linear regression. Without one, we're forced to predict that $Y$ will be zero when $X$ is zero. Because this is usually a bad idea, `lm()` includes an intercept by default:
+```{r}
+lm(kid_score ~ mom_iq, kids)
+```
+In some special cases, however, we may have a reason to run a regression without an intercept. R's formula syntax denotes the intercept by `1`. Armed with this knowledge, we can remove it from our regression using `-` as introduced above:
+```{r}
+lm(kid_score ~ mom_iq - 1, kids)
+```
+Another situation in which we may wish to remove the intercept is when running a regression with a categorical variable. As mentioned above, we can't include an intercept *and* a coefficient for each value of a categorical variable in our regression: this is the dummy variable trap. We either have to drop one level of the categorical variable (the baseline or omitted category) or drop the intercept. Above we saw how to choose which category to omit. But another option is to drop the intercept. In the first regression, the intercept equals the mean of `kid_score` for the omitted category `mom_education == "No High School"` while the intercept gives the difference of means:
+```{r}
+lm(kid_score ~ mom_education, kids)
+```
+In the second, we obtain the mean of `kid_score` for each group:
+```{r}
+lm(kid_score ~ mom_education - 1, kids)
+kids %>% 
+  group_by(mom_education) %>%
+  summarize(mean(kid_score))
+```
+
+
+
+**Exercise #4**
+What do you get if you run the regression `lm(kid_score ~ 1, kids)`? Explain.
+
+
+**Solution** 
+This is a regression with *only an intercept*, so it calculates the sample mean of `kid_score`
+```{r}
+lm(kid_score ~ 1, kids)
+kids %>%
+  summarize(mean(kid_score))
+```
+If you're still not convinced, a quick calculation shows that $\widehat{\alpha} = \bar{y}$ minimizes $\sum_{i=1}^n (y_i - \alpha)^2$ over $\alpha$, where $\bar{y} \equiv \frac{1}{n}\sum_{i=1}^n y_i$.
+
+
+### Adding Interactions With `:`, `*`, and `^`
+Point out that `*` and `^` are really just helpful shorthand: you can do everything with `:` and `+`. There are many different ways to specify the same formula in R, but some are easier to type and some are easier to understand that others.
+
+### Transforming Outcomes and Predictors 
+What if you wanted to regress the logarithm of `kid_score` on `mom_age` and `mom_age^2`? One way to do this is by creating a new data frame:
+```{r}
+new_kids <- kids %>%
+  mutate(log_kid_score = log(kid_score),
+         mom_age_sq = mom_age^2)
+lm(log_kid_score ~ mom_age + mom_age_sq, new_kids)
+```
+It worked! But that required an awful lot of typing. What's more, I had to clutter up my R environment with *another* data frame: `new_kids`. A more elegant approach uses R's formula syntax to do all the heavy lifting. First I'll show you the syntax and then I'll explain it:
+```{r}
+lm(log(kid_score) ~ mom_age + I(mom_age^2), kids)
+```
+The key point here is that we can use functions *within an R function*. When `lm()` encounters `log(kid_score) ~ mom_age + I(mom_age^2)` it looks at the data frame `kids`, and then *parses* the formula to construct all the variables that it needs to run the regession. There's no need for us to construct and store these in advance: R can do everything for us. 
+
+The only awkward part is the function `I()`. What on earth is that doing in our formula? Formulas have their own special syntax: a `+` inside a formula doesn't denote addition and a `.` doesn't indicate a decimal point. To *override* the special meanings of these symbols, 
+
+Every programming language has words and characters with special meanings. If you try to construct a variable called `+TRUE^2`, R won't let you: `+`, `TRUE` and `^` have special meanings in R. If, for whatever strange reason, you insist upon having a variable called `+TRUE^2`, you have to *tell* R that it shouldn't interpret these symbols in the usual name. You can do this by wrapping them in backticks, as follows:
+```{r}
+`+TRUE^2` <- 6
+`+TRUE^2`
+```
+The role of `I()` inside an R formula is identical to that of back ticks in the creation of variable names
+
+### Formulas are objects
+**Shorten this. Don't get into too much detail, but point them to various functions for computing on and updating formulas. Say why this might be helpful: you want to run a linear probability model *and* Probit using the same LHS and RHS variables.**
+
+The first thing you need to know about formulas is that they're *objects*. This means we can store them, pass them into functions, and write code to modify them. Above we supplied `kid_score ~ mom_iq` as the first argument to `lm()`. Now let's try something different: we'll *store* this formula, give it a name, and then pass it to `lm()`
+```{r}
+little_formula <- kid_score ~ mom_iq
+str(little_formula)
+lm(little_formula, kids)
+```
+So what? We got exactly the same results above with less typing! Before it becomes clear why storing a formula could come in handy, we need to learn some additional syntax.
+
+```{r}
+big_formula <- kid_score ~ mom_iq + mom_hs + mom_age
+```
+
+## Exercises
+**Look for interaction between `mom_hs` and `mom_iq`, interpret results, make some plots** 
+
+
