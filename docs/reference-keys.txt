@@ -85,3 +85,7 @@ exercise-21
 exercise-22
 everything-else---the-dot-.
 exercise-23
+tidying-up-with-broom
+exercise-24
+plotting-the-regression-line
+exercise-25

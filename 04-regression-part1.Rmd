@@ -93,6 +93,52 @@ lm(mom_hs ~ kid_score + mom_iq, kids)
 ```
 `r unhide()`
 
+## Plotting the Regression Line
+The `ggplot2` package makes it easy to produce an attractive and informative plot of the results of a simple linear regression. Using what we learned in our last lesson, we know how to make a scatter plot of `mom_iq` and `kid_score`:
+```{r, message=FALSE}
+library(ggplot2)
+ggplot(kids) +
+  geom_point(aes(x = mom_iq, y = kid_score))
+```
+To add the regression line, we'll use `geom_smooth()`, a function for plotting *smoothed conditional means*. We can use `geom_smooth()` in exactly the same way as `geom_point()` by specifying `aes()` to set the `x` and `y` variables. By default, `geom_smooth()` plots a *non-parametric* regression curve rather than a linear regression:
+```{r}
+ggplot(kids) +
+  geom_point(aes(x = mom_iq, y = kid_score)) +
+  geom_smooth(aes(x = mom_iq, y = kid_score)) 
+```
+Notice that we had to type `aes(x = mom_iq, y = kid_score)` *twice* in the preceding code chunk. This is tedious and error-prone. In more complicated plots that contain multiple `geom` functions, life is much simpler if we specify our desired `aes()` *once*. To do this, pass it as an argument to `ggplot` rather than to the `geom`, for example
+```{r, message=FALSE, eval=FALSE}
+ggplot(kids, aes(x = mom_iq, y = kid_score)) +
+  geom_point() +
+  geom_smooth() 
+```
+
+To plot a regression *line* rather than this non-parametric regression function, we merely need to set `method = 'lm` in `geom_smooth()`, for example
+```{r, message=FALSE}
+ggplot(kids, aes(x = mom_iq, y = kid_score)) +
+  geom_point() +
+  geom_smooth(method = 'lm') 
+```
+By default this plots the regression line from the regression `y ~ x`.
+
+### Exercise
+1. Use `ggplot()` to make a scatter plot with `mom_age` on the horizontal axis and `kid_score` on the vertical axis.
+```{r, webex.hide = 'Show Solution', message=FALSE}
+ggplot(kids, aes(x = mom_age, y = kid_score)) +
+  geom_point()
+```
+2. Use `geom_smooth()` to including the non-parametric regression function on the preceding plot. 
+```{r, webex.hide = 'Show Solution', message=FALSE}
+ggplot(kids, aes(x = mom_age, y = kid_score)) +
+  geom_point() +
+  geom_smooth()
+```
+3. Modify the preceding to include the regression line corresponding to `kid_score ~ mom_age` on the scatter plot rather than the non-parametric regression function.
+```{r, webex.hide = 'Show Solution', message=FALSE}
+ggplot(kids, aes(x = mom_age, y = kid_score)) +
+  geom_point() +
+  geom_smooth(method = 'lm')
+```
 
 ## Getting More from `lm()` 
 If we simply run `lm` as above, R will display only the estimated regression coefficients and the command that we used to run the regression: `Call`.
@@ -175,7 +221,7 @@ summary(reg_reverse)
 ```
 
 
-## Cleaning up `summary()` with `broom()` 
+## Tidying up with `broom` 
 We saw above that `lm()` returns a list. It turns out that `summary()`, when applied to an `lm()` object, *also* returns a list: 
 ```{r, out.lines = 10}
 str(summary(reg1))
@@ -376,10 +422,6 @@ kids %>%
 See the exercise earlier in this lesson for a mathematical proof that regression with only an intercept is equivalent to computing the sample mean of $Y$.
 `r unhide()`
 
-
-### Adding Interactions With `:`, `*`, and `^`
-Point out that `*` and `^` are really just helpful shorthand: you can do everything with `:` and `+`. There are many different ways to specify the same formula in R, but some are easier to type and some are easier to understand that others.
-
 ### Transforming Outcomes and Predictors 
 What if you wanted to regress the logarithm of `kid_score` on `mom_age` and `mom_age^2`? One way to do this is by creating a new data frame:
 ```{r}
@@ -392,33 +434,71 @@ It worked! But that required an awful lot of typing. What's more, I had to clutt
 ```{r}
 lm(log(kid_score) ~ mom_age + I(mom_age^2), kids)
 ```
-The key point here is that we can use functions *within an R function*. When `lm()` encounters `log(kid_score) ~ mom_age + I(mom_age^2)` it looks at the data frame `kids`, and then *parses* the formula to construct all the variables that it needs to run the regession. There's no need for us to construct and store these in advance: R can do everything for us. 
+The key point here is that we can use functions *within an R formula*. When `lm()` encounters `log(kid_score) ~ mom_age + I(mom_age^2)` it looks at the data frame `kids`, and then *parses* the formula to construct all the variables that it needs to run the regression. There's no need for us to construct and store these in advance: R does everything for us. Remember how `lm()` automatically constructed all the dummy variables required for a regression with a categorical predictor in the exercise from above? Roughly the same thing is going on here.
 
-The only awkward part is the function `I()`. What on earth is that doing in our formula? Formulas have their own special syntax: a `+` inside a formula doesn't denote addition and a `.` doesn't indicate a decimal point. To *override* the special meanings of these symbols, 
+The only awkward part is the function `I()`. What on earth is this mean?! Formulas have their own special syntax: a `+` inside a formula doesn't denote addition and a `.` doesn't indicate a decimal point. The full set of characters that have a "special meaning" within an R formula is as follows: `~ + . - : * ^ |`. We've already met the first four of these; we'll encounter the next three in the following section. If you want to use any of these characters in their *ordinary meaning* you need to "wrap them" in an `I()`. In words, `I()` means "as-is," in other words "don't treat the things inside these parentheses as formula syntax; treat them as you would a plain vanilla R expression. Since `^` has a special meaning within a formula, we need to wrap `mom_age^2` inside of `I()` to include the square of `mom_age`. We *don't* have to wrap `log(kid_score)` inside of `I()` because `log()` isn't one of the special characters `~ + . - : * ^ |`. 
 
-Every programming language has words and characters with special meanings. If you try to construct a variable called `+TRUE^2`, R won't let you: `+`, `TRUE` and `^` have special meanings in R. If, for whatever strange reason, you insist upon having a variable called `+TRUE^2`, you have to *tell* R that it shouldn't interpret these symbols in the usual name. You can do this by wrapping them in backticks, as follows:
+### Adding Interactions With `:`, `*`, and `^`
+An *interaction* is a predictor that is constructed by taking the *product* of two "basic" predictors: for example $X_1 \times X_2$. In R formula syntax we use a colon `:` to denote an interaction, for example:
 ```{r}
-`+TRUE^2` <- 6
-`+TRUE^2`
+lm(kid_score ~ mom_age:mom_iq, kids)
 ```
-The role of `I()` inside an R formula is identical to that of back ticks in the creation of variable names
-
-### Formulas are objects
-**Shorten this. Don't get into too much detail, but point them to various functions for computing on and updating formulas. Say why this might be helpful: you want to run a linear probability model *and* Probit using the same LHS and RHS variables.**
-
-The first thing you need to know about formulas is that they're *objects*. This means we can store them, pass them into functions, and write code to modify them. Above we supplied `kid_score ~ mom_iq` as the first argument to `lm()`. Now let's try something different: we'll *store* this formula, give it a name, and then pass it to `lm()`
+runs a regression of `kid_score` on the product of `mom_age` and `mom_iq`. This is a rather strange regression to run. Unless you have a very good reason for doing so, it's strange to use the *product* of `mom_age` and `mom_iq` to predict `kid_score` without using the *individual variables* as well. In statistical parlance, the coefficient on a predictor that is *not* an interaction, is often called a *main effect*. And as a rule of thumb, just as it rarely makes sense to run a regression without an intercept, it rarely makes sense to include an interaction term without including the associated main effects. Taking this to heart, we can run a regression that includes `mom_age` and `mom_iq` in addition to their interaction as follows:
 ```{r}
-little_formula <- kid_score ~ mom_iq
-str(little_formula)
-lm(little_formula, kids)
+coef(lm(kid_score ~ mom_age + mom_iq + mom_age:mom_iq, kids))
 ```
-So what? We got exactly the same results above with less typing! Before it becomes clear why storing a formula could come in handy, we need to learn some additional syntax.
-
+Because including two variables as main effects along with their interaction is such a common pattern in practice, R's formula syntax include a special shorthand symbol for this: `*`. Somewhat confusingly, the expression `x1 * x2` within an R formula *does not* refer to the product of `x1` and `x2`. Instead it denotes `x1 + x2 + x1:x2`. For example, we could run exactly the same regression as above with less typing as follows:
 ```{r}
-big_formula <- kid_score ~ mom_iq + mom_hs + mom_age
+coef(lm(kid_score ~ mom_age * mom_iq, kids))
+```
+Both `:` and `*` can be chained together to create higher-order interactions. For example, the following command regresses `kid_score` on the three-way interaction of `mom_hs`, `mom_iq`, and `mom_age`
+```{r}
+coef(lm(kid_score ~ mom_hs:mom_iq:mom_age, kids))
+```
+If we want to include the corresponding levels, and two-way interactions *alongside* the three-way interaction, we can achieve this by chaining the `*` symbol as follows:
+```{r}
+coef(lm(kid_score ~ mom_hs * mom_iq * mom_age, kids))
 ```
 
-## Exercises
-**Look for interaction between `mom_hs` and `mom_iq`, interpret results, make some plots** 
+The caret `^` is another shorthand symbol for running regressions with interactions. I rarely use it myself, but you may come across it occasionally. The syntax `(x1 + x2)^2` is equivalent to `x1 * x2`, for example:
+```{r}
+coef(lm(kid_score ~ (mom_age + mom_iq)^2, kids))
+```
+and `(x1 + x2 + x2)^3` is equivalent to `x1 * x2 * x3`
+```{r}
+coef(lm(kid_score ~ (mom_hs + mom_iq + mom_age)^3, kids))
+```
+One place where `^` can come in handy is if you want to include levels and all *two way* interactions of more than two variables. For example,
+```{r}
+coef(lm(kid_score ~ (mom_hs + mom_iq + mom_age)^2, kids))
+```
+is a more compact way of specifying 
+```{r}
+coef(lm(kid_score ~ mom_hs * mom_iq * mom_age - mom_hs:mom_iq:mom_age, kids))
+```
+
+
+### Exercise 
+1. Run a regression of `kid_score` on `mom_iq` and `mom_iq^2` and display a tidy summary of the regression output, including standard errors. 
+```{r, webex.hide = 'Show Solution'}
+tidy(lm(kid_score ~ mom_iq + I(mom_iq^2), kids))
+```
+2. Use `ggplot2` to make a scatter-plot with `mom_iq` on the horizontal axis and `kid_score` on the vertical axis. Look at the help file for `geom_smooth()` and figure out how to use it to add the regression function from the first part   
+```{r webex.hide = 'Show Solution'}
+ggplot(kids, aes(x = mom_iq, y = kid_score)) +
+  geom_point() +
+  geom_smooth(method = 'lm', formula = y ~ x + I(x^2))
+```
+3. Based on the results of the preceding two parts, is there any evidence that the slope of the predictive relationship between `kid_score` and `mom_iq` varies with `mom_iq`?
+`r hide("Show Solution")`
+add solution here!
+`r unhide()`
+4. Suppose we wanted to run a regression of `kid_score` on `mom_iq`, `mom_hs`, and their interaction. Write down *three* different ways of specifying this regression using R's formula syntax.
+`r hide("Show Solution")`
+- `kid_score ~ mom_iq + mom_hs + mom_iq:mom_hs`
+- `kid_score ~ mom_iq * mom_hs`
+- `kid_score ~ (mom_iq + mom_hs)^2`
+`r unhide()`
+5. Look for interaction between `mom_hs` and `mom_iq`, interpret results, make some plots. (there was an example with the tips data and ggplot2 I liked)
 
 
