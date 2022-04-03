@@ -422,6 +422,12 @@ kids %>%
 See the exercise earlier in this lesson for a mathematical proof that regression with only an intercept is equivalent to computing the sample mean of $Y$.
 `r unhide()`
 
+4. Run a regression of `kid_score` on `mom_age_bins` and `mom_iq`, but rather than including an intercept and an omitted category fit a separate coefficient for each level of `mom_age_bins`. 
+```{r, webex.hide = 'Show Solution'}
+lm(kid_score ~ mom_age_bins + mom_iq - 1, kids)
+```
+
+
 ### Transforming Outcomes and Predictors 
 What if you wanted to regress the logarithm of `kid_score` on `mom_age` and `mom_age^2`? One way to do this is by creating a new data frame:
 ```{r}
@@ -483,7 +489,10 @@ coef(lm(kid_score ~ mom_hs * mom_iq * mom_age - mom_hs:mom_iq:mom_age, kids))
 ```{r, webex.hide = 'Show Solution'}
 tidy(lm(kid_score ~ mom_iq + I(mom_iq^2), kids))
 ```
-2. Use `ggplot2` to make a scatter-plot with `mom_iq` on the horizontal axis and `kid_score` on the vertical axis. Look at the help file for `geom_smooth()` and figure out how to use it to add the regression function from the first part   
+2. Use `ggplot2` to make a scatter-plot with `mom_iq` on the horizontal axis and `kid_score` on the vertical axis. Add the quadratic regression function from the first part.
+`r hide("Show Hint")`
+Add the argument `formula = y ~ x + I(x^2)` to `geom_smooth()`.
+`r unhide()`
 ```{r webex.hide = 'Show Solution'}
 ggplot(kids, aes(x = mom_iq, y = kid_score)) +
   geom_point() +
@@ -491,7 +500,7 @@ ggplot(kids, aes(x = mom_iq, y = kid_score)) +
 ```
 3. Based on the results of the preceding two parts, is there any evidence that the slope of the predictive relationship between `kid_score` and `mom_iq` varies with `mom_iq`?
 `r hide("Show Solution")`
-add solution here!
+Yes: the estimated coefficient on `mom_iq^2` is highly statistically significant, and from the plot we see that there is a "practically significant" amount of curvature in the predictive relationship.
 `r unhide()`
 4. Suppose we wanted to run a regression of `kid_score` on `mom_iq`, `mom_hs`, and their interaction. Write down *three* different ways of specifying this regression using R's formula syntax.
 `r hide("Show Solution")`
@@ -499,6 +508,24 @@ add solution here!
 - `kid_score ~ mom_iq * mom_hs`
 - `kid_score ~ (mom_iq + mom_hs)^2`
 `r unhide()`
-5. Look for interaction between `mom_hs` and `mom_iq`, interpret results, make some plots. (there was an example with the tips data and ggplot2 I liked)
+5. Run a regression of `kid_score` on `mom_hs`, `mom_iq` and their interaction. Display a tidy summary of the estimates, standard errors, etc. Is there any evidence that the predictive relationship between `kid_score` and `mom_iq` varies depending on whether a given child's mother graduated from high school? Explain.
+`r hide("Show Solution")`
+```{r}
+tidy(lm(kid_score ~ mom_iq * mom_hs, kids))
+```
+Let's introduce a bit of notation to make things clearer. The regression specification is as follows:
+$$
+\texttt{kid_score} = \widehat{\alpha} + \widehat{\beta} \times \texttt{mom_hs} + \widehat{\gamma} \times \texttt{mom_iq} + \widehat{\delta} \times (\texttt{mom_hs} \times \texttt{mom_iq})
+$$
+Now, `mom_hs` is a dummy variable that equals 1 if a child's mother graduated from high school For a child whose mother did not graduate from high school, our prediction becomes 
+$$
+\texttt{kid_score} = \widehat{\alpha} + \widehat{\gamma} \times \texttt{mom_iq} 
+$$
+compared to the following for a child whose mother *did* graduate from high school:
+$$
+\texttt{kid_score} = (\widehat{\alpha} + \widehat{\beta})  + (\widehat{\gamma} + \widehat{\delta})\times \texttt{mom_iq}
+$$
+Thus, the coefficient $\widehat{\delta}$ on the interaction `mom_iq:mom_hs` is the *difference of slopes*: high-school minus no high school. The point estimate is negative, large, and highly statistically significant. We have fairly strong evidence that the predictive relationship between `kid_score` and `mom_iq` is *less steep* for children whose mothers attended high school. For more discussion of this example, see [this document](http://ditraglia.com/Econ103Public/slides/lecture23_child_test.pdf).
+`r unhide()`
 
 

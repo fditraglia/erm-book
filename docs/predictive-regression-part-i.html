@@ -320,9 +320,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="introduction" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> Introduction</h2>
 <p>This is the first of two lessons that will teach you how to implement and interpret <em>predictive</em> linear regression in R. For the moment we won't worry about causality and we won't talk about heteroskedasticity or autocorrelation. In this first lesson, we'll introduce the basics using a simple dataset that you can download from my website and display as follows:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="predictive-regression-part-i.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-2"><a href="predictive-regression-part-i.html#cb1-2" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://ditraglia.com/econ103/child_test_data.csv&quot;</span>)</span>
-<span id="cb1-3"><a href="predictive-regression-part-i.html#cb1-3" aria-hidden="true" tabindex="-1"></a>kids</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="predictive-regression-part-i.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb255-2"><a href="predictive-regression-part-i.html#cb255-2" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://ditraglia.com/econ103/child_test_data.csv&quot;</span>)</span>
+<span id="cb255-3"><a href="predictive-regression-part-i.html#cb255-3" aria-hidden="true" tabindex="-1"></a>kids</span></code></pre></div>
 <pre><code>## # A tibble: 434 × 4
 ##    kid.score mom.hs mom.iq mom.age
 ##        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
@@ -352,12 +352,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="predictive-regression-part-i.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb3-2"><a href="predictive-regression-part-i.html#cb3-2" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a href="predictive-regression-part-i.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">kid_score =</span> kid.score,</span>
-<span id="cb3-4"><a href="predictive-regression-part-i.html#cb3-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_hs =</span> mom.hs, </span>
-<span id="cb3-5"><a href="predictive-regression-part-i.html#cb3-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_iq =</span> mom.iq, </span>
-<span id="cb3-6"><a href="predictive-regression-part-i.html#cb3-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_age =</span> mom.age)</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="predictive-regression-part-i.html#cb257-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb257-2"><a href="predictive-regression-part-i.html#cb257-2" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
+<span id="cb257-3"><a href="predictive-regression-part-i.html#cb257-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">kid_score =</span> kid.score,</span>
+<span id="cb257-4"><a href="predictive-regression-part-i.html#cb257-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_hs =</span> mom.hs, </span>
+<span id="cb257-5"><a href="predictive-regression-part-i.html#cb257-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_iq =</span> mom.iq, </span>
+<span id="cb257-6"><a href="predictive-regression-part-i.html#cb257-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_age =</span> mom.age)</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -383,7 +383,7 @@ Show Solution
 <h2><span class="header-section-number">4.3</span> Linear Regression with <code>lm()</code></h2>
 <p>The R function <code>lm()</code>, short for <strong>linear model</strong>, solves the least squares problem. Its basic syntax is <code>lm([formula], [dataframe])</code> where <code>[formula]</code> is an R <em>formula</em>--an object that describes the regression we want to run--and <code>[dataframe]</code> is the name of a data frame containing our <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> observations, e.g. <code>kids</code>. R formulas can be a bit confusing when you first encounter them, so I'll explain the details in stages. For the moment, there are two symbols you need to learn: <code>~</code> and <code>+</code></p>
 <p>The tilde symbol <code>~</code> is used to separate the "left hand side" and "right hand side" of a formula: the <em>outcome</em> goes on the left of the <code>~</code> and the predictors go on the right. For example, to regress <code>kid_score</code> on <code>mom_iq</code> we use the command</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="predictive-regression-part-i.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="predictive-regression-part-i.html#cb258-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ mom_iq, data = kids)
@@ -392,7 +392,7 @@ Show Solution
 ## (Intercept)       mom_iq  
 ##       25.80         0.61</code></pre>
 <p>This tells R: "please solve the least squares problem to predict <code>kid_score</code> using <code>mom_iq</code> based on the data contained in <code>kids</code>." Notice that R includes an intercept in the regression automatically. This is a good default, because it seldom makes sense to run a regression without an intercept. When you want to run a regression with <em>multiple</em> right-hand side predictors, use the plus sign <code>+</code> to separate them. For example, to regress <code>kid_score</code> on <code>mom_iq</code> and <code>mom_age</code>use the command</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="predictive-regression-part-i.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">+</span> mom_age, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="predictive-regression-part-i.html#cb260-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">+</span> mom_age, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ mom_iq + mom_age, data = kids)
@@ -410,7 +410,7 @@ Show Solution
 Show Solution
 </button>
 <p>Consider two kids whose mothers differ by 1 point in <code>mom_iq</code>. We would predict that the kid whose mom has the higher value of <code>mom_iq</code> will score about 0.6 points higher in <code>kid_score</code>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="predictive-regression-part-i.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="predictive-regression-part-i.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ mom_iq, data = kids)
@@ -426,7 +426,7 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="predictive-regression-part-i.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(mom_hs <span class="sc">~</span> kid_score <span class="sc">+</span> mom_iq, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="predictive-regression-part-i.html#cb264-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(mom_hs <span class="sc">~</span> kid_score <span class="sc">+</span> mom_iq, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mom_hs ~ kid_score + mom_iq, data = kids)
@@ -440,25 +440,25 @@ Show Solution
 <div id="plotting-the-regression-line" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Plotting the Regression Line</h2>
 <p>The <code>ggplot2</code> package makes it easy to produce an attractive and informative plot of the results of a simple linear regression. Using what we learned in our last lesson, we know how to make a scatter plot of <code>mom_iq</code> and <code>kid_score</code>:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="predictive-regression-part-i.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb12-2"><a href="predictive-regression-part-i.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids) <span class="sc">+</span></span>
-<span id="cb12-3"><a href="predictive-regression-part-i.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score))</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="predictive-regression-part-i.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb266-2"><a href="predictive-regression-part-i.html#cb266-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids) <span class="sc">+</span></span>
+<span id="cb266-3"><a href="predictive-regression-part-i.html#cb266-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score))</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-138-1.png" width="672" />
 To add the regression line, we'll use <code>geom_smooth()</code>, a function for plotting <em>smoothed conditional means</em>. We can use <code>geom_smooth()</code> in exactly the same way as <code>geom_point()</code> by specifying <code>aes()</code> to set the <code>x</code> and <code>y</code> variables. By default, <code>geom_smooth()</code> plots a <em>non-parametric</em> regression curve rather than a linear regression:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="predictive-regression-part-i.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids) <span class="sc">+</span></span>
-<span id="cb13-2"><a href="predictive-regression-part-i.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
-<span id="cb13-3"><a href="predictive-regression-part-i.html#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score)) </span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="predictive-regression-part-i.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids) <span class="sc">+</span></span>
+<span id="cb267-2"><a href="predictive-regression-part-i.html#cb267-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
+<span id="cb267-3"><a href="predictive-regression-part-i.html#cb267-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score)) </span></code></pre></div>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<p><img src="erm-book_files/figure-html/unnamed-chunk-139-1.png" width="672" />
 Notice that we had to type <code>aes(x = mom_iq, y = kid_score)</code> <em>twice</em> in the preceding code chunk. This is tedious and error-prone. In more complicated plots that contain multiple <code>geom</code> functions, life is much simpler if we specify our desired <code>aes()</code> <em>once</em>. To do this, pass it as an argument to <code>ggplot</code> rather than to the <code>geom</code>, for example</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="predictive-regression-part-i.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
-<span id="cb15-2"><a href="predictive-regression-part-i.html#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb15-3"><a href="predictive-regression-part-i.html#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="predictive-regression-part-i.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
+<span id="cb269-2"><a href="predictive-regression-part-i.html#cb269-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb269-3"><a href="predictive-regression-part-i.html#cb269-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>() </span></code></pre></div>
 <p>To plot a regression <em>line</em> rather than this non-parametric regression function, we merely need to set <code>method = 'lm</code> in <code>geom_smooth()</code>, for example</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="predictive-regression-part-i.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
-<span id="cb16-2"><a href="predictive-regression-part-i.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb16-3"><a href="predictive-regression-part-i.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>) </span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="predictive-regression-part-i.html#cb270-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
+<span id="cb270-2"><a href="predictive-regression-part-i.html#cb270-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb270-3"><a href="predictive-regression-part-i.html#cb270-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>) </span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-141-1.png" width="672" />
 By default this plots the regression line from the regression <code>y ~ x</code>.</p>
 <div id="exercise-19" class="section level3" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> Exercise</h3>
@@ -469,9 +469,9 @@ By default this plots the regression line from the regression <code>y ~ x</code>
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="predictive-regression-part-i.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_age, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
-<span id="cb17-2"><a href="predictive-regression-part-i.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="predictive-regression-part-i.html#cb271-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_age, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
+<span id="cb271-2"><a href="predictive-regression-part-i.html#cb271-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-142-1.png" width="672" /></p>
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>Use <code>geom_smooth()</code> to including the non-parametric regression function on the preceding plot.</li>
@@ -480,10 +480,10 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="predictive-regression-part-i.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_age, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
-<span id="cb18-2"><a href="predictive-regression-part-i.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb18-3"><a href="predictive-regression-part-i.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="predictive-regression-part-i.html#cb272-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_age, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
+<span id="cb272-2"><a href="predictive-regression-part-i.html#cb272-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb272-3"><a href="predictive-regression-part-i.html#cb272-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-143-1.png" width="672" /></p>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Modify the preceding to include the regression line corresponding to <code>kid_score ~ mom_age</code> on the scatter plot rather than the non-parametric regression function.</li>
@@ -492,10 +492,10 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="predictive-regression-part-i.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_age, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
-<span id="cb19-2"><a href="predictive-regression-part-i.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb19-3"><a href="predictive-regression-part-i.html#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="predictive-regression-part-i.html#cb273-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_age, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
+<span id="cb273-2"><a href="predictive-regression-part-i.html#cb273-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb273-3"><a href="predictive-regression-part-i.html#cb273-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-144-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -503,9 +503,9 @@ Show Solution
 <h2><span class="header-section-number">4.5</span> Getting More from <code>lm()</code></h2>
 <p>If we simply run <code>lm</code> as above, R will display only the estimated regression coefficients and the command that we used to run the regression: <code>Call</code>.
 To get more information, we need to <em>store</em> the results of our regression using the assignment operator <code>&lt;-</code> for example:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="predictive-regression-part-i.html#cb20-1" aria-hidden="true" tabindex="-1"></a>reg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="predictive-regression-part-i.html#cb274-1" aria-hidden="true" tabindex="-1"></a>reg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq, kids)</span></code></pre></div>
 <p>If you run the preceding line of code in the R console, it won't produce any output. But if you check your R environment after running it, you'll see a new <code>List</code> object: <code>reg1</code>. To see what's inside this list, we can use the command <code>str</code>:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="predictive-regression-part-i.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(reg1)</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="predictive-regression-part-i.html#cb275-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(reg1)</span></code></pre></div>
 <pre><code>## List of 12
 ##  $ coefficients : Named num [1:2] 25.8 0.61
 ##   ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;(Intercept)&quot; &quot;mom_iq&quot;
@@ -520,11 +520,11 @@ To get more information, we need to <em>store</em> the results of our regression
 <p>Don't panic: you don't need to know what all of these list elements are.
 The important thing to understand is that <code>lm</code> returns a <em>list</em> from which we can extract important information about the regression we have run.
 To extract the regression coefficient estimates, we use the function <code>coefficients()</code> or <code>coef()</code> for short</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="predictive-regression-part-i.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(reg1)</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="predictive-regression-part-i.html#cb277-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(reg1)</span></code></pre></div>
 <pre><code>## (Intercept)      mom_iq 
 ##  25.7997778   0.6099746</code></pre>
 <p>To extract the regression residuals, we use the function <code>residuals()</code> or <code>resid()</code> for short</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="predictive-regression-part-i.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">resid</span>(reg1)</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="predictive-regression-part-i.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="fu">resid</span>(reg1)</span></code></pre></div>
 <pre><code>##            1            2            3            4            5            6 
 ## -34.67839049  17.69174662 -11.21717291  -3.46152907  32.62769741   6.38284487 
 ##            7            8            9           10           11           12 
@@ -537,7 +537,7 @@ To extract the regression coefficient estimates, we use the function <code>coeff
 ##  13.66974891  -4.06297022 -14.03359486  -7.52559318   2.18354609   2.47533381 
 ....</code></pre>
 <p>To extract the <em>fitted values</em> i.e. <span class="math inline">\(\hat{Y}_i \equiv X_i&#39;\hat{\beta}\)</span>, the predicted values of, we use <code>fitted.values</code></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="predictive-regression-part-i.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fitted.values</span>(reg1)</span></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="predictive-regression-part-i.html#cb281-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fitted.values</span>(reg1)</span></code></pre></div>
 <pre><code>##         1         2         3         4         5         6         7         8 
 ##  99.67839  80.30825  96.21717  86.46153  82.37230  91.61716 110.52104 102.13512 
 ##         9        10        11        12        13        14        15        16 
@@ -559,10 +559,10 @@ To extract the regression coefficient estimates, we use the function <code>coeff
 Show Solution
 </button>
 <p>There seems to be a bit of left skewness in the residuals.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="predictive-regression-part-i.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb29-2"><a href="predictive-regression-part-i.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb29-3"><a href="predictive-regression-part-i.html#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">resid</span>(reg1)), <span class="at">binwidth =</span> <span class="dv">5</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="predictive-regression-part-i.html#cb283-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb283-2"><a href="predictive-regression-part-i.html#cb283-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb283-3"><a href="predictive-regression-part-i.html#cb283-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">resid</span>(reg1)), <span class="at">binwidth =</span> <span class="dv">5</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-150-1.png" width="672" /></p>
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>Calculate the residuals "by hand" by subtracting the fitted values from <code>reg1</code> from the column <code>kid_score</code> in <code>kids</code>. Use the R function <code>all.equal</code> to check that this gives the same result as <code>resid()</code>.</li>
@@ -572,7 +572,7 @@ Show Solution
 Show Solution
 </button>
 <p>They give exactly the same result:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="predictive-regression-part-i.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(<span class="fu">resid</span>(reg1), kids<span class="sc">$</span>kid_score <span class="sc">-</span> <span class="fu">fitted.values</span>(reg1))</span></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="predictive-regression-part-i.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(<span class="fu">resid</span>(reg1), kids<span class="sc">$</span>kid_score <span class="sc">-</span> <span class="fu">fitted.values</span>(reg1))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
 <ol start="3" style="list-style-type: decimal">
@@ -583,7 +583,7 @@ Show Solution
 Show Solution
 </button>
 <p>Close enough!</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="predictive-regression-part-i.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">resid</span>(reg1))</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="predictive-regression-part-i.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">resid</span>(reg1))</span></code></pre></div>
 <pre><code>## [1] 1.056155e-12</code></pre>
 </div>
 <ol start="4" style="list-style-type: decimal">
@@ -594,7 +594,7 @@ Show Solution
 Show Solution
 </button>
 <p>Again, close enough!</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="predictive-regression-part-i.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="fu">resid</span>(reg1), kids<span class="sc">$</span>mom_iq)</span></code></pre></div>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="predictive-regression-part-i.html#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="fu">resid</span>(reg1), kids<span class="sc">$</span>mom_iq)</span></code></pre></div>
 <pre><code>## [1] 3.121525e-16</code></pre>
 </div>
 </div>
@@ -602,7 +602,7 @@ Show Solution
 <div id="summarizing-the-ouput-of-lm" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Summarizing The Ouput of <code>lm()</code></h2>
 <p>To view the "usual" summary of regression output, we use the <code>summary()</code> function:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="predictive-regression-part-i.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg1)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="predictive-regression-part-i.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ mom_iq, data = kids)
@@ -621,7 +621,7 @@ Show Solution
 ## Residual standard error: 18.27 on 432 degrees of freedom
 ## Multiple R-squared:  0.201,  Adjusted R-squared:  0.1991 
 ## F-statistic: 108.6 on 1 and 432 DF,  p-value: &lt; 2.2e-16</code></pre>
-<p>Among other things, <code>summary</code> shows us the coefficient estimates and associated standard errors for each regressor. It also displays the t-value (Estimate / SE) and associated p-value for a test of the null hypothesis <span class="math inline">\(H_0\colon \beta = 0\)</span> versus <span class="math inline">\(H_1\colon \beta \neq 0\)</span>. Farther down in the output, <code>summary</code> provides the residual standard error, the R-squared, and the F-statistic and associated p-value for a test of the null hypothesis that all regression coefficients except for the intercept are zero.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<p>Among other things, <code>summary</code> shows us the coefficient estimates and associated standard errors for each regressor. It also displays the t-value (Estimate / SE) and associated p-value for a test of the null hypothesis <span class="math inline">\(H_0\colon \beta = 0\)</span> versus <span class="math inline">\(H_1\colon \beta \neq 0\)</span>. Farther down in the output, <code>summary</code> provides the residual standard error, the R-squared, and the F-statistic and associated p-value for a test of the null hypothesis that all regression coefficients except for the intercept are zero.<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a></p>
 <p><strong>Health warning: by default, <code>lm()</code> computes standard errors and p-values under the classical regression assumptions.</strong> In particular, unless you explicitly tell R to do otherwise, it will assume that the regression errors <span class="math inline">\(\varepsilon_i \equiv Y_i - X_i&#39; \beta\)</span> are homoskedastic, and iid. If you're not quite sure what this means, or if you're worried that I'm sweeping important details under the rug, fear not: we'll revisit this in a later lesson. For the moment, let me offer you the following mantra, paraphrasing the wisdom of my <a href="https://econweb.ucsd.edu/~jhamilton/">favorite professor</a> from grad school:</p>
 <blockquote>
 <p>You can <em>always</em> run a [predictive] linear regression; it's inference that requires assumptions.</p>
@@ -633,8 +633,8 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="predictive-regression-part-i.html#cb38-1" aria-hidden="true" tabindex="-1"></a>reg_reverse <span class="ot">&lt;-</span> <span class="fu">lm</span>(mom_iq <span class="sc">~</span> mom_hs <span class="sc">+</span> kid_score, kids)</span>
-<span id="cb38-2"><a href="predictive-regression-part-i.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg_reverse)</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="predictive-regression-part-i.html#cb292-1" aria-hidden="true" tabindex="-1"></a>reg_reverse <span class="ot">&lt;-</span> <span class="fu">lm</span>(mom_iq <span class="sc">~</span> mom_hs <span class="sc">+</span> kid_score, kids)</span>
+<span id="cb292-2"><a href="predictive-regression-part-i.html#cb292-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg_reverse)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = mom_iq ~ mom_hs + kid_score, data = kids)
@@ -660,7 +660,7 @@ Show Solution
 <div id="tidying-up-with-broom" class="section level2" number="4.7">
 <h2><span class="header-section-number">4.7</span> Tidying up with <code>broom</code></h2>
 <p>We saw above that <code>lm()</code> returns a list. It turns out that <code>summary()</code>, when applied to an <code>lm()</code> object, <em>also</em> returns a list:</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="predictive-regression-part-i.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">summary</span>(reg1))</span></code></pre></div>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="predictive-regression-part-i.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(<span class="fu">summary</span>(reg1))</span></code></pre></div>
 <pre><code>## List of 11
 ##  $ call         : language lm(formula = kid_score ~ mom_iq, data = kids)
 ##  $ terms        :Classes &#39;terms&#39;, &#39;formula&#39;  language kid_score ~ mom_iq
@@ -673,27 +673,27 @@ Show Solution
 ##   .. ..- attr(*, &quot;order&quot;)= int 1
 ....</code></pre>
 <p>In principle, this gives us a way of extracting particular pieces of information from a table of regression output generated by <code>summary()</code>. For example, if you carefully examine the output of <code>str(summary(reg1))</code> you'll find a named list element called <code>r.squared</code>. By accessing this element, you can pluck out the R-squared from <code>summary(reg1)</code> as follows:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="predictive-regression-part-i.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg1)<span class="sc">$</span>r.squared</span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="predictive-regression-part-i.html#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reg1)<span class="sc">$</span>r.squared</span></code></pre></div>
 <pre><code>## [1] 0.2009512</code></pre>
 <p>Similarly, you could extract F-statistics and associated degrees of freedom by accessing You could extract the information
 That wasn't so bad! But now suppose you wanted to extract the estimates, standard errors, and p-values from <code>reg1</code>. While it's <em>possible</em> to do this by poring over the output of <code>str(summary(reg1))</code>, there's a much easier way.</p>
 <p>The <a href="https://broom.tidymodels.org/"><code>broom</code> package</a> provides some extremely useful functions for extracting regression output. Best of all, the same tools apply to models that we'll meet in later lessons. Use <code>tidy()</code> to create a tibble containing regression estimates, standard errors, t-statistics, and p-values e.g.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="predictive-regression-part-i.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb44-2"><a href="predictive-regression-part-i.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(reg1)</span></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="predictive-regression-part-i.html#cb298-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb298-2"><a href="predictive-regression-part-i.html#cb298-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(reg1)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 5
 ##   term        estimate std.error statistic  p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 (Intercept)   25.8      5.92        4.36 1.63e- 5
 ## 2 mom_iq         0.610    0.0585     10.4  7.66e-23</code></pre>
 <p>Use <code>glance()</code> to create a tibble that summarizes various measures of model fit:</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="predictive-regression-part-i.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(reg1)</span></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="predictive-regression-part-i.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(reg1)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 12
 ##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
 ##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1     0.201         0.199  18.3      109. 7.66e-23     1 -1876. 3757. 3769.
 ## # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
 <p>Finally, use <code>augment()</code> to create a tibble that <em>merges</em> the tibble you used to run your regression with the corresponding regression fitted values, residuals, etc.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="predictive-regression-part-i.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(reg1, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="predictive-regression-part-i.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(reg1, kids)</span></code></pre></div>
 <pre><code>## # A tibble: 434 × 10
 ##    kid_score mom_hs mom_iq mom_age .fitted .resid    .hat .sigma   .cooksd
 ##        &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
@@ -719,9 +719,9 @@ That wasn't so bad! But now suppose you wanted to extract the estimates, standar
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="predictive-regression-part-i.html#cb50-1" aria-hidden="true" tabindex="-1"></a>reg_reverse <span class="sc">%&gt;%</span></span>
-<span id="cb50-2"><a href="predictive-regression-part-i.html#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb50-3"><a href="predictive-regression-part-i.html#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">&#39;kid_score&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="predictive-regression-part-i.html#cb304-1" aria-hidden="true" tabindex="-1"></a>reg_reverse <span class="sc">%&gt;%</span></span>
+<span id="cb304-2"><a href="predictive-regression-part-i.html#cb304-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb304-3"><a href="predictive-regression-part-i.html#cb304-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">&#39;kid_score&#39;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 5
 ##   term      estimate std.error statistic  p.value
 ##   &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
@@ -734,11 +734,11 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="predictive-regression-part-i.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(reg_reverse, kids) <span class="sc">%&gt;%</span></span>
-<span id="cb52-2"><a href="predictive-regression-part-i.html#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> mom_iq)) <span class="sc">+</span> </span>
-<span id="cb52-3"><a href="predictive-regression-part-i.html#cb52-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb52-4"><a href="predictive-regression-part-i.html#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="predictive-regression-part-i.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(reg_reverse, kids) <span class="sc">%&gt;%</span></span>
+<span id="cb306-2"><a href="predictive-regression-part-i.html#cb306-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> mom_iq)) <span class="sc">+</span> </span>
+<span id="cb306-3"><a href="predictive-regression-part-i.html#cb306-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb306-4"><a href="predictive-regression-part-i.html#cb306-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-162-1.png" width="672" /></p>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Continuing from the preceding exercise, run a regression of <code>mom_iq</code> on the fitted values from <code>reg_reverse</code> and display the estimated regression coefficients. Compare the R-squared of this regression to that of <code>reg_reverse</code>. Explain your results.</li>
@@ -748,9 +748,9 @@ Show Solution
 Show Solution
 </button>
 <p>When we regress <span class="math inline">\(Y_i\)</span> on <span class="math inline">\(\widehat{Y}_i\)</span>, the fitted values from a regression of <span class="math inline">\(Y_i\)</span> on <span class="math inline">\(X_i\)</span>, we get an intercept of zero and a slope of one:</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="predictive-regression-part-i.html#cb53-1" aria-hidden="true" tabindex="-1"></a>kids_augmented <span class="ot">&lt;-</span> <span class="fu">augment</span>(reg_reverse, kids)</span>
-<span id="cb53-2"><a href="predictive-regression-part-i.html#cb53-2" aria-hidden="true" tabindex="-1"></a>reg_y_vs_fitted <span class="ot">&lt;-</span> <span class="fu">lm</span>(mom_iq <span class="sc">~</span> .fitted, kids_augmented)  </span>
-<span id="cb53-3"><a href="predictive-regression-part-i.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(reg_y_vs_fitted)</span></code></pre></div>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb307-1"><a href="predictive-regression-part-i.html#cb307-1" aria-hidden="true" tabindex="-1"></a>kids_augmented <span class="ot">&lt;-</span> <span class="fu">augment</span>(reg_reverse, kids)</span>
+<span id="cb307-2"><a href="predictive-regression-part-i.html#cb307-2" aria-hidden="true" tabindex="-1"></a>reg_y_vs_fitted <span class="ot">&lt;-</span> <span class="fu">lm</span>(mom_iq <span class="sc">~</span> .fitted, kids_augmented)  </span>
+<span id="cb307-3"><a href="predictive-regression-part-i.html#cb307-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(reg_y_vs_fitted)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 5
 ##   term        estimate std.error statistic  p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
@@ -761,7 +761,7 @@ Show Solution
 \sum_{i=1}^n \left[Y_i - (\alpha_0 + \widehat{\beta}_0) - X_i&#39;(\alpha_1\widehat{\beta}_1)\right]^2.
 \]</span>
 By construction <span class="math inline">\(\widehat{\beta}_0\)</span> and <span class="math inline">\(\widehat{\beta}_1\)</span> minimize <span class="math inline">\(\sum_{i=1}^n (Y_i - \beta_0 - X_i&#39;\beta_1)^2\)</span>, so unless <span class="math inline">\(\widehat{\alpha_0} = 0\)</span> and <span class="math inline">\(\widehat{\alpha_1} = 1\)</span> we'd have a contradiction! Similar reasoning explains why the R-squared values for the two regressions are the same:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="predictive-regression-part-i.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">glance</span>(reg_reverse)<span class="sc">$</span>r.squared, <span class="fu">glance</span>(reg_y_vs_fitted)<span class="sc">$</span>r.squared)</span></code></pre></div>
+<div class="sourceCode" id="cb309"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb309-1"><a href="predictive-regression-part-i.html#cb309-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="fu">glance</span>(reg_reverse)<span class="sc">$</span>r.squared, <span class="fu">glance</span>(reg_y_vs_fitted)<span class="sc">$</span>r.squared)</span></code></pre></div>
 <pre><code>## [1] 0.2339581 0.2339581</code></pre>
 <p>The R-squared of a regression equals <span class="math inline">\(1 - \text{SS}_{\text{residual}} / \text{SS}_{\text{total}}\)</span>
 <span class="math display">\[
@@ -775,7 +775,7 @@ The total sum of squares is the same for both regressions because they have the 
 <div id="dummy-variables-with-lm" class="section level2" number="4.8">
 <h2><span class="header-section-number">4.8</span> Dummy Variables with <code>lm()</code></h2>
 <p>The column <code>mom_hs</code> in <code>kids</code> is a <em>dummy variable</em>, also known as a binary variable. It equals <code>1</code> if a child's mother graduated from college and <code>0</code> otherwise. For this reason, the coefficient on <code>mom_hs</code> in the following regression tells us the <em>difference of mean test scores</em> between kids whose mothers graduated from college and those whose mothers did not, while the intercept tells us the mean of <code>kid_score</code> for children whose mothers didn't graduate from high school:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="predictive-regression-part-i.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_hs, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb311"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb311-1"><a href="predictive-regression-part-i.html#cb311-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_hs, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ mom_hs, data = kids)
@@ -784,11 +784,11 @@ The total sum of squares is the same for both regressions because they have the 
 ## (Intercept)       mom_hs  
 ##       77.55        11.77</code></pre>
 <p>Although it's represented using the numerical values <code>0</code> and <code>1</code>, <code>mom_hs</code> doesn't actually encode quantitative information. The numerical values are just shorthand for two different categories: <code>mom_hs</code> is a <em>categorical</em> variable. To keep from getting confused, it's good practice to make categorical variables <em>obvious</em> by storing them as character or factor data. Here I create a new column, <code>mom_education</code>, that stores the same information as <code>mom_hs</code> as a <em>factor</em>:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="predictive-regression-part-i.html#cb59-1" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
-<span id="cb59-2"><a href="predictive-regression-part-i.html#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_education =</span> <span class="fu">if_else</span>(mom_hs <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&#39;High School&#39;</span>, <span class="st">&#39;No High School&#39;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb59-3"><a href="predictive-regression-part-i.html#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_education =</span> <span class="fu">factor</span>(mom_education, <span class="at">levels =</span> <span class="fu">unique</span>(mom_education)))</span></code></pre></div>
+<div class="sourceCode" id="cb313"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb313-1"><a href="predictive-regression-part-i.html#cb313-1" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
+<span id="cb313-2"><a href="predictive-regression-part-i.html#cb313-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_education =</span> <span class="fu">if_else</span>(mom_hs <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&#39;High School&#39;</span>, <span class="st">&#39;No High School&#39;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb313-3"><a href="predictive-regression-part-i.html#cb313-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_education =</span> <span class="fu">factor</span>(mom_education, <span class="at">levels =</span> <span class="fu">unique</span>(mom_education)))</span></code></pre></div>
 <p>The column <code>mom_education</code> is a <em>factor</em>, R's built-in representation of a categorical variable. So what happens if we include <code>mom_education</code> in our regression in place of <code>mom_hs</code>?</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="predictive-regression-part-i.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_education, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="predictive-regression-part-i.html#cb314-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_education, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ mom_education, data = kids)
@@ -798,10 +798,10 @@ The total sum of squares is the same for both regressions because they have the 
 ##                       89.32                       -11.77</code></pre>
 <p>Wait a minute; now the estimate is <em>negative</em>! We can't run a regression that includes an intercept and a coefficient for each level of a dummy variable--this is the dummy variable trap!--so R has excluded one of them. Rather capriciously, <code>lm()</code> has chosen to treat <code>High School</code> as the omitted category.</p>
 <p>We can override this behavior by using <code>fct_relevel()</code> from the <a href="https://forcats.tidyverse.org/"><code>forcats</code> package</a>. The following code tells R that we want 'No High School' to be the <em>first</em> ordered factor level, the level that <code>lm()</code> treats as the omitted category by default:</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="predictive-regression-part-i.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
-<span id="cb62-2"><a href="predictive-regression-part-i.html#cb62-2" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
-<span id="cb62-3"><a href="predictive-regression-part-i.html#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_education =</span> <span class="fu">fct_relevel</span>(mom_education, <span class="st">&#39;No High School&#39;</span>))</span>
-<span id="cb62-4"><a href="predictive-regression-part-i.html#cb62-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_education, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="predictive-regression-part-i.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb316-2"><a href="predictive-regression-part-i.html#cb316-2" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
+<span id="cb316-3"><a href="predictive-regression-part-i.html#cb316-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_education =</span> <span class="fu">fct_relevel</span>(mom_education, <span class="st">&#39;No High School&#39;</span>))</span>
+<span id="cb316-4"><a href="predictive-regression-part-i.html#cb316-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_education, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ mom_education, data = kids)
@@ -819,9 +819,9 @@ The total sum of squares is the same for both regressions because they have the 
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="predictive-regression-part-i.html#cb64-1" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
-<span id="cb64-2"><a href="predictive-regression-part-i.html#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_age_bins =</span> <span class="fu">cut</span>(mom_age, <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">26</span>, <span class="dv">29</span>)))</span>
-<span id="cb64-3"><a href="predictive-regression-part-i.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(kids<span class="sc">$</span>mom_age_bins)</span></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="predictive-regression-part-i.html#cb318-1" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
+<span id="cb318-2"><a href="predictive-regression-part-i.html#cb318-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_age_bins =</span> <span class="fu">cut</span>(mom_age, <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">26</span>, <span class="dv">29</span>)))</span>
+<span id="cb318-3"><a href="predictive-regression-part-i.html#cb318-3" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(kids<span class="sc">$</span>mom_age_bins)</span></code></pre></div>
 <pre><code>## [1] &quot;(16,19]&quot; &quot;(19,23]&quot; &quot;(23,26]&quot; &quot;(26,29]&quot;</code></pre>
 </div>
 <ol start="2" style="list-style-type: decimal">
@@ -832,7 +832,7 @@ Show Solution
 Show Solution
 </button>
 <p>R "expands" the factor variable <code>mom_age_bins</code> into a collection of dummy variables before running the regression. It names these dummies in an obvious way based on the levels that <code>mom_age_bins</code> takes on:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="predictive-regression-part-i.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_age_bins, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="predictive-regression-part-i.html#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_age_bins, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ mom_age_bins, data = kids)
@@ -852,9 +852,9 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="predictive-regression-part-i.html#cb68-1" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
-<span id="cb68-2"><a href="predictive-regression-part-i.html#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_age_bins =</span> <span class="fu">fct_relevel</span>(mom_age_bins, <span class="st">&#39;(26,29]&#39;</span>))</span>
-<span id="cb68-3"><a href="predictive-regression-part-i.html#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_age_bins, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="predictive-regression-part-i.html#cb322-1" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
+<span id="cb322-2"><a href="predictive-regression-part-i.html#cb322-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_age_bins =</span> <span class="fu">fct_relevel</span>(mom_age_bins, <span class="st">&#39;(26,29]&#39;</span>))</span>
+<span id="cb322-3"><a href="predictive-regression-part-i.html#cb322-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_age_bins, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ mom_age_bins, data = kids)
@@ -945,7 +945,7 @@ Show Solution
 <div id="everything-else---the-dot-." class="section level3" number="4.9.1">
 <h3><span class="header-section-number">4.9.1</span> "Everything Else" - The Dot <code>.</code></h3>
 <p>Sometimes all you want to do is run a regression of one variable on <em>everything else</em>. If you have lots of predictors, typing out all of their names, each separated by a <code>+</code> sign, is painful and error-prone. Fortunately there's a shortcut: the dot <code>.</code></p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="predictive-regression-part-i.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> ., kids)</span></code></pre></div>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="predictive-regression-part-i.html#cb324-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> ., kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ ., data = kids)
@@ -963,7 +963,7 @@ Show Solution
 <div id="removing-predictors-with--" class="section level3" number="4.9.2">
 <h3><span class="header-section-number">4.9.2</span> Removing Predictors with <code>-</code></h3>
 <p>The regression we ran above using the dot <code>.</code> was very silly: it included both <code>mom_hs</code> and <code>mom_education</code>, and it also included both <code>mom_age_bins</code> and <code>mom_age</code>. Suppose we wanted to run a regression of <code>kid_score</code> on everything <em>except</em> <code>mom_age_bins</code> and <code>mom_education</code>. This is easy to achieve using the minus sign <code>-</code> as follows:</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="predictive-regression-part-i.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> . <span class="sc">-</span> mom_age_bins <span class="sc">-</span> mom_education, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="predictive-regression-part-i.html#cb326-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> . <span class="sc">-</span> mom_age_bins <span class="sc">-</span> mom_education, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ . - mom_age_bins - mom_education, data = kids)
@@ -976,7 +976,7 @@ Show Solution
 <div id="the-intercept-1" class="section level3" number="4.9.3">
 <h3><span class="header-section-number">4.9.3</span> The Intercept: <code>1</code></h3>
 <p>It almost always makes sense to include an intercept when you run a linear regression. Without one, we're forced to predict that <span class="math inline">\(Y\)</span> will be zero when <span class="math inline">\(X\)</span> is zero. Because this is usually a bad idea, <code>lm()</code> includes an intercept by default:</p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="predictive-regression-part-i.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="predictive-regression-part-i.html#cb328-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ mom_iq, data = kids)
@@ -985,7 +985,7 @@ Show Solution
 ## (Intercept)       mom_iq  
 ##       25.80         0.61</code></pre>
 <p>In some special cases, however, we may have a reason to run a regression without an intercept. R's formula syntax denotes the intercept by <code>1</code>. Armed with this knowledge, we can remove it from our regression using <code>-</code> as introduced above:</p>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="predictive-regression-part-i.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">-</span> <span class="dv">1</span>, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="predictive-regression-part-i.html#cb330-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">-</span> <span class="dv">1</span>, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ mom_iq - 1, data = kids)
@@ -994,7 +994,7 @@ Show Solution
 ## mom_iq  
 ## 0.8623</code></pre>
 <p>Another situation in which we may wish to remove the intercept is when running a regression with a categorical variable. We can't include an intercept <em>and</em> a coefficient for each value of a categorical variable in our regression: this is the dummy variable trap. We either have to drop one level of the categorical variable (the baseline or omitted category) or drop the intercept. Above we saw how to choose which category to omit. But another option is to drop the intercept. In the first regression, the intercept equals the mean of <code>kid_score</code> for the omitted category <code>mom_education == "No High School"</code> while the intercept gives the difference of means:</p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="predictive-regression-part-i.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_education, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="predictive-regression-part-i.html#cb332-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_education, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ mom_education, data = kids)
@@ -1003,7 +1003,7 @@ Show Solution
 ##              (Intercept)  mom_educationHigh School  
 ##                    77.55                     11.77</code></pre>
 <p>In the second, we obtain the mean of <code>kid_score</code> for each group:</p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="predictive-regression-part-i.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_education <span class="sc">-</span> <span class="dv">1</span>, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="predictive-regression-part-i.html#cb334-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_education <span class="sc">-</span> <span class="dv">1</span>, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ mom_education - 1, data = kids)
@@ -1021,7 +1021,7 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="predictive-regression-part-i.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> . <span class="sc">-</span> mom_age <span class="sc">-</span> mom_hs, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="predictive-regression-part-i.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> . <span class="sc">-</span> mom_age <span class="sc">-</span> mom_hs, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ . - mom_age - mom_hs, data = kids)
@@ -1039,9 +1039,9 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="predictive-regression-part-i.html#cb84-1" aria-hidden="true" tabindex="-1"></a>kids <span class="sc">%&gt;%</span> </span>
-<span id="cb84-2"><a href="predictive-regression-part-i.html#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(mom_education) <span class="sc">%&gt;%</span></span>
-<span id="cb84-3"><a href="predictive-regression-part-i.html#cb84-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(kid_score))</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="predictive-regression-part-i.html#cb338-1" aria-hidden="true" tabindex="-1"></a>kids <span class="sc">%&gt;%</span> </span>
+<span id="cb338-2"><a href="predictive-regression-part-i.html#cb338-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(mom_education) <span class="sc">%&gt;%</span></span>
+<span id="cb338-3"><a href="predictive-regression-part-i.html#cb338-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(kid_score))</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 2
 ##   mom_education  `mean(kid_score)`
 ##   &lt;fct&gt;                      &lt;dbl&gt;
@@ -1056,7 +1056,7 @@ Show Solution
 Show Solution
 </button>
 <p>This is a regression with <em>only an intercept</em>, so it calculates the sample mean of <code>kid_score</code></p>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="predictive-regression-part-i.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> <span class="dv">1</span>, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="predictive-regression-part-i.html#cb340-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> <span class="dv">1</span>, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ 1, data = kids)
@@ -1064,22 +1064,40 @@ Show Solution
 ## Coefficients:
 ## (Intercept)  
 ##        86.8</code></pre>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="predictive-regression-part-i.html#cb88-1" aria-hidden="true" tabindex="-1"></a>kids <span class="sc">%&gt;%</span></span>
-<span id="cb88-2"><a href="predictive-regression-part-i.html#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(kid_score))</span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="predictive-regression-part-i.html#cb342-1" aria-hidden="true" tabindex="-1"></a>kids <span class="sc">%&gt;%</span></span>
+<span id="cb342-2"><a href="predictive-regression-part-i.html#cb342-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(kid_score))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##   `mean(kid_score)`
 ##               &lt;dbl&gt;
 ## 1              86.8</code></pre>
 <p>See the exercise earlier in this lesson for a mathematical proof that regression with only an intercept is equivalent to computing the sample mean of <span class="math inline">\(Y\)</span>.</p>
 </div>
+<ol start="4" style="list-style-type: decimal">
+<li>Run a regression of <code>kid_score</code> on <code>mom_age_bins</code> and <code>mom_iq</code>, but rather than including an intercept and an omitted category fit a separate coefficient for each level of <code>mom_age_bins</code>.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="predictive-regression-part-i.html#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_age_bins <span class="sc">+</span> mom_iq <span class="sc">-</span> <span class="dv">1</span>, kids)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = kid_score ~ mom_age_bins + mom_iq - 1, data = kids)
+## 
+## Coefficients:
+## mom_age_bins(26,29]  mom_age_bins(16,19]  mom_age_bins(19,23]  
+##             23.9233              26.1812              23.8011  
+## mom_age_bins(23,26]               mom_iq  
+##             28.2905               0.6139</code></pre>
+</div>
 </div>
 <div id="transforming-outcomes-and-predictors" class="section level3" number="4.9.5">
 <h3><span class="header-section-number">4.9.5</span> Transforming Outcomes and Predictors</h3>
 <p>What if you wanted to regress the logarithm of <code>kid_score</code> on <code>mom_age</code> and <code>mom_age^2</code>? One way to do this is by creating a new data frame:</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="predictive-regression-part-i.html#cb90-1" aria-hidden="true" tabindex="-1"></a>new_kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
-<span id="cb90-2"><a href="predictive-regression-part-i.html#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_kid_score =</span> <span class="fu">log</span>(kid_score),</span>
-<span id="cb90-3"><a href="predictive-regression-part-i.html#cb90-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_age_sq =</span> mom_age<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb90-4"><a href="predictive-regression-part-i.html#cb90-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(log_kid_score <span class="sc">~</span> mom_age <span class="sc">+</span> mom_age_sq, new_kids)</span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="predictive-regression-part-i.html#cb346-1" aria-hidden="true" tabindex="-1"></a>new_kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
+<span id="cb346-2"><a href="predictive-regression-part-i.html#cb346-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_kid_score =</span> <span class="fu">log</span>(kid_score),</span>
+<span id="cb346-3"><a href="predictive-regression-part-i.html#cb346-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_age_sq =</span> mom_age<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb346-4"><a href="predictive-regression-part-i.html#cb346-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(log_kid_score <span class="sc">~</span> mom_age <span class="sc">+</span> mom_age_sq, new_kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log_kid_score ~ mom_age + mom_age_sq, data = new_kids)
@@ -1088,7 +1106,7 @@ Show Solution
 ## (Intercept)      mom_age   mom_age_sq  
 ##   4.4586761   -0.0109575    0.0004214</code></pre>
 <p>It worked! But that required an awful lot of typing. What's more, I had to clutter up my R environment with <em>another</em> data frame: <code>new_kids</code>. A more elegant approach uses R's formula syntax to do all the heavy lifting. First I'll show you the syntax and then I'll explain it:</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="predictive-regression-part-i.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="fu">log</span>(kid_score) <span class="sc">~</span> mom_age <span class="sc">+</span> <span class="fu">I</span>(mom_age<span class="sc">^</span><span class="dv">2</span>), kids)</span></code></pre></div>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="predictive-regression-part-i.html#cb348-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="fu">log</span>(kid_score) <span class="sc">~</span> mom_age <span class="sc">+</span> <span class="fu">I</span>(mom_age<span class="sc">^</span><span class="dv">2</span>), kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = log(kid_score) ~ mom_age + I(mom_age^2), data = kids)
@@ -1102,7 +1120,7 @@ Show Solution
 <div id="adding-interactions-with-and" class="section level3" number="4.9.6">
 <h3><span class="header-section-number">4.9.6</span> Adding Interactions With <code>:</code>, <code>*</code>, and <code>^</code></h3>
 <p>An <em>interaction</em> is a predictor that is constructed by taking the <em>product</em> of two "basic" predictors: for example <span class="math inline">\(X_1 \times X_2\)</span>. In R formula syntax we use a colon <code>:</code> to denote an interaction, for example:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="predictive-regression-part-i.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_age<span class="sc">:</span>mom_iq, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="predictive-regression-part-i.html#cb350-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_age<span class="sc">:</span>mom_iq, kids)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = kid_score ~ mom_age:mom_iq, data = kids)
@@ -1111,19 +1129,19 @@ Show Solution
 ##    (Intercept)  mom_age:mom_iq  
 ##       48.04678         0.01698</code></pre>
 <p>runs a regression of <code>kid_score</code> on the product of <code>mom_age</code> and <code>mom_iq</code>. This is a rather strange regression to run. Unless you have a very good reason for doing so, it's strange to use the <em>product</em> of <code>mom_age</code> and <code>mom_iq</code> to predict <code>kid_score</code> without using the <em>individual variables</em> as well. In statistical parlance, the coefficient on a predictor that is <em>not</em> an interaction, is often called a <em>main effect</em>. And as a rule of thumb, just as it rarely makes sense to run a regression without an intercept, it rarely makes sense to include an interaction term without including the associated main effects. Taking this to heart, we can run a regression that includes <code>mom_age</code> and <code>mom_iq</code> in addition to their interaction as follows:</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="predictive-regression-part-i.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_age <span class="sc">+</span> mom_iq <span class="sc">+</span> mom_age<span class="sc">:</span>mom_iq, kids))</span></code></pre></div>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="predictive-regression-part-i.html#cb352-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_age <span class="sc">+</span> mom_iq <span class="sc">+</span> mom_age<span class="sc">:</span>mom_iq, kids))</span></code></pre></div>
 <pre><code>##    (Intercept)        mom_age         mom_iq mom_age:mom_iq 
 ##   -32.69120826     2.55287614     1.09946961    -0.02130665</code></pre>
 <p>Because including two variables as main effects along with their interaction is such a common pattern in practice, R's formula syntax include a special shorthand symbol for this: <code>*</code>. Somewhat confusingly, the expression <code>x1 * x2</code> within an R formula <em>does not</em> refer to the product of <code>x1</code> and <code>x2</code>. Instead it denotes <code>x1 + x2 + x1:x2</code>. For example, we could run exactly the same regression as above with less typing as follows:</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="predictive-regression-part-i.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_age <span class="sc">*</span> mom_iq, kids))</span></code></pre></div>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="predictive-regression-part-i.html#cb354-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_age <span class="sc">*</span> mom_iq, kids))</span></code></pre></div>
 <pre><code>##    (Intercept)        mom_age         mom_iq mom_age:mom_iq 
 ##   -32.69120826     2.55287614     1.09946961    -0.02130665</code></pre>
 <p>Both <code>:</code> and <code>*</code> can be chained together to create higher-order interactions. For example, the following command regresses <code>kid_score</code> on the three-way interaction of <code>mom_hs</code>, <code>mom_iq</code>, and <code>mom_age</code></p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="predictive-regression-part-i.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_hs<span class="sc">:</span>mom_iq<span class="sc">:</span>mom_age, kids))</span></code></pre></div>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="predictive-regression-part-i.html#cb356-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_hs<span class="sc">:</span>mom_iq<span class="sc">:</span>mom_age, kids))</span></code></pre></div>
 <pre><code>##           (Intercept) mom_hs:mom_iq:mom_age 
 ##          74.860699531           0.006427933</code></pre>
 <p>If we want to include the corresponding levels, and two-way interactions <em>alongside</em> the three-way interaction, we can achieve this by chaining the <code>*</code> symbol as follows:</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="predictive-regression-part-i.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_hs <span class="sc">*</span> mom_iq <span class="sc">*</span> mom_age, kids))</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="predictive-regression-part-i.html#cb358-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_hs <span class="sc">*</span> mom_iq <span class="sc">*</span> mom_age, kids))</span></code></pre></div>
 <pre><code>##           (Intercept)                mom_hs                mom_iq 
 ##         -123.19702677          128.77032321            2.29825977 
 ##               mom_age         mom_hs:mom_iq        mom_hs:mom_age 
@@ -1131,11 +1149,11 @@ Show Solution
 ##        mom_iq:mom_age mom_hs:mom_iq:mom_age 
 ##           -0.06249009            0.05390860</code></pre>
 <p>The caret <code>^</code> is another shorthand symbol for running regressions with interactions. I rarely use it myself, but you may come across it occasionally. The syntax <code>(x1 + x2)^2</code> is equivalent to <code>x1 * x2</code>, for example:</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="predictive-regression-part-i.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> (mom_age <span class="sc">+</span> mom_iq)<span class="sc">^</span><span class="dv">2</span>, kids))</span></code></pre></div>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="predictive-regression-part-i.html#cb360-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> (mom_age <span class="sc">+</span> mom_iq)<span class="sc">^</span><span class="dv">2</span>, kids))</span></code></pre></div>
 <pre><code>##    (Intercept)        mom_age         mom_iq mom_age:mom_iq 
 ##   -32.69120826     2.55287614     1.09946961    -0.02130665</code></pre>
 <p>and <code>(x1 + x2 + x2)^3</code> is equivalent to <code>x1 * x2 * x3</code></p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="predictive-regression-part-i.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> (mom_hs <span class="sc">+</span> mom_iq <span class="sc">+</span> mom_age)<span class="sc">^</span><span class="dv">3</span>, kids))</span></code></pre></div>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="predictive-regression-part-i.html#cb362-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> (mom_hs <span class="sc">+</span> mom_iq <span class="sc">+</span> mom_age)<span class="sc">^</span><span class="dv">3</span>, kids))</span></code></pre></div>
 <pre><code>##           (Intercept)                mom_hs                mom_iq 
 ##         -123.19702677          128.77032321            2.29825977 
 ##               mom_age         mom_hs:mom_iq        mom_hs:mom_age 
@@ -1143,13 +1161,13 @@ Show Solution
 ##        mom_iq:mom_age mom_hs:mom_iq:mom_age 
 ##           -0.06249009            0.05390860</code></pre>
 <p>One place where <code>^</code> can come in handy is if you want to include levels and all <em>two way</em> interactions of more than two variables. For example,</p>
-<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="predictive-regression-part-i.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> (mom_hs <span class="sc">+</span> mom_iq <span class="sc">+</span> mom_age)<span class="sc">^</span><span class="dv">2</span>, kids))</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="predictive-regression-part-i.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> (mom_hs <span class="sc">+</span> mom_iq <span class="sc">+</span> mom_age)<span class="sc">^</span><span class="dv">2</span>, kids))</span></code></pre></div>
 <pre><code>##    (Intercept)         mom_hs         mom_iq        mom_age  mom_hs:mom_iq 
 ##   -29.68240313    15.83347387     1.30109421     0.94781914    -0.43693774 
 ## mom_hs:mom_age mom_iq:mom_age 
 ##     1.39044445    -0.01656256</code></pre>
 <p>is a more compact way of specifying</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="predictive-regression-part-i.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_hs <span class="sc">*</span> mom_iq <span class="sc">*</span> mom_age <span class="sc">-</span> mom_hs<span class="sc">:</span>mom_iq<span class="sc">:</span>mom_age, kids))</span></code></pre></div>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="predictive-regression-part-i.html#cb366-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_hs <span class="sc">*</span> mom_iq <span class="sc">*</span> mom_age <span class="sc">-</span> mom_hs<span class="sc">:</span>mom_iq<span class="sc">:</span>mom_age, kids))</span></code></pre></div>
 <pre><code>##    (Intercept)         mom_hs         mom_iq        mom_age  mom_hs:mom_iq 
 ##   -29.68240313    15.83347387     1.30109421     0.94781914    -0.43693774 
 ## mom_hs:mom_age mom_iq:mom_age 
@@ -1164,7 +1182,7 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="predictive-regression-part-i.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">+</span> <span class="fu">I</span>(mom_iq<span class="sc">^</span><span class="dv">2</span>), kids))</span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="predictive-regression-part-i.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">+</span> <span class="fu">I</span>(mom_iq<span class="sc">^</span><span class="dv">2</span>), kids))</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 5
 ##   term        estimate std.error statistic   p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
@@ -1173,16 +1191,22 @@ Show Solution
 ## 3 I(mom_iq^2)  -0.0119   0.00352     -3.39 0.000767</code></pre>
 </div>
 <ol start="2" style="list-style-type: decimal">
-<li>Use <code>ggplot2</code> to make a scatter-plot with <code>mom_iq</code> on the horizontal axis and <code>kid_score</code> on the vertical axis. Look at the help file for <code>geom_smooth()</code> and figure out how to use it to add the regression function from the first part</li>
+<li>Use <code>ggplot2</code> to make a scatter-plot with <code>mom_iq</code> on the horizontal axis and <code>kid_score</code> on the vertical axis. Add the quadratic regression function from the first part.</li>
 </ol>
+<div class="webex-solution">
+<button>
+Show Hint
+</button>
+<p>Add the argument <code>formula = y ~ x + I(x^2)</code> to <code>geom_smooth()</code>.</p>
+</div>
 <div class="webex-solution">
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="predictive-regression-part-i.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
-<span id="cb114-2"><a href="predictive-regression-part-i.html#cb114-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb114-3"><a href="predictive-regression-part-i.html#cb114-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">formula =</span> y <span class="sc">~</span> x <span class="sc">+</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="predictive-regression-part-i.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
+<span id="cb370-2"><a href="predictive-regression-part-i.html#cb370-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb370-3"><a href="predictive-regression-part-i.html#cb370-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">formula =</span> y <span class="sc">~</span> x <span class="sc">+</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-194-1.png" width="672" /></p>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Based on the results of the preceding two parts, is there any evidence that the slope of the predictive relationship between <code>kid_score</code> and <code>mom_iq</code> varies with <code>mom_iq</code>?</li>
@@ -1191,7 +1215,7 @@ Show Solution
 <button>
 Show Solution
 </button>
-<p>add solution here!</p>
+<p>Yes: the estimated coefficient on <code>mom_iq^2</code> is highly statistically significant, and from the plot we see that there is a "practically significant" amount of curvature in the predictive relationship.</p>
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li>Suppose we wanted to run a regression of <code>kid_score</code> on <code>mom_iq</code>, <code>mom_hs</code>, and their interaction. Write down <em>three</em> different ways of specifying this regression using R's formula syntax.</li>
@@ -1207,12 +1231,55 @@ Show Solution
 </ul>
 </div>
 <ol start="5" style="list-style-type: decimal">
-<li>Look for interaction between <code>mom_hs</code> and <code>mom_iq</code>, interpret results, make some plots. (there was an example with the tips data and ggplot2 I liked)</li>
+<li>Run a regression of <code>kid_score</code> on <code>mom_hs</code>, <code>mom_iq</code> and their interaction. Display a tidy summary of the estimates, standard errors, etc. Is there any evidence that the predictive relationship between <code>kid_score</code> and <code>mom_iq</code> varies depending on whether a given child's mother graduated from high school? Explain.</li>
 </ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb371-1"><a href="predictive-regression-part-i.html#cb371-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(<span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">*</span> mom_hs, kids))</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 5
+##   term          estimate std.error statistic  p.value
+##   &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)    -11.5      13.8      -0.835 4.04e- 1
+## 2 mom_iq           0.969     0.148     6.53  1.84e-10
+## 3 mom_hs          51.3      15.3       3.34  9.02e- 4
+## 4 mom_iq:mom_hs   -0.484     0.162    -2.99  2.99e- 3</code></pre>
+<p>Let's introduce a bit of notation to make things clearer. The regression specification is as follows:
+<span class="math display">\[
+\texttt{kid_score} = \widehat{\alpha} + \widehat{\beta} \times \texttt{mom_hs} + \widehat{\gamma} \times \texttt{mom_iq} + \widehat{\delta} \times (\texttt{mom_hs} \times \texttt{mom_iq})
+\]</span>
+Now, <code>mom_hs</code> is a dummy variable that equals 1 if a child's mother graduated from high school For a child whose mother did not graduate from high school, our prediction becomes
+<span class="math display">\[
+\texttt{kid_score} = \widehat{\alpha} + \widehat{\gamma} \times \texttt{mom_iq} 
+\]</span>
+compared to the following for a child whose mother <em>did</em> graduate from high school:
+<span class="math display">\[
+\texttt{kid_score} = (\widehat{\alpha} + \widehat{\beta})  + (\widehat{\gamma} + \widehat{\delta})\times \texttt{mom_iq}
+\]</span>
+Thus, the coefficient <span class="math inline">\(\widehat{\delta}\)</span> on the interaction <code>mom_iq:mom_hs</code> is the <em>difference of slopes</em>: high-school minus no high school. The point estimate is negative, large, and highly statistically significant. We have fairly strong evidence that the predictive relationship between <code>kid_score</code> and <code>mom_iq</code> is <em>less steep</em> for children whose mothers attended high school. For more discussion of this example, see <a href="http://ditraglia.com/Econ103Public/slides/lecture23_child_test.pdf">this document</a>.</p>
+</div>
 
 </div>
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1221,8 +1288,8 @@ Show Solution
 
 <div class="footnotes">
 <hr />
-<ol start="1">
-<li id="fn1"><p>If you're rusty on the F-test, <a href="https://www.econometrics.blog/post/understanding-the-f-statistic/">this may help</a>.<a href="predictive-regression-part-i.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<ol start="17">
+<li id="fn17"><p>If you're rusty on the F-test, <a href="https://www.econometrics.blog/post/understanding-the-f-statistic/">this may help</a>.<a href="predictive-regression-part-i.html#fnref17" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <script>
