@@ -1,26 +1,18 @@
-# Mind the Gap Part II
+# Getting Started with `ggplot2` 
 
-Some kind of intro? Or should this be a separate lesson? 
-**I think I should split this off into a separate lesson. Add some extra `dplyr` stuff above, taken from the Econ 224 problem sets.**
+In this lesson we'll build on your knowledge of `dplyr` and the `gapminder` dataset and introduce [`ggplot2`](https://ggplot2.tidyverse.org/), the R graphics package *par excellence*. Like `dplyr`, `ggplot2` is also a part of the Tidyverse family of packages. To install the whole family of packages, use `install.packages('tidyverse')`. To load all of them at once, use `library(tidyverse)`. (Of course you can also install and load `ggplot2` on its own if you prefer.) This lesson is only the tip of the iceberg when it comes to `ggplot2`. To learn more, see [R for Data Science](https://r4ds.had.co.nz/) is and the [`ggplot2` cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf).
 
 ## A simple scatterplot using `ggplot2`
-Now that we know the basics of `dplyr`, we'll turn our attention to graphics.
-R has many powerful build-in graphics functions that may be familiar to you from Econ 103.
-In this class, however, we'll use a very powerful package for statistical visualization called `ggplot2`.
-There's nothing more for you to instead or load, since `ggplot2` is included in the `tidyverse` package, which you've already installed and loaded.
-For more details on `ggplot2` see the chapter entitled "Data Visualisation" in *R for Data Science*.
-
 We'll start off by constructing a subset of the `gapminder` dataset that contains information from the year 2007 that we'll use for our plots below.
-```{r}
+```{r, message = FALSE}
+library(gapminder)
+library(tidyverse)
 gapminder_2007 <- gapminder %>% 
   filter(year == 2007)
 ```
 
-It takes some time to grow accustomed to `ggplot2` syntax, so rather than giving you a lot of detail, we're going to look at a series of increasingly more complicated examples.
-Our first example will be a simple scatterplot using `gapminder_2007`. 
-Each point will correspond to a single country in 2007.
-Its x-coordinate will be GDP per capita and its y-coordinate will be life expectancy.
-Here's the code:
+It takes some time to grow accustomed to `ggplot2` syntax, so rather than giving you a lot of detail, we'll examine a series of examples that start off simple and become more complex. The first of these is a simple scatterplot using `gapminder_2007`. 
+Each point will correspond to a single country in 2007. Its x-coordinate will be GDP per capita and its y-coordinate will be life expectancy. Here's the code:
 ```{r}
 ggplot(gapminder_2007) + 
   geom_point(mapping = aes(x = gdpPercap, y = lifeExp))
@@ -47,18 +39,13 @@ ggplot(gapminder_2007) +
 
 
 ## Plotting on the log scale
-It's fairly common to transform data onto a log scale before carrying out further analysis or plotting.
-If you've taken Econ 104, you may already be familiar with log transformations.
-If not, don't worry about it: we'll discuss them later in the course.
-For now, we'll content ourselves with learning how to transform the axes  in a `ggplot` to the log base 10 scale.
-To transform the x-axis, it's as easy as adding a `+ scale_x_log10()` to the end of our command from above:
+It's fairly common to transform data onto a log scale before carrying out further analysis or plotting. To transform the x-axis to the log base 10 scale, it's as easy as adding a `+ scale_x_log10()` to the end of our command from above:
 ```{r}
 ggplot(data = gapminder_2007) + 
   geom_point(mapping = aes(x = gdpPercap, y = lifeExp)) + 
   scale_x_log10()
 ```
-Notice how I split the code across multiple lines and ended each of the intermediate lines with the `+`.
-This makes things much easier to read.
+Again: notice how I split the code across multiple lines and ended each of the intermediate lines with the `+`. This makes things much easier to read.
 
 ### Exercise 
 1. Using my code example as a template, make a scatterplot with the log base 10 of `pop` on the x-axis and `lifeExp` on the y-axis using the `gapminder_2007` dataset.
@@ -67,7 +54,7 @@ ggplot(data = gapminder_2007) +
   geom_point(mapping = aes(x = pop, y = lifeExp)) + 
   scale_x_log10()
 ```
-2. Suppose that rather than putting the x-axis on the log scale, we wanted to put the *y-axis* on the log scale. Figure out how to do this, either by clever guesswork or a google search, and then redo my example with `gdpPercap` and `lifeExp`  with `gdpPercap` in levels and `lifeExp` in logs.
+2. Suppose that rather than putting the x-axis on the log scale, we wanted to put the *y-axis* on the log scale. Figure out how to do this, either by clever guesswork or a google search, and then repeat my example with `gdpPercap` and `lifeExp`  with `gdpPercap` in levels and `lifeExp` in logs base 10.
 ```{r webex.hide="Show Solution"}
 ggplot(data = gapminder_2007) +
   geom_point(mapping = aes(x = gdpPercap, y = lifeExp)) + 
@@ -89,35 +76,23 @@ To make a graph using `ggplot` we use the following template:
 ggplot(data = <DATA>) +
   <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
 ```
-replacing `<DATA>`, `<GEOM_FUNCTION>`, and `<MAPPINGS>` to specify what we want to plot and how it should appear.
-The first part is easy: we replace `<DATA>` with the dataset we want to plot, for example `gapminder_2007` in the example from above.
+replacing `<DATA>`, `<GEOM_FUNCTION>`, and `<MAPPINGS>` to specify what we want to plot and how it should appear. The first part is easy: we replace `<DATA>` with the dataset we want to plot, for example `gapminder_2007` in the example from above.
 The second part is also fairly straightforward: we replace `<GEOM_FUNCTION>` with the name of a function that specifies the kind of plot we want to make.
-So far we've only seen one example: `geom_point()` which tells `ggplot` that we want to make a scatterplot.
-We'll see more examples in a future lab.
-For now, I want to focus on the somewhat more complicated-looking `mapping = aes(<MAPPINGS>)`.
+So far we've only seen one example: `geom_point()` which tells `ggplot` that we want to make a scatterplot. We'll see more examples in later lessons. For now, I want to focus on the somewhat more complicated-looking `mapping = aes(<MAPPINGS>)`.
 
-The abbreviation `aes` is short for *aesthetic* and the code `mapping = aes(<MAPPINGS>)` defines what is called an *aesthetic mapping*.
-This is just a fancy way of saying that it tells R how we want our plot to look.
-The information we need to put in place of `<MAPPINGS>` depends on what kind of plot we're making.
-Thus far we've only examined `geom_point()` which produces a scatterplot. 
-For this kind of plot, the minimum information we need to provide is the location of each point.
-For example, in our example above we wrote `aes(x = gdpPercap, y = lifeExp)` to tell R that `gdpPercap` gives the x-axis location of each point, and `lifeExp` gives the y-axis location.
+The abbreviation `aes` is short for *aesthetic* and the code `mapping = aes(<MAPPINGS>)` defines what is called an *aesthetic mapping*. This is just a fancy way of saying that it tells R how we want our plot to look. The information we need to put in place of `<MAPPINGS>` depends on what kind of plot we're making. Thus far we've only examined `geom_point()` which produces a scatterplot. For this kind of plot, the minimum information we need to provide is the location of each point. For example, in our example above we wrote `aes(x = gdpPercap, y = lifeExp)` to tell R that `gdpPercap` gives the x-axis location of each point, and `lifeExp` gives the y-axis location.
 
-When making a scatterplot with `geom_point` we are not limited to specifying the x and y coordinates of each point; we can also specify the size and color of each point.
-This gives us a useful way of displaying more than two variables in a two-dimensional plot.
-We do this using `aes`.
-For example, let's use the color of each point to indicate `continent`
+When making a scatterplot with `geom_point` we are not limited to specifying the x and y coordinates of each point; we can also specify the size and color of each point. This gives us a useful way of displaying more than two variables in a two-dimensional plot. We do this using `aes`. For example, let's use the color of each point to indicate `continent`
 ```{r}
 ggplot(data = gapminder_2007) +
   geom_point(mapping = aes(x = gdpPercap, y = lifeExp, color = continent)) +
   scale_x_log10()
 ```
-Notice how `ggplot` automatically generates a helpful legend.
-This plot makes it easy to see at a glance that the European countries in 2007 ten to have high GDP per capita and high life expectancy, while the African countries have the opposite.
-We can also use the *size* of each point to encode information, e.g. population:
+Notice how `ggplot` automatically generates a helpful legend. This plot makes it easy to see at a glance that the European countries in 2007 tend to have high GDP per capita and high life expectancy, while the African countries have the opposite. We can also use the *size* of each point to encode information, e.g. population:
 ```{r}
 ggplot(data = gapminder_2007) +
-  geom_point(mapping = aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
+  geom_point(mapping = aes(x = gdpPercap, y = lifeExp, 
+                           color = continent, size = pop)) +
   scale_x_log10()
 ```
 
@@ -152,7 +127,7 @@ ggplot(gapminder_1952) +
   geom_point(aes(x = pop, y = lifeExp, color = continent)) +
   scale_x_log10()
 ```
-5. Suppose that instead of indicating continent using color, you wanted all the points in the plot from 3. to be blue. Consult the chapter "Visualising Data" from *R for Data Science* to find out how to do this.
+5. Suppose that instead of indicating continent using color, you wanted all the points in the plot from 3. to be blue. Consult the chapter "Visualising Data" from [R for Data Science](https://r4ds.had.co.nz/) to find out how to do this.
 `r hide("Show Solution")`
 When you want color to be a variable from your dataset, put `color = <VARIABLE>` *inside* of `aes`; when you simply want to set the colors of all the points, put `color = '<COLOR>'` *outside* of `aes`, for example
 ```{r}
@@ -164,8 +139,8 @@ ggplot(gapminder_1952) +
 
 
 
-## Faceting - Plotting multiple subsets at once
-Let's pick up where we left off in lab \#1, with a plot of GDP per capita and life expectancy in 2007:
+## Faceting - Plots for Multiple Subsets 
+Recall our plot of GDP per capita and life expectancy in 2007 from above:
 ```{r}
 gapminder_2007 <- gapminder %>%
   filter(year == 2007)
@@ -174,12 +149,7 @@ ggplot(gapminder_2007) +
   scale_x_log10()  
 ```
 
-This is an easy way to make a plot for a single year.
-But what if you wanted to make the same plot for *every year* in the `gapminder` dataset?
-It would take a lot of copying-and-pasting of the preceding code chunk to accomplish this.
-Fortunately there's a much easier way: *faceting*.
-In `ggplot2` a *facet* is a subplot that corresponds to a subset of your dataset, for example the year 2007.
-We'll now use faceting to reproduce the plot from above for all the years in `gapminder` simultaneously:
+This is an easy way to make a plot for a single year. But what if you wanted to make the same plot for *every year* in the `gapminder` dataset? It would take a lot of copying-and-pasting of the preceding code chunk to accomplish this. Fortunately there's a much easier way: *faceting*. In `ggplot2` a *facet* is a subplot that corresponds to a subset of your dataset, for example the year 2007. We'll now use faceting to reproduce the plot from above for all the years in `gapminder` simultaneously:
 ```{r,fig.width = 7, fig.height=6}
 ggplot(gapminder) +
   geom_point(aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)) +
@@ -191,8 +161,7 @@ The tilde `~` is important: this has to precede the variable by which you want t
 
 Now that we understand how to produce it, let's take a closer look at this plot.
 Notice how this plot allows us to visualize five variables *simultaneously*.
-By looking at how the plots change over time, we see a pattern of increasing GDP per capita and life expectancy throughout the world between 1952 and 2007.
-Notice in particular the dramatic improvements in both variables in the Asian economies.
+By looking at how the plots change over time, we see a pattern of increasing GDP per capita and life expectancy throughout the world between 1952 and 2007. Notice in particular the dramatic improvements in both variables in the Asian economies.
 
 ### Exercise
 
@@ -255,7 +224,7 @@ ggplot(by_year) +
   geom_point(aes(x = year, y = totalpopMil)) 
 ```
 Here's a more complicated example where we additionally use color to plot each continent separately:
-```{r}
+```{r, message = FALSE}
 by_year_continent <- gapminder %>%
   mutate(popMil = pop / 1000000) %>%
   group_by(year, continent) %>%
@@ -292,11 +261,7 @@ ggplot(by_year) +
 
 
 ## Line plots
-Thus far we've only learned how to make one kind of plot with `ggplot`: a scatterplot, which we constructed using `geom_scatter()`.
-Sometimes we want to *connect* the dots in a scatterplot, for example when we're interested in visualizing a trend over time. 
-The resulting plot is called a *line plot*.
-To make one, simply replace `geom_scatter()` with `geom_line()`.
-For example:
+Thus far we've only learned how to make one kind of plot with `ggplot`: a scatterplot, which we constructed using `geom_scatter()`. Sometimes we want to *connect* the dots in a scatterplot, for example when we're interested in visualizing a trend over time. The resulting plot is called a *line plot*. To make one, simply replace `geom_scatter()` with `geom_line()`. For example:
 ```{r}
 by_year_continent <- gapminder %>%
   mutate(popMil = pop / 1000000) %>%
@@ -319,9 +284,7 @@ ggplot(by_year) +
 ```
 
 ## Bar plots
-To make a bar plot, we use `geom_col()`.
-Note that the `x` argument of `aes` needs to be a *categorical variable* for a bar plot to make sense.
-Here's a simple example:
+To make a bar plot, we use `geom_col()`. Note that the `x` argument of `aes` needs to be a *categorical variable* for a bar plot to make sense. Here's a simple example:
 ```{r}
 by_continent <- gapminder %>%
   filter(year == 2007) %>%
@@ -330,9 +293,7 @@ by_continent <- gapminder %>%
 ggplot(by_continent) +
   geom_col(aes(x = continent, y = meanLifeExp))
 ```
-Sometimes we want to turn a bar plot, or some other kind of plot, on its side.
-This can be particularly helpful if the x-axis labels are very long.
-To do this, simply add `+ coord_flip()` to your `ggplot` command, for example:
+Sometimes we want to turn a bar plot, or some other kind of plot, on its side. This can be particularly helpful if the x-axis labels are very long. To do this, simply add `+ coord_flip()` to your `ggplot` command, for example:
 ```{r}
 ggplot(by_continent) +
   geom_col(aes(x = continent, y = meanLifeExp)) +
@@ -353,12 +314,11 @@ ggplot(by_year) +
   coord_flip()
 ```
 
+## Dotplots
+**Add material here!**
 
 ## Histograms
-To make a `ggplot2` histogram, we use the function `geom_histogram()`.
-Recall from Econ 103 that a histogram summarizes a *single* variable at a time by forming non-overlapping bins of equal width and calculating the fraction of observations in each bin.
-If we choose a different width for the bins, we'll get a different histogram.
-Here's an example of two different bin widths:
+To make a `ggplot2` histogram, we use the function `geom_histogram()`. Recall that a histogram summarizes a *single* variable at a time by forming non-overlapping bins of equal width and calculating the fraction of observations in each bin. If we choose a different width for the bins, we'll get a different histogram. Here's an example of two different bin widths:
 ```{r}
 gapminder_2007 <- gapminder %>%
   filter(year == 2007)
@@ -404,8 +364,7 @@ No right answer: it's a discussion question! But the idea is to see how taking l
 
 
 ## Boxplots 
-The final kind of `ggplot` we'll learn how to produce is a boxplot, a visualization of the *five-number summary* of a variable: minimum, 25th percentile, median, 75th percentile, and maximum.
-To make a boxplot in `ggplot` we use the function `geom_boxplot()`, for example:
+The final kind of `ggplot` we'll learn about in this lesson is a boxplot, a visualization of the *five-number summary* of a variable: minimum, 25th percentile, median, 75th percentile, and maximum. To make a boxplot in `ggplot` we use the function `geom_boxplot()`, for example:
 ```{r}
 ggplot(gapminder_2007) +
   geom_boxplot(aes(x = continent, y = lifeExp))

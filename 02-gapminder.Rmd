@@ -1,30 +1,16 @@
-# Mind the Gap Part I
+# Getting Started with `dplyr`
 
-**Write an introduction about *Gapminder* and Hans Rosling and "Factfulness." Possibly include the famous quiz and point out that exploratory data analysis can be extremely valuable. This chapter teaches some basic tools.**
+This lesson and the next one will introduce you to some powerful tools for exploratory data analysis, using the [`gapminder` dataset](https://cran.r-project.org/web/packages/gapminder/index.html) as an example. Simple descriptive statistics can be extremely powerful. When you read a newspaper columnist arguing that $X$ is to blame for the massive change in $Y$, how often do you take a look at the data to see if $Y$ is *really changing at all*? Or if it's actually changing in the *opposite direction*? These are easy wins and we should make the most of them, particularly given that [many common misconceptions are *predictable*](https://upgrader.gapminder.org/). 
 
-This lesson provides a crash course in two R packages that we'll used heavily in the material that follows: `dplyr` and `ggplot2`.
+Today we'll focus on basic data manipulation and summary statistics using the [`dplyr` package](https://dplyr.tidyverse.org/), part of the [Tidyverse](https://www.tidyverse.org/) family of R packages. We'll make heavy use of `dplyr` and other Tidyverse packages throughout these lessons. This lesson will only scratch the surface of `dplyr`, although we'll also pick up a few more `dplyr` tricks in later lessons as well. A good resource for learning more is [R for Data Science](https://r4ds.had.co.nz/). The [dplyr cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf) is also extremely helpful. 
 
-The `dplyr` package provides a number of powerful but easy-to-use tools for data manipulation in R.
-A good reference is the chapter entitled "Data Transformation" in *R for Data Science*.
-We'll be making heavy use of `dplyr` throughout the semester.
-Rather than trying to explain everything in advance, let's just dive right in.
-
-- So what are these packages?
-- Base R plotting and data manipulation have their place: you need to know about them. But when you use them to do anything moderately complicated, the code gets quite verbose and hard to understand, particularly for someone who didn't write it. 
-- `dplyr` is a powerful package for data wrangling: cleaning, merging, summarizing, etc. It makes things that are tricky using base R extremely simple. Most importantly its syntax is *extremely intuitive and easy to read*. 
-- There are two alternatives to base R for data wrangling: `dplyr` and `data.table`. The latter is unambiguously *faster* than `dplyr`. If you want to work with datasets that contain a million rows or more, it's worth learning `data.table`. 
-- I've used and taught both and `dplyr` is much easier to learn in my opinion. It also has some nice features that `data.table` lacks. Link to the Stack Overflow question for more pros and cons.
-- `ggplot2` is an extremely powerful and widely-used package for data visualization. Implements "grammar of graphics" 
-- Rather than trying to give a comprehensive overview of these packages, dive in and play with them using an example.
+So what is `dplyr` and why should you use it? There are three popular toolkits for data manipulation in R. The first is so-called "base R." This simply means the built-in commands like `subset()` and operators like `[]`, `$`, and so on. You need to know base R and you'll end up using it frequently, but it's simply not a great tool for complicated data manipulation. If you wrangle your data using base R commands, your code will be complicated, hard to read, and hard to maintain. The two main alternatives are [`dplyr`](https://dplyr.tidyverse.org/) and [`data.table`](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-intro.html). As you might expect, [opinions differ](https://stackoverflow.com/questions/21435339/data-table-vs-dplyr-can-one-do-something-well-the-other-cant-or-does-poorly) on which of these is the "better" choice. Having used and taught both packages, here's my summary of the pros and cons. The `data.table` package is *extremely fast*. If you routinely work with very large datasets (a million rows or more), it's worth learning `data.table`. But `data.table` syntax is a bit arcane, and can off-putting to newcomers. The key advantage of `dplyr` is that it's easy to learn and its syntax is *extremely intuitive and easy to read*. It also has many helpful features that `data.table` lacks. Given the importance of replicability and open science, this tips the balance in favor of `dplyr` for this book.
 
 
-
-## Getting Started 
-Before we can get started, you'll need to install three packages: `dplyr`,  `ggplot2` and `gapminder`. 
-To do this, you can either click on the "Packages" tab in RStudio or use the command `install.packages()` at the R console, e.g. 
+## Package Installation 
+Before we can get started, you'll need to install two packages: `dplyr`, and `gapminder`. To do this, you can either click on the "Packages" tab in RStudio or use the command `install.packages()` at the R console, e.g. 
 ```{r,eval=FALSE}
 install.packages('dplyr')
-install.packages('ggplot2')
 install.packages('gapminder')
 ```
 You only need to install a package *once*, but you need to *load* it every time you want to use it.
@@ -34,8 +20,7 @@ library(dplyr)
 library(ggplot2)
 library(gapminder)
 ```
-Now we're ready to go!
-I could tell you all about the data contained in `gapminder`, but an important part of this book is helping you to become self-sufficient. So instead I will leave this as an exercise for the reader!
+Now we're ready to go! I could tell you all about the data contained in `gapminder`, but an important part of this book is helping you to become self-sufficient. So instead I will leave this as an exercise for the reader!
 
 ### Exercise
 After loading `gapminder` enter the command `?gapminder` in the R console to view the R help file for this dataset. Read the documentation you find there to answer the following questions: 
@@ -423,7 +408,7 @@ gapminder %>%
 `r hide("Show Solution")`
 We used `=` because we're carrying out an *assignment operation*. In contrast `==` tests for equality, returning `TRUE` or `FALSE`.
 `r unhide()`
-2. Which country in the Americas had the shortest life expectancy *in months* in the year 1962? Write appropriate `dplyr` code using the pipe to display the information you need to answer this question.
+2. Calculate life expectancy *in months* and use it to answer the following question: "which country in the Americas had the shortest life expectancy *in months* in the year 1962?" 
 ```{r webex.hide="Show Solution"}
 gapminder %>%
   mutate(lifeExpMonths = 12 * lifeExp) %>%

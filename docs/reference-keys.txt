@@ -20,8 +20,8 @@ the-hot-hand-revisited
 which-estimator-of-the-variance-is-really-better
 optimal-stopping
 draft-material
-mind-the-gap-part-i
-getting-started
+getting-started-with-dplyr
+package-installation
 exercise
 what-is-a-tibble
 filter-rows-with-filter
@@ -40,14 +40,14 @@ chaining-commands
 exercise-5
 change-an-existing-variable-or-create-a-new-one-with-mutate
 exercise-6
-mind-the-gap-part-ii
+getting-started-with-ggplot2
 a-simple-scatterplot-using-ggplot2
 exercise-7
 plotting-on-the-log-scale
 exercise-8
 the-color-and-size-aesthetics
 exercise-9
-faceting---plotting-multiple-subsets-at-once
+faceting---plots-for-multiple-subsets
 exercise-10
 plotting-summarized-data
 exercise-11
@@ -55,6 +55,7 @@ line-plots
 exercise-12
 bar-plots
 exercise-13
+dotplots
 histograms
 exercise-14
 boxplots
