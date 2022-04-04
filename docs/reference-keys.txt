@@ -12,14 +12,7 @@ get_bias
 running-the-simulation-study
 expand.grid-and-map
 formatting-the-results
-bonus-parallel-computing-with-mcmap
 your-turn-simulating-the-hot-hand
-further-reading
-mini-projects
-the-hot-hand-revisited
-which-estimator-of-the-variance-is-really-better
-optimal-stopping
-draft-material
 getting-started-with-dplyr
 package-installation
 exercise

@@ -8,9 +8,9 @@ The research that Kahneman mentions was published in a famous paper by [Gilovich
 
 > Basketball players and fans alike tend to believe that a player's chance of hitting a shot are greater following a hit than following a miss on the previous shot. However, detailed analyses of the shooting records of the Philadelphia 76ers provided no evidence for a positive correlation between the outcomes of successive shots. The same conclusions emerged from free-throw records of the Boston Celtics, and from a controlled shooting experiment with the men and women of Cornell's varsity teams. The outcomes of previous shots influenced Cornell players' predictions but not their performance. The belief in the hot hand and the "detection" of streaks in random sequences is attributed to a general misconception of chance according to which even short random sequences are thought to be highly representative of their generating process.
 
-Between 1985 and 2011, when Kahneman's book was published, this result was replicated numerous times under a variety of different conditions, making it one of the better-documented biases in human decision-making. But it turns out that the hot-hand illusion is *itself* an illusion.  
+Between 1985 and 2011, when Kahneman's book was published, this result was replicated numerous times under a variety of different conditions, making it one of the better-documented biases in human decision-making. But it turns out that *another* source of bias was at play here, one of the *statistical* variety. 
 
-In a recent issue of *Econometrica*, [Miller \& Sanjurjo (2018)](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA14943) point out a subtle but consequential error in the statistical tests used in the hot hand literature. It turns out that these tests were biased *against* detecting evidence of a hot hand, even if it did in fact exist. Correcting this mistake and re-analyzing Gilovich, Vallone and Tversky's original dataset "reveals significant evidence of streak shooting, with large effect sizes." The hot hand is real, and the literature has now shifted to trying to estimate the *size* of the effect.^[See for example [this write-up](https://www.nber.org/digest-202202/exploring-hot-hand-basketball) of [Lantis & Nessen (2021)](https://www.nber.org/papers/w29468) in the [February 2022 NBER digest](https://www.nber.org/digest-2022-02).]
+In a recent issue of *Econometrica*, [Miller \& Sanjurjo (2018)](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA14943) point out a subtle but consequential error in the statistical tests used in the hot hand literature. It turns out that these tests were biased *against* detecting evidence of a hot hand, even if it did in fact exist. Correcting this mistake and re-analyzing Gilovich, Vallone and Tversky's original dataset "reveals significant evidence of streak shooting, with large effect sizes." In response to this paper, the literature has now shifted to trying to estimate the *size* of the effect.^[See for example [this write-up](https://www.nber.org/digest-202202/exploring-hot-hand-basketball) of [Lantis & Nessen (2021)](https://www.nber.org/papers/w29468) in the [February 2022 NBER digest](https://www.nber.org/digest-2022-02).] As [Benjamin (2019)](https://www.sciencedirect.com/science/article/pii/S2352239918300228) points out it's still an open question whether people *over-estimate* the importance of the hot hand phenomenon, but certainly one can no longer fairly call it a cognitive illusion.^[An ungated version of Benjamin (2019) is [available here](https://www.cb.cityu.edu.hk/ef/doc/GRU/WPS/GRU%232018-023%20Benjamin.pdf).]
 
 There are some helpful lessons that we can draw from this episode. First, we all make mistakes--even Nobel Laureates! Second, successful replications tell us less than we might hope: they could easily *reproduce* the bias of the original study. But in my view, the real lesson of the hot hand affair is much simpler: **you should always run a simulation study.** 
 
@@ -85,7 +85,7 @@ There's a single help file for all of the `d/p/q/r` functions for a particular d
 
 To get a feel for how these functions work, let's take a look at `rbinom()`, the function for drawing from a [Binomial distribution](https://en.wikipedia.org/wiki/Binomial_distribution). Recall that a Binomial$(m,p)$ random variable equals the number of heads in $m$ independent tosses of a coin with $\mathbb{P}(\text{Heads})=p$. Or to use a bit of probability jargon, it equals the number of *successes* in $m$ independent *Bernoulli trials*, each with probability of success $p$.^[A Bernoulli trial is a model for a possibly biased coin flip: if $X \sim \text{Bernoulli}(p)$ then $\mathbb{P}(X=1) = p$ and $\mathbb{P}(X=0) = 1-p$.] If $X$ is a Binomial random variable with parameters $m$ and $p$, traditionally written as $X \sim \text{Binomial}(m, p)$ then $X$ must take on a value in the set $\{0, 1, 2, ..., m\}$ and the probability that it takes on a particular value $x$ in this set is 
 $$
-\mathbb{P}(X = x) = \binom{m}{x} p^x (1 - p)^x
+\mathbb{P}(X = x) = \binom{m}{x} p^x (1 - p)^{m-x}
 $$
 The function `rbinom()` makes random draws with the probabilities given by this formula. Its takes three arguments: `size` is the number of trials, $m$ in the formula, `prob` is the probability of success, $p$ in the formula, and `n` is the desired number of Binomial draws. For example, we can make a single draw from a Binomial$(m = 10, p =1 /2)$ distribution as follows
 ```{r}
@@ -97,7 +97,7 @@ rbinom(n = 15, size = 10, prob = 0.5)
 ```
 It's important not to confuse `n` with `size`. The former tells R how many *Binomial* draws to make. The latter tells R the value of the parameter $m$ of the Binomial$(m, p)$ distribution.
 
-Perhaps you remember that if $X \sim \text{Binomial}(m, p)$ then $\mathbb{E}[X] = mp$ and $\text{Var}= np(1-p)$. We can approximate these results numerically by simulating a large number of draws, say 5000, from a Binomial distribution:
+Perhaps you remember that if $X \sim \text{Binomial}(m, p)$ then $\mathbb{E}[X] = mp$ and $\text{Var}= mp(1-p)$. We can approximate these results numerically by simulating a large number of draws, say 5000, from a Binomial distribution:
 ```{r}
 m <- 20
 p <- 0.25
@@ -385,7 +385,7 @@ For extra credit, we can use the function `kable()` from the `knitr` package to 
 knitr::kable(sim_results)
 ```
 
-### Bonus: Parallel Computing with `mcMap()`
+<!--### Bonus: Parallel Computing with `mcMap()`
 There's a good chance that your computer has more than one processor core. Why not use them to speed up your simulation study! If you're on Mac or Linux (RStudio Cloud counts as Linux), it's trivial to parallelize our simulation code from above using `mcMap()` from the `parallel` package. To make things more interesting, let's set up a larger parameter grid
 ```{r}
 parameters <- expand.grid(n = 3:10, s_sq = 1:10)
@@ -394,44 +394,20 @@ The function `mcMap()` works exactly like `Map()` except that we have the option
 
 ```{r}
 set.seed(420508570)
-system.time(foo <- parallel::mcMap(get_bias_and_var, n = parameters$n, s_sq = parameters$s_sq, mc.cores = 2))
-set.seed(420508570)
-system.time(bar <- Map(get_bias_and_var, n = parameters$n, s_sq = parameters$s_sq))
-all.equal(foo, bar)
+results_parallel <- parallel::mcMap(get_bias_and_var, n = parameters$n, 
+                                    s_sq = parameters$s_sq, mc.cores = 2)
+results_parallel <- do.call(rbind, results_parallel)
+head(results_parallel)
 ```
+-->
 
 
 
 ## Your Turn: Simulating the Hot Hand
 
-## Further Reading
-Advanced R book for more on `replicate()` and `lapply()` as well as scoping rules for functions within functions etc.
+**Add step-by-step instructions**
 
-## Mini Projects
-
-### The Hot Hand Revisited
-In the lesson we generated iid data. Now try simulating from a first-order Markov chain for various different parameters. How do the results change?
-
-### Which estimator of the variance is *really* better?
-Compare the RMSE of two variance estimators: the unbiased estimator and the MLE.
-
-### Optimal Stopping
-Simulate the secretary problem; try to find the optimal stopping rule.
-
-## DRAFT MATERIAL
-
-**Should I introduce `knitr` and `Rmarkdown` in this lesson or the next one?**
-
-1. Some basic simulation commands in R: `sample()`, `rbinom()`, `rnorm()`, etc. Read the help files.
-2. Write a function `draw_sim_data()` that makes 100 Bernoulli(1/2) draws. Optional arguments `p` and `n`? This simulates data when there is *no hot hand*
-3. `set.seed()` what does it do?
-4. Think about how to calculate the estimator: fraction of times that three ones are followed by another one compared to another zero. Suppose you had a function `is_after_3_ones()` that took a vector of 0 and 1 and returned, for each element, whether it is after three ones. How would you use it? Write this function.
-5. Put everything together with `replicate()` to do a simple sim for $p=1/2$ and $n = 100$.
-6. How about trying different values of $n$ and $p$? Need to keep results organized: `apply()` family of functions (or maybe the tidy equivalents?)
-7. Try doing it in parallel with `mclapply()`. First explain the basic idea of parallel and why this is "embarrassingly parallel." Show them how to time the code, illustrate with `sys.sleep()`. 
-8. For the students who finish very quickly, have some extensions: a markov chain DGP, and `is_after_k_ones()`
-
-```{r}
+```{r, webex.hide = 'Show Solution'}
 dgp <- function(n = 100, p = 0.5) {
   rbinom(n, 1, p)
 }
@@ -458,15 +434,6 @@ sim_results <- replicate(n_reps, get_est(dgp()))
 library(ggplot2)
 qplot(sim_results)
 mean(sim_results, na.rm = TRUE)
-
-#ones <- which(x == 1)
-#x[which(x == 1) + 1]
-#runs <- rle(x)
-#foo <- rle(x)
-#str(foo)
-#x
-#foo$lengths
-#foo$values
 ```
 
 
