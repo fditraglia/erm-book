@@ -302,20 +302,45 @@ ggplot(by_continent) +
 
 
 ### Exercise
-Make a collection of bar plots faceted by year that compare mean GDP per capita across countries in a given year.
-Orient your plots so it's easy to read the continent labels.
+Make a collection of bar plots faceted by year that compare mean GDP per capita across countries in a given year. Orient your plots so it's easy to read the continent labels.
 ```{r webex.hide="Show Solution", fig.width = 7, fig.height = 6}
-by_continent <- gapminder %>%
-  group_by(continent) %>% 
-  summarize(meanGDPc = mean(gdpPercap))
 ggplot(by_year) +
   geom_col(aes(x = continent, y = meanGDPc)) +
   facet_wrap(~ year) +
   coord_flip()
 ```
 
-## Dotplots
-**Add material here!**
+## Cleveland Dot Charts
+
+Now that you know how to make a barchart *don't bother*; *dot charts* as described by [Cleveland (1984)](https://www.jstor.org/stable/pdf/2683401.pdf), are a simpler, cleaner and more flexible alternative.
+```{r}
+ggplot(by_continent) +
+  geom_point(aes(x = meanLifeExp, y = continent))
+```
+Unlike the equivalent bar chart from above, this dot chart *restricts* the `meanLifeExp` axis rather than extending it all the way to zero. This makes sense given that our interest in making this plot is to compare average life expectancy across continents. 
+
+Dot plots are typically most informative when *sorted* by the continuous variable in the plot, `meanLifeExp` in our case. A convenient way to achieve this is by using the `fct_reorder()` function from the [`forcats` package](https://forcats.tidyverse.org/), a member of the [Tidyverse](https://www.tidyverse.org/). Here's a simple pipeline that does the trick:
+```{r}
+library(forcats)
+by_continent %>%
+  mutate(continent = fct_reorder(continent, meanLifeExp)) %>%
+  ggplot() +
+  geom_point(aes(x = meanLifeExp, y = continent))
+```
+The first argument of `fct_reorder()` is the factor whose levels we want to re-order. The second argument is the variable that we'll use to determine the order. In our case, we reorder `continent` according to `meanLifeExp`. Another thing worth noticing in the preceding code chunk is the way that I modified `by_continent` *in place* and piped the result directly into `ggplot()`. I didn't bother to store this modified version of `by_continent` or give it a new name, because I knew that I wouldn't need to use it again.  
+
+Here's a more complicated version 
+```{r}
+gapminder %>%
+  filter(year %in% c(1987, 2007)) %>%
+  mutate(year = factor(year)) %>%
+  group_by(continent, year) %>%
+  summarize(meanLifeExp = mean(lifeExp)) %>%
+  ggplot() +
+  geom_point(aes(x = meanLifeExp, y = continent, color = year))
+```
+Some more examples <https://uc-r.github.io/cleveland-dot-plots>
+
 
 ## Histograms
 To make a `ggplot2` histogram, we use the function `geom_histogram()`. Recall that a histogram summarizes a *single* variable at a time by forming non-overlapping bins of equal width and calculating the fraction of observations in each bin. If we choose a different width for the bins, we'll get a different histogram. Here's an example of two different bin widths:
