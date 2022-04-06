@@ -1,6 +1,6 @@
 # Getting Started with `ggplot2` 
 
-In this lesson we'll build on your knowledge of `dplyr` and the `gapminder` dataset and introduce [`ggplot2`](https://ggplot2.tidyverse.org/), the R graphics package *par excellence*. Like `dplyr`, `ggplot2` is also a part of the Tidyverse family of packages. To install the whole family of packages, use `install.packages('tidyverse')`. To load all of them at once, use `library(tidyverse)`. (Of course you can also install and load `ggplot2` on its own if you prefer.) This lesson is only the tip of the iceberg when it comes to `ggplot2`. To learn more, see [R for Data Science](https://r4ds.had.co.nz/) is and the [`ggplot2` cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf).
+In this lesson we'll build on your knowledge of `dplyr` and the `gapminder` dataset and introduce [`ggplot2`](https://ggplot2.tidyverse.org/), the R graphics package *par excellence*. Like `dplyr`, `ggplot2` is also a part of the Tidyverse family of packages. To install the whole family of packages, use `install.packages('tidyverse')`. To load all of them at once, use `library(tidyverse)`. (Of course you can also install and load `ggplot2` on its own if you prefer.) This lesson is only the tip of the iceberg when it comes to `ggplot2`. We'll pick up a few more `ggplot2` tricks in future lessons. For a more comprehensive treatment, see the free online draft of [Data Visualization: A Practical Introduction](https://socviz.co/). Another good reference is [R for Data Science](https://r4ds.had.co.nz/), and don't forget the [`ggplot2` cheat sheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf)!
 
 ## A simple scatterplot using `ggplot2`
 We'll start off by constructing a subset of the `gapminder` dataset that contains information from the year 2007 that we'll use for our plots below.
@@ -319,7 +319,7 @@ ggplot(by_continent) +
 ```
 Unlike the equivalent bar chart from above, this dot chart *restricts* the `meanLifeExp` axis rather than extending it all the way to zero. This makes sense given that our interest in making this plot is to compare average life expectancy across continents. 
 
-Dot plots are typically most informative when *sorted* by the continuous variable in the plot, `meanLifeExp` in our case. A convenient way to achieve this is by using the `fct_reorder()` function from the [`forcats` package](https://forcats.tidyverse.org/), a member of the [Tidyverse](https://www.tidyverse.org/). Here's a simple pipeline that does the trick:
+Dot charts are typically most informative when *sorted* by the continuous variable, `meanLifeExp` in our case. A convenient way to achieve this is by using the `fct_reorder()` function from the [`forcats` package](https://forcats.tidyverse.org/), a member of the [Tidyverse](https://www.tidyverse.org/). Here's a simple pipeline that does the trick:
 ```{r}
 library(forcats)
 by_continent %>%
@@ -329,17 +329,28 @@ by_continent %>%
 ```
 The first argument of `fct_reorder()` is the factor whose levels we want to re-order. The second argument is the variable that we'll use to determine the order. In our case, we reorder `continent` according to `meanLifeExp`. Another thing worth noticing in the preceding code chunk is the way that I modified `by_continent` *in place* and piped the result directly into `ggplot()`. I didn't bother to store this modified version of `by_continent` or give it a new name, because I knew that I wouldn't need to use it again.  
 
-Here's a more complicated version 
-```{r}
+Because dots take up less space than bars, dot charts provide a cleaner way of making comparisons *within* and *between* groups simultaneously. Here's a more complicated example that shows how life expectancy has changed in each continent between 1987 and 2007: 
+```{r, message = FALSE}
 gapminder %>%
   filter(year %in% c(1987, 2007)) %>%
   mutate(year = factor(year)) %>%
   group_by(continent, year) %>%
   summarize(meanLifeExp = mean(lifeExp)) %>%
-  ggplot() +
-  geom_point(aes(x = meanLifeExp, y = continent, color = year))
+  ggplot(aes(x = meanLifeExp, y = continent)) +
+  geom_line(aes(group = continent)) +
+  geom_point(aes(color = year))
 ```
-Some more examples <https://uc-r.github.io/cleveland-dot-plots>
+
+### Exercise
+Make a dot chart of GDP per capita in all European countries in the year 2007. Sort the dots so that the country with the *highest* GDP per capita appears a the top and the country with the *lowest* appears at the bottom.
+```{r, webex.hide = 'Show Solution'}
+gapminder %>%
+  filter(continent == 'Europe', year == 2007) %>%
+  mutate(country = fct_reorder(country, gdpPercap)) %>%
+  ggplot() +
+  geom_point(aes(x = gdpPercap, y = country))
+```
+
 
 
 ## Histograms
