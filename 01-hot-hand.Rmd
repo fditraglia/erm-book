@@ -1,4 +1,4 @@
-# The Hot Hand
+# Running a Simulation Study 
 
 If you've read 2002 Nobel Laureate Daniel Kahneman's best-selling book [*Thinking Fast and Slow*](https://www.google.co.uk/books/edition/Thinking_Fast_and_Slow/AV9x8XakdV0C?hl=en&gbpv=1&dq=thinking+fast+and+slow&printsec=frontcover), you may remember this passage about the *hot hand illusion*, a supposed illustration of the human tendency to see patterns in random noise:
 
@@ -24,7 +24,6 @@ The probabilistic error that led so many researchers to draw the wrong conclusio
 - `replicate()`
 - `expand.grid()`
 - `Map()`
-- `mcMap()` from the `parallel` package
 
 
 ## Drawing Random Data in R
@@ -403,7 +402,35 @@ head(results_parallel)
 
 
 
-## Your Turn: Simulating the Hot Hand
+## Exercise - The Hot Hand
+
+Now that you know the basics of running a simulation study in R, it's time to re-visit the Hot Hand example introduced above. Let `shots` be a sequence of shots made by a basketball player, Liz. In R, `shots` is stored as a vector of zeros and ones. If Liz has a "hot hand" then her chance of making her *next* shot should be higher when her last few shots were a success. This means we should expect ones to become *more likely* after a streak of ones in the vector `shots`. If Liz doesn't have a hot hand, then she should be no more likely to make her next shot after a streak of successes on her last few shots. 
+
+Before [Miller \& Sanjurjo (2018)](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA14943), researchers studying the hot hand operationalized this intuition as follows. Define a "streak" as $k$ successes in a row. For each streak in `scores`, look at the shot that immediately *follows it*. Then collect each of these shots following a streak into another vector `after_streak`. Finally, compare the proportion of successes in `scores` to that in `after_streak`. Since each vector contains zeros and ones, we can make this comparison using `mean()`. If there's no hot hand, it seems reasonable to expect that `mean(after_streak)` will approximately equal to `mean(scores)`. If there is a hot hand, on the other hand, then it seems reasonable to expect that `mean(after_streak)` should be *larger* than `mean(scores)`.   
+
+In this simulation study, rather than using a vector `scores` of a *real* basketball player, we'll draw a random sequence of zeros and ones. Since we control how the sequence is generated, this gives us a way of checking whether the procedure described in the preceding paragraph works as expected. To keep things simple, we'll set $k = 3$ and generate `scores` as an iid sequence of Bernoulli(1/2). Such a sequence clearly does *not* exhibit a hot hand. Moreover, there's no need to calculate `mean(scores)` because we know that the chance of making each simulated shot is 0.5. This means that the exercise reduces to comparing `mean(after_streak)` to 0.5.  
+
+1. Write a function called `get_avg_after_streak()` that takes a single input argument: `scores` a vector of zeros and ones. Your function should work as follows. First, identify all "streaks" in `scores`, defined as three ones in a row. Next, extract the elements of `scores` that immediately *follow* a streak, storing them in a vector called `after_streak`. Finally, compute the mean of `after_streak`. Test your function on the vector `c(0, 1, 1, 1, 1, 0, 0, 0)` to make sure that it's working correctly.
+```{r, webex.hide = 'Show Solution'}
+get_avg_after_streak <- function(scores) {
+  stopifnot(all(scores %in% c(0, 1)))
+  after_streak <- rep(NA, length(scores) - 3)
+  for(i in 1:length(after_streak)) {
+    after_streak[i] <- all(scores[i:(i + 2)] == 1)
+  }
+  after_streak <- c(rep(FALSE, 3), after_streak)
+  after_streak <- scores[after_streak]
+  mean(after_streak)
+}
+
+get_avg_after_streak(c(0, 1, 1, 1, 1, 0, 0, 0))
+```
+
+
+
+**Bonus** Go back and change from `3` to `k`. How does this change things?
+**Try simulating from a non iid process**
+
 
 **Add step-by-step instructions**
 

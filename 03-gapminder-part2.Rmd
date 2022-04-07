@@ -262,7 +262,7 @@ ggplot(by_year) +
 
 ## Line plots
 Thus far we've only learned how to make one kind of plot with `ggplot`: a scatterplot, which we constructed using `geom_scatter()`. Sometimes we want to *connect* the dots in a scatterplot, for example when we're interested in visualizing a trend over time. The resulting plot is called a *line plot*. To make one, simply replace `geom_scatter()` with `geom_line()`. For example:
-```{r}
+```{r, message = FALSE}
 by_year_continent <- gapminder %>%
   mutate(popMil = pop / 1000000) %>%
   group_by(year, continent) %>%
