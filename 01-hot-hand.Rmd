@@ -1,5 +1,28 @@
 # Running a Simulation Study 
 
+> It’s nearly impossible to overstate the value that economists ascribe to cleverness. Like most obsessions, this one is not altogether healthy.
+>
+> --<cite>[David Autor](https://ocw.mit.edu/courses/14-662-labor-economics-ii-spring-2015/12ff98a88fe3005fec9f81351c40ab73_MIT14_662S15_lecnotes1.pdf)</cite>
+
+> My general philosophy in life is never to rely on being clever; instead I want to rely on being thorough and having a justifiable workflow. 
+> 
+> -- <cite>[Richard McElreath](https://youtu.be/zYYBtxHWE0A)</cite>
+
+In economics and statistics, simulation is a *superpower*. It helps us to understand our models, check for mistakes, and make unexpected connections, some of which may even lead to new theoretical results. Riffing on the two quotes from above, simulation is both a substitute for and a complement to cleverness. If you'll pardon my continuation of the Swiss Army Knife metaphor, simulation is the knife: arguably the most useful tool in your toolbox. In this lesson, we'll learn the basics of carrying out a simulation study in R using the following key commands: 
+
+- `sample()`
+- `rbinom()`
+- `rnorm()`
+- `set.seed()`
+- `identical()`
+- `replicate()`
+- `expand.grid()`
+- `Map()`
+
+We'll then apply what we've learned to shed some light on a simple but surprisingly subtle statistical error that led an entire literature astray for nearly two decades. Before we dive into the code, let me set the stage for the example that appears at the end of this lesson.
+
+## Is the Hot Hand an Illusion?
+
 If you've read 2002 Nobel Laureate Daniel Kahneman's best-selling book [*Thinking Fast and Slow*](https://www.google.co.uk/books/edition/Thinking_Fast_and_Slow/AV9x8XakdV0C?hl=en&gbpv=1&dq=thinking+fast+and+slow&printsec=frontcover), you may remember this passage about the *hot hand illusion*, a supposed illustration of the human tendency to see patterns in random noise:
 
 > Amos [Tversky] and his students Tom Gilovich and Robert Vallone caused a stir with their study of misperceptions of randomness in basketball. The "fact" that players occasionally acquire a hot hand is generally accepted by players, coaches, and fans. The inference is irresistible: a player sinks three or four baskets in a row and you cannot help forming the causal judgment that this player is now hot, with a temporarily increased propensity to score. Players on both teams adapt to this judgment—teammates are more likely to pass to the hot scorer and the defense is more likely to doubleteam. Analysis of thousands of sequences of shots led to a disappointing conclusion: there is no such thing as a hot hand in professional basketball, either in shooting from the field or scoring from the foul line. Of course, some players are more accurate than others, but the sequence of successes and missed shots satisfies all tests of randomness. The hot hand is entirely in the eye of the beholders, who are consistently too quick to perceive order and causality in randomness. The hot hand is a massive and widespread cognitive illusion.
@@ -10,20 +33,10 @@ The research that Kahneman mentions was published in a famous paper by [Gilovich
 
 Between 1985 and 2011, when Kahneman's book was published, this result was replicated numerous times under a variety of different conditions, making it one of the better-documented biases in human decision-making. But it turns out that *another* source of bias was at play here, one of the *statistical* variety. 
 
-In a recent issue of *Econometrica*, [Miller \& Sanjurjo (2018)](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA14943) point out a subtle but consequential error in the statistical tests used in the hot hand literature. It turns out that these tests were biased *against* detecting evidence of a hot hand, even if it did in fact exist. Correcting this mistake and re-analyzing Gilovich, Vallone and Tversky's original dataset "reveals significant evidence of streak shooting, with large effect sizes." In response to this paper, the literature has now shifted to trying to estimate the *size* of the effect.^[See for example [this write-up](https://www.nber.org/digest-202202/exploring-hot-hand-basketball) of [Lantis & Nessen (2021)](https://www.nber.org/papers/w29468) in the [February 2022 NBER digest](https://www.nber.org/digest-2022-02).] As [Benjamin (2019)](https://www.sciencedirect.com/science/article/pii/S2352239918300228) points out it's still an open question whether people *over-estimate* the importance of the hot hand phenomenon, but certainly one can no longer fairly call it a cognitive illusion.^[An ungated version of Benjamin (2019) is [available here](https://www.cb.cityu.edu.hk/ef/doc/GRU/WPS/GRU%232018-023%20Benjamin.pdf).]
+In a recent issue of *Econometrica*, [Miller \& Sanjurjo (2018)](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA14943) point out a subtle but consequential error in the statistical tests used in the hot hand literature. It turns out that these tests were biased *against* detecting evidence of a hot hand, even if it did in fact exist. Correcting this mistake and re-analyzing Gilovich, Vallone and Tversky's original dataset "reveals significant evidence of streak shooting, with large effect sizes." In response to this paper, the literature has now shifted to trying to estimate the *size* of the effect.^[See for example [this write-up](https://www.nber.org/digest-202202/exploring-hot-hand-basketball) of [Lantis & Nessen (2021)](https://www.nber.org/papers/w29468) in the [February 2022 NBER digest](https://www.nber.org/digest-2022-02).] As [Benjamin (2019)](https://www.sciencedirect.com/science/article/pii/S2352239918300228) points out it's still an open question whether sports fans over-estimate the importance of the hot hand phenomenon, but it's certainly not a cognitive illusion.^[An ungated version of Benjamin (2019) is [available here](https://www.cb.cityu.edu.hk/ef/doc/GRU/WPS/GRU%232018-023%20Benjamin.pdf).]
 
-There are some helpful lessons that we can draw from this episode. First, we all make mistakes--even Nobel Laureates! Second, successful replications tell us less than we might hope: they could easily *reproduce* the bias of the original study. But in my view, the real lesson of the hot hand affair is much simpler: **you should always run a simulation study.** 
+There are some helpful lessons that we can draw from this episode. First, we all make mistakes--even Nobel Laureates! Second, successful replications tell us less than we might hope: they could easily *reproduce* the bias of the original study. But in my view, the real lesson of the hot hand affair is much simpler: **you should always run a simulation study.** The probabilistic error that led so many researchers to draw the wrong conclusion about the hot hand is really quite subtle.^[See [Miller \& Sanjurjo (2019)](https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.33.3.144) for a more accessible explanation that connects to several related probability puzzles.] But at the same time, anyone who knows basic programming could have detected the mistake in half an hour if they had only bothered to look. 
 
-The probabilistic error that led so many researchers to draw the wrong conclusion about the hot hand is really quite subtle.^[See [Miller \& Sanjurjo (2019)](https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.33.3.144) for a more accessible explanation that connects to several related probability puzzles.] But at the same time, anyone who knows basic programming could have detected the mistake in five minutes if only they had bothered to look. In economics and statistics, simulation is a *superpower*. It helps us to understand our models, check for mistakes, and make unexpected connections, some of which may even lead to new theoretical results. If you'll pardon my continuation of the Swiss Army Knife metaphor, simulation is the knife: arguably the most useful tool in your toolbox. In this lesson, we'll cover some basic tools for carrying out a simulation experiment in R and use them to shed some light on the illusion of the hot hand illusion. The key R functions introduced in this lesson are as follows:
-
-- `sample()`
-- `rbinom()`
-- `rnorm()`
-- `set.seed()`
-- `identical()`
-- `replicate()`
-- `expand.grid()`
-- `Map()`
 
 
 ## Drawing Random Data in R
@@ -406,25 +419,41 @@ head(results_parallel)
 
 Now that you know the basics of running a simulation study in R, it's time to re-visit the Hot Hand example introduced above. Let `shots` be a sequence of shots made by a basketball player, Liz. In R, `shots` is stored as a vector of zeros and ones. If Liz has a "hot hand" then her chance of making her *next* shot should be higher when her last few shots were a success. This means we should expect ones to become *more likely* after a streak of ones in the vector `shots`. If Liz doesn't have a hot hand, then she should be no more likely to make her next shot after a streak of successes on her last few shots. 
 
-Before [Miller \& Sanjurjo (2018)](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA14943), researchers studying the hot hand operationalized this intuition as follows. Define a "streak" as $k$ successes in a row. For each streak in `scores`, look at the shot that immediately *follows it*. Then collect each of these shots following a streak into another vector `after_streak`. Finally, compare the proportion of successes in `scores` to that in `after_streak`. Since each vector contains zeros and ones, we can make this comparison using `mean()`. If there's no hot hand, it seems reasonable to expect that `mean(after_streak)` will approximately equal to `mean(scores)`. If there is a hot hand, on the other hand, then it seems reasonable to expect that `mean(after_streak)` should be *larger* than `mean(scores)`.   
+Before [Miller \& Sanjurjo (2018)](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA14943), researchers studying the hot hand operationalized this intuition as follows. Define a "streak" as $k$ successes in a row. For each streak in `shots`, look at the shot that immediately *follows it*. Then collect each of these shots following a streak into another vector `after_streak`. Finally, compare the proportion of successes in `shots` to that in `after_streak`. Since each vector contains zeros and ones, we can make this comparison using `mean()`. If there's no hot hand, it seems reasonable to expect that `mean(after_streak)` will approximately equal to `mean(shots)`. If there is a hot hand, on the other hand, then it seems reasonable to expect that `mean(after_streak)` should be *larger* than `mean(shots)`.   
 
-In this simulation study, rather than using a vector `scores` of a *real* basketball player, we'll draw a random sequence of zeros and ones. Since we control how the sequence is generated, this gives us a way of checking whether the procedure described in the preceding paragraph works as expected. To keep things simple, we'll set $k = 3$ and generate `scores` as an iid sequence of Bernoulli(1/2). Such a sequence clearly does *not* exhibit a hot hand. Moreover, there's no need to calculate `mean(scores)` because we know that the chance of making each simulated shot is 0.5. This means that the exercise reduces to comparing `mean(after_streak)` to 0.5.  
+In this simulation study, rather than using a vector `shots` of a *real* basketball player, we'll draw a random sequence of zeros and ones. Since we control how the sequence is generated, this gives us a way of checking whether the procedure described in the preceding paragraph works as expected. To keep things simple, we'll set $k = 3$ and generate `shots` as an iid sequence of Bernoulli(p) draws. Such a sequence clearly does *not* exhibit a hot hand. Moreover, there's no need to calculate `mean(shots)` because we know that the chance of making each simulated shot is `p`. This means that the exercise reduces to comparing `mean(after_streak)` to `p`. For example, if `p` is 0.5, then we compare `mean(after_streak)` to 0.5.  
 
-1. Write a function called `get_avg_after_streak()` that takes a single input argument: `scores` a vector of zeros and ones. Your function should work as follows. First, identify all "streaks" in `scores`, defined as three ones in a row. Next, extract the elements of `scores` that immediately *follow* a streak, storing them in a vector called `after_streak`. Finally, compute the mean of `after_streak`. Test your function on the vector `c(0, 1, 1, 1, 1, 0, 0, 0)` to make sure that it's working correctly.
+1. Write a function called `get_avg_after_streak()` that takes a single input argument: `shots` a vector of zeros and ones. Your function should work as follows. First, identify all "streaks" in `shots`. Streaks are defined as a sequence of three ones in a row. Next, extract the elements of `shots` that immediately *follow* a streak, storing them in a vector called `after_streak`. Finally, compute the mean of `after_streak`. Test your function on the vector `c(0, 1, 1, 1, 1, 0, 0, 0)` to make sure that it's working correctly.
 ```{r, webex.hide = 'Show Solution'}
-get_avg_after_streak <- function(scores) {
-  stopifnot(all(scores %in% c(0, 1)))
-  after_streak <- rep(NA, length(scores) - 3)
+get_avg_after_streak <- function(shots) {
+  stopifnot(all(shots %in% c(0, 1)))
+  after_streak <- rep(NA, length(shots) - 3)
   for(i in 1:length(after_streak)) {
-    after_streak[i] <- all(scores[i:(i + 2)] == 1)
+    after_streak[i] <- all(shots[i:(i + 2)] == 1)
   }
   after_streak <- c(rep(FALSE, 3), after_streak)
-  after_streak <- scores[after_streak]
+  after_streak <- shots[after_streak]
   mean(after_streak)
 }
 
 get_avg_after_streak(c(0, 1, 1, 1, 1, 0, 0, 0))
 ```
+2. Write a function called `draw_shots()` that simulates an iid sequence of Bernoulli draws representing basketball shots, where `1` denotes a success and `0` denotes a miss. Your function should take two arguments: `n_shots` is the number of shots, and `prob_success` is the probability that any given shot will be a success. It should return a vector of length `n_shots` containing the simulation draws. Test your function by drawing a large sequence of shots with `prob_success` equal to 0.5 and calculating the sample mean.
+```{r}
+draw_shots <- function(n_shots, prob_success) {
+  rbinom(n_shots, 1, prob_success)
+}
+set.seed(420508570)
+mean(draw_shots(1e4, 0.5))
+```
+3. Write a function called `get_hot_handedness()` that combines `draw_shots()` and  `get_avg_after_streak()` to calculated "hot handedness" of a randomly-drawn sequence. In words: `get_est()` should draw a sequence `shots` of simulated basketball shots and then calculate and return the fraction of successes in `sim_shots` among the shots that immediately follow a streak of three successes. Think carefully about what arguments `get_est()` needs to take if we want to be able to vary the length and success probability of our simulated sequence of basketball shots. After writing your function
+```{r}
+get_hot_handedness <- function(n_shots, prob_success) {
+  sim_shots <- draw_shots(n_shots, prob_success)
+  get_avg_after_streak(sim_shots)
+}
+```
+4. Consider a basketball player who *does not* have a hot hand: each of her shots is independent of the others and her probability of success on a given shot is 1/2. 
 
 
 
