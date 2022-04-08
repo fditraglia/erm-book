@@ -24,14 +24,14 @@
 <meta name="author" content="Francis J. DiTraglia" />
 
 
-<meta name="date" content="2022-04-07" />
+<meta name="date" content="2022-04-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="the-hot-hand.html"/>
+<link rel="prev" href="running-a-simulation-study.html"/>
 <link rel="next" href="getting-started-with-ggplot2.html"/>
 <script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -144,26 +144,27 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-stata"><i class="fa fa-check"></i>Why not Stata?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab-julia-or-python"><i class="fa fa-check"></i>Why not Matlab, Julia, or Python?</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="the-hot-hand.html"><a href="the-hot-hand.html"><i class="fa fa-check"></i><b>1</b> The Hot Hand</a>
+<li class="chapter" data-level="1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html"><i class="fa fa-check"></i><b>1</b> Running a Simulation Study</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="the-hot-hand.html"><a href="the-hot-hand.html#drawing-random-data-in-r"><i class="fa fa-check"></i><b>1.1</b> Drawing Random Data in R</a>
+<li class="chapter" data-level="1.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#is-the-hot-hand-an-illusion"><i class="fa fa-check"></i><b>1.1</b> Is the Hot Hand an Illusion?</a></li>
+<li class="chapter" data-level="1.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#drawing-random-data-in-r"><i class="fa fa-check"></i><b>1.2</b> Drawing Random Data in R</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="the-hot-hand.html"><a href="the-hot-hand.html#sample"><i class="fa fa-check"></i><b>1.1.1</b> <code>sample()</code></a></li>
-<li class="chapter" data-level="1.1.2" data-path="the-hot-hand.html"><a href="the-hot-hand.html#probability-distributions-in-r"><i class="fa fa-check"></i><b>1.1.2</b> Probability Distributions in R</a></li>
-<li class="chapter" data-level="1.1.3" data-path="the-hot-hand.html"><a href="the-hot-hand.html#set.seed"><i class="fa fa-check"></i><b>1.1.3</b> <code>set.seed()</code></a></li>
-<li class="chapter" data-level="1.1.4" data-path="the-hot-hand.html"><a href="the-hot-hand.html#exercises"><i class="fa fa-check"></i><b>1.1.4</b> Exercises</a></li>
+<li class="chapter" data-level="1.2.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#sample"><i class="fa fa-check"></i><b>1.2.1</b> <code>sample()</code></a></li>
+<li class="chapter" data-level="1.2.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#probability-distributions-in-r"><i class="fa fa-check"></i><b>1.2.2</b> Probability Distributions in R</a></li>
+<li class="chapter" data-level="1.2.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#set.seed"><i class="fa fa-check"></i><b>1.2.3</b> <code>set.seed()</code></a></li>
+<li class="chapter" data-level="1.2.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercises"><i class="fa fa-check"></i><b>1.2.4</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="the-hot-hand.html"><a href="the-hot-hand.html#the-skeleton-of-a-simulation-study"><i class="fa fa-check"></i><b>1.2</b> The Skeleton of a Simulation Study</a>
+<li class="chapter" data-level="1.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#the-skeleton-of-a-simulation-study"><i class="fa fa-check"></i><b>1.3</b> The Skeleton of a Simulation Study</a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="the-hot-hand.html"><a href="the-hot-hand.html#a-biased-estimator-of-sigma2"><i class="fa fa-check"></i><b>1.2.1</b> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span></a></li>
-<li class="chapter" data-level="1.2.2" data-path="the-hot-hand.html"><a href="the-hot-hand.html#draw_sim_data"><i class="fa fa-check"></i><b>1.2.2</b> <code>draw_sim_data()</code></a></li>
-<li class="chapter" data-level="1.2.3" data-path="the-hot-hand.html"><a href="the-hot-hand.html#get_estimate"><i class="fa fa-check"></i><b>1.2.3</b> <code>get_estimate()</code></a></li>
-<li class="chapter" data-level="1.2.4" data-path="the-hot-hand.html"><a href="the-hot-hand.html#get_bias"><i class="fa fa-check"></i><b>1.2.4</b> <code>get_bias()</code></a></li>
-<li class="chapter" data-level="1.2.5" data-path="the-hot-hand.html"><a href="the-hot-hand.html#running-the-simulation-study"><i class="fa fa-check"></i><b>1.2.5</b> Running the Simulation Study</a></li>
-<li class="chapter" data-level="1.2.6" data-path="the-hot-hand.html"><a href="the-hot-hand.html#expand.grid-and-map"><i class="fa fa-check"></i><b>1.2.6</b> <code>expand.grid()</code> and <code>Map()</code></a></li>
-<li class="chapter" data-level="1.2.7" data-path="the-hot-hand.html"><a href="the-hot-hand.html#formatting-the-results"><i class="fa fa-check"></i><b>1.2.7</b> Formatting the Results</a></li>
+<li class="chapter" data-level="1.3.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#a-biased-estimator-of-sigma2"><i class="fa fa-check"></i><b>1.3.1</b> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span></a></li>
+<li class="chapter" data-level="1.3.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#draw_sim_data"><i class="fa fa-check"></i><b>1.3.2</b> <code>draw_sim_data()</code></a></li>
+<li class="chapter" data-level="1.3.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_estimate"><i class="fa fa-check"></i><b>1.3.3</b> <code>get_estimate()</code></a></li>
+<li class="chapter" data-level="1.3.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_bias"><i class="fa fa-check"></i><b>1.3.4</b> <code>get_bias()</code></a></li>
+<li class="chapter" data-level="1.3.5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#running-the-simulation-study"><i class="fa fa-check"></i><b>1.3.5</b> Running the Simulation Study</a></li>
+<li class="chapter" data-level="1.3.6" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#expand.grid-and-map"><i class="fa fa-check"></i><b>1.3.6</b> <code>expand.grid()</code> and <code>Map()</code></a></li>
+<li class="chapter" data-level="1.3.7" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#formatting-the-results"><i class="fa fa-check"></i><b>1.3.7</b> Formatting the Results</a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="the-hot-hand.html"><a href="the-hot-hand.html#your-turn-simulating-the-hot-hand"><i class="fa fa-check"></i><b>1.3</b> Your Turn: Simulating the Hot Hand</a></li>
+<li class="chapter" data-level="1.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercise---the-hot-hand"><i class="fa fa-check"></i><b>1.4</b> Exercise - The Hot Hand</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html"><i class="fa fa-check"></i><b>2</b> Getting Started with <code>dplyr</code></a>
 <ul>
@@ -318,13 +319,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="package-installation" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Package Installation</h2>
 <p>Before we can get started, you'll need to install two packages: <code>dplyr</code>, and <code>gapminder</code>. To do this, you can either click on the "Packages" tab in RStudio or use the command <code>install.packages()</code> at the R console, e.g.</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="getting-started-with-dplyr.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
-<span id="cb101-2"><a href="getting-started-with-dplyr.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;gapminder&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="getting-started-with-dplyr.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;dplyr&#39;</span>)</span>
+<span id="cb105-2"><a href="getting-started-with-dplyr.html#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;gapminder&#39;</span>)</span></code></pre></div>
 <p>You only need to install a package <em>once</em>, but you need to <em>load</em> it every time you want to use it.
 To load a package, use the <code>library()</code> command, e.g.</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="getting-started-with-dplyr.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb102-2"><a href="getting-started-with-dplyr.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb102-3"><a href="getting-started-with-dplyr.html#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="getting-started-with-dplyr.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb106-2"><a href="getting-started-with-dplyr.html#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb106-3"><a href="getting-started-with-dplyr.html#cb106-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code></pre></div>
 <p>Now we're ready to go! I could tell you all about the data contained in <code>gapminder</code>, but an important part of this book is helping you to become self-sufficient. So instead I will leave this as an exercise for the reader!</p>
 <div id="exercise" class="section level3" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> Exercise</h3>
@@ -339,7 +340,7 @@ To load a package, use the <code>library()</code> command, e.g.</p>
 <div id="what-is-a-tibble" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> What is a tibble?</h2>
 <p>The <code>dplyr</code> package uses a special operator called the <em>pipe</em>, written <code>%&gt;%</code> to chain together commands called <em>verbs</em> that act on objects called <em>tibbles</em>. This probably sounds complicated, but it's easier that it looks. Over the next few sections we'll slowly unpack the preceding sentence by looking at a number of simple examples. But first things first: what is a tibble? Let's see what happens if we display the <code>gapminder</code> dataset:</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="getting-started-with-dplyr.html#cb103-1" aria-hidden="true" tabindex="-1"></a>gapminder</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="getting-started-with-dplyr.html#cb107-1" aria-hidden="true" tabindex="-1"></a>gapminder</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 6
 ##    country     continent  year lifeExp      pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -360,8 +361,8 @@ To load a package, use the <code>library()</code> command, e.g.</p>
 <h2><span class="header-section-number">2.3</span> Filter Rows with <code>filter</code></h2>
 <p>We're ready to learn our first <code>dplyr</code> verb: <code>filter</code> selects rows.
 Here's an example:</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="getting-started-with-dplyr.html#cb105-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb105-2"><a href="getting-started-with-dplyr.html#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="getting-started-with-dplyr.html#cb109-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb109-2"><a href="getting-started-with-dplyr.html#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 6
 ##    country     continent  year lifeExp       pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
@@ -384,9 +385,9 @@ No: we haven't made any changes to <code>gapminder</code> at all.
 If you don't believe me try entering <code>gapminder</code> at the console.
 All that this command does is <em>display</em> a subset of <code>gapminder</code>.
 If we wanted to store the result of running this command, we'd need to assign it to a variable, for example</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="getting-started-with-dplyr.html#cb107-1" aria-hidden="true" tabindex="-1"></a>gapminder2007 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb107-2"><a href="getting-started-with-dplyr.html#cb107-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span>
-<span id="cb107-3"><a href="getting-started-with-dplyr.html#cb107-3" aria-hidden="true" tabindex="-1"></a>gapminder2007</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="getting-started-with-dplyr.html#cb111-1" aria-hidden="true" tabindex="-1"></a>gapminder2007 <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb111-2"><a href="getting-started-with-dplyr.html#cb111-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span>
+<span id="cb111-3"><a href="getting-started-with-dplyr.html#cb111-3" aria-hidden="true" tabindex="-1"></a>gapminder2007</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 6
 ##    country     continent  year lifeExp       pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
@@ -403,8 +404,8 @@ If we wanted to store the result of running this command, we'd need to assign it
 ## # … with 132 more rows</code></pre>
 <p>We can also use <code>filter</code> to subset on two or more variables.
 For example, here we display data for the US in 2007:</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="getting-started-with-dplyr.html#cb109-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb109-2"><a href="getting-started-with-dplyr.html#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>, country <span class="sc">==</span> <span class="st">&#39;United States&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="getting-started-with-dplyr.html#cb113-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb113-2"><a href="getting-started-with-dplyr.html#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>, country <span class="sc">==</span> <span class="st">&#39;United States&#39;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 6
 ##   country       continent  year lifeExp       pop gdpPercap
 ##   &lt;fct&gt;         &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
@@ -428,7 +429,7 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="getting-started-with-dplyr.html#cb111-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="getting-started-with-dplyr.html#cb115-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2002</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 6
 ##    country     continent  year lifeExp       pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
@@ -461,8 +462,8 @@ Show Solution
 Show Solution
 </button>
 <p>If you go back to the help file for <code>gapminder</code> you'll see that it only contains data for every fifth year. The year 2005 isn't in our dataset so <code>dplyr</code> will display an empty tibble:</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="getting-started-with-dplyr.html#cb113-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb113-2"><a href="getting-started-with-dplyr.html#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2005</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="getting-started-with-dplyr.html#cb117-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb117-2"><a href="getting-started-with-dplyr.html#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2005</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 0 × 6
 ## # … with 6 variables: country &lt;fct&gt;, continent &lt;fct&gt;, year &lt;int&gt;,
 ## #   lifeExp &lt;dbl&gt;, pop &lt;int&gt;, gdpPercap &lt;dbl&gt;</code></pre>
@@ -474,9 +475,9 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="getting-started-with-dplyr.html#cb115-1" aria-hidden="true" tabindex="-1"></a>gapminder_asia <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb115-2"><a href="getting-started-with-dplyr.html#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">&#39;Asia&#39;</span>)</span>
-<span id="cb115-3"><a href="getting-started-with-dplyr.html#cb115-3" aria-hidden="true" tabindex="-1"></a>gapminder_asia</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="getting-started-with-dplyr.html#cb119-1" aria-hidden="true" tabindex="-1"></a>gapminder_asia <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb119-2"><a href="getting-started-with-dplyr.html#cb119-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">&#39;Asia&#39;</span>)</span>
+<span id="cb119-3"><a href="getting-started-with-dplyr.html#cb119-3" aria-hidden="true" tabindex="-1"></a>gapminder_asia</span></code></pre></div>
 <pre><code>## # A tibble: 396 × 6
 ##    country     continent  year lifeExp      pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -500,8 +501,8 @@ Which had the higher GDP per capita?</li>
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="getting-started-with-dplyr.html#cb117-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb117-2"><a href="getting-started-with-dplyr.html#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1977</span>, country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;Ireland&#39;</span>, <span class="st">&#39;Brazil&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="getting-started-with-dplyr.html#cb121-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb121-2"><a href="getting-started-with-dplyr.html#cb121-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1977</span>, country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&#39;Ireland&#39;</span>, <span class="st">&#39;Brazil&#39;</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 6
 ##   country continent  year lifeExp       pop gdpPercap
 ##   &lt;fct&gt;   &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
@@ -514,8 +515,8 @@ Show Solution
 <h2><span class="header-section-number">2.4</span> Sort data with <code>arrange</code></h2>
 <p>Suppose we wanted to sort <code>gapminder</code> by <code>gdpPercap</code>.
 To do this we can use the <code>arrange</code> command along with the pipe <code>%&gt;%</code> as follows:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="getting-started-with-dplyr.html#cb119-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb119-2"><a href="getting-started-with-dplyr.html#cb119-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(gdpPercap)</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="getting-started-with-dplyr.html#cb123-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb123-2"><a href="getting-started-with-dplyr.html#cb123-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(gdpPercap)</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 6
 ##    country          continent  year lifeExp      pop gdpPercap
 ##    &lt;fct&gt;            &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -531,7 +532,7 @@ To do this we can use the <code>arrange</code> command along with the pipe <code
 ## 10 Eritrea          Africa     1957    38.0  1542611      344.
 ## # … with 1,694 more rows</code></pre>
 <p>The logic is very similar to what we saw above for <code>filter</code>. We pipe the tibble <code>gapminder</code> into the function <code>arrange()</code>. The argument <code>gdpPercap</code> tells <code>arrange()</code> that we want to sort by GDP per capita. Note that by default <code>arrange()</code> sorts in <em>ascending order</em>. If we want to sort in <em>descending</em> order, we use the function <code>desc()</code> as follows:</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="getting-started-with-dplyr.html#cb121-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(gdpPercap))</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="getting-started-with-dplyr.html#cb125-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(gdpPercap))</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 6
 ##    country   continent  year lifeExp     pop gdpPercap
 ##    &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;
@@ -555,8 +556,8 @@ To do this we can use the <code>arrange</code> command along with the pipe <code
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="getting-started-with-dplyr.html#cb123-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb123-2"><a href="getting-started-with-dplyr.html#cb123-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(lifeExp)</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="getting-started-with-dplyr.html#cb127-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb127-2"><a href="getting-started-with-dplyr.html#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(lifeExp)</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 6
 ##    country      continent  year lifeExp     pop gdpPercap
 ##    &lt;fct&gt;        &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;
@@ -579,8 +580,8 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="getting-started-with-dplyr.html#cb125-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb125-2"><a href="getting-started-with-dplyr.html#cb125-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(lifeExp))</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="getting-started-with-dplyr.html#cb129-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb129-2"><a href="getting-started-with-dplyr.html#cb129-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(lifeExp))</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 6
 ##    country          continent  year lifeExp       pop gdpPercap
 ##    &lt;fct&gt;            &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
@@ -602,8 +603,8 @@ Show Solution
 <h2><span class="header-section-number">2.5</span> Choose columns with <code>select</code></h2>
 <p>We use the <code>select</code> verb to choose a subset of columns.
 For example, to display only <code>pop</code>, <code>country</code>, and <code>year</code>, we would write</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="getting-started-with-dplyr.html#cb127-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb127-2"><a href="getting-started-with-dplyr.html#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(pop, country, year)</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="getting-started-with-dplyr.html#cb131-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb131-2"><a href="getting-started-with-dplyr.html#cb131-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(pop, country, year)</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 3
 ##         pop country      year
 ##       &lt;int&gt; &lt;fct&gt;       &lt;int&gt;
@@ -620,8 +621,8 @@ For example, to display only <code>pop</code>, <code>country</code>, and <code>y
 ## # … with 1,694 more rows</code></pre>
 <p>Now suppose that we wanted to select every column <em>except</em> <code>pop</code>.
 Here's one way to do it:</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="getting-started-with-dplyr.html#cb129-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb129-2"><a href="getting-started-with-dplyr.html#cb129-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, continent, year, lifeExp, gdpPercap)</span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="getting-started-with-dplyr.html#cb133-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb133-2"><a href="getting-started-with-dplyr.html#cb133-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(country, continent, year, lifeExp, gdpPercap)</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 5
 ##    country     continent  year lifeExp gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;
@@ -638,7 +639,7 @@ Here's one way to do it:</p>
 ## # … with 1,694 more rows</code></pre>
 <p>but that takes a lot of typing! If there were more than a handful of columns in our tibble it would be very difficult to <em>deselect</em> a column in this way.
 Fortunately there's a shortcut: use the minus sign</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="getting-started-with-dplyr.html#cb131-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>pop)</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="getting-started-with-dplyr.html#cb135-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>pop)</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 5
 ##    country     continent  year lifeExp gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;dbl&gt;
@@ -654,7 +655,7 @@ Fortunately there's a shortcut: use the minus sign</p>
 ## 10 Afghanistan Asia       1997    41.8      635.
 ## # … with 1,694 more rows</code></pre>
 <p>Just as we could when <em>selecting</em>, we can <em>deselect</em> multiple columns by separating their names with a comma:</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="getting-started-with-dplyr.html#cb133-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>pop, <span class="sc">-</span>year)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="getting-started-with-dplyr.html#cb137-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>pop, <span class="sc">-</span>year)</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 4
 ##    country     continent lifeExp gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;       &lt;dbl&gt;     &lt;dbl&gt;
@@ -681,8 +682,8 @@ Suppose we wanted to select only the column <code>pop</code> from <code>gapminde
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="getting-started-with-dplyr.html#cb135-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb135-2"><a href="getting-started-with-dplyr.html#cb135-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, lifeExp, country)</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="getting-started-with-dplyr.html#cb139-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb139-2"><a href="getting-started-with-dplyr.html#cb139-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year, lifeExp, country)</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 3
 ##     year lifeExp country    
 ##    &lt;int&gt;   &lt;dbl&gt; &lt;fct&gt;      
@@ -705,8 +706,8 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="getting-started-with-dplyr.html#cb137-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb137-2"><a href="getting-started-with-dplyr.html#cb137-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>year, <span class="sc">-</span>lifeExp, <span class="sc">-</span>country)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="getting-started-with-dplyr.html#cb141-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb141-2"><a href="getting-started-with-dplyr.html#cb141-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>year, <span class="sc">-</span>lifeExp, <span class="sc">-</span>country)</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 3
 ##    continent      pop gdpPercap
 ##    &lt;fct&gt;        &lt;int&gt;     &lt;dbl&gt;
@@ -728,7 +729,7 @@ Show Solution
 <h2><span class="header-section-number">2.6</span> The <code>summarize</code> verb</h2>
 <p>Suppose we want to calculate the sample mean of the column <code>lifeExp</code> in <code>gapminder</code>.
 We can do this using the <code>summarize</code> verb as follows:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="getting-started-with-dplyr.html#cb139-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mean_lifeExp =</span> <span class="fu">mean</span>(lifeExp))</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="getting-started-with-dplyr.html#cb143-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">summarize</span>(<span class="at">mean_lifeExp =</span> <span class="fu">mean</span>(lifeExp))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##   mean_lifeExp
 ##          &lt;dbl&gt;
@@ -739,27 +740,27 @@ The key thing to know about <code>summarize</code> is that it always returns <em
 When we think about computing a sample mean, this makes sense: we want to summarize the column <code>lifeExp</code> as a single number.
 It doesn't actually make much sense to compute the mean of <code>lifeExp</code> because this involves averaging over different countries <em>and</em> different years.
 Instead let's compute the mean for a single year: 1952:</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="getting-started-with-dplyr.html#cb141-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb141-2"><a href="getting-started-with-dplyr.html#cb141-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1952</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb141-3"><a href="getting-started-with-dplyr.html#cb141-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_lifeExp =</span> <span class="fu">mean</span>(lifeExp))</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="getting-started-with-dplyr.html#cb145-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb145-2"><a href="getting-started-with-dplyr.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1952</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb145-3"><a href="getting-started-with-dplyr.html#cb145-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_lifeExp =</span> <span class="fu">mean</span>(lifeExp))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##   mean_lifeExp
 ##          &lt;dbl&gt;
 ## 1         49.1</code></pre>
 <p>We can use summarize to compute multiple summary statistics for a single variable, the same summary statistic for multiple variables, or both:</p>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="getting-started-with-dplyr.html#cb143-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb143-2"><a href="getting-started-with-dplyr.html#cb143-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1952</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb143-3"><a href="getting-started-with-dplyr.html#cb143-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_lifeExp =</span> <span class="fu">mean</span>(lifeExp),</span>
-<span id="cb143-4"><a href="getting-started-with-dplyr.html#cb143-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_lifeExp =</span> <span class="fu">sd</span>(lifeExp), </span>
-<span id="cb143-5"><a href="getting-started-with-dplyr.html#cb143-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_pop =</span> <span class="fu">mean</span>(pop))</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="getting-started-with-dplyr.html#cb147-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb147-2"><a href="getting-started-with-dplyr.html#cb147-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1952</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb147-3"><a href="getting-started-with-dplyr.html#cb147-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_lifeExp =</span> <span class="fu">mean</span>(lifeExp),</span>
+<span id="cb147-4"><a href="getting-started-with-dplyr.html#cb147-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_lifeExp =</span> <span class="fu">sd</span>(lifeExp), </span>
+<span id="cb147-5"><a href="getting-started-with-dplyr.html#cb147-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_pop =</span> <span class="fu">mean</span>(pop))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 3
 ##   mean_lifeExp sd_lifeExp  mean_pop
 ##          &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;
 ## 1         49.1       12.2 16950402.</code></pre>
 <p>Note that if we <em>don't</em> explicitly use an assignment statement, R will make up names for us based on the commands that we used:</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="getting-started-with-dplyr.html#cb145-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb145-2"><a href="getting-started-with-dplyr.html#cb145-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1952</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb145-3"><a href="getting-started-with-dplyr.html#cb145-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(lifeExp), <span class="fu">median</span>(lifeExp), <span class="fu">max</span>(lifeExp))</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="getting-started-with-dplyr.html#cb149-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb149-2"><a href="getting-started-with-dplyr.html#cb149-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1952</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb149-3"><a href="getting-started-with-dplyr.html#cb149-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(lifeExp), <span class="fu">median</span>(lifeExp), <span class="fu">max</span>(lifeExp))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 3
 ##   `mean(lifeExp)` `median(lifeExp)` `max(lifeExp)`
 ##             &lt;dbl&gt;             &lt;dbl&gt;          &lt;dbl&gt;
@@ -773,9 +774,9 @@ Instead let's compute the mean for a single year: 1952:</p>
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="getting-started-with-dplyr.html#cb147-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb147-2"><a href="getting-started-with-dplyr.html#cb147-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1977</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb147-3"><a href="getting-started-with-dplyr.html#cb147-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">quantile</span>(lifeExp, <span class="fl">0.75</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="getting-started-with-dplyr.html#cb151-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb151-2"><a href="getting-started-with-dplyr.html#cb151-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1977</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb151-3"><a href="getting-started-with-dplyr.html#cb151-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">quantile</span>(lifeExp, <span class="fl">0.75</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##   `quantile(lifeExp, 0.75)`
 ##                       &lt;dbl&gt;
@@ -788,9 +789,9 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="getting-started-with-dplyr.html#cb149-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb149-2"><a href="getting-started-with-dplyr.html#cb149-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1977</span>, continent <span class="sc">==</span> <span class="st">&#39;Asia&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb149-3"><a href="getting-started-with-dplyr.html#cb149-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">quantile</span>(lifeExp, <span class="fl">0.75</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="getting-started-with-dplyr.html#cb153-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb153-2"><a href="getting-started-with-dplyr.html#cb153-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1977</span>, continent <span class="sc">==</span> <span class="st">&#39;Asia&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb153-3"><a href="getting-started-with-dplyr.html#cb153-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">quantile</span>(lifeExp, <span class="fl">0.75</span>))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 1
 ##   `quantile(lifeExp, 0.75)`
 ##                       &lt;dbl&gt;
@@ -804,17 +805,17 @@ Show Solution
 In essence, <code>group_by</code> allows us to tell <code>dplyr</code> that we don't want to work with the whole dataset at once; rather we want to work with particular <em>subsets</em> or groups.
 The basic idea is similar to what we've done using <code>filter</code> in the past.
 For example, to calculate mean population (in millions) and mean life expectancy in the year 2007, we could use the following code:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="getting-started-with-dplyr.html#cb151-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb151-2"><a href="getting-started-with-dplyr.html#cb151-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb151-3"><a href="getting-started-with-dplyr.html#cb151-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanPop =</span> <span class="fu">mean</span>(pop) <span class="sc">/</span> <span class="dv">1000000</span>, <span class="at">meanLifeExp =</span> <span class="fu">mean</span>(lifeExp))</span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="getting-started-with-dplyr.html#cb155-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb155-2"><a href="getting-started-with-dplyr.html#cb155-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb155-3"><a href="getting-started-with-dplyr.html#cb155-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanPop =</span> <span class="fu">mean</span>(pop) <span class="sc">/</span> <span class="dv">1000000</span>, <span class="at">meanLifeExp =</span> <span class="fu">mean</span>(lifeExp))</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 2
 ##   meanPop meanLifeExp
 ##     &lt;dbl&gt;       &lt;dbl&gt;
 ## 1    44.0        67.0</code></pre>
 <p>Using <code>group_by</code> we could do the same thing for <em>all</em> years in the dataset at once:</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="getting-started-with-dplyr.html#cb153-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb153-2"><a href="getting-started-with-dplyr.html#cb153-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
-<span id="cb153-3"><a href="getting-started-with-dplyr.html#cb153-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanPop =</span> <span class="fu">mean</span>(pop) <span class="sc">/</span> <span class="dv">1000000</span>, <span class="at">meanLifeExp =</span> <span class="fu">mean</span>(lifeExp))</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="getting-started-with-dplyr.html#cb157-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb157-2"><a href="getting-started-with-dplyr.html#cb157-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb157-3"><a href="getting-started-with-dplyr.html#cb157-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanPop =</span> <span class="fu">mean</span>(pop) <span class="sc">/</span> <span class="dv">1000000</span>, <span class="at">meanLifeExp =</span> <span class="fu">mean</span>(lifeExp))</span></code></pre></div>
 <pre><code>## # A tibble: 12 × 3
 ##     year meanPop meanLifeExp
 ##    &lt;int&gt;   &lt;dbl&gt;       &lt;dbl&gt;
@@ -836,10 +837,10 @@ Whatever comes after <code>group_by</code> will then be calculated for these sub
 <p>Here's another example.
 Suppose we wanted to calculate mean life expectancy and total population in each <em>continent</em> during the year 2007.
 To accomplish this, we can chain together the <code>filter</code>, <code>group_by</code> and <code>summarize</code> verbs as follows:</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="getting-started-with-dplyr.html#cb155-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb155-2"><a href="getting-started-with-dplyr.html#cb155-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb155-3"><a href="getting-started-with-dplyr.html#cb155-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
-<span id="cb155-4"><a href="getting-started-with-dplyr.html#cb155-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanPop =</span> <span class="fu">mean</span>(pop) <span class="sc">/</span> <span class="dv">1000000</span>, <span class="at">meanLifeExp =</span> <span class="fu">mean</span>(lifeExp))</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="getting-started-with-dplyr.html#cb159-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb159-2"><a href="getting-started-with-dplyr.html#cb159-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb159-3"><a href="getting-started-with-dplyr.html#cb159-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb159-4"><a href="getting-started-with-dplyr.html#cb159-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanPop =</span> <span class="fu">mean</span>(pop) <span class="sc">/</span> <span class="dv">1000000</span>, <span class="at">meanLifeExp =</span> <span class="fu">mean</span>(lifeExp))</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 3
 ##   continent meanPop meanLifeExp
 ##   &lt;fct&gt;       &lt;dbl&gt;       &lt;dbl&gt;
@@ -850,9 +851,9 @@ To accomplish this, we can chain together the <code>filter</code>, <code>group_b
 ## 5 Oceania      12.3        80.7</code></pre>
 <p>We can also use <code>group_by</code> to subset over multiple variables at once.
 For example, to calculate mean life expectancy and total population in each continent <em>separately</em> for every year, we can use the following code:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="getting-started-with-dplyr.html#cb157-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb157-2"><a href="getting-started-with-dplyr.html#cb157-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, continent) <span class="sc">%&gt;%</span></span>
-<span id="cb157-3"><a href="getting-started-with-dplyr.html#cb157-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanPop =</span> <span class="fu">mean</span>(pop) <span class="sc">/</span> <span class="dv">1000000</span>, <span class="at">meanLifeExp =</span> <span class="fu">mean</span>(lifeExp))</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="getting-started-with-dplyr.html#cb161-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb161-2"><a href="getting-started-with-dplyr.html#cb161-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, continent) <span class="sc">%&gt;%</span></span>
+<span id="cb161-3"><a href="getting-started-with-dplyr.html#cb161-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanPop =</span> <span class="fu">mean</span>(pop) <span class="sc">/</span> <span class="dv">1000000</span>, <span class="at">meanLifeExp =</span> <span class="fu">mean</span>(lifeExp))</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;year&#39;. You can override using the
 ## `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 60 × 4
@@ -875,9 +876,9 @@ For example, to calculate mean life expectancy and total population in each cont
 <ol style="list-style-type: decimal">
 <li>Why doesn't the following code work as expected?</li>
 </ol>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="getting-started-with-dplyr.html#cb160-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb160-2"><a href="getting-started-with-dplyr.html#cb160-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanLifeExp =</span> <span class="fu">mean</span>(lifeExp)) <span class="sc">%&gt;%</span></span>
-<span id="cb160-3"><a href="getting-started-with-dplyr.html#cb160-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year)</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="getting-started-with-dplyr.html#cb164-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb164-2"><a href="getting-started-with-dplyr.html#cb164-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanLifeExp =</span> <span class="fu">mean</span>(lifeExp)) <span class="sc">%&gt;%</span></span>
+<span id="cb164-3"><a href="getting-started-with-dplyr.html#cb164-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year)</span></code></pre></div>
 <div class="webex-solution">
 <button>
 Show Solution
@@ -891,10 +892,10 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="getting-started-with-dplyr.html#cb161-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb161-2"><a href="getting-started-with-dplyr.html#cb161-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1977</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb161-3"><a href="getting-started-with-dplyr.html#cb161-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
-<span id="cb161-4"><a href="getting-started-with-dplyr.html#cb161-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">medGDPc =</span> <span class="fu">median</span>(gdpPercap))</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="getting-started-with-dplyr.html#cb165-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb165-2"><a href="getting-started-with-dplyr.html#cb165-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1977</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb165-3"><a href="getting-started-with-dplyr.html#cb165-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb165-4"><a href="getting-started-with-dplyr.html#cb165-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">medGDPc =</span> <span class="fu">median</span>(gdpPercap))</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 2
 ##   continent medGDPc
 ##   &lt;fct&gt;       &lt;dbl&gt;
@@ -911,11 +912,11 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="getting-started-with-dplyr.html#cb163-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb163-2"><a href="getting-started-with-dplyr.html#cb163-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1977</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb163-3"><a href="getting-started-with-dplyr.html#cb163-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
-<span id="cb163-4"><a href="getting-started-with-dplyr.html#cb163-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">medGDPc =</span> <span class="fu">median</span>(gdpPercap)) <span class="sc">%&gt;%</span></span>
-<span id="cb163-5"><a href="getting-started-with-dplyr.html#cb163-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(medGDPc))</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="getting-started-with-dplyr.html#cb167-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb167-2"><a href="getting-started-with-dplyr.html#cb167-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1977</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb167-3"><a href="getting-started-with-dplyr.html#cb167-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb167-4"><a href="getting-started-with-dplyr.html#cb167-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">medGDPc =</span> <span class="fu">median</span>(gdpPercap)) <span class="sc">%&gt;%</span></span>
+<span id="cb167-5"><a href="getting-started-with-dplyr.html#cb167-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(medGDPc))</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 2
 ##   continent medGDPc
 ##   &lt;fct&gt;       &lt;dbl&gt;
@@ -936,11 +937,11 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="getting-started-with-dplyr.html#cb165-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb165-2"><a href="getting-started-with-dplyr.html#cb165-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;</span> <span class="dv">1977</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb165-3"><a href="getting-started-with-dplyr.html#cb165-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent, year) <span class="sc">%&gt;%</span></span>
-<span id="cb165-4"><a href="getting-started-with-dplyr.html#cb165-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanGDPc =</span> <span class="fu">mean</span>(gdpPercap), <span class="at">sdGDPc =</span> <span class="fu">sd</span>(gdpPercap)) <span class="sc">%&gt;%</span></span>
-<span id="cb165-5"><a href="getting-started-with-dplyr.html#cb165-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(sdGDPc)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="getting-started-with-dplyr.html#cb169-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb169-2"><a href="getting-started-with-dplyr.html#cb169-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">&gt;</span> <span class="dv">1977</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb169-3"><a href="getting-started-with-dplyr.html#cb169-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(continent, year) <span class="sc">%&gt;%</span></span>
+<span id="cb169-4"><a href="getting-started-with-dplyr.html#cb169-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanGDPc =</span> <span class="fu">mean</span>(gdpPercap), <span class="at">sdGDPc =</span> <span class="fu">sd</span>(gdpPercap)) <span class="sc">%&gt;%</span></span>
+<span id="cb169-5"><a href="getting-started-with-dplyr.html#cb169-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(sdGDPc)</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;continent&#39;. You can override using the
 ## `.groups` argument.</code></pre>
 <pre><code>## # A tibble: 30 × 4
@@ -970,14 +971,14 @@ Take a look at the R help file for the <code>dplyr</code> function <code>filter<
 We see that <code>filter()</code> takes something called <code>.data</code> as its first argument.
 Moving on to the "Arguments" section of the help file, we see that <code>.data</code> is "A tbl" i.e. a tibble.
 To better understand what this means, let's try using <code>filter</code> <em>without</em> the pipe:</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="getting-started-with-dplyr.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(gapminder, year <span class="sc">==</span> <span class="dv">2007</span>, country <span class="sc">==</span> <span class="st">&#39;United States&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="getting-started-with-dplyr.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(gapminder, year <span class="sc">==</span> <span class="dv">2007</span>, country <span class="sc">==</span> <span class="st">&#39;United States&#39;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 6
 ##   country       continent  year lifeExp       pop gdpPercap
 ##   &lt;fct&gt;         &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
 ## 1 United States Americas   2007    78.2 301139947    42952.</code></pre>
 <p>Notice that this gives us <em>exactly</em> the same result as</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="getting-started-with-dplyr.html#cb170-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb170-2"><a href="getting-started-with-dplyr.html#cb170-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>, country <span class="sc">==</span> <span class="st">&#39;United States&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="getting-started-with-dplyr.html#cb174-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb174-2"><a href="getting-started-with-dplyr.html#cb174-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>, country <span class="sc">==</span> <span class="st">&#39;United States&#39;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 6
 ##   country       continent  year lifeExp       pop gdpPercap
 ##   &lt;fct&gt;         &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
@@ -986,15 +987,15 @@ To better understand what this means, let's try using <code>filter</code> <em>wi
 Let's try this with a more familiar R function: <code>mean</code>.
 The first argument of <code>mean</code> is a vector <code>x</code>.
 So let's try using the pipe to compute the mean of some data:</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="getting-started-with-dplyr.html#cb172-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">7</span>, <span class="dv">2</span>)</span>
-<span id="cb172-2"><a href="getting-started-with-dplyr.html#cb172-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%&gt;%</span> mean</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="getting-started-with-dplyr.html#cb176-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">7</span>, <span class="dv">2</span>)</span>
+<span id="cb176-2"><a href="getting-started-with-dplyr.html#cb176-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%&gt;%</span> mean</span></code></pre></div>
 <pre><code>## [1] 3.4</code></pre>
 <p>The pipe supplies a function with its <em>first</em> argument.
 If we want to specify additional arguments, we need to do so within the function call itself.
 For example, here's how we could use the pipe to compute the mean after dropping missing observations:</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="getting-started-with-dplyr.html#cb174-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">7</span>, <span class="dv">2</span>)</span>
-<span id="cb174-2"><a href="getting-started-with-dplyr.html#cb174-2" aria-hidden="true" tabindex="-1"></a>y <span class="sc">%&gt;%</span> </span>
-<span id="cb174-3"><a href="getting-started-with-dplyr.html#cb174-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="getting-started-with-dplyr.html#cb178-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">7</span>, <span class="dv">2</span>)</span>
+<span id="cb178-2"><a href="getting-started-with-dplyr.html#cb178-2" aria-hidden="true" tabindex="-1"></a>y <span class="sc">%&gt;%</span> </span>
+<span id="cb178-3"><a href="getting-started-with-dplyr.html#cb178-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 3.75</code></pre>
 <p>One important note about the pipe: it's <em>not</em> a base R command.
 Instead it's a command provided by the package <code>Magrittr</code>.
@@ -1009,8 +1010,8 @@ This package is installed automatically along with <code>dplyr</code>.</p>
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="getting-started-with-dplyr.html#cb176-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">3</span>)</span>
-<span id="cb176-2"><a href="getting-started-with-dplyr.html#cb176-2" aria-hidden="true" tabindex="-1"></a>z <span class="sc">%&gt;%</span> <span class="fu">var</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="getting-started-with-dplyr.html#cb180-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="cn">NA</span>, <span class="dv">3</span>)</span>
+<span id="cb180-2"><a href="getting-started-with-dplyr.html#cb180-2" aria-hidden="true" tabindex="-1"></a>z <span class="sc">%&gt;%</span> <span class="fu">var</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## [1] 2.916667</code></pre>
 </div>
 <ol start="2" style="list-style-type: decimal">
@@ -1020,7 +1021,7 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="getting-started-with-dplyr.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(gapminder,lifeExp)</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="getting-started-with-dplyr.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(gapminder,lifeExp)</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 6
 ##    country      continent  year lifeExp     pop gdpPercap
 ##    &lt;fct&gt;        &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;
@@ -1035,7 +1036,7 @@ Show Solution
 ##  9 Sierra Leone Africa     1957    31.6 2295678     1004.
 ## 10 Burkina Faso Africa     1952    32.0 4469979      543.
 ## # … with 1,694 more rows</code></pre>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="getting-started-with-dplyr.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(gapminder, <span class="fu">desc</span>(lifeExp))</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="getting-started-with-dplyr.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(gapminder, <span class="fu">desc</span>(lifeExp))</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 6
 ##    country          continent  year lifeExp       pop gdpPercap
 ##    &lt;fct&gt;            &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
@@ -1059,9 +1060,9 @@ Show Solution
 The true power and convenience of the pipe only becomes apparent we need to <em>chain</em> a series of commands together.
 For example, suppose we wanted to display the 1952 data from <code>gapminder</code> sorted by <code>gdpPercap</code> in descending order.
 Using the pipe, this is easy:</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="getting-started-with-dplyr.html#cb182-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb182-2"><a href="getting-started-with-dplyr.html#cb182-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1952</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb182-3"><a href="getting-started-with-dplyr.html#cb182-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(gdpPercap))</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="getting-started-with-dplyr.html#cb186-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb186-2"><a href="getting-started-with-dplyr.html#cb186-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1952</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb186-3"><a href="getting-started-with-dplyr.html#cb186-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(gdpPercap))</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 6
 ##    country        continent  year lifeExp       pop gdpPercap
 ##    &lt;fct&gt;          &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
@@ -1083,8 +1084,8 @@ The first step in the chain <code>gapminder %&gt;% filter(year == 1952)</code> r
 The next step <code>%&gt;% arrange(gdpPercap)</code> pipes this <em>new</em> tibble into the function <code>arrange()</code>, giving us the desired result.
 I hope you agree with me that this is pretty intuitive: even if we didn't know anything about <code>dplyr</code> we could <em>almost</em> figure out what this code is supposed to do.
 In stark contrast, let's look at the code we'd have to use if we wanted to accomplish the same task <em>without</em> using the pipe:</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="getting-started-with-dplyr.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">filter</span>(gapminder, year <span class="sc">==</span> <span class="dv">1952</span>), </span>
-<span id="cb184-2"><a href="getting-started-with-dplyr.html#cb184-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">desc</span>(gdpPercap))</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="getting-started-with-dplyr.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">filter</span>(gapminder, year <span class="sc">==</span> <span class="dv">1952</span>), </span>
+<span id="cb188-2"><a href="getting-started-with-dplyr.html#cb188-2" aria-hidden="true" tabindex="-1"></a>        <span class="fu">desc</span>(gdpPercap))</span></code></pre></div>
 <pre><code>## # A tibble: 142 × 6
 ##    country        continent  year lifeExp       pop gdpPercap
 ##    &lt;fct&gt;          &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;
@@ -1111,9 +1112,9 @@ This is what's great about the pipe: it lets us write our code in a way that acc
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="getting-started-with-dplyr.html#cb186-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb186-2"><a href="getting-started-with-dplyr.html#cb186-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1992</span>, continent <span class="sc">==</span> <span class="st">&#39;Europe&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb186-3"><a href="getting-started-with-dplyr.html#cb186-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pop))</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="getting-started-with-dplyr.html#cb190-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb190-2"><a href="getting-started-with-dplyr.html#cb190-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1992</span>, continent <span class="sc">==</span> <span class="st">&#39;Europe&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb190-3"><a href="getting-started-with-dplyr.html#cb190-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(pop))</span></code></pre></div>
 <pre><code>## # A tibble: 30 × 6
 ##    country        continent  year lifeExp      pop gdpPercap
 ##    &lt;fct&gt;          &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -1136,7 +1137,7 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="getting-started-with-dplyr.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">filter</span>(gapminder, year <span class="sc">==</span> <span class="dv">1992</span>, continent <span class="sc">==</span> <span class="st">&#39;Europe&#39;</span>), <span class="fu">desc</span>(pop))</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="getting-started-with-dplyr.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="fu">arrange</span>(<span class="fu">filter</span>(gapminder, year <span class="sc">==</span> <span class="dv">1992</span>, continent <span class="sc">==</span> <span class="st">&#39;Europe&#39;</span>), <span class="fu">desc</span>(pop))</span></code></pre></div>
 <pre><code>## # A tibble: 30 × 6
 ##    country        continent  year lifeExp      pop gdpPercap
 ##    &lt;fct&gt;          &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
@@ -1159,8 +1160,8 @@ Show Solution
 <p>It's a little hard to read the column <code>pop</code> in <code>gapminder</code> since there are so many digits.
 Suppose that, instead of raw population, we wanted to display population <em>in millions</em>.
 This requires us to <code>pop</code> by <code>1000000</code>, which we can do using the function <code>mutate()</code> from <code>dplyr</code> as follows:</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="getting-started-with-dplyr.html#cb190-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb190-2"><a href="getting-started-with-dplyr.html#cb190-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pop =</span> pop <span class="sc">/</span> <span class="dv">1000000</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="getting-started-with-dplyr.html#cb194-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb194-2"><a href="getting-started-with-dplyr.html#cb194-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pop =</span> pop <span class="sc">/</span> <span class="dv">1000000</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 6
 ##    country     continent  year lifeExp   pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
@@ -1185,8 +1186,8 @@ Didn't we just change pop so it's expressed in millions?
 No: we never <em>stored</em> the results of our previous command, we simply displayed them.
 Just as I discussed above, unless you <em>overwrite</em> it, the original <code>gapminder</code> dataset will be unchanged.
 With this in mind, we can create the <code>gdp</code> variable as follows:</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="getting-started-with-dplyr.html#cb192-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
-<span id="cb192-2"><a href="getting-started-with-dplyr.html#cb192-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gdp =</span> pop <span class="sc">*</span> gdpPercap)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="getting-started-with-dplyr.html#cb196-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span> </span>
+<span id="cb196-2"><a href="getting-started-with-dplyr.html#cb196-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gdp =</span> pop <span class="sc">*</span> gdpPercap)</span></code></pre></div>
 <pre><code>## # A tibble: 1,704 × 7
 ##    country     continent  year lifeExp      pop gdpPercap          gdp
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;
@@ -1219,10 +1220,10 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="getting-started-with-dplyr.html#cb194-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
-<span id="cb194-2"><a href="getting-started-with-dplyr.html#cb194-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lifeExpMonths =</span> <span class="dv">12</span> <span class="sc">*</span> lifeExp) <span class="sc">%&gt;%</span></span>
-<span id="cb194-3"><a href="getting-started-with-dplyr.html#cb194-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1962</span>, continent <span class="sc">==</span> <span class="st">&#39;Americas&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb194-4"><a href="getting-started-with-dplyr.html#cb194-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(lifeExpMonths)</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="getting-started-with-dplyr.html#cb198-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb198-2"><a href="getting-started-with-dplyr.html#cb198-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lifeExpMonths =</span> <span class="dv">12</span> <span class="sc">*</span> lifeExp) <span class="sc">%&gt;%</span></span>
+<span id="cb198-3"><a href="getting-started-with-dplyr.html#cb198-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1962</span>, continent <span class="sc">==</span> <span class="st">&#39;Americas&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb198-4"><a href="getting-started-with-dplyr.html#cb198-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(lifeExpMonths)</span></code></pre></div>
 <pre><code>## # A tibble: 25 × 7
 ##    country            continent  year lifeExp      pop gdpPercap lifeExpMonths
 ##    &lt;fct&gt;              &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;         &lt;dbl&gt;
@@ -1418,7 +1419,7 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="the-hot-hand.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="running-a-simulation-study.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="getting-started-with-ggplot2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

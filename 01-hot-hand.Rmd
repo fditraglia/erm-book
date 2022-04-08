@@ -447,49 +447,28 @@ set.seed(420508570)
 mean(draw_shots(1e4, 0.5))
 ```
 3. Write a function called `get_hot_handedness()` that combines `draw_shots()` and  `get_avg_after_streak()` to calculated "hot handedness" of a randomly-drawn sequence. In words: `get_est()` should draw a sequence `shots` of simulated basketball shots and then calculate and return the fraction of successes in `sim_shots` among the shots that immediately follow a streak of three successes. Think carefully about what arguments `get_est()` needs to take if we want to be able to vary the length and success probability of our simulated sequence of basketball shots. After writing your function
-```{r}
+```{r, webex.hide = 'Show Solution'}
 get_hot_handedness <- function(n_shots, prob_success) {
   sim_shots <- draw_shots(n_shots, prob_success)
   get_avg_after_streak(sim_shots)
 }
 ```
-4. Consider a basketball player who *does not* have a hot hand: each of her shots is independent of the others and her probability of success on a given shot is 1/2. 
-
-
-
-**Bonus** Go back and change from `3` to `k`. How does this change things?
-**Try simulating from a non iid process**
-
-
-**Add step-by-step instructions**
-
-```{r, webex.hide = 'Show Solution'}
-dgp <- function(n = 100, p = 0.5) {
-  rbinom(n, 1, p)
-}
-
-# Maybe have a challenge to write the version for after k ones, but start by
-# asking them to do the one for after 3 ones
-is_after_k_ones <- function(x, k) {
-  out <- rep(NA)
-  for(i in (k+1):length(x)) {
-    out[i] <- sum(x[(i - k):(i - 1)]) == k
-  }
-  return(out)
-}
-
-get_est <- function(x) {
-  #ones <- which(x == 1)
-  #mean(x[ones + 1], na.rm = TRUE)
-  mean(x[is_after_k_ones(x, 3)], na.rm = TRUE)
-}
-
-n_reps <- 1000
-set.seed(1234)
-sim_results <- replicate(n_reps, get_est(dgp()))
-library(ggplot2)
-qplot(sim_results)
-mean(sim_results, na.rm = TRUE)
+4. Amos watches Liz take 100 basketball shots and calculates a test statistic $T$ as follows: he identifies the shots that immediately follow a "streak" of three successful shots, and calculates Liz's success rate on this subset of shots. Amos argues as follows: "Suppose that Liz *does not* have a hot hand: each of her shots is independent of the others and her probability of success on a given shot is 1/2. Then the expected value of my $T$ will be one half." Use `replicate()` and `get_hot_handedness()` to carry out a simulation study with 10,000 replications to check whether Amos is correct.
+`r hide("Show Solution")`
+Amos is wrong: the expected value of his test statistic is approximately `0.46` rather than `0.5`, so he will on average conclude that Liz exhibits a *cold hand*. This approach is biased *against* finding evidence of a hot hand if it exists: 
+```{r}
+set.seed(420508570)
+sims <- replicate(1e4, get_hot_handedness(100, 0.5))
+mean(sims, na.rm = TRUE) # It's possible, though unlikely, 
+# that get_hot_handedness() will return an NaN. This happens
+# when the sequence of 100 simulated basketball shots has no
+# streaks of length three.
 ```
+`r unhide()`
+5. **Bonus Question:** How do the results of the preceding exercise vary with Liz's success rate and the number of shots that Amos watches her take? Design a simulation study to answer this question by exploring a grid of values for these parameters. 
+
+6. **Bonus Question:** Repeat the preceding exercise for different definitions of a *streak*, e.g. two successes in a row or four successes in a row. Think about which functions you'll need to change and how.
+
+7. **Bonus Question:** The exercises above consider a simulated basketball player who *does not* have a hot hand. Design a new simulation with a player who does exhibit a hot hand and see how this affects the results. (There are many ways to set up a simulation with dependence between trials, so there are many possible answers to this question.)
 
 

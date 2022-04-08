@@ -1,4 +1,5 @@
-the-hot-hand
+running-a-simulation-study
+is-the-hot-hand-an-illusion
 drawing-random-data-in-r
 sample
 probability-distributions-in-r
@@ -12,7 +13,7 @@ get_bias
 running-the-simulation-study
 expand.grid-and-map
 formatting-the-results
-your-turn-simulating-the-hot-hand
+exercise---the-hot-hand
 getting-started-with-dplyr
 package-installation
 exercise
@@ -79,6 +80,3 @@ exercise-25
 transforming-outcomes-and-predictors
 adding-interactions-with-and
 exercise-26
-running-a-simulation-study
-simulating-the-hot-hand
-exercise---the-hot-hand
