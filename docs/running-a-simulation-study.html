@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lesson 1 Running a Simulation Study | Empirical Research Methods</title>
+  <meta name="description" content="Lesson 1 Running a Simulation Study | Empirical Research Methods" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lesson 1 Running a Simulation Study | Empirical Research Methods" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lesson 1 Running a Simulation Study | Empirical Research Methods" />
+  
+  
+  
+
+<meta name="author" content="Francis J. DiTraglia" />
+
+
+<meta name="date" content="2022-04-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="getting-started-with-dplyr.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/core-erm-logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i>About This Book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-requisites"><i class="fa fa-check"></i>Pre-requisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-stata"><i class="fa fa-check"></i>Why not Stata?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab-julia-or-python"><i class="fa fa-check"></i>Why not Matlab, Julia, or Python?</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html"><i class="fa fa-check"></i><b>1</b> Running a Simulation Study</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#is-the-hot-hand-an-illusion"><i class="fa fa-check"></i><b>1.1</b> Is the Hot Hand an Illusion?</a></li>
+<li class="chapter" data-level="1.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#drawing-random-data-in-r"><i class="fa fa-check"></i><b>1.2</b> Drawing Random Data in R</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#sample"><i class="fa fa-check"></i><b>1.2.1</b> <code>sample()</code></a></li>
+<li class="chapter" data-level="1.2.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#probability-distributions-in-r"><i class="fa fa-check"></i><b>1.2.2</b> Probability Distributions in R</a></li>
+<li class="chapter" data-level="1.2.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#set.seed"><i class="fa fa-check"></i><b>1.2.3</b> <code>set.seed()</code></a></li>
+<li class="chapter" data-level="1.2.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercises"><i class="fa fa-check"></i><b>1.2.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#the-skeleton-of-a-simulation-study"><i class="fa fa-check"></i><b>1.3</b> The Skeleton of a Simulation Study</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#a-biased-estimator-of-sigma2"><i class="fa fa-check"></i><b>1.3.1</b> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span></a></li>
+<li class="chapter" data-level="1.3.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#draw_sim_data"><i class="fa fa-check"></i><b>1.3.2</b> <code>draw_sim_data()</code></a></li>
+<li class="chapter" data-level="1.3.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_estimate"><i class="fa fa-check"></i><b>1.3.3</b> <code>get_estimate()</code></a></li>
+<li class="chapter" data-level="1.3.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_bias"><i class="fa fa-check"></i><b>1.3.4</b> <code>get_bias()</code></a></li>
+<li class="chapter" data-level="1.3.5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#running-the-simulation-study"><i class="fa fa-check"></i><b>1.3.5</b> Running the Simulation Study</a></li>
+<li class="chapter" data-level="1.3.6" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#expand.grid-and-map"><i class="fa fa-check"></i><b>1.3.6</b> <code>expand.grid()</code> and <code>Map()</code></a></li>
+<li class="chapter" data-level="1.3.7" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#formatting-the-results"><i class="fa fa-check"></i><b>1.3.7</b> Formatting the Results</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercise---the-hot-hand"><i class="fa fa-check"></i><b>1.4</b> Exercise - The Hot Hand</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html"><i class="fa fa-check"></i><b>2</b> Getting Started with <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#package-installation"><i class="fa fa-check"></i><b>2.1</b> Package Installation</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise"><i class="fa fa-check"></i><b>2.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#what-is-a-tibble"><i class="fa fa-check"></i><b>2.2</b> What is a tibble?</a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>2.3</b> Filter Rows with <code>filter</code></a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises-1"><i class="fa fa-check"></i><b>2.3.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#sort-data-with-arrange"><i class="fa fa-check"></i><b>2.4</b> Sort data with <code>arrange</code></a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises-2"><i class="fa fa-check"></i><b>2.4.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#choose-columns-with-select"><i class="fa fa-check"></i><b>2.5</b> Choose columns with <code>select</code></a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-1"><i class="fa fa-check"></i><b>2.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-summarize-verb"><i class="fa fa-check"></i><b>2.6</b> The <code>summarize</code> verb</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-2"><i class="fa fa-check"></i><b>2.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-group_by-verb"><i class="fa fa-check"></i><b>2.7</b> The <code>group_by</code> verb</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-3"><i class="fa fa-check"></i><b>2.7.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#understanding-the-pipe"><i class="fa fa-check"></i><b>2.8</b> Understanding the pipe: <code>%&gt;%</code></a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-4"><i class="fa fa-check"></i><b>2.8.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#chaining-commands"><i class="fa fa-check"></i><b>2.9</b> Chaining commands</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-5"><i class="fa fa-check"></i><b>2.9.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#change-an-existing-variable-or-create-a-new-one-with-mutate"><i class="fa fa-check"></i><b>2.10</b> Change an existing variable or create a new one with <code>mutate</code></a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-6"><i class="fa fa-check"></i><b>2.10.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Getting Started with <code>ggplot2</code></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#a-simple-scatterplot-using-ggplot2"><i class="fa fa-check"></i><b>3.1</b> A simple scatterplot using <code>ggplot2</code></a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-7"><i class="fa fa-check"></i><b>3.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-on-the-log-scale"><i class="fa fa-check"></i><b>3.2</b> Plotting on the log scale</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-8"><i class="fa fa-check"></i><b>3.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#the-color-and-size-aesthetics"><i class="fa fa-check"></i><b>3.3</b> The color and size aesthetics</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-9"><i class="fa fa-check"></i><b>3.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#faceting---plots-for-multiple-subsets"><i class="fa fa-check"></i><b>3.4</b> Faceting - Plots for Multiple Subsets</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-10"><i class="fa fa-check"></i><b>3.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-summarized-data"><i class="fa fa-check"></i><b>3.5</b> Plotting summarized data</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-11"><i class="fa fa-check"></i><b>3.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#line-plots"><i class="fa fa-check"></i><b>3.6</b> Line plots</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-12"><i class="fa fa-check"></i><b>3.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#bar-plots"><i class="fa fa-check"></i><b>3.7</b> Bar plots</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-13"><i class="fa fa-check"></i><b>3.7.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#cleveland-dot-charts"><i class="fa fa-check"></i><b>3.8</b> Cleveland Dot Charts</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-14"><i class="fa fa-check"></i><b>3.8.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#histograms"><i class="fa fa-check"></i><b>3.9</b> Histograms</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>3.9.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#boxplots"><i class="fa fa-check"></i><b>3.10</b> Boxplots</a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-16"><i class="fa fa-check"></i><b>3.10.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html"><i class="fa fa-check"></i><b>4</b> Predictive Regression Part I</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-17"><i class="fa fa-check"></i><b>4.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-least-squares-problem"><i class="fa fa-check"></i><b>4.2</b> The Least Squares Problem</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-18"><i class="fa fa-check"></i><b>4.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#linear-regression-with-lm"><i class="fa fa-check"></i><b>4.3</b> Linear Regression with <code>lm()</code></a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-19"><i class="fa fa-check"></i><b>4.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#plotting-the-regression-line"><i class="fa fa-check"></i><b>4.4</b> Plotting the Regression Line</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-20"><i class="fa fa-check"></i><b>4.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#getting-more-from-lm"><i class="fa fa-check"></i><b>4.5</b> Getting More from <code>lm()</code></a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-21"><i class="fa fa-check"></i><b>4.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#summarizing-the-ouput-of-lm"><i class="fa fa-check"></i><b>4.6</b> Summarizing The Ouput of <code>lm()</code></a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-22"><i class="fa fa-check"></i><b>4.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#tidying-up-with-broom"><i class="fa fa-check"></i><b>4.7</b> Tidying up with <code>broom</code></a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-23"><i class="fa fa-check"></i><b>4.7.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#dummy-variables-with-lm"><i class="fa fa-check"></i><b>4.8</b> Dummy Variables with <code>lm()</code></a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-24"><i class="fa fa-check"></i><b>4.8.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#fun-with-r-formulas"><i class="fa fa-check"></i><b>4.9</b> Fun with R Formulas</a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#everything-else---the-dot-."><i class="fa fa-check"></i><b>4.9.1</b> "Everything Else" - The Dot <code>.</code></a></li>
+<li class="chapter" data-level="4.9.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#removing-predictors-with--"><i class="fa fa-check"></i><b>4.9.2</b> Removing Predictors with <code>-</code></a></li>
+<li class="chapter" data-level="4.9.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-intercept-1"><i class="fa fa-check"></i><b>4.9.3</b> The Intercept: <code>1</code></a></li>
+<li class="chapter" data-level="4.9.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-25"><i class="fa fa-check"></i><b>4.9.4</b> Exercise</a></li>
+<li class="chapter" data-level="4.9.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#transforming-outcomes-and-predictors"><i class="fa fa-check"></i><b>4.9.5</b> Transforming Outcomes and Predictors</a></li>
+<li class="chapter" data-level="4.9.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#adding-interactions-with-and"><i class="fa fa-check"></i><b>4.9.6</b> Adding Interactions With <code>:</code>, <code>*</code>, and <code>^</code></a></li>
+<li class="chapter" data-level="4.9.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-26"><i class="fa fa-check"></i><b>4.9.7</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Empirical Research Methods</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="running-a-simulation-study" class="section level1" number="1">
+<h1><span class="header-section-number">Lesson 1</span> Running a Simulation Study</h1>
+<blockquote>
+<p>It’s nearly impossible to overstate the value that economists ascribe to cleverness. Like most obsessions, this one is not altogether healthy.</p>
+<p>--<cite><a href="https://ocw.mit.edu/courses/14-662-labor-economics-ii-spring-2015/12ff98a88fe3005fec9f81351c40ab73_MIT14_662S15_lecnotes1.pdf">David Autor</a></cite></p>
+</blockquote>
+<blockquote>
+<p>My general philosophy in life is never to rely on being clever; instead I want to rely on being thorough and having a justifiable workflow.</p>
+<p>-- <cite><a href="https://youtu.be/zYYBtxHWE0A">Richard McElreath</a></cite></p>
+</blockquote>
+<p>In economics and statistics, simulation is a <em>superpower</em>. It helps us to understand our models, check for mistakes, and make unexpected connections, some of which may even lead to new theoretical results. Riffing on the two quotes from above, simulation is both a substitute for and a complement to cleverness. If you'll pardon my continuation of the Swiss Army Knife metaphor, simulation is the knife: arguably the most useful tool in your toolbox. In this lesson, we'll learn the basics of carrying out a simulation study in R using the following key commands:</p>
+<ul>
+<li><code>sample()</code></li>
+<li><code>rbinom()</code></li>
+<li><code>rnorm()</code></li>
+<li><code>set.seed()</code></li>
+<li><code>identical()</code></li>
+<li><code>replicate()</code></li>
+<li><code>expand.grid()</code></li>
+<li><code>Map()</code></li>
+</ul>
+<p>We'll then apply what we've learned to shed some light on a simple but surprisingly subtle statistical error that led an entire literature astray for nearly two decades. Before we dive into the code, let me set the stage for the example that appears at the end of this lesson.</p>
+<div id="is-the-hot-hand-an-illusion" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Is the Hot Hand an Illusion?</h2>
+<p>If you've read 2002 Nobel Laureate Daniel Kahneman's best-selling book <a href="https://www.google.co.uk/books/edition/Thinking_Fast_and_Slow/AV9x8XakdV0C?hl=en&amp;gbpv=1&amp;dq=thinking+fast+and+slow&amp;printsec=frontcover"><em>Thinking Fast and Slow</em></a>, you may remember this passage about the <em>hot hand illusion</em>, a supposed illustration of the human tendency to see patterns in random noise:</p>
+<blockquote>
+<p>Amos [Tversky] and his students Tom Gilovich and Robert Vallone caused a stir with their study of misperceptions of randomness in basketball. The "fact" that players occasionally acquire a hot hand is generally accepted by players, coaches, and fans. The inference is irresistible: a player sinks three or four baskets in a row and you cannot help forming the causal judgment that this player is now hot, with a temporarily increased propensity to score. Players on both teams adapt to this judgment—teammates are more likely to pass to the hot scorer and the defense is more likely to doubleteam. Analysis of thousands of sequences of shots led to a disappointing conclusion: there is no such thing as a hot hand in professional basketball, either in shooting from the field or scoring from the foul line. Of course, some players are more accurate than others, but the sequence of successes and missed shots satisfies all tests of randomness. The hot hand is entirely in the eye of the beholders, who are consistently too quick to perceive order and causality in randomness. The hot hand is a massive and widespread cognitive illusion.</p>
+</blockquote>
+<p>The research that Kahneman mentions was published in a famous paper by <a href="https://labs.la.utexas.edu/gilden/files/2016/04/Gilo.Vallone.Tversky.pdf">Gilovich, Vallone &amp; Tversky (1985)</a>, and later summarized for a general audience in <a href="http://www.medicine.mcgill.ca/epidemiology/hanley/c323/hothand.pdf">Gilovich &amp; Tversky (1989)</a>. The abstract of the original paper says it all:</p>
+<blockquote>
+<p>Basketball players and fans alike tend to believe that a player's chance of hitting a shot are greater following a hit than following a miss on the previous shot. However, detailed analyses of the shooting records of the Philadelphia 76ers provided no evidence for a positive correlation between the outcomes of successive shots. The same conclusions emerged from free-throw records of the Boston Celtics, and from a controlled shooting experiment with the men and women of Cornell's varsity teams. The outcomes of previous shots influenced Cornell players' predictions but not their performance. The belief in the hot hand and the "detection" of streaks in random sequences is attributed to a general misconception of chance according to which even short random sequences are thought to be highly representative of their generating process.</p>
+</blockquote>
+<p>Between 1985 and 2011, when Kahneman's book was published, this result was replicated numerous times under a variety of different conditions, making it one of the better-documented biases in human decision-making. But it turns out that <em>another</em> source of bias was at play here, one of the <em>statistical</em> variety.</p>
+<p>In a recent issue of <em>Econometrica</em>, <a href="https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA14943">Miller &amp; Sanjurjo (2018)</a> point out a subtle but consequential error in the statistical tests used in the hot hand literature. It turns out that these tests were biased <em>against</em> detecting evidence of a hot hand, even if it did in fact exist. Correcting this mistake and re-analyzing Gilovich, Vallone and Tversky's original dataset "reveals significant evidence of streak shooting, with large effect sizes." In response to this paper, the literature has now shifted to trying to estimate the <em>size</em> of the effect.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> As <a href="https://www.sciencedirect.com/science/article/pii/S2352239918300228">Benjamin (2019)</a> points out it's still an open question whether sports fans over-estimate the importance of the hot hand phenomenon, but it's certainly not a cognitive illusion.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a></p>
+<p>There are some helpful lessons that we can draw from this episode. First, we all make mistakes--even Nobel Laureates! Second, successful replications tell us less than we might hope: they could easily <em>reproduce</em> the bias of the original study. But in my view, the real lesson of the hot hand affair is much simpler: <strong>you should always run a simulation study.</strong> The probabilistic error that led so many researchers to draw the wrong conclusion about the hot hand is really quite subtle.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> But at the same time, anyone who knows basic programming could have detected the mistake in half an hour if they had only bothered to look.</p>
+</div>
+<div id="drawing-random-data-in-r" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Drawing Random Data in R</h2>
+<p>Before we can use simulations to study the illusion of the hot hand illusion, we need to review the basics of drawing random data in R. We'll examine the functions <code>sample()</code>, <code>rbinom()</code> and <code>set.seed()</code> in detail. I'll also point you to a large number functions for simulating from well-known probability distributions in R. Finally, you'll have a chance to practice what you've learned by solving a few short exercises.</p>
+<div id="sample" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> <code>sample()</code></h3>
+<p>R has many helpful built-in functions for making simulated random draws. The simplest is <code>sample()</code>, which makes <code>size</code> random draws without replacement from a vector <code>x</code>. To test this out, I'll create a very simple vector</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="running-a-simulation-study.html#cb1-1" aria-hidden="true" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;there&#39;</span>, <span class="st">&#39;is&#39;</span>, <span class="st">&#39;no&#39;</span>, <span class="st">&#39;largest&#39;</span>, <span class="st">&#39;integer&#39;</span>)</span></code></pre></div>
+<p>The following line of code makes two draws <em>without replacement</em> from <code>my_vector</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="running-a-simulation-study.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_vector, <span class="at">size =</span> <span class="dv">2</span>) <span class="co"># without replacement</span></span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot; &quot;is&quot;</code></pre>
+<p>If I run the same line of code again, I may not get the same result: it's random!<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="running-a-simulation-study.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_vector, <span class="at">size =</span> <span class="dv">2</span>) <span class="co"># without replacement</span></span></code></pre></div>
+<pre><code>## [1] &quot;is&quot; &quot;no&quot;</code></pre>
+<p>To draw <em>with replacement</em>, set <code>replace = TRUE</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="running-a-simulation-study.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_vector, <span class="at">size =</span> <span class="dv">7</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># with replacement</span></span></code></pre></div>
+<pre><code>## [1] &quot;no&quot;      &quot;no&quot;      &quot;integer&quot; &quot;no&quot;      &quot;there&quot;   &quot;largest&quot; &quot;is&quot;</code></pre>
+<p>As usual in R, the argument names <code>x</code>, <code>size</code>, and <code>replace</code> are optional. But it is considered good coding style to explicitly supply an argument name whenever we're <em>overriding</em> a function's default behavior. This makes it easier for anyone reading our code to understand what's happening. Since <code>sample()</code> defaults to making draws <em>without</em> replacement, it's a good idea to write <code>replace = TRUE</code> rather then simply <code>TRUE</code>. But even without writing <code>replace =</code>, the code will still work as long as we supply all of the arguments in the correct <em>order</em>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="running-a-simulation-study.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(my_vector, <span class="dv">7</span>, <span class="cn">TRUE</span>) <span class="co"># bad style</span></span></code></pre></div>
+<pre><code>## [1] &quot;largest&quot; &quot;no&quot;      &quot;no&quot;      &quot;no&quot;      &quot;is&quot;      &quot;integer&quot; &quot;there&quot;</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="running-a-simulation-study.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(my_vector, <span class="dv">7</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># good style</span></span></code></pre></div>
+<pre><code>## [1] &quot;there&quot;   &quot;there&quot;   &quot;integer&quot; &quot;largest&quot; &quot;largest&quot; &quot;no&quot;      &quot;no&quot;</code></pre>
+</div>
+<div id="probability-distributions-in-r" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Probability Distributions in R</h3>
+<p>As a programming language targeted at statistical applications, R supplies built-in functions for all of the most common probability distributions.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>
+These functions follow a consistent naming convention. They being with either <code>d</code>, <code>p</code>, <code>q</code>, or <code>r</code> and are followed by an abbreviated name for a particular probability distribution. The prefix <code>d</code> denotes a <em>density</em> function (or mass function for a discrete distribution); <code>p</code> denotes a <em>cumulative distribution function</em> (CDF), <code>q</code> denotes a <em>quantile</em> function, and <code>r</code> denotes a function for making <em>random draws</em> from a particular distribution. For example: <code>dunif()</code> gives the probability density function of a uniform random variable, <code>pnorm()</code> gives the CDF of a normal random variable, <code>qchisq()</code> gives the quantile function of a Chi-squared, and <code>rbinom</code> allows us to make random draws from a Binomial distribution. The following table gives a full list of the relevant commands.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">R commands</th>
+<th align="left">Distribution</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>d/p/q/rbeta</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Beta_distribution">Beta</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>d/p/q/rbinom</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Binomial_distribution">Binomial</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>d/p/q/rcauchy</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Cauchy_distribution">Cauchy</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>d/p/q/rchisq</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Chi-squared_distribution">Chi-Squared</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>d/p/q/rexp</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Exponential_distribution">Exponential</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>d/p/q/rf</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/F-distribution">F</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>d/p/q/rgamma</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Gamma_distribution">Gamma</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>d/p/q/rgeom</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Geometric_distribution">Geometric</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>d/q/p/rhyper</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Geometric_distribution">Hypergeometric</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>d/p/q/rlogis</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Logistic_distribution">Logistic</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>d/p/q/rlnorm</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Lognormal_distribution">Log Normal</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>d/p/q/rnbinom</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Negative_binomial_distribution">Negative Binomial</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>d/p/q/rnorm</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Normal_distribution">Normal</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>d/p/q/rpois</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Poisson_distribution">Poisson</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>d/p/q/rt</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Student%27s_t-distribution">Student's t</a></td>
+</tr>
+<tr class="even">
+<td align="left"><code>d/p/q/runif</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">Uniform</a></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>d/p/q/rweibull</code></td>
+<td align="left"><a href="https://en.wikipedia.org/wiki/Weibull_distribution">Weibull</a></td>
+</tr>
+</tbody>
+</table>
+<p>There's a single help file for all of the <code>d/p/q/r</code> functions for a particular distribution. For example, if you enter <code>?dbeta</code> at the console you'll be shown the help files for <code>dbeta()</code>, <code>pbeta()</code>, <code>qbeta()</code>, and <code>rbeta()</code>.</p>
+<p>To get a feel for how these functions work, let's take a look at <code>rbinom()</code>, the function for drawing from a <a href="https://en.wikipedia.org/wiki/Binomial_distribution">Binomial distribution</a>. Recall that a Binomial<span class="math inline">\((m,p)\)</span> random variable equals the number of heads in <span class="math inline">\(m\)</span> independent tosses of a coin with <span class="math inline">\(\mathbb{P}(\text{Heads})=p\)</span>. Or to use a bit of probability jargon, it equals the number of <em>successes</em> in <span class="math inline">\(m\)</span> independent <em>Bernoulli trials</em>, each with probability of success <span class="math inline">\(p\)</span>.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a> If <span class="math inline">\(X\)</span> is a Binomial random variable with parameters <span class="math inline">\(m\)</span> and <span class="math inline">\(p\)</span>, traditionally written as <span class="math inline">\(X \sim \text{Binomial}(m, p)\)</span> then <span class="math inline">\(X\)</span> must take on a value in the set <span class="math inline">\(\{0, 1, 2, ..., m\}\)</span> and the probability that it takes on a particular value <span class="math inline">\(x\)</span> in this set is
+<span class="math display">\[
+\mathbb{P}(X = x) = \binom{m}{x} p^x (1 - p)^{m-x}
+\]</span>
+The function <code>rbinom()</code> makes random draws with the probabilities given by this formula. Its takes three arguments: <code>size</code> is the number of trials, <span class="math inline">\(m\)</span> in the formula, <code>prob</code> is the probability of success, <span class="math inline">\(p\)</span> in the formula, and <code>n</code> is the desired number of Binomial draws. For example, we can make a single draw from a Binomial<span class="math inline">\((m = 10, p =1 /2)\)</span> distribution as follows</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="running-a-simulation-study.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p>and fifteen draws from the same distribution by changing <code>n</code> to <code>10</code></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="running-a-simulation-study.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">15</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<pre><code>##  [1] 5 6 5 4 5 9 5 6 5 4 7 4 2 3 6</code></pre>
+<p>It's important not to confuse <code>n</code> with <code>size</code>. The former tells R how many <em>Binomial</em> draws to make. The latter tells R the value of the parameter <span class="math inline">\(m\)</span> of the Binomial<span class="math inline">\((m, p)\)</span> distribution.</p>
+<p>Perhaps you remember that if <span class="math inline">\(X \sim \text{Binomial}(m, p)\)</span> then <span class="math inline">\(\mathbb{E}[X] = mp\)</span> and <span class="math inline">\(\text{Var}= mp(1-p)\)</span>. We can approximate these results numerically by simulating a large number of draws, say 5000, from a Binomial distribution:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="running-a-simulation-study.html#cb16-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb16-2"><a href="running-a-simulation-study.html#cb16-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
+<span id="cb16-3"><a href="running-a-simulation-study.html#cb16-3" aria-hidden="true" tabindex="-1"></a>n_sims <span class="ot">&lt;-</span> <span class="dv">5000</span></span>
+<span id="cb16-4"><a href="running-a-simulation-study.html#cb16-4" aria-hidden="true" tabindex="-1"></a>sim_draws <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n_sims, m, p)</span></code></pre></div>
+<p>and then comparing the theoretical value for <span class="math inline">\(\mathbb{E}(X)\)</span> to a simulation-based approximation:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="running-a-simulation-study.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">EV_Theoretical =</span> m <span class="sc">*</span> p, </span>
+<span id="cb17-2"><a href="running-a-simulation-study.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">EV_Simulation =</span> <span class="fu">mean</span>(sim_draws))</span></code></pre></div>
+<pre><code>## EV_Theoretical  EV_Simulation 
+##          5.000          5.002</code></pre>
+<p>and similarly for <span class="math inline">\(\text{Var}(X)\)</span></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="running-a-simulation-study.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">Var_Theoretical =</span> m <span class="sc">*</span> p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p), </span>
+<span id="cb19-2"><a href="running-a-simulation-study.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Var_Simulation =</span> <span class="fu">var</span>(sim_draws))</span></code></pre></div>
+<pre><code>## Var_Theoretical  Var_Simulation 
+##        3.750000        3.612318</code></pre>
+<p>Reassuringly, our simulation results are very close to the theoretical values. They would be even closer if we used a larger value for <code>n_sims</code>.</p>
+</div>
+<div id="set.seed" class="section level3" number="1.2.3">
+<h3><span class="header-section-number">1.2.3</span> <code>set.seed()</code></h3>
+<p>A key theme of this book is the importance of <em>reproducible research</em>. Anyone else who wants to check your work should be able to obtain <em>exactly the same results as you did</em> by running your code. But this seems to be at odds with the idea of simulating random data. For example, if I run <code>rbinom(10, 4, 0.6)</code> repeatedly, I'll most likely get different results each time:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="running-a-simulation-study.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span></code></pre></div>
+<pre><code>##  [1] 2 1 3 3 2 3 2 3 3 1</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="running-a-simulation-study.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span></code></pre></div>
+<pre><code>##  [1] 2 0 3 2 3 4 2 1 2 1</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="running-a-simulation-study.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span></code></pre></div>
+<pre><code>##  [1] 2 2 3 3 0 3 2 2 3 2</code></pre>
+<p>The function <code>set.seed()</code> allows us to ensure that we obtain the <em>same</em> simulation draws whenever we re-run the same simulation code. To use it, we simply choose a <em>seed</em>, any integer between negative and positive <span class="math inline">\((2^{31} - 1)\)</span>, and supply it as an argument to <code>set.seed()</code>. Simulation draws made on a computer aren't really random: they're only <a href="https://en.wikipedia.org/wiki/Pseudorandomness">pseudo-random</a>. This means that they "look" random and pass statistical tests for randomness but are in fact generated by a completely deterministic algorithm. Setting the seed sets the <em>initial condition</em> of the pseudorandom number generator. Because the algorithm is deterministic, the same initial condition always leads to the same results. This is what allows us to replicate our simulation draws. Each time we make another draw, the seed changes. But we can always return it to its previous state using <code>set.seed()</code>. For example, suppose I set the seed to <code>1</code>. and re-run my code from above as follows</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="running-a-simulation-study.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb27-2"><a href="running-a-simulation-study.html#cb27-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span>
+<span id="cb27-3"><a href="running-a-simulation-study.html#cb27-3" aria-hidden="true" tabindex="-1"></a>x1</span></code></pre></div>
+<pre><code>##  [1] 3 3 2 1 3 1 1 2 2 4</code></pre>
+<p>If I run <code>rbinom(10, 4, 0.6)</code> again, I will most likely <em>not</em> get the same result, because the state of the pseudorandom number generator has changed:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="running-a-simulation-study.html#cb29-1" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span>
+<span id="cb29-2"><a href="running-a-simulation-study.html#cb29-2" aria-hidden="true" tabindex="-1"></a>x2</span></code></pre></div>
+<pre><code>##  [1] 3 3 2 3 2 2 2 0 3 2</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="running-a-simulation-study.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(x1, x2) <span class="co"># safe/reliable way to test if two objects are exactly equal</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>but if I reset the seed to <code>1</code> I'll obtain exactly the same result as before:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="running-a-simulation-study.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb33-2"><a href="running-a-simulation-study.html#cb33-2" aria-hidden="true" tabindex="-1"></a>x3 <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span>
+<span id="cb33-3"><a href="running-a-simulation-study.html#cb33-3" aria-hidden="true" tabindex="-1"></a>x3</span></code></pre></div>
+<pre><code>##  [1] 3 3 2 1 3 1 1 2 2 4</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="running-a-simulation-study.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(x3, x1)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p><em>Whenever</em> you write simulation code, start by choosing a seed and adding the line <code>set.seed(MY-SEED-GOES-HERE)</code> to the top of your R script. You'll often see people use <code>set.seed(12345)</code> or <code>set.seed(54321)</code>. When I'm not feeling lazy, I like to generate a <em>truly random number</em> to use as my seed. The website <a href="https://random.org">random.org</a> provides free access to <em>bona fide</em> random numbers generated from atmospheric noise. The "True Random Number Generator" on the top right of their main page allows you to make uniform integer draws on a range from "Min" to "Max." Using the widest possible range, <span class="math inline">\(\pm1\times 10^9\)</span>, I generated the seed <code>420508570</code> which I'll use in the following exercises.</p>
+</div>
+<div id="exercises" class="section level3" number="1.2.4">
+<h3><span class="header-section-number">1.2.4</span> Exercises</h3>
+<p>Set your seed to <code>420508570</code> at the start of your solution code for each of these exercises to obtain results that match the solutions.</p>
+<ol style="list-style-type: decimal">
+<li>Run <code>sample(x = my_vector, size = 10)</code>. What happens and why?</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<p>R will throw an error. You can't make ten draws <em>without replacement</em> from a set of five objects:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="running-a-simulation-study.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb37-2"><a href="running-a-simulation-study.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_vector, <span class="at">size =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## Error in sample.int(length(x), size, replace, prob): cannot take a sample larger than the population when &#39;replace = FALSE&#39;</code></pre>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Write a line of code that makes five draws without replacement from the set of numbers <span class="math inline">\(\{1, 2, 3, ..., 100\}\)</span>.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="running-a-simulation-study.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb39-2"><a href="running-a-simulation-study.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 100  67  51  44  12</code></pre>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Create a vector of thirty elements called <code>urn</code> that represents an urn containing ten blue balls and twenty red balls. Draw five balls with replacement from <code>urn</code> and store the draws in a vector called <code>draws</code>. Then write a line of code to count up the number of blue balls in <code>draws</code>.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Hint
+</button>
+<p>Use <code>rep()</code> and <code>c()</code> to construct <code>urn</code>. Use <code>==</code> and <code>sum()</code> to count up the number of blue balls in <code>draws</code>. See the relevant help files for details, e.g. <code>?rep</code>.</p>
+</div>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="running-a-simulation-study.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb41-2"><a href="running-a-simulation-study.html#cb41-2" aria-hidden="true" tabindex="-1"></a>urn <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">&#39;blue&#39;</span>, <span class="dv">10</span>), <span class="fu">rep</span>(<span class="st">&#39;red&#39;</span>, <span class="dv">20</span>))</span>
+<span id="cb41-3"><a href="running-a-simulation-study.html#cb41-3" aria-hidden="true" tabindex="-1"></a>draws <span class="ot">&lt;-</span> <span class="fu">sample</span>(urn, <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb41-4"><a href="running-a-simulation-study.html#cb41-4" aria-hidden="true" tabindex="-1"></a>draws</span></code></pre></div>
+<pre><code>## [1] &quot;blue&quot; &quot;blue&quot; &quot;red&quot;  &quot;red&quot;  &quot;red&quot;</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="running-a-simulation-study.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(draws <span class="sc">==</span> <span class="st">&#39;blue&#39;</span>)</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Make 1000 draws from a normal distribution with mean 5 and variance 4 and store them in a vector called <code>normal_sims</code>. Calculate the mean and variance of your draws, and plot a histogram.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Hint
+</button>
+<p>Consult the help file for <code>rnorm()</code> paying close attention to the fact that R specifies the normal distribution in terms of a mean and <em>standard deviation</em> rather than a mean and <em>variance</em>. You can plot a histogram with any number of functions: e.g. the base R function <code>hist()</code> or <code>qplot()</code> from the <code>ggplot2</code> package.</p>
+</div>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="running-a-simulation-study.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb45-2"><a href="running-a-simulation-study.html#cb45-2" aria-hidden="true" tabindex="-1"></a>normal_sims <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="dv">5</span>, <span class="dv">2</span>) <span class="co"># Variance = 4; Standard Dev. = 2</span></span>
+<span id="cb45-3"><a href="running-a-simulation-study.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(normal_sims)</span></code></pre></div>
+<pre><code>## [1] 4.895722</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="running-a-simulation-study.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(normal_sims)</span></code></pre></div>
+<pre><code>## [1] 3.912262</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="running-a-simulation-study.html#cb49-1" aria-hidden="true" tabindex="-1"></a>ggplot2<span class="sc">::</span><span class="fu">qplot</span>(normal_sims, <span class="at">bins =</span> <span class="dv">25</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>There is no built-in R function called <code>rbern()</code> for simulating draws from the <a href="https://en.wikipedia.org/wiki/Bernoulli_distribution">Bernoulli Distribution</a> with probability of success <span class="math inline">\(p\)</span>. Write one of your own and use it to make ten Bernoulli(0.8) draws. Your function <code>rbern()</code> should take two arguments: the number of draws <code>n</code> and the probability of success <code>p</code>.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Hint
+</button>
+<p>There are various ways to do this. The simplest is by setting the arguments of <code>rbinom()</code> appropriately.</p>
+</div>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="running-a-simulation-study.html#cb50-1" aria-hidden="true" tabindex="-1"></a>rbern <span class="ot">&lt;-</span> <span class="cf">function</span>(n, p) {</span>
+<span id="cb50-2"><a href="running-a-simulation-study.html#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Make n random draws from a Bernoulli(p) distribution</span></span>
+<span id="cb50-3"><a href="running-a-simulation-study.html#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbinom</span>(n, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> p)</span>
+<span id="cb50-4"><a href="running-a-simulation-study.html#cb50-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb50-5"><a href="running-a-simulation-study.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb50-6"><a href="running-a-simulation-study.html#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rbern</span>(<span class="dv">10</span>, <span class="fl">0.8</span>)</span></code></pre></div>
+<pre><code>##  [1] 1 1 1 1 0 1 1 1 1 1</code></pre>
+</div>
+</div>
+</div>
+<div id="the-skeleton-of-a-simulation-study" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> The Skeleton of a Simulation Study</h2>
+<p>While the specific details will vary, nearly every simulation study has the same basic structure:</p>
+<ol style="list-style-type: decimal">
+<li>Generate simulated data.</li>
+<li>Calculate an estimate from the simulated data.</li>
+<li>Repeat steps 1 and 2 many times, saving each of the estimates.</li>
+<li>Summarize the results.</li>
+</ol>
+<p>Thinking in terms of this structure helps us to write code that is easier to understand, easier to generalize, and faster to run. The key is to break these steps down into <em>functions</em> that carry out a single, well-defined task. Generally these will include:</p>
+<ol style="list-style-type: lower-roman">
+<li>A function to generate simulated data.</li>
+<li>A function to calculate an estimate from the data.</li>
+<li>A function that repeatedly calls i. and ii. and summarizes the results.</li>
+</ol>
+<p>This may sound a bit abstract, so in the remainder of this section we'll walk through the details in a simple example: estimating the bias of the maximum likelihood estimator for the variance of a normal distribution. Along the way we'll explore three extremely helpful R functions for carrying simulation studies: <code>replicate()</code>, <code>expand.grid()</code>, and <code>Map()</code>. In the next section you'll apply what you've learned to the hot hand example.</p>
+<div id="a-biased-estimator-of-sigma2" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span></h3>
+<p>My introductory statistics students often ask me why the sample variance, <span class="math inline">\(S^2\)</span>, divides by <span class="math inline">\((n-1)\)</span> rather than the sample size <span class="math inline">\(n\)</span>:
+<span class="math display">\[
+S^2 \equiv \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X}_n)^2
+\]</span>
+The answer is that dividing by <span class="math inline">\((n-1)\)</span> yields an <em>unbiased estimator</em>: if <span class="math inline">\(X_1, ..., X_n\)</span> are a random sample from a population with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, then <span class="math inline">\(\mathbb{E}[S^2] = \sigma^2\)</span>. So what would happen if we divided by <span class="math inline">\(n\)</span> instead? Consider the estimator <span class="math inline">\(\widehat{\sigma}^2\)</span> defined by
+<span class="math display">\[
+\widehat{\sigma}^2 \equiv \frac{1}{n}\sum_{i=1}^n (X_i - \bar{X}_n)^2.
+\]</span>
+If <span class="math inline">\(X_i \sim \text{Normal}(\mu, \sigma^2)\)</span> then <span class="math inline">\(\widehat{\sigma}^2\)</span> is in fact the <em>maximum likelihood estimator</em> for <span class="math inline">\(\sigma^2\)</span>. With a bit of algebra, we can show that <span class="math inline">\(\mathbb{E}[\widehat{\sigma}^2] = (n-1)\sigma^2/n\)</span> which clearly does <em>not</em> equal the population variance.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>
+It follows that
+<span class="math display">\[
+\text{Bias}(\widehat{\sigma}^2) \equiv \mathbb{E}[\widehat{\sigma}^2 - \sigma^2] = -\sigma^2/n
+\]</span>
+so <span class="math inline">\(\widehat{\sigma}^2\)</span> is biased <em>downwards</em>. Because the bias goes to zero as the sample size grows, however, it is still a consistent estimator of <span class="math inline">\(\sigma^2\)</span>.</p>
+<p>Another way to see that <span class="math inline">\(\widehat{\sigma}^2\)</span> is biased is by carrying out a simulation study. To do this, we generate data from a distribution with a <em>known</em> variance and calculate <span class="math inline">\(\widehat{\sigma}^2\)</span>. Then we generate a <em>new</em> dataset from the same distribution and again calculate the corresponding value of <span class="math inline">\(\widehat{\sigma}^2\)</span>. Repeating this a large number of times, we end up with many estimates <span class="math inline">\(\widehat{\sigma}^2\)</span>, each based on a dataset of the same size drawn independently from the same population. This collection of estimates gives us an <em>approximation</em> to the sampling distribution of <span class="math inline">\(\widehat{\sigma}^2\)</span>. Using this approximation, we can get a good estimate of <span class="math inline">\(\text{Bias}(\widehat{\sigma}^2)\)</span> by comparing the sample mean of our simulated estimates <span class="math inline">\(\widehat{\sigma}^2\)</span> to the <em>true</em> variance <span class="math inline">\(\sigma^2\)</span>.</p>
+</div>
+<div id="draw_sim_data" class="section level3" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> <code>draw_sim_data()</code></h3>
+<p>The first thing we need is a function to generate simulated data. Let's draw the <span class="math inline">\(X_1, ..., X_n\)</span> from a normal distribution with mean zero and variance <code>s_sq</code>. To do this, we write a simple R function as follows:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="running-a-simulation-study.html#cb52-1" aria-hidden="true" tabindex="-1"></a>draw_sim_data <span class="ot">&lt;-</span> <span class="cf">function</span>(n, s_sq) {</span>
+<span id="cb52-2"><a href="running-a-simulation-study.html#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rnorm</span>(n, <span class="at">sd =</span> <span class="fu">sqrt</span>(s_sq))</span>
+<span id="cb52-3"><a href="running-a-simulation-study.html#cb52-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>The nice thing about writing such a function is that we can test that it's working correctly. For example, suppose you were worried that <code>draw_sim_data</code> does <em>not</em> in fact generate <code>n</code> draws from a normal distribution with mean zero and variance <code>s_sq</code>. Then you could simply draw a large sample and check! Here I'll verify that <code>draw_sim_data()</code> returns a vector of the expected length, with the desired mean and variance, drawn from normal distribution.<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a> Everything works as expected:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="running-a-simulation-study.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb53-2"><a href="running-a-simulation-study.html#cb53-2" aria-hidden="true" tabindex="-1"></a>test_sims <span class="ot">&lt;-</span> <span class="fu">draw_sim_data</span>(<span class="dv">5000</span>, <span class="dv">9</span>)</span>
+<span id="cb53-3"><a href="running-a-simulation-study.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(test_sims)</span></code></pre></div>
+<pre><code>## [1] 5000</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="running-a-simulation-study.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(test_sims)</span></code></pre></div>
+<pre><code>## [1] -0.04620928</code></pre>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="running-a-simulation-study.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(test_sims)</span></code></pre></div>
+<pre><code>## [1] 8.832994</code></pre>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="running-a-simulation-study.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(test_sims)</span>
+<span id="cb59-2"><a href="running-a-simulation-study.html#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qqline</span>(test_sims)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+</div>
+<div id="get_estimate" class="section level3" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> <code>get_estimate()</code></h3>
+<p>The next step is to write a function that calculates <span class="math inline">\(\widehat{\sigma}^2\)</span>. We can do this as follows:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="running-a-simulation-study.html#cb60-1" aria-hidden="true" tabindex="-1"></a>get_estimate <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb60-2"><a href="running-a-simulation-study.html#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>((x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> <span class="fu">length</span>(x) <span class="co"># divides by n not (n-1)</span></span>
+<span id="cb60-3"><a href="running-a-simulation-study.html#cb60-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Again it's a good idea to test your code before proceeding. There are several tests we could consider running. First, if all the elements of <code>x</code> are the same then <code>get_estimate()</code> should return zero because <code>(x - mean(x))</code> will simply be a vector of zeros. Everything looks good:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="running-a-simulation-study.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_estimate</span>(<span class="fu">rep</span>(<span class="dv">5</span>, <span class="dv">25</span>))</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="running-a-simulation-study.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_estimate</span>(<span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<p>Second, <code>get_estimate()</code> should not <em>in general</em> give the same result as <code>var()</code>, R's built-in function for the sample variance. This is because the latter divides by <span class="math inline">\(n\)</span> rather than <span class="math inline">\((n-1)\)</span>. But if <span class="math inline">\(n\)</span> is very large, this difference should become negligible. Again, everything works as expected:</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="running-a-simulation-study.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb65-2"><a href="running-a-simulation-study.html#cb65-2" aria-hidden="true" tabindex="-1"></a>sim_small <span class="ot">&lt;-</span> <span class="fu">draw_sim_data</span>(<span class="dv">5</span>, <span class="dv">1</span>)</span>
+<span id="cb65-3"><a href="running-a-simulation-study.html#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">sigma_hat_sq =</span> <span class="fu">get_estimate</span>(sim_small), <span class="at">Sample_Var =</span> <span class="fu">var</span>(sim_small))</span></code></pre></div>
+<pre><code>## sigma_hat_sq   Sample_Var 
+##    0.1710749    0.2138436</code></pre>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="running-a-simulation-study.html#cb67-1" aria-hidden="true" tabindex="-1"></a>sim_big <span class="ot">&lt;-</span> <span class="fu">draw_sim_data</span>(<span class="dv">5000</span>, <span class="dv">1</span>)</span>
+<span id="cb67-2"><a href="running-a-simulation-study.html#cb67-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">sigma_hat_sq =</span> <span class="fu">get_estimate</span>(sim_big), <span class="at">Sample_Var =</span> <span class="fu">var</span>(sim_big))</span></code></pre></div>
+<pre><code>## sigma_hat_sq   Sample_Var 
+##    0.9814408    0.9816371</code></pre>
+</div>
+<div id="get_bias" class="section level3" number="1.3.4">
+<h3><span class="header-section-number">1.3.4</span> <code>get_bias()</code></h3>
+<p>Now we're ready to actually carry out our simulation study. The final step is to write a function called <code>get_bias()</code> that repeatedly calls <code>draw_sim_data()</code> and <code>get_estimate()</code>, stores the resulting estimates <span class="math inline">\(\widehat{\sigma}^2\)</span> and calculates a simulation estimate of the bias. Compared to the functions from above, this one will be more complicated, so I'll explain it in steps. First the code:</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="running-a-simulation-study.html#cb69-1" aria-hidden="true" tabindex="-1"></a>get_bias <span class="ot">&lt;-</span> <span class="cf">function</span>(n, s_sq, <span class="at">n_reps =</span> <span class="dv">5000</span>) {</span>
+<span id="cb69-2"><a href="running-a-simulation-study.html#cb69-2" aria-hidden="true" tabindex="-1"></a>  draw_sim_replication <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb69-3"><a href="running-a-simulation-study.html#cb69-3" aria-hidden="true" tabindex="-1"></a>    sim_data <span class="ot">&lt;-</span> <span class="fu">draw_sim_data</span>(n, s_sq)</span>
+<span id="cb69-4"><a href="running-a-simulation-study.html#cb69-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">get_estimate</span>(sim_data)</span>
+<span id="cb69-5"><a href="running-a-simulation-study.html#cb69-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb69-6"><a href="running-a-simulation-study.html#cb69-6" aria-hidden="true" tabindex="-1"></a>  sim_replications <span class="ot">&lt;-</span> <span class="fu">replicate</span>(n_reps, <span class="fu">draw_sim_replication</span>())</span>
+<span id="cb69-7"><a href="running-a-simulation-study.html#cb69-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(sim_replications <span class="sc">-</span> s_sq)</span>
+<span id="cb69-8"><a href="running-a-simulation-study.html#cb69-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>The function <code>get_bias()</code> takes three arguments: <code>n</code> is the sample size for each replication of the simulation experiment, <code>s_sq</code> is the <em>true</em> population variance from which we will simulate normal data, and <code>n_reps</code> is the number of simulation replications, i.e. the number of times that we want to <em>repeat</em> the simulation. The final argument, <code>n_reps</code> is <em>optional</em>: if you call <code>get_bias()</code> and supply only the first two arguments, R will set <code>n_reps</code> equal to the default value of <code>5000</code>.</p>
+<p>The first step inside of <code>get_bias()</code> <em>constructs</em> a function called <code>draw_sim_replication()</code> that doesn't take any input arguments. This may seem strange: I'll explain it in a moment. For now, focus on the steps that <code>draw_sim_replication()</code> carries out. It first runs <code>draw_sim_data(n, s_q)</code> and stores the result in a vector called <code>sim_data</code>. Next it feeds <code>sim_data</code> as an input to <code>get_estimate()</code>. In other words, it carries out <em>one replication</em> of our simulation experiment. But how does the call to <code>draw_sim_data()</code> "know" which values to use for <code>n</code> and <code>s_sq</code> given that <code>draw_sim_replication()</code> doesn't take any input arguments? The key is that <code>draw_sim_replication()</code> is created <em>inside</em> of another function: <code>get_bias()</code>. When <code>draw_sim_replication()</code> encounters a reference to <code>n</code> and <code>s_sq</code>, it substitutes the values that were supplied as arguments to <code>get_bias()</code>.</p>
+<p>Here's another way of looking at <code>draw_sim_replication()</code>. We want to be able to run our simulation study for different values of <code>n</code> and <code>s_sq</code>. After we tell <code>get_bias()</code> our desired values of <code>n</code> and <code>s_sq</code>, it constructs a function for us called <code>draw_sim_replication()</code> that <em>hard codes</em> these particular parameter values. From this point on, calling <code>draw_sim_replication()</code> does "the right thing" without our having to explicitly specify <code>n</code> and <code>s_sq</code>.</p>
+<p>The next step of <code>get_bias()</code> uses the function <code>replicate()</code> to repeatedly call the function <code>draw_sim_replication()</code> a total of <code>n_reps</code> times. The results are stored in a vector called <code>sim_replications</code>. In essence, <code>replicate()</code> is shorthand for a common way of using a <code>for</code> loop. In the following example, <code>x</code> and <code>y</code> will be identical. But constructing <code>x</code> requires much more work: we first need to set up an empty vector, and then explicitly loop over it. In contrast, <code>replicate()</code> does all of this behind the scenes to construct <code>y</code>:</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="running-a-simulation-study.html#cb70-1" aria-hidden="true" tabindex="-1"></a>do_something <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb70-2"><a href="running-a-simulation-study.html#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="dv">42</span>)</span>
+<span id="cb70-3"><a href="running-a-simulation-study.html#cb70-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb70-4"><a href="running-a-simulation-study.html#cb70-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">50</span>)</span>
+<span id="cb70-5"><a href="running-a-simulation-study.html#cb70-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>) {</span>
+<span id="cb70-6"><a href="running-a-simulation-study.html#cb70-6" aria-hidden="true" tabindex="-1"></a>  x[i] <span class="ot">&lt;-</span> <span class="fu">do_something</span>()</span>
+<span id="cb70-7"><a href="running-a-simulation-study.html#cb70-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb70-8"><a href="running-a-simulation-study.html#cb70-8" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">50</span>, <span class="fu">do_something</span>())</span>
+<span id="cb70-9"><a href="running-a-simulation-study.html#cb70-9" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(x, y)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Finally, <code>get_bias()</code> uses the simulation replications stored in the vector <code>sim_replications</code> to approximate the bias of <span class="math inline">\(\widehat{\sigma}^2\)</span> by comparing them to the <em>true</em> value of <span class="math inline">\(\sigma^2\)</span>, namely <code>s_sq</code>. It does this by computing the simulation analogue of <span class="math inline">\(\mathbb{E}[\widehat{\sigma}^2 - \sigma^2]\)</span>, which is simply <code>mean(sim_replications - s_sq)</code>.</p>
+</div>
+<div id="running-the-simulation-study" class="section level3" number="1.3.5">
+<h3><span class="header-section-number">1.3.5</span> Running the Simulation Study</h3>
+<p>Now we're ready to run our simulation study: we simply need to call <code>get_bias()</code> with our desired values of <code>n</code> and <code>s_sq</code>, for example:</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="running-a-simulation-study.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb72-2"><a href="running-a-simulation-study.html#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">get_bias</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">s_sq =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## [1] -0.2007312</code></pre>
+<p>It works! Up to simulation error, this result agrees with the theoretical bias of <span class="math inline">\(-\sigma^2/n = -1/5\)</span>. To see that this isn't simply a fluke, we could try different values of <code>n</code> and <code>s_sq</code>. Again, the results agree with the theoretical values:</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="running-a-simulation-study.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb74-2"><a href="running-a-simulation-study.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">theoretical =</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="at">simulation =</span> <span class="fu">get_bias</span>(<span class="dv">3</span>, <span class="dv">1</span>))</span></code></pre></div>
+<pre><code>## theoretical  simulation 
+##  -0.3333333  -0.3412176</code></pre>
+</div>
+<div id="expand.grid-and-map" class="section level3" number="1.3.6">
+<h3><span class="header-section-number">1.3.6</span> <code>expand.grid()</code> and <code>Map()</code></h3>
+<p>Now we have a function <code>get_bias()</code> that can approximate the bias of <span class="math inline">\(\widehat{\sigma}^2\)</span> for any values of <code>n</code> and <code>s_sq</code> that we care to specify. But what if we want to carry out a simulation study over a <em>range</em> of values for <code>n</code> and <code>s_sq</code>? One way to do this is with a pair of nested <code>for</code> loops: one that iterates over different values of <code>n</code> and another that iterates over different values of <code>s_sq</code>. But this isn't a great strategy for two reasons. First, loops within loops tend to be slow in R. Second, the book-keeping required to implement this strategy is a bit involved. Fortunately there's a much better way: use <code>expand.grid()</code> and <code>Map()</code>.</p>
+<p>First we'll set up a grid of values for <code>n</code> and <code>s_sq</code>:</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="running-a-simulation-study.html#cb76-1" aria-hidden="true" tabindex="-1"></a>n_grid <span class="ot">&lt;-</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb76-2"><a href="running-a-simulation-study.html#cb76-2" aria-hidden="true" tabindex="-1"></a>n_grid</span></code></pre></div>
+<pre><code>## [1] 3 4 5</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="running-a-simulation-study.html#cb78-1" aria-hidden="true" tabindex="-1"></a>s_sq_grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">3</span>, <span class="at">by =</span> <span class="fl">0.5</span>)</span>
+<span id="cb78-2"><a href="running-a-simulation-study.html#cb78-2" aria-hidden="true" tabindex="-1"></a>s_sq_grid</span></code></pre></div>
+<pre><code>## [1] 1.0 1.5 2.0 2.5 3.0</code></pre>
+<p>Now suppose that we want to run <code>get_bias()</code> for every <em>combination</em> of values in <code>n_grid</code> and <code>s_sq_grid</code>. Using the built-in R function <code>expand.grid()</code> we can easily construct a data frame whose rows contain all of these combinations:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="running-a-simulation-study.html#cb80-1" aria-hidden="true" tabindex="-1"></a>parameters <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">n =</span> n_grid, <span class="at">s_sq =</span> s_sq_grid)</span>
+<span id="cb80-2"><a href="running-a-simulation-study.html#cb80-2" aria-hidden="true" tabindex="-1"></a>parameters</span></code></pre></div>
+<pre><code>##    n s_sq
+## 1  3  1.0
+## 2  4  1.0
+## 3  5  1.0
+## 4  3  1.5
+## 5  4  1.5
+## 6  5  1.5
+## 7  3  2.0
+## 8  4  2.0
+## 9  5  2.0
+## 10 3  2.5
+## 11 4  2.5
+## 12 5  2.5
+## 13 3  3.0
+## 14 4  3.0
+## 15 5  3.0</code></pre>
+<p>The next step is to evaluated <code>get_bias()</code> repeatedly, once for every combination of parameter values stored in the rows of <code>parameters</code>. The <code>Map()</code> function makes this easy:</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="running-a-simulation-study.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb82-2"><a href="running-a-simulation-study.html#cb82-2" aria-hidden="true" tabindex="-1"></a>bias <span class="ot">&lt;-</span> <span class="fu">Map</span>(get_bias, <span class="at">n =</span> parameters<span class="sc">$</span>n, <span class="at">s_sq =</span> parameters<span class="sc">$</span>s_sq)</span></code></pre></div>
+<p>Much like <code>replicate()</code>, <code>Map()</code> is shorthand for a common kind of <code>for</code> loop. In this case we loop over the rows of <code>parameters</code>. The first argument to <code>Map()</code> is the name of the function that we want to call repeatedly, in our case <code>get_bias()</code>. The remaining arguments are <em>vectors</em> of values. These are the arguments that <code>Map()</code> passes to <code>get_bias()</code>. The result of running the above code is a <em>list</em> of value, one for each row of <code>parameters</code>.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="running-a-simulation-study.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bias)</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] -0.3412176
+## 
+## [[2]]
+## [1] -0.2546259
+## 
+## [[3]]
+## [1] -0.2005197
+## 
+## [[4]]
+## [1] -0.5007384
+## 
+## [[5]]
+## [1] -0.3816447
+## 
+## [[6]]
+## [1] -0.292554</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="running-a-simulation-study.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(bias)</span></code></pre></div>
+<pre><code>## [1] 15</code></pre>
+<p>For example, the first element of <code>bias</code> corresponds to <code>get_bias(3, 1)</code>. By setting the same seed and running this command "manually" we can verify that everything works as expected:</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="running-a-simulation-study.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb87-2"><a href="running-a-simulation-study.html#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">get_bias</span>(<span class="dv">3</span>, <span class="dv">1</span>), bias[[<span class="dv">1</span>]])</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>This pattern using <code>expand.grid()</code> and <code>Map()</code> is extremely flexible. In our example, <code>get_bias()</code> returns a scalar so <code>bias</code> is just a list of numbers. But more generally <code>Map()</code> can return a list that contains <em>any kind of object at all</em>. Here's a slightly more interesting example. The function <code>get_bias_and_var()</code> is a very slight modification of <code>get_bias()</code> from above that returns a <em>list</em> of two named elements: <code>bias</code> and <code>variance</code></p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="running-a-simulation-study.html#cb89-1" aria-hidden="true" tabindex="-1"></a>get_bias_and_var <span class="ot">&lt;-</span> <span class="cf">function</span>(n, s_sq, <span class="at">n_reps =</span> <span class="dv">5000</span>) {</span>
+<span id="cb89-2"><a href="running-a-simulation-study.html#cb89-2" aria-hidden="true" tabindex="-1"></a>  draw_sim_replication <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb89-3"><a href="running-a-simulation-study.html#cb89-3" aria-hidden="true" tabindex="-1"></a>    sim_data <span class="ot">&lt;-</span> <span class="fu">draw_sim_data</span>(n, s_sq)</span>
+<span id="cb89-4"><a href="running-a-simulation-study.html#cb89-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">get_estimate</span>(sim_data)</span>
+<span id="cb89-5"><a href="running-a-simulation-study.html#cb89-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb89-6"><a href="running-a-simulation-study.html#cb89-6" aria-hidden="true" tabindex="-1"></a>  sim_replications <span class="ot">&lt;-</span> <span class="fu">replicate</span>(n_reps, <span class="fu">draw_sim_replication</span>())</span>
+<span id="cb89-7"><a href="running-a-simulation-study.html#cb89-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">bias =</span> <span class="fu">mean</span>(sim_replications <span class="sc">-</span> s_sq),</span>
+<span id="cb89-8"><a href="running-a-simulation-study.html#cb89-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">variance =</span> <span class="fu">var</span>(sim_replications))</span>
+<span id="cb89-9"><a href="running-a-simulation-study.html#cb89-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>We can use this function to calculate <em>both</em> the bias and variance of the MLE <span class="math inline">\(\widehat{\sigma}^2\)</span> as follows</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="running-a-simulation-study.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb90-2"><a href="running-a-simulation-study.html#cb90-2" aria-hidden="true" tabindex="-1"></a>bias_and_variance <span class="ot">&lt;-</span> <span class="fu">Map</span>(get_bias_and_var, <span class="at">n =</span> parameters<span class="sc">$</span>n, <span class="at">s_sq =</span> parameters<span class="sc">$</span>s_sq)</span>
+<span id="cb90-3"><a href="running-a-simulation-study.html#cb90-3" aria-hidden="true" tabindex="-1"></a>bias_and_variance[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [[1]]
+## [[1]]$bias
+## [1] -0.3412176
+## 
+## [[1]]$variance
+## [1] 0.4554343
+## 
+## 
+## [[2]]
+## [[2]]$bias
+## [1] -0.2546259
+## 
+## [[2]]$variance
+## [1] 0.3643993
+## 
+## 
+## [[3]]
+## [[3]]$bias
+## [1] -0.2005197
+## 
+## [[3]]$variance
+## [1] 0.3243315</code></pre>
+</div>
+<div id="formatting-the-results" class="section level3" number="1.3.7">
+<h3><span class="header-section-number">1.3.7</span> Formatting the Results</h3>
+<p>We've carried out our simulation experiment, but the results are a bit messy. The parameter values are stored in a data frame called <code>parameters</code> and the biases and variances are stored in a list called <code>bias_and_var</code>. Let's format things a bit more nicely. If you have a list <code>my_list</code> whose elements are "rows" and you want to bind them together into a data frame, you can use the somewhat inscrutable command <code>do.call(rbind, my_list)</code>. For example:</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="running-a-simulation-study.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">do.call</span>(rbind, bias_and_variance)</span></code></pre></div>
+<pre><code>##       bias       variance 
+##  [1,] -0.3412176 0.4554343
+##  [2,] -0.2546259 0.3643993
+##  [3,] -0.2005197 0.3243315
+##  [4,] -0.5007384 0.9496033
+##  [5,] -0.3816447 0.8616167
+##  [6,] -0.292554  0.7173205
+##  [7,] -0.6609821 1.781236 
+##  [8,] -0.5061243 1.538961 
+##  [9,] -0.3953514 1.326648 
+## [10,] -0.8513285 2.705087 
+## [11,] -0.6122964 2.467789 
+## [12,] -0.4727481 2.014822 
+## [13,] -0.9570253 4.124553 
+## [14,] -0.7513177 3.201657 
+## [15,] -0.567449  2.916767</code></pre>
+<p>Now we'll overwrite <code>bias_and_var</code> with the above and bind its columns, <code>cbind()</code>, with those of <code>parameters</code></p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="running-a-simulation-study.html#cb94-1" aria-hidden="true" tabindex="-1"></a>bias_and_variance <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, bias_and_variance)</span>
+<span id="cb94-2"><a href="running-a-simulation-study.html#cb94-2" aria-hidden="true" tabindex="-1"></a>sim_results <span class="ot">&lt;-</span> <span class="fu">cbind</span>(parameters, bias_and_variance)</span>
+<span id="cb94-3"><a href="running-a-simulation-study.html#cb94-3" aria-hidden="true" tabindex="-1"></a>sim_results</span></code></pre></div>
+<pre><code>##    n s_sq       bias  variance
+## 1  3  1.0 -0.3412176 0.4554343
+## 2  4  1.0 -0.2546259 0.3643993
+## 3  5  1.0 -0.2005197 0.3243315
+## 4  3  1.5 -0.5007384 0.9496033
+## 5  4  1.5 -0.3816447 0.8616167
+## 6  5  1.5  -0.292554 0.7173205
+## 7  3  2.0 -0.6609821  1.781236
+## 8  4  2.0 -0.5061243  1.538961
+## 9  5  2.0 -0.3953514  1.326648
+## 10 3  2.5 -0.8513285  2.705087
+## 11 4  2.5 -0.6122964  2.467789
+## 12 5  2.5 -0.4727481  2.014822
+## 13 3  3.0 -0.9570253  4.124553
+## 14 4  3.0 -0.7513177  3.201657
+## 15 5  3.0  -0.567449  2.916767</code></pre>
+<p>For extra credit, we can use the function <code>kable()</code> from the <code>knitr</code> package to make the results look even prettier</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="running-a-simulation-study.html#cb96-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(sim_results)</span></code></pre></div>
+<table>
+<thead>
+<tr class="header">
+<th align="right">n</th>
+<th align="right">s_sq</th>
+<th align="left">bias</th>
+<th align="left">variance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">1.0</td>
+<td align="left">-0.3412176</td>
+<td align="left">0.4554343</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">1.0</td>
+<td align="left">-0.2546259</td>
+<td align="left">0.3643993</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">1.0</td>
+<td align="left">-0.2005197</td>
+<td align="left">0.3243315</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">1.5</td>
+<td align="left">-0.5007384</td>
+<td align="left">0.9496033</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">1.5</td>
+<td align="left">-0.3816447</td>
+<td align="left">0.8616167</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">1.5</td>
+<td align="left">-0.292554</td>
+<td align="left">0.7173205</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">2.0</td>
+<td align="left">-0.6609821</td>
+<td align="left">1.781236</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">2.0</td>
+<td align="left">-0.5061243</td>
+<td align="left">1.538961</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">2.0</td>
+<td align="left">-0.3953514</td>
+<td align="left">1.326648</td>
+</tr>
+<tr class="even">
+<td align="right">3</td>
+<td align="right">2.5</td>
+<td align="left">-0.8513285</td>
+<td align="left">2.705087</td>
+</tr>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">2.5</td>
+<td align="left">-0.6122964</td>
+<td align="left">2.467789</td>
+</tr>
+<tr class="even">
+<td align="right">5</td>
+<td align="right">2.5</td>
+<td align="left">-0.4727481</td>
+<td align="left">2.014822</td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="right">3.0</td>
+<td align="left">-0.9570253</td>
+<td align="left">4.124553</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">3.0</td>
+<td align="left">-0.7513177</td>
+<td align="left">3.201657</td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="right">3.0</td>
+<td align="left">-0.567449</td>
+<td align="left">2.916767</td>
+</tr>
+</tbody>
+</table>
+<!--### Bonus: Parallel Computing with `mcMap()`
+There's a good chance that your computer has more than one processor core. Why not use them to speed up your simulation study! If you're on Mac or Linux (RStudio Cloud counts as Linux), it's trivial to parallelize our simulation code from above using `mcMap()` from the `parallel` package. To make things more interesting, let's set up a larger parameter grid
+
+```r
+parameters <- expand.grid(n = 3:10, s_sq = 1:10)
+```
+The function `mcMap()` works exactly like `Map()` except that we have the option of setting an additional parameter `mc.cores`. This tells R how many of our machine's processor cores to devote to the computation. If you set `mc.cores = 1`, `mcMap()` 
+
+
+```r
+set.seed(420508570)
+results_parallel <- parallel::mcMap(get_bias_and_var, n = parameters$n, 
+                                    s_sq = parameters$s_sq, mc.cores = 2)
+results_parallel <- do.call(rbind, results_parallel)
+head(results_parallel)
+```
+
+```
+##      bias       variance 
+## [1,] -0.3265504 0.4712396
+## [2,] -0.2508963 0.3782008
+## [3,] -0.2003302 0.327102 
+## [4,] -0.1643747 0.2689906
+## [5,] -0.1639816 0.2366451
+## [6,] -0.1196259 0.2231091
+```
+-->
+</div>
+</div>
+<div id="exercise---the-hot-hand" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Exercise - The Hot Hand</h2>
+<p>Now that you know the basics of running a simulation study in R, it's time to re-visit the Hot Hand example introduced above. Let <code>shots</code> be a sequence of shots made by a basketball player, Liz. In R, <code>shots</code> is stored as a vector of zeros and ones. If Liz has a "hot hand" then her chance of making her <em>next</em> shot should be higher when her last few shots were a success. This means we should expect ones to become <em>more likely</em> after a streak of ones in the vector <code>shots</code>. If Liz doesn't have a hot hand, then she should be no more likely to make her next shot after a streak of successes on her last few shots.</p>
+<p>Before <a href="https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA14943">Miller &amp; Sanjurjo (2018)</a>, researchers studying the hot hand operationalized this intuition as follows. Define a "streak" as <span class="math inline">\(k\)</span> successes in a row. For each streak in <code>shots</code>, look at the shot that immediately <em>follows it</em>. Then collect each of these shots following a streak into another vector <code>after_streak</code>. Finally, compare the proportion of successes in <code>shots</code> to that in <code>after_streak</code>. Since each vector contains zeros and ones, we can make this comparison using <code>mean()</code>. If there's no hot hand, it seems reasonable to expect that <code>mean(after_streak)</code> will approximately equal to <code>mean(shots)</code>. If there is a hot hand, on the other hand, then it seems reasonable to expect that <code>mean(after_streak)</code> should be <em>larger</em> than <code>mean(shots)</code>.</p>
+<p>In this simulation study, rather than using a vector <code>shots</code> of a <em>real</em> basketball player, we'll draw a random sequence of zeros and ones. Since we control how the sequence is generated, this gives us a way of checking whether the procedure described in the preceding paragraph works as expected. To keep things simple, we'll set <span class="math inline">\(k = 3\)</span> and generate <code>shots</code> as an iid sequence of Bernoulli(p) draws. Such a sequence clearly does <em>not</em> exhibit a hot hand. Moreover, there's no need to calculate <code>mean(shots)</code> because we know that the chance of making each simulated shot is <code>p</code>. This means that the exercise reduces to comparing <code>mean(after_streak)</code> to <code>p</code>. For example, if <code>p</code> is 0.5, then we compare <code>mean(after_streak)</code> to 0.5.</p>
+<ol style="list-style-type: decimal">
+<li>Write a function called <code>get_avg_after_streak()</code> that takes a single input argument: <code>shots</code> a vector of zeros and ones. Your function should work as follows. First, identify all "streaks" in <code>shots</code>. Streaks are defined as a sequence of three ones in a row. Next, extract the elements of <code>shots</code> that immediately <em>follow</em> a streak, storing them in a vector called <code>after_streak</code>. Finally, compute the mean of <code>after_streak</code>. Test your function on the vector <code>c(0, 1, 1, 1, 1, 0, 0, 0)</code> to make sure that it's working correctly.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="running-a-simulation-study.html#cb97-1" aria-hidden="true" tabindex="-1"></a>get_avg_after_streak <span class="ot">&lt;-</span> <span class="cf">function</span>(shots) {</span>
+<span id="cb97-2"><a href="running-a-simulation-study.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(<span class="fu">all</span>(shots <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)))</span>
+<span id="cb97-3"><a href="running-a-simulation-study.html#cb97-3" aria-hidden="true" tabindex="-1"></a>  after_streak <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="fu">length</span>(shots) <span class="sc">-</span> <span class="dv">3</span>)</span>
+<span id="cb97-4"><a href="running-a-simulation-study.html#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(after_streak)) {</span>
+<span id="cb97-5"><a href="running-a-simulation-study.html#cb97-5" aria-hidden="true" tabindex="-1"></a>    after_streak[i] <span class="ot">&lt;-</span> <span class="fu">all</span>(shots[i<span class="sc">:</span>(i <span class="sc">+</span> <span class="dv">2</span>)] <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb97-6"><a href="running-a-simulation-study.html#cb97-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb97-7"><a href="running-a-simulation-study.html#cb97-7" aria-hidden="true" tabindex="-1"></a>  after_streak <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">FALSE</span>, <span class="dv">3</span>), after_streak)</span>
+<span id="cb97-8"><a href="running-a-simulation-study.html#cb97-8" aria-hidden="true" tabindex="-1"></a>  after_streak <span class="ot">&lt;-</span> shots[after_streak]</span>
+<span id="cb97-9"><a href="running-a-simulation-study.html#cb97-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(after_streak)</span>
+<span id="cb97-10"><a href="running-a-simulation-study.html#cb97-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb97-11"><a href="running-a-simulation-study.html#cb97-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-12"><a href="running-a-simulation-study.html#cb97-12" aria-hidden="true" tabindex="-1"></a><span class="fu">get_avg_after_streak</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div>
+<pre><code>## [1] 0.5</code></pre>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Write a function called <code>draw_shots()</code> that simulates an iid sequence of Bernoulli draws representing basketball shots, where <code>1</code> denotes a success and <code>0</code> denotes a miss. Your function should take two arguments: <code>n_shots</code> is the number of shots, and <code>prob_success</code> is the probability that any given shot will be a success. It should return a vector of length <code>n_shots</code> containing the simulation draws. Test your function by drawing a large sequence of shots with <code>prob_success</code> equal to 0.5 and calculating the sample mean.</li>
+</ol>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="running-a-simulation-study.html#cb99-1" aria-hidden="true" tabindex="-1"></a>draw_shots <span class="ot">&lt;-</span> <span class="cf">function</span>(n_shots, prob_success) {</span>
+<span id="cb99-2"><a href="running-a-simulation-study.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbinom</span>(n_shots, <span class="dv">1</span>, prob_success)</span>
+<span id="cb99-3"><a href="running-a-simulation-study.html#cb99-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb99-4"><a href="running-a-simulation-study.html#cb99-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb99-5"><a href="running-a-simulation-study.html#cb99-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">draw_shots</span>(<span class="fl">1e4</span>, <span class="fl">0.5</span>))</span></code></pre></div>
+<pre><code>## [1] 0.4993</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Write a function called <code>get_hot_handedness()</code> that combines <code>draw_shots()</code> and <code>get_avg_after_streak()</code> to calculated "hot handedness" of a randomly-drawn sequence. In words: <code>get_est()</code> should draw a sequence <code>shots</code> of simulated basketball shots and then calculate and return the fraction of successes in <code>sim_shots</code> among the shots that immediately follow a streak of three successes. Think carefully about what arguments <code>get_est()</code> needs to take if we want to be able to vary the length and success probability of our simulated sequence of basketball shots. After writing your function</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="running-a-simulation-study.html#cb101-1" aria-hidden="true" tabindex="-1"></a>get_hot_handedness <span class="ot">&lt;-</span> <span class="cf">function</span>(n_shots, prob_success) {</span>
+<span id="cb101-2"><a href="running-a-simulation-study.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  sim_shots <span class="ot">&lt;-</span> <span class="fu">draw_shots</span>(n_shots, prob_success)</span>
+<span id="cb101-3"><a href="running-a-simulation-study.html#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_avg_after_streak</span>(sim_shots)</span>
+<span id="cb101-4"><a href="running-a-simulation-study.html#cb101-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Amos watches Liz take 100 basketball shots and calculates a test statistic <span class="math inline">\(T\)</span> as follows: he identifies the shots that immediately follow a "streak" of three successful shots, and calculates Liz's success rate on this subset of shots. Amos argues as follows: "Suppose that Liz <em>does not</em> have a hot hand: each of her shots is independent of the others and her probability of success on a given shot is 1/2. Then the expected value of my <span class="math inline">\(T\)</span> will be one half." Use <code>replicate()</code> and <code>get_hot_handedness()</code> to carry out a simulation study with 10,000 replications to check whether Amos is correct.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<p>Amos is wrong: the expected value of his test statistic is approximately <code>0.46</code> rather than <code>0.5</code>, so he will on average conclude that Liz exhibits a <em>cold hand</em>. This approach is biased <em>against</em> finding evidence of a hot hand if it exists:</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="running-a-simulation-study.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb102-2"><a href="running-a-simulation-study.html#cb102-2" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="fl">1e4</span>, <span class="fu">get_hot_handedness</span>(<span class="dv">100</span>, <span class="fl">0.5</span>))</span>
+<span id="cb102-3"><a href="running-a-simulation-study.html#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sims, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># It&#39;s possible, though unlikely, </span></span></code></pre></div>
+<pre><code>## [1] 0.4651983</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="running-a-simulation-study.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># that get_hot_handedness() will return an NaN. This happens</span></span>
+<span id="cb104-2"><a href="running-a-simulation-study.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="co"># when the sequence of 100 simulated basketball shots has no</span></span>
+<span id="cb104-3"><a href="running-a-simulation-study.html#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="co"># streaks of length three.</span></span></code></pre></div>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li><p><strong>Bonus Question:</strong> How do the results of the preceding exercise vary with Liz's success rate and the number of shots that Amos watches her take? Design a simulation study to answer this question by exploring a grid of values for these parameters.</p></li>
+<li><p><strong>Bonus Question:</strong> Repeat the preceding exercise for different definitions of a <em>streak</em>, e.g. two successes in a row or four successes in a row. Think about which functions you'll need to change and how.</p></li>
+<li><p><strong>Bonus Question:</strong> The exercises above consider a simulated basketball player who <em>does not</em> have a hot hand. Design a new simulation with a player who does exhibit a hot hand and see how this affects the results. (There are many ways to set up a simulation with dependence between trials, so there are many possible answers to this question.)</p></li>
+</ol>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="10">
+<li id="fn10"><p>See for example <a href="https://www.nber.org/digest-202202/exploring-hot-hand-basketball">this write-up</a> of <a href="https://www.nber.org/papers/w29468">Lantis &amp; Nessen (2021)</a> in the <a href="https://www.nber.org/digest-2022-02">February 2022 NBER digest</a>.<a href="running-a-simulation-study.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>An ungated version of Benjamin (2019) is <a href="https://www.cb.cityu.edu.hk/ef/doc/GRU/WPS/GRU%232018-023%20Benjamin.pdf">available here</a>.<a href="running-a-simulation-study.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>See <a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.33.3.144">Miller &amp; Sanjurjo (2019)</a> for a more accessible explanation that connects to several related probability puzzles.<a href="running-a-simulation-study.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>Technically, "random" draws made on a computer are only <a href="https://en.wikipedia.org/wiki/Pseudorandomness">pseudorandom</a>. We'll discuss this further below.<a href="running-a-simulation-study.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>For less common distributions, see <a href="https://cran.r-project.org/web/views/Distributions.html">CRAN Task View: Probability Distributions</a><a href="running-a-simulation-study.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>A Bernoulli trial is a model for a possibly biased coin flip: if <span class="math inline">\(X \sim \text{Bernoulli}(p)\)</span> then <span class="math inline">\(\mathbb{P}(X=1) = p\)</span> and <span class="math inline">\(\mathbb{P}(X=0) = 1-p\)</span>.<a href="running-a-simulation-study.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>To see this, first rewrite <span class="math inline">\(\sum_{i=1}^n (X_i - \bar{X}_n)^2\)</span> as <span class="math inline">\(\sum_{i=1}^n (X_i - \mu)^2 - n(\bar{X}_n - \mu)^2\)</span>. This step is just algebra. Then take expectations, using the fact that the <span class="math inline">\(X_i\)</span> are independent and identically distributed.<a href="running-a-simulation-study.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn17"><p>If you're unfamiliar with the Normal Q-Q plot that I used to check the normality of <code>test_sims</code>, you can read about it this <a href="https://www.econometrics.blog/post/thirty-isn-t-the-magic-number/">blog post</a>.<a href="running-a-simulation-study.html#fnref17" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="getting-started-with-dplyr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
