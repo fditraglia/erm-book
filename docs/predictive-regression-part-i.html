@@ -24,7 +24,7 @@
 <meta name="author" content="Francis J. DiTraglia" />
 
 
-<meta name="date" content="2022-04-08" />
+<meta name="date" content="2022-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -141,8 +141,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i>About This Book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-requisites"><i class="fa fa-check"></i>Pre-requisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#good-coding-style"><i class="fa fa-check"></i>Good Coding Style</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-markdown"><i class="fa fa-check"></i>R Markdown</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-stata"><i class="fa fa-check"></i>Why not Stata?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab-julia-or-python"><i class="fa fa-check"></i>Why not Matlab, Julia, or Python?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#you-can-help-make-this-book-better"><i class="fa fa-check"></i>You can help make this book better!</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html"><i class="fa fa-check"></i><b>1</b> Running a Simulation Study</a>
 <ul>
@@ -439,13 +442,13 @@ Show Solution
 <div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="predictive-regression-part-i.html#cb262-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb262-2"><a href="predictive-regression-part-i.html#cb262-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids) <span class="sc">+</span></span>
 <span id="cb262-3"><a href="predictive-regression-part-i.html#cb262-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score))</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-145-1.png" width="672" />
+<p><img src="erm-book_files/figure-html/unnamed-chunk-146-1.png" width="672" />
 To add the regression line, we'll use <code>geom_smooth()</code>, a function for plotting <em>smoothed conditional means</em>. We can use <code>geom_smooth()</code> in exactly the same way as <code>geom_point()</code> by specifying <code>aes()</code> to set the <code>x</code> and <code>y</code> variables. By default, <code>geom_smooth()</code> plots a <em>non-parametric</em> regression curve rather than a linear regression:</p>
 <div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="predictive-regression-part-i.html#cb263-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids) <span class="sc">+</span></span>
 <span id="cb263-2"><a href="predictive-regression-part-i.html#cb263-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
 <span id="cb263-3"><a href="predictive-regression-part-i.html#cb263-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score)) </span></code></pre></div>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-146-1.png" width="672" />
+<p><img src="erm-book_files/figure-html/unnamed-chunk-147-1.png" width="672" />
 Notice that we had to type <code>aes(x = mom_iq, y = kid_score)</code> <em>twice</em> in the preceding code chunk. This is tedious and error-prone. In more complicated plots that contain multiple <code>geom</code> functions, life is much simpler if we specify our desired <code>aes()</code> <em>once</em>. To do this, pass it as an argument to <code>ggplot</code> rather than to the <code>geom</code>, for example</p>
 <div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="predictive-regression-part-i.html#cb265-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
 <span id="cb265-2"><a href="predictive-regression-part-i.html#cb265-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
@@ -454,7 +457,7 @@ Notice that we had to type <code>aes(x = mom_iq, y = kid_score)</code> <em>twice
 <div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="predictive-regression-part-i.html#cb266-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
 <span id="cb266-2"><a href="predictive-regression-part-i.html#cb266-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb266-3"><a href="predictive-regression-part-i.html#cb266-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>) </span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-148-1.png" width="672" />
+<p><img src="erm-book_files/figure-html/unnamed-chunk-149-1.png" width="672" />
 By default this plots the regression line from the regression <code>y ~ x</code>.</p>
 <div id="exercise-20" class="section level3" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> Exercise</h3>
@@ -467,7 +470,7 @@ Show Solution
 </button>
 <div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="predictive-regression-part-i.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_age, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
 <span id="cb267-2"><a href="predictive-regression-part-i.html#cb267-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-149-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-150-1.png" width="672" /></p>
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>Use <code>geom_smooth()</code> to including the non-parametric regression function on the preceding plot.</li>
@@ -479,7 +482,7 @@ Show Solution
 <div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="predictive-regression-part-i.html#cb268-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_age, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
 <span id="cb268-2"><a href="predictive-regression-part-i.html#cb268-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb268-3"><a href="predictive-regression-part-i.html#cb268-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-150-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-151-1.png" width="672" /></p>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Modify the preceding to include the regression line corresponding to <code>kid_score ~ mom_age</code> on the scatter plot rather than the non-parametric regression function.</li>
@@ -491,7 +494,7 @@ Show Solution
 <div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="predictive-regression-part-i.html#cb269-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_age, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
 <span id="cb269-2"><a href="predictive-regression-part-i.html#cb269-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb269-3"><a href="predictive-regression-part-i.html#cb269-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-151-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-152-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -558,7 +561,7 @@ Show Solution
 <div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="predictive-regression-part-i.html#cb279-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb279-2"><a href="predictive-regression-part-i.html#cb279-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb279-3"><a href="predictive-regression-part-i.html#cb279-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">resid</span>(reg1)), <span class="at">binwidth =</span> <span class="dv">5</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-157-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-158-1.png" width="672" /></p>
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>Calculate the residuals "by hand" by subtracting the fitted values from <code>reg1</code> from the column <code>kid_score</code> in <code>kids</code>. Use the R function <code>all.equal</code> to check that this gives the same result as <code>resid()</code>.</li>
@@ -734,7 +737,7 @@ Show Solution
 <span id="cb302-2"><a href="predictive-regression-part-i.html#cb302-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> .fitted, <span class="at">y =</span> mom_iq)) <span class="sc">+</span> </span>
 <span id="cb302-3"><a href="predictive-regression-part-i.html#cb302-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
 <span id="cb302-4"><a href="predictive-regression-part-i.html#cb302-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-169-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-170-1.png" width="672" /></p>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Continuing from the preceding exercise, run a regression of <code>mom_iq</code> on the fitted values from <code>reg_reverse</code> and display the estimated regression coefficients. Compare the R-squared of this regression to that of <code>reg_reverse</code>. Explain your results.</li>
@@ -1202,7 +1205,7 @@ Show Solution
 <div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="predictive-regression-part-i.html#cb366-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids, <span class="fu">aes</span>(<span class="at">x =</span> mom_iq, <span class="at">y =</span> kid_score)) <span class="sc">+</span></span>
 <span id="cb366-2"><a href="predictive-regression-part-i.html#cb366-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb366-3"><a href="predictive-regression-part-i.html#cb366-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">&#39;lm&#39;</span>, <span class="at">formula =</span> y <span class="sc">~</span> x <span class="sc">+</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">2</span>))</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-201-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-202-1.png" width="672" /></p>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Based on the results of the preceding two parts, is there any evidence that the slope of the predictive relationship between <code>kid_score</code> and <code>mom_iq</code> varies with <code>mom_iq</code>?</li>

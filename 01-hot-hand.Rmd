@@ -8,13 +8,12 @@
 > 
 > -- <cite>[Richard McElreath](https://youtu.be/zYYBtxHWE0A)</cite>
 
-In economics and statistics, simulation is a *superpower*. It helps us to understand our models, check for mistakes, and make unexpected connections, some of which may even lead to new theoretical results. Riffing on the two quotes from above, simulation is both a substitute for and a complement to cleverness. If you'll pardon my continuation of the Swiss Army Knife metaphor, simulation is the knife: arguably the most useful tool in your toolbox. In this lesson, we'll learn the basics of carrying out a simulation study in R using the following key commands: 
+In economics and statistics, simulation is a *superpower*. It helps us to understand our models, check for mistakes, and make unexpected connections. If you'll pardon my continuation of the Swiss Army Knife metaphor, simulation is the knife: arguably the most useful tool in your toolbox. Riffing on the quotes from above, simulation is both a substitute for and a complement to cleverness. In this lesson, we'll learn the basics of carrying out a simulation study in R using the following key commands: 
 
 - `sample()`
 - `rbinom()`
 - `rnorm()`
 - `set.seed()`
-- `identical()`
 - `replicate()`
 - `expand.grid()`
 - `Map()`
@@ -392,10 +391,11 @@ bias_and_variance <- do.call(rbind, bias_and_variance)
 sim_results <- cbind(parameters, bias_and_variance)
 sim_results
 ```
-For extra credit, we can use the function `kable()` from the `knitr` package to make the results look even prettier
+<!--For extra credit, we can use the function `kable()` from the `knitr` package to make the results look even prettier
 ```{r}
 knitr::kable(sim_results)
 ```
+-->
 
 <!--### Bonus: Parallel Computing with `mcMap()`
 There's a good chance that your computer has more than one processor core. Why not use them to speed up your simulation study! If you're on Mac or Linux (RStudio Cloud counts as Linux), it's trivial to parallelize our simulation code from above using `mcMap()` from the `parallel` package. To make things more interesting, let's set up a larger parameter grid
@@ -423,30 +423,49 @@ Before [Miller \& Sanjurjo (2018)](https://onlinelibrary.wiley.com/doi/abs/10.39
 
 In this simulation study, rather than using a vector `shots` of a *real* basketball player, we'll draw a random sequence of zeros and ones. Since we control how the sequence is generated, this gives us a way of checking whether the procedure described in the preceding paragraph works as expected. To keep things simple, we'll set $k = 3$ and generate `shots` as an iid sequence of Bernoulli(p) draws. Such a sequence clearly does *not* exhibit a hot hand. Moreover, there's no need to calculate `mean(shots)` because we know that the chance of making each simulated shot is `p`. This means that the exercise reduces to comparing `mean(after_streak)` to `p`. For example, if `p` is 0.5, then we compare `mean(after_streak)` to 0.5.  
 
-1. Write a function called `get_avg_after_streak()` that takes a single input argument: `shots` a vector of zeros and ones. Your function should work as follows. First, identify all "streaks" in `shots`. Streaks are defined as a sequence of three ones in a row. Next, extract the elements of `shots` that immediately *follow* a streak, storing them in a vector called `after_streak`. Finally, compute the mean of `after_streak`. Test your function on the vector `c(0, 1, 1, 1, 1, 0, 0, 0)` to make sure that it's working correctly.
+1. Write a function called `get_avg_after_streak()` that takes a single input argument: `shots` a vector of zeros and ones. Your function should work as follows. First, create an empty vector of the same length as `shots` called `after_streak`. Second, set each element of `after_streak` to `TRUE` or `FALSE` depending on whether the corresponding element of `shots` follows a streak of three ones (`TRUE`) or not (`FALSE`). Third, extract all the elements of `shots` for which `after_streak` is true and calculate the proportion of these elements that equal one. Test your function on the vector `c(0, 1, 1, 1, 1, 0, 0, 0)` to make sure that it's working correctly.
+`r hide("Show Hint")`
+For each element of `shots` we need to decide whether to set the corresponding element of `after_streak` to `TRUE` or `FALSE`. Regardless of the values that they take, the first three elements  of `shots` cannot possibly follow a streak: there aren't three shots that precede them! This means that the first three elements of `after_streak` should always be set to `FALSE`. All that remains is to examine elements `4, 5, ..., n` of `shots`. The easiest way to do this is with a `for` loop. For a given element `i` of `shots`, where `i` is between `4` and `n`, think about how to extract the three elements of `shots` that *precede* element `i`. Once you've extracted them, there are various ways to test whether all three equal one. The easiest way is to use the R function `all()`. If you find yourself getting confused, try working through the logic of the `for` loop *by hand* in the example `scores <- c(0, 1, 1, 1, 1, 0, 0, 0)`. 
+`r unhide()`
 ```{r, webex.hide = 'Show Solution'}
 get_avg_after_streak <- function(shots) {
-  stopifnot(all(shots %in% c(0, 1)))
-  after_streak <- rep(NA, length(shots) - 3)
-  for(i in 1:length(after_streak)) {
-    after_streak[i] <- all(shots[i:(i + 2)] == 1)
+  
+  # shots should be a vector of 0 and 1; if not STOP!
+  stopifnot(all(shots %in% c(0, 1)))  
+  
+  n <- length(shots)
+  after_streak <- rep(NA, n) # Empty vector of length n
+  
+  # The first 3 elements of shots by definition cannot 
+  # follow a streak
+  after_streak[1:3] <- FALSE 
+  
+  # Loop over the remaining elements of shots
+  for(i in 4:n) {
+    # Extract the 3 shots that precede shot i
+    prev_three_shots <- shots[(i - 3):(i - 1)]
+    # Are all three of the preceding shots equal to 1? 
+    # (TRUE/FALSE)
+    after_streak[i] <- all(prev_three_shots == 1)
   }
-  after_streak <- c(rep(FALSE, 3), after_streak)
-  after_streak <- shots[after_streak]
-  mean(after_streak)
+  
+  # shots[after_streak] extracts all elements of shots
+  # for which after_streak is TRUE. Taking the mean of
+  # these is the same as calculating the prop. of ones
+  mean(shots[after_streak])
 }
 
 get_avg_after_streak(c(0, 1, 1, 1, 1, 0, 0, 0))
 ```
 2. Write a function called `draw_shots()` that simulates an iid sequence of Bernoulli draws representing basketball shots, where `1` denotes a success and `0` denotes a miss. Your function should take two arguments: `n_shots` is the number of shots, and `prob_success` is the probability that any given shot will be a success. It should return a vector of length `n_shots` containing the simulation draws. Test your function by drawing a large sequence of shots with `prob_success` equal to 0.5 and calculating the sample mean.
-```{r}
+```{r, webex.hide = 'Show Solution'}
 draw_shots <- function(n_shots, prob_success) {
   rbinom(n_shots, 1, prob_success)
 }
 set.seed(420508570)
 mean(draw_shots(1e4, 0.5))
 ```
-3. Write a function called `get_hot_handedness()` that combines `draw_shots()` and  `get_avg_after_streak()` to calculated "hot handedness" of a randomly-drawn sequence. In words: `get_est()` should draw a sequence `shots` of simulated basketball shots and then calculate and return the fraction of successes in `sim_shots` among the shots that immediately follow a streak of three successes. Think carefully about what arguments `get_est()` needs to take if we want to be able to vary the length and success probability of our simulated sequence of basketball shots. After writing your function
+3. Write a function called `get_hot_handedness()` that combines `draw_shots()` and  `get_avg_after_streak()` to calculated "hot handedness" of a randomly-drawn sequence. In words: `get_est()` should draw a sequence `shots` of simulated basketball shots and then calculate and return the fraction of successes in `sim_shots` among the shots that immediately follow a streak of three successes. Think carefully about what arguments `get_est()` needs to take if we want to be able to vary the length and success probability of our simulated sequence of basketball shots. 
 ```{r, webex.hide = 'Show Solution'}
 get_hot_handedness <- function(n_shots, prob_success) {
   sim_shots <- draw_shots(n_shots, prob_success)
@@ -454,20 +473,57 @@ get_hot_handedness <- function(n_shots, prob_success) {
 }
 ```
 4. Amos watches Liz take 100 basketball shots and calculates a test statistic $T$ as follows: he identifies the shots that immediately follow a "streak" of three successful shots, and calculates Liz's success rate on this subset of shots. Amos argues as follows: "Suppose that Liz *does not* have a hot hand: each of her shots is independent of the others and her probability of success on a given shot is 1/2. Then the expected value of my $T$ will be one half." Use `replicate()` and `get_hot_handedness()` to carry out a simulation study with 10,000 replications to check whether Amos is correct.
+`r hide("Show Hint")`
+It's possible, though unlikely, that `get_hot_handedness()` will return an `NaN`. This happens when the sequence of 100 simulated basketball shots contains no streaks of length three. We need to ignore any such simulation draws. The easiest way to do this is by using the `na.rm` of `mean()` to  `TRUE`.
+`r unhide()`
 `r hide("Show Solution")`
-Amos is wrong: the expected value of his test statistic is approximately `0.46` rather than `0.5`, so he will on average conclude that Liz exhibits a *cold hand*. This approach is biased *against* finding evidence of a hot hand if it exists: 
+Amos is wrong: the expected value of his test statistic is approximately `0.46` rather than `0.5`. On average, he will conclude that Liz has a *cold hand* when in fact her shots are iid. This approach is biased against finding evidence of a hot hand, if it exists:
 ```{r}
 set.seed(420508570)
 sims <- replicate(1e4, get_hot_handedness(100, 0.5))
-mean(sims, na.rm = TRUE) # It's possible, though unlikely, 
-# that get_hot_handedness() will return an NaN. This happens
-# when the sequence of 100 simulated basketball shots has no
-# streaks of length three.
+mean(sims, na.rm = TRUE) 
 ```
 `r unhide()`
-5. **Bonus Question:** How do the results of the preceding exercise vary with Liz's success rate and the number of shots that Amos watches her take? Design a simulation study to answer this question by exploring a grid of values for these parameters. 
+5. Use `Map()` and `expand.grid()` to repeat the preceding exercise over a grid of values for the number of shots that Liz takes, `n_shots`, and her probability of success, `prob_success`. In particular, consider `n_shots` in $\{50, 100, 200\}$ and `prob_success` in $\{0.4, 0.5, 0.6\}$. Use `do.call()` and `cbind()` to summarize your results in a simple table. What conclusions do you draw?
+`r hide("Show Hint")`
+Before using `Map()` and `expand.grid()` you'll need to create a function that can carry out the simulation study for *fixed* values of `n_shots` and `prob_success`. Call it `get_test_stat_avg()`. In broad strokes, you can base it on the function `get_bias()` that I explained earlier in the lesson. Just remember that our goal in this example is to calculate the *mean* of Amos' test statistic over simulation replications rather than its bias. 
+`r unhide()`
+`r hide("Show Solution")`
+```{r}
+# Function to carry out the simulation study for a fixed
+# combination of values for n_shots and prob_success
+get_test_stat_avg <- function(n_shots, prob_success, n_reps = 5e3) {
+  draw_sim_replication <- function() {
+    sim_test_stat <- get_hot_handedness(n_shots, prob_success)
+  }
+  sim_replications <- replicate(n_reps, draw_sim_replication())
+  mean(sim_replications, na.rm = TRUE)
+}
 
-6. **Bonus Question:** Repeat the preceding exercise for different definitions of a *streak*, e.g. two successes in a row or four successes in a row. Think about which functions you'll need to change and how.
+# Construct a grid of values for n_shots and
+# prob_success
+n_shots_grid <- c(50, 100, 200)
+prob_success_grid <- c(0.4, 0.5, 0.6)
+parameters <- expand.grid(n_shots = n_shots_grid, 
+                          prob_success = prob_success_grid)
+
+# Carry out the simulation study at each combination
+# of parameter values
+set.seed(420508570)
+test_stat_avgs <- Map(get_test_stat_avg, 
+                      n_shots = parameters$n_shots,
+                      prob_success = parameters$prob_success)
+
+# Store the results in a simple table and 
+# display them
+test_stat_avgs <- do.call(rbind, test_stat_avgs)
+results <- cbind(parameters, test_stat_avgs)
+results
+```
+For every combination of `n_shots` and `prob_success`, Amos' test statistic appears to be biased *downwards*: `test_stat_avgs` is always smaller than `prob_success`. For a fixed value of `prob_success`, the bias appears to be more severe when `n_shots` is smaller. 
+`r unhide()`
+
+6. **Bonus Question:** Repeat the preceding exercise for different definitions of a *streak*, e.g. two successes in a row or four successes in a row. Think about which functions you'll need to change and how. How do your results change?
 
 7. **Bonus Question:** The exercises above consider a simulated basketball player who *does not* have a hot hand. Design a new simulation with a player who does exhibit a hot hand and see how this affects the results. (There are many ways to set up a simulation with dependence between trials, so there are many possible answers to this question.)
 

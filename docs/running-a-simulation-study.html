@@ -24,7 +24,7 @@
 <meta name="author" content="Francis J. DiTraglia" />
 
 
-<meta name="date" content="2022-04-08" />
+<meta name="date" content="2022-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -141,8 +141,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i>About This Book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-requisites"><i class="fa fa-check"></i>Pre-requisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#good-coding-style"><i class="fa fa-check"></i>Good Coding Style</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-markdown"><i class="fa fa-check"></i>R Markdown</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-stata"><i class="fa fa-check"></i>Why not Stata?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab-julia-or-python"><i class="fa fa-check"></i>Why not Matlab, Julia, or Python?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#you-can-help-make-this-book-better"><i class="fa fa-check"></i>You can help make this book better!</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html"><i class="fa fa-check"></i><b>1</b> Running a Simulation Study</a>
 <ul>
@@ -321,13 +324,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>My general philosophy in life is never to rely on being clever; instead I want to rely on being thorough and having a justifiable workflow.</p>
 <p>-- <cite><a href="https://youtu.be/zYYBtxHWE0A">Richard McElreath</a></cite></p>
 </blockquote>
-<p>In economics and statistics, simulation is a <em>superpower</em>. It helps us to understand our models, check for mistakes, and make unexpected connections, some of which may even lead to new theoretical results. Riffing on the two quotes from above, simulation is both a substitute for and a complement to cleverness. If you'll pardon my continuation of the Swiss Army Knife metaphor, simulation is the knife: arguably the most useful tool in your toolbox. In this lesson, we'll learn the basics of carrying out a simulation study in R using the following key commands:</p>
+<p>In economics and statistics, simulation is a <em>superpower</em>. It helps us to understand our models, check for mistakes, and make unexpected connections. If you'll pardon my continuation of the Swiss Army Knife metaphor, simulation is the knife: arguably the most useful tool in your toolbox. Riffing on the quotes from above, simulation is both a substitute for and a complement to cleverness. In this lesson, we'll learn the basics of carrying out a simulation study in R using the following key commands:</p>
 <ul>
 <li><code>sample()</code></li>
 <li><code>rbinom()</code></li>
 <li><code>rnorm()</code></li>
 <li><code>set.seed()</code></li>
-<li><code>identical()</code></li>
 <li><code>replicate()</code></li>
 <li><code>expand.grid()</code></li>
 <li><code>Map()</code></li>
@@ -356,18 +358,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="running-a-simulation-study.html#cb1-1" aria-hidden="true" tabindex="-1"></a>my_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;there&#39;</span>, <span class="st">&#39;is&#39;</span>, <span class="st">&#39;no&#39;</span>, <span class="st">&#39;largest&#39;</span>, <span class="st">&#39;integer&#39;</span>)</span></code></pre></div>
 <p>The following line of code makes two draws <em>without replacement</em> from <code>my_vector</code></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="running-a-simulation-study.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_vector, <span class="at">size =</span> <span class="dv">2</span>) <span class="co"># without replacement</span></span></code></pre></div>
-<pre><code>## [1] &quot;integer&quot; &quot;is&quot;</code></pre>
+<pre><code>## [1] &quot;largest&quot; &quot;there&quot;</code></pre>
 <p>If I run the same line of code again, I may not get the same result: it's random!<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="running-a-simulation-study.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_vector, <span class="at">size =</span> <span class="dv">2</span>) <span class="co"># without replacement</span></span></code></pre></div>
-<pre><code>## [1] &quot;is&quot; &quot;no&quot;</code></pre>
+<pre><code>## [1] &quot;integer&quot; &quot;there&quot;</code></pre>
 <p>To draw <em>with replacement</em>, set <code>replace = TRUE</code></p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="running-a-simulation-study.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="at">x =</span> my_vector, <span class="at">size =</span> <span class="dv">7</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># with replacement</span></span></code></pre></div>
-<pre><code>## [1] &quot;no&quot;      &quot;no&quot;      &quot;integer&quot; &quot;no&quot;      &quot;there&quot;   &quot;largest&quot; &quot;is&quot;</code></pre>
+<pre><code>## [1] &quot;integer&quot; &quot;no&quot;      &quot;is&quot;      &quot;is&quot;      &quot;is&quot;      &quot;largest&quot; &quot;integer&quot;</code></pre>
 <p>As usual in R, the argument names <code>x</code>, <code>size</code>, and <code>replace</code> are optional. But it is considered good coding style to explicitly supply an argument name whenever we're <em>overriding</em> a function's default behavior. This makes it easier for anyone reading our code to understand what's happening. Since <code>sample()</code> defaults to making draws <em>without</em> replacement, it's a good idea to write <code>replace = TRUE</code> rather then simply <code>TRUE</code>. But even without writing <code>replace =</code>, the code will still work as long as we supply all of the arguments in the correct <em>order</em>:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="running-a-simulation-study.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(my_vector, <span class="dv">7</span>, <span class="cn">TRUE</span>) <span class="co"># bad style</span></span></code></pre></div>
-<pre><code>## [1] &quot;largest&quot; &quot;no&quot;      &quot;no&quot;      &quot;no&quot;      &quot;is&quot;      &quot;integer&quot; &quot;there&quot;</code></pre>
+<pre><code>## [1] &quot;is&quot;      &quot;no&quot;      &quot;is&quot;      &quot;integer&quot; &quot;there&quot;   &quot;integer&quot; &quot;no&quot;</code></pre>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="running-a-simulation-study.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(my_vector, <span class="dv">7</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="co"># good style</span></span></code></pre></div>
-<pre><code>## [1] &quot;there&quot;   &quot;there&quot;   &quot;integer&quot; &quot;largest&quot; &quot;largest&quot; &quot;no&quot;      &quot;no&quot;</code></pre>
+<pre><code>## [1] &quot;largest&quot; &quot;is&quot;      &quot;no&quot;      &quot;largest&quot; &quot;is&quot;      &quot;no&quot;      &quot;no&quot;</code></pre>
 </div>
 <div id="probability-distributions-in-r" class="section level3" number="1.2.2">
 <h3><span class="header-section-number">1.2.2</span> Probability Distributions in R</h3>
@@ -461,7 +463,7 @@ The function <code>rbinom()</code> makes random draws with the probabilities giv
 <pre><code>## [1] 5</code></pre>
 <p>and fifteen draws from the same distribution by changing <code>n</code> to <code>10</code></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="running-a-simulation-study.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">15</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<pre><code>##  [1] 5 6 5 4 5 9 5 6 5 4 7 4 2 3 6</code></pre>
+<pre><code>##  [1] 2 2 4 6 7 4 5 6 6 6 4 6 2 7 6</code></pre>
 <p>It's important not to confuse <code>n</code> with <code>size</code>. The former tells R how many <em>Binomial</em> draws to make. The latter tells R the value of the parameter <span class="math inline">\(m\)</span> of the Binomial<span class="math inline">\((m, p)\)</span> distribution.</p>
 <p>Perhaps you remember that if <span class="math inline">\(X \sim \text{Binomial}(m, p)\)</span> then <span class="math inline">\(\mathbb{E}[X] = mp\)</span> and <span class="math inline">\(\text{Var}= mp(1-p)\)</span>. We can approximate these results numerically by simulating a large number of draws, say 5000, from a Binomial distribution:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="running-a-simulation-study.html#cb16-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="dv">20</span></span>
@@ -472,23 +474,23 @@ The function <code>rbinom()</code> makes random draws with the probabilities giv
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="running-a-simulation-study.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">EV_Theoretical =</span> m <span class="sc">*</span> p, </span>
 <span id="cb17-2"><a href="running-a-simulation-study.html#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">EV_Simulation =</span> <span class="fu">mean</span>(sim_draws))</span></code></pre></div>
 <pre><code>## EV_Theoretical  EV_Simulation 
-##          5.000          5.002</code></pre>
+##         5.0000         5.0784</code></pre>
 <p>and similarly for <span class="math inline">\(\text{Var}(X)\)</span></p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="running-a-simulation-study.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">Var_Theoretical =</span> m <span class="sc">*</span> p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p), </span>
 <span id="cb19-2"><a href="running-a-simulation-study.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Var_Simulation =</span> <span class="fu">var</span>(sim_draws))</span></code></pre></div>
 <pre><code>## Var_Theoretical  Var_Simulation 
-##        3.750000        3.612318</code></pre>
+##        3.750000        3.861426</code></pre>
 <p>Reassuringly, our simulation results are very close to the theoretical values. They would be even closer if we used a larger value for <code>n_sims</code>.</p>
 </div>
 <div id="set.seed" class="section level3" number="1.2.3">
 <h3><span class="header-section-number">1.2.3</span> <code>set.seed()</code></h3>
 <p>A key theme of this book is the importance of <em>reproducible research</em>. Anyone else who wants to check your work should be able to obtain <em>exactly the same results as you did</em> by running your code. But this seems to be at odds with the idea of simulating random data. For example, if I run <code>rbinom(10, 4, 0.6)</code> repeatedly, I'll most likely get different results each time:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="running-a-simulation-study.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span></code></pre></div>
-<pre><code>##  [1] 2 1 3 3 2 3 2 3 3 1</code></pre>
+<pre><code>##  [1] 2 1 2 3 2 3 2 3 3 3</code></pre>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="running-a-simulation-study.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span></code></pre></div>
-<pre><code>##  [1] 2 0 3 2 3 4 2 1 2 1</code></pre>
+<pre><code>##  [1] 2 2 4 4 0 2 4 4 2 4</code></pre>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="running-a-simulation-study.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span></code></pre></div>
-<pre><code>##  [1] 2 2 3 3 0 3 2 2 3 2</code></pre>
+<pre><code>##  [1] 1 2 4 3 4 3 3 3 3 3</code></pre>
 <p>The function <code>set.seed()</code> allows us to ensure that we obtain the <em>same</em> simulation draws whenever we re-run the same simulation code. To use it, we simply choose a <em>seed</em>, any integer between negative and positive <span class="math inline">\((2^{31} - 1)\)</span>, and supply it as an argument to <code>set.seed()</code>. Simulation draws made on a computer aren't really random: they're only <a href="https://en.wikipedia.org/wiki/Pseudorandomness">pseudo-random</a>. This means that they "look" random and pass statistical tests for randomness but are in fact generated by a completely deterministic algorithm. Setting the seed sets the <em>initial condition</em> of the pseudorandom number generator. Because the algorithm is deterministic, the same initial condition always leads to the same results. This is what allows us to replicate our simulation draws. Each time we make another draw, the seed changes. But we can always return it to its previous state using <code>set.seed()</code>. For example, suppose I set the seed to <code>1</code>. and re-run my code from above as follows</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="running-a-simulation-study.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb27-2"><a href="running-a-simulation-study.html#cb27-2" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="fl">0.6</span>)</span>
@@ -849,110 +851,32 @@ so <span class="math inline">\(\widehat{\sigma}^2\)</span> is biased <em>downwar
 ## 13 3  3.0 -0.9570253  4.124553
 ## 14 4  3.0 -0.7513177  3.201657
 ## 15 5  3.0  -0.567449  2.916767</code></pre>
-<p>For extra credit, we can use the function <code>kable()</code> from the <code>knitr</code> package to make the results look even prettier</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="running-a-simulation-study.html#cb96-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(sim_results)</span></code></pre></div>
-<table>
-<thead>
-<tr class="header">
-<th align="right">n</th>
-<th align="right">s_sq</th>
-<th align="left">bias</th>
-<th align="left">variance</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">3</td>
-<td align="right">1.0</td>
-<td align="left">-0.3412176</td>
-<td align="left">0.4554343</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="right">1.0</td>
-<td align="left">-0.2546259</td>
-<td align="left">0.3643993</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="right">1.0</td>
-<td align="left">-0.2005197</td>
-<td align="left">0.3243315</td>
-</tr>
-<tr class="even">
-<td align="right">3</td>
-<td align="right">1.5</td>
-<td align="left">-0.5007384</td>
-<td align="left">0.9496033</td>
-</tr>
-<tr class="odd">
-<td align="right">4</td>
-<td align="right">1.5</td>
-<td align="left">-0.3816447</td>
-<td align="left">0.8616167</td>
-</tr>
-<tr class="even">
-<td align="right">5</td>
-<td align="right">1.5</td>
-<td align="left">-0.292554</td>
-<td align="left">0.7173205</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="right">2.0</td>
-<td align="left">-0.6609821</td>
-<td align="left">1.781236</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="right">2.0</td>
-<td align="left">-0.5061243</td>
-<td align="left">1.538961</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="right">2.0</td>
-<td align="left">-0.3953514</td>
-<td align="left">1.326648</td>
-</tr>
-<tr class="even">
-<td align="right">3</td>
-<td align="right">2.5</td>
-<td align="left">-0.8513285</td>
-<td align="left">2.705087</td>
-</tr>
-<tr class="odd">
-<td align="right">4</td>
-<td align="right">2.5</td>
-<td align="left">-0.6122964</td>
-<td align="left">2.467789</td>
-</tr>
-<tr class="even">
-<td align="right">5</td>
-<td align="right">2.5</td>
-<td align="left">-0.4727481</td>
-<td align="left">2.014822</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="right">3.0</td>
-<td align="left">-0.9570253</td>
-<td align="left">4.124553</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="right">3.0</td>
-<td align="left">-0.7513177</td>
-<td align="left">3.201657</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="right">3.0</td>
-<td align="left">-0.567449</td>
-<td align="left">2.916767</td>
-</tr>
-</tbody>
-</table>
+<!--For extra credit, we can use the function `kable()` from the `knitr` package to make the results look even prettier
+
+```r
+knitr::kable(sim_results)
+```
+
+
+
+|  n| s_sq|bias       |variance  |
+|--:|----:|:----------|:---------|
+|  3|  1.0|-0.3412176 |0.4554343 |
+|  4|  1.0|-0.2546259 |0.3643993 |
+|  5|  1.0|-0.2005197 |0.3243315 |
+|  3|  1.5|-0.5007384 |0.9496033 |
+|  4|  1.5|-0.3816447 |0.8616167 |
+|  5|  1.5|-0.292554  |0.7173205 |
+|  3|  2.0|-0.6609821 |1.781236  |
+|  4|  2.0|-0.5061243 |1.538961  |
+|  5|  2.0|-0.3953514 |1.326648  |
+|  3|  2.5|-0.8513285 |2.705087  |
+|  4|  2.5|-0.6122964 |2.467789  |
+|  5|  2.5|-0.4727481 |2.014822  |
+|  3|  3.0|-0.9570253 |4.124553  |
+|  4|  3.0|-0.7513177 |3.201657  |
+|  5|  3.0|-0.567449  |2.916767  |
+-->
 <!--### Bonus: Parallel Computing with `mcMap()`
 There's a good chance that your computer has more than one processor core. Why not use them to speed up your simulation study! If you're on Mac or Linux (RStudio Cloud counts as Linux), it's trivial to parallelize our simulation code from above using `mcMap()` from the `parallel` package. To make things more interesting, let's set up a larger parameter grid
 
@@ -972,12 +896,12 @@ head(results_parallel)
 
 ```
 ##      bias       variance 
-## [1,] -0.3265504 0.4712396
-## [2,] -0.2508963 0.3782008
-## [3,] -0.2003302 0.327102 
-## [4,] -0.1643747 0.2689906
-## [5,] -0.1639816 0.2366451
-## [6,] -0.1196259 0.2231091
+## [1,] -0.3224797 0.4648834
+## [2,] -0.25798   0.3599407
+## [3,] -0.1930187 0.3318547
+## [4,] -0.1711921 0.2832046
+## [5,] -0.1472536 0.2439554
+## [6,] -0.1210991 0.2183187
 ```
 -->
 </div>
@@ -988,66 +912,149 @@ head(results_parallel)
 <p>Before <a href="https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA14943">Miller &amp; Sanjurjo (2018)</a>, researchers studying the hot hand operationalized this intuition as follows. Define a "streak" as <span class="math inline">\(k\)</span> successes in a row. For each streak in <code>shots</code>, look at the shot that immediately <em>follows it</em>. Then collect each of these shots following a streak into another vector <code>after_streak</code>. Finally, compare the proportion of successes in <code>shots</code> to that in <code>after_streak</code>. Since each vector contains zeros and ones, we can make this comparison using <code>mean()</code>. If there's no hot hand, it seems reasonable to expect that <code>mean(after_streak)</code> will approximately equal to <code>mean(shots)</code>. If there is a hot hand, on the other hand, then it seems reasonable to expect that <code>mean(after_streak)</code> should be <em>larger</em> than <code>mean(shots)</code>.</p>
 <p>In this simulation study, rather than using a vector <code>shots</code> of a <em>real</em> basketball player, we'll draw a random sequence of zeros and ones. Since we control how the sequence is generated, this gives us a way of checking whether the procedure described in the preceding paragraph works as expected. To keep things simple, we'll set <span class="math inline">\(k = 3\)</span> and generate <code>shots</code> as an iid sequence of Bernoulli(p) draws. Such a sequence clearly does <em>not</em> exhibit a hot hand. Moreover, there's no need to calculate <code>mean(shots)</code> because we know that the chance of making each simulated shot is <code>p</code>. This means that the exercise reduces to comparing <code>mean(after_streak)</code> to <code>p</code>. For example, if <code>p</code> is 0.5, then we compare <code>mean(after_streak)</code> to 0.5.</p>
 <ol style="list-style-type: decimal">
-<li>Write a function called <code>get_avg_after_streak()</code> that takes a single input argument: <code>shots</code> a vector of zeros and ones. Your function should work as follows. First, identify all "streaks" in <code>shots</code>. Streaks are defined as a sequence of three ones in a row. Next, extract the elements of <code>shots</code> that immediately <em>follow</em> a streak, storing them in a vector called <code>after_streak</code>. Finally, compute the mean of <code>after_streak</code>. Test your function on the vector <code>c(0, 1, 1, 1, 1, 0, 0, 0)</code> to make sure that it's working correctly.</li>
+<li>Write a function called <code>get_avg_after_streak()</code> that takes a single input argument: <code>shots</code> a vector of zeros and ones. Your function should work as follows. First, create an empty vector of the same length as <code>shots</code> called <code>after_streak</code>. Second, set each element of <code>after_streak</code> to <code>TRUE</code> or <code>FALSE</code> depending on whether the corresponding element of <code>shots</code> follows a streak of three ones (<code>TRUE</code>) or not (<code>FALSE</code>). Third, extract all the elements of <code>shots</code> for which <code>after_streak</code> is true and calculate the proportion of these elements that equal one. Test your function on the vector <code>c(0, 1, 1, 1, 1, 0, 0, 0)</code> to make sure that it's working correctly.</li>
 </ol>
+<div class="webex-solution">
+<button>
+Show Hint
+</button>
+<p>For each element of <code>shots</code> we need to decide whether to set the corresponding element of <code>after_streak</code> to <code>TRUE</code> or <code>FALSE</code>. Regardless of the values that they take, the first three elements of <code>shots</code> cannot possibly follow a streak: there aren't three shots that precede them! This means that the first three elements of <code>after_streak</code> should always be set to <code>FALSE</code>. All that remains is to examine elements <code>4, 5, ..., n</code> of <code>shots</code>. The easiest way to do this is with a <code>for</code> loop. For a given element <code>i</code> of <code>shots</code>, where <code>i</code> is between <code>4</code> and <code>n</code>, think about how to extract the three elements of <code>shots</code> that <em>precede</em> element <code>i</code>. Once you've extracted them, there are various ways to test whether all three equal one. The easiest way is to use the R function <code>all()</code>. If you find yourself getting confused, try working through the logic of the <code>for</code> loop <em>by hand</em> in the example <code>scores &lt;- c(0, 1, 1, 1, 1, 0, 0, 0)</code>.</p>
+</div>
 <div class="webex-solution">
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="running-a-simulation-study.html#cb97-1" aria-hidden="true" tabindex="-1"></a>get_avg_after_streak <span class="ot">&lt;-</span> <span class="cf">function</span>(shots) {</span>
-<span id="cb97-2"><a href="running-a-simulation-study.html#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(<span class="fu">all</span>(shots <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)))</span>
-<span id="cb97-3"><a href="running-a-simulation-study.html#cb97-3" aria-hidden="true" tabindex="-1"></a>  after_streak <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="fu">length</span>(shots) <span class="sc">-</span> <span class="dv">3</span>)</span>
-<span id="cb97-4"><a href="running-a-simulation-study.html#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(after_streak)) {</span>
-<span id="cb97-5"><a href="running-a-simulation-study.html#cb97-5" aria-hidden="true" tabindex="-1"></a>    after_streak[i] <span class="ot">&lt;-</span> <span class="fu">all</span>(shots[i<span class="sc">:</span>(i <span class="sc">+</span> <span class="dv">2</span>)] <span class="sc">==</span> <span class="dv">1</span>)</span>
-<span id="cb97-6"><a href="running-a-simulation-study.html#cb97-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb97-7"><a href="running-a-simulation-study.html#cb97-7" aria-hidden="true" tabindex="-1"></a>  after_streak <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="cn">FALSE</span>, <span class="dv">3</span>), after_streak)</span>
-<span id="cb97-8"><a href="running-a-simulation-study.html#cb97-8" aria-hidden="true" tabindex="-1"></a>  after_streak <span class="ot">&lt;-</span> shots[after_streak]</span>
-<span id="cb97-9"><a href="running-a-simulation-study.html#cb97-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(after_streak)</span>
-<span id="cb97-10"><a href="running-a-simulation-study.html#cb97-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb97-11"><a href="running-a-simulation-study.html#cb97-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb97-12"><a href="running-a-simulation-study.html#cb97-12" aria-hidden="true" tabindex="-1"></a><span class="fu">get_avg_after_streak</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="running-a-simulation-study.html#cb96-1" aria-hidden="true" tabindex="-1"></a>get_avg_after_streak <span class="ot">&lt;-</span> <span class="cf">function</span>(shots) {</span>
+<span id="cb96-2"><a href="running-a-simulation-study.html#cb96-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-3"><a href="running-a-simulation-study.html#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># shots should be a vector of 0 and 1; if not STOP!</span></span>
+<span id="cb96-4"><a href="running-a-simulation-study.html#cb96-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stopifnot</span>(<span class="fu">all</span>(shots <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)))  </span>
+<span id="cb96-5"><a href="running-a-simulation-study.html#cb96-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-6"><a href="running-a-simulation-study.html#cb96-6" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(shots)</span>
+<span id="cb96-7"><a href="running-a-simulation-study.html#cb96-7" aria-hidden="true" tabindex="-1"></a>  after_streak <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, n) <span class="co"># Empty vector of length n</span></span>
+<span id="cb96-8"><a href="running-a-simulation-study.html#cb96-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-9"><a href="running-a-simulation-study.html#cb96-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># The first 3 elements of shots by definition cannot </span></span>
+<span id="cb96-10"><a href="running-a-simulation-study.html#cb96-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># follow a streak</span></span>
+<span id="cb96-11"><a href="running-a-simulation-study.html#cb96-11" aria-hidden="true" tabindex="-1"></a>  after_streak[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="cn">FALSE</span> </span>
+<span id="cb96-12"><a href="running-a-simulation-study.html#cb96-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-13"><a href="running-a-simulation-study.html#cb96-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Loop over the remaining elements of shots</span></span>
+<span id="cb96-14"><a href="running-a-simulation-study.html#cb96-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">4</span><span class="sc">:</span>n) {</span>
+<span id="cb96-15"><a href="running-a-simulation-study.html#cb96-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extract the 3 shots that precede shot i</span></span>
+<span id="cb96-16"><a href="running-a-simulation-study.html#cb96-16" aria-hidden="true" tabindex="-1"></a>    prev_three_shots <span class="ot">&lt;-</span> shots[(i <span class="sc">-</span> <span class="dv">3</span>)<span class="sc">:</span>(i <span class="sc">-</span> <span class="dv">1</span>)]</span>
+<span id="cb96-17"><a href="running-a-simulation-study.html#cb96-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Are all three of the preceding shots equal to 1? </span></span>
+<span id="cb96-18"><a href="running-a-simulation-study.html#cb96-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># (TRUE/FALSE)</span></span>
+<span id="cb96-19"><a href="running-a-simulation-study.html#cb96-19" aria-hidden="true" tabindex="-1"></a>    after_streak[i] <span class="ot">&lt;-</span> <span class="fu">all</span>(prev_three_shots <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb96-20"><a href="running-a-simulation-study.html#cb96-20" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb96-21"><a href="running-a-simulation-study.html#cb96-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb96-22"><a href="running-a-simulation-study.html#cb96-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># shots[after_streak] extracts all elements of shots</span></span>
+<span id="cb96-23"><a href="running-a-simulation-study.html#cb96-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># for which after_streak is TRUE. Taking the mean of</span></span>
+<span id="cb96-24"><a href="running-a-simulation-study.html#cb96-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># these is the same as calculating the prop. of ones</span></span>
+<span id="cb96-25"><a href="running-a-simulation-study.html#cb96-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(shots[after_streak])</span>
+<span id="cb96-26"><a href="running-a-simulation-study.html#cb96-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb96-27"><a href="running-a-simulation-study.html#cb96-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb96-28"><a href="running-a-simulation-study.html#cb96-28" aria-hidden="true" tabindex="-1"></a><span class="fu">get_avg_after_streak</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>Write a function called <code>draw_shots()</code> that simulates an iid sequence of Bernoulli draws representing basketball shots, where <code>1</code> denotes a success and <code>0</code> denotes a miss. Your function should take two arguments: <code>n_shots</code> is the number of shots, and <code>prob_success</code> is the probability that any given shot will be a success. It should return a vector of length <code>n_shots</code> containing the simulation draws. Test your function by drawing a large sequence of shots with <code>prob_success</code> equal to 0.5 and calculating the sample mean.</li>
 </ol>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="running-a-simulation-study.html#cb99-1" aria-hidden="true" tabindex="-1"></a>draw_shots <span class="ot">&lt;-</span> <span class="cf">function</span>(n_shots, prob_success) {</span>
-<span id="cb99-2"><a href="running-a-simulation-study.html#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbinom</span>(n_shots, <span class="dv">1</span>, prob_success)</span>
-<span id="cb99-3"><a href="running-a-simulation-study.html#cb99-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb99-4"><a href="running-a-simulation-study.html#cb99-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
-<span id="cb99-5"><a href="running-a-simulation-study.html#cb99-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">draw_shots</span>(<span class="fl">1e4</span>, <span class="fl">0.5</span>))</span></code></pre></div>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="running-a-simulation-study.html#cb98-1" aria-hidden="true" tabindex="-1"></a>draw_shots <span class="ot">&lt;-</span> <span class="cf">function</span>(n_shots, prob_success) {</span>
+<span id="cb98-2"><a href="running-a-simulation-study.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbinom</span>(n_shots, <span class="dv">1</span>, prob_success)</span>
+<span id="cb98-3"><a href="running-a-simulation-study.html#cb98-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb98-4"><a href="running-a-simulation-study.html#cb98-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb98-5"><a href="running-a-simulation-study.html#cb98-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">draw_shots</span>(<span class="fl">1e4</span>, <span class="fl">0.5</span>))</span></code></pre></div>
 <pre><code>## [1] 0.4993</code></pre>
+</div>
 <ol start="3" style="list-style-type: decimal">
-<li>Write a function called <code>get_hot_handedness()</code> that combines <code>draw_shots()</code> and <code>get_avg_after_streak()</code> to calculated "hot handedness" of a randomly-drawn sequence. In words: <code>get_est()</code> should draw a sequence <code>shots</code> of simulated basketball shots and then calculate and return the fraction of successes in <code>sim_shots</code> among the shots that immediately follow a streak of three successes. Think carefully about what arguments <code>get_est()</code> needs to take if we want to be able to vary the length and success probability of our simulated sequence of basketball shots. After writing your function</li>
+<li>Write a function called <code>get_hot_handedness()</code> that combines <code>draw_shots()</code> and <code>get_avg_after_streak()</code> to calculated "hot handedness" of a randomly-drawn sequence. In words: <code>get_est()</code> should draw a sequence <code>shots</code> of simulated basketball shots and then calculate and return the fraction of successes in <code>sim_shots</code> among the shots that immediately follow a streak of three successes. Think carefully about what arguments <code>get_est()</code> needs to take if we want to be able to vary the length and success probability of our simulated sequence of basketball shots.</li>
 </ol>
 <div class="webex-solution">
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="running-a-simulation-study.html#cb101-1" aria-hidden="true" tabindex="-1"></a>get_hot_handedness <span class="ot">&lt;-</span> <span class="cf">function</span>(n_shots, prob_success) {</span>
-<span id="cb101-2"><a href="running-a-simulation-study.html#cb101-2" aria-hidden="true" tabindex="-1"></a>  sim_shots <span class="ot">&lt;-</span> <span class="fu">draw_shots</span>(n_shots, prob_success)</span>
-<span id="cb101-3"><a href="running-a-simulation-study.html#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_avg_after_streak</span>(sim_shots)</span>
-<span id="cb101-4"><a href="running-a-simulation-study.html#cb101-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="running-a-simulation-study.html#cb100-1" aria-hidden="true" tabindex="-1"></a>get_hot_handedness <span class="ot">&lt;-</span> <span class="cf">function</span>(n_shots, prob_success) {</span>
+<span id="cb100-2"><a href="running-a-simulation-study.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  sim_shots <span class="ot">&lt;-</span> <span class="fu">draw_shots</span>(n_shots, prob_success)</span>
+<span id="cb100-3"><a href="running-a-simulation-study.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_avg_after_streak</span>(sim_shots)</span>
+<span id="cb100-4"><a href="running-a-simulation-study.html#cb100-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li>Amos watches Liz take 100 basketball shots and calculates a test statistic <span class="math inline">\(T\)</span> as follows: he identifies the shots that immediately follow a "streak" of three successful shots, and calculates Liz's success rate on this subset of shots. Amos argues as follows: "Suppose that Liz <em>does not</em> have a hot hand: each of her shots is independent of the others and her probability of success on a given shot is 1/2. Then the expected value of my <span class="math inline">\(T\)</span> will be one half." Use <code>replicate()</code> and <code>get_hot_handedness()</code> to carry out a simulation study with 10,000 replications to check whether Amos is correct.</li>
 </ol>
 <div class="webex-solution">
 <button>
+Show Hint
+</button>
+<p>It's possible, though unlikely, that <code>get_hot_handedness()</code> will return an <code>NaN</code>. This happens when the sequence of 100 simulated basketball shots contains no streaks of length three. We need to ignore any such simulation draws. The easiest way to do this is by using the <code>na.rm</code> of <code>mean()</code> to <code>TRUE</code>.</p>
+</div>
+<div class="webex-solution">
+<button>
 Show Solution
 </button>
-<p>Amos is wrong: the expected value of his test statistic is approximately <code>0.46</code> rather than <code>0.5</code>, so he will on average conclude that Liz exhibits a <em>cold hand</em>. This approach is biased <em>against</em> finding evidence of a hot hand if it exists:</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="running-a-simulation-study.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
-<span id="cb102-2"><a href="running-a-simulation-study.html#cb102-2" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="fl">1e4</span>, <span class="fu">get_hot_handedness</span>(<span class="dv">100</span>, <span class="fl">0.5</span>))</span>
-<span id="cb102-3"><a href="running-a-simulation-study.html#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sims, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co"># It&#39;s possible, though unlikely, </span></span></code></pre></div>
+<p>Amos is wrong: the expected value of his test statistic is approximately <code>0.46</code> rather than <code>0.5</code>. On average, he will conclude that Liz has a <em>cold hand</em> when in fact her shots are iid. This approach is biased against finding evidence of a hot hand, if it exists:</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="running-a-simulation-study.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb101-2"><a href="running-a-simulation-study.html#cb101-2" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="fl">1e4</span>, <span class="fu">get_hot_handedness</span>(<span class="dv">100</span>, <span class="fl">0.5</span>))</span>
+<span id="cb101-3"><a href="running-a-simulation-study.html#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sims, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
 <pre><code>## [1] 0.4651983</code></pre>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="running-a-simulation-study.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># that get_hot_handedness() will return an NaN. This happens</span></span>
-<span id="cb104-2"><a href="running-a-simulation-study.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="co"># when the sequence of 100 simulated basketball shots has no</span></span>
-<span id="cb104-3"><a href="running-a-simulation-study.html#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="co"># streaks of length three.</span></span></code></pre></div>
 </div>
 <ol start="5" style="list-style-type: decimal">
-<li><p><strong>Bonus Question:</strong> How do the results of the preceding exercise vary with Liz's success rate and the number of shots that Amos watches her take? Design a simulation study to answer this question by exploring a grid of values for these parameters.</p></li>
-<li><p><strong>Bonus Question:</strong> Repeat the preceding exercise for different definitions of a <em>streak</em>, e.g. two successes in a row or four successes in a row. Think about which functions you'll need to change and how.</p></li>
+<li>Use <code>Map()</code> and <code>expand.grid()</code> to repeat the preceding exercise over a grid of values for the number of shots that Liz takes, <code>n_shots</code>, and her probability of success, <code>prob_success</code>. In particular, consider <code>n_shots</code> in <span class="math inline">\(\{50, 100, 200\}\)</span> and <code>prob_success</code> in <span class="math inline">\(\{0.4, 0.5, 0.6\}\)</span>. Use <code>do.call()</code> and <code>cbind()</code> to summarize your results in a simple table. What conclusions do you draw?</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Hint
+</button>
+<p>Before using <code>Map()</code> and <code>expand.grid()</code> you'll need to create a function that can carry out the simulation study for <em>fixed</em> values of <code>n_shots</code> and <code>prob_success</code>. Call it <code>get_test_stat_avg()</code>. In broad strokes, you can base it on the function <code>get_bias()</code> that I explained earlier in the lesson. Just remember that our goal in this example is to calculate the <em>mean</em> of Amos' test statistic over simulation replications rather than its bias.</p>
+</div>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="running-a-simulation-study.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to carry out the simulation study for a fixed</span></span>
+<span id="cb103-2"><a href="running-a-simulation-study.html#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="co"># combination of values for n_shots and prob_success</span></span>
+<span id="cb103-3"><a href="running-a-simulation-study.html#cb103-3" aria-hidden="true" tabindex="-1"></a>get_test_stat_avg <span class="ot">&lt;-</span> <span class="cf">function</span>(n_shots, prob_success, <span class="at">n_reps =</span> <span class="fl">5e3</span>) {</span>
+<span id="cb103-4"><a href="running-a-simulation-study.html#cb103-4" aria-hidden="true" tabindex="-1"></a>  draw_sim_replication <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb103-5"><a href="running-a-simulation-study.html#cb103-5" aria-hidden="true" tabindex="-1"></a>    sim_test_stat <span class="ot">&lt;-</span> <span class="fu">get_hot_handedness</span>(n_shots, prob_success)</span>
+<span id="cb103-6"><a href="running-a-simulation-study.html#cb103-6" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb103-7"><a href="running-a-simulation-study.html#cb103-7" aria-hidden="true" tabindex="-1"></a>  sim_replications <span class="ot">&lt;-</span> <span class="fu">replicate</span>(n_reps, <span class="fu">draw_sim_replication</span>())</span>
+<span id="cb103-8"><a href="running-a-simulation-study.html#cb103-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(sim_replications, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb103-9"><a href="running-a-simulation-study.html#cb103-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb103-10"><a href="running-a-simulation-study.html#cb103-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-11"><a href="running-a-simulation-study.html#cb103-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Construct a grid of values for n_shots and</span></span>
+<span id="cb103-12"><a href="running-a-simulation-study.html#cb103-12" aria-hidden="true" tabindex="-1"></a><span class="co"># prob_success</span></span>
+<span id="cb103-13"><a href="running-a-simulation-study.html#cb103-13" aria-hidden="true" tabindex="-1"></a>n_shots_grid <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>)</span>
+<span id="cb103-14"><a href="running-a-simulation-study.html#cb103-14" aria-hidden="true" tabindex="-1"></a>prob_success_grid <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.4</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>)</span>
+<span id="cb103-15"><a href="running-a-simulation-study.html#cb103-15" aria-hidden="true" tabindex="-1"></a>parameters <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">n_shots =</span> n_shots_grid, </span>
+<span id="cb103-16"><a href="running-a-simulation-study.html#cb103-16" aria-hidden="true" tabindex="-1"></a>                          <span class="at">prob_success =</span> prob_success_grid)</span>
+<span id="cb103-17"><a href="running-a-simulation-study.html#cb103-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-18"><a href="running-a-simulation-study.html#cb103-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Carry out the simulation study at each combination</span></span>
+<span id="cb103-19"><a href="running-a-simulation-study.html#cb103-19" aria-hidden="true" tabindex="-1"></a><span class="co"># of parameter values</span></span>
+<span id="cb103-20"><a href="running-a-simulation-study.html#cb103-20" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">420508570</span>)</span>
+<span id="cb103-21"><a href="running-a-simulation-study.html#cb103-21" aria-hidden="true" tabindex="-1"></a>test_stat_avgs <span class="ot">&lt;-</span> <span class="fu">Map</span>(get_test_stat_avg, </span>
+<span id="cb103-22"><a href="running-a-simulation-study.html#cb103-22" aria-hidden="true" tabindex="-1"></a>                      <span class="at">n_shots =</span> parameters<span class="sc">$</span>n_shots,</span>
+<span id="cb103-23"><a href="running-a-simulation-study.html#cb103-23" aria-hidden="true" tabindex="-1"></a>                      <span class="at">prob_success =</span> parameters<span class="sc">$</span>prob_success)</span>
+<span id="cb103-24"><a href="running-a-simulation-study.html#cb103-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-25"><a href="running-a-simulation-study.html#cb103-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Store the results in a simple table and </span></span>
+<span id="cb103-26"><a href="running-a-simulation-study.html#cb103-26" aria-hidden="true" tabindex="-1"></a><span class="co"># display them</span></span>
+<span id="cb103-27"><a href="running-a-simulation-study.html#cb103-27" aria-hidden="true" tabindex="-1"></a>test_stat_avgs <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, test_stat_avgs)</span>
+<span id="cb103-28"><a href="running-a-simulation-study.html#cb103-28" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">cbind</span>(parameters, test_stat_avgs)</span>
+<span id="cb103-29"><a href="running-a-simulation-study.html#cb103-29" aria-hidden="true" tabindex="-1"></a>results</span></code></pre></div>
+<pre><code>##   n_shots prob_success test_stat_avgs
+## 1      50          0.4      0.2934501
+## 2     100          0.4      0.3376670
+## 3     200          0.4      0.3705452
+## 4      50          0.5      0.4256395
+## 5     100          0.5      0.4582441
+## 6     200          0.5      0.4810223
+## 7      50          0.6      0.5491750
+## 8     100          0.6      0.5804618
+## 9     200          0.6      0.5892968</code></pre>
+<p>For every combination of <code>n_shots</code> and <code>prob_success</code>, Amos' test statistic appears to be biased <em>downwards</em>: <code>test_stat_avgs</code> is always smaller than <code>prob_success</code>. For a fixed value of <code>prob_success</code>, the bias appears to be more severe when <code>n_shots</code> is smaller.</p>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li><p><strong>Bonus Question:</strong> Repeat the preceding exercise for different definitions of a <em>streak</em>, e.g. two successes in a row or four successes in a row. Think about which functions you'll need to change and how. How do your results change?</p></li>
 <li><p><strong>Bonus Question:</strong> The exercises above consider a simulated basketball player who <em>does not</em> have a hot hand. Design a new simulation with a player who does exhibit a hot hand and see how this affects the results. (There are many ways to set up a simulation with dependence between trials, so there are many possible answers to this question.)</p></li>
 </ol>
 

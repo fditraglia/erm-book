@@ -24,7 +24,7 @@
 <meta name="author" content="Francis J. DiTraglia" />
 
 
-<meta name="date" content="2022-04-08" />
+<meta name="date" content="2022-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -141,8 +141,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i>About This Book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-requisites"><i class="fa fa-check"></i>Pre-requisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#good-coding-style"><i class="fa fa-check"></i>Good Coding Style</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-markdown"><i class="fa fa-check"></i>R Markdown</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-stata"><i class="fa fa-check"></i>Why not Stata?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab-julia-or-python"><i class="fa fa-check"></i>Why not Matlab, Julia, or Python?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#you-can-help-make-this-book-better"><i class="fa fa-check"></i>You can help make this book better!</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html"><i class="fa fa-check"></i><b>1</b> Running a Simulation Study</a>
 <ul>
@@ -325,7 +328,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 Each point will correspond to a single country in 2007. Its x-coordinate will be GDP per capita and its y-coordinate will be life expectancy. Here's the code:</p>
 <div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="getting-started-with-ggplot2.html#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder_2007) <span class="sc">+</span> </span>
 <span id="cb201-2"><a href="getting-started-with-ggplot2.html#cb201-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp))</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-97-1.png" width="672" />
+<p><img src="erm-book_files/figure-html/unnamed-chunk-98-1.png" width="672" />
 We see that GDP per capita is a very strong predictor of life expectancy, although the relationship is non-linear. Notice how I add a linebreak after the <code>+</code>. This is analogous to how I always add a linebreak after the pipe <code>%&gt;%</code>. While it isn't necessary for the code to run correctly, it improves readability.</p>
 <div id="exercise-7" class="section level3" number="3.1.1">
 <h3><span class="header-section-number">3.1.1</span> Exercise</h3>
@@ -339,7 +342,7 @@ Show Solution
 <p>There is no clear relationship between population and life expectancy based on the 2007 data:</p>
 <div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="getting-started-with-ggplot2.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder_2007) <span class="sc">+</span> </span>
 <span id="cb202-2"><a href="getting-started-with-ggplot2.html#cb202-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pop, <span class="at">y =</span> lifeExp))</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-98-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>Repeat 1. with <code>gdpPercap</code> on the y-axis.</li>
@@ -351,7 +354,7 @@ Show Solution
 <p>There is no clear relationship between population and GDP per capita based on the 2007 data:</p>
 <div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="getting-started-with-ggplot2.html#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder_2007) <span class="sc">+</span> </span>
 <span id="cb203-2"><a href="getting-started-with-ggplot2.html#cb203-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pop, <span class="at">y =</span> gdpPercap))</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-99-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-100-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -361,7 +364,7 @@ Show Solution
 <div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="getting-started-with-ggplot2.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007) <span class="sc">+</span> </span>
 <span id="cb204-2"><a href="getting-started-with-ggplot2.html#cb204-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
 <span id="cb204-3"><a href="getting-started-with-ggplot2.html#cb204-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-100-1.png" width="672" />
+<p><img src="erm-book_files/figure-html/unnamed-chunk-101-1.png" width="672" />
 Again: notice how I split the code across multiple lines and ended each of the intermediate lines with the <code>+</code>. This makes things much easier to read.</p>
 <div id="exercise-8" class="section level3" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> Exercise</h3>
@@ -375,7 +378,7 @@ Show Solution
 <div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="getting-started-with-ggplot2.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007) <span class="sc">+</span> </span>
 <span id="cb205-2"><a href="getting-started-with-ggplot2.html#cb205-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pop, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
 <span id="cb205-3"><a href="getting-started-with-ggplot2.html#cb205-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-101-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>Suppose that rather than putting the x-axis on the log scale, we wanted to put the <em>y-axis</em> on the log scale. Figure out how to do this, either by clever guesswork or a google search, and then repeat my example with <code>gdpPercap</code> and <code>lifeExp</code> with <code>gdpPercap</code> in levels and <code>lifeExp</code> in logs base 10.</li>
@@ -387,7 +390,7 @@ Show Solution
 <div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="getting-started-with-ggplot2.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007) <span class="sc">+</span></span>
 <span id="cb206-2"><a href="getting-started-with-ggplot2.html#cb206-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
 <span id="cb206-3"><a href="getting-started-with-ggplot2.html#cb206-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-102-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Repeat 2. but with <em>both</em> axes on the log scale.</li>
@@ -400,7 +403,7 @@ Show Solution
 <span id="cb207-2"><a href="getting-started-with-ggplot2.html#cb207-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
 <span id="cb207-3"><a href="getting-started-with-ggplot2.html#cb207-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span> </span>
 <span id="cb207-4"><a href="getting-started-with-ggplot2.html#cb207-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-103-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-104-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -418,13 +421,13 @@ So far we've only seen one example: <code>geom_point()</code> which tells <code>
 <div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="getting-started-with-ggplot2.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007) <span class="sc">+</span></span>
 <span id="cb209-2"><a href="getting-started-with-ggplot2.html#cb209-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
 <span id="cb209-3"><a href="getting-started-with-ggplot2.html#cb209-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-105-1.png" width="672" />
+<p><img src="erm-book_files/figure-html/unnamed-chunk-106-1.png" width="672" />
 Notice how <code>ggplot</code> automatically generates a helpful legend. This plot makes it easy to see at a glance that the European countries in 2007 tend to have high GDP per capita and high life expectancy, while the African countries have the opposite. We can also use the <em>size</em> of each point to encode information, e.g. population:</p>
 <div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="getting-started-with-ggplot2.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> gapminder_2007) <span class="sc">+</span></span>
 <span id="cb210-2"><a href="getting-started-with-ggplot2.html#cb210-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, </span>
 <span id="cb210-3"><a href="getting-started-with-ggplot2.html#cb210-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
 <span id="cb210-4"><a href="getting-started-with-ggplot2.html#cb210-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-106-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-107-1.png" width="672" /></p>
 <div id="exercise-9" class="section level3" number="3.3.1">
 <h3><span class="header-section-number">3.3.1</span> Exercise</h3>
 <ol style="list-style-type: decimal">
@@ -451,7 +454,7 @@ Show Solution
 <div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="getting-started-with-ggplot2.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder_2007) <span class="sc">+</span></span>
 <span id="cb212-2"><a href="getting-started-with-ggplot2.html#cb212-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp)) <span class="sc">+</span> </span>
 <span id="cb212-3"><a href="getting-started-with-ggplot2.html#cb212-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()  </span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-108-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-109-1.png" width="672" /></p>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Create a tibble called <code>gapminder_1952</code> that contains data from <code>gapminder</code> from 1952.</li>
@@ -473,7 +476,7 @@ Show Solution
 <div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="getting-started-with-ggplot2.html#cb214-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder_1952) <span class="sc">+</span> </span>
 <span id="cb214-2"><a href="getting-started-with-ggplot2.html#cb214-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> pop, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
 <span id="cb214-3"><a href="getting-started-with-ggplot2.html#cb214-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-110-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
 </div>
 <ol start="5" style="list-style-type: decimal">
 <li>Suppose that instead of indicating continent using color, you wanted all the points in the plot from 3. to be blue. Consult the chapter "Visualising Data" from <a href="https://r4ds.had.co.nz/">R for Data Science</a> to find out how to do this.</li>
@@ -486,7 +489,7 @@ Show Solution
 <div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="getting-started-with-ggplot2.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder_1952) <span class="sc">+</span> </span>
 <span id="cb215-2"><a href="getting-started-with-ggplot2.html#cb215-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> pop, <span class="at">y =</span> lifeExp), <span class="at">color =</span> <span class="st">&#39;blue&#39;</span>) <span class="sc">+</span></span>
 <span id="cb215-3"><a href="getting-started-with-ggplot2.html#cb215-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-111-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-112-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -498,13 +501,13 @@ Show Solution
 <span id="cb216-3"><a href="getting-started-with-ggplot2.html#cb216-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder_2007) <span class="sc">+</span></span>
 <span id="cb216-4"><a href="getting-started-with-ggplot2.html#cb216-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
 <span id="cb216-5"><a href="getting-started-with-ggplot2.html#cb216-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()  </span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-112-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-113-1.png" width="672" /></p>
 <p>This is an easy way to make a plot for a single year. But what if you wanted to make the same plot for <em>every year</em> in the <code>gapminder</code> dataset? It would take a lot of copying-and-pasting of the preceding code chunk to accomplish this. Fortunately there's a much easier way: <em>faceting</em>. In <code>ggplot2</code> a <em>facet</em> is a subplot that corresponds to a subset of your dataset, for example the year 2007. We'll now use faceting to reproduce the plot from above for all the years in <code>gapminder</code> simultaneously:</p>
 <div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="getting-started-with-ggplot2.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder) <span class="sc">+</span></span>
 <span id="cb217-2"><a href="getting-started-with-ggplot2.html#cb217-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
 <span id="cb217-3"><a href="getting-started-with-ggplot2.html#cb217-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
 <span id="cb217-4"><a href="getting-started-with-ggplot2.html#cb217-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> year)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-113-1.png" width="672" />
+<p><img src="erm-book_files/figure-html/unnamed-chunk-114-1.png" width="672" />
 Note the syntax here: in a similar way to how we added <code>scale_x_log10()</code> to plot on the log scale, we add <code>facet_wrap(~ year)</code> to facet by <code>year</code>.
 The tilde <code>~</code> is important: this has to precede the variable by which you want to facet.</p>
 <p>Now that we understand how to produce it, let's take a closer look at this plot.
@@ -528,7 +531,7 @@ Show Solution
 <span id="cb219-2"><a href="getting-started-with-ggplot2.html#cb219-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">color =</span> continent, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
 <span id="cb219-3"><a href="getting-started-with-ggplot2.html#cb219-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
 <span id="cb219-4"><a href="getting-started-with-ggplot2.html#cb219-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> year)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-115-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>Make a scatterplot with data from <code>gapminder</code> for the year 1977.
@@ -544,7 +547,7 @@ Show Solution
 <span id="cb220-4"><a href="getting-started-with-ggplot2.html#cb220-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> lifeExp, <span class="at">size =</span> pop)) <span class="sc">+</span></span>
 <span id="cb220-5"><a href="getting-started-with-ggplot2.html#cb220-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
 <span id="cb220-6"><a href="getting-started-with-ggplot2.html#cb220-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> continent)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-116-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-117-1.png" width="672" /></p>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>What would happen if you tried to facet by <code>pop</code>? Explain briefly.</li>
@@ -592,7 +595,7 @@ First we construct a tibble which I'll name <code>by_year</code> containing the 
 <p>Then we make a scatterplot using <code>ggplot</code>:</p>
 <div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="getting-started-with-ggplot2.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(by_year) <span class="sc">+</span></span>
 <span id="cb224-2"><a href="getting-started-with-ggplot2.html#cb224-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> totalpopMil)) </span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-119-1.png" width="672" />
+<p><img src="erm-book_files/figure-html/unnamed-chunk-120-1.png" width="672" />
 Here's a more complicated example where we additionally use color to plot each continent separately:</p>
 <div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="getting-started-with-ggplot2.html#cb225-1" aria-hidden="true" tabindex="-1"></a>by_year_continent <span class="ot">&lt;-</span> gapminder <span class="sc">%&gt;%</span></span>
 <span id="cb225-2"><a href="getting-started-with-ggplot2.html#cb225-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">popMil =</span> pop <span class="sc">/</span> <span class="dv">1000000</span>) <span class="sc">%&gt;%</span></span>
@@ -616,7 +619,7 @@ Here's a more complicated example where we additionally use color to plot each c
 ## 12  2007       6251.</code></pre>
 <div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="getting-started-with-ggplot2.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(by_year_continent) <span class="sc">+</span></span>
 <span id="cb227-2"><a href="getting-started-with-ggplot2.html#cb227-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> totalpopMil, <span class="at">color =</span> continent)) </span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-120-1.png" width="672" />
+<p><img src="erm-book_files/figure-html/unnamed-chunk-121-1.png" width="672" />
 Make sure you understand how the preceding example works before attempting the exercise.</p>
 <div id="exercise-11" class="section level3" number="3.5.1">
 <h3><span class="header-section-number">3.5.1</span> Exercise</h3>
@@ -641,7 +644,7 @@ Show Solution
 <span id="cb228-3"><a href="getting-started-with-ggplot2.html#cb228-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanGDPc =</span> <span class="fu">mean</span>(gdpPercap))</span>
 <span id="cb228-4"><a href="getting-started-with-ggplot2.html#cb228-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(by_year) <span class="sc">+</span></span>
 <span id="cb228-5"><a href="getting-started-with-ggplot2.html#cb228-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> meanGDPc)) </span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-121-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Repeat 2. broken down by continent, using color to distinguish the points. Put mean GDP per capita on the log scale.</li>
@@ -658,7 +661,7 @@ Show Solution
 <div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="getting-started-with-ggplot2.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(by_year) <span class="sc">+</span></span>
 <span id="cb231-2"><a href="getting-started-with-ggplot2.html#cb231-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> meanGDPc, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
 <span id="cb231-3"><a href="getting-started-with-ggplot2.html#cb231-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-122-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -687,7 +690,7 @@ Show Solution
 ## # … with 50 more rows</code></pre>
 <div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="getting-started-with-ggplot2.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(by_year_continent) <span class="sc">+</span></span>
 <span id="cb234-2"><a href="getting-started-with-ggplot2.html#cb234-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> totalpopMil, <span class="at">color =</span> continent)) </span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-123-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-124-1.png" width="672" /></p>
 <div id="exercise-12" class="section level3" number="3.6.1">
 <h3><span class="header-section-number">3.6.1</span> Exercise</h3>
 <p>Repeat exercise 5-3 with a line plot rather than a scatterplot.</p>
@@ -703,7 +706,7 @@ Show Solution
 <div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="getting-started-with-ggplot2.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(by_year) <span class="sc">+</span></span>
 <span id="cb237-2"><a href="getting-started-with-ggplot2.html#cb237-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> meanGDPc, <span class="at">color =</span> continent)) <span class="sc">+</span></span>
 <span id="cb237-3"><a href="getting-started-with-ggplot2.html#cb237-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-124-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-125-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -716,12 +719,12 @@ Show Solution
 <span id="cb238-4"><a href="getting-started-with-ggplot2.html#cb238-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">meanLifeExp =</span> <span class="fu">mean</span>(lifeExp))</span>
 <span id="cb238-5"><a href="getting-started-with-ggplot2.html#cb238-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(by_continent) <span class="sc">+</span></span>
 <span id="cb238-6"><a href="getting-started-with-ggplot2.html#cb238-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> meanLifeExp))</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-125-1.png" width="672" />
+<p><img src="erm-book_files/figure-html/unnamed-chunk-126-1.png" width="672" />
 Sometimes we want to turn a bar plot, or some other kind of plot, on its side. This can be particularly helpful if the x-axis labels are very long. To do this, simply add <code>+ coord_flip()</code> to your <code>ggplot</code> command, for example:</p>
 <div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="getting-started-with-ggplot2.html#cb239-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(by_continent) <span class="sc">+</span></span>
 <span id="cb239-2"><a href="getting-started-with-ggplot2.html#cb239-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> meanLifeExp)) <span class="sc">+</span></span>
 <span id="cb239-3"><a href="getting-started-with-ggplot2.html#cb239-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-126-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
 <div id="exercise-13" class="section level3" number="3.7.1">
 <h3><span class="header-section-number">3.7.1</span> Exercise</h3>
 <p>Make a collection of bar plots faceted by year that compare mean GDP per capita across countries in a given year. Orient your plots so it's easy to read the continent labels.</p>
@@ -733,7 +736,7 @@ Show Solution
 <span id="cb240-2"><a href="getting-started-with-ggplot2.html#cb240-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> meanGDPc)) <span class="sc">+</span></span>
 <span id="cb240-3"><a href="getting-started-with-ggplot2.html#cb240-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> year) <span class="sc">+</span></span>
 <span id="cb240-4"><a href="getting-started-with-ggplot2.html#cb240-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-127-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-128-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -742,7 +745,7 @@ Show Solution
 <p>Now that you know how to make a barchart <em>don't bother</em>; <em>dot charts</em> as described by <a href="https://www.jstor.org/stable/pdf/2683401.pdf">Cleveland (1984)</a>, are a simpler, cleaner and more flexible alternative.</p>
 <div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="getting-started-with-ggplot2.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(by_continent) <span class="sc">+</span></span>
 <span id="cb241-2"><a href="getting-started-with-ggplot2.html#cb241-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> meanLifeExp, <span class="at">y =</span> continent))</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-128-1.png" width="672" />
+<p><img src="erm-book_files/figure-html/unnamed-chunk-129-1.png" width="672" />
 Unlike the equivalent bar chart from above, this dot chart <em>restricts</em> the <code>meanLifeExp</code> axis rather than extending it all the way to zero. This makes sense given that our interest in making this plot is to compare average life expectancy across continents.</p>
 <p>Dot charts are typically most informative when <em>sorted</em> by the continuous variable, <code>meanLifeExp</code> in our case. A convenient way to achieve this is by using the <code>fct_reorder()</code> function from the <a href="https://forcats.tidyverse.org/"><code>forcats</code> package</a>, a member of the <a href="https://www.tidyverse.org/">Tidyverse</a>. Here's a simple pipeline that does the trick:</p>
 <div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="getting-started-with-ggplot2.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
@@ -750,7 +753,7 @@ Unlike the equivalent bar chart from above, this dot chart <em>restricts</em> th
 <span id="cb242-3"><a href="getting-started-with-ggplot2.html#cb242-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">continent =</span> <span class="fu">fct_reorder</span>(continent, meanLifeExp)) <span class="sc">%&gt;%</span></span>
 <span id="cb242-4"><a href="getting-started-with-ggplot2.html#cb242-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb242-5"><a href="getting-started-with-ggplot2.html#cb242-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> meanLifeExp, <span class="at">y =</span> continent))</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-129-1.png" width="672" />
+<p><img src="erm-book_files/figure-html/unnamed-chunk-130-1.png" width="672" />
 The first argument of <code>fct_reorder()</code> is the factor whose levels we want to re-order. The second argument is the variable that we'll use to determine the order. In our case, we reorder <code>continent</code> according to <code>meanLifeExp</code>. Another thing worth noticing in the preceding code chunk is the way that I modified <code>by_continent</code> <em>in place</em> and piped the result directly into <code>ggplot()</code>. I didn't bother to store this modified version of <code>by_continent</code> or give it a new name, because I knew that I wouldn't need to use it again.</p>
 <p>Because dots take up less space than bars, dot charts provide a cleaner way of making comparisons <em>within</em> and <em>between</em> groups simultaneously. Here's a more complicated example that shows how life expectancy has changed in each continent between 1987 and 2007:</p>
 <div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="getting-started-with-ggplot2.html#cb243-1" aria-hidden="true" tabindex="-1"></a>gapminder <span class="sc">%&gt;%</span></span>
@@ -761,7 +764,7 @@ The first argument of <code>fct_reorder()</code> is the factor whose levels we w
 <span id="cb243-6"><a href="getting-started-with-ggplot2.html#cb243-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> meanLifeExp, <span class="at">y =</span> continent)) <span class="sc">+</span></span>
 <span id="cb243-7"><a href="getting-started-with-ggplot2.html#cb243-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> continent)) <span class="sc">+</span></span>
 <span id="cb243-8"><a href="getting-started-with-ggplot2.html#cb243-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> year))</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-130-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-131-1.png" width="672" /></p>
 <div id="exercise-14" class="section level3" number="3.8.1">
 <h3><span class="header-section-number">3.8.1</span> Exercise</h3>
 <p>Make a dot chart of GDP per capita in all European countries in the year 2007. Sort the dots so that the country with the <em>highest</em> GDP per capita appears a the top and the country with the <em>lowest</em> appears at the bottom.</p>
@@ -774,7 +777,7 @@ Show Solution
 <span id="cb244-3"><a href="getting-started-with-ggplot2.html#cb244-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">country =</span> <span class="fu">fct_reorder</span>(country, gdpPercap)) <span class="sc">%&gt;%</span></span>
 <span id="cb244-4"><a href="getting-started-with-ggplot2.html#cb244-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb244-5"><a href="getting-started-with-ggplot2.html#cb244-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdpPercap, <span class="at">y =</span> country))</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-131-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
 </div>
 </div>
 </div>
@@ -785,10 +788,10 @@ Show Solution
 <span id="cb245-2"><a href="getting-started-with-ggplot2.html#cb245-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">2007</span>)</span>
 <span id="cb245-3"><a href="getting-started-with-ggplot2.html#cb245-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder_2007) <span class="sc">+</span></span>
 <span id="cb245-4"><a href="getting-started-with-ggplot2.html#cb245-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> lifeExp), <span class="at">binwidth =</span> <span class="dv">5</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-132-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-133-1.png" width="672" /></p>
 <div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="getting-started-with-ggplot2.html#cb246-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder_2007) <span class="sc">+</span></span>
 <span id="cb246-2"><a href="getting-started-with-ggplot2.html#cb246-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> lifeExp), <span class="at">binwidth =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-132-2.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-133-2.png" width="672" /></p>
 <div id="exercise-15" class="section level3" number="3.9.1">
 <h3><span class="header-section-number">3.9.1</span> Exercise</h3>
 <ol style="list-style-type: decimal">
@@ -821,7 +824,7 @@ Show Solution
 <span id="cb247-2"><a href="getting-started-with-ggplot2.html#cb247-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1977</span>)</span>
 <span id="cb247-3"><a href="getting-started-with-ggplot2.html#cb247-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder_1977) <span class="sc">+</span></span>
 <span id="cb247-4"><a href="getting-started-with-ggplot2.html#cb247-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdpPercap), <span class="at">binwidth =</span> <span class="dv">5000</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-133-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-134-1.png" width="672" /></p>
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li>Repeat 3. but put GDP per capita on the log scale.</li>
@@ -834,7 +837,7 @@ Show Solution
 <div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="getting-started-with-ggplot2.html#cb248-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder_1977) <span class="sc">+</span></span>
 <span id="cb248-2"><a href="getting-started-with-ggplot2.html#cb248-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> gdpPercap), <span class="at">binwidth =</span> <span class="fl">0.2</span>) <span class="sc">+</span> </span>
 <span id="cb248-3"><a href="getting-started-with-ggplot2.html#cb248-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-134-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-135-1.png" width="672" /></p>
 </div>
 <ol start="5" style="list-style-type: decimal">
 <li>Compare and contrast the two different histograms you've made.</li>
@@ -852,7 +855,7 @@ Show Solution
 <p>The final kind of <code>ggplot</code> we'll learn about in this lesson is a boxplot, a visualization of the <em>five-number summary</em> of a variable: minimum, 25th percentile, median, 75th percentile, and maximum. To make a boxplot in <code>ggplot</code> we use the function <code>geom_boxplot()</code>, for example:</p>
 <div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="getting-started-with-ggplot2.html#cb249-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(gapminder_2007) <span class="sc">+</span></span>
 <span id="cb249-2"><a href="getting-started-with-ggplot2.html#cb249-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> lifeExp))</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-135-1.png" width="672" />
+<p><img src="erm-book_files/figure-html/unnamed-chunk-136-1.png" width="672" />
 Compared to histograms, boxplots provide less detail but allow us to easily compare across groups.</p>
 <div id="exercise-16" class="section level3" number="3.10.1">
 <h3><span class="header-section-number">3.10.1</span> Exercise</h3>
@@ -878,7 +881,7 @@ Show Solution
 <span id="cb250-4"><a href="getting-started-with-ggplot2.html#cb250-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
 <span id="cb250-5"><a href="getting-started-with-ggplot2.html#cb250-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
 <span id="cb250-6"><a href="getting-started-with-ggplot2.html#cb250-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;GDP per Capita by Continent: 1952-2007&#39;</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-136-1.png" width="672" /></p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-137-1.png" width="672" /></p>
 </div>
 <ol start="3" style="list-style-type: decimal">
 <li>Use a Google search to find out how to add a title to a <code>ggplot</code>. Use it to add a title to the plot you created in 2.</li>
