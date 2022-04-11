@@ -288,7 +288,7 @@ linearHypothesis(reg_interact_robust, c('mom_hs = 0', 'mom_iq:mom_hs = 0'))
 To make this an apples-to-apples comparison, I use the $\chi^2$ version of the non-robust test. Although the test statistics vary slightly, there's no meaningful difference in results here.
 `r unhide()`
 
-## Publication Quality Tables with `modelsummary` 
+## Publication Quality Tables 
 A crucial part of communicating our results in a statistical analysis creating tables that are clear, and easy to read. In this section we'll learn how to use the  [`modelsummary` package](https://vincentarelbundock.github.io/modelsummary/) to generate reproducible, publication-quality tables like those that appear in academic journals. It would take multiple lessons to do full justice to `modelsummary`. Here I'll show you some common and fairly simple use cases. To learn more, see this tutorial on [basic options](https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html) and this one on more advanced [customization](https://vincentarelbundock.github.io/modelsummary/articles/appearance.html).  
 
 ### `datasummary_skim()`
@@ -352,7 +352,7 @@ modelsummary(kids_regressions, gof_omit = 'Log.Lik|R2 Adj.|AIC|BIC',
 ```
 where I added in a title and footnote for good measure!
 
-### Robust Standard Errors with `modelsummary()`
+### Robust Standard Errors 
 If you want to display heteroskedasticity-robust standard errors in a table constructed with `modelsummary()` you have two options. The first, and simplest, is to pass it a model fitted with `lm_robust`. For example, using the simulated `x` and `y` data from above:
 ```{r}
 ols <- lm(y ~ x)
@@ -369,28 +369,41 @@ modelsummary(lm(y ~ x), vcov = 'HC2', gof_omit = 'Log.Lik|R2 Adj.|R2|AIC|BIC|F|R
 The heavily lifting in this case is done in the background by the `sandwich` package: see [this link](https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html#vcov ) for more details.
 
 ### Exercise
-**Replace with the `tips` dataset.` I think it will be cleaner and simpler.**
 
-1. Use `datasummary_skim()` to produce two tables of summary statistics for the `gapminder` dataset: one for the categorical variables, and another for the rest.
-
-**Finish writing the instructions for the exercise!**
-
-```{r}
-#library(gapminder)
-#gapminder_1952 <- gapminder %>%
-#  filter(year == 1952) %>%
-#  select(-year, -country)
-#datasummary_skim(gapminder_1952)
-#datasummary_skim(gapminder_1952, type = 'categorical')
-#datasummary_balance(~ continent, gapminder_1952)
-#reg1 <- lm_robust(gdpPercap ~ pop, gapminder_1952)
-#reg2 <- lm_robust(gdpPercap ~ pop + lifeExp, gapminder_1952)
-#modelsummary(list(reg1, reg2)) 
+1. Read the help file for the `tips` dataset, available in the `reshape2` package. Then use `datasummary_skim()` to make two tables of summary statistics for `tips`: one for the categorical variables and one for the remaining variables.
+```{r, message = FALSE, webex.hide = 'Show Solution'}
+library(reshape2)
+datasummary_skim(tips)
+datasummary_skim(tips, type = 'categorical')
 ```
 
+2. Suppose you were curious to know whether any of the columns of `tips` vary with `sex`. Use `datasummary_balance()` to construct a table of summary statistics that would allow you to explore this possibility. Comment on the results. 
+`r hide('Show Solution')`
+```{r, message = FALSE}
+datasummary_balance(~ sex, tips)
+```
+Male bill payers appear to spend around \$2.70 more overall, a difference that is fairly precisely estimated, but there's no clear difference in `tip` and only a small difference in party size. Male bill payers seem to be much more common at dinner compared to lunch.  
+`r unhide()`
 
+3. Choose three regression specifications to predict `tip` using other columns in the `tips` dataset. Any three specifications are fine: you're free to choose! Use `modelsummary()` to create a table of regression output for these models using the default `lm()` standard errors.
+```{r, webex.hide = 'Show Solution'}
+reg1 <- lm(tip ~ total_bill, tips)
+reg2 <- lm(tip ~ total_bill + size, tips)
+reg3 <- lm(tip ~ total_bill + size + sex, tips)
+reg_results <- list('OLS 1' = reg1,
+                    'OLS 2' = reg2,
+                    'OLS 3' = reg3)
+modelsummary(reg_results, 
+             gof_omit = 'Log.Lik|R2 Adj.|AIC|BIC',
+             fmt = 2)
+```
 
-
-
+4. Repeat the preceding with `HC2` standard errors.
+```{r, webex.hide = 'Show Solution'}
+modelsummary(reg_results, 
+             gof_omit = 'Log.Lik|R2 Adj.|AIC|BIC',
+             fmt = 2,
+             vcov = 'HC2')
+```
 
 
