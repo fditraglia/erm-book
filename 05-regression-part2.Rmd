@@ -1,6 +1,5 @@
 # Predictive Regression Part II
 
-## Introduction
 In our last lesson we covered the basics of predictive linear regression using `lm()`. We learned how to use formulas to set up different regression models, how to use `summary()` and `broom()` to display and format the results, and how to make simple plots of the regression line using `ggplot()`. We applied these tools to a simple dataset of kids test scores and discussed the correct way to interpret the results. In this lesson we'll complete our discussion of predictive linear regression by answering some frequently asked questions: 
 
 1. How can I extract predictions from a fitted regression model?
@@ -8,7 +7,7 @@ In our last lesson we covered the basics of predictive linear regression using `
 3. What about heteroskedasticity? Can I use R to compute robust standard errors?
 4. Journal articles have beautifully-formatted tables of regression results. How can I make one?
 
-
+## Regressions Used Below
 At several points in this lesson we'll find it helpful to have a few different sets of regression results at our fingertips, so I'll start by fitting three regressions from our last lesson, using the child test score dataset: 
 
 - `reg_pooled` is a regression of `kid_score` on `mom_iq` that *pools* children whose mothers graduated high school with those whose mothers did not.

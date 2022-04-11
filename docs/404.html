@@ -24,7 +24,7 @@
 <meta name="author" content="Francis J. DiTraglia" />
 
 
-<meta name="date" content="2022-04-09" />
+<meta name="date" content="2022-04-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -53,8 +53,73 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
 
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -232,6 +297,30 @@
 <li class="chapter" data-level="4.9.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#transforming-outcomes-and-predictors"><i class="fa fa-check"></i><b>4.9.5</b> Transforming Outcomes and Predictors</a></li>
 <li class="chapter" data-level="4.9.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#adding-interactions-with-and"><i class="fa fa-check"></i><b>4.9.6</b> Adding Interactions With <code>:</code>, <code>*</code>, and <code>^</code></a></li>
 <li class="chapter" data-level="4.9.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-26"><i class="fa fa-check"></i><b>4.9.7</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html"><i class="fa fa-check"></i><b>5</b> Predictive Regression Part II</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#regressions-used-below"><i class="fa fa-check"></i><b>5.1</b> Regressions Used Below</a></li>
+<li class="chapter" data-level="5.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#predicting-new-observations"><i class="fa fa-check"></i><b>5.2</b> Predicting New Observations</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-27"><i class="fa fa-check"></i><b>5.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#testing-a-linear-restriction"><i class="fa fa-check"></i><b>5.3</b> Testing a Linear Restriction</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-28"><i class="fa fa-check"></i><b>5.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#heteroskedasticity-robust-standard-errors-and-tests"><i class="fa fa-check"></i><b>5.4</b> Heteroskedasticity-Robust Standard Errors and Tests</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-29"><i class="fa fa-check"></i><b>5.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#publication-quality-tables-with-modelsummary"><i class="fa fa-check"></i><b>5.5</b> Publication Quality Tables with <code>modelsummary</code></a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_skim"><i class="fa fa-check"></i><b>5.5.1</b> <code>datasummary_skim()</code></a></li>
+<li class="chapter" data-level="5.5.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_balance"><i class="fa fa-check"></i><b>5.5.2</b> <code>datasummary_balance()</code></a></li>
+<li class="chapter" data-level="5.5.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#modelsummary"><i class="fa fa-check"></i><b>5.5.3</b> <code>modelsummary()</code></a></li>
+<li class="chapter" data-level="5.5.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#robust-standard-errors-with-modelsummary"><i class="fa fa-check"></i><b>5.5.4</b> Robust Standard Errors with <code>modelsummary()</code></a></li>
+<li class="chapter" data-level="5.5.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-30"><i class="fa fa-check"></i><b>5.5.5</b> Exercise</a></li>
 </ul></li>
 </ul></li>
 </ul>

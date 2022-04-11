@@ -1,3 +1,4 @@
+tab:unnamed-chunk-242
 running-a-simulation-study
 is-the-hot-hand-an-illusion
 drawing-random-data-in-r
@@ -80,3 +81,19 @@ exercise-25
 transforming-outcomes-and-predictors
 adding-interactions-with-and
 exercise-26
+predictive-regression-part-ii
+introduction-1
+predicting-new-observations
+exercise-27
+testing-a-linear-restriction
+exercise-28
+heteroskedasticity-robust-standard-errors-and-tests
+exercise-29
+publication-quality-tables-with-modelsummary
+datasummary_skim
+datasummary_balance
+modelsummary
+robust-standard-errors-with-modelsummary
+exercise-30
+tab:unnamed-chunk-39
+regressions-used-below
