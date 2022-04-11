@@ -142,7 +142,7 @@ kid_score_plot <- kids %>%
 # in a grid layout
 grid.arrange(kid_score_pred_plot, kid_score_plot, ncol = 2) 
 ```
-The distribution of `kid_score_pred` is clearly left skewed, like that of `kid_score`. But there are **differences???** 
+The distribution of `kid_score_pred` is clearly left skewed, like that of `kid_score`. But there are some important differences: our simulation produces values of `kid_score` that are too tightly clustered around the mode. In the real data, scores below 50 and above 100 are common, but in the simulation they're extremely rare.
 `r unhide()`
 
 
