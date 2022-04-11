@@ -1,0 +1,397 @@
+# Predictive Regression Part II
+
+## Introduction
+In our last lesson we covered the basics of predictive linear regression using `lm()`. We learned how to use formulas to set up different regression models, how to use `summary()` and `broom()` to display and format the results, and how to make simple plots of the regression line using `ggplot()`. We applied these tools to a simple dataset of kids test scores and discussed the correct way to interpret the results. In this lesson we'll complete our discussion of predictive linear regression by answering some frequently asked questions: 
+
+1. How can I extract predictions from a fitted regression model?
+2. I need to test a linear restriction. Is there a way to do this in R?
+3. What about heteroskedasticity? Can I use R to compute robust standard errors?
+4. Journal articles have beautifully-formatted tables of regression results. How can I make one?
+
+
+At several points in this lesson we'll find it helpful to have a few different sets of regression results at our fingertips, so I'll start by fitting three regressions from our last lesson, using the child test score dataset: 
+
+- `reg_pooled` is a regression of `kid_score` on `mom_iq` that *pools* children whose mothers graduated high school with those whose mothers did not.
+- `reg_hs_dummy` is a regression of `kid_score` on `mom_iq` and `mom_hs`. Recall that `mom_hs` is a dummy variable that equals one if a child's mother attended high school.
+- `reg_interact` is a regression of `kid_score` on `mom_iq`, `mom_hs`, and their interaction.
+
+```{r, message = FALSE}
+library(tidyverse) 
+kids <- read_csv("http://ditraglia.com/econ103/child_test_data.csv")
+kids <- kids %>%
+  rename(kid_score = kid.score,
+         mom_hs = mom.hs, 
+         mom_iq = mom.iq, 
+         mom_age = mom.age)
+reg_pooled <- lm(kid_score ~ mom_iq, kids)
+reg_hs_dummy <- lm(kid_score ~ mom_iq + mom_hs, kids)
+reg_interact <- lm(kid_score ~ mom_iq * mom_hs, kids)
+```
+
+
+## Predicting New Observations
+The `predict()` command allows us to predict new observations using a fitted statistical model. As we'll see in future lessons, `predict()` works with a variety of models besides linear regression. In this lesson we'll restrict our attention to making predictions based on a linear regression fitted with `lm()`.
+
+The simplest way to use `predict()` is by passing it a single argument: a regression fitted with `lm()`. When used in this way, it returns the vector of *fitted values* from the regression. As such `predict([REGRESSION])` is synonymous with `fitted.values([REGRESSION])`:
+```{r}
+yhat1 <- predict(reg_hs_dummy)
+yhat2 <- fitted.values(reg_hs_dummy)
+head(cbind(yhat1, yhat2))
+```
+This make sense if you think of the fitted values as *in-sample predictions*, the predictions that we would make for the individuals we used to fit our regression. To make predictions for *new individuals*, we need to supply a second argument to `predict()`, a data frame called `newdata`. This data frame should have the same column names as the data we used to fit our regression, and contain the same kind of information. In short: `newdata` contains the predictors $X$ for one or more individuals who are *not* in our dataset; given this information, `predict()` extracts the estimated regression coefficients $\widehat{\beta}$ and computes $X\widehat{\beta}$. 
+
+Let's try a simple example. Suppose we wanted to use `reg_pooled_hs` to predict `kid_score` for a child whose mother has an IQ of `100` and did not graduate from high school. One way to do this is "by hand" using `coef()`
+```{r}
+b_hat <- coef(reg_hs_dummy)
+b_hat
+b_hat[1] + b_hat[2] * 100 + 0 * b_hat[3]
+```
+Another is by first constructing a data frame with information on this particular hypothetical child and passing it as the `newdata` argument of `predict()`:
+```{r}
+new_kid <- data.frame(mom_iq = 100, mom_hs = 0)
+new_kid
+predict(reg_hs_dummy, new_kid)
+```
+The real value of the second approach becomes apparent when we want to make *multiple predictions at once*. For example, 
+```{r}
+new_kids <- data.frame(mom_iq = c(100, 120, 80),
+                       mom_hs = c(  0,   1,  1))
+predict(reg_hs_dummy, new_kids)
+```
+It's crucial that the *names* of the columns in `newdata` match those of the regression that you pass as the first argument to `predict()`. This, for example will throw an error:
+```{r, error = TRUE}
+other_kids <- data.frame(iq = c(100, 120, 80), 
+                         hs = c(  0,   1,  1))
+predict(reg_hs_dummy, other_kids)
+```
+Including extraneous columns in `newdata`, on the other hand, is perfectly fine. This can come in handy when you want to predict from multiple different fitted regressions. For example, it's perfectly fine to predict using `reg_pooled` and `new_kids` even though `reg_pooled` does not include `mom_hs` as a predictor:
+```{r}
+predict(reg_pooled, new_kids)
+```
+Before I turn you loose on the exercise, here's one more useful trick that doesn't *technically* count as a use of `predict()`, but is closely related. In our last lesson we learned how to use `augment()` from the `broom` package to add a column with residuals and fitted values to a data frame that we used to fit a regression. It turns out that we can use the same idea to add *predicted* values to a data frame of $X$ values at which we'd like to predict. For example, to add the result of running `predict(reg_pooled, new_kids)` as an additional column of `new_kids`, we can run the following line of code:
+```{r}
+library(broom)
+augment(reg_pooled, newdata = new_kids)
+```
+The third column is still called `.fitted` but in this case it actually contains *predicted* values. Note that these agree perfectly with those that we computed above. To avoid confusion, it's worth renaming this column using the `rename()` command from `dplyr`
+```{r}
+augment(reg_pooled, newdata = new_kids) %>%
+  rename(kid_score_pred = .fitted)
+```
+
+
+### Exercise
+1. What values of `kid_score` would we predict for the children in the data frame `new_kids` based on the results of the regression `reg_interact`?
+```{r, webex.hide = 'Show Solution'}
+predict(reg_interact, new_kids)
+```
+2. Approximately 80% of the children in our `kids` dataset have mothers who graduated high school. The average IQ of these mothers is around 102 with a standard deviation of 15. For the 20% of mothers who did not graduate, the average IQ is around 92 with a standard deviation of 13. Under the assumption that the IQ for each group of mothers follows a normal distribution in the population as a whole, use this information to generate 10,000 *simulated kids*. Store their values of `mom_iq` and `mom_hs` as the columns of a data frame called `sim_kids`. Plot a histogram of the simulated values of `mom_iq`. How do they compare to the *true* values of `mom_iq` from `kids`?
+`r hide('Show Hint')`
+First construct a vector of simulated `mom_hs` values using `rbinom()`. Call it `mom_hs_sim`. Next use `ifelse()` to construct a vector of means, `mu`, and standard deviations, `sigma`, that correspond to `mom_hs_sim`. Pass these as arguments to `rnorm()` to construct the simulated values of `mom_iq`.  
+`r unhide()`
+`r hide('Show Solution')`
+```{r, message = FALSE}
+n_sim_kids <- 1e4
+set.seed(54321)
+mom_hs_sim <- rbinom(n_sim_kids, 1, 0.8)
+
+mu <- ifelse(mom_hs_sim == 0, 92, 102) 
+sigma <- ifelse(mom_hs_sim == 0, 13, 15) 
+mom_iq_sim <- rnorm(n_sim_kids, mean = mu, sd = sigma)
+
+sim_kids <- data.frame(mom_iq = mom_iq_sim,
+                       mom_hs = mom_hs_sim)
+
+# Here I *store* the plot rather than displaying it, so I can 
+# put it next to the plot of the true mom_iq values
+sim_mom_iq_plot <- sim_kids %>%
+  ggplot() +
+  geom_histogram(aes(x = mom_iq), bins = 30) +
+  ggtitle('simulated')
+
+# Again, I *store* the plot rather than displaying it
+true_mom_iq_plot <- kids %>%
+  ggplot() +
+  geom_histogram(aes(x = mom_iq), bins = 15) +
+  ggtitle('true')
+
+# grid.arrange() from the gridExtra package is a handy way of 
+# arranging multiple ggplots in a grid
+library(gridExtra) 
+grid.arrange(sim_mom_iq_plot, true_mom_iq_plot, ncol = 2) 
+```
+The distribution of `mom_iq_sim` is roughly symmetric and unimodel. The actual distribution of `mom_iq` clearly isn't.
+`r unhide()`
+
+3. Use `augment()` from `broom` too add a column called `kid_score_pred` to `sim_kids`, containing the predicted test scores for these simulated children based on the fitted regression `reg_interact`. Plot a histogram of `kid_score_pred` and compare it to that of `kid_score` from `kids`. 
+`r hide('Show Solution')`
+```{r}
+# Store rather than display this plot
+kid_score_pred_plot <- augment(reg_interact, newdata = sim_kids) %>%
+  rename(kid_score_pred = .fitted) %>% 
+  ggplot() +  
+  geom_histogram(aes(x = kid_score_pred), bins = 30) +
+  ggtitle('simulated')
+
+# Store rather than display this plot
+kid_score_plot <- kids %>%
+  ggplot() + 
+  geom_histogram(aes(x = kid_score), bins = 20) +
+  ggtitle('true')
+
+# As above: a handy way of arranging multiple ggplots
+# in a grid layout
+grid.arrange(kid_score_pred_plot, kid_score_plot, ncol = 2) 
+```
+The distribution of `kid_score_pred` is clearly left skewed, like that of `kid_score`. But there are **differences???** 
+`r unhide()`
+
+
+## Testing a Linear Restriction
+
+Null hypothesis significance testing (NHST) is widely-used, and widely abused. In a future lesson I'll try to convince you that it's rarely of much practical use in applied work.^[To make a long story short: it's almost never plausible that the null hypothesis holds *exactly*. If the null is even slightly incorrect then we're certain to reject it if we gather enough data, but this doesn't tell us anything of scientific interest. What really matters is *effect sizes* and the precision with which we can estimate them; not p-values.] That said, there are some special situations where a hypothesis test can come in handy. More importantly, if you want to replicate the work of researchers who haven't gotten [the memo on statistical significance](https://www.amstat.org/asa/files/pdfs/P-ValueStatement.pdf), you need to know something about NHST. In this section we'll learn how to carry out classical test of a *linear restriction*. For the moment I will assume that the regression errors are homoskedastic. Later in this lesson we'll learn how to adjust for heteroskedasticity. 
+
+The regression output provided by `summary()`, or in a tidier form by `tidy()`, makes it easy to test a null hypothesis of the form $H_0\colon \beta_j = 0$ against the two-sided alternative $H_1 \colon \beta_j \neq 0$. Not only do they provide the point estimates $\widehat{\beta}_j$ and associated standard errors $\text{SE}_j$, they also provide the t-statistic $\widehat{\beta}_j/\text{SE}_j$ and p-value for this very null hypothesis! In this example, we would soundly reject the null hypothesis that the coefficient on `mom_iq` is zero:
+```{r}
+tidy(reg_pooled)
+```
+For any other test that we might want to carry out, however, this output is less helpful. Suppose that we wanted to test $H_0\colon \beta_j = b$ against the two-sided alternative where $b$ is some constant that does *not* equal zero. We could of course construct the t-statistic "by hand" using the regression output. For example, we construct the test statistic for a test of the null hypothesis that the coefficient on `mom_iq` equals 1 as follows: 
+```{r}
+results_pooled <- tidy(reg_pooled)
+b <- 1
+test_stat <- with(results_pooled, abs(estimate[2] - b) / std.error[2])
+test_stat
+```
+From there we could calculate a p-value if desired. This approach works, but it's tedious. It also leaves us with ample opportunity to make a careless error in the calculation. Fortunately there's a better way!
+
+Testing $H_0\colon \beta_j = b$ is a special case of the more general problem of testing a *linear restriction*. In full generality, a test of a linear restriction takes the form
+$$
+H_0\colon \mathbf{R}\beta = \mathbf{q} \quad \text{versus} \quad H_1\colon \mathbf{R}\beta \neq \mathbf{q}
+$$
+where $\mathbf{R}$ is a $J \times K$ matrix of constants, $\mathbf{q}$ is $J$-vector of constants, and $\beta$ is the regression parameter vector. If you haven't seen this before or have nightmares because you *have* seen it before, don't be put off: the only reason I'm showing you this notation is to clarify which kinds of hypotheses constitute a *linear restriction*. Here are a some examples. Each of them can be written in the form given above by choosing the appropriate $\mathbf{R}$ matrix and $\mathbf{q}$ vector:
+
+- $H_0\colon \beta_j = 2$ 
+- $H_0\colon \beta_1 = \beta_2$ 
+- $H_0\colon \beta_1 + \beta_2 + \beta_3 = 1$
+- $H_0\colon \beta_1 = 0 \text{ and } \beta_2 = \beta_3$
+
+The `linearHypothesis()` command from the `car` package makes it easy to conduct a Wald test of a linear restriction based on a regression model fitted with `lm()`. The first argument of `linearHypothesis()` is the *unrestricted model*, a regression that we've already fit using `lm()`.^[Recall that a Wald test compares the estimated coefficients from an unrestricted model to their hypothesized values under a specified restriction.] The second argument is a description of the hypothesis we wish to test. For example to test that the coefficient on `mom_iq` equals 1, we can use the following command:  
+```{r, message = FALSE}
+library(car)
+linearHypothesis(reg_pooled, 'mom_iq = 1')
+```
+To test that the intercept equals zero, a very silly hypothesis indeed, we simply need to replace `'mom_iq = 1'` with `'(Intercept) = 0'`
+```{r}
+linearHypothesis(reg_pooled, '(Intercept) = 1')
+```
+To test the *joint* null hypothesis that both of these restrictions hold simultaneously, we supply a *vector* as the second argument. Each element of the vector describes one of the restrictions: 
+```{r}
+linearHypothesis(reg_pooled, c('mom_iq = 1', '(Intercept) = 1'))
+```
+By default `linearHypothesis()` carries out inference based on the F statistic. This is the "finite sample" Wald test. If you prefer the asymptotic version, based on a Chi-squared statistic, set the option `test = 'Chisq'`, for example
+```{r}
+linearHypothesis(reg_pooled, test = 'Chisq',
+                 c('mom_iq = 1', '(Intercept) = 1'))
+```
+In this example it makes hardly any difference wich version of the test we use.
+
+### Exercise
+1. Test the joint null hypothesis that the slope and intercept of the predictive relationship between `kid_score` and `mom_iq` is *the same* for kids whose mothers graduated from high school and those whose mothers did not. Does the p-value change much if you use the asymptotic version of the test rather than the finite-sample F?
+```{r, webex.hide = 'Show Solution'}
+tidy(reg_interact)
+linearHypothesis(reg_interact, c('mom_hs = 0', 'mom_iq:mom_hs = 0'))
+linearHypothesis(reg_interact, test = 'Chisq',
+                 c('mom_hs = 0', 'mom_iq:mom_hs = 0'))
+```
+2. Let `n` be the number of rows in `kids`. Generate two random vectors as follows: `x` is a vector of `n` independent standard normal noise while `z` equals `mom_iq` plus a vector of independent standard normal noise. Carry out a new regression, `reg_augmented`, that *augments* `reg_interact` by adding the predictors `x` and `z`. Then carry out an F-test the null hypothesis that `x` and `z` are irrelevant for predicting `mpg` after taking into account `mom_iq` and `mom_hs`. Interpret your findings. Do the results of the test make sense?
+`r hide('Show Solution')`
+```{r}
+set.seed(54321)
+n <- nrow(kids)
+x <- rnorm(n)
+z <- kids$mom_iq + rnorm(n)
+reg_augmented <- lm(kid_score ~ mom_iq * mom_hs + x + z, kids) 
+tidy(reg_augmented)
+linearHypothesis(reg_augmented, c('x = 0', 'z = 0'))
+```
+These results make sense: `x` was randomly generated so it clearly has nothing to do with `kid_score`. In contrast, because it's related to `mom_iq`, `z` clearly *is* related to `kid_score`, but doesn't contain and *additional* predictive information beyond that already contained in `mom_iq`. 
+`r unhide()`
+
+## Heteroskedasticity-Robust Standard Errors and Tests
+
+Consider a linear regression model of the form $Y_i = X_i'\beta + epsilon_i$.
+If the variance of $\epsilon_i$ is unrelated to the predictors $X_i$, we say that the regression errors are *homoskedastic*. This is just a fancy Greek work for *constant variance*. If instead, the variance of $\epsilon_i$ depends on the value of $x_i$, we say that the regression errors are *heteroskedastic*. This is just a fancy Greek word for *non-constant variance*. Heteroskedasticity does not invalidate our least squares estimates of $\beta$, but it does invalidate the formulas used by `lm()` to calculate standard errors and p-values. Fortunately there's a simple solution. In this lesson I'll show you how to implement the solution without explaining how it works. In a future lesson we'll take a closer look at robust standard errors
+
+The command `lm_robust()` from the `estimatr` package works exactly like `lm()` *except* that it uses heteroskedasticity-robust standard errors by default. If you're familiar with Stata, `lm_robust()` is the equivalent of `reg robust`. Let's test this out on our model `kid_score ~ mom_iq * mom_hs` from above. Notice that the coefficients in `reg_interact_robust` are identical to those from `reg_interact`
+```{r}
+library(estimatr)
+reg_interact_robust <- lm_robust(kid_score ~ mom_iq * mom_hs, kids)
+cbind(lm = coef(reg_interact), lm_robust = coef(reg_interact_robust))
+```
+The standard errors, on the other hand, are different:
+```{r}
+data.frame(tidy(reg_interact)[c('term', 'std.error')],
+            robust.std.error = tidy(reg_interact_robust)$std.error)
+```
+In this example the heteroskedasticity-robust standard errors are *slightly smaller*, although the difference is too small to be of practical relevance. As a general rule, correcting for possible heteroskedasticity tends to *increase* our standard errors, but this is not always the case, as we see from the preceding example.
+
+There are actually various different "flavors" of heteroskedasticity-robust standard errors: HC0, HC1, HC2, and HC3. We'll have more to say about these in a future lesson. For now, the important thing to know is that `lm_robust()` defaults to HC2 whereas Stata defaults to HC1. To obtain a different flavor of robust standard error, you can set the `se_type` argument. To obtain standard errors that match those computed by `reg robust` in Stata you can either set `se_type = 'HC1'` or `se_type = 'stata'`. They do the same thing, but the latter is easier to remember.
+
+Heteroskedasticity doesn't just invalidate inference based on the t-tests from the `lm` summary output; it also invalidates any that we carry out by passing these results to `linearHypothesis`. Fortunately, there's an easy fix: as long as we fit our regression using `lm_robust` in place of `lm`, `linearHypothesis` will automatically carry out a heteroskedasticity-robust test. For example: 
+```{r, message = FALSE}
+linearHypothesis(reg_interact_robust, 'mom_iq = 0.8')
+```
+Because the robust test relies on an *asymptotic* result, it uses a $\chi^2$ distribution. The non-robust test based on `reg_interact` is slightly different even if we set `test = 'Chisq'` 
+```{r}
+linearHypothesis(reg_interact, 'mom_iq = 0.8', test = 'Chisq')
+```
+Although both of these tests use a $\chi^2$ distribution with one degree of freedom, the test statistic differs between them. This is because the robust test uses a *different variance-covariance matrix estimate* when forming the Wald statistic.
+
+### Exercise
+1. If we had run `reg robust` in Stata, what standard errors would we have obtained in the regression model `kid_score ~ mom_iq * mom_hs` from above? 
+```{r, webex.hide = 'Show Solution'}
+lm_robust(kid_score ~ mom_iq * mom_hs, kids, se_type = 'stata') %>%
+  tidy() %>%
+  select(term, std.error)
+```
+2. Set `x` equal to `mom_iq` from `kids` and let `n` equal `length(x)`. Generate a vector of independent mean zero errors `epsilon` with standard deviation equal to `exp(1.3 + 0.8 * scale(x))`. Read the help file for `scale()` to make sure you understand what this function does. Plot `x` against `epsilon`. Are the errors contained in `epsilon` homoskedastic? Explain briefly. 
+`r hide('Show Solution')`
+```{r}
+set.seed(4321)
+x <- kids$mom_iq
+n <- length(x)
+epsilon <- rnorm(n, mean = 0, sd = exp(1.3 + 0.8 * scale(x)))
+qplot(x, epsilon)
+```
+The errors `epsilon` are clearly heteroskedastic: their variance is an *increasing* function of `x`. We can see this clearly in the plot: the values of `epsilon` "fan out" as `x` increases. 
+`r unhide()`
+
+3. Generate a vector of simulated outcomes `y` according to `y <- a + b * x + epsilon` where `a` and `b` are the intercept and slope from `reg_pooled`. Then regress `y` on `x` and calculate three kinds of standard errors: the usual ones from `lm()`, the HC2-flavored robust versions from `lm_robust()`, and the ones that would be produced by the Stata command `reg robust`. Comment on the differences between them.
+`r hide('Show Solution')`
+```{r,message = FALSE}
+y <- fitted.values(reg_pooled) + epsilon
+reg_sim <- lm(y ~ x)
+reg_sim_robust <- lm_robust(y ~ x)
+reg_sim_stata <- lm_robust(y ~ x, se_type = 'stata')
+data.frame(tidy(reg_sim)[, c('term', 'std.error')],
+           HC2.std.error = tidy(reg_sim_robust)$std.error,
+           stata.std.error = tidy(reg_sim_stata)$std.error)
+```
+Here the robust standard errors are considerably larger, but the HC2 version is nearly identical to the Stata version (HC1).
+`r unhide()`
+4. In an earlier exercise from this lesson you tested the joint null hypothesis that the slope and intercept of the predictive relationship between `kid_score` and `mom_iq` was the same, regardless of whether a child's mother graduated from high school. Do the results change if you carry out a heteroskedasticity-robust version of the test?
+`r hide('Show Solution')`
+```{r}
+linearHypothesis(reg_interact, c('mom_hs = 0', 'mom_iq:mom_hs = 0'),
+                 test = 'Chisq')
+linearHypothesis(reg_interact_robust, c('mom_hs = 0', 'mom_iq:mom_hs = 0'))
+```
+To make this an apples-to-apples comparison, I use the $\chi^2$ version of the non-robust test. Although the test statistics vary slightly, there's no meaningful difference in results here.
+`r unhide()`
+
+## Publication Quality Tables with `modelsummary` 
+A crucial part of communicating our results in a statistical analysis creating tables that are clear, and easy to read. In this section we'll learn how to use the  [`modelsummary` package](https://vincentarelbundock.github.io/modelsummary/) to generate reproducible, publication-quality tables like those that appear in academic journals. It would take multiple lessons to do full justice to `modelsummary`. Here I'll show you some common and fairly simple use cases. To learn more, see this tutorial on [basic options](https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html) and this one on more advanced [customization](https://vincentarelbundock.github.io/modelsummary/articles/appearance.html).  
+
+### `datasummary_skim()`
+The `datasummary_skim()` function from `modelsummary` makes it easy to construct simple tables of summary statistics. Simply pass it a data frame, and it will return a helpful table complete with cute little histograms! (If you don't want the histograms, you can set `histogram = FALSE`.)
+```{r}
+library(modelsummary)
+datasummary_skim(kids)
+```
+The summary statistics for `mom_hs` are a bit silly: there's no point in reporting the standard deviation of a binary variable, since this is a deterministic function of the mean. The problem here is that `datasummary_skim` has no way of knowing that we have encoded a *categorical variable* using the values `0` and `1`. In our last lesson I mentioned that it's better to explicitly store categorical variables as *factors* in R, and suggested replacing `mom_hs` with `mom_education` as follows:
+```{r}
+kids_cat <- kids %>% 
+  mutate(mom_education = if_else(mom_hs == 1, 
+                                 'High School', 
+                                 'No High School')) %>%
+  mutate(mom_education = factor(mom_education, 
+                                levels = unique(mom_education))) %>%
+  select(-mom_hs)
+```
+If we make explicit which variables are categorical and which aren't, `datasummary_skim()` will *drop* any categorical variables by default:
+```{r}
+datasummary_skim(kids_cat)
+```
+To make a table of *only* the categorical variables, set `type = 'categorical'`
+```{r}
+datasummary_skim(kids_cat, type = 'categorical')
+```
+
+### `datasummary_balance()` 
+It can sometimes be helpful to compare summary statistics across categories defined by a "grouping variable." For example, we may be interested to know how `kid_score`, `mom_iq`, and `mom_age` vary with `mom_education`. The `datasummary_balance()` function makes this easy: 
+```{r}
+datasummary_balance(~ mom_education, data = kids_cat)
+```
+The second argument of `datasummary_balance()` is the data frame we wish to summarize. The first is a *one-sided formula* that takes the form `~ [GROUPING VARIABLE]`. The idea here is that `[GROUPING VARIABLE]` is analogous to a RHS variable in a regression formula. The syntax makes sense if you think about it: this table is equivalent to "regressing" all of the variables in `kids_cat` on `mom_eduation`. 
+
+### `modelsummary()`
+
+The `modelsummary()` produces summary tables for statistical models, including linear regressions. The simplest way to use it is by passing a single argument: a fitted model such as `reg_pooled`
+```{r}
+modelsummary(reg_pooled)
+```
+But it is with multiple models that `modelsummary()` shows its true power. Recall that we fitted a number of different regressions based on the `kids` dataset. To display them all at once in a format that permits easy comparisons, we simply need to create a *list* of the fitted models:
+```{r}
+kids_regressions <- list('OLS 1' = reg_pooled,
+                         'OLS 2' = reg_hs_dummy,
+                         'OLS 3' = reg_interact)
+```
+When we pass `kids_regressions` to `modelsummary()` it will magically line up the estimates from each model that correspond to the same regressor, and add the names that I provided when creating the list of results: 
+```{r}
+modelsummary(kids_regressions)
+```
+Pretty good for a first pass! But let's clean things up a bit. For my taste, this table has far too many goodness of fit statistics. We can remove the ones that we don't want using the `gof_omit` option. To omit everything, set `gof_omit = '.*'`. Otherwise you can specify which measures to omit as follows: 
+```{r}
+modelsummary(kids_regressions, gof_omit = 'Log.Lik|R2 Adj.|AIC|BIC')
+```
+That's much cleaner, but there's still room for improvement. With standard errors as large as 13 for some of the coefficient estimates in this table, it's silly if not downright innumerate to report three decimal places of precision in our estimates: differences on this scale are merely noise. The `fmt` option allows you to specify in *excruciating detail* how you would like the numbers in your table to be formatted. For full details, see [this link](https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html#fmt). The simplest use of this option is to set a desired number of decimal places, for example: 
+```{r}
+modelsummary(kids_regressions, gof_omit = 'Log.Lik|R2 Adj.|AIC|BIC',
+             fmt = 2, 
+             title = 'Regression results for kids dataset',
+             notes = 'Source: all data were fabricated by the authors.')
+```
+where I added in a title and footnote for good measure!
+
+### Robust Standard Errors with `modelsummary()`
+If you want to display heteroskedasticity-robust standard errors in a table constructed with `modelsummary()` you have two options. The first, and simplest, is to pass it a model fitted with `lm_robust`. For example, using the simulated `x` and `y` data from above:
+```{r}
+ols <- lm(y ~ x)
+robust <- lm_robust(y ~ x)
+different_SEs <- list('OLS' = ols, 'Robust' = robust)
+cbind(tidy(ols)[, c('term', 'std.error')], 
+      robust = tidy(robust)$std.error)
+modelsummary(different_SEs, gof_omit = 'Log.Lik|R2 Adj.|R2|AIC|BIC|F|RMSE')
+```
+Notice that `modelsummary()` very helpfully indicates which flavor of robust standard errors appear in the `Robust` column. The second option is to fit your model using `lm()` and have `modelsummary()` do the appropriate standard error calculations for you using the `vcov` option: 
+```{r}
+modelsummary(lm(y ~ x), vcov = 'HC2', gof_omit = 'Log.Lik|R2 Adj.|R2|AIC|BIC|F|RMSE')
+```
+The heavily lifting in this case is done in the background by the `sandwich` package: see [this link](https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html#vcov ) for more details.
+
+### Exercise
+**Replace with the `tips` dataset.` I think it will be cleaner and simpler.**
+
+1. Use `datasummary_skim()` to produce two tables of summary statistics for the `gapminder` dataset: one for the categorical variables, and another for the rest.
+
+**Finish writing the instructions for the exercise!**
+
+```{r}
+#library(gapminder)
+#gapminder_1952 <- gapminder %>%
+#  filter(year == 1952) %>%
+#  select(-year, -country)
+#datasummary_skim(gapminder_1952)
+#datasummary_skim(gapminder_1952, type = 'categorical')
+#datasummary_balance(~ continent, gapminder_1952)
+#reg1 <- lm_robust(gdpPercap ~ pop, gapminder_1952)
+#reg2 <- lm_robust(gdpPercap ~ pop + lifeExp, gapminder_1952)
+#modelsummary(list(reg1, reg2)) 
+```
+
+
+
+
+
+
+
