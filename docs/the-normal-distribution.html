@@ -712,6 +712,10 @@ Show Solution
 <ol style="list-style-type: decimal">
 <li>Continuing from the exercise from above, create both marginal and joint kernel density plots of <code>mom.iq</code> and <code>kid.score</code>. Do these appear to be normally distributed?</li>
 </ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
 <div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="the-normal-distribution.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids) <span class="sc">+</span></span>
 <span id="cb83-2"><a href="the-normal-distribution.html#cb83-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom.iq), <span class="at">fill =</span> <span class="st">&#39;black&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
 <p><img src="erm-book_files/figure-html/unnamed-chunk-34-1.png" width="672" /></p>
@@ -720,8 +724,11 @@ Show Solution
 <p><img src="erm-book_files/figure-html/unnamed-chunk-34-2.png" width="672" /></p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="the-normal-distribution.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids) <span class="sc">+</span></span>
 <span id="cb85-2"><a href="the-normal-distribution.html#cb85-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density2d_filled</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom.iq, <span class="at">y =</span> kid.score)) </span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-34-3.png" width="672" />
-2. Reading from the color scale, the height of the "peak" in each of the two-dimensional kernel density plots from above was around 0.16. Why is this?</p>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-34-3.png" width="672" /></p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Reading from the color scale, the height of the "peak" in each of the two-dimensional kernel density plots from above was around 0.16. Why is this?</li>
+</ol>
 <div class="webex-solution">
 <button>
 Show Solution
@@ -982,7 +989,7 @@ Show Solution
 <div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="the-normal-distribution.html#cb113-1" aria-hidden="true" tabindex="-1"></a>s1 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
 <span id="cb113-2"><a href="the-normal-distribution.html#cb113-2" aria-hidden="true" tabindex="-1"></a>s2 <span class="ot">&lt;-</span> <span class="dv">2</span></span>
 <span id="cb113-3"><a href="the-normal-distribution.html#cb113-3" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
-<span id="cb113-4"><a href="the-normal-distribution.html#cb113-4" aria-hidden="true" tabindex="-1"></a>s12 <span class="ot">&lt;-</span> r <span class="sc">/</span> (s1 <span class="sc">*</span> s2)</span>
+<span id="cb113-4"><a href="the-normal-distribution.html#cb113-4" aria-hidden="true" tabindex="-1"></a>s12 <span class="ot">&lt;-</span> r <span class="sc">*</span> (s1 <span class="sc">*</span> s2)</span>
 <span id="cb113-5"><a href="the-normal-distribution.html#cb113-5" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(s1, <span class="dv">0</span>,</span>
 <span id="cb113-6"><a href="the-normal-distribution.html#cb113-6" aria-hidden="true" tabindex="-1"></a>              s12 <span class="sc">/</span> s1, <span class="fu">sqrt</span>(s2<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> s12<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> s1<span class="sc">^</span><span class="dv">2</span>)), </span>
 <span id="cb113-7"><a href="the-normal-distribution.html#cb113-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
@@ -990,12 +997,12 @@ Show Solution
 <span id="cb113-9"><a href="the-normal-distribution.html#cb113-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;x1&#39;</span>, <span class="st">&#39;x2&#39;</span>)</span>
 <span id="cb113-10"><a href="the-normal-distribution.html#cb113-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(x)</span></code></pre></div>
 <pre><code>##           x1        x2
-## x1 1.0063783 0.2022186
-## x2 0.2022186 4.0151808</code></pre>
+## x1 1.0063783 0.8059712
+## x2 0.8059712 4.0178160</code></pre>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="the-normal-distribution.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x)</span></code></pre></div>
 <pre><code>##           x1        x2
-## x1 1.0000000 0.1005977
-## x2 0.1005977 1.0000000</code></pre>
+## x1 1.0000000 0.4008149
+## x2 0.4008149 1.0000000</code></pre>
 <div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="the-normal-distribution.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
 <span id="cb117-2"><a href="the-normal-distribution.html#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density2d_filled</span>(<span class="fu">aes</span>(x1, x2)) <span class="sc">+</span></span>
 <span id="cb117-3"><a href="the-normal-distribution.html#cb117-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()  <span class="co"># forces the aspect ratio to be 1:1 so you see the ellipses!</span></span></code></pre></div>
@@ -1084,7 +1091,7 @@ Show Solution
 <div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="the-normal-distribution.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add solution code here!</span></span></code></pre></div>
 </div>
 <ol start="4" style="list-style-type: decimal">
-<li>In the discussion above I claimed that <span class="math inline">\(\text{Var}(Y) = \mathbf{v}&#39;\boldsymbol{Sigma}\text{v}\)</span>. Work out the algebra to establish this result.</li>
+<li>In the discussion above I claimed that <span class="math inline">\(\text{Var}(Y) = \mathbf{v}&#39;\boldsymbol{\Sigma}\text{v}\)</span>. Work out the algebra to establish this result.</li>
 </ol>
 <div class="webex-solution">
 <button>

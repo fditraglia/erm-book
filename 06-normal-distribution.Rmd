@@ -280,7 +280,7 @@ grid.arrange(x_marginals, x_joint, ncol = 2)
 
 ### Exercise
 1. Continuing from the exercise from above, create both marginal and joint kernel density plots of `mom.iq` and `kid.score`. Do these appear to be normally distributed? 
-```{r, message = FALSE}
+```{r, message = FALSE, webex.hide = 'Show Solution'}
 ggplot(kids) +
   geom_density(aes(x = mom.iq), fill = 'black', alpha = 0.5)
 
@@ -510,7 +510,7 @@ $$
 s1 <- 1
 s2 <- 2
 r <- 0.4
-s12 <- r / (s1 * s2)
+s12 <- r * (s1 * s2)
 A <- matrix(c(s1, 0,
               s12 / s1, sqrt(s2^2 - s12^2 / s1^2)), 
             byrow = TRUE, nrow = 2, ncol = 2)
@@ -597,7 +597,7 @@ $$
 ```{r, webex.hide = 'Show Solution'}
 # Add solution code here!
 ```
-4. In the discussion above I claimed that $\text{Var}(Y) = \mathbf{v}'\boldsymbol{Sigma}\text{v}$. Work out the algebra to establish this result.
+4. In the discussion above I claimed that $\text{Var}(Y) = \mathbf{v}'\boldsymbol{\Sigma}\text{v}$. Work out the algebra to establish this result.
 `r hide('Show Solution')`
 $$
 \begin{aligned}
