@@ -495,11 +495,11 @@ $$
 $$
 `r unhide()`
 2. In our discussion above, $X_1$ and $X_2$ both had variance equal to one, so their correlation equaled their covariance. More generally, we may want to generate $X_1$ with variance $\sigma_1^2$ and $X_2$ with variance $\sigma_2^2$, where the covariance between them equals $\sigma_{12}$. Extend your reasoning from the preceding exercise to find an appropriate matrix $\mathbf{A}$ such that $\mathbf{A}\mathbf{Z}$ has the desired variance-covariance matrix. 
-`r hide('Show Hint)`
+`r hide('Show Hint')`
 There are *many* matrices $\mathbf{A}$ that will do the trick. Following from our reasoning above, construct the one that obeys this convention: the diagonal elements of $\mathbf{A}$ should be positive, and the element above the diagonal should be zero. In other words: $b=0$ and $a, d > 0$.
 `r unhide()`
 
-`r hide('Show Solution)'`
+`r hide('Show Solution')`
 As above, we just have to work out the appropriate values of the constants $a, b, c$, and $d$ in the equations $X_1 = a Z_1 + b Z_2$ and $X_2 = c Z_1 + d Z_2$. Following our convention, $b=0$ so $X_1 = a Z_1$. Since $Z_1$ is a standard normal, to give $X_1$ a variance of $\sigma_1^2$ we need to set $a = \sigma_1$. By our convention, this is the *positive* square root of $\sigma^2_1$ so that $a > 0$. As we calculated in an earlier exercise,$\text{Cov}(X_1, X_2) = ac + bd$. Since $a = \sigma_1$ and $b = 0$, this simplifies to $\text{Cov}(X_1, X_2) = \sigma_1 c$. In order for this covariance to equal $\sigma_{12}$, we need to set $c = \sigma_{12}/\sigma_1$. All that remains is to set the variance of $X_2$ to $\sigma_2^2$. Again using a calculation from a previous exercise, $\text{Var}(X_2) = c^2 + d^2$. Substituting our solution for $c$ and equating to $\sigma_2^2$ gives $d^2 = \sigma_2^2 - \sigma_{12}^2/\sigma_1^2$. To ensure that $d>0$ we set it equal to the positive square root: $d = \sqrt{\sigma_2^2 - \sigma_{12}^2/\sigma_1^2}$. Collecting our results in matrix form:
 $$
 \begin{bmatrix} \sigma_1 & 0 \\ \sigma_{12}/\sigma_1 & \sqrt{\sigma_2^2 - \sigma_{12}^2/\sigma_1^2}\end{bmatrix} \begin{bmatrix} Z_1 \\ Z_1 \end{bmatrix} \sim \text{N}\left(\begin{bmatrix}0 \\ 0 \end{bmatrix}, \begin{bmatrix} \sigma_1^2 & \sigma_{12} \\ \sigma_{12} & \sigma_2^2\end{bmatrix} \right).
@@ -598,7 +598,7 @@ $$
 # Add solution code here!
 ```
 4. In the discussion above I claimed that $\text{Var}(Y) = \mathbf{v}'\boldsymbol{Sigma}\text{v}$. Work out the algebra to establish this result.
-`r hide('Show Solution)`
+`r hide('Show Solution')`
 $$
 \begin{aligned}
 \mathbf{v}' \boldsymbol{\Sigma} \mathbf{v} &= \begin{bmatrix} \alpha & \beta \end{bmatrix} \begin{bmatrix} \sigma_1^2 & \sigma_{12} \\ \sigma_{12} & \sigma_2^2\end{bmatrix} \begin{bmatrix} \alpha \\ \beta \end{bmatrix}\\
