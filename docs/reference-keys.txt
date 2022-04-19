@@ -95,7 +95,6 @@ datasummary_balance
 modelsummary
 robust-standard-errors
 exercise-30
-tab:unnamed-chunk-39
 the-normal-distribution
 standard-normals-as-building-blocks
 the-one-dimensional-case
