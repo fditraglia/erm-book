@@ -121,4 +121,3 @@ exercise-35
 epilogue
 affine-transformations-of-a-multivariate-normal
 conditional-distributions-of-bivariate-normal
-problem-set

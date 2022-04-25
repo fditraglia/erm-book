@@ -24,7 +24,7 @@ knitr::knit_hooks$set(output = function(x, options) {
 This is the first of two lessons that will teach you how to implement and interpret *predictive* linear regression in R. For the moment we won't worry about causality and we won't talk about heteroskedasticity or autocorrelation. In this first lesson, we'll introduce the basics using a simple dataset that you can download from my website and display as follows:
 ```{r message=FALSE}
 library(readr)
-kids <- read_csv("http://ditraglia.com/econ103/child_test_data.csv")
+kids <- read_csv("http://ditraglia.com/data/child_test_data.csv")
 kids
 ```
 Each row of the tibble `kids` contains information on a three-year old child. The first column gives the child's test score at age three, while the remaining columns provide information about each child's mother:

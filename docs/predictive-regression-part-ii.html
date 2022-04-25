@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lesson 5 Predictive Regression Part II | Empirical Research Methods</title>
   <meta name="description" content="Lesson 5 Predictive Regression Part II | Empirical Research Methods" />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lesson 5 Predictive Regression Part II | Empirical Research Methods" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Francis J. DiTraglia" />
 
 
-<meta name="date" content="2022-04-19" />
+<meta name="date" content="2022-04-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,9 +33,8 @@
   
 <link rel="prev" href="predictive-regression-part-i.html"/>
 <link rel="next" href="the-normal-distribution.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/header-attrs-2.13/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -51,8 +50,10 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
@@ -139,226 +140,225 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc-logo"><a href="./"><img src="images/core-erm-logo.png"></a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<li><a href="index.html#preface">Preface<span></span></a>
 <ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i>About This Book</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-requisites"><i class="fa fa-check"></i>Pre-requisites</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#good-coding-style"><i class="fa fa-check"></i>Good Coding Style</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-markdown"><i class="fa fa-check"></i>R Markdown</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-stata"><i class="fa fa-check"></i>Why not Stata?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab-julia-or-python"><i class="fa fa-check"></i>Why not Matlab, Julia, or Python?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#you-can-help-make-this-book-better"><i class="fa fa-check"></i>You can help make this book better!</a></li>
+<li><a href="index.html#about-this-book">About This Book<span></span></a></li>
+<li><a href="index.html#pre-requisites">Pre-requisites<span></span></a></li>
+<li><a href="index.html#good-coding-style">Good Coding Style<span></span></a></li>
+<li><a href="index.html#r-markdown">R Markdown<span></span></a></li>
+<li><a href="index.html#why-not-stata">Why not Stata?<span></span></a></li>
+<li><a href="index.html#why-not-matlab-julia-or-python">Why not Matlab, Julia, or Python?<span></span></a></li>
+<li><a href="index.html#you-can-help-make-this-book-better">You can help make this book better!<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html"><i class="fa fa-check"></i><b>1</b> Running a Simulation Study</a>
+<li class="chapter" data-level="1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html"><i class="fa fa-check"></i><b>1</b> Running a Simulation Study<span></span></a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#is-the-hot-hand-an-illusion"><i class="fa fa-check"></i><b>1.1</b> Is the Hot Hand an Illusion?</a></li>
-<li class="chapter" data-level="1.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#drawing-random-data-in-r"><i class="fa fa-check"></i><b>1.2</b> Drawing Random Data in R</a>
+<li class="chapter" data-level="1.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#is-the-hot-hand-an-illusion"><i class="fa fa-check"></i><b>1.1</b> Is the Hot Hand an Illusion?<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#drawing-random-data-in-r"><i class="fa fa-check"></i><b>1.2</b> Drawing Random Data in R<span></span></a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#sample"><i class="fa fa-check"></i><b>1.2.1</b> <code>sample()</code></a></li>
-<li class="chapter" data-level="1.2.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#probability-distributions-in-r"><i class="fa fa-check"></i><b>1.2.2</b> Probability Distributions in R</a></li>
-<li class="chapter" data-level="1.2.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#set.seed"><i class="fa fa-check"></i><b>1.2.3</b> <code>set.seed()</code></a></li>
-<li class="chapter" data-level="1.2.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercises"><i class="fa fa-check"></i><b>1.2.4</b> Exercises</a></li>
+<li class="chapter" data-level="1.2.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#sample"><i class="fa fa-check"></i><b>1.2.1</b> <code>sample()</code><span></span></a></li>
+<li class="chapter" data-level="1.2.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#probability-distributions-in-r"><i class="fa fa-check"></i><b>1.2.2</b> Probability Distributions in R<span></span></a></li>
+<li class="chapter" data-level="1.2.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#set.seed"><i class="fa fa-check"></i><b>1.2.3</b> <code>set.seed()</code><span></span></a></li>
+<li class="chapter" data-level="1.2.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercises"><i class="fa fa-check"></i><b>1.2.4</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#the-skeleton-of-a-simulation-study"><i class="fa fa-check"></i><b>1.3</b> The Skeleton of a Simulation Study</a>
+<li class="chapter" data-level="1.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#the-skeleton-of-a-simulation-study"><i class="fa fa-check"></i><b>1.3</b> The Skeleton of a Simulation Study<span></span></a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#a-biased-estimator-of-sigma2"><i class="fa fa-check"></i><b>1.3.1</b> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span></a></li>
-<li class="chapter" data-level="1.3.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#draw_sim_data"><i class="fa fa-check"></i><b>1.3.2</b> <code>draw_sim_data()</code></a></li>
-<li class="chapter" data-level="1.3.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_estimate"><i class="fa fa-check"></i><b>1.3.3</b> <code>get_estimate()</code></a></li>
-<li class="chapter" data-level="1.3.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_bias"><i class="fa fa-check"></i><b>1.3.4</b> <code>get_bias()</code></a></li>
-<li class="chapter" data-level="1.3.5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#running-the-simulation-study"><i class="fa fa-check"></i><b>1.3.5</b> Running the Simulation Study</a></li>
-<li class="chapter" data-level="1.3.6" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#expand.grid-and-map"><i class="fa fa-check"></i><b>1.3.6</b> <code>expand.grid()</code> and <code>Map()</code></a></li>
-<li class="chapter" data-level="1.3.7" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#formatting-the-results"><i class="fa fa-check"></i><b>1.3.7</b> Formatting the Results</a></li>
+<li class="chapter" data-level="1.3.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#a-biased-estimator-of-sigma2"><i class="fa fa-check"></i><b>1.3.1</b> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span><span></span></a></li>
+<li class="chapter" data-level="1.3.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#draw_sim_data"><i class="fa fa-check"></i><b>1.3.2</b> <code>draw_sim_data()</code><span></span></a></li>
+<li class="chapter" data-level="1.3.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_estimate"><i class="fa fa-check"></i><b>1.3.3</b> <code>get_estimate()</code><span></span></a></li>
+<li class="chapter" data-level="1.3.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_bias"><i class="fa fa-check"></i><b>1.3.4</b> <code>get_bias()</code><span></span></a></li>
+<li class="chapter" data-level="1.3.5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#running-the-simulation-study"><i class="fa fa-check"></i><b>1.3.5</b> Running the Simulation Study<span></span></a></li>
+<li class="chapter" data-level="1.3.6" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#expand.grid-and-map"><i class="fa fa-check"></i><b>1.3.6</b> <code>expand.grid()</code> and <code>Map()</code><span></span></a></li>
+<li class="chapter" data-level="1.3.7" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#formatting-the-results"><i class="fa fa-check"></i><b>1.3.7</b> Formatting the Results<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercise---the-hot-hand"><i class="fa fa-check"></i><b>1.4</b> Exercise - The Hot Hand</a></li>
+<li class="chapter" data-level="1.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercise---the-hot-hand"><i class="fa fa-check"></i><b>1.4</b> Exercise - The Hot Hand<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html"><i class="fa fa-check"></i><b>2</b> Getting Started with <code>dplyr</code></a>
+<li class="chapter" data-level="2" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html"><i class="fa fa-check"></i><b>2</b> Getting Started with <code>dplyr</code><span></span></a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#package-installation"><i class="fa fa-check"></i><b>2.1</b> Package Installation</a>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#package-installation"><i class="fa fa-check"></i><b>2.1</b> Package Installation<span></span></a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise"><i class="fa fa-check"></i><b>2.1.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.1.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise"><i class="fa fa-check"></i><b>2.1.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#what-is-a-tibble"><i class="fa fa-check"></i><b>2.2</b> What is a tibble?</a></li>
-<li class="chapter" data-level="2.3" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>2.3</b> Filter Rows with <code>filter</code></a>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#what-is-a-tibble"><i class="fa fa-check"></i><b>2.2</b> What is a tibble?<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>2.3</b> Filter Rows with <code>filter</code><span></span></a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises-1"><i class="fa fa-check"></i><b>2.3.1</b> Exercises</a></li>
+<li class="chapter" data-level="2.3.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises-1"><i class="fa fa-check"></i><b>2.3.1</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#sort-data-with-arrange"><i class="fa fa-check"></i><b>2.4</b> Sort data with <code>arrange</code></a>
+<li class="chapter" data-level="2.4" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#sort-data-with-arrange"><i class="fa fa-check"></i><b>2.4</b> Sort data with <code>arrange</code><span></span></a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises-2"><i class="fa fa-check"></i><b>2.4.1</b> Exercises</a></li>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises-2"><i class="fa fa-check"></i><b>2.4.1</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#choose-columns-with-select"><i class="fa fa-check"></i><b>2.5</b> Choose columns with <code>select</code></a>
+<li class="chapter" data-level="2.5" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#choose-columns-with-select"><i class="fa fa-check"></i><b>2.5</b> Choose columns with <code>select</code><span></span></a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-1"><i class="fa fa-check"></i><b>2.5.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.5.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-1"><i class="fa fa-check"></i><b>2.5.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-summarize-verb"><i class="fa fa-check"></i><b>2.6</b> The <code>summarize</code> verb</a>
+<li class="chapter" data-level="2.6" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-summarize-verb"><i class="fa fa-check"></i><b>2.6</b> The <code>summarize</code> verb<span></span></a>
 <ul>
-<li class="chapter" data-level="2.6.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-2"><i class="fa fa-check"></i><b>2.6.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.6.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-2"><i class="fa fa-check"></i><b>2.6.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-group_by-verb"><i class="fa fa-check"></i><b>2.7</b> The <code>group_by</code> verb</a>
+<li class="chapter" data-level="2.7" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-group_by-verb"><i class="fa fa-check"></i><b>2.7</b> The <code>group_by</code> verb<span></span></a>
 <ul>
-<li class="chapter" data-level="2.7.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-3"><i class="fa fa-check"></i><b>2.7.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.7.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-3"><i class="fa fa-check"></i><b>2.7.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#understanding-the-pipe"><i class="fa fa-check"></i><b>2.8</b> Understanding the pipe: <code>%&gt;%</code></a>
+<li class="chapter" data-level="2.8" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#understanding-the-pipe"><i class="fa fa-check"></i><b>2.8</b> Understanding the pipe: <code>%&gt;%</code><span></span></a>
 <ul>
-<li class="chapter" data-level="2.8.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-4"><i class="fa fa-check"></i><b>2.8.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.8.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-4"><i class="fa fa-check"></i><b>2.8.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2.9" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#chaining-commands"><i class="fa fa-check"></i><b>2.9</b> Chaining commands</a>
+<li class="chapter" data-level="2.9" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#chaining-commands"><i class="fa fa-check"></i><b>2.9</b> Chaining commands<span></span></a>
 <ul>
-<li class="chapter" data-level="2.9.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-5"><i class="fa fa-check"></i><b>2.9.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.9.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-5"><i class="fa fa-check"></i><b>2.9.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2.10" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#change-an-existing-variable-or-create-a-new-one-with-mutate"><i class="fa fa-check"></i><b>2.10</b> Change an existing variable or create a new one with <code>mutate</code></a>
+<li class="chapter" data-level="2.10" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#change-an-existing-variable-or-create-a-new-one-with-mutate"><i class="fa fa-check"></i><b>2.10</b> Change an existing variable or create a new one with <code>mutate</code><span></span></a>
 <ul>
-<li class="chapter" data-level="2.10.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-6"><i class="fa fa-check"></i><b>2.10.1</b> Exercise</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Getting Started with <code>ggplot2</code></a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#a-simple-scatterplot-using-ggplot2"><i class="fa fa-check"></i><b>3.1</b> A simple scatterplot using <code>ggplot2</code></a>
-<ul>
-<li class="chapter" data-level="3.1.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-7"><i class="fa fa-check"></i><b>3.1.1</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-on-the-log-scale"><i class="fa fa-check"></i><b>3.2</b> Plotting on the log scale</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-8"><i class="fa fa-check"></i><b>3.2.1</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#the-color-and-size-aesthetics"><i class="fa fa-check"></i><b>3.3</b> The color and size aesthetics</a>
-<ul>
-<li class="chapter" data-level="3.3.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-9"><i class="fa fa-check"></i><b>3.3.1</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#faceting---plots-for-multiple-subsets"><i class="fa fa-check"></i><b>3.4</b> Faceting - Plots for Multiple Subsets</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-10"><i class="fa fa-check"></i><b>3.4.1</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-summarized-data"><i class="fa fa-check"></i><b>3.5</b> Plotting summarized data</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-11"><i class="fa fa-check"></i><b>3.5.1</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#line-plots"><i class="fa fa-check"></i><b>3.6</b> Line plots</a>
-<ul>
-<li class="chapter" data-level="3.6.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-12"><i class="fa fa-check"></i><b>3.6.1</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="3.7" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#bar-plots"><i class="fa fa-check"></i><b>3.7</b> Bar plots</a>
-<ul>
-<li class="chapter" data-level="3.7.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-13"><i class="fa fa-check"></i><b>3.7.1</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="3.8" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#cleveland-dot-charts"><i class="fa fa-check"></i><b>3.8</b> Cleveland Dot Charts</a>
-<ul>
-<li class="chapter" data-level="3.8.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-14"><i class="fa fa-check"></i><b>3.8.1</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="3.9" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#histograms"><i class="fa fa-check"></i><b>3.9</b> Histograms</a>
-<ul>
-<li class="chapter" data-level="3.9.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>3.9.1</b> Exercise</a></li>
-</ul></li>
-<li class="chapter" data-level="3.10" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#boxplots"><i class="fa fa-check"></i><b>3.10</b> Boxplots</a>
-<ul>
-<li class="chapter" data-level="3.10.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-16"><i class="fa fa-check"></i><b>3.10.1</b> Exercise</a></li>
+<li class="chapter" data-level="2.10.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-6"><i class="fa fa-check"></i><b>2.10.1</b> Exercise<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html"><i class="fa fa-check"></i><b>4</b> Predictive Regression Part I</a>
+<li class="chapter" data-level="3" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Getting Started with <code>ggplot2</code><span></span></a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction</a>
+<li class="chapter" data-level="3.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#a-simple-scatterplot-using-ggplot2"><i class="fa fa-check"></i><b>3.1</b> A simple scatterplot using <code>ggplot2</code><span></span></a>
 <ul>
-<li class="chapter" data-level="4.1.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-17"><i class="fa fa-check"></i><b>4.1.1</b> Exercise</a></li>
+<li class="chapter" data-level="3.1.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-7"><i class="fa fa-check"></i><b>3.1.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-least-squares-problem"><i class="fa fa-check"></i><b>4.2</b> The Least Squares Problem</a>
+<li class="chapter" data-level="3.2" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-on-the-log-scale"><i class="fa fa-check"></i><b>3.2</b> Plotting on the log scale<span></span></a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-18"><i class="fa fa-check"></i><b>4.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="3.2.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-8"><i class="fa fa-check"></i><b>3.2.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#linear-regression-with-lm"><i class="fa fa-check"></i><b>4.3</b> Linear Regression with <code>lm()</code></a>
+<li class="chapter" data-level="3.3" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#the-color-and-size-aesthetics"><i class="fa fa-check"></i><b>3.3</b> The color and size aesthetics<span></span></a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-19"><i class="fa fa-check"></i><b>4.3.1</b> Exercise</a></li>
+<li class="chapter" data-level="3.3.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-9"><i class="fa fa-check"></i><b>3.3.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#plotting-the-regression-line"><i class="fa fa-check"></i><b>4.4</b> Plotting the Regression Line</a>
+<li class="chapter" data-level="3.4" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#faceting---plots-for-multiple-subsets"><i class="fa fa-check"></i><b>3.4</b> Faceting - Plots for Multiple Subsets<span></span></a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-20"><i class="fa fa-check"></i><b>4.4.1</b> Exercise</a></li>
+<li class="chapter" data-level="3.4.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-10"><i class="fa fa-check"></i><b>3.4.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#getting-more-from-lm"><i class="fa fa-check"></i><b>4.5</b> Getting More from <code>lm()</code></a>
+<li class="chapter" data-level="3.5" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-summarized-data"><i class="fa fa-check"></i><b>3.5</b> Plotting summarized data<span></span></a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-21"><i class="fa fa-check"></i><b>4.5.1</b> Exercise</a></li>
+<li class="chapter" data-level="3.5.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-11"><i class="fa fa-check"></i><b>3.5.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#summarizing-the-ouput-of-lm"><i class="fa fa-check"></i><b>4.6</b> Summarizing The Ouput of <code>lm()</code></a>
+<li class="chapter" data-level="3.6" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#line-plots"><i class="fa fa-check"></i><b>3.6</b> Line plots<span></span></a>
 <ul>
-<li class="chapter" data-level="4.6.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-22"><i class="fa fa-check"></i><b>4.6.1</b> Exercise</a></li>
+<li class="chapter" data-level="3.6.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-12"><i class="fa fa-check"></i><b>3.6.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#tidying-up-with-broom"><i class="fa fa-check"></i><b>4.7</b> Tidying up with <code>broom</code></a>
+<li class="chapter" data-level="3.7" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#bar-plots"><i class="fa fa-check"></i><b>3.7</b> Bar plots<span></span></a>
 <ul>
-<li class="chapter" data-level="4.7.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-23"><i class="fa fa-check"></i><b>4.7.1</b> Exercise</a></li>
+<li class="chapter" data-level="3.7.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-13"><i class="fa fa-check"></i><b>3.7.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.8" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#dummy-variables-with-lm"><i class="fa fa-check"></i><b>4.8</b> Dummy Variables with <code>lm()</code></a>
+<li class="chapter" data-level="3.8" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#cleveland-dot-charts"><i class="fa fa-check"></i><b>3.8</b> Cleveland Dot Charts<span></span></a>
 <ul>
-<li class="chapter" data-level="4.8.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-24"><i class="fa fa-check"></i><b>4.8.1</b> Exercise</a></li>
+<li class="chapter" data-level="3.8.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-14"><i class="fa fa-check"></i><b>3.8.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.9" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#fun-with-r-formulas"><i class="fa fa-check"></i><b>4.9</b> Fun with R Formulas</a>
+<li class="chapter" data-level="3.9" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#histograms"><i class="fa fa-check"></i><b>3.9</b> Histograms<span></span></a>
 <ul>
-<li class="chapter" data-level="4.9.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#everything-else---the-dot-."><i class="fa fa-check"></i><b>4.9.1</b> "Everything Else" - The Dot <code>.</code></a></li>
-<li class="chapter" data-level="4.9.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#removing-predictors-with--"><i class="fa fa-check"></i><b>4.9.2</b> Removing Predictors with <code>-</code></a></li>
-<li class="chapter" data-level="4.9.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-intercept-1"><i class="fa fa-check"></i><b>4.9.3</b> The Intercept: <code>1</code></a></li>
-<li class="chapter" data-level="4.9.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-25"><i class="fa fa-check"></i><b>4.9.4</b> Exercise</a></li>
-<li class="chapter" data-level="4.9.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#transforming-outcomes-and-predictors"><i class="fa fa-check"></i><b>4.9.5</b> Transforming Outcomes and Predictors</a></li>
-<li class="chapter" data-level="4.9.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#adding-interactions-with-and"><i class="fa fa-check"></i><b>4.9.6</b> Adding Interactions With <code>:</code>, <code>*</code>, and <code>^</code></a></li>
-<li class="chapter" data-level="4.9.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-26"><i class="fa fa-check"></i><b>4.9.7</b> Exercise</a></li>
+<li class="chapter" data-level="3.9.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>3.9.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#boxplots"><i class="fa fa-check"></i><b>3.10</b> Boxplots<span></span></a>
+<ul>
+<li class="chapter" data-level="3.10.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-16"><i class="fa fa-check"></i><b>3.10.1</b> Exercise<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html"><i class="fa fa-check"></i><b>5</b> Predictive Regression Part II</a>
+<li class="chapter" data-level="4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html"><i class="fa fa-check"></i><b>4</b> Predictive Regression Part I<span></span></a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#regressions-used-below"><i class="fa fa-check"></i><b>5.1</b> Regressions Used Below</a></li>
-<li class="chapter" data-level="5.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#predicting-new-observations"><i class="fa fa-check"></i><b>5.2</b> Predicting New Observations</a>
+<li class="chapter" data-level="4.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction<span></span></a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-27"><i class="fa fa-check"></i><b>5.2.1</b> Exercise</a></li>
+<li class="chapter" data-level="4.1.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-17"><i class="fa fa-check"></i><b>4.1.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#testing-a-linear-restriction"><i class="fa fa-check"></i><b>5.3</b> Testing a Linear Restriction</a>
+<li class="chapter" data-level="4.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-least-squares-problem"><i class="fa fa-check"></i><b>4.2</b> The Least Squares Problem<span></span></a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-28"><i class="fa fa-check"></i><b>5.3.1</b> Exercise</a></li>
+<li class="chapter" data-level="4.2.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-18"><i class="fa fa-check"></i><b>4.2.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#heteroskedasticity-robust-standard-errors-and-tests"><i class="fa fa-check"></i><b>5.4</b> Heteroskedasticity-Robust Standard Errors and Tests</a>
+<li class="chapter" data-level="4.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#linear-regression-with-lm"><i class="fa fa-check"></i><b>4.3</b> Linear Regression with <code>lm()</code><span></span></a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-29"><i class="fa fa-check"></i><b>5.4.1</b> Exercise</a></li>
+<li class="chapter" data-level="4.3.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-19"><i class="fa fa-check"></i><b>4.3.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#publication-quality-tables"><i class="fa fa-check"></i><b>5.5</b> Publication Quality Tables</a>
+<li class="chapter" data-level="4.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#plotting-the-regression-line"><i class="fa fa-check"></i><b>4.4</b> Plotting the Regression Line<span></span></a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_skim"><i class="fa fa-check"></i><b>5.5.1</b> <code>datasummary_skim()</code></a></li>
-<li class="chapter" data-level="5.5.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_balance"><i class="fa fa-check"></i><b>5.5.2</b> <code>datasummary_balance()</code></a></li>
-<li class="chapter" data-level="5.5.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#modelsummary"><i class="fa fa-check"></i><b>5.5.3</b> <code>modelsummary()</code></a></li>
-<li class="chapter" data-level="5.5.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#robust-standard-errors"><i class="fa fa-check"></i><b>5.5.4</b> Robust Standard Errors</a></li>
-<li class="chapter" data-level="5.5.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-30"><i class="fa fa-check"></i><b>5.5.5</b> Exercise</a></li>
+<li class="chapter" data-level="4.4.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-20"><i class="fa fa-check"></i><b>4.4.1</b> Exercise<span></span></a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html"><i class="fa fa-check"></i><b>6</b> The Normal Distribution</a>
+<li class="chapter" data-level="4.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#getting-more-from-lm"><i class="fa fa-check"></i><b>4.5</b> Getting More from <code>lm()</code><span></span></a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#standard-normals-as-building-blocks"><i class="fa fa-check"></i><b>6.1</b> Standard Normals as Building Blocks</a></li>
-<li class="chapter" data-level="6.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-one-dimensional-case"><i class="fa fa-check"></i><b>6.2</b> The One-Dimensional Case</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pnorm"><i class="fa fa-check"></i><b>6.2.1</b> <code>pnorm()</code></a></li>
-<li class="chapter" data-level="6.2.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#dnorm"><i class="fa fa-check"></i><b>6.2.2</b> <code>dnorm()</code></a></li>
-<li class="chapter" data-level="6.2.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#qnorm"><i class="fa fa-check"></i><b>6.2.3</b> <code>qnorm()</code></a></li>
-<li class="chapter" data-level="6.2.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#rnorm"><i class="fa fa-check"></i><b>6.2.4</b> <code>rnorm()</code></a></li>
-<li class="chapter" data-level="6.2.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pqdrnorm-are-vectorized"><i class="fa fa-check"></i><b>6.2.5</b> <code>p/q/d/rnorm()</code> are Vectorized</a></li>
-<li class="chapter" data-level="6.2.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#be-careful"><i class="fa fa-check"></i><b>6.2.6</b> Be Careful!</a></li>
-<li class="chapter" data-level="6.2.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercises-3"><i class="fa fa-check"></i><b>6.2.7</b> Exercises</a></li>
+<li class="chapter" data-level="4.5.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-21"><i class="fa fa-check"></i><b>4.5.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#generating-correlated-normal-rvs"><i class="fa fa-check"></i><b>6.3</b> Generating Correlated Normal RVs</a>
+<li class="chapter" data-level="4.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#summarizing-the-ouput-of-lm"><i class="fa fa-check"></i><b>4.6</b> Summarizing The Ouput of <code>lm()</code><span></span></a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#start-with-uncorrelated-normal-draws"><i class="fa fa-check"></i><b>6.3.1</b> Start with Uncorrelated Normal Draws</a></li>
-<li class="chapter" data-level="6.3.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-31"><i class="fa fa-check"></i><b>6.3.2</b> Exercise</a></li>
-<li class="chapter" data-level="6.3.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#add-constants-to-shift-the-means"><i class="fa fa-check"></i><b>6.3.3</b> Add Constants to Shift the Means</a></li>
-<li class="chapter" data-level="6.3.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-32"><i class="fa fa-check"></i><b>6.3.4</b> Exercise</a></li>
-<li class="chapter" data-level="6.3.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#multiply-by-scalars-to-change-the-variance"><i class="fa fa-check"></i><b>6.3.5</b> Multiply by Scalars to Change the Variance</a></li>
-<li class="chapter" data-level="6.3.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#combine-to-create-correlation"><i class="fa fa-check"></i><b>6.3.6</b> Combine to Create Correlation</a></li>
-<li class="chapter" data-level="6.3.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-33"><i class="fa fa-check"></i><b>6.3.7</b> Exercise</a></li>
+<li class="chapter" data-level="4.6.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-22"><i class="fa fa-check"></i><b>4.6.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-cholesky-decomposition"><i class="fa fa-check"></i><b>6.4</b> The Cholesky Decomposition</a>
+<li class="chapter" data-level="4.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#tidying-up-with-broom"><i class="fa fa-check"></i><b>4.7</b> Tidying up with <code>broom</code><span></span></a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#going-backwards"><i class="fa fa-check"></i><b>6.4.1</b> Going Backwards</a></li>
-<li class="chapter" data-level="6.4.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-34"><i class="fa fa-check"></i><b>6.4.2</b> Exercise</a></li>
-<li class="chapter" data-level="6.4.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#whats-the-square-root-of-a-matrix"><i class="fa fa-check"></i><b>6.4.3</b> What's the Square Root of a Matrix?</a></li>
-<li class="chapter" data-level="6.4.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-35"><i class="fa fa-check"></i><b>6.4.4</b> Exercise</a></li>
+<li class="chapter" data-level="4.7.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-23"><i class="fa fa-check"></i><b>4.7.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#epilogue"><i class="fa fa-check"></i><b>6.5</b> Epilogue</a>
+<li class="chapter" data-level="4.8" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#dummy-variables-with-lm"><i class="fa fa-check"></i><b>4.8</b> Dummy Variables with <code>lm()</code><span></span></a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#affine-transformations-of-a-multivariate-normal"><i class="fa fa-check"></i><b>6.5.1</b> Affine Transformations of a Multivariate Normal</a></li>
-<li class="chapter" data-level="6.5.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#conditional-distributions-of-bivariate-normal"><i class="fa fa-check"></i><b>6.5.2</b> Conditional Distributions of Bivariate Normal</a></li>
+<li class="chapter" data-level="4.8.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-24"><i class="fa fa-check"></i><b>4.8.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#problem-set"><i class="fa fa-check"></i><b>6.6</b> Problem Set</a></li>
+<li class="chapter" data-level="4.9" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#fun-with-r-formulas"><i class="fa fa-check"></i><b>4.9</b> Fun with R Formulas<span></span></a>
+<ul>
+<li class="chapter" data-level="4.9.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#everything-else---the-dot-."><i class="fa fa-check"></i><b>4.9.1</b> "Everything Else" - The Dot <code>.</code><span></span></a></li>
+<li class="chapter" data-level="4.9.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#removing-predictors-with--"><i class="fa fa-check"></i><b>4.9.2</b> Removing Predictors with <code>-</code><span></span></a></li>
+<li class="chapter" data-level="4.9.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-intercept-1"><i class="fa fa-check"></i><b>4.9.3</b> The Intercept: <code>1</code><span></span></a></li>
+<li class="chapter" data-level="4.9.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-25"><i class="fa fa-check"></i><b>4.9.4</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="4.9.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#transforming-outcomes-and-predictors"><i class="fa fa-check"></i><b>4.9.5</b> Transforming Outcomes and Predictors<span></span></a></li>
+<li class="chapter" data-level="4.9.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#adding-interactions-with-and"><i class="fa fa-check"></i><b>4.9.6</b> Adding Interactions With <code>:</code>, <code>*</code>, and <code>^</code><span></span></a></li>
+<li class="chapter" data-level="4.9.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-26"><i class="fa fa-check"></i><b>4.9.7</b> Exercise<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html"><i class="fa fa-check"></i><b>5</b> Predictive Regression Part II<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#regressions-used-below"><i class="fa fa-check"></i><b>5.1</b> Regressions Used Below<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#predicting-new-observations"><i class="fa fa-check"></i><b>5.2</b> Predicting New Observations<span></span></a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-27"><i class="fa fa-check"></i><b>5.2.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#testing-a-linear-restriction"><i class="fa fa-check"></i><b>5.3</b> Testing a Linear Restriction<span></span></a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-28"><i class="fa fa-check"></i><b>5.3.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#heteroskedasticity-robust-standard-errors-and-tests"><i class="fa fa-check"></i><b>5.4</b> Heteroskedasticity-Robust Standard Errors and Tests<span></span></a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-29"><i class="fa fa-check"></i><b>5.4.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#publication-quality-tables"><i class="fa fa-check"></i><b>5.5</b> Publication Quality Tables<span></span></a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_skim"><i class="fa fa-check"></i><b>5.5.1</b> <code>datasummary_skim()</code><span></span></a></li>
+<li class="chapter" data-level="5.5.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_balance"><i class="fa fa-check"></i><b>5.5.2</b> <code>datasummary_balance()</code><span></span></a></li>
+<li class="chapter" data-level="5.5.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#modelsummary"><i class="fa fa-check"></i><b>5.5.3</b> <code>modelsummary()</code><span></span></a></li>
+<li class="chapter" data-level="5.5.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#robust-standard-errors"><i class="fa fa-check"></i><b>5.5.4</b> Robust Standard Errors<span></span></a></li>
+<li class="chapter" data-level="5.5.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-30"><i class="fa fa-check"></i><b>5.5.5</b> Exercise<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html"><i class="fa fa-check"></i><b>6</b> The Normal Distribution<span></span></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#standard-normals-as-building-blocks"><i class="fa fa-check"></i><b>6.1</b> Standard Normals as Building Blocks<span></span></a></li>
+<li class="chapter" data-level="6.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-one-dimensional-case"><i class="fa fa-check"></i><b>6.2</b> The One-Dimensional Case<span></span></a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pnorm"><i class="fa fa-check"></i><b>6.2.1</b> <code>pnorm()</code><span></span></a></li>
+<li class="chapter" data-level="6.2.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#dnorm"><i class="fa fa-check"></i><b>6.2.2</b> <code>dnorm()</code><span></span></a></li>
+<li class="chapter" data-level="6.2.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#qnorm"><i class="fa fa-check"></i><b>6.2.3</b> <code>qnorm()</code><span></span></a></li>
+<li class="chapter" data-level="6.2.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#rnorm"><i class="fa fa-check"></i><b>6.2.4</b> <code>rnorm()</code><span></span></a></li>
+<li class="chapter" data-level="6.2.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pqdrnorm-are-vectorized"><i class="fa fa-check"></i><b>6.2.5</b> <code>p/q/d/rnorm()</code> are Vectorized<span></span></a></li>
+<li class="chapter" data-level="6.2.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#be-careful"><i class="fa fa-check"></i><b>6.2.6</b> Be Careful!<span></span></a></li>
+<li class="chapter" data-level="6.2.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercises-3"><i class="fa fa-check"></i><b>6.2.7</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#generating-correlated-normal-rvs"><i class="fa fa-check"></i><b>6.3</b> Generating Correlated Normal RVs<span></span></a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#start-with-uncorrelated-normal-draws"><i class="fa fa-check"></i><b>6.3.1</b> Start with Uncorrelated Normal Draws<span></span></a></li>
+<li class="chapter" data-level="6.3.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-31"><i class="fa fa-check"></i><b>6.3.2</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="6.3.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#add-constants-to-shift-the-means"><i class="fa fa-check"></i><b>6.3.3</b> Add Constants to Shift the Means<span></span></a></li>
+<li class="chapter" data-level="6.3.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-32"><i class="fa fa-check"></i><b>6.3.4</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="6.3.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#multiply-by-scalars-to-change-the-variance"><i class="fa fa-check"></i><b>6.3.5</b> Multiply by Scalars to Change the Variance<span></span></a></li>
+<li class="chapter" data-level="6.3.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#combine-to-create-correlation"><i class="fa fa-check"></i><b>6.3.6</b> Combine to Create Correlation<span></span></a></li>
+<li class="chapter" data-level="6.3.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-33"><i class="fa fa-check"></i><b>6.3.7</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-cholesky-decomposition"><i class="fa fa-check"></i><b>6.4</b> The Cholesky Decomposition<span></span></a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#going-backwards"><i class="fa fa-check"></i><b>6.4.1</b> Going Backwards<span></span></a></li>
+<li class="chapter" data-level="6.4.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-34"><i class="fa fa-check"></i><b>6.4.2</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="6.4.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#whats-the-square-root-of-a-matrix"><i class="fa fa-check"></i><b>6.4.3</b> What's the Square Root of a Matrix?<span></span></a></li>
+<li class="chapter" data-level="6.4.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-35"><i class="fa fa-check"></i><b>6.4.4</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#epilogue"><i class="fa fa-check"></i><b>6.5</b> Epilogue<span></span></a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#affine-transformations-of-a-multivariate-normal"><i class="fa fa-check"></i><b>6.5.1</b> Affine Transformations of a Multivariate Normal<span></span></a></li>
+<li class="chapter" data-level="6.5.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#conditional-distributions-of-bivariate-normal"><i class="fa fa-check"></i><b>6.5.2</b> Conditional Distributions of Bivariate Normal<span></span></a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -377,8 +377,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="predictive-regression-part-ii" class="section level1" number="5">
-<h1><span class="header-section-number">Lesson 5</span> Predictive Regression Part II</h1>
+<div id="predictive-regression-part-ii" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Lesson 5</span> Predictive Regression Part II<a href="predictive-regression-part-ii.html#predictive-regression-part-ii" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>In our last lesson we covered the basics of predictive linear regression using <code>lm()</code>. We learned how to use formulas to set up different regression models, how to use <code>summary()</code> and <code>broom()</code> to display and format the results, and how to make simple plots of the regression line using <code>ggplot()</code>. We applied these tools to a simple dataset of kids test scores and discussed the correct way to interpret the results. In this lesson we'll complete our discussion of predictive linear regression by answering some frequently asked questions:</p>
 <ol style="list-style-type: decimal">
 <li>How can I extract predictions from a fitted regression model?</li>
@@ -386,8 +386,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>What about heteroskedasticity? Can I use R to compute robust standard errors?</li>
 <li>Journal articles have beautifully-formatted tables of regression results. How can I make one?</li>
 </ol>
-<div id="regressions-used-below" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Regressions Used Below</h2>
+<div id="regressions-used-below" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Regressions Used Below<a href="predictive-regression-part-ii.html#regressions-used-below" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>At several points in this lesson we'll find it helpful to have a few different sets of regression results at our fingertips, so I'll start by fitting three regressions from our last lesson, using the child test score dataset:</p>
 <ul>
 <li><code>reg_pooled</code> is a regression of <code>kid_score</code> on <code>mom_iq</code> that <em>pools</em> children whose mothers graduated high school with those whose mothers did not.</li>
@@ -395,7 +395,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><code>reg_interact</code> is a regression of <code>kid_score</code> on <code>mom_iq</code>, <code>mom_hs</code>, and their interaction.</li>
 </ul>
 <div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="predictive-regression-part-ii.html#cb369-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
-<span id="cb369-2"><a href="predictive-regression-part-ii.html#cb369-2" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://ditraglia.com/econ103/child_test_data.csv&quot;</span>)</span>
+<span id="cb369-2"><a href="predictive-regression-part-ii.html#cb369-2" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://ditraglia.com/data/child_test_data.csv&quot;</span>)</span>
 <span id="cb369-3"><a href="predictive-regression-part-ii.html#cb369-3" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
 <span id="cb369-4"><a href="predictive-regression-part-ii.html#cb369-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">kid_score =</span> kid.score,</span>
 <span id="cb369-5"><a href="predictive-regression-part-ii.html#cb369-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_hs =</span> mom.hs, </span>
@@ -405,8 +405,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb369-9"><a href="predictive-regression-part-ii.html#cb369-9" aria-hidden="true" tabindex="-1"></a>reg_hs_dummy <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">+</span> mom_hs, kids)</span>
 <span id="cb369-10"><a href="predictive-regression-part-ii.html#cb369-10" aria-hidden="true" tabindex="-1"></a>reg_interact <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">*</span> mom_hs, kids)</span></code></pre></div>
 </div>
-<div id="predicting-new-observations" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Predicting New Observations</h2>
+<div id="predicting-new-observations" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Predicting New Observations<a href="predictive-regression-part-ii.html#predicting-new-observations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <code>predict()</code> command allows us to predict new observations using a fitted statistical model. As we'll see in future lessons, <code>predict()</code> works with a variety of models besides linear regression. In this lesson we'll restrict our attention to making predictions based on a linear regression fitted with <code>lm()</code>.</p>
 <p>The simplest way to use <code>predict()</code> is by passing it a single argument: a regression fitted with <code>lm()</code>. When used in this way, it returns the vector of <em>fitted values</em> from the regression. As such <code>predict([REGRESSION])</code> is synonymous with <code>fitted.values([REGRESSION])</code>:</p>
 <div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="predictive-regression-part-ii.html#cb370-1" aria-hidden="true" tabindex="-1"></a>yhat1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg_hs_dummy)</span>
@@ -469,8 +469,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 1    100      0           86.8
 ## 2    120      1           99.0
 ## 3     80      1           74.6</code></pre>
-<div id="exercise-27" class="section level3" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Exercise</h3>
+<div id="exercise-27" class="section level3 hasAnchor" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Exercise<a href="predictive-regression-part-ii.html#exercise-27" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>What values of <code>kid_score</code> would we predict for the children in the data frame <code>new_kids</code> based on the results of the regression <code>reg_interact</code>?</li>
 </ol>
@@ -554,8 +554,8 @@ The distribution of <code>kid_score_pred</code> is clearly left skewed, like tha
 </div>
 </div>
 </div>
-<div id="testing-a-linear-restriction" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Testing a Linear Restriction</h2>
+<div id="testing-a-linear-restriction" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Testing a Linear Restriction<a href="predictive-regression-part-ii.html#testing-a-linear-restriction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Null hypothesis significance testing (NHST) is widely-used, and widely abused. In a future lesson I'll try to convince you that it's rarely of much practical use in applied work.<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a> That said, there are some special situations where a hypothesis test can come in handy. More importantly, if you want to replicate the work of researchers who haven't gotten <a href="https://www.amstat.org/asa/files/pdfs/P-ValueStatement.pdf">the memo on statistical significance</a>, you need to know something about NHST. In this section we'll learn how to carry out classical test of a <em>linear restriction</em>. For the moment I will assume that the regression errors are homoskedastic. Later in this lesson we'll learn how to adjust for heteroskedasticity.</p>
 <p>The regression output provided by <code>summary()</code>, or in a tidier form by <code>tidy()</code>, makes it easy to test a null hypothesis of the form <span class="math inline">\(H_0\colon \beta_j = 0\)</span> against the two-sided alternative <span class="math inline">\(H_1 \colon \beta_j \neq 0\)</span>. Not only do they provide the point estimates <span class="math inline">\(\widehat{\beta}_j\)</span> and associated standard errors <span class="math inline">\(\text{SE}_j\)</span>, they also provide the t-statistic <span class="math inline">\(\widehat{\beta}_j/\text{SE}_j\)</span> and p-value for this very null hypothesis! In this example, we would soundly reject the null hypothesis that the coefficient on <code>mom_iq</code> is zero:</p>
 <div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="predictive-regression-part-ii.html#cb394-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(reg_pooled)</span></code></pre></div>
@@ -647,8 +647,8 @@ where <span class="math inline">\(\mathbf{R}\)</span> is a <span class="math inl
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>In this example it makes hardly any difference wich version of the test we use.</p>
-<div id="exercise-28" class="section level3" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> Exercise</h3>
+<div id="exercise-28" class="section level3 hasAnchor" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> Exercise<a href="predictive-regression-part-ii.html#exercise-28" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Test the joint null hypothesis that the slope and intercept of the predictive relationship between <code>kid_score</code> and <code>mom_iq</code> is <em>the same</em> for kids whose mothers graduated from high school and those whose mothers did not. Does the p-value change much if you use the asymptotic version of the test rather than the finite-sample F?</li>
 </ol>
@@ -735,8 +735,8 @@ Show Solution
 </div>
 </div>
 </div>
-<div id="heteroskedasticity-robust-standard-errors-and-tests" class="section level2" number="5.4">
-<h2><span class="header-section-number">5.4</span> Heteroskedasticity-Robust Standard Errors and Tests</h2>
+<div id="heteroskedasticity-robust-standard-errors-and-tests" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Heteroskedasticity-Robust Standard Errors and Tests<a href="predictive-regression-part-ii.html#heteroskedasticity-robust-standard-errors-and-tests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Consider a linear regression model of the form <span class="math inline">\(Y_i = X_i&#39;\beta + epsilon_i\)</span>.
 If the variance of <span class="math inline">\(\epsilon_i\)</span> is unrelated to the predictors <span class="math inline">\(X_i\)</span>, we say that the regression errors are <em>homoskedastic</em>. This is just a fancy Greek work for <em>constant variance</em>. If instead, the variance of <span class="math inline">\(\epsilon_i\)</span> depends on the value of <span class="math inline">\(x_i\)</span>, we say that the regression errors are <em>heteroskedastic</em>. This is just a fancy Greek word for <em>non-constant variance</em>. Heteroskedasticity does not invalidate our least squares estimates of <span class="math inline">\(\beta\)</span>, but it does invalidate the formulas used by <code>lm()</code> to calculate standard errors and p-values. Fortunately there's a simple solution. In this lesson I'll show you how to implement the solution without explaining how it works. In a future lesson we'll take a closer look at robust standard errors</p>
 <p>The command <code>lm_robust()</code> from the <code>estimatr</code> package works exactly like <code>lm()</code> <em>except</em> that it uses heteroskedasticity-robust standard errors by default. If you're familiar with Stata, <code>lm_robust()</code> is the equivalent of <code>reg robust</code>. Let's test this out on our model <code>kid_score ~ mom_iq * mom_hs</code> from above. Notice that the coefficients in <code>reg_interact_robust</code> are identical to those from <code>reg_interact</code></p>
@@ -785,8 +785,8 @@ If the variance of <span class="math inline">\(\epsilon_i\)</span> is unrelated 
 ## 1    431 139297                               
 ## 2    430 138879  1    418.63 1.2962     0.2549</code></pre>
 <p>Although both of these tests use a <span class="math inline">\(\chi^2\)</span> distribution with one degree of freedom, the test statistic differs between them. This is because the robust test uses a <em>different variance-covariance matrix estimate</em> when forming the Wald statistic.</p>
-<div id="exercise-29" class="section level3" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> Exercise</h3>
+<div id="exercise-29" class="section level3 hasAnchor" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Exercise<a href="predictive-regression-part-ii.html#exercise-29" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>If we had run <code>reg robust</code> in Stata, what standard errors would we have obtained in the regression model <code>kid_score ~ mom_iq * mom_hs</code> from above?</li>
 </ol>
@@ -879,11 +879,11 @@ Show Solution
 </div>
 </div>
 </div>
-<div id="publication-quality-tables" class="section level2" number="5.5">
-<h2><span class="header-section-number">5.5</span> Publication Quality Tables</h2>
+<div id="publication-quality-tables" class="section level2 hasAnchor" number="5.5">
+<h2><span class="header-section-number">5.5</span> Publication Quality Tables<a href="predictive-regression-part-ii.html#publication-quality-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A crucial part of communicating our results in a statistical analysis creating tables that are clear, and easy to read. In this section we'll learn how to use the <a href="https://vincentarelbundock.github.io/modelsummary/"><code>modelsummary</code> package</a> to generate reproducible, publication-quality tables like those that appear in academic journals. It would take multiple lessons to do full justice to <code>modelsummary</code>. Here I'll show you some common and fairly simple use cases. To learn more, see this tutorial on <a href="https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html">basic options</a> and this one on more advanced <a href="https://vincentarelbundock.github.io/modelsummary/articles/appearance.html">customization</a>.</p>
-<div id="datasummary_skim" class="section level3" number="5.5.1">
-<h3><span class="header-section-number">5.5.1</span> <code>datasummary_skim()</code></h3>
+<div id="datasummary_skim" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> <code>datasummary_skim()</code><a href="predictive-regression-part-ii.html#datasummary_skim" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>datasummary_skim()</code> function from <code>modelsummary</code> makes it easy to construct simple tables of summary statistics. Simply pass it a data frame, and it will return a helpful table complete with cute little histograms! (If you don't want the histograms, you can set <code>histogram = FALSE</code>.)</p>
 <div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="predictive-regression-part-ii.html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
 <span id="cb433-2"><a href="predictive-regression-part-ii.html#cb433-2" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(kids)</span></code></pre></div>
@@ -1320,8 +1320,8 @@ No High School
 </tbody>
 </table>
 </div>
-<div id="datasummary_balance" class="section level3" number="5.5.2">
-<h3><span class="header-section-number">5.5.2</span> <code>datasummary_balance()</code></h3>
+<div id="datasummary_balance" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> <code>datasummary_balance()</code><a href="predictive-regression-part-ii.html#datasummary_balance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It can sometimes be helpful to compare summary statistics across categories defined by a "grouping variable." For example, we may be interested to know how <code>kid_score</code>, <code>mom_iq</code>, and <code>mom_age</code> vary with <code>mom_education</code>. The <code>datasummary_balance()</code> function makes this easy:</p>
 <div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="predictive-regression-part-ii.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_balance</span>(<span class="sc">~</span> mom_education, <span class="at">data =</span> kids_cat)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -1439,8 +1439,8 @@ mom_age
 </table>
 <p>The second argument of <code>datasummary_balance()</code> is the data frame we wish to summarize. The first is a <em>one-sided formula</em> that takes the form <code>~ [GROUPING VARIABLE]</code>. The idea here is that <code>[GROUPING VARIABLE]</code> is analogous to a RHS variable in a regression formula. The syntax makes sense if you think about it: this table is equivalent to "regressing" all of the variables in <code>kids_cat</code> on <code>mom_eduation</code>.</p>
 </div>
-<div id="modelsummary" class="section level3" number="5.5.3">
-<h3><span class="header-section-number">5.5.3</span> <code>modelsummary()</code></h3>
+<div id="modelsummary" class="section level3 hasAnchor" number="5.5.3">
+<h3><span class="header-section-number">5.5.3</span> <code>modelsummary()</code><a href="predictive-regression-part-ii.html#modelsummary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>modelsummary()</code> produces summary tables for statistical models, including linear regressions. The simplest way to use it is by passing a single argument: a fitted model such as <code>reg_pooled</code></p>
 <div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="predictive-regression-part-ii.html#cb438-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(reg_pooled)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -2162,8 +2162,8 @@ RMSE
 </table>
 <p>where I added in a title and footnote for good measure!</p>
 </div>
-<div id="robust-standard-errors" class="section level3" number="5.5.4">
-<h3><span class="header-section-number">5.5.4</span> Robust Standard Errors</h3>
+<div id="robust-standard-errors" class="section level3 hasAnchor" number="5.5.4">
+<h3><span class="header-section-number">5.5.4</span> Robust Standard Errors<a href="predictive-regression-part-ii.html#robust-standard-errors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you want to display heteroskedasticity-robust standard errors in a table constructed with <code>modelsummary()</code> you have two options. The first, and simplest, is to pass it a model fitted with <code>lm_robust</code>. For example, using the simulated <code>x</code> and <code>y</code> data from above:</p>
 <div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="predictive-regression-part-ii.html#cb443-1" aria-hidden="true" tabindex="-1"></a>ols <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
 <span id="cb443-2"><a href="predictive-regression-part-ii.html#cb443-2" aria-hidden="true" tabindex="-1"></a>robust <span class="ot">&lt;-</span> <span class="fu">lm_robust</span>(y <span class="sc">~</span> x)</span>
@@ -2316,8 +2316,8 @@ HC2
 </table>
 <p>The heavily lifting in this case is done in the background by the <code>sandwich</code> package: see <a href="https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html#vcov">this link</a> for more details.</p>
 </div>
-<div id="exercise-30" class="section level3" number="5.5.5">
-<h3><span class="header-section-number">5.5.5</span> Exercise</h3>
+<div id="exercise-30" class="section level3 hasAnchor" number="5.5.5">
+<h3><span class="header-section-number">5.5.5</span> Exercise<a href="predictive-regression-part-ii.html#exercise-30" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Read the help file for the <code>tips</code> dataset, available in the <code>reshape2</code> package. Then use <code>datasummary_skim()</code> to make two tables of summary statistics for <code>tips</code>: one for the categorical variables and one for the remaining variables.</li>
 </ol>
@@ -3564,6 +3564,7 @@ window.onload = function() {
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -3604,7 +3605,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "fuse",
+"engine": "lunr",
 "options": null
 },
 "toc": {

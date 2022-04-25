@@ -16,7 +16,7 @@ At several points in this lesson we'll find it helpful to have a few different s
 
 ```{r, message = FALSE}
 library(tidyverse) 
-kids <- read_csv("http://ditraglia.com/econ103/child_test_data.csv")
+kids <- read_csv("http://ditraglia.com/data/child_test_data.csv")
 kids <- kids %>%
   rename(kid_score = kid.score,
          mom_hs = mom.hs, 

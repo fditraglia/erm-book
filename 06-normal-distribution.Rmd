@@ -12,7 +12,7 @@ Taleb's exhortation notwithstanding, this lesson is all about the normal distrib
 
 From your introductory coursework in statistics and econometrics you're probably familiar with the one-dimensional normal distribution. This lesson will build on the intuition you already have in the one-dimensional case to help you gain a deeper understanding of the *multivariate* normal distribution. There's a good chance that you've seen some of this material before. But from past experience, many students are a bit fuzzy on the details.
 
-We'll start by reviewing the key commands for working with normal distributions in R: `d/p/q/rnorm()`. These will come up again and again in future lessons. Then we'll take up the challenge of simulating *correlated* normal draws. Along the way we'll learn how to calculate column means, variance-covariance matrices, and correlation matrices with the commands `colMeans()`, `cov()`, `cor()` and `cov2cor()`. We'll also learn to make *kernel density plots* using the `ggplot` commands `geom_density()` and `geom_density2d_filled()`. Our destination in this lecture is the *Cholesky Decomposition*, an important result from matrix algebra that's extremely helpful for understanding multivariate normal distributions. We'll work up to this result in easy steps, introducing some basic R commands for matrix algebra as we go, including `%*%`, `t()`, and `chol()`. At the very end, once you know how to generate correlated normals *from scratch*, I'll relent and allow you to use the extremely helpful command `rmvnorm()` from the `mvtnorm` package instead. An appendix to this lesson makes the case for why doing things "the hard way" before you allow yourself to use a canned function like `rmvnorm()` is worth the trouble.
+We'll start by reviewing the key commands for working with normal distributions in R: `d/p/q/rnorm()`. These will come up again and again in future lessons. Then we'll take up the challenge of simulating *correlated* normal draws. Along the way we'll learn how to calculate column means, variance-covariance matrices, and correlation matrices with the commands `colMeans()`, `cov()`, `cor()` and `cov2cor()`. We'll also learn to make *kernel density plots* using the `ggplot` commands `geom_density()` and `geom_density2d_filled()`. Our destination in this lecture is the *Cholesky Decomposition*, an important result from matrix algebra that's extremely helpful for understanding multivariate normal distributions. We'll work up to this result in easy steps, introducing some basic R commands for matrix algebra as we go, including `%*%`, `t()`, and `chol()`. At the very end, once you know how to generate correlated normals *from scratch*, I'll relent and allow you to use the extremely helpful command `rmvnorm()` from the `mvtnorm` package instead. An epilogue to this lesson makes the case for why doing things "the hard way" before you allow yourself to use a canned function like `rmvnorm()` is worth the trouble.
 
 ## Standard Normals as Building Blocks
 
@@ -212,10 +212,10 @@ cov2cor(cor_mat)
 `r hide('Show Solution')`
 A correlation matrix contains *strictly less information* than a covariance matrix. If I give you the correlation matrix of $(X_1, X_2)$, then I haven't told you the variances of either $X_1$ or $X_2$. This means you can't go from a correlation matrix to a covariance matrix, although you can go in the reverse direction.
 `r unhide()`
-2. Read in the `kids` dataset from `https://ditraglia.com/econ103/child_test_data.csv` and calculate the sample means, covariance matrix, and correlation matrix of `mom.iq` and `kid.score`.
+2. Read in the `kids` dataset from `https://ditraglia.com/data/child_test_data.csv` and calculate the sample means, covariance matrix, and correlation matrix of `mom.iq` and `kid.score`.
 ```{r, message = FALSE, webex.hide = 'Show Solution'}
 library(tidyverse)
-kids <- read_csv('https://ditraglia.com/econ103/child_test_data.csv')
+kids <- read_csv('https://ditraglia.com/data/child_test_data.csv')
 dat <- kids %>%
   select(mom.iq, kid.score)
 colMeans(dat)
@@ -580,22 +580,53 @@ Here's how to remember this quirk: *true to its name* R returns an *upper* trian
 ### Exercise
 1. Suppose that `M` is a $(3 \times 3)$ matrix. Here's how to check if it's positive definite. First check `M[1,1]`; this element needs to be positive. Next check the $(2\times 2)$ sub-matrix `M[1:2,1:2]`; its *determinant*, which you can calculate using `det()` needs to be positive. Finally check the determinant of `M` itself; this too needs to be positive. If `M` passes all the tests then it's positive definite! The same procedure works for smaller matrices and larger ones: we check that the determinant of each [*leading principal minor*](https://en.wikipedia.org/wiki/Minor_(linear_algebra)) is positive. Here are two matrices, one of which is positive definite and one of which is not. Determine which is which. 
 $$
-\begin{bmatrix}
-? & ? \\
-? & ? 
+\mathbf{A} =\begin{bmatrix}
+1 & 2 & 3\\
+2 & 2 & 1\\
+3 & 1 & 3
 \end{bmatrix}, \quad
-\begin{bmatrix}
-? & ? \\
-? & ?
+\mathbf{B} = \begin{bmatrix}
+3 & 2 & 1 \\
+2 & 3 & 1 \\
+1 & 1 & 3 
 \end{bmatrix}
 $$
+`r hide('Show Solution')`
+Both $\mathbf{A}$ and $\mathbf{B}$ are symmetric. The matrix $\mathbf{A}$ is *not* positive definite because its determinant is negative: 
+```{r}
+A <- matrix(c(1, 2, 3,
+              2, 2, 1,
+              3, 1, 3), 
+            byrow = TRUE, nrow = 3, ncol = 3) 
+det(A)
+```
+The matrix $\mathbf{B}$ is positive definite since `B[1, 1]` is positive, the determinant of `B[1:2, 1:2]` is positive, and the determinant of `B` itself is positive: 
+```{r}
+B <- matrix(c(3, 2, 1,
+              2, 3, 1,
+              1, 1, 3), 
+            byrow = TRUE, nrow = 3, ncol = 3)
+det(B[1:2, 1:2])
+det(B)
+```
+`r unhide()`
 2. Use the positive definite matrix from the preceding exercise, along with the R function `chol()`, to make 100,000 draws from the corresponding 3-dimensional multivariate normal distribution. Use `cov()` to check your work.
 ```{r, webex.hide = 'Show Solution'}
-# Add solution code here!
+R <- chol(B)
+L <- t(R)
+n_sims <- 1e5
+set.seed(29837)
+z <- matrix(rnorm(3 * n_sims), nrow = n_sims, ncol = 3)
+x <- t(L %*% t(z))
+cov(x)
 ```
 3. Install the package `mvtnorm()` and read the help file for `rmvnorm()`. This this function to repeat the preceding exercise "the easy way." Again, check your work using `cov()`.
 ```{r, webex.hide = 'Show Solution'}
-# Add solution code here!
+#install.package('mvtnorm')
+library(mvtnorm)
+set.seed(29837)
+x_alt <- rmvnorm(n_sims, sigma = B)
+cov(x_alt)
 ```
 4. In the discussion above I claimed that $\text{Var}(Y) = \mathbf{v}'\boldsymbol{\Sigma}\text{v}$. Work out the algebra to establish this result.
 `r hide('Show Solution')`
@@ -672,8 +703,4 @@ $$
 \end{aligned}
 $$
 And what is $\rho_{12}^2$? It's the *R-squared* for the population linear regression of $X_2$ on $X_1$! Linear regression is intrinsically related to the properties of multivariate normal distributions, giving you yet another way of remembering this useful result!
-
-## Problem Set
-1. Write an R function called `rbinorm()` to generate bivariate normal draws. Arguments `mean` is a vector of length 2, `var` is a $(2\times 2)$ matrix. Don't use `chol()` do everything from scratch. Check that the matrix is pd before running: `stopifnot()`. Test it out on these example matrices: use `cov()` with `n` draws. 
-2. Work out the details for $(3 \times 3)$ cholesky. **Hint:** start with the $(2\times 2)$ case. This will be the upper $(2\times 2)$ matrix. All you have to do is work out the bottom row of $\mathbf{L}$. Write an R function to calculate Cholesky of a $(3\times 3)$ matrix. Test is on *this example* and compare to `chol()`.
 
