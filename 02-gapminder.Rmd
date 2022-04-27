@@ -17,7 +17,6 @@ You only need to install a package *once*, but you need to *load* it every time 
 To load a package, use the `library()` command, e.g.
 ```{r, message = FALSE}
 library(dplyr)
-library(ggplot2)
 library(gapminder)
 ```
 Now we're ready to go! I could tell you all about the data contained in `gapminder`, but an important part of this book is helping you to become self-sufficient. So instead I will leave this as an exercise for the reader!
@@ -35,7 +34,7 @@ The `dplyr` package uses a special operator called the *pipe*, written `%>%` to 
 ```{r}
 gapminder
 ```
-If you're used to working with dataframes in R, this may surprise you. Rather than trying to print all `nrow(gapminder)` rows on the screen, R helpfully shows us a useful summary of the information contained in `gapminder`. This is because `gapminder` is *not* a dataframe; it's a *tibble*, often abbreviated *tbl*. For our purposes, all you really need to know about tibbles is that they are souped up versions of R dataframes that are designed to work seamlessly with `dplyr`. To learn more see the chapter "Tibbles" in *R for Data Science*.
+If you're used to working with dataframes in R, this may surprise you. Rather than trying to print all `nrow(gapminder)` rows on the screen, R helpfully shows us a useful summary of the information contained in `gapminder`. This is because `gapminder` is *not* a dataframe; it's a *tibble*, often abbreviated *tbl*. For our purposes, all you really need to know about tibbles is that they are souped up versions of R dataframes that are designed to work seamlessly with `dplyr`. To learn more see the chapter "Tibbles" in [*R for Data Science*](https://r4ds.had.co.nz/tibbles.html).
 
 ## Filter Rows with `filter`
 We're ready to learn our first `dplyr` verb: `filter` selects rows.
@@ -333,7 +332,7 @@ This package is installed automatically along with `dplyr`.
 z <- c(4, 1, 5, NA, 3)
 z %>% var(na.rm = TRUE)
 ```
-2. Re-write the code from your solution to Exercise \#4 *without* using the pipe.
+2. Write code to arrange `gapminder` by `lifeExp`, first in increasing order and then in decreasing order, *without* using the pipe.
 ```{r webex.hide="Show Solution"}
 arrange(gapminder,lifeExp)
 arrange(gapminder, desc(lifeExp))
