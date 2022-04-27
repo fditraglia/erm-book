@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lesson 5 Predictive Regression Part II | Empirical Research Methods</title>
-  <meta name="description" content="Lesson 5 Predictive Regression Part II | Empirical Research Methods" />
+  <title>Lesson 4 Predictive Regression Part II | Empirical Research Methods</title>
+  <meta name="description" content="Lesson 4 Predictive Regression Part II | Empirical Research Methods" />
   <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lesson 5 Predictive Regression Part II | Empirical Research Methods" />
+  <meta property="og:title" content="Lesson 4 Predictive Regression Part II | Empirical Research Methods" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lesson 5 Predictive Regression Part II | Empirical Research Methods" />
+  <meta name="twitter:title" content="Lesson 4 Predictive Regression Part II | Empirical Research Methods" />
   
   
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Francis J. DiTraglia" />
 
 
-<meta name="date" content="2022-04-25" />
+<meta name="date" content="2022-04-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="predictive-regression-part-i.html"/>
-<link rel="next" href="the-normal-distribution.html"/>
+<link rel="next" href="running-a-simulation-study.html"/>
 <script src="libs/header-attrs-2.13/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -150,179 +150,179 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="index.html#why-not-matlab-julia-or-python">Why not Matlab, Julia, or Python?<span></span></a></li>
 <li><a href="index.html#you-can-help-make-this-book-better">You can help make this book better!<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html"><i class="fa fa-check"></i><b>1</b> Running a Simulation Study<span></span></a>
+<li class="chapter" data-level="1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html"><i class="fa fa-check"></i><b>1</b> Getting Started with <code>dplyr</code><span></span></a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#is-the-hot-hand-an-illusion"><i class="fa fa-check"></i><b>1.1</b> Is the Hot Hand an Illusion?<span></span></a></li>
-<li class="chapter" data-level="1.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#drawing-random-data-in-r"><i class="fa fa-check"></i><b>1.2</b> Drawing Random Data in R<span></span></a>
+<li class="chapter" data-level="1.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#package-installation"><i class="fa fa-check"></i><b>1.1</b> Package Installation<span></span></a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#sample"><i class="fa fa-check"></i><b>1.2.1</b> <code>sample()</code><span></span></a></li>
-<li class="chapter" data-level="1.2.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#probability-distributions-in-r"><i class="fa fa-check"></i><b>1.2.2</b> Probability Distributions in R<span></span></a></li>
-<li class="chapter" data-level="1.2.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#set.seed"><i class="fa fa-check"></i><b>1.2.3</b> <code>set.seed()</code><span></span></a></li>
-<li class="chapter" data-level="1.2.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercises"><i class="fa fa-check"></i><b>1.2.4</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="1.1.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise"><i class="fa fa-check"></i><b>1.1.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#the-skeleton-of-a-simulation-study"><i class="fa fa-check"></i><b>1.3</b> The Skeleton of a Simulation Study<span></span></a>
+<li class="chapter" data-level="1.2" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#what-is-a-tibble"><i class="fa fa-check"></i><b>1.2</b> What is a tibble?<span></span></a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>1.3</b> Filter Rows with <code>filter</code><span></span></a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#a-biased-estimator-of-sigma2"><i class="fa fa-check"></i><b>1.3.1</b> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span><span></span></a></li>
-<li class="chapter" data-level="1.3.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#draw_sim_data"><i class="fa fa-check"></i><b>1.3.2</b> <code>draw_sim_data()</code><span></span></a></li>
-<li class="chapter" data-level="1.3.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_estimate"><i class="fa fa-check"></i><b>1.3.3</b> <code>get_estimate()</code><span></span></a></li>
-<li class="chapter" data-level="1.3.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_bias"><i class="fa fa-check"></i><b>1.3.4</b> <code>get_bias()</code><span></span></a></li>
-<li class="chapter" data-level="1.3.5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#running-the-simulation-study"><i class="fa fa-check"></i><b>1.3.5</b> Running the Simulation Study<span></span></a></li>
-<li class="chapter" data-level="1.3.6" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#expand.grid-and-map"><i class="fa fa-check"></i><b>1.3.6</b> <code>expand.grid()</code> and <code>Map()</code><span></span></a></li>
-<li class="chapter" data-level="1.3.7" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#formatting-the-results"><i class="fa fa-check"></i><b>1.3.7</b> Formatting the Results<span></span></a></li>
+<li class="chapter" data-level="1.3.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises"><i class="fa fa-check"></i><b>1.3.1</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercise---the-hot-hand"><i class="fa fa-check"></i><b>1.4</b> Exercise - The Hot Hand<span></span></a></li>
+<li class="chapter" data-level="1.4" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#sort-data-with-arrange"><i class="fa fa-check"></i><b>1.4</b> Sort data with <code>arrange</code><span></span></a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises-1"><i class="fa fa-check"></i><b>1.4.1</b> Exercises<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html"><i class="fa fa-check"></i><b>2</b> Getting Started with <code>dplyr</code><span></span></a>
+<li class="chapter" data-level="1.5" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#choose-columns-with-select"><i class="fa fa-check"></i><b>1.5</b> Choose columns with <code>select</code><span></span></a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#package-installation"><i class="fa fa-check"></i><b>2.1</b> Package Installation<span></span></a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise"><i class="fa fa-check"></i><b>2.1.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="1.5.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-1"><i class="fa fa-check"></i><b>1.5.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#what-is-a-tibble"><i class="fa fa-check"></i><b>2.2</b> What is a tibble?<span></span></a></li>
-<li class="chapter" data-level="2.3" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>2.3</b> Filter Rows with <code>filter</code><span></span></a>
+<li class="chapter" data-level="1.6" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-summarize-verb"><i class="fa fa-check"></i><b>1.6</b> The <code>summarize</code> verb<span></span></a>
 <ul>
-<li class="chapter" data-level="2.3.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises-1"><i class="fa fa-check"></i><b>2.3.1</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="1.6.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-2"><i class="fa fa-check"></i><b>1.6.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#sort-data-with-arrange"><i class="fa fa-check"></i><b>2.4</b> Sort data with <code>arrange</code><span></span></a>
+<li class="chapter" data-level="1.7" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-group_by-verb"><i class="fa fa-check"></i><b>1.7</b> The <code>group_by</code> verb<span></span></a>
 <ul>
-<li class="chapter" data-level="2.4.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises-2"><i class="fa fa-check"></i><b>2.4.1</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="1.7.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-3"><i class="fa fa-check"></i><b>1.7.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#choose-columns-with-select"><i class="fa fa-check"></i><b>2.5</b> Choose columns with <code>select</code><span></span></a>
+<li class="chapter" data-level="1.8" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#understanding-the-pipe"><i class="fa fa-check"></i><b>1.8</b> Understanding the pipe: <code>%&gt;%</code><span></span></a>
 <ul>
-<li class="chapter" data-level="2.5.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-1"><i class="fa fa-check"></i><b>2.5.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="1.8.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-4"><i class="fa fa-check"></i><b>1.8.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2.6" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-summarize-verb"><i class="fa fa-check"></i><b>2.6</b> The <code>summarize</code> verb<span></span></a>
+<li class="chapter" data-level="1.9" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#chaining-commands"><i class="fa fa-check"></i><b>1.9</b> Chaining commands<span></span></a>
 <ul>
-<li class="chapter" data-level="2.6.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-2"><i class="fa fa-check"></i><b>2.6.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="1.9.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-5"><i class="fa fa-check"></i><b>1.9.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-group_by-verb"><i class="fa fa-check"></i><b>2.7</b> The <code>group_by</code> verb<span></span></a>
+<li class="chapter" data-level="1.10" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#change-an-existing-variable-or-create-a-new-one-with-mutate"><i class="fa fa-check"></i><b>1.10</b> Change an existing variable or create a new one with <code>mutate</code><span></span></a>
 <ul>
-<li class="chapter" data-level="2.7.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-3"><i class="fa fa-check"></i><b>2.7.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.8" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#understanding-the-pipe"><i class="fa fa-check"></i><b>2.8</b> Understanding the pipe: <code>%&gt;%</code><span></span></a>
-<ul>
-<li class="chapter" data-level="2.8.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-4"><i class="fa fa-check"></i><b>2.8.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.9" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#chaining-commands"><i class="fa fa-check"></i><b>2.9</b> Chaining commands<span></span></a>
-<ul>
-<li class="chapter" data-level="2.9.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-5"><i class="fa fa-check"></i><b>2.9.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.10" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#change-an-existing-variable-or-create-a-new-one-with-mutate"><i class="fa fa-check"></i><b>2.10</b> Change an existing variable or create a new one with <code>mutate</code><span></span></a>
-<ul>
-<li class="chapter" data-level="2.10.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-6"><i class="fa fa-check"></i><b>2.10.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="1.10.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-6"><i class="fa fa-check"></i><b>1.10.1</b> Exercise<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html"><i class="fa fa-check"></i><b>3</b> Getting Started with <code>ggplot2</code><span></span></a>
+<li class="chapter" data-level="2" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html"><i class="fa fa-check"></i><b>2</b> Getting Started with <code>ggplot2</code><span></span></a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#a-simple-scatterplot-using-ggplot2"><i class="fa fa-check"></i><b>3.1</b> A simple scatterplot using <code>ggplot2</code><span></span></a>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#a-simple-scatterplot-using-ggplot2"><i class="fa fa-check"></i><b>2.1</b> A simple scatterplot using <code>ggplot2</code><span></span></a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-7"><i class="fa fa-check"></i><b>3.1.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.1.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-7"><i class="fa fa-check"></i><b>2.1.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-on-the-log-scale"><i class="fa fa-check"></i><b>3.2</b> Plotting on the log scale<span></span></a>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-on-the-log-scale"><i class="fa fa-check"></i><b>2.2</b> Plotting on the log scale<span></span></a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-8"><i class="fa fa-check"></i><b>3.2.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-8"><i class="fa fa-check"></i><b>2.2.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#the-color-and-size-aesthetics"><i class="fa fa-check"></i><b>3.3</b> The color and size aesthetics<span></span></a>
+<li class="chapter" data-level="2.3" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#the-color-and-size-aesthetics"><i class="fa fa-check"></i><b>2.3</b> The color and size aesthetics<span></span></a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-9"><i class="fa fa-check"></i><b>3.3.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.3.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-9"><i class="fa fa-check"></i><b>2.3.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#faceting---plots-for-multiple-subsets"><i class="fa fa-check"></i><b>3.4</b> Faceting - Plots for Multiple Subsets<span></span></a>
+<li class="chapter" data-level="2.4" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#faceting---plots-for-multiple-subsets"><i class="fa fa-check"></i><b>2.4</b> Faceting - Plots for Multiple Subsets<span></span></a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-10"><i class="fa fa-check"></i><b>3.4.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-10"><i class="fa fa-check"></i><b>2.4.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-summarized-data"><i class="fa fa-check"></i><b>3.5</b> Plotting summarized data<span></span></a>
+<li class="chapter" data-level="2.5" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-summarized-data"><i class="fa fa-check"></i><b>2.5</b> Plotting summarized data<span></span></a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-11"><i class="fa fa-check"></i><b>3.5.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.5.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-11"><i class="fa fa-check"></i><b>2.5.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#line-plots"><i class="fa fa-check"></i><b>3.6</b> Line plots<span></span></a>
+<li class="chapter" data-level="2.6" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#line-plots"><i class="fa fa-check"></i><b>2.6</b> Line plots<span></span></a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-12"><i class="fa fa-check"></i><b>3.6.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.6.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-12"><i class="fa fa-check"></i><b>2.6.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#bar-plots"><i class="fa fa-check"></i><b>3.7</b> Bar plots<span></span></a>
+<li class="chapter" data-level="2.7" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#bar-plots"><i class="fa fa-check"></i><b>2.7</b> Bar plots<span></span></a>
 <ul>
-<li class="chapter" data-level="3.7.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-13"><i class="fa fa-check"></i><b>3.7.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.7.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-13"><i class="fa fa-check"></i><b>2.7.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#cleveland-dot-charts"><i class="fa fa-check"></i><b>3.8</b> Cleveland Dot Charts<span></span></a>
+<li class="chapter" data-level="2.8" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#cleveland-dot-charts"><i class="fa fa-check"></i><b>2.8</b> Cleveland Dot Charts<span></span></a>
 <ul>
-<li class="chapter" data-level="3.8.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-14"><i class="fa fa-check"></i><b>3.8.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.8.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-14"><i class="fa fa-check"></i><b>2.8.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#histograms"><i class="fa fa-check"></i><b>3.9</b> Histograms<span></span></a>
+<li class="chapter" data-level="2.9" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#histograms"><i class="fa fa-check"></i><b>2.9</b> Histograms<span></span></a>
 <ul>
-<li class="chapter" data-level="3.9.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>3.9.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.9.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>2.9.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#boxplots"><i class="fa fa-check"></i><b>3.10</b> Boxplots<span></span></a>
+<li class="chapter" data-level="2.10" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#boxplots"><i class="fa fa-check"></i><b>2.10</b> Boxplots<span></span></a>
 <ul>
-<li class="chapter" data-level="3.10.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-16"><i class="fa fa-check"></i><b>3.10.1</b> Exercise<span></span></a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html"><i class="fa fa-check"></i><b>4</b> Predictive Regression Part I<span></span></a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#introduction"><i class="fa fa-check"></i><b>4.1</b> Introduction<span></span></a>
-<ul>
-<li class="chapter" data-level="4.1.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-17"><i class="fa fa-check"></i><b>4.1.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-least-squares-problem"><i class="fa fa-check"></i><b>4.2</b> The Least Squares Problem<span></span></a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-18"><i class="fa fa-check"></i><b>4.2.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="4.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#linear-regression-with-lm"><i class="fa fa-check"></i><b>4.3</b> Linear Regression with <code>lm()</code><span></span></a>
-<ul>
-<li class="chapter" data-level="4.3.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-19"><i class="fa fa-check"></i><b>4.3.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="4.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#plotting-the-regression-line"><i class="fa fa-check"></i><b>4.4</b> Plotting the Regression Line<span></span></a>
-<ul>
-<li class="chapter" data-level="4.4.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-20"><i class="fa fa-check"></i><b>4.4.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="4.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#getting-more-from-lm"><i class="fa fa-check"></i><b>4.5</b> Getting More from <code>lm()</code><span></span></a>
-<ul>
-<li class="chapter" data-level="4.5.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-21"><i class="fa fa-check"></i><b>4.5.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="4.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#summarizing-the-ouput-of-lm"><i class="fa fa-check"></i><b>4.6</b> Summarizing The Ouput of <code>lm()</code><span></span></a>
-<ul>
-<li class="chapter" data-level="4.6.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-22"><i class="fa fa-check"></i><b>4.6.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="4.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#tidying-up-with-broom"><i class="fa fa-check"></i><b>4.7</b> Tidying up with <code>broom</code><span></span></a>
-<ul>
-<li class="chapter" data-level="4.7.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-23"><i class="fa fa-check"></i><b>4.7.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="4.8" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#dummy-variables-with-lm"><i class="fa fa-check"></i><b>4.8</b> Dummy Variables with <code>lm()</code><span></span></a>
-<ul>
-<li class="chapter" data-level="4.8.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-24"><i class="fa fa-check"></i><b>4.8.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="4.9" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#fun-with-r-formulas"><i class="fa fa-check"></i><b>4.9</b> Fun with R Formulas<span></span></a>
-<ul>
-<li class="chapter" data-level="4.9.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#everything-else---the-dot-."><i class="fa fa-check"></i><b>4.9.1</b> "Everything Else" - The Dot <code>.</code><span></span></a></li>
-<li class="chapter" data-level="4.9.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#removing-predictors-with--"><i class="fa fa-check"></i><b>4.9.2</b> Removing Predictors with <code>-</code><span></span></a></li>
-<li class="chapter" data-level="4.9.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-intercept-1"><i class="fa fa-check"></i><b>4.9.3</b> The Intercept: <code>1</code><span></span></a></li>
-<li class="chapter" data-level="4.9.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-25"><i class="fa fa-check"></i><b>4.9.4</b> Exercise<span></span></a></li>
-<li class="chapter" data-level="4.9.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#transforming-outcomes-and-predictors"><i class="fa fa-check"></i><b>4.9.5</b> Transforming Outcomes and Predictors<span></span></a></li>
-<li class="chapter" data-level="4.9.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#adding-interactions-with-and"><i class="fa fa-check"></i><b>4.9.6</b> Adding Interactions With <code>:</code>, <code>*</code>, and <code>^</code><span></span></a></li>
-<li class="chapter" data-level="4.9.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-26"><i class="fa fa-check"></i><b>4.9.7</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.10.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-16"><i class="fa fa-check"></i><b>2.10.1</b> Exercise<span></span></a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html"><i class="fa fa-check"></i><b>5</b> Predictive Regression Part II<span></span></a>
+<li class="chapter" data-level="3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html"><i class="fa fa-check"></i><b>3</b> Predictive Regression Part I<span></span></a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#regressions-used-below"><i class="fa fa-check"></i><b>5.1</b> Regressions Used Below<span></span></a></li>
-<li class="chapter" data-level="5.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#predicting-new-observations"><i class="fa fa-check"></i><b>5.2</b> Predicting New Observations<span></span></a>
+<li class="chapter" data-level="3.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction<span></span></a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-27"><i class="fa fa-check"></i><b>5.2.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="3.1.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-17"><i class="fa fa-check"></i><b>3.1.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#testing-a-linear-restriction"><i class="fa fa-check"></i><b>5.3</b> Testing a Linear Restriction<span></span></a>
+<li class="chapter" data-level="3.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-least-squares-problem"><i class="fa fa-check"></i><b>3.2</b> The Least Squares Problem<span></span></a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-28"><i class="fa fa-check"></i><b>5.3.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="3.2.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-18"><i class="fa fa-check"></i><b>3.2.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#heteroskedasticity-robust-standard-errors-and-tests"><i class="fa fa-check"></i><b>5.4</b> Heteroskedasticity-Robust Standard Errors and Tests<span></span></a>
+<li class="chapter" data-level="3.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#linear-regression-with-lm"><i class="fa fa-check"></i><b>3.3</b> Linear Regression with <code>lm()</code><span></span></a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-29"><i class="fa fa-check"></i><b>5.4.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="3.3.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-19"><i class="fa fa-check"></i><b>3.3.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#publication-quality-tables"><i class="fa fa-check"></i><b>5.5</b> Publication Quality Tables<span></span></a>
+<li class="chapter" data-level="3.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#plotting-the-regression-line"><i class="fa fa-check"></i><b>3.4</b> Plotting the Regression Line<span></span></a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_skim"><i class="fa fa-check"></i><b>5.5.1</b> <code>datasummary_skim()</code><span></span></a></li>
-<li class="chapter" data-level="5.5.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_balance"><i class="fa fa-check"></i><b>5.5.2</b> <code>datasummary_balance()</code><span></span></a></li>
-<li class="chapter" data-level="5.5.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#modelsummary"><i class="fa fa-check"></i><b>5.5.3</b> <code>modelsummary()</code><span></span></a></li>
-<li class="chapter" data-level="5.5.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#robust-standard-errors"><i class="fa fa-check"></i><b>5.5.4</b> Robust Standard Errors<span></span></a></li>
-<li class="chapter" data-level="5.5.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-30"><i class="fa fa-check"></i><b>5.5.5</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="3.4.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-20"><i class="fa fa-check"></i><b>3.4.1</b> Exercise<span></span></a></li>
 </ul></li>
+<li class="chapter" data-level="3.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#getting-more-from-lm"><i class="fa fa-check"></i><b>3.5</b> Getting More from <code>lm()</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-21"><i class="fa fa-check"></i><b>3.5.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#summarizing-the-ouput-of-lm"><i class="fa fa-check"></i><b>3.6</b> Summarizing The Ouput of <code>lm()</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-22"><i class="fa fa-check"></i><b>3.6.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#tidying-up-with-broom"><i class="fa fa-check"></i><b>3.7</b> Tidying up with <code>broom</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-23"><i class="fa fa-check"></i><b>3.7.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#dummy-variables-with-lm"><i class="fa fa-check"></i><b>3.8</b> Dummy Variables with <code>lm()</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-24"><i class="fa fa-check"></i><b>3.8.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#fun-with-r-formulas"><i class="fa fa-check"></i><b>3.9</b> Fun with R Formulas<span></span></a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#everything-else---the-dot-."><i class="fa fa-check"></i><b>3.9.1</b> "Everything Else" - The Dot <code>.</code><span></span></a></li>
+<li class="chapter" data-level="3.9.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#removing-predictors-with--"><i class="fa fa-check"></i><b>3.9.2</b> Removing Predictors with <code>-</code><span></span></a></li>
+<li class="chapter" data-level="3.9.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-intercept-1"><i class="fa fa-check"></i><b>3.9.3</b> The Intercept: <code>1</code><span></span></a></li>
+<li class="chapter" data-level="3.9.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-25"><i class="fa fa-check"></i><b>3.9.4</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="3.9.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#transforming-outcomes-and-predictors"><i class="fa fa-check"></i><b>3.9.5</b> Transforming Outcomes and Predictors<span></span></a></li>
+<li class="chapter" data-level="3.9.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#adding-interactions-with-and"><i class="fa fa-check"></i><b>3.9.6</b> Adding Interactions With <code>:</code>, <code>*</code>, and <code>^</code><span></span></a></li>
+<li class="chapter" data-level="3.9.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-26"><i class="fa fa-check"></i><b>3.9.7</b> Exercise<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html"><i class="fa fa-check"></i><b>4</b> Predictive Regression Part II<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#regressions-used-below"><i class="fa fa-check"></i><b>4.1</b> Regressions Used Below<span></span></a></li>
+<li class="chapter" data-level="4.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#predicting-new-observations"><i class="fa fa-check"></i><b>4.2</b> Predicting New Observations<span></span></a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-27"><i class="fa fa-check"></i><b>4.2.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#testing-a-linear-restriction"><i class="fa fa-check"></i><b>4.3</b> Testing a Linear Restriction<span></span></a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-28"><i class="fa fa-check"></i><b>4.3.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#heteroskedasticity-robust-standard-errors-and-tests"><i class="fa fa-check"></i><b>4.4</b> Heteroskedasticity-Robust Standard Errors and Tests<span></span></a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-29"><i class="fa fa-check"></i><b>4.4.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#publication-quality-tables"><i class="fa fa-check"></i><b>4.5</b> Publication Quality Tables<span></span></a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_skim"><i class="fa fa-check"></i><b>4.5.1</b> <code>datasummary_skim()</code><span></span></a></li>
+<li class="chapter" data-level="4.5.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_balance"><i class="fa fa-check"></i><b>4.5.2</b> <code>datasummary_balance()</code><span></span></a></li>
+<li class="chapter" data-level="4.5.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#modelsummary"><i class="fa fa-check"></i><b>4.5.3</b> <code>modelsummary()</code><span></span></a></li>
+<li class="chapter" data-level="4.5.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#robust-standard-errors"><i class="fa fa-check"></i><b>4.5.4</b> Robust Standard Errors<span></span></a></li>
+<li class="chapter" data-level="4.5.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-30"><i class="fa fa-check"></i><b>4.5.5</b> Exercise<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html"><i class="fa fa-check"></i><b>5</b> Running a Simulation Study<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#is-the-hot-hand-an-illusion"><i class="fa fa-check"></i><b>5.1</b> Is the Hot Hand an Illusion?<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#drawing-random-data-in-r"><i class="fa fa-check"></i><b>5.2</b> Drawing Random Data in R<span></span></a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#sample"><i class="fa fa-check"></i><b>5.2.1</b> <code>sample()</code><span></span></a></li>
+<li class="chapter" data-level="5.2.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#probability-distributions-in-r"><i class="fa fa-check"></i><b>5.2.2</b> Probability Distributions in R<span></span></a></li>
+<li class="chapter" data-level="5.2.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#set.seed"><i class="fa fa-check"></i><b>5.2.3</b> <code>set.seed()</code><span></span></a></li>
+<li class="chapter" data-level="5.2.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercises-2"><i class="fa fa-check"></i><b>5.2.4</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#the-skeleton-of-a-simulation-study"><i class="fa fa-check"></i><b>5.3</b> The Skeleton of a Simulation Study<span></span></a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#a-biased-estimator-of-sigma2"><i class="fa fa-check"></i><b>5.3.1</b> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span><span></span></a></li>
+<li class="chapter" data-level="5.3.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#draw_sim_data"><i class="fa fa-check"></i><b>5.3.2</b> <code>draw_sim_data()</code><span></span></a></li>
+<li class="chapter" data-level="5.3.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_estimate"><i class="fa fa-check"></i><b>5.3.3</b> <code>get_estimate()</code><span></span></a></li>
+<li class="chapter" data-level="5.3.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_bias"><i class="fa fa-check"></i><b>5.3.4</b> <code>get_bias()</code><span></span></a></li>
+<li class="chapter" data-level="5.3.5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#running-the-simulation-study"><i class="fa fa-check"></i><b>5.3.5</b> Running the Simulation Study<span></span></a></li>
+<li class="chapter" data-level="5.3.6" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#expand.grid-and-map"><i class="fa fa-check"></i><b>5.3.6</b> <code>expand.grid()</code> and <code>Map()</code><span></span></a></li>
+<li class="chapter" data-level="5.3.7" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#formatting-the-results"><i class="fa fa-check"></i><b>5.3.7</b> Formatting the Results<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercise---the-hot-hand"><i class="fa fa-check"></i><b>5.4</b> Exercise - The Hot Hand<span></span></a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html"><i class="fa fa-check"></i><b>6</b> The Normal Distribution<span></span></a>
 <ul>
@@ -377,8 +377,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="predictive-regression-part-ii" class="section level1 hasAnchor" number="5">
-<h1><span class="header-section-number">Lesson 5</span> Predictive Regression Part II<a href="predictive-regression-part-ii.html#predictive-regression-part-ii" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="predictive-regression-part-ii" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Lesson 4</span> Predictive Regression Part II<a href="predictive-regression-part-ii.html#predictive-regression-part-ii" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>In our last lesson we covered the basics of predictive linear regression using <code>lm()</code>. We learned how to use formulas to set up different regression models, how to use <code>summary()</code> and <code>broom()</code> to display and format the results, and how to make simple plots of the regression line using <code>ggplot()</code>. We applied these tools to a simple dataset of kids test scores and discussed the correct way to interpret the results. In this lesson we'll complete our discussion of predictive linear regression by answering some frequently asked questions:</p>
 <ol style="list-style-type: decimal">
 <li>How can I extract predictions from a fitted regression model?</li>
@@ -386,32 +386,32 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>What about heteroskedasticity? Can I use R to compute robust standard errors?</li>
 <li>Journal articles have beautifully-formatted tables of regression results. How can I make one?</li>
 </ol>
-<div id="regressions-used-below" class="section level2 hasAnchor" number="5.1">
-<h2><span class="header-section-number">5.1</span> Regressions Used Below<a href="predictive-regression-part-ii.html#regressions-used-below" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="regressions-used-below" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Regressions Used Below<a href="predictive-regression-part-ii.html#regressions-used-below" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>At several points in this lesson we'll find it helpful to have a few different sets of regression results at our fingertips, so I'll start by fitting three regressions from our last lesson, using the child test score dataset:</p>
 <ul>
 <li><code>reg_pooled</code> is a regression of <code>kid_score</code> on <code>mom_iq</code> that <em>pools</em> children whose mothers graduated high school with those whose mothers did not.</li>
 <li><code>reg_hs_dummy</code> is a regression of <code>kid_score</code> on <code>mom_iq</code> and <code>mom_hs</code>. Recall that <code>mom_hs</code> is a dummy variable that equals one if a child's mother attended high school.</li>
 <li><code>reg_interact</code> is a regression of <code>kid_score</code> on <code>mom_iq</code>, <code>mom_hs</code>, and their interaction.</li>
 </ul>
-<div class="sourceCode" id="cb369"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb369-1"><a href="predictive-regression-part-ii.html#cb369-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
-<span id="cb369-2"><a href="predictive-regression-part-ii.html#cb369-2" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://ditraglia.com/data/child_test_data.csv&quot;</span>)</span>
-<span id="cb369-3"><a href="predictive-regression-part-ii.html#cb369-3" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
-<span id="cb369-4"><a href="predictive-regression-part-ii.html#cb369-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">kid_score =</span> kid.score,</span>
-<span id="cb369-5"><a href="predictive-regression-part-ii.html#cb369-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_hs =</span> mom.hs, </span>
-<span id="cb369-6"><a href="predictive-regression-part-ii.html#cb369-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_iq =</span> mom.iq, </span>
-<span id="cb369-7"><a href="predictive-regression-part-ii.html#cb369-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_age =</span> mom.age)</span>
-<span id="cb369-8"><a href="predictive-regression-part-ii.html#cb369-8" aria-hidden="true" tabindex="-1"></a>reg_pooled <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq, kids)</span>
-<span id="cb369-9"><a href="predictive-regression-part-ii.html#cb369-9" aria-hidden="true" tabindex="-1"></a>reg_hs_dummy <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">+</span> mom_hs, kids)</span>
-<span id="cb369-10"><a href="predictive-regression-part-ii.html#cb369-10" aria-hidden="true" tabindex="-1"></a>reg_interact <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">*</span> mom_hs, kids)</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="predictive-regression-part-ii.html#cb265-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) </span>
+<span id="cb265-2"><a href="predictive-regression-part-ii.html#cb265-2" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;http://ditraglia.com/data/child_test_data.csv&quot;</span>)</span>
+<span id="cb265-3"><a href="predictive-regression-part-ii.html#cb265-3" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
+<span id="cb265-4"><a href="predictive-regression-part-ii.html#cb265-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">kid_score =</span> kid.score,</span>
+<span id="cb265-5"><a href="predictive-regression-part-ii.html#cb265-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_hs =</span> mom.hs, </span>
+<span id="cb265-6"><a href="predictive-regression-part-ii.html#cb265-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_iq =</span> mom.iq, </span>
+<span id="cb265-7"><a href="predictive-regression-part-ii.html#cb265-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">mom_age =</span> mom.age)</span>
+<span id="cb265-8"><a href="predictive-regression-part-ii.html#cb265-8" aria-hidden="true" tabindex="-1"></a>reg_pooled <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq, kids)</span>
+<span id="cb265-9"><a href="predictive-regression-part-ii.html#cb265-9" aria-hidden="true" tabindex="-1"></a>reg_hs_dummy <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">+</span> mom_hs, kids)</span>
+<span id="cb265-10"><a href="predictive-regression-part-ii.html#cb265-10" aria-hidden="true" tabindex="-1"></a>reg_interact <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">*</span> mom_hs, kids)</span></code></pre></div>
 </div>
-<div id="predicting-new-observations" class="section level2 hasAnchor" number="5.2">
-<h2><span class="header-section-number">5.2</span> Predicting New Observations<a href="predictive-regression-part-ii.html#predicting-new-observations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="predicting-new-observations" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Predicting New Observations<a href="predictive-regression-part-ii.html#predicting-new-observations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <code>predict()</code> command allows us to predict new observations using a fitted statistical model. As we'll see in future lessons, <code>predict()</code> works with a variety of models besides linear regression. In this lesson we'll restrict our attention to making predictions based on a linear regression fitted with <code>lm()</code>.</p>
 <p>The simplest way to use <code>predict()</code> is by passing it a single argument: a regression fitted with <code>lm()</code>. When used in this way, it returns the vector of <em>fitted values</em> from the regression. As such <code>predict([REGRESSION])</code> is synonymous with <code>fitted.values([REGRESSION])</code>:</p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="predictive-regression-part-ii.html#cb370-1" aria-hidden="true" tabindex="-1"></a>yhat1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg_hs_dummy)</span>
-<span id="cb370-2"><a href="predictive-regression-part-ii.html#cb370-2" aria-hidden="true" tabindex="-1"></a>yhat2 <span class="ot">&lt;-</span> <span class="fu">fitted.values</span>(reg_hs_dummy)</span>
-<span id="cb370-3"><a href="predictive-regression-part-ii.html#cb370-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">cbind</span>(yhat1, yhat2))</span></code></pre></div>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="predictive-regression-part-ii.html#cb266-1" aria-hidden="true" tabindex="-1"></a>yhat1 <span class="ot">&lt;-</span> <span class="fu">predict</span>(reg_hs_dummy)</span>
+<span id="cb266-2"><a href="predictive-regression-part-ii.html#cb266-2" aria-hidden="true" tabindex="-1"></a>yhat2 <span class="ot">&lt;-</span> <span class="fu">fitted.values</span>(reg_hs_dummy)</span>
+<span id="cb266-3"><a href="predictive-regression-part-ii.html#cb266-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">cbind</span>(yhat1, yhat2))</span></code></pre></div>
 <pre><code>##      yhat1    yhat2
 ## 1 99.98056 99.98056
 ## 2 82.07336 82.07336
@@ -421,39 +421,39 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 6 86.57804 86.57804</code></pre>
 <p>This make sense if you think of the fitted values as <em>in-sample predictions</em>, the predictions that we would make for the individuals we used to fit our regression. To make predictions for <em>new individuals</em>, we need to supply a second argument to <code>predict()</code>, a data frame called <code>newdata</code>. This data frame should have the same column names as the data we used to fit our regression, and contain the same kind of information. In short: <code>newdata</code> contains the predictors <span class="math inline">\(X\)</span> for one or more individuals who are <em>not</em> in our dataset; given this information, <code>predict()</code> extracts the estimated regression coefficients <span class="math inline">\(\widehat{\beta}\)</span> and computes <span class="math inline">\(X\widehat{\beta}\)</span>.</p>
 <p>Let's try a simple example. Suppose we wanted to use <code>reg_pooled_hs</code> to predict <code>kid_score</code> for a child whose mother has an IQ of <code>100</code> and did not graduate from high school. One way to do this is "by hand" using <code>coef()</code></p>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb372-1"><a href="predictive-regression-part-ii.html#cb372-1" aria-hidden="true" tabindex="-1"></a>b_hat <span class="ot">&lt;-</span> <span class="fu">coef</span>(reg_hs_dummy)</span>
-<span id="cb372-2"><a href="predictive-regression-part-ii.html#cb372-2" aria-hidden="true" tabindex="-1"></a>b_hat</span></code></pre></div>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="predictive-regression-part-ii.html#cb268-1" aria-hidden="true" tabindex="-1"></a>b_hat <span class="ot">&lt;-</span> <span class="fu">coef</span>(reg_hs_dummy)</span>
+<span id="cb268-2"><a href="predictive-regression-part-ii.html#cb268-2" aria-hidden="true" tabindex="-1"></a>b_hat</span></code></pre></div>
 <pre><code>## (Intercept)      mom_iq      mom_hs 
 ##   25.731538    0.563906    5.950117</code></pre>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb374-1"><a href="predictive-regression-part-ii.html#cb374-1" aria-hidden="true" tabindex="-1"></a>b_hat[<span class="dv">1</span>] <span class="sc">+</span> b_hat[<span class="dv">2</span>] <span class="sc">*</span> <span class="dv">100</span> <span class="sc">+</span> <span class="dv">0</span> <span class="sc">*</span> b_hat[<span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="predictive-regression-part-ii.html#cb270-1" aria-hidden="true" tabindex="-1"></a>b_hat[<span class="dv">1</span>] <span class="sc">+</span> b_hat[<span class="dv">2</span>] <span class="sc">*</span> <span class="dv">100</span> <span class="sc">+</span> <span class="dv">0</span> <span class="sc">*</span> b_hat[<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## (Intercept) 
 ##    82.12214</code></pre>
 <p>Another is by first constructing a data frame with information on this particular hypothetical child and passing it as the <code>newdata</code> argument of <code>predict()</code>:</p>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb376-1"><a href="predictive-regression-part-ii.html#cb376-1" aria-hidden="true" tabindex="-1"></a>new_kid <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">mom_iq =</span> <span class="dv">100</span>, <span class="at">mom_hs =</span> <span class="dv">0</span>)</span>
-<span id="cb376-2"><a href="predictive-regression-part-ii.html#cb376-2" aria-hidden="true" tabindex="-1"></a>new_kid</span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="predictive-regression-part-ii.html#cb272-1" aria-hidden="true" tabindex="-1"></a>new_kid <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">mom_iq =</span> <span class="dv">100</span>, <span class="at">mom_hs =</span> <span class="dv">0</span>)</span>
+<span id="cb272-2"><a href="predictive-regression-part-ii.html#cb272-2" aria-hidden="true" tabindex="-1"></a>new_kid</span></code></pre></div>
 <pre><code>##   mom_iq mom_hs
 ## 1    100      0</code></pre>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb378-1"><a href="predictive-regression-part-ii.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(reg_hs_dummy, new_kid)</span></code></pre></div>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="predictive-regression-part-ii.html#cb274-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(reg_hs_dummy, new_kid)</span></code></pre></div>
 <pre><code>##        1 
 ## 82.12214</code></pre>
 <p>The real value of the second approach becomes apparent when we want to make <em>multiple predictions at once</em>. For example,</p>
-<div class="sourceCode" id="cb380"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb380-1"><a href="predictive-regression-part-ii.html#cb380-1" aria-hidden="true" tabindex="-1"></a>new_kids <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">mom_iq =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">120</span>, <span class="dv">80</span>),</span>
-<span id="cb380-2"><a href="predictive-regression-part-ii.html#cb380-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">mom_hs =</span> <span class="fu">c</span>(  <span class="dv">0</span>,   <span class="dv">1</span>,  <span class="dv">1</span>))</span>
-<span id="cb380-3"><a href="predictive-regression-part-ii.html#cb380-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(reg_hs_dummy, new_kids)</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="predictive-regression-part-ii.html#cb276-1" aria-hidden="true" tabindex="-1"></a>new_kids <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">mom_iq =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">120</span>, <span class="dv">80</span>),</span>
+<span id="cb276-2"><a href="predictive-regression-part-ii.html#cb276-2" aria-hidden="true" tabindex="-1"></a>                       <span class="at">mom_hs =</span> <span class="fu">c</span>(  <span class="dv">0</span>,   <span class="dv">1</span>,  <span class="dv">1</span>))</span>
+<span id="cb276-3"><a href="predictive-regression-part-ii.html#cb276-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(reg_hs_dummy, new_kids)</span></code></pre></div>
 <pre><code>##        1        2        3 
 ## 82.12214 99.35038 76.79414</code></pre>
 <p>It's crucial that the <em>names</em> of the columns in <code>newdata</code> match those of the regression that you pass as the first argument to <code>predict()</code>. This, for example will throw an error:</p>
-<div class="sourceCode" id="cb382"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb382-1"><a href="predictive-regression-part-ii.html#cb382-1" aria-hidden="true" tabindex="-1"></a>other_kids <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">iq =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">120</span>, <span class="dv">80</span>), </span>
-<span id="cb382-2"><a href="predictive-regression-part-ii.html#cb382-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">hs =</span> <span class="fu">c</span>(  <span class="dv">0</span>,   <span class="dv">1</span>,  <span class="dv">1</span>))</span>
-<span id="cb382-3"><a href="predictive-regression-part-ii.html#cb382-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(reg_hs_dummy, other_kids)</span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="predictive-regression-part-ii.html#cb278-1" aria-hidden="true" tabindex="-1"></a>other_kids <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">iq =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">120</span>, <span class="dv">80</span>), </span>
+<span id="cb278-2"><a href="predictive-regression-part-ii.html#cb278-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">hs =</span> <span class="fu">c</span>(  <span class="dv">0</span>,   <span class="dv">1</span>,  <span class="dv">1</span>))</span>
+<span id="cb278-3"><a href="predictive-regression-part-ii.html#cb278-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(reg_hs_dummy, other_kids)</span></code></pre></div>
 <pre><code>## Error in eval(predvars, data, env): object &#39;mom_iq&#39; not found</code></pre>
 <p>Including extraneous columns in <code>newdata</code>, on the other hand, is perfectly fine. This can come in handy when you want to predict from multiple different fitted regressions. For example, it's perfectly fine to predict using <code>reg_pooled</code> and <code>new_kids</code> even though <code>reg_pooled</code> does not include <code>mom_hs</code> as a predictor:</p>
-<div class="sourceCode" id="cb384"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb384-1"><a href="predictive-regression-part-ii.html#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(reg_pooled, new_kids)</span></code></pre></div>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="predictive-regression-part-ii.html#cb280-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(reg_pooled, new_kids)</span></code></pre></div>
 <pre><code>##        1        2        3 
 ## 86.79724 98.99673 74.59774</code></pre>
 <p>Before I turn you loose on the exercise, here's one more useful trick that doesn't <em>technically</em> count as a use of <code>predict()</code>, but is closely related. In our last lesson we learned how to use <code>augment()</code> from the <code>broom</code> package to add a column with residuals and fitted values to a data frame that we used to fit a regression. It turns out that we can use the same idea to add <em>predicted</em> values to a data frame of <span class="math inline">\(X\)</span> values at which we'd like to predict. For example, to add the result of running <code>predict(reg_pooled, new_kids)</code> as an additional column of <code>new_kids</code>, we can run the following line of code:</p>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb386-1"><a href="predictive-regression-part-ii.html#cb386-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb386-2"><a href="predictive-regression-part-ii.html#cb386-2" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(reg_pooled, <span class="at">newdata =</span> new_kids)</span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="predictive-regression-part-ii.html#cb282-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb282-2"><a href="predictive-regression-part-ii.html#cb282-2" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(reg_pooled, <span class="at">newdata =</span> new_kids)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   mom_iq mom_hs .fitted
 ##    &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
@@ -461,16 +461,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 ## 2    120      1    99.0
 ## 3     80      1    74.6</code></pre>
 <p>The third column is still called <code>.fitted</code> but in this case it actually contains <em>predicted</em> values. Note that these agree perfectly with those that we computed above. To avoid confusion, it's worth renaming this column using the <code>rename()</code> command from <code>dplyr</code></p>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb388-1"><a href="predictive-regression-part-ii.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(reg_pooled, <span class="at">newdata =</span> new_kids) <span class="sc">%&gt;%</span></span>
-<span id="cb388-2"><a href="predictive-regression-part-ii.html#cb388-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">kid_score_pred =</span> .fitted)</span></code></pre></div>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="predictive-regression-part-ii.html#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(reg_pooled, <span class="at">newdata =</span> new_kids) <span class="sc">%&gt;%</span></span>
+<span id="cb284-2"><a href="predictive-regression-part-ii.html#cb284-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">kid_score_pred =</span> .fitted)</span></code></pre></div>
 <pre><code>## # A tibble: 3 × 3
 ##   mom_iq mom_hs kid_score_pred
 ##    &lt;dbl&gt;  &lt;dbl&gt;          &lt;dbl&gt;
 ## 1    100      0           86.8
 ## 2    120      1           99.0
 ## 3     80      1           74.6</code></pre>
-<div id="exercise-27" class="section level3 hasAnchor" number="5.2.1">
-<h3><span class="header-section-number">5.2.1</span> Exercise<a href="predictive-regression-part-ii.html#exercise-27" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercise-27" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Exercise<a href="predictive-regression-part-ii.html#exercise-27" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>What values of <code>kid_score</code> would we predict for the children in the data frame <code>new_kids</code> based on the results of the regression <code>reg_interact</code>?</li>
 </ol>
@@ -478,7 +478,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb390-1"><a href="predictive-regression-part-ii.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(reg_interact, new_kids)</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="predictive-regression-part-ii.html#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(reg_interact, new_kids)</span></code></pre></div>
 <pre><code>##        1        2        3 
 ## 85.40690 97.93995 78.55537</code></pre>
 </div>
@@ -495,35 +495,35 @@ Show Hint
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb392-1"><a href="predictive-regression-part-ii.html#cb392-1" aria-hidden="true" tabindex="-1"></a>n_sim_kids <span class="ot">&lt;-</span> <span class="fl">1e4</span></span>
-<span id="cb392-2"><a href="predictive-regression-part-ii.html#cb392-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">54321</span>)</span>
-<span id="cb392-3"><a href="predictive-regression-part-ii.html#cb392-3" aria-hidden="true" tabindex="-1"></a>mom_hs_sim <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n_sim_kids, <span class="dv">1</span>, <span class="fl">0.8</span>)</span>
-<span id="cb392-4"><a href="predictive-regression-part-ii.html#cb392-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb392-5"><a href="predictive-regression-part-ii.html#cb392-5" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(mom_hs_sim <span class="sc">==</span> <span class="dv">0</span>, <span class="dv">92</span>, <span class="dv">102</span>) </span>
-<span id="cb392-6"><a href="predictive-regression-part-ii.html#cb392-6" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(mom_hs_sim <span class="sc">==</span> <span class="dv">0</span>, <span class="dv">13</span>, <span class="dv">15</span>) </span>
-<span id="cb392-7"><a href="predictive-regression-part-ii.html#cb392-7" aria-hidden="true" tabindex="-1"></a>mom_iq_sim <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_sim_kids, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma)</span>
-<span id="cb392-8"><a href="predictive-regression-part-ii.html#cb392-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb392-9"><a href="predictive-regression-part-ii.html#cb392-9" aria-hidden="true" tabindex="-1"></a>sim_kids <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">mom_iq =</span> mom_iq_sim,</span>
-<span id="cb392-10"><a href="predictive-regression-part-ii.html#cb392-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">mom_hs =</span> mom_hs_sim)</span>
-<span id="cb392-11"><a href="predictive-regression-part-ii.html#cb392-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb392-12"><a href="predictive-regression-part-ii.html#cb392-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Here I *store* the plot rather than displaying it, so I can </span></span>
-<span id="cb392-13"><a href="predictive-regression-part-ii.html#cb392-13" aria-hidden="true" tabindex="-1"></a><span class="co"># put it next to the plot of the true mom_iq values</span></span>
-<span id="cb392-14"><a href="predictive-regression-part-ii.html#cb392-14" aria-hidden="true" tabindex="-1"></a>sim_mom_iq_plot <span class="ot">&lt;-</span> sim_kids <span class="sc">%&gt;%</span></span>
-<span id="cb392-15"><a href="predictive-regression-part-ii.html#cb392-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb392-16"><a href="predictive-regression-part-ii.html#cb392-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom_iq), <span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
-<span id="cb392-17"><a href="predictive-regression-part-ii.html#cb392-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;simulated&#39;</span>)</span>
-<span id="cb392-18"><a href="predictive-regression-part-ii.html#cb392-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb392-19"><a href="predictive-regression-part-ii.html#cb392-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Again, I *store* the plot rather than displaying it</span></span>
-<span id="cb392-20"><a href="predictive-regression-part-ii.html#cb392-20" aria-hidden="true" tabindex="-1"></a>true_mom_iq_plot <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
-<span id="cb392-21"><a href="predictive-regression-part-ii.html#cb392-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb392-22"><a href="predictive-regression-part-ii.html#cb392-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom_iq), <span class="at">bins =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
-<span id="cb392-23"><a href="predictive-regression-part-ii.html#cb392-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;true&#39;</span>)</span>
-<span id="cb392-24"><a href="predictive-regression-part-ii.html#cb392-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb392-25"><a href="predictive-regression-part-ii.html#cb392-25" aria-hidden="true" tabindex="-1"></a><span class="co"># grid.arrange() from the gridExtra package is a handy way of </span></span>
-<span id="cb392-26"><a href="predictive-regression-part-ii.html#cb392-26" aria-hidden="true" tabindex="-1"></a><span class="co"># arranging multiple ggplots in a grid</span></span>
-<span id="cb392-27"><a href="predictive-regression-part-ii.html#cb392-27" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra) </span>
-<span id="cb392-28"><a href="predictive-regression-part-ii.html#cb392-28" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(sim_mom_iq_plot, true_mom_iq_plot, <span class="at">ncol =</span> <span class="dv">2</span>) </span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-215-1.png" width="672" />
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="predictive-regression-part-ii.html#cb288-1" aria-hidden="true" tabindex="-1"></a>n_sim_kids <span class="ot">&lt;-</span> <span class="fl">1e4</span></span>
+<span id="cb288-2"><a href="predictive-regression-part-ii.html#cb288-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">54321</span>)</span>
+<span id="cb288-3"><a href="predictive-regression-part-ii.html#cb288-3" aria-hidden="true" tabindex="-1"></a>mom_hs_sim <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n_sim_kids, <span class="dv">1</span>, <span class="fl">0.8</span>)</span>
+<span id="cb288-4"><a href="predictive-regression-part-ii.html#cb288-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb288-5"><a href="predictive-regression-part-ii.html#cb288-5" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(mom_hs_sim <span class="sc">==</span> <span class="dv">0</span>, <span class="dv">92</span>, <span class="dv">102</span>) </span>
+<span id="cb288-6"><a href="predictive-regression-part-ii.html#cb288-6" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(mom_hs_sim <span class="sc">==</span> <span class="dv">0</span>, <span class="dv">13</span>, <span class="dv">15</span>) </span>
+<span id="cb288-7"><a href="predictive-regression-part-ii.html#cb288-7" aria-hidden="true" tabindex="-1"></a>mom_iq_sim <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_sim_kids, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma)</span>
+<span id="cb288-8"><a href="predictive-regression-part-ii.html#cb288-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb288-9"><a href="predictive-regression-part-ii.html#cb288-9" aria-hidden="true" tabindex="-1"></a>sim_kids <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">mom_iq =</span> mom_iq_sim,</span>
+<span id="cb288-10"><a href="predictive-regression-part-ii.html#cb288-10" aria-hidden="true" tabindex="-1"></a>                       <span class="at">mom_hs =</span> mom_hs_sim)</span>
+<span id="cb288-11"><a href="predictive-regression-part-ii.html#cb288-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb288-12"><a href="predictive-regression-part-ii.html#cb288-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Here I *store* the plot rather than displaying it, so I can </span></span>
+<span id="cb288-13"><a href="predictive-regression-part-ii.html#cb288-13" aria-hidden="true" tabindex="-1"></a><span class="co"># put it next to the plot of the true mom_iq values</span></span>
+<span id="cb288-14"><a href="predictive-regression-part-ii.html#cb288-14" aria-hidden="true" tabindex="-1"></a>sim_mom_iq_plot <span class="ot">&lt;-</span> sim_kids <span class="sc">%&gt;%</span></span>
+<span id="cb288-15"><a href="predictive-regression-part-ii.html#cb288-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb288-16"><a href="predictive-regression-part-ii.html#cb288-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom_iq), <span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb288-17"><a href="predictive-regression-part-ii.html#cb288-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;simulated&#39;</span>)</span>
+<span id="cb288-18"><a href="predictive-regression-part-ii.html#cb288-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb288-19"><a href="predictive-regression-part-ii.html#cb288-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Again, I *store* the plot rather than displaying it</span></span>
+<span id="cb288-20"><a href="predictive-regression-part-ii.html#cb288-20" aria-hidden="true" tabindex="-1"></a>true_mom_iq_plot <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
+<span id="cb288-21"><a href="predictive-regression-part-ii.html#cb288-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb288-22"><a href="predictive-regression-part-ii.html#cb288-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom_iq), <span class="at">bins =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb288-23"><a href="predictive-regression-part-ii.html#cb288-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;true&#39;</span>)</span>
+<span id="cb288-24"><a href="predictive-regression-part-ii.html#cb288-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb288-25"><a href="predictive-regression-part-ii.html#cb288-25" aria-hidden="true" tabindex="-1"></a><span class="co"># grid.arrange() from the gridExtra package is a handy way of </span></span>
+<span id="cb288-26"><a href="predictive-regression-part-ii.html#cb288-26" aria-hidden="true" tabindex="-1"></a><span class="co"># arranging multiple ggplots in a grid</span></span>
+<span id="cb288-27"><a href="predictive-regression-part-ii.html#cb288-27" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra) </span>
+<span id="cb288-28"><a href="predictive-regression-part-ii.html#cb288-28" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(sim_mom_iq_plot, true_mom_iq_plot, <span class="at">ncol =</span> <span class="dv">2</span>) </span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-169-1.png" width="672" />
 The distribution of <code>mom_iq_sim</code> is roughly symmetric and unimodel. The actual distribution of <code>mom_iq</code> clearly isn't.</p>
 </div>
 <ol start="3" style="list-style-type: decimal">
@@ -533,42 +533,42 @@ The distribution of <code>mom_iq_sim</code> is roughly symmetric and unimodel. T
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb393"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb393-1"><a href="predictive-regression-part-ii.html#cb393-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store rather than display this plot</span></span>
-<span id="cb393-2"><a href="predictive-regression-part-ii.html#cb393-2" aria-hidden="true" tabindex="-1"></a>kid_score_pred_plot <span class="ot">&lt;-</span> <span class="fu">augment</span>(reg_interact, <span class="at">newdata =</span> sim_kids) <span class="sc">%&gt;%</span></span>
-<span id="cb393-3"><a href="predictive-regression-part-ii.html#cb393-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">kid_score_pred =</span> .fitted) <span class="sc">%&gt;%</span> </span>
-<span id="cb393-4"><a href="predictive-regression-part-ii.html#cb393-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span>  </span>
-<span id="cb393-5"><a href="predictive-regression-part-ii.html#cb393-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> kid_score_pred), <span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
-<span id="cb393-6"><a href="predictive-regression-part-ii.html#cb393-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;simulated&#39;</span>)</span>
-<span id="cb393-7"><a href="predictive-regression-part-ii.html#cb393-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb393-8"><a href="predictive-regression-part-ii.html#cb393-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Store rather than display this plot</span></span>
-<span id="cb393-9"><a href="predictive-regression-part-ii.html#cb393-9" aria-hidden="true" tabindex="-1"></a>kid_score_plot <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
-<span id="cb393-10"><a href="predictive-regression-part-ii.html#cb393-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb393-11"><a href="predictive-regression-part-ii.html#cb393-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> kid_score), <span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
-<span id="cb393-12"><a href="predictive-regression-part-ii.html#cb393-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;true&#39;</span>)</span>
-<span id="cb393-13"><a href="predictive-regression-part-ii.html#cb393-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb393-14"><a href="predictive-regression-part-ii.html#cb393-14" aria-hidden="true" tabindex="-1"></a><span class="co"># As above: a handy way of arranging multiple ggplots</span></span>
-<span id="cb393-15"><a href="predictive-regression-part-ii.html#cb393-15" aria-hidden="true" tabindex="-1"></a><span class="co"># in a grid layout</span></span>
-<span id="cb393-16"><a href="predictive-regression-part-ii.html#cb393-16" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(kid_score_pred_plot, kid_score_plot, <span class="at">ncol =</span> <span class="dv">2</span>) </span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-216-1.png" width="672" />
+<div class="sourceCode" id="cb289"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb289-1"><a href="predictive-regression-part-ii.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Store rather than display this plot</span></span>
+<span id="cb289-2"><a href="predictive-regression-part-ii.html#cb289-2" aria-hidden="true" tabindex="-1"></a>kid_score_pred_plot <span class="ot">&lt;-</span> <span class="fu">augment</span>(reg_interact, <span class="at">newdata =</span> sim_kids) <span class="sc">%&gt;%</span></span>
+<span id="cb289-3"><a href="predictive-regression-part-ii.html#cb289-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">kid_score_pred =</span> .fitted) <span class="sc">%&gt;%</span> </span>
+<span id="cb289-4"><a href="predictive-regression-part-ii.html#cb289-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span>  </span>
+<span id="cb289-5"><a href="predictive-regression-part-ii.html#cb289-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> kid_score_pred), <span class="at">bins =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb289-6"><a href="predictive-regression-part-ii.html#cb289-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;simulated&#39;</span>)</span>
+<span id="cb289-7"><a href="predictive-regression-part-ii.html#cb289-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb289-8"><a href="predictive-regression-part-ii.html#cb289-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Store rather than display this plot</span></span>
+<span id="cb289-9"><a href="predictive-regression-part-ii.html#cb289-9" aria-hidden="true" tabindex="-1"></a>kid_score_plot <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
+<span id="cb289-10"><a href="predictive-regression-part-ii.html#cb289-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb289-11"><a href="predictive-regression-part-ii.html#cb289-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> kid_score), <span class="at">bins =</span> <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb289-12"><a href="predictive-regression-part-ii.html#cb289-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;true&#39;</span>)</span>
+<span id="cb289-13"><a href="predictive-regression-part-ii.html#cb289-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb289-14"><a href="predictive-regression-part-ii.html#cb289-14" aria-hidden="true" tabindex="-1"></a><span class="co"># As above: a handy way of arranging multiple ggplots</span></span>
+<span id="cb289-15"><a href="predictive-regression-part-ii.html#cb289-15" aria-hidden="true" tabindex="-1"></a><span class="co"># in a grid layout</span></span>
+<span id="cb289-16"><a href="predictive-regression-part-ii.html#cb289-16" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(kid_score_pred_plot, kid_score_plot, <span class="at">ncol =</span> <span class="dv">2</span>) </span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-170-1.png" width="672" />
 The distribution of <code>kid_score_pred</code> is clearly left skewed, like that of <code>kid_score</code>. But there are some important differences: our simulation produces values of <code>kid_score</code> that are too tightly clustered around the mode. In the real data, scores below 50 and above 100 are common, but in the simulation they're extremely rare.</p>
 </div>
 </div>
 </div>
-<div id="testing-a-linear-restriction" class="section level2 hasAnchor" number="5.3">
-<h2><span class="header-section-number">5.3</span> Testing a Linear Restriction<a href="predictive-regression-part-ii.html#testing-a-linear-restriction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Null hypothesis significance testing (NHST) is widely-used, and widely abused. In a future lesson I'll try to convince you that it's rarely of much practical use in applied work.<a href="#fn19" class="footnote-ref" id="fnref19"><sup>19</sup></a> That said, there are some special situations where a hypothesis test can come in handy. More importantly, if you want to replicate the work of researchers who haven't gotten <a href="https://www.amstat.org/asa/files/pdfs/P-ValueStatement.pdf">the memo on statistical significance</a>, you need to know something about NHST. In this section we'll learn how to carry out classical test of a <em>linear restriction</em>. For the moment I will assume that the regression errors are homoskedastic. Later in this lesson we'll learn how to adjust for heteroskedasticity.</p>
+<div id="testing-a-linear-restriction" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Testing a Linear Restriction<a href="predictive-regression-part-ii.html#testing-a-linear-restriction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Null hypothesis significance testing (NHST) is widely-used, and widely abused. In a future lesson I'll try to convince you that it's rarely of much practical use in applied work.<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> That said, there are some special situations where a hypothesis test can come in handy. More importantly, if you want to replicate the work of researchers who haven't gotten <a href="https://www.amstat.org/asa/files/pdfs/P-ValueStatement.pdf">the memo on statistical significance</a>, you need to know something about NHST. In this section we'll learn how to carry out classical test of a <em>linear restriction</em>. For the moment I will assume that the regression errors are homoskedastic. Later in this lesson we'll learn how to adjust for heteroskedasticity.</p>
 <p>The regression output provided by <code>summary()</code>, or in a tidier form by <code>tidy()</code>, makes it easy to test a null hypothesis of the form <span class="math inline">\(H_0\colon \beta_j = 0\)</span> against the two-sided alternative <span class="math inline">\(H_1 \colon \beta_j \neq 0\)</span>. Not only do they provide the point estimates <span class="math inline">\(\widehat{\beta}_j\)</span> and associated standard errors <span class="math inline">\(\text{SE}_j\)</span>, they also provide the t-statistic <span class="math inline">\(\widehat{\beta}_j/\text{SE}_j\)</span> and p-value for this very null hypothesis! In this example, we would soundly reject the null hypothesis that the coefficient on <code>mom_iq</code> is zero:</p>
-<div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb394-1"><a href="predictive-regression-part-ii.html#cb394-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(reg_pooled)</span></code></pre></div>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="predictive-regression-part-ii.html#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(reg_pooled)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 5
 ##   term        estimate std.error statistic  p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 (Intercept)   25.8      5.92        4.36 1.63e- 5
 ## 2 mom_iq         0.610    0.0585     10.4  7.66e-23</code></pre>
 <p>For any other test that we might want to carry out, however, this output is less helpful. Suppose that we wanted to test <span class="math inline">\(H_0\colon \beta_j = b\)</span> against the two-sided alternative where <span class="math inline">\(b\)</span> is some constant that does <em>not</em> equal zero. We could of course construct the t-statistic "by hand" using the regression output. For example, we construct the test statistic for a test of the null hypothesis that the coefficient on <code>mom_iq</code> equals 1 as follows:</p>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb396-1"><a href="predictive-regression-part-ii.html#cb396-1" aria-hidden="true" tabindex="-1"></a>results_pooled <span class="ot">&lt;-</span> <span class="fu">tidy</span>(reg_pooled)</span>
-<span id="cb396-2"><a href="predictive-regression-part-ii.html#cb396-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb396-3"><a href="predictive-regression-part-ii.html#cb396-3" aria-hidden="true" tabindex="-1"></a>test_stat <span class="ot">&lt;-</span> <span class="fu">with</span>(results_pooled, <span class="fu">abs</span>(estimate[<span class="dv">2</span>] <span class="sc">-</span> b) <span class="sc">/</span> std.error[<span class="dv">2</span>])</span>
-<span id="cb396-4"><a href="predictive-regression-part-ii.html#cb396-4" aria-hidden="true" tabindex="-1"></a>test_stat</span></code></pre></div>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="predictive-regression-part-ii.html#cb292-1" aria-hidden="true" tabindex="-1"></a>results_pooled <span class="ot">&lt;-</span> <span class="fu">tidy</span>(reg_pooled)</span>
+<span id="cb292-2"><a href="predictive-regression-part-ii.html#cb292-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb292-3"><a href="predictive-regression-part-ii.html#cb292-3" aria-hidden="true" tabindex="-1"></a>test_stat <span class="ot">&lt;-</span> <span class="fu">with</span>(results_pooled, <span class="fu">abs</span>(estimate[<span class="dv">2</span>] <span class="sc">-</span> b) <span class="sc">/</span> std.error[<span class="dv">2</span>])</span>
+<span id="cb292-4"><a href="predictive-regression-part-ii.html#cb292-4" aria-hidden="true" tabindex="-1"></a>test_stat</span></code></pre></div>
 <pre><code>## [1] 6.664718</code></pre>
 <p>From there we could calculate a p-value if desired. This approach works, but it's tedious. It also leaves us with ample opportunity to make a careless error in the calculation. Fortunately there's a better way!</p>
 <p>Testing <span class="math inline">\(H_0\colon \beta_j = b\)</span> is a special case of the more general problem of testing a <em>linear restriction</em>. In full generality, a test of a linear restriction takes the form
@@ -582,9 +582,9 @@ where <span class="math inline">\(\mathbf{R}\)</span> is a <span class="math inl
 <li><span class="math inline">\(H_0\colon \beta_1 + \beta_2 + \beta_3 = 1\)</span></li>
 <li><span class="math inline">\(H_0\colon \beta_1 = 0 \text{ and } \beta_2 = \beta_3\)</span></li>
 </ul>
-<p>The <code>linearHypothesis()</code> command from the <code>car</code> package makes it easy to conduct a Wald test of a linear restriction based on a regression model fitted with <code>lm()</code>. The first argument of <code>linearHypothesis()</code> is the <em>unrestricted model</em>, a regression that we've already fit using <code>lm()</code>.<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a> The second argument is a description of the hypothesis we wish to test. For example to test that the coefficient on <code>mom_iq</code> equals 1, we can use the following command:</p>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb398-1"><a href="predictive-regression-part-ii.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb398-2"><a href="predictive-regression-part-ii.html#cb398-2" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_pooled, <span class="st">&#39;mom_iq = 1&#39;</span>)</span></code></pre></div>
+<p>The <code>linearHypothesis()</code> command from the <code>car</code> package makes it easy to conduct a Wald test of a linear restriction based on a regression model fitted with <code>lm()</code>. The first argument of <code>linearHypothesis()</code> is the <em>unrestricted model</em>, a regression that we've already fit using <code>lm()</code>.<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> The second argument is a description of the hypothesis we wish to test. For example to test that the coefficient on <code>mom_iq</code> equals 1, we can use the following command:</p>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="predictive-regression-part-ii.html#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb294-2"><a href="predictive-regression-part-ii.html#cb294-2" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_pooled, <span class="st">&#39;mom_iq = 1&#39;</span>)</span></code></pre></div>
 <pre><code>## Linear hypothesis test
 ## 
 ## Hypothesis:
@@ -599,7 +599,7 @@ where <span class="math inline">\(\mathbf{R}\)</span> is a <span class="math inl
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>To test that the intercept equals zero, a very silly hypothesis indeed, we simply need to replace <code>'mom_iq = 1'</code> with <code>'(Intercept) = 0'</code></p>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb400-1"><a href="predictive-regression-part-ii.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_pooled, <span class="st">&#39;(Intercept) = 1&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="predictive-regression-part-ii.html#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_pooled, <span class="st">&#39;(Intercept) = 1&#39;</span>)</span></code></pre></div>
 <pre><code>## Linear hypothesis test
 ## 
 ## Hypothesis:
@@ -614,7 +614,7 @@ where <span class="math inline">\(\mathbf{R}\)</span> is a <span class="math inl
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>To test the <em>joint</em> null hypothesis that both of these restrictions hold simultaneously, we supply a <em>vector</em> as the second argument. Each element of the vector describes one of the restrictions:</p>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb402-1"><a href="predictive-regression-part-ii.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_pooled, <span class="fu">c</span>(<span class="st">&#39;mom_iq = 1&#39;</span>, <span class="st">&#39;(Intercept) = 1&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="predictive-regression-part-ii.html#cb298-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_pooled, <span class="fu">c</span>(<span class="st">&#39;mom_iq = 1&#39;</span>, <span class="st">&#39;(Intercept) = 1&#39;</span>))</span></code></pre></div>
 <pre><code>## Linear hypothesis test
 ## 
 ## Hypothesis:
@@ -630,8 +630,8 @@ where <span class="math inline">\(\mathbf{R}\)</span> is a <span class="math inl
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>By default <code>linearHypothesis()</code> carries out inference based on the F statistic. This is the "finite sample" Wald test. If you prefer the asymptotic version, based on a Chi-squared statistic, set the option <code>test = 'Chisq'</code>, for example</p>
-<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb404-1"><a href="predictive-regression-part-ii.html#cb404-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_pooled, <span class="at">test =</span> <span class="st">&#39;Chisq&#39;</span>,</span>
-<span id="cb404-2"><a href="predictive-regression-part-ii.html#cb404-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">c</span>(<span class="st">&#39;mom_iq = 1&#39;</span>, <span class="st">&#39;(Intercept) = 1&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="predictive-regression-part-ii.html#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_pooled, <span class="at">test =</span> <span class="st">&#39;Chisq&#39;</span>,</span>
+<span id="cb300-2"><a href="predictive-regression-part-ii.html#cb300-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">c</span>(<span class="st">&#39;mom_iq = 1&#39;</span>, <span class="st">&#39;(Intercept) = 1&#39;</span>))</span></code></pre></div>
 <pre><code>## Linear hypothesis test
 ## 
 ## Hypothesis:
@@ -647,8 +647,8 @@ where <span class="math inline">\(\mathbf{R}\)</span> is a <span class="math inl
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>In this example it makes hardly any difference wich version of the test we use.</p>
-<div id="exercise-28" class="section level3 hasAnchor" number="5.3.1">
-<h3><span class="header-section-number">5.3.1</span> Exercise<a href="predictive-regression-part-ii.html#exercise-28" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercise-28" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Exercise<a href="predictive-regression-part-ii.html#exercise-28" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Test the joint null hypothesis that the slope and intercept of the predictive relationship between <code>kid_score</code> and <code>mom_iq</code> is <em>the same</em> for kids whose mothers graduated from high school and those whose mothers did not. Does the p-value change much if you use the asymptotic version of the test rather than the finite-sample F?</li>
 </ol>
@@ -656,7 +656,7 @@ where <span class="math inline">\(\mathbf{R}\)</span> is a <span class="math inl
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb406-1"><a href="predictive-regression-part-ii.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(reg_interact)</span></code></pre></div>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="predictive-regression-part-ii.html#cb302-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(reg_interact)</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 5
 ##   term          estimate std.error statistic  p.value
 ##   &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
@@ -664,7 +664,7 @@ Show Solution
 ## 2 mom_iq           0.969     0.148     6.53  1.84e-10
 ## 3 mom_hs          51.3      15.3       3.34  9.02e- 4
 ## 4 mom_iq:mom_hs   -0.484     0.162    -2.99  2.99e- 3</code></pre>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb408-1"><a href="predictive-regression-part-ii.html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_interact, <span class="fu">c</span>(<span class="st">&#39;mom_hs = 0&#39;</span>, <span class="st">&#39;mom_iq:mom_hs = 0&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="predictive-regression-part-ii.html#cb304-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_interact, <span class="fu">c</span>(<span class="st">&#39;mom_hs = 0&#39;</span>, <span class="st">&#39;mom_iq:mom_hs = 0&#39;</span>))</span></code></pre></div>
 <pre><code>## Linear hypothesis test
 ## 
 ## Hypothesis:
@@ -679,8 +679,8 @@ Show Solution
 ## 2    430 138879  2    5258.7 8.1411 0.0003386 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb410-1"><a href="predictive-regression-part-ii.html#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_interact, <span class="at">test =</span> <span class="st">&#39;Chisq&#39;</span>,</span>
-<span id="cb410-2"><a href="predictive-regression-part-ii.html#cb410-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">c</span>(<span class="st">&#39;mom_hs = 0&#39;</span>, <span class="st">&#39;mom_iq:mom_hs = 0&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="predictive-regression-part-ii.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_interact, <span class="at">test =</span> <span class="st">&#39;Chisq&#39;</span>,</span>
+<span id="cb306-2"><a href="predictive-regression-part-ii.html#cb306-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">c</span>(<span class="st">&#39;mom_hs = 0&#39;</span>, <span class="st">&#39;mom_iq:mom_hs = 0&#39;</span>))</span></code></pre></div>
 <pre><code>## Linear hypothesis test
 ## 
 ## Hypothesis:
@@ -703,12 +703,12 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb412-1"><a href="predictive-regression-part-ii.html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">54321</span>)</span>
-<span id="cb412-2"><a href="predictive-regression-part-ii.html#cb412-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(kids)</span>
-<span id="cb412-3"><a href="predictive-regression-part-ii.html#cb412-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
-<span id="cb412-4"><a href="predictive-regression-part-ii.html#cb412-4" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> kids<span class="sc">$</span>mom_iq <span class="sc">+</span> <span class="fu">rnorm</span>(n)</span>
-<span id="cb412-5"><a href="predictive-regression-part-ii.html#cb412-5" aria-hidden="true" tabindex="-1"></a>reg_augmented <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">*</span> mom_hs <span class="sc">+</span> x <span class="sc">+</span> z, kids) </span>
-<span id="cb412-6"><a href="predictive-regression-part-ii.html#cb412-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(reg_augmented)</span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="predictive-regression-part-ii.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">54321</span>)</span>
+<span id="cb308-2"><a href="predictive-regression-part-ii.html#cb308-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(kids)</span>
+<span id="cb308-3"><a href="predictive-regression-part-ii.html#cb308-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb308-4"><a href="predictive-regression-part-ii.html#cb308-4" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> kids<span class="sc">$</span>mom_iq <span class="sc">+</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb308-5"><a href="predictive-regression-part-ii.html#cb308-5" aria-hidden="true" tabindex="-1"></a>reg_augmented <span class="ot">&lt;-</span> <span class="fu">lm</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">*</span> mom_hs <span class="sc">+</span> x <span class="sc">+</span> z, kids) </span>
+<span id="cb308-6"><a href="predictive-regression-part-ii.html#cb308-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(reg_augmented)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 5
 ##   term          estimate std.error statistic  p.value
 ##   &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
@@ -718,7 +718,7 @@ Show Solution
 ## 4 x                0.839     0.849     0.988 0.324   
 ## 5 z               -0.349     0.881    -0.396 0.692   
 ## 6 mom_iq:mom_hs   -0.483     0.163    -2.97  0.00311</code></pre>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb414-1"><a href="predictive-regression-part-ii.html#cb414-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_augmented, <span class="fu">c</span>(<span class="st">&#39;x = 0&#39;</span>, <span class="st">&#39;z = 0&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="predictive-regression-part-ii.html#cb310-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_augmented, <span class="fu">c</span>(<span class="st">&#39;x = 0&#39;</span>, <span class="st">&#39;z = 0&#39;</span>))</span></code></pre></div>
 <pre><code>## Linear hypothesis test
 ## 
 ## Hypothesis:
@@ -735,22 +735,22 @@ Show Solution
 </div>
 </div>
 </div>
-<div id="heteroskedasticity-robust-standard-errors-and-tests" class="section level2 hasAnchor" number="5.4">
-<h2><span class="header-section-number">5.4</span> Heteroskedasticity-Robust Standard Errors and Tests<a href="predictive-regression-part-ii.html#heteroskedasticity-robust-standard-errors-and-tests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="heteroskedasticity-robust-standard-errors-and-tests" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Heteroskedasticity-Robust Standard Errors and Tests<a href="predictive-regression-part-ii.html#heteroskedasticity-robust-standard-errors-and-tests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Consider a linear regression model of the form <span class="math inline">\(Y_i = X_i&#39;\beta + epsilon_i\)</span>.
 If the variance of <span class="math inline">\(\epsilon_i\)</span> is unrelated to the predictors <span class="math inline">\(X_i\)</span>, we say that the regression errors are <em>homoskedastic</em>. This is just a fancy Greek work for <em>constant variance</em>. If instead, the variance of <span class="math inline">\(\epsilon_i\)</span> depends on the value of <span class="math inline">\(x_i\)</span>, we say that the regression errors are <em>heteroskedastic</em>. This is just a fancy Greek word for <em>non-constant variance</em>. Heteroskedasticity does not invalidate our least squares estimates of <span class="math inline">\(\beta\)</span>, but it does invalidate the formulas used by <code>lm()</code> to calculate standard errors and p-values. Fortunately there's a simple solution. In this lesson I'll show you how to implement the solution without explaining how it works. In a future lesson we'll take a closer look at robust standard errors</p>
 <p>The command <code>lm_robust()</code> from the <code>estimatr</code> package works exactly like <code>lm()</code> <em>except</em> that it uses heteroskedasticity-robust standard errors by default. If you're familiar with Stata, <code>lm_robust()</code> is the equivalent of <code>reg robust</code>. Let's test this out on our model <code>kid_score ~ mom_iq * mom_hs</code> from above. Notice that the coefficients in <code>reg_interact_robust</code> are identical to those from <code>reg_interact</code></p>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="predictive-regression-part-ii.html#cb416-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span>
-<span id="cb416-2"><a href="predictive-regression-part-ii.html#cb416-2" aria-hidden="true" tabindex="-1"></a>reg_interact_robust <span class="ot">&lt;-</span> <span class="fu">lm_robust</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">*</span> mom_hs, kids)</span>
-<span id="cb416-3"><a href="predictive-regression-part-ii.html#cb416-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="at">lm =</span> <span class="fu">coef</span>(reg_interact), <span class="at">lm_robust =</span> <span class="fu">coef</span>(reg_interact_robust))</span></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="predictive-regression-part-ii.html#cb312-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span>
+<span id="cb312-2"><a href="predictive-regression-part-ii.html#cb312-2" aria-hidden="true" tabindex="-1"></a>reg_interact_robust <span class="ot">&lt;-</span> <span class="fu">lm_robust</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">*</span> mom_hs, kids)</span>
+<span id="cb312-3"><a href="predictive-regression-part-ii.html#cb312-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="at">lm =</span> <span class="fu">coef</span>(reg_interact), <span class="at">lm_robust =</span> <span class="fu">coef</span>(reg_interact_robust))</span></code></pre></div>
 <pre><code>##                        lm   lm_robust
 ## (Intercept)   -11.4820211 -11.4820211
 ## mom_iq          0.9688892   0.9688892
 ## mom_hs         51.2682234  51.2682234
 ## mom_iq:mom_hs  -0.4842747  -0.4842747</code></pre>
 <p>The standard errors, on the other hand, are different:</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb418-1"><a href="predictive-regression-part-ii.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="fu">tidy</span>(reg_interact)[<span class="fu">c</span>(<span class="st">&#39;term&#39;</span>, <span class="st">&#39;std.error&#39;</span>)],</span>
-<span id="cb418-2"><a href="predictive-regression-part-ii.html#cb418-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">robust.std.error =</span> <span class="fu">tidy</span>(reg_interact_robust)<span class="sc">$</span>std.error)</span></code></pre></div>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="predictive-regression-part-ii.html#cb314-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="fu">tidy</span>(reg_interact)[<span class="fu">c</span>(<span class="st">&#39;term&#39;</span>, <span class="st">&#39;std.error&#39;</span>)],</span>
+<span id="cb314-2"><a href="predictive-regression-part-ii.html#cb314-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">robust.std.error =</span> <span class="fu">tidy</span>(reg_interact_robust)<span class="sc">$</span>std.error)</span></code></pre></div>
 <pre><code>##            term  std.error robust.std.error
 ## 1   (Intercept) 13.7579737       13.4927605
 ## 2        mom_iq  0.1483437        0.1443046
@@ -759,7 +759,7 @@ If the variance of <span class="math inline">\(\epsilon_i\)</span> is unrelated 
 <p>In this example the heteroskedasticity-robust standard errors are <em>slightly smaller</em>, although the difference is too small to be of practical relevance. As a general rule, correcting for possible heteroskedasticity tends to <em>increase</em> our standard errors, but this is not always the case, as we see from the preceding example.</p>
 <p>There are actually various different "flavors" of heteroskedasticity-robust standard errors: HC0, HC1, HC2, and HC3. We'll have more to say about these in a future lesson. For now, the important thing to know is that <code>lm_robust()</code> defaults to HC2 whereas Stata defaults to HC1. To obtain a different flavor of robust standard error, you can set the <code>se_type</code> argument. To obtain standard errors that match those computed by <code>reg robust</code> in Stata you can either set <code>se_type = 'HC1'</code> or <code>se_type = 'stata'</code>. They do the same thing, but the latter is easier to remember.</p>
 <p>Heteroskedasticity doesn't just invalidate inference based on the t-tests from the <code>lm</code> summary output; it also invalidates any that we carry out by passing these results to <code>linearHypothesis</code>. Fortunately, there's an easy fix: as long as we fit our regression using <code>lm_robust</code> in place of <code>lm</code>, <code>linearHypothesis</code> will automatically carry out a heteroskedasticity-robust test. For example:</p>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb420-1"><a href="predictive-regression-part-ii.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_interact_robust, <span class="st">&#39;mom_iq = 0.8&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="predictive-regression-part-ii.html#cb316-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_interact_robust, <span class="st">&#39;mom_iq = 0.8&#39;</span>)</span></code></pre></div>
 <pre><code>## Linear hypothesis test
 ## 
 ## Hypothesis:
@@ -772,7 +772,7 @@ If the variance of <span class="math inline">\(\epsilon_i\)</span> is unrelated 
 ## 1    431                     
 ## 2    430  1 1.3698     0.2419</code></pre>
 <p>Because the robust test relies on an <em>asymptotic</em> result, it uses a <span class="math inline">\(\chi^2\)</span> distribution. The non-robust test based on <code>reg_interact</code> is slightly different even if we set <code>test = 'Chisq'</code></p>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="predictive-regression-part-ii.html#cb422-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_interact, <span class="st">&#39;mom_iq = 0.8&#39;</span>, <span class="at">test =</span> <span class="st">&#39;Chisq&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="predictive-regression-part-ii.html#cb318-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_interact, <span class="st">&#39;mom_iq = 0.8&#39;</span>, <span class="at">test =</span> <span class="st">&#39;Chisq&#39;</span>)</span></code></pre></div>
 <pre><code>## Linear hypothesis test
 ## 
 ## Hypothesis:
@@ -785,8 +785,8 @@ If the variance of <span class="math inline">\(\epsilon_i\)</span> is unrelated 
 ## 1    431 139297                               
 ## 2    430 138879  1    418.63 1.2962     0.2549</code></pre>
 <p>Although both of these tests use a <span class="math inline">\(\chi^2\)</span> distribution with one degree of freedom, the test statistic differs between them. This is because the robust test uses a <em>different variance-covariance matrix estimate</em> when forming the Wald statistic.</p>
-<div id="exercise-29" class="section level3 hasAnchor" number="5.4.1">
-<h3><span class="header-section-number">5.4.1</span> Exercise<a href="predictive-regression-part-ii.html#exercise-29" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercise-29" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Exercise<a href="predictive-regression-part-ii.html#exercise-29" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>If we had run <code>reg robust</code> in Stata, what standard errors would we have obtained in the regression model <code>kid_score ~ mom_iq * mom_hs</code> from above?</li>
 </ol>
@@ -794,9 +794,9 @@ If the variance of <span class="math inline">\(\epsilon_i\)</span> is unrelated 
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="predictive-regression-part-ii.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm_robust</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">*</span> mom_hs, kids, <span class="at">se_type =</span> <span class="st">&#39;stata&#39;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb424-2"><a href="predictive-regression-part-ii.html#cb424-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb424-3"><a href="predictive-regression-part-ii.html#cb424-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(term, std.error)</span></code></pre></div>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="predictive-regression-part-ii.html#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm_robust</span>(kid_score <span class="sc">~</span> mom_iq <span class="sc">*</span> mom_hs, kids, <span class="at">se_type =</span> <span class="st">&#39;stata&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb320-2"><a href="predictive-regression-part-ii.html#cb320-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb320-3"><a href="predictive-regression-part-ii.html#cb320-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(term, std.error)</span></code></pre></div>
 <pre><code>##            term  std.error
 ## 1   (Intercept) 13.3292049
 ## 2        mom_iq  0.1423952
@@ -810,12 +810,12 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb426-1"><a href="predictive-regression-part-ii.html#cb426-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4321</span>)</span>
-<span id="cb426-2"><a href="predictive-regression-part-ii.html#cb426-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> kids<span class="sc">$</span>mom_iq</span>
-<span id="cb426-3"><a href="predictive-regression-part-ii.html#cb426-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
-<span id="cb426-4"><a href="predictive-regression-part-ii.html#cb426-4" aria-hidden="true" tabindex="-1"></a>epsilon <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="fu">exp</span>(<span class="fl">1.3</span> <span class="sc">+</span> <span class="fl">0.8</span> <span class="sc">*</span> <span class="fu">scale</span>(x)))</span>
-<span id="cb426-5"><a href="predictive-regression-part-ii.html#cb426-5" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(x, epsilon)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-230-1.png" width="672" />
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="predictive-regression-part-ii.html#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4321</span>)</span>
+<span id="cb322-2"><a href="predictive-regression-part-ii.html#cb322-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> kids<span class="sc">$</span>mom_iq</span>
+<span id="cb322-3"><a href="predictive-regression-part-ii.html#cb322-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb322-4"><a href="predictive-regression-part-ii.html#cb322-4" aria-hidden="true" tabindex="-1"></a>epsilon <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="fu">exp</span>(<span class="fl">1.3</span> <span class="sc">+</span> <span class="fl">0.8</span> <span class="sc">*</span> <span class="fu">scale</span>(x)))</span>
+<span id="cb322-5"><a href="predictive-regression-part-ii.html#cb322-5" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(x, epsilon)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-184-1.png" width="672" />
 The errors <code>epsilon</code> are clearly heteroskedastic: their variance is an <em>increasing</em> function of <code>x</code>. We can see this clearly in the plot: the values of <code>epsilon</code> "fan out" as <code>x</code> increases.</p>
 </div>
 <ol start="3" style="list-style-type: decimal">
@@ -825,13 +825,13 @@ The errors <code>epsilon</code> are clearly heteroskedastic: their variance is a
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="predictive-regression-part-ii.html#cb427-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">fitted.values</span>(reg_pooled) <span class="sc">+</span> epsilon</span>
-<span id="cb427-2"><a href="predictive-regression-part-ii.html#cb427-2" aria-hidden="true" tabindex="-1"></a>reg_sim <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
-<span id="cb427-3"><a href="predictive-regression-part-ii.html#cb427-3" aria-hidden="true" tabindex="-1"></a>reg_sim_robust <span class="ot">&lt;-</span> <span class="fu">lm_robust</span>(y <span class="sc">~</span> x)</span>
-<span id="cb427-4"><a href="predictive-regression-part-ii.html#cb427-4" aria-hidden="true" tabindex="-1"></a>reg_sim_stata <span class="ot">&lt;-</span> <span class="fu">lm_robust</span>(y <span class="sc">~</span> x, <span class="at">se_type =</span> <span class="st">&#39;stata&#39;</span>)</span>
-<span id="cb427-5"><a href="predictive-regression-part-ii.html#cb427-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="fu">tidy</span>(reg_sim)[, <span class="fu">c</span>(<span class="st">&#39;term&#39;</span>, <span class="st">&#39;std.error&#39;</span>)],</span>
-<span id="cb427-6"><a href="predictive-regression-part-ii.html#cb427-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">HC2.std.error =</span> <span class="fu">tidy</span>(reg_sim_robust)<span class="sc">$</span>std.error,</span>
-<span id="cb427-7"><a href="predictive-regression-part-ii.html#cb427-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">stata.std.error =</span> <span class="fu">tidy</span>(reg_sim_stata)<span class="sc">$</span>std.error)</span></code></pre></div>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb323-1"><a href="predictive-regression-part-ii.html#cb323-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">fitted.values</span>(reg_pooled) <span class="sc">+</span> epsilon</span>
+<span id="cb323-2"><a href="predictive-regression-part-ii.html#cb323-2" aria-hidden="true" tabindex="-1"></a>reg_sim <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
+<span id="cb323-3"><a href="predictive-regression-part-ii.html#cb323-3" aria-hidden="true" tabindex="-1"></a>reg_sim_robust <span class="ot">&lt;-</span> <span class="fu">lm_robust</span>(y <span class="sc">~</span> x)</span>
+<span id="cb323-4"><a href="predictive-regression-part-ii.html#cb323-4" aria-hidden="true" tabindex="-1"></a>reg_sim_stata <span class="ot">&lt;-</span> <span class="fu">lm_robust</span>(y <span class="sc">~</span> x, <span class="at">se_type =</span> <span class="st">&#39;stata&#39;</span>)</span>
+<span id="cb323-5"><a href="predictive-regression-part-ii.html#cb323-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="fu">tidy</span>(reg_sim)[, <span class="fu">c</span>(<span class="st">&#39;term&#39;</span>, <span class="st">&#39;std.error&#39;</span>)],</span>
+<span id="cb323-6"><a href="predictive-regression-part-ii.html#cb323-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">HC2.std.error =</span> <span class="fu">tidy</span>(reg_sim_robust)<span class="sc">$</span>std.error,</span>
+<span id="cb323-7"><a href="predictive-regression-part-ii.html#cb323-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">stata.std.error =</span> <span class="fu">tidy</span>(reg_sim_stata)<span class="sc">$</span>std.error)</span></code></pre></div>
 <pre><code>##          term  std.error HC2.std.error stata.std.error
 ## 1 (Intercept) 2.15350326    3.30916120      3.29797118
 ## 2           x 0.02129732    0.03591114      0.03579134</code></pre>
@@ -844,8 +844,8 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="predictive-regression-part-ii.html#cb429-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_interact, <span class="fu">c</span>(<span class="st">&#39;mom_hs = 0&#39;</span>, <span class="st">&#39;mom_iq:mom_hs = 0&#39;</span>),</span>
-<span id="cb429-2"><a href="predictive-regression-part-ii.html#cb429-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">test =</span> <span class="st">&#39;Chisq&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb325-1"><a href="predictive-regression-part-ii.html#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_interact, <span class="fu">c</span>(<span class="st">&#39;mom_hs = 0&#39;</span>, <span class="st">&#39;mom_iq:mom_hs = 0&#39;</span>),</span>
+<span id="cb325-2"><a href="predictive-regression-part-ii.html#cb325-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">test =</span> <span class="st">&#39;Chisq&#39;</span>)</span></code></pre></div>
 <pre><code>## Linear hypothesis test
 ## 
 ## Hypothesis:
@@ -860,7 +860,7 @@ Show Solution
 ## 2    430 138879  2    5258.7 16.282  0.0002913 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="predictive-regression-part-ii.html#cb431-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_interact_robust, <span class="fu">c</span>(<span class="st">&#39;mom_hs = 0&#39;</span>, <span class="st">&#39;mom_iq:mom_hs = 0&#39;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb327"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb327-1"><a href="predictive-regression-part-ii.html#cb327-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linearHypothesis</span>(reg_interact_robust, <span class="fu">c</span>(<span class="st">&#39;mom_hs = 0&#39;</span>, <span class="st">&#39;mom_iq:mom_hs = 0&#39;</span>))</span></code></pre></div>
 <pre><code>## Linear hypothesis test
 ## 
 ## Hypothesis:
@@ -879,14 +879,14 @@ Show Solution
 </div>
 </div>
 </div>
-<div id="publication-quality-tables" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> Publication Quality Tables<a href="predictive-regression-part-ii.html#publication-quality-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="publication-quality-tables" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Publication Quality Tables<a href="predictive-regression-part-ii.html#publication-quality-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A crucial part of communicating our results in a statistical analysis creating tables that are clear, and easy to read. In this section we'll learn how to use the <a href="https://vincentarelbundock.github.io/modelsummary/"><code>modelsummary</code> package</a> to generate reproducible, publication-quality tables like those that appear in academic journals. It would take multiple lessons to do full justice to <code>modelsummary</code>. Here I'll show you some common and fairly simple use cases. To learn more, see this tutorial on <a href="https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html">basic options</a> and this one on more advanced <a href="https://vincentarelbundock.github.io/modelsummary/articles/appearance.html">customization</a>.</p>
-<div id="datasummary_skim" class="section level3 hasAnchor" number="5.5.1">
-<h3><span class="header-section-number">5.5.1</span> <code>datasummary_skim()</code><a href="predictive-regression-part-ii.html#datasummary_skim" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="datasummary_skim" class="section level3 hasAnchor" number="4.5.1">
+<h3><span class="header-section-number">4.5.1</span> <code>datasummary_skim()</code><a href="predictive-regression-part-ii.html#datasummary_skim" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>datasummary_skim()</code> function from <code>modelsummary</code> makes it easy to construct simple tables of summary statistics. Simply pass it a data frame, and it will return a helpful table complete with cute little histograms! (If you don't want the histograms, you can set <code>histogram = FALSE</code>.)</p>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="predictive-regression-part-ii.html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb433-2"><a href="predictive-regression-part-ii.html#cb433-2" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(kids)</span></code></pre></div>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb329-1"><a href="predictive-regression-part-ii.html#cb329-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb329-2"><a href="predictive-regression-part-ii.html#cb329-2" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(kids)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1101,15 +1101,15 @@ mom_age
 </tbody>
 </table>
 <p>The summary statistics for <code>mom_hs</code> are a bit silly: there's no point in reporting the standard deviation of a binary variable, since this is a deterministic function of the mean. The problem here is that <code>datasummary_skim</code> has no way of knowing that we have encoded a <em>categorical variable</em> using the values <code>0</code> and <code>1</code>. In our last lesson I mentioned that it's better to explicitly store categorical variables as <em>factors</em> in R, and suggested replacing <code>mom_hs</code> with <code>mom_education</code> as follows:</p>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="predictive-regression-part-ii.html#cb434-1" aria-hidden="true" tabindex="-1"></a>kids_cat <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span> </span>
-<span id="cb434-2"><a href="predictive-regression-part-ii.html#cb434-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_education =</span> <span class="fu">if_else</span>(mom_hs <span class="sc">==</span> <span class="dv">1</span>, </span>
-<span id="cb434-3"><a href="predictive-regression-part-ii.html#cb434-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&#39;High School&#39;</span>, </span>
-<span id="cb434-4"><a href="predictive-regression-part-ii.html#cb434-4" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&#39;No High School&#39;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb434-5"><a href="predictive-regression-part-ii.html#cb434-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_education =</span> <span class="fu">factor</span>(mom_education, </span>
-<span id="cb434-6"><a href="predictive-regression-part-ii.html#cb434-6" aria-hidden="true" tabindex="-1"></a>                                <span class="at">levels =</span> <span class="fu">unique</span>(mom_education))) <span class="sc">%&gt;%</span></span>
-<span id="cb434-7"><a href="predictive-regression-part-ii.html#cb434-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>mom_hs)</span></code></pre></div>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="predictive-regression-part-ii.html#cb330-1" aria-hidden="true" tabindex="-1"></a>kids_cat <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span> </span>
+<span id="cb330-2"><a href="predictive-regression-part-ii.html#cb330-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_education =</span> <span class="fu">if_else</span>(mom_hs <span class="sc">==</span> <span class="dv">1</span>, </span>
+<span id="cb330-3"><a href="predictive-regression-part-ii.html#cb330-3" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&#39;High School&#39;</span>, </span>
+<span id="cb330-4"><a href="predictive-regression-part-ii.html#cb330-4" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">&#39;No High School&#39;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb330-5"><a href="predictive-regression-part-ii.html#cb330-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mom_education =</span> <span class="fu">factor</span>(mom_education, </span>
+<span id="cb330-6"><a href="predictive-regression-part-ii.html#cb330-6" aria-hidden="true" tabindex="-1"></a>                                <span class="at">levels =</span> <span class="fu">unique</span>(mom_education))) <span class="sc">%&gt;%</span></span>
+<span id="cb330-7"><a href="predictive-regression-part-ii.html#cb330-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>mom_hs)</span></code></pre></div>
 <p>If we make explicit which variables are categorical and which aren't, <code>datasummary_skim()</code> will <em>drop</em> any categorical variables by default:</p>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="predictive-regression-part-ii.html#cb435-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(kids_cat)</span></code></pre></div>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb331-1"><a href="predictive-regression-part-ii.html#cb331-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(kids_cat)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1279,7 +1279,7 @@ mom_age
 </tbody>
 </table>
 <p>To make a table of <em>only</em> the categorical variables, set <code>type = 'categorical'</code></p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="predictive-regression-part-ii.html#cb436-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(kids_cat, <span class="at">type =</span> <span class="st">&#39;categorical&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="predictive-regression-part-ii.html#cb332-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(kids_cat, <span class="at">type =</span> <span class="st">&#39;categorical&#39;</span>)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1320,10 +1320,10 @@ No High School
 </tbody>
 </table>
 </div>
-<div id="datasummary_balance" class="section level3 hasAnchor" number="5.5.2">
-<h3><span class="header-section-number">5.5.2</span> <code>datasummary_balance()</code><a href="predictive-regression-part-ii.html#datasummary_balance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="datasummary_balance" class="section level3 hasAnchor" number="4.5.2">
+<h3><span class="header-section-number">4.5.2</span> <code>datasummary_balance()</code><a href="predictive-regression-part-ii.html#datasummary_balance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It can sometimes be helpful to compare summary statistics across categories defined by a "grouping variable." For example, we may be interested to know how <code>kid_score</code>, <code>mom_iq</code>, and <code>mom_age</code> vary with <code>mom_education</code>. The <code>datasummary_balance()</code> function makes this easy:</p>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="predictive-regression-part-ii.html#cb437-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_balance</span>(<span class="sc">~</span> mom_education, <span class="at">data =</span> kids_cat)</span></code></pre></div>
+<div class="sourceCode" id="cb333"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb333-1"><a href="predictive-regression-part-ii.html#cb333-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_balance</span>(<span class="sc">~</span> mom_education, <span class="at">data =</span> kids_cat)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1439,10 +1439,10 @@ mom_age
 </table>
 <p>The second argument of <code>datasummary_balance()</code> is the data frame we wish to summarize. The first is a <em>one-sided formula</em> that takes the form <code>~ [GROUPING VARIABLE]</code>. The idea here is that <code>[GROUPING VARIABLE]</code> is analogous to a RHS variable in a regression formula. The syntax makes sense if you think about it: this table is equivalent to "regressing" all of the variables in <code>kids_cat</code> on <code>mom_eduation</code>.</p>
 </div>
-<div id="modelsummary" class="section level3 hasAnchor" number="5.5.3">
-<h3><span class="header-section-number">5.5.3</span> <code>modelsummary()</code><a href="predictive-regression-part-ii.html#modelsummary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="modelsummary" class="section level3 hasAnchor" number="4.5.3">
+<h3><span class="header-section-number">4.5.3</span> <code>modelsummary()</code><a href="predictive-regression-part-ii.html#modelsummary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The <code>modelsummary()</code> produces summary tables for statistical models, including linear regressions. The simplest way to use it is by passing a single argument: a fitted model such as <code>reg_pooled</code></p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="predictive-regression-part-ii.html#cb438-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(reg_pooled)</span></code></pre></div>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="predictive-regression-part-ii.html#cb334-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(reg_pooled)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1551,11 +1551,11 @@ RMSE
 </tbody>
 </table>
 <p>But it is with multiple models that <code>modelsummary()</code> shows its true power. Recall that we fitted a number of different regressions based on the <code>kids</code> dataset. To display them all at once in a format that permits easy comparisons, we simply need to create a <em>list</em> of the fitted models:</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="predictive-regression-part-ii.html#cb439-1" aria-hidden="true" tabindex="-1"></a>kids_regressions <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&#39;OLS 1&#39;</span> <span class="ot">=</span> reg_pooled,</span>
-<span id="cb439-2"><a href="predictive-regression-part-ii.html#cb439-2" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&#39;OLS 2&#39;</span> <span class="ot">=</span> reg_hs_dummy,</span>
-<span id="cb439-3"><a href="predictive-regression-part-ii.html#cb439-3" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&#39;OLS 3&#39;</span> <span class="ot">=</span> reg_interact)</span></code></pre></div>
+<div class="sourceCode" id="cb335"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb335-1"><a href="predictive-regression-part-ii.html#cb335-1" aria-hidden="true" tabindex="-1"></a>kids_regressions <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&#39;OLS 1&#39;</span> <span class="ot">=</span> reg_pooled,</span>
+<span id="cb335-2"><a href="predictive-regression-part-ii.html#cb335-2" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&#39;OLS 2&#39;</span> <span class="ot">=</span> reg_hs_dummy,</span>
+<span id="cb335-3"><a href="predictive-regression-part-ii.html#cb335-3" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&#39;OLS 3&#39;</span> <span class="ot">=</span> reg_interact)</span></code></pre></div>
 <p>When we pass <code>kids_regressions</code> to <code>modelsummary()</code> it will magically line up the estimates from each model that correspond to the same regressor, and add the names that I provided when creating the list of results:</p>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="predictive-regression-part-ii.html#cb440-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(kids_regressions)</span></code></pre></div>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="predictive-regression-part-ii.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(kids_regressions)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1790,7 +1790,7 @@ RMSE
 </tbody>
 </table>
 <p>Pretty good for a first pass! But let's clean things up a bit. For my taste, this table has far too many goodness of fit statistics. We can remove the ones that we don't want using the <code>gof_omit</code> option. To omit everything, set <code>gof_omit = '.*'</code>. Otherwise you can specify which measures to omit as follows:</p>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="predictive-regression-part-ii.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(kids_regressions, <span class="at">gof_omit =</span> <span class="st">&#39;Log.Lik|R2 Adj.|AIC|BIC&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb337"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb337-1"><a href="predictive-regression-part-ii.html#cb337-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(kids_regressions, <span class="at">gof_omit =</span> <span class="st">&#39;Log.Lik|R2 Adj.|AIC|BIC&#39;</span>)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1969,13 +1969,13 @@ RMSE
 </tbody>
 </table>
 <p>That's much cleaner, but there's still room for improvement. With standard errors as large as 13 for some of the coefficient estimates in this table, it's silly if not downright innumerate to report three decimal places of precision in our estimates: differences on this scale are merely noise. The <code>fmt</code> option allows you to specify in <em>excruciating detail</em> how you would like the numbers in your table to be formatted. For full details, see <a href="https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html#fmt">this link</a>. The simplest use of this option is to set a desired number of decimal places, for example:</p>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="predictive-regression-part-ii.html#cb442-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(kids_regressions, <span class="at">gof_omit =</span> <span class="st">&#39;Log.Lik|R2 Adj.|AIC|BIC&#39;</span>,</span>
-<span id="cb442-2"><a href="predictive-regression-part-ii.html#cb442-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">fmt =</span> <span class="dv">2</span>, </span>
-<span id="cb442-3"><a href="predictive-regression-part-ii.html#cb442-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">title =</span> <span class="st">&#39;Regression results for kids dataset&#39;</span>,</span>
-<span id="cb442-4"><a href="predictive-regression-part-ii.html#cb442-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">notes =</span> <span class="st">&#39;Source: all data were fabricated by the authors.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="predictive-regression-part-ii.html#cb338-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(kids_regressions, <span class="at">gof_omit =</span> <span class="st">&#39;Log.Lik|R2 Adj.|AIC|BIC&#39;</span>,</span>
+<span id="cb338-2"><a href="predictive-regression-part-ii.html#cb338-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">fmt =</span> <span class="dv">2</span>, </span>
+<span id="cb338-3"><a href="predictive-regression-part-ii.html#cb338-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">title =</span> <span class="st">&#39;Regression results for kids dataset&#39;</span>,</span>
+<span id="cb338-4"><a href="predictive-regression-part-ii.html#cb338-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">notes =</span> <span class="st">&#39;Source: all data were fabricated by the authors.&#39;</span>)</span></code></pre></div>
 <table style="NAborder-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto;" class="table">
 <caption>
-<span id="tab:unnamed-chunk-242">Table 5.1: </span>Regression results for kids dataset
+<span id="tab:unnamed-chunk-196">Table 4.1: </span>Regression results for kids dataset
 </caption>
 <thead>
 <tr>
@@ -2162,18 +2162,18 @@ RMSE
 </table>
 <p>where I added in a title and footnote for good measure!</p>
 </div>
-<div id="robust-standard-errors" class="section level3 hasAnchor" number="5.5.4">
-<h3><span class="header-section-number">5.5.4</span> Robust Standard Errors<a href="predictive-regression-part-ii.html#robust-standard-errors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="robust-standard-errors" class="section level3 hasAnchor" number="4.5.4">
+<h3><span class="header-section-number">4.5.4</span> Robust Standard Errors<a href="predictive-regression-part-ii.html#robust-standard-errors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you want to display heteroskedasticity-robust standard errors in a table constructed with <code>modelsummary()</code> you have two options. The first, and simplest, is to pass it a model fitted with <code>lm_robust</code>. For example, using the simulated <code>x</code> and <code>y</code> data from above:</p>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="predictive-regression-part-ii.html#cb443-1" aria-hidden="true" tabindex="-1"></a>ols <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
-<span id="cb443-2"><a href="predictive-regression-part-ii.html#cb443-2" aria-hidden="true" tabindex="-1"></a>robust <span class="ot">&lt;-</span> <span class="fu">lm_robust</span>(y <span class="sc">~</span> x)</span>
-<span id="cb443-3"><a href="predictive-regression-part-ii.html#cb443-3" aria-hidden="true" tabindex="-1"></a>different_SEs <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&#39;OLS&#39;</span> <span class="ot">=</span> ols, <span class="st">&#39;Robust&#39;</span> <span class="ot">=</span> robust)</span>
-<span id="cb443-4"><a href="predictive-regression-part-ii.html#cb443-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="fu">tidy</span>(ols)[, <span class="fu">c</span>(<span class="st">&#39;term&#39;</span>, <span class="st">&#39;std.error&#39;</span>)], </span>
-<span id="cb443-5"><a href="predictive-regression-part-ii.html#cb443-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">robust =</span> <span class="fu">tidy</span>(robust)<span class="sc">$</span>std.error)</span></code></pre></div>
+<div class="sourceCode" id="cb339"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb339-1"><a href="predictive-regression-part-ii.html#cb339-1" aria-hidden="true" tabindex="-1"></a>ols <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span>
+<span id="cb339-2"><a href="predictive-regression-part-ii.html#cb339-2" aria-hidden="true" tabindex="-1"></a>robust <span class="ot">&lt;-</span> <span class="fu">lm_robust</span>(y <span class="sc">~</span> x)</span>
+<span id="cb339-3"><a href="predictive-regression-part-ii.html#cb339-3" aria-hidden="true" tabindex="-1"></a>different_SEs <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&#39;OLS&#39;</span> <span class="ot">=</span> ols, <span class="st">&#39;Robust&#39;</span> <span class="ot">=</span> robust)</span>
+<span id="cb339-4"><a href="predictive-regression-part-ii.html#cb339-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="fu">tidy</span>(ols)[, <span class="fu">c</span>(<span class="st">&#39;term&#39;</span>, <span class="st">&#39;std.error&#39;</span>)], </span>
+<span id="cb339-5"><a href="predictive-regression-part-ii.html#cb339-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">robust =</span> <span class="fu">tidy</span>(robust)<span class="sc">$</span>std.error)</span></code></pre></div>
 <pre><code>##          term  std.error     robust
 ## 1 (Intercept) 2.15350326 3.30916120
 ## 2           x 0.02129732 0.03591114</code></pre>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="predictive-regression-part-ii.html#cb445-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(different_SEs, <span class="at">gof_omit =</span> <span class="st">&#39;Log.Lik|R2 Adj.|R2|AIC|BIC|F|RMSE&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb341"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb341-1"><a href="predictive-regression-part-ii.html#cb341-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(different_SEs, <span class="at">gof_omit =</span> <span class="st">&#39;Log.Lik|R2 Adj.|R2|AIC|BIC|F|RMSE&#39;</span>)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2254,7 +2254,7 @@ HC2
 </tbody>
 </table>
 <p>Notice that <code>modelsummary()</code> very helpfully indicates which flavor of robust standard errors appear in the <code>Robust</code> column. The second option is to fit your model using <code>lm()</code> and have <code>modelsummary()</code> do the appropriate standard error calculations for you using the <code>vcov</code> option:</p>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="predictive-regression-part-ii.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">lm</span>(y <span class="sc">~</span> x), <span class="at">vcov =</span> <span class="st">&#39;HC2&#39;</span>, <span class="at">gof_omit =</span> <span class="st">&#39;Log.Lik|R2 Adj.|R2|AIC|BIC|F|RMSE&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="predictive-regression-part-ii.html#cb342-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">lm</span>(y <span class="sc">~</span> x), <span class="at">vcov =</span> <span class="st">&#39;HC2&#39;</span>, <span class="at">gof_omit =</span> <span class="st">&#39;Log.Lik|R2 Adj.|R2|AIC|BIC|F|RMSE&#39;</span>)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2316,8 +2316,8 @@ HC2
 </table>
 <p>The heavily lifting in this case is done in the background by the <code>sandwich</code> package: see <a href="https://vincentarelbundock.github.io/modelsummary/articles/modelsummary.html#vcov">this link</a> for more details.</p>
 </div>
-<div id="exercise-30" class="section level3 hasAnchor" number="5.5.5">
-<h3><span class="header-section-number">5.5.5</span> Exercise<a href="predictive-regression-part-ii.html#exercise-30" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercise-30" class="section level3 hasAnchor" number="4.5.5">
+<h3><span class="header-section-number">4.5.5</span> Exercise<a href="predictive-regression-part-ii.html#exercise-30" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Read the help file for the <code>tips</code> dataset, available in the <code>reshape2</code> package. Then use <code>datasummary_skim()</code> to make two tables of summary statistics for <code>tips</code>: one for the categorical variables and one for the remaining variables.</li>
 </ol>
@@ -2325,8 +2325,8 @@ HC2
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="predictive-regression-part-ii.html#cb447-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
-<span id="cb447-2"><a href="predictive-regression-part-ii.html#cb447-2" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(tips)</span></code></pre></div>
+<div class="sourceCode" id="cb343"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb343-1"><a href="predictive-regression-part-ii.html#cb343-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb343-2"><a href="predictive-regression-part-ii.html#cb343-2" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(tips)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2495,7 +2495,7 @@ size
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="predictive-regression-part-ii.html#cb448-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(tips, <span class="at">type =</span> <span class="st">&#39;categorical&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="predictive-regression-part-ii.html#cb344-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_skim</span>(tips, <span class="at">type =</span> <span class="st">&#39;categorical&#39;</span>)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2656,7 +2656,7 @@ Lunch
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="predictive-regression-part-ii.html#cb449-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_balance</span>(<span class="sc">~</span> sex, tips)</span></code></pre></div>
+<div class="sourceCode" id="cb345"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb345-1"><a href="predictive-regression-part-ii.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="fu">datasummary_balance</span>(<span class="sc">~</span> sex, tips)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2996,15 +2996,15 @@ Lunch
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="predictive-regression-part-ii.html#cb450-1" aria-hidden="true" tabindex="-1"></a>reg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(tip <span class="sc">~</span> total_bill, tips)</span>
-<span id="cb450-2"><a href="predictive-regression-part-ii.html#cb450-2" aria-hidden="true" tabindex="-1"></a>reg2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(tip <span class="sc">~</span> total_bill <span class="sc">+</span> size, tips)</span>
-<span id="cb450-3"><a href="predictive-regression-part-ii.html#cb450-3" aria-hidden="true" tabindex="-1"></a>reg3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(tip <span class="sc">~</span> total_bill <span class="sc">+</span> size <span class="sc">+</span> sex, tips)</span>
-<span id="cb450-4"><a href="predictive-regression-part-ii.html#cb450-4" aria-hidden="true" tabindex="-1"></a>reg_results <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&#39;OLS 1&#39;</span> <span class="ot">=</span> reg1,</span>
-<span id="cb450-5"><a href="predictive-regression-part-ii.html#cb450-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;OLS 2&#39;</span> <span class="ot">=</span> reg2,</span>
-<span id="cb450-6"><a href="predictive-regression-part-ii.html#cb450-6" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;OLS 3&#39;</span> <span class="ot">=</span> reg3)</span>
-<span id="cb450-7"><a href="predictive-regression-part-ii.html#cb450-7" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(reg_results, </span>
-<span id="cb450-8"><a href="predictive-regression-part-ii.html#cb450-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">&#39;Log.Lik|R2 Adj.|AIC|BIC&#39;</span>,</span>
-<span id="cb450-9"><a href="predictive-regression-part-ii.html#cb450-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">fmt =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="predictive-regression-part-ii.html#cb346-1" aria-hidden="true" tabindex="-1"></a>reg1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(tip <span class="sc">~</span> total_bill, tips)</span>
+<span id="cb346-2"><a href="predictive-regression-part-ii.html#cb346-2" aria-hidden="true" tabindex="-1"></a>reg2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(tip <span class="sc">~</span> total_bill <span class="sc">+</span> size, tips)</span>
+<span id="cb346-3"><a href="predictive-regression-part-ii.html#cb346-3" aria-hidden="true" tabindex="-1"></a>reg3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(tip <span class="sc">~</span> total_bill <span class="sc">+</span> size <span class="sc">+</span> sex, tips)</span>
+<span id="cb346-4"><a href="predictive-regression-part-ii.html#cb346-4" aria-hidden="true" tabindex="-1"></a>reg_results <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&#39;OLS 1&#39;</span> <span class="ot">=</span> reg1,</span>
+<span id="cb346-5"><a href="predictive-regression-part-ii.html#cb346-5" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;OLS 2&#39;</span> <span class="ot">=</span> reg2,</span>
+<span id="cb346-6"><a href="predictive-regression-part-ii.html#cb346-6" aria-hidden="true" tabindex="-1"></a>                    <span class="st">&#39;OLS 3&#39;</span> <span class="ot">=</span> reg3)</span>
+<span id="cb346-7"><a href="predictive-regression-part-ii.html#cb346-7" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(reg_results, </span>
+<span id="cb346-8"><a href="predictive-regression-part-ii.html#cb346-8" aria-hidden="true" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">&#39;Log.Lik|R2 Adj.|AIC|BIC&#39;</span>,</span>
+<span id="cb346-9"><a href="predictive-regression-part-ii.html#cb346-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">fmt =</span> <span class="dv">2</span>)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -3190,10 +3190,10 @@ RMSE
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="predictive-regression-part-ii.html#cb451-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(reg_results, </span>
-<span id="cb451-2"><a href="predictive-regression-part-ii.html#cb451-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">&#39;Log.Lik|R2 Adj.|AIC|BIC&#39;</span>,</span>
-<span id="cb451-3"><a href="predictive-regression-part-ii.html#cb451-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">fmt =</span> <span class="dv">2</span>,</span>
-<span id="cb451-4"><a href="predictive-regression-part-ii.html#cb451-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">vcov =</span> <span class="st">&#39;HC2&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb347"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb347-1"><a href="predictive-regression-part-ii.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(reg_results, </span>
+<span id="cb347-2"><a href="predictive-regression-part-ii.html#cb347-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">gof_omit =</span> <span class="st">&#39;Log.Lik|R2 Adj.|AIC|BIC&#39;</span>,</span>
+<span id="cb347-3"><a href="predictive-regression-part-ii.html#cb347-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">fmt =</span> <span class="dv">2</span>,</span>
+<span id="cb347-4"><a href="predictive-regression-part-ii.html#cb347-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">vcov =</span> <span class="st">&#39;HC2&#39;</span>)</span></code></pre></div>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -3378,9 +3378,9 @@ HC2
 </div>
 <div class="footnotes">
 <hr />
-<ol start="19">
-<li id="fn19"><p>To make a long story short: it's almost never plausible that the null hypothesis holds <em>exactly</em>. If the null is even slightly incorrect then we're certain to reject it if we gather enough data, but this doesn't tell us anything of scientific interest. What really matters is <em>effect sizes</em> and the precision with which we can estimate them; not p-values.<a href="predictive-regression-part-ii.html#fnref19" class="footnote-back">↩︎</a></p></li>
-<li id="fn20"><p>Recall that a Wald test compares the estimated coefficients from an unrestricted model to their hypothesized values under a specified restriction.<a href="predictive-regression-part-ii.html#fnref20" class="footnote-back">↩︎</a></p></li>
+<ol start="11">
+<li id="fn11"><p>To make a long story short: it's almost never plausible that the null hypothesis holds <em>exactly</em>. If the null is even slightly incorrect then we're certain to reject it if we gather enough data, but this doesn't tell us anything of scientific interest. What really matters is <em>effect sizes</em> and the precision with which we can estimate them; not p-values.<a href="predictive-regression-part-ii.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>Recall that a Wald test compares the estimated coefficients from an unrestricted model to their hypothesized values under a specified restriction.<a href="predictive-regression-part-ii.html#fnref12" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <script>
@@ -3560,7 +3560,7 @@ window.onload = function() {
         </div>
       </div>
 <a href="predictive-regression-part-i.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="the-normal-distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="running-a-simulation-study.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
