@@ -12,7 +12,7 @@ Compared to the usual treatment of logistic regression in econometrics, we will 
 
 From a purely probabilistic perspective, there are two equivalent ways of thinking about logistic regression:
 $$
-P(Y=1|X) = \texttt{plogis}(X'\beta) \quad \iff \quad \log \left[\frac{P(Y=1|X)}{1 - P(Y=1|X)}\right] = X'\beta.
+P(Y=1|X) = \texttt{plogis}(X'\beta) \quad \iff \quad \log \left[\frac{P(Y=1|X)}{P(Y=0|X)}\right] = X'\beta.
 $$
 The first of these expresses the *probability* that $Y=1$ given $X$ as a nonlinear function of data and parameters; the second expresses the *log odds* that $Y=1$ given $X$ as a linear function of data and parameters.^[When I write log in this book, unless I explicitly say otherwise this is the *natural log*, following R's usage: `log()` defaults to natural log unless you specify `base = [YOUR PREFERRED BASE HERE]`.] This means that we can either think of logit regression as an index model for $P(Y=1|X)$ or as a linear regression model for the *log odds*. 
 
@@ -29,7 +29,13 @@ P(B | T) &= \frac{P(T|B)P(B)}{P(T)} = \frac{P(T|B)P(B)}{P(T|B)P(B) + P(T|B^C)P(B
 \end{aligned}
 $$
 
-**Maybe it's worth putting in a little Bayes' rule example here? Expressed in terms of odds? Make the point about multiplicative versus additive.**
+
+$$
+\begin{aligned}
+\text{Odds}(B|T) \equiv \frac{P(B|T)}{P(B^C|T)} &= \frac{P(T|B)}{P(T|B^C)} \times \frac{P(B)}{P(B^C)}\\
+&= \frac{0.99}{0.05} \times \frac{0.01}{0.99}
+\end{aligned}
+$$
 
 ### Exercise
 1. I haven't given you a closed-form expression for `plogis()`. Use the log-odds representation of logit regression to work out an explicit formula. Make your own version of this function `myplogis()` and check that it gives the same results on a grid of 100 equally spaced points `z` from `-4` to `4`.
