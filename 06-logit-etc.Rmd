@@ -93,7 +93,7 @@ Therefore, increasing $x$ by one unit is equivalent to multiplying the *odds* th
 
 There are many different ways to simulate draws from a logistic regression. Here are two. One possibility is to simulate Bernoulli draws with probabilities determined by `plogis()` and $X_i$, namely
 $$
-Y_i|X_i \sim \text{Bernoulli}(p_i), \quad p_i \equiv \texttt{plogis}(X_i'\beta).
+Y_i|X_i \sim \text{indep. Bernoulli}(p_i), \quad p_i \equiv \texttt{plogis}(X_i'\beta).
 $$
 Another is to generate a *latent continuous variable* $y^*_i$ from a linear regression with logistic errors, and then transform the result into a binary observed outcome $y_i$, in particular
 $$
@@ -146,6 +146,7 @@ Similarly, the confidence interval for the regression slope is `r round(coef(lre
 `r unhide()`
 2. Interpret the estimated slope coefficient from `lreg`. 
 `r hide('Show Solution')`
+Consider two people: Alice has a value of $x$ that is one unit higher than Bob's value of $x$. Our model predicts that the log odds of $Y = 1$ are 0.96 higher for Alice than for Bob. Equivalently, we predict that Alice's odds of $Y=1$ are a multiplicative factor of $\exp(0.96) \approx 2.6$ larger than Bob's odds. Whether this is a large or a small difference measured on the *probability scale* depends on Alice's specific value of $x$.
 `r unhide()`
 3. Try using `coef()` with `lreg`. What do you get? Does it work as expected? Now try the `broom` functions `tidy()` and `glance()` and long with the function `modelsummary()` from the `modelsummary` package. What do you get?
 ```{r, webex.hide = 'Show Solution'}
