@@ -88,121 +88,79 @@ Therefore, increasing $x$ by one unit is equivalent to multiplying the *odds* th
 6. Something with a generic logit regression $X'\beta$; something about interactions being really messy?
 
 
-## Odds and Ends about Risk
-![](https://imgs.xkcd.com/comics/spacecraft_debris_odds_ratio.png)
 
-Logistic regression is often used to talk about *risk*. For example: what is the risk that a baby born to a mother with characteristics $X$ will have a low birthweight? How does this risk vary across mothers with different characteristics? There are many different ways to pose this questions, and it's extremely important not to mix them up. Confusion on this score is extremely common and potentially serious, as it can lead people to give too much weight to tiny risks and not enough weight to serious ones.
+## Simulating Data from a Logistic Regression
 
-Consider two mothers: one with characteristics $x_1$ and another with characteristics $x_2$. If we take $x_1$ as our "baseline," then the **risk difference** is
+There are many different ways to simulate draws from a logistic regression. Here are two. One possibility is to simulate Bernoulli draws with probabilities determined by `plogis()` and $X_i$, namely
 $$
-\text{Risk Difference} \equiv P(Y=1|X=x_2) - P(Y=1|X=x_1).
+Y_i|X_i \sim \text{Bernoulli}(p_i), \quad p_i \equiv \texttt{plogis}(X_i'\beta).
 $$
-This is simply the difference of probabilities: it tells us how much higher or lower the probability of having a low birthweight baby is for a mother with $X=x_2$ compared to $X=x_1$. In contrast, the **relative risk** is a ratio:
+Another is to generate a *latent continuous variable* $y^*_i$ from a linear regression with logistic errors, and then transform the result into a binary observed outcome $y_i$, in particular
 $$
-\text{Relative Risk} \equiv \frac{P(Y=1|X=x_2)}{P(Y=1|X=x_1)}
-$$
-
-## The Latent Data Formulation of Logistic Regression
-Another way to think about logistic regression is via the following *generative model*:
-\[
  y_i^* = X_i'\beta + \epsilon_i, \quad
  y_i = \left\{ \begin{array}{cc}
  1 & \mbox{if } y^*_i > 0\\
  0 & \mbox{if } y^*_i \leq 0\\
  \end{array}\right., \quad
- \epsilon_i \sim \mbox{ iid Logistic}(0,1) 
-\]
-where the Logistic$(0,1)$ distribution has CDF $\Lambda(z) = e^z/(1 + e^z)$ and pdf $\lambda(z) = e^z/(1 + e^z)^2$.
-The expressions $\Lambda$ and $\lambda$ should look familiar, since we worked with them above.
-We call this a generative model because it tells us how to *generate* the observations $y_i$ using the regressors $X_i$.
-If we want to *simulate* data from a logistic regression model, the latent data formulation gives us a convenient way to do so.
+ \epsilon_i \sim \mbox{ iid Logistic}(0,1). 
+$$
+To give us some data to play with, I'll use the second approach. In an exercise below, you'll be asked to supply code for the first approach.
 
-The idea behind the latent data formulation is that a continuous *unobserved* random variable $y_i^*$ determines whether the *observed* binary random variable $y_i$ is zero or one.
-The term *latent* is just a synonym for unobserved.
-While this may seem odd, in specific examples we can often give $y_i^*$ a meaningful interpretation.
-For example, suppose that $y_i=1$ if person $i$ voted for Hilary Clinton in the 2016 presidential election and $X_i$ contains demographic information, e.g.\ income, education, race, sex, and age.
-The latent variable $y_i^*$ can be viewed as a measure of person $i$'s *strength of preference* for Hilary Clinton relative to Donald Trump.
-If $y^*_i$ is large and positive, person $i$ strongly prefers Clinton; if $y_i^*$ is large and negative, person $i$ strongly prefers Trump; if $y_i^* = 0$, person $i$ is indifferent.
-
-### Exercise \#3
-(a) Show that $\lambda(z)$ is symmetric about zero, i.e. $\lambda(z) = \lambda(-z)$.
-(b) Show that the latent data formulation implies $\mathbb{P}(y_i = 1) = \Lambda(X_i'\beta)$. Hint: if $Z$ is a continuous RV with a pdf that is symmetric about zero, then $\mathbb{P}(-Z<c) = \mathbb{P}(Z\leq c)$.
-
-## Solution to Exercise \#3
-<!-- ANS_START -->
-(a) Expand the denominator, and then multiply by $\exp(-2z)/\exp(-2z)$, yielding
-\[
-\lambda(x) = \frac{\exp(z)}{[1 + \exp(z)]^2} = \frac{\exp(z)}{1 + 2\exp(z) + \exp(2z)} = \frac{\exp(-z)}{\exp(-2z) + 2\exp(-z) + 1} = \frac{\exp(-z)}{[1 + \exp(-z)]^2} = \lambda(-z)
-\]
-(b) $\mathbb{P}(y_i = 1) = \mathbb{P}(y_i^* > 0) = \mathbb{P}(X_i'\beta + \epsilon_i > 0) = \mathbb{P}(-\epsilon_i < X_i'\beta) = \mathbb{P}(-\epsilon_i \leq X_i'\beta) = \Lambda(X_i'\beta)$
-<!-- ANS_END -->
-
-
-## Part II - Logistic Regression in R
-Now we'll take a quick look at how to carry out logistic regression in R using a simulated dataset.
-In Thursday's lab you'll use what you learn in this part to study a real-world example.
-
-## Simulating Data from a Logistic Regression
-The R function `rlogis` creates iid draws from the logistic distribution.
-If we only specify one argument, `rlogis` assumes that this is the number of random draws that we wish to make, and sets the values of its *location* and *scale* parameters to 0 and 1, respectively.
-This is what we want, since these parameters correspond to the Logistic$(0,1)$ distribution that appears in the latent data formulation from above.
-Using `rlogis`, we can simulate data from a logistic regression model as follows: 
+The R function `rlogis()` creates iid draws from the logistic distribution. If we only specify one argument, `rlogis()` assumes that this is the number of random draws that we wish to make, and sets the values of its *location* and *scale* parameters to 0 and 1, respectively. This is what we want, since these parameters correspond to the Logistic$(0,1)$ distribution that appears in the latent data formulation from above. Using `rlogis()`, we can simulate data from a logistic regression model as follows: 
 ```{r}
 set.seed(1234)
 n <- 500
-b0 <- 0.5
-b1 <- 1
+alpha <- 0.5
+beta <- 1
 x <- rnorm(n, mean = 1.5, sd = 2)
-ystar <- b0 + b1 * x + rlogis(n)
+ystar <- alpha + beta * x + rlogis(n)
 y <- 1 * (ystar > 0)
 mydat <- data.frame(x, y)
 ```
+In this case I've chosen to draw `x` from a normal distribution with mean `1.5` and standard deviation `2`. Given the values of `alpha` and `beta` that I've chosen, this means that $Y=1$ is considerably more likely than not: 
+```{r}
+mean(y)
+```
 
-### Running a Logistic Regression in R
-We can now run a logistic regression use the simulated dataset `mydat` to carry out logistic regression.
-Note that in a certain sense this is silly: we generated the data so we *know* the true values of $\beta_0$ and $\beta_1$. 
-Why bother carrying out logistic regression to *estimate* them?
-There are two answers to this question.
-First, this is only an example: don't be so picky!
-Second, it can be extremely valuable to work with simulated data to check whether our statistical methods are working correctly.
-If we *know* for sure that the data came from a logistic regression model, then our logistic regression estimates should be close to the truth. 
-If they're not, then something is wrong with our computer code.
 
-The R function `glm` can be used to carry out logistic regression.
-The name of this function is an acronym for *generalized linear model*.
-Generalized linear models (GLMs) are exactly what their name says, a *generalization* of linear regression.
-GLMs include logistic regression as a special case.
-To tell `glm` that we want to carry out a logistic regression, we need to specify `family = binomial(link = 'logit')`.
-Otherwise the syntax is practically identical to that of `lm`.
-We specify a *formula*, `y ~ x`, and indicate a dataframe in which R should look to find `y` and `x`:
+### Exercise
+Simulate using the other approach.
+
+## Running a Logistic Regression in R
+Now we're reading to use the simulated dataset `mydat` to carry out logistic regression. Perhaps this strikes you as a silly idea. We generated the data so we *know* the true values of $\beta_0$ and $\beta_1$.  Why bother carrying out logistic regression to *estimate* them?
+There are two answers to this question. First, this is only an example: don't be so picky!
+Second, it can be extremely valuable to work with simulated data to check whether our statistical methods are working correctly. If we *know* for sure that the data came from a logistic regression model, then our logistic regression estimates should be close to the truth. If they're not, then something is wrong with our computer code.
+
+The R function `glm` can be used to carry out logistic regression. The name of this function is an acronym for *generalized linear model*. Generalized linear models (GLMs) are exactly what their name says, a *generalization* of linear regression. GLMs include logistic regression as a special case. To tell `glm` that we want to carry out a logistic regression, we need to specify `family = binomial(link = 'logit')`. Otherwise the syntax is practically identical to that of `lm`. We specify a *formula*, `y ~ x`, and indicate a dataframe in which R should look to find `y` and `x`:
 ```{r}
 lreg <- glm(y ~ x, mydat, family = binomial(link = 'logit'))
 summary(lreg)
 ```
-Notice that the output of `summary` when applied to a `glm` object is a little different from what we've seen for `lm` objects.
-But let's focus on what's the same.
-We still obtain the estimates of each of the coefficients in our model, along with standard errors, test statistics, and p-values.
-We can use this information to carry out statistical inference exactly as we do with linear regression: R has already done all the hard work for us by calculating the standard errors.
+Notice that the output of `summary` when applied to a `glm` object is a little different from what we've seen for `lm` objects. For now, let's focus on what's the same. We still obtain the estimates of each of the coefficients in our model, along with standard errors, test statistics, and p-values. We can use this information to carry out statistical inference exactly as we do with linear regression: R has already done all the hard work for us by calculating the standard errors. As you'll see in the following exercises, the functions from the `broom` and `modelsummary` packages that you learned in our lessons on linear regression work just as well with `glm` objects as they do with `lm` objects. 
 
-### Exercise \#4
-Construct approximate 95\% confidence intervals for the parameters $\beta_0$ and $\beta_1$ based on the logistic regression output from above.
-Do your confidence intervals include the true parameter values that we used to simulate the data?
+### Exercise
+1. Construct approximate 95\% confidence intervals for the parameters $\beta_0$ and $\beta_1$ based on the logistic regression output from above. Do your confidence intervals include the true parameter values that we used to simulate the data?
+`r hide('Show Solution')`
+The confidence interval for the regression intercept is approximately `r round(coef(lreg)[1], 2)` $\pm$ `r round(2 * sqrt(summary(lreg)$cov.scaled[1,1]), 2)` which includes the true value: $\alpha=$ `r alpha`. 
+Similarly, the confidence interval for the regression slope is `r round(coef(lreg)[2], 2)` $\pm$  `r round(2 * sqrt(summary(lreg)$cov.scaled[2,2]), 2)` which includes the true value: $\beta =$ `r beta`.
+`r unhide()`
+2. Interpret the estimated slope coefficient from `lreg`. 
+`r hide('Show Solution')`
+`r unhide()`
+3. Try using `coef()` with `lreg`. What do you get? Does it work as expected? Now try the `broom` functions `tidy()` and `glance()` and long with the function `modelsummary()` from the `modelsummary` package. What do you get?
+```{r, webex.hide = 'Show Solution'}
+# They work as expected!
+library(broom)
+library(modelsummary)
+tidy(lreg)
+glance(lreg)
+modelsummary(lreg)
+```
 
-## Solution to Exercise \#4
-<!-- ANS_START -->
-The confidence interval for the regression intercept is `r round(coef(lreg)[1], 2)` $\pm$ `r round(2 * sqrt(summary(lreg)$cov.scaled[1,1]), 2)` which includes the true value: $\beta_0=$ `r b0`. 
-Similarly, the confidence interval for the regression slope is `r round(coef(lreg)[2], 2)` $\pm$  `r round(2 * sqrt(summary(lreg)$cov.scaled[2,2]), 2)` which includes the true value: $\beta_1 =$ `r b1`.
-<!-- ANS_END -->
 
 ## Predicted Probabilities for Logistic Regression 
-Many of the functions we used with `lm` also work with `glm`.
-For example, to extract the coefficients from a generalized linear model, we can use the command `coef`:
-```{r}
-coef(lreg)
-```
-We can also use the function `predict` to calculated the predicted probability that $y = 1$ given particular values of the predictors $X_i$. 
-There's just one slight wrinkle here: we need to make sure to specify `type = 'response'` to indicate to R that we want the predicted *probabilities*.
-For example, we can calculate the predicted probability that $y_i = 1$ given that $X_i = 0$ as follows:
+
+As you saw in the preceding exercises, many of the functions that we've already learned to use with `lm` objects generalize immediately to `glm` objects. One place were we need to be a bit careful is when we want to make *predictions* based on a fitted generalized linear model. The `predict()` function works for `glm` objects, but there's a slight wrinkle. If we want to calculate the predicted *probability* that $Y_i = 1$, we need to specify the argument `type = 'response'`. For example, we can calculate the predicted probability that $y_i = 1$ given that $X_i = 0$ as follows:
 ```{r}
 predict(lreg, newdata = data.frame(x = 0), type = 'response')
 ```
@@ -210,29 +168,27 @@ Similarly, we can calculate the predicted probability that $y_i = 1$ given that 
 ```{r}
 predict(lreg, newdata = data.frame(x = mean(x)), type = 'response')
 ```
-If we don't specify anything for `newdata`, then predict will give us the predicted probabilities for the *observed* values of $X$:
+If we don't specify anything for `newdata`, then predict will give us the predicted probabilities for the *observed* values of $X$, exactly 
 ```{r}
-phat <- predict(lreg, type = 'response')
-head(phat)
+p_hat <- predict(lreg, type = 'response')
+head(p_hat)
 ```
+
 
 ### Exercise \#5
-(a) Write an R function called `Lambda` that calculates the value of $e^z/(1 + e^z)$.
-(b) Using your function from part (a) and the results of `lreg`, calculate the predicted probability that $y_i = 1$ when: (i) $X_i = 0$ and (ii) $X_i = \bar{X}$ *without using* `predict`. Check that your results match those calculated using `predict` above.
-
-### Solution to Exercise \#5
-
-<!-- ANS_START -->
-```{r}
-Lambda <- function(x) {
-  1 / (1 + exp(-x))
-}
+1. Use the results of `lreg` to calculate the predicted probability that $Y_i = 1$ when: (i) $X_i = 0$ and (ii) $X_i = \bar{X}$ *without using* `predict`. Check that your results match those calculated using `predict` above.
+```{r, webex.hide = 'Show Solution'}
 bhat_0 <- coef(lreg)[1]
 bhat_1 <- coef(lreg)[2]
-Lambda(bhat_0)
-Lambda(bhat_0 + bhat_1 * mean(x))
+plogis(bhat_0)
+plogis(bhat_0 + bhat_1 * mean(x))
 ```
-<!-- ANS_END -->
+2. You may recall the function `augment()` from the `broom` package that we used in an earlier lesson on linear regression. Read the help file for `augment.glm()` from the `broom` package. This explains the behavior of `augment()` when applied to a `glm` object rather than an `lm` object. How can we use `augment()` to calculate the same predictions as `predict(lreg, type = 'response')` and append them to `mydat`?
+```{r, webex.hide = 'Show Solution'}
+augment(lreg, mydat, type.predict = 'response')
+```
+
+
 
 ## Calculating Marginal Effects
 As we discussed above, $\beta_j$ is *not* the partial derivative of $P(X)$ with respect to $X_j$.
@@ -300,4 +256,128 @@ ggplot(mydat, aes(x, y)) +
 From this plot it is easy to tell that there are many more observations with $y = 1$ than $y = 0$, something that was not at all clear from the plot using `geom_point()`.
 
 
-## Alternatives
+## Binary Outcome: Example 15.1 from Wooldridge (2010)
+Mroz (1987, Econometrica) 
+
+```{r, message = FALSE}
+# Load packages for robust standard errors (install them first!)
+library(sandwich)
+library(lmtest)
+
+# Load the data from the wooldridge package (install it first!)
+library(wooldridge)
+
+# View the names of the columns
+names(mroz)
+```
+
+### Description of Variables: `mroz`
+
+```{r}
+# Specify the linear index
+labor_model <- inlf ~ nwifeinc + educ + exper + expersq + age +
+  kidslt6 + kidsge6
+```
+
+- `inlf` equals 1 if in labor force, 1975
+- `nwifeinc` non-wife income in $1000
+- `educ` years of schooling
+- `exper` actual labor market experience
+- `expersq` square of `exper`
+- `age` woman's age in years
+- `kidslt6` number of kids < 6 years
+- `kidsge6` number of kids 6-18
+
+### Fit LPM, Logit, and Probit 
+```{r}
+lpm <- lm(labor_model, data = mroz)
+logit <- glm(labor_model, family = binomial(link = 'logit'), 
+             data = mroz)
+probit <- glm(labor_model, family = binomial(link = 'probit'), 
+              data = mroz)
+```
+
+### LPM Results - Robust SE
+```{r}
+coeftest(lpm, vcov. = vcovHC, type = 'HC0')
+```
+
+### Logistic Regression Results
+```{r}
+coeftest(logit)
+```
+
+### Probit Regression Results
+```{r}
+coeftest(probit)
+```
+### Calculating Pseudo-$R^2$ 
+```{r}
+# Fit models with only an intercept
+model0 <- inlf ~ 1
+logit0 <- glm(model0, family = binomial(link = 'logit'), data = mroz)
+probit0 <- glm(model0, family = binomial(link = 'probit'), data = mroz)
+
+# Pseudo R-squared for Logit
+1 - logLik(logit) / logLik(logit0)
+
+# Pseudo R-squared for Probit
+1 - logLik(probit) / logLik(probit0)
+```
+
+### Calculating Average Partial Effects
+```{r}
+# Average of g(x'beta_hat) where g is dlogis
+# (predict defaults to the scale of x'beta_hat)
+logit_APE_factor <- mean(dlogis(predict(logit))) 
+logit_APE_factor
+
+# Average of g(x'beta_hat) where g is dnorm 
+# (predict defaults to the scale of x'beta_hat)
+probit_APE_factor <- mean(dnorm(predict(probit)))
+probit_APE_factor 
+```
+
+### Comparison of APEs - LPM, Logit & Probit
+```{r}
+# Extract estimated coefficients, excluding the first (the constant)
+lpm_est <- coefficients(lpm)[-1]
+logit_est <- coefficients(logit)[-1]
+probit_est <- coefficients(probit)[-1]
+
+# Rescale the logit and probit estimates to obtain APEs
+cbind(lpm = lpm_est, logit_APE = logit_APE_factor * logit_est, 
+      probit_APE = probit_APE_factor * probit_est)
+```
+
+## Addendum: Odds and Ends about Risk
+![](https://imgs.xkcd.com/comics/spacecraft_debris_odds_ratio.png)
+
+Logistic regression is often used to talk about *risk*. For example: what is the risk that a baby born to a mother with characteristics $X$ will have a low birthweight? How does this risk vary across mothers with different characteristics? There are many different ways to pose this question, and it's important not to mix them up. Confusion on this score is common, so it's worth taking a moment to distinguish three concepts: **risk differences**, **relative risk**, and **odds ratios**. 
+
+Consider two mothers: one with characteristics $x_1$ and another with characteristics $x_2$. If we take $x_1$ as our "baseline," then the **risk difference** is
+$$
+\begin{aligned}
+\text{Risk Difference} &\equiv P(Y=1|X=x_2) - P(Y=1|X=x_1)\\
+&= \texttt{plogis}(\alpha + x_2'\beta) - \texttt{plogis}(\alpha + x_1'\beta)
+\end{aligned}
+$$
+This is simply the difference of probabilities: it tells us how much higher or lower the probability of having a low birthweight baby is for a mother with $X=x_2$ compared to $X=x_1$. In contrast, the **relative risk** is a ratio:
+$$
+\text{Relative Risk} \equiv \frac{P(Y=1|X=x_2)}{P(Y=1|X=x_1)} = \frac{\texttt{plogis}(\alpha + x_2'\beta)}{\texttt{plogis}(\alpha + x_1'\beta)}.
+$$
+This tells us how many *times* more or less likely a mother with $X = x_2$ is to have a low birthweight baby compared to a mother with $X = x_1$. The **odds ratio** is yet *another* ratio:
+$$
+\begin{aligned}
+\text{Odds Ratio} &\equiv \frac{P(Y=1|X=x_2)/P(Y=0|X=x_2)}{P(Y=1|X=x_1)/P(Y=1|X=x_1)} = \frac{\exp(\alpha + x_2'\beta)}{\exp(\alpha + x_1'\beta)}\\
+&= \exp\left\{ (x_2 - x_1)'\beta\right\}.
+\end{aligned}
+$$
+Each of these measures is a perfectly reasonable answer to the question "how does the risk vary across the two mothers?" But each is also on a completely different scale: in general they are *not directly comparable*. Before asking if a number is big or small, we first have to be clear about what is being measured.
+
+People often confuse odds ratios with relative risk. This is tempting for three reasons. First, they're both ratios. Second, when the event $\{Y=1\}$ is *extremely rare*, the two measures give similar results.^[In epidemiology this is called the "rare disease assumption."] Third, when the two measures are not comparable, the odds ratio is often quite a lot larger, and therefore sounds more impressive! Consider two examples. In the first, $P(Y=1|X=x_2) = 0.1$ while $P(Y=1|X=x_1)= 0.05$, so the relative risk is $2$ and the odds ratio is $2.11$. In the second, $P(Y=1|X=x_2)= 0.8$ and $P(Y=1|X=x_1)=0.4$ so the relative risk remains $2$ while the odds ratio shoots up to $6$. Again, there's nothing wrong with odds ratios: they're simply not equivalent to relative risk. In the second example it would be a gross exaggeration to claim that "setting $X = x_2$ makes $Y=1$ six times more likely!" It is the *odds* that increase by a factor of six, not the probability.
+
+Even in cases where the odds ratio and relative risk are similar, there's still room for confusion. Suppose I tell you that going from $X=x_2$ to $X = x_1$ increases your mortality risk: the relative risk and odds ratio are both around 2. Should this worry you? It depends. Increasing your probability of death from 0.000005\% to 0.00001\% gives a relative risk and odds ratio of 2, but pales in comparison to the danger of driving a car. When the baseline probability is low, the relative risk and odds ratio can be high despite the risks involved being negligible.
+
+### Exercise
+Explain the cartoon at the beginning of this section.
