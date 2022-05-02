@@ -6,7 +6,7 @@ Our task in this lesson will be propose, interpret, and estimate regression mode
 
 Our main focus in this lesson will be *logistic regression*, far and away the most popular model for binary outcomes. Towards the end, we'll briefly discuss *probit regression.* Each of these is an example of an *index model,* a model of the form $P(Y=1|X) = G(X'\beta)$ where $G(\cdot)$ is known function. Roughly speaking, the idea is to stick our usual linear regression predictor $X'\beta$ inside a function $G(\cdot)$ that makes predictions on the right scale. For logistic regression $G(z) = \texttt{plogis}(z)$ the [standard logistic CDF](https://en.wikipedia.org/wiki/Logistic_distribution); for probit regression $G(z) = \texttt{pnorm}(z)$, the standard normal CDF. Setting $G(\cdot)$ equal to a CDF ensures that our predictions will indeed lie between zero and one!
 
-Compared to the usual treatment of logistic regression in econometrics, we will devote *much more time* to understanding the meaning of the model and much less time to technical details. This is because I assume that your econometrics course likely took the *opposite approach*. If you're hankering for more technical details, you can view my [MPhil teaching materials here](https://www.economictricks.com/). 
+Compared to the usual treatment of logistic regression in econometrics, we will devote *much more time* to understanding the meaning of the model and much less time to technical details. This is because I assume that your econometrics course likely took the *opposite approach*. If you're hankering for more technical details, or if you want to brush up on the basic details of logistic regression, you can view my [MPhil teaching materials here](https://www.economictricks.com/). 
 
 ## Understanding the Logistic Regression Model
 
@@ -14,40 +14,76 @@ From a purely probabilistic perspective, there are two equivalent ways of thinki
 $$
 P(Y=1|X) = \texttt{plogis}(X'\beta) \quad \iff \quad \log \left[\frac{P(Y=1|X)}{P(Y=0|X)}\right] = X'\beta.
 $$
-The first of these expresses the *probability* that $Y=1$ given $X$ as a nonlinear function of data and parameters; the second expresses the *log odds* that $Y=1$ given $X$ as a linear function of data and parameters.^[When I write log in this book, unless I explicitly say otherwise this is the *natural log*, following R's usage: `log()` defaults to natural log unless you specify `base = [YOUR PREFERRED BASE HERE]`.] This means that we can either think of logit regression as an index model for $P(Y=1|X)$ or as a linear regression model for the *log odds*. 
+The first of these expresses the *probability* that $Y=1$ given $X$ as a nonlinear function of data and parameters; the second expresses the *log odds* that $Y=1$ given $X$ as a linear function of data and parameters.^[When I write log in this book, unless I explicitly say otherwise this is the *natural log*, following R's usage: `log()` defaults to natural log unless you specify `base = [YOUR PREFERRED BASE HERE]`.] This means that we can either think of logit regression as an index model for $P(Y=1|X)$ or as a linear regression model for the *log odds*. Many people, even those with extensive training in probability, find odds to be a slightly strange concept. In fact odds, and especially log odds, are very natural.^[Pun intended!] If you'll permit a short digression, I'd like to take this opportunity to change your mind about odds. 
 
-So what on earth are odds and why should we care? Many people, even those with extensive training in probability, find odds to be a slightly strange concept. In fact odds, and especially log odds, are very natural.^[Pun intended!] Forget about regression for the moment and consider some event $A$ with probability $p$ of occurring. Then we say that the *odds* of $A$ are $p/(1 - p)$. For example, if $p = 1/3$ then the event $A$ is equivalent to drawing a red ball from an urn that contains one red and two blue balls: the probability is the *ratio of red balls to total balls*. The odds of $A$, on the other hand, are $(1/3) / (2/3) = 1/2$: the odds is the *ratio of red balls to blue balls*. Viewed from this perspective, there's nothing inherently more intuitive about probabilities compared to odds; we're just more used to them. 
+### Odds aren't so odd!
+
+Forget about regression for the moment and consider some event $A$ with probability $p$ of occurring. Then we say that the **odds** of $A$ are $p/(1 - p)$. For example, if $p = 1/3$ then the event $A$ is equivalent to drawing a red ball from an urn that contains one red and two blue balls: the probability is the *ratio of red balls to total balls*. The odds of $A$, on the other hand, are $(1/3) / (2/3) = 1/2$: the odds is the *ratio of red balls to blue balls*. Viewed from this perspective, there's nothing inherently more intuitive about probabilities compared to odds. We're simply more familiar with probabilities. 
 
 But perhaps you're still not convinced. Here's an example that you've surely seen before:
-> One in a hundred women has breast cancer ($B$). If you have breast cancer, there is a 99\% chance that your test result will be positive ($T$); if you do not have breast cancer, there is a 5\% chance that your test result will nevertheless be positive ($T$). We know nothing about Alice other than the fact that she tested positive. How likely is it that she has breast cancer?
 
-The usual approach to this problem is simple enough with pen and paper:
+> One in a hundred women has breast cancer $(B)$. If you have breast cancer, there is a 95\% chance that you will test positive $(T)$; if you do not have breast cancer $(B^C)$, there is a 2\% chance that you will nonetheless test positive $(T)$. We know nothing about Alice other than the fact that she tested positive. How likely is it that she has breast cancer?
+
+It's easy enough to solve this problem using Bayes' Theorem, as long as you have pen and paper handy: 
 $$
 \begin{aligned}
 P(B | T) &= \frac{P(T|B)P(B)}{P(T)} = \frac{P(T|B)P(B)}{P(T|B)P(B) + P(T|B^C)P(B^C)}\\
-&= \frac{0.99 \times 0.01}{0.99 \times 0.01 + 0.05 \times 0.99} = 1/6
+&= \frac{0.95 \times 0.01}{0.95 \times 0.01 + 0.02 \times 0.99} \approx 0.32.
 \end{aligned}
 $$
+But what if I asked you how the result would change if only one in a thousand women had breast cancer? What if I changed the [sensitivity](https://en.wikipedia.org/wiki/Sensitivity_and_specificity) of the test from 95\% to 99\% or the [specificity](https://en.wikipedia.org/wiki/Sensitivity_and_specificity) from 98% to 95\%? If you're anything like me, you would struggle to do these calculations in your head. That's because $P(B|T)$ is a *highly non-linear* function of $P(B)$, $P(T|B)$, and $P(T|B^C)$.
 
+In contrast, working with odds makes this problem a snap. The key point is that $P(B|T)$ and $P(B^C|T)$ have the same denominator, namely $P(T)$:
+$$
+P(B | T) = \frac{P(T|B)P(B)}{P(T)}, \quad
+P(B^C | T) = \frac{P(T|B^C)P(B^C)}{P(T)}
+$$
+Notice that $P(T)$ was the "complicated" term in $P(B|T)$; the numerator was simple. Since the odds of $B$ given $T$ is defined as the ratio of $P(B|T)$ to $P(B^C|T)$, the denominator cancels and we're left with 
+$$
+\text{Odds}(B|T) \equiv \frac{P(B|T)}{P(B^C|T)} = \frac{P(T|B)}{P(T|B^C)} \times \frac{P(B)}{P(B^C)}.
+$$
+In other words, the *posterior odds* of $B$ equal the *likelihood ratio*, $P(T|B)/P(T|B^C)$, multiplied by the *prior odds* of $B$, $P(B)/P(B^C)$:
+$$
+\text{Posterior Odds} = \text{(Likelihood Ratio)} \times \text{(Prior Odds)}.
+$$
+Now we can easily solve the original problem in our head. The prior odds are 1/99 while the likelihood ratio is 95/2. Rounding these to 0.01 and 50 respectively, we find that the posterior odds are around 1/2. This mean's that Alice's chance of having breast cancer is roughly equivalent to the chance of drawing a red ball from an urn with one red and two blue balls. There's no need to convert this back to a probability since we can already answer the question: it's considerably more likely that Alice *does not* have breast cancer. But if you insist, odds of 1/2 give a probability of 1/3, so in spite of rounding and calculating in our heads we're within 0.3\% of the exact answer!
 
+Repeat after me: **odds are on a multiplicative scale**. This is their key virtue and the reason why they make it so easy to explore variations on the original problem. If one in a thousand women has breast cancer, the prior odds become 1/999 so we simply divide our previous result by 10, giving posterior odds of around 1/20. If we instead changed the sensitivity from 95\% to 99\% and the specificity from 98\% to 95\%, then the likelihood ratio would change from $95/2 \approx 50$ to $99/5 \approx 20$. It's also easy to work out the effect of conditioning on additional sources of information. To compute the posterior odds after a *second* positive test result with the same sensitivity and specificity as the first and conducted independently of it, simply multiply by the likelihood ratio a *second time*. This is worth repeating: each positive test result has the effect of multiplying the prior odds by the *same factor*.  
+
+Since odds are on a multiplicative scale, **log odds are on an additive scale** 
 $$
-\begin{aligned}
-\text{Odds}(B|T) \equiv \frac{P(B|T)}{P(B^C|T)} &= \frac{P(T|B)}{P(T|B^C)} \times \frac{P(B)}{P(B^C)}\\
-&= \frac{0.99}{0.05} \times \frac{0.01}{0.99}
-\end{aligned}
+\log(\text{Posterior Odds}) = \log\text{(Likelihood Ratio)} + \log\text{(Prior Odds)}.
 $$
+Base 2 logarithms are simplest for computers, natural logarithms are simplest for mathematics, and base 10 logarithms are simplest for human beings. So for a moment let's think in base 10. A good diagnostic test might have a sensitivity and specificity of around 90\%; an better one might have values of 99\%; an excellent one might have values of around 99.9\%. These translate into likelihood ratios of 9, 99, and 999 respectively. On a log base ten scale these are approximately 1, 2, and 3. A common disease might have a prevalence of 10\%; a rarer one 1\%; and an even rarer one 0.1\%. Expressed as prior odds, these values become  1/9, 1/99, and 1/999 or -1, -2, and -3 on the log base 10 scale. The log posterior odds are simply the *sum* of these two numbers. For example, a sensitivity and specificity of 10\% and a prevalence of 1\% gives log odds of approximately $1 - 2 = -1$. This means that the odds of having the disease are around $1/10$. A second positive result multiplies the odds by the likelihood ratio a second time. On the log scale this means adding 1, yielding log odds of 0 and odds of 1/2. This kind of reasoning is extremely helpful for quick, back-of-the-envelope calculations about how much to change our views in the light of new evidence. It's also *extremely* helpful for understanding logistic regression. But before returning to our regularly-scheduled programming, here are a few exercises to test your understanding.
 
 ### Exercise
-1. I haven't given you a closed-form expression for `plogis()`. Use the log-odds representation of logit regression to work out an explicit formula. Make your own version of this function `myplogis()` and check that it gives the same results on a grid of 100 equally spaced points `z` from `-4` to `4`.
-2. Exercise: probabilities are between 0 and 1. What about odds? What about log odds? Probability of 1/2 gives odds of what? Log odds of what?
+1. I haven't given you a closed-form expression for `plogis()`. Use the log-odds representation of logit regression to work out an explicit formula. And create a function called `myplogis()` that implements this in R. Check that your function gives the same results as the "real" `plogis()` function on a grid of 100 equally spaced points between -3 and 3.
+2. Exercise: probabilities are between 0 and 1. What about odds? What about log odds? 
+3. If the probability of an event is $1/2$, what are the odds? What about the log odds? What does this tell us about the qualitative interpretation of odds and log odds?
+4. Bayes on the odds scale for independent tests, arbitrary number of positive and negative test results.
 
+### Interpreting a Simple Logit Regression Model
 
-The log odds of $A$ are simply the natural logarithm of this quantity: $\log(p) - \log(1 - p)$.  
+To summarize our digression and exercises from above: probabilities are mathematically inconvenient because they're bounded above and below. This is the reason for the non-linearity in Bayes' Theorem expressed on the probability scale. In contrast, odds are simpler: they're *multiplicative*, bounded below by zero, and unbounded above. Odds of one mean $A$ and $A^C$ are equally likely. Log odds are even simpler: they're additive and unbounded. Log odds of zero mean that $A$ and $A^C$ are equally likely. Now it's time to use this knowledge to help us understand logistic regression. Our goal is to understand how changing $x$ affects $P(Y=1|X=x)$ under the model.
 
+Let's start with the simplest possible example: $p(x) \equiv P(Y=1|X=x) = \texttt{plogis}(\alpha + \beta x)$ where $X$ is a scalar. What is the derivative of $p(x)$ with respect to $x$? By the chain rule,
+$$
+\frac{d}{dx} \texttt{plogis}(\alpha + \beta x) = \beta \times \texttt{dlogis}(\alpha + \beta x) 
+$$
+where $\texttt{dlogis}(\cdot)$ is the standard logistic density. Since $\texttt{dlogis}(\cdot)$ is a density it can't be negative, so the derivative has the same sign as $\beta$. Its magnitude, however, depends on the value of $x$ at which we evaluate it *and* on the value of $\alpha$. On the *probability scale*, partial effects for logit regression are *non-linear*. Because it's a CDF, $\texttt{plogis}(\cdot)$ eventually "flattens out." Increasing $x$ by one unit therefore cannot have the same effect on $P(Y=1|X=x)$ when the baseline value of $x$ as it does when the baseline value is high. 
 
-- Probabilities are nasty because they're bounded on both sides; odds are simpler because they're *multiplicative* and only bounded below; log odds are *even simpler* because they're *additive* and unbounded. Example with `plogis(a + b* x)`. What is the derivative wrt `x`? It's a bit of a pain. What about derivative of the *odds* wrt `x`? Much simpler! What about derivative of the *log odds*? Even simpler still! Need to be able to think about moving back-and-forth between these scales.
-- Example: derive the *divide by four* rule.
-- Also can think about average partial effects.
+As above, everything's easier with odds. As you'll show in the exercise below,
+$$
+\frac{\texttt{plogis}(z)}{1 - \texttt{plogis}(z)} = \exp(z) \implies
+\text{Odds}(Y=1|X=x) = \exp(\alpha + \beta x)
+$$
+Therefore, increasing $x$ by one unit is equivalent to multiplying the *odds* that $Y=1$ by $\exp(\beta)$. This holds true *regardless* of the values of $\alpha$ or $x$.
+
+### Exercise
+1. In the simple model abvoe, suppose that 
+2. Divide by four rule
+3. Average partial effect versus partial effect at average
+
 
 
 
