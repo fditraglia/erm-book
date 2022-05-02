@@ -18,7 +18,7 @@ The first of these expresses the *probability* that $Y=1$ given $X$ as a nonline
 
 ### Odds aren't so odd!
 
-Forget about regression for the moment and consider some event $A$ with probability $p$ of occurring. Then we say that the **odds** of $A$ are $p/(1 - p)$. For example, if $p = 1/3$ then the event $A$ is equivalent to drawing a red ball from an urn that contains one red and two blue balls: the probability is the *ratio of red balls to total balls*. The odds of $A$, on the other hand, are $(1/3) / (2/3) = 1/2$: the odds is the *ratio of red balls to blue balls*. Viewed from this perspective, there's nothing inherently more intuitive about probabilities compared to odds. We're simply more familiar with probabilities. 
+Forget about regression for the moment and consider some event $A$ with probability $p$ of occurring. Then we say that the **odds** of $A$ are $p/(1 - p)$. For example, if $p = 1/3$ then the event $A$ is equivalent to drawing a red ball from an urn that contains one red and two blue balls: the probability gives the *ratio of red balls to total balls*. The odds of $A$, on the other hand, equal $1/2$: odds give the *ratio of red balls to blue balls*. Viewed from this perspective, there's nothing inherently more intuitive about probabilities compared to odds. We're simply more familiar with probabilities. 
 
 But perhaps you're still not convinced. Here's an example that you've surely seen before:
 
@@ -77,20 +77,30 @@ $$
 \frac{\texttt{plogis}(z)}{1 - \texttt{plogis}(z)} = \exp(z) \implies
 \text{Odds}(Y=1|X=x) = \exp(\alpha + \beta x)
 $$
-Therefore, increasing $x$ by one unit is equivalent to multiplying the *odds* that $Y=1$ by $\exp(\beta)$. This holds true *regardless* of the values of $\alpha$ or $x$.
+Therefore, increasing $x$ by one unit is equivalent to multiplying the *odds* that $Y=1$ by $\exp(\beta)$. This holds true *regardless* of the values of $\alpha$ or $x$. Log odds are even simpler since $\text{log Odds}(Y=1|x) = \alpha + \beta x$. Notice that we've observed the same phenomenon here as in our Bayes' rule example from above. This is partly down to the magic of odds, and partly due to the *specific structure of the logit model*. These same results wouldn't go through for probit regression or other index models: the function $\texttt{plogis}(\cdot)$ is *extremely* mathematically convenient.
 
 ### Exercise
 1. In the simple model abvoe, suppose that 
 2. Divide by four rule
 3. Average partial effect versus partial effect at average
-
-
+4. Something with $x$ having a mean of zero and thinking about different changes from there. Different values of $\alpha$ etc. Think about relating this to the prior in the Bayes' rule calculation.
+5. Something with odds *ratios*.
+6. Something with a generic logit regression $X'\beta$; something about interactions being really messy?
 
 
 ## Odds and Ends about Risk
 ![](https://imgs.xkcd.com/comics/spacecraft_debris_odds_ratio.png)
 
+Logistic regression is often used to talk about *risk*. For example: what is the risk that a baby born to a mother with characteristics $X$ will have a low birthweight? How does this risk vary across mothers with different characteristics? There are many different ways to pose this questions, and it's extremely important not to mix them up. Confusion on this score is extremely common and potentially serious, as it can lead people to give too much weight to tiny risks and not enough weight to serious ones.
 
+Consider two mothers: one with characteristics $x_1$ and another with characteristics $x_2$. If we take $x_1$ as our "baseline," then the **risk difference** is
+$$
+\text{Risk Difference} \equiv P(Y=1|X=x_2) - P(Y=1|X=x_1).
+$$
+This is simply the difference of probabilities: it tells us how much higher or lower the probability of having a low birthweight baby is for a mother with $X=x_2$ compared to $X=x_1$. In contrast, the **relative risk** is a ratio:
+$$
+\text{Relative Risk} \equiv \frac{P(Y=1|X=x_2)}{P(Y=1|X=x_1)}
+$$
 
 ## The Latent Data Formulation of Logistic Regression
 Another way to think about logistic regression is via the following *generative model*:
