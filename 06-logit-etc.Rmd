@@ -78,7 +78,7 @@ Odds are between 0 and $+\infty$. Since $p\in [0,1]$ the ratio $p/(1 - p)$ canno
 `r hide('Show Solution')`
 A probability of 1/2 corresponds to odds of $(1/2) / (1 - 1/2) = 1$ and log odds of $\log(1) = 0$. Thus, odds of one mean "as likely as not," as do log odds of zero. 
 `r unhide()`
-4. Generalizing the Bayes rule example from above, let $\pi$ be the prior probability of breast cancer, $\text{sens}$ be the sensitivity of the test and $\text{spec}$ be the specificity of the test. Suppose that we observe the results of $n$ tests of which $n^+$ are positive the rest are negative. Write down an expression for the odds that Alice has breast cancer, assuming that each test result is statistically independent of the others conditional on a person's true breast cancer status. (Unconditionally, the tests *definitely* aren't independent!) 
+4. Generalizing the Bayes rule example from above, let $\pi$ be the prior probability of breast cancer, $\text{SENS}$ be the sensitivity of the test and $\text{SPEC}$ be the specificity of the test. Suppose that we observe the results of $N$. Of these $N^+$ are positive the rest are negative. Write down an expression for the odds that Alice has breast cancer, assuming that each test statistically independent of the others conditional on a person's true breast cancer status. (Unconditionally, the tests *definitely* aren't independent!) 
 `r hide('Show Solution')`
 FILL IN LATER!
 `r unhide()`
@@ -101,10 +101,31 @@ $$
 Therefore, increasing $x$ by one unit is equivalent to multiplying the *odds* that $Y=1$ by $\exp(\beta)$. This holds true *regardless* of the values of $\alpha$ or $x$. Log odds are even simpler since $\text{log Odds}(Y=1|x) = \alpha + \beta x$. Notice that we've observed the same phenomenon here as in our Bayes' rule example from above. This is partly down to the magic of odds, and partly due to the *specific structure of the logit model*. These same results wouldn't go through for probit regression or other index models: the function $\texttt{plogis}(\cdot)$ is *extremely* mathematically convenient.
 
 ### Exercise
-1. Divide by four rule
-2. Average partial effect versus partial effect at average
-3. Something with $x$ having a mean of zero and thinking about different changes from there. Different values of $\alpha$ etc. Think about relating this to the prior in the Bayes' rule calculation.
-4. Something with odds *ratios*.
+1. Perhaps you've heard of the "divide by four rule." It goes like this: if you divide a logistic regression coefficient by four, you'll obtain the *maximum possible* effect of changing the associated regressor by one unit on the predicted probability that $Y = 1$. Where does this rule come from?
+`r hide('Show Solution')`
+Above we found that the derivative of $\texttt{plogis}(\alpha + \beta x)$ with respect to $x$ was $\beta \times \texttt{dlogis}(\alpha + \beta x)$. We also noted that `dlogis()` is the standard logistic density, so it can't be negative. This means that the sign of the effect equals the sign of $\beta$. The magnitude, however, depends on the value of $\texttt{dlogis}(\alpha + \beta x)$. To get the largest possible magnitude, we need to make `dlogis()` as large as possible. This density is symmetric with a mode at zero:
+```{r}
+x_seq <- seq(-4, 4, length.out = 400)
+qplot(x_seq, dlogis(x_seq), geom = 'line')
+```
+
+The "divide by four" rule arises because the height of the logistic density at zero is 1/4
+```{r}
+dlogis(0)
+```
+`r unhide()`
+2. The quantity $\beta \times \texttt{dlogis}(\alpha + \beta x)$ is usually called the partial effect of $x$. I write $x$ to denote a realization of the random variable $X$, so $x$ is constant whereas $X$ is random. In contrast, the *average partial effect* is defined as $E[\beta \times \texttt{dlogis}(\alpha + \beta X)]$.  and the *partial effect at the average* is $\beta \times \texttt{dlogis}(\alpha + \beta E[X])$. Do these two coincide in general? Why or why not? What question does each of them answer? 
+`r hide('Show Solution')`
+They do not in general coincide because $E[f(X)]$ does not in general equal $f(E[X])$. (Linear/affine functions are the special case in which you *can* exchange $E$ and $f$.) The average partial effect answers this question: "suppose I slightly increased `x` for everyone in my population of interest; how would my predicted probabilities that $Y = 1$ change on average?" The partial effect at the average answers a different question: "suppose I found someone whose `x` value equals the population mean; if I increased her `x` by a small amount, how would my predicted probability that $Y = 1$ change?"
+`r unhide()`
+3. Consider two people: one has $X = x_2$ and the other has $X = x_1$. Under the simple logistic regression model from above, what is the *odds ratio* for these two people? In other words, what is the ratio of the odds that $Y=1$ for person two relative to those for person one?
+`r hide('Show Solution')`
+The odds for person two are $\exp(\alpha + \beta x_2)$ while those for person one are $\exp(\alpha + \beta x_1)$. Taking the ratio of these gives $\exp\left\{\beta (x_2 - x_1) \right\}$.
+`r unhide()`
+4. Show that $\texttt{plogis}(z) / [1 - \texttt{plogis}(z)] = \exp(z)$.
+`r hide('Show Solution')`
+FILL IN LATER
+`r unhide()`
 
 
 
@@ -190,18 +211,21 @@ modelsummary(lreg)
 ```
 
 4. As we discussed above, $\beta$ is *not* the partial derivative of $\texttt{plogis}(\alpha + \beta x)$ with respect to $x$. 
-    (a) Use the "divide by 4" rule to calculate the *maximum* possible marginal effect of $x$ on the predicted probability that $Y = 1$ using the results of `lreg`.
-    (b) Calculate the marginal effect of $x$ on the predicted probability that $Y= 1$ at evaluated at the sample mean value of $X$. 
-    (c) Compare your answers to (a) and (b)
+    (a) Use the "divide by 4" rule to calculate the *maximum* possible partial effect of $x$ on the predicted probability that $Y = 1$ using the results of `lreg`.
+    (b) Calculate the partial effect of $x$ on the predicted probability that $Y= 1$ at evaluated at the sample mean value of $X$ (the partial effect at the average). 
+    (c) Calculate the average partial effect of $x$ over the observed sample.
+    (d) Compare your answers to (a), (b), and (c). 
 ```{r, webex.hide = 'Show Solution'}
 # Divide by 4 rule
 alpha_hat <- coef(lreg)[1]
 beta_hat <- coef(lreg)[2]
 beta_hat / 4
 
-# Marginal effect at average x
-linear_predictor <- alpha_hat + beta_hat * mean(x)
-beta_hat * exp(linear_predictor) / (1 + exp(linear_predictor))^2
+# Partial effect at average x
+beta_hat * dlogis(alpha_hat + beta_hat * mean(x))
+
+# Average partial effect
+beta_hat * mean(dlogis(alpha_hat + beta_hat * x))
 ```
 
 ## Predicted Probabilities for Logistic Regression 
@@ -222,7 +246,7 @@ head(p_hat)
 
 
 ### Exercise
-1. Use the results of `lreg` to calculate the predicted probability that $Y_i = 1$ when: (i) $X_i = 0$ and (ii) $X_i = \bar{X}$ *without using* `predict`. Check that your results match those calculated using `predict` above.
+1. Use the results of `lreg` to calculate the predicted probability that $Y_i = 1$ when: (i) $X_i = 0$ and (ii) $X_i = \bar{X}$ *without using* `predict`. Check that your results agree with `predict()`.
 ```{r, webex.hide = 'Show Solution'}
 alpha_hat <- coef(lreg)[1]
 beta_hat <- coef(lreg)[2]
@@ -306,7 +330,20 @@ two_truths %>%
 ```
 
 
-## Binary Outcome: Example 15.1 from Wooldridge (2010)
+## Probit Regression and the Linear Probability Model
+
+Thus far we've only discussed logistic regression, but there are many other models for binary outcome data. We've also restricted our attention to a model with a single regressor. In this section we'll introduce two common alterantives to logistic regression: "probit" and the "linear probability model." Then I'll turn you loose on a more substantial exercise with binary outcome data and *multiple* regressors.
+
+### Probit Regression
+
+
+### The Linear Probability Model
+
+The name makes it sound fancier that it is: the so-called linear probability model, or LPM for short, is just *ordinary least squares*. In other words, it's what you get if you *ignore* the fact that $Y$ is binary and just run a linear regression. Expressed as a probability model, the LMH amounts to $P(Y=1|X) = X'\beta$. There are three important things to know about this model. First, it's *definitely wrong* because it can make predictions that lie outside the range $[0,1]$. Second, it might nevertheless be a *reasonable approximation* over a range of values for $X$. In your plot from above, you probably noticed that `plogis(z)` is close to linear for `z` between say -1.5 and 1.5. 
+
+
+### Exercise
+Have them do it!
 Mroz (1987, Econometrica) 
 
 ```{r, message = FALSE}
