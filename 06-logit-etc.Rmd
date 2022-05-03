@@ -76,7 +76,7 @@ Odds are between 0 and $+\infty$. Since $p\in [0,1]$ the ratio $p/(1 - p)$ canno
 `r unhide()`
 3. If the probability of an event is $1/2$, what are the odds? What about the log odds? What does this tell us about the qualitative interpretation of odds and log odds?
 `r hide('Show Solution')`
-A probability of 1/2 corresponds to odds of $(1/2) / (1 - 1/2) = 1$ and log odds of $\log(1) = 0$. Thus, odds of one mean "as likely as not," as do log odds of zero. 
+A probability of 1/2 corresponds to odds of $(1/2) / (1 - 1/2) = 1$ and log odds of $\log(1) = 0$. Thus, odds of one mean "as likely as not," odds greater than one mean "more likely than not," and odds less than one mean "less likely than not." Log odds of zero mean "as likely as not," positive log odds mean "more likely than not," and negative log odds mean "less likely than not." 
 `r unhide()`
 4. Generalizing the Bayes rule example from above, let $\pi$ be the prior probability of breast cancer, $\text{SENS}$ be the sensitivity of the test and $\text{SPEC}$ be the specificity of the test. Suppose that we observe the results of $N$. Of these $N^+$ are positive the rest are negative. Write down an expression for the odds that Alice has breast cancer, assuming that each test statistically independent of the others conditional on a person's true breast cancer status. (Unconditionally, the tests *definitely* aren't independent!) 
 `r hide('Show Solution')`
