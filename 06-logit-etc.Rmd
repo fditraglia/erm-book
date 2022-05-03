@@ -57,10 +57,31 @@ $$
 Base 2 logarithms are simplest for computers, natural logarithms are simplest for mathematics, and base 10 logarithms are simplest for human beings. So for a moment let's think in base 10. A good diagnostic test might have a sensitivity and specificity of around 90\%; an better one might have values of 99\%; an excellent one might have values of around 99.9\%. These translate into likelihood ratios of 9, 99, and 999 respectively. On a log base ten scale these are approximately 1, 2, and 3. A common disease might have a prevalence of 10\%; a rarer one 1\%; and an even rarer one 0.1\%. Expressed as prior odds, these values become  1/9, 1/99, and 1/999 or -1, -2, and -3 on the log base 10 scale. The log posterior odds are simply the *sum* of these two numbers. For example, a sensitivity and specificity of 10\% and a prevalence of 1\% gives log odds of approximately $1 - 2 = -1$. This means that the odds of having the disease are around $1/10$. A second positive result multiplies the odds by the likelihood ratio a second time. On the log scale this means adding 1, yielding log odds of 0 and odds of 1/2. This kind of reasoning is extremely helpful for quick, back-of-the-envelope calculations about how much to change our views in the light of new evidence. It's also *extremely* helpful for understanding logistic regression. But before returning to our regularly-scheduled programming, here are a few exercises to test your understanding.
 
 ### Exercise
-1. I haven't given you a closed-form expression for `plogis()`. Use the log-odds representation of logit regression to work out an explicit formula. And create a function called `myplogis()` that implements this in R. Check that your function gives the same results as the "real" `plogis()` function on a grid of 100 equally spaced points between -3 and 3.
+1. I haven't given you a closed-form expression for `plogis()`. Use the log-odds representation of logit regression to work out an explicit formula, then create a function called `myplogis()` that implements it in R. Check that your function gives the same results as the "real" `plogis()` function on a grid of 400 equally spaced points between -4 and 4. Then plot your function on the same range.
+`r hide('Show Solution')`
+Let $p \equiv P(Y=1|X)$. We are given two expressions: $p = \texttt{plogis}(X'\beta)$ and $\log[p/(1-p)] = X'\beta$. Exponentiating both sides and re-arranging gives $\exp(-X'\beta) = (1-p)/p$. Solving for $p$, we obtain $p = 1/[1 + \exp(-X'\beta)]$. But since $p = \texttt{plogis}(X'\beta)$ this means that $\texttt{plogis}(z) = 1/[1 + \exp(-z)]$. Equivalently, we could multiply the numerator and denominator by $\exp(z)$ to write $\texttt{plogis}(z) = \exp(z)/[1 + \exp(z)]$.
+```{r}
+myplogis <- function(z) {
+  1 / (1 + exp(-z))
+}
+z_seq <- seq(from = -4, to = 4, length.out = 400)
+all.equal(myplogis(z_seq), plogis(z_seq))
+library(ggplot2)
+qplot(z_seq, myplogis(z_seq), geom = 'line')
+```
+`r unhide()`
 2. Exercise: probabilities are between 0 and 1. What about odds? What about log odds? 
+`r hide('Show Solution')`
+Odds are between 0 and $+\infty$. Since $p\in [0,1]$ the ratio $p/(1 - p)$ cannot be negative, but we can make it arbitrarily large by taking $p$ close to one. Log odds are the log of something that is between zero and positive infinity, so they are between $-\infty$ and $+\infty$.
+`r unhide()`
 3. If the probability of an event is $1/2$, what are the odds? What about the log odds? What does this tell us about the qualitative interpretation of odds and log odds?
-4. Bayes on the odds scale for independent tests, arbitrary number of positive and negative test results.
+`r hide('Show Solution')`
+A probability of 1/2 corresponds to odds of $(1/2) / (1 - 1/2) = 1$ and log odds of $\log(1) = 0$. Thus, odds of one mean "as likely as not," as do log odds of zero. 
+`r unhide()`
+4. Generalizing the Bayes rule example from above, let $\pi$ be the prior probability of breast cancer, $\text{sens}$ be the sensitivity of the test and $\text{spec}$ be the specificity of the test. Suppose that we observe the results of $n$ tests of which $n^+$ are positive the rest are negative. Write down an expression for the odds that Alice has breast cancer, assuming that each test result is statistically independent of the others conditional on a person's true breast cancer status. (Unconditionally, the tests *definitely* aren't independent!) 
+`r hide('Show Solution')`
+FILL IN LATER!
+`r unhide()`
 
 ### Interpreting a Simple Logit Regression Model
 
@@ -80,12 +101,10 @@ $$
 Therefore, increasing $x$ by one unit is equivalent to multiplying the *odds* that $Y=1$ by $\exp(\beta)$. This holds true *regardless* of the values of $\alpha$ or $x$. Log odds are even simpler since $\text{log Odds}(Y=1|x) = \alpha + \beta x$. Notice that we've observed the same phenomenon here as in our Bayes' rule example from above. This is partly down to the magic of odds, and partly due to the *specific structure of the logit model*. These same results wouldn't go through for probit regression or other index models: the function $\texttt{plogis}(\cdot)$ is *extremely* mathematically convenient.
 
 ### Exercise
-1. In the simple model abvoe, suppose that 
-2. Divide by four rule
-3. Average partial effect versus partial effect at average
-4. Something with $x$ having a mean of zero and thinking about different changes from there. Different values of $\alpha$ etc. Think about relating this to the prior in the Bayes' rule calculation.
-5. Something with odds *ratios*.
-6. Something with a generic logit regression $X'\beta$; something about interactions being really messy?
+1. Divide by four rule
+2. Average partial effect versus partial effect at average
+3. Something with $x$ having a mean of zero and thinking about different changes from there. Different values of $\alpha$ etc. Think about relating this to the prior in the Bayes' rule calculation.
+4. Something with odds *ratios*.
 
 
 
@@ -124,7 +143,19 @@ mean(y)
 
 
 ### Exercise
-Simulate using the other approach.
+My simulation code from above employed the latent variable approach: rather than using the function `plogis()` I generated standard logistic draws using `rlogis()` to form an unobserved continuous outcome variable `ystar`. Write code that simulates from the *same* logistic regression model *without* generating any random logistic draws or creating a latent continuous variable `ystar`.
+```{r, webex.hide = 'Show Solution'}
+# These lines are identical to those from above so we get the same x-values:
+set.seed(1234)
+n <- 500
+alpha <- 0.5
+beta <- 1
+x <- rnorm(n, mean = 1.5, sd = 2)
+# Here's the only thing that changes:
+y <- rbinom(n, size = 1, prob = plogis(alpha + beta * x))
+mydat2 <- data.frame(x, y)
+```
+
 
 ## Running a Logistic Regression in R
 Now we're reading to use the simulated dataset `mydat` to carry out logistic regression. Perhaps this strikes you as a silly idea. We generated the data so we *know* the true values of $\beta_0$ and $\beta_1$.  Why bother carrying out logistic regression to *estimate* them?
@@ -158,6 +189,20 @@ glance(lreg)
 modelsummary(lreg)
 ```
 
+4. As we discussed above, $\beta$ is *not* the partial derivative of $\texttt{plogis}(\alpha + \beta x)$ with respect to $x$. 
+    (a) Use the "divide by 4" rule to calculate the *maximum* possible marginal effect of $x$ on the predicted probability that $Y = 1$ using the results of `lreg`.
+    (b) Calculate the marginal effect of $x$ on the predicted probability that $Y= 1$ at evaluated at the sample mean value of $X$. 
+    (c) Compare your answers to (a) and (b)
+```{r, webex.hide = 'Show Solution'}
+# Divide by 4 rule
+alpha_hat <- coef(lreg)[1]
+beta_hat <- coef(lreg)[2]
+beta_hat / 4
+
+# Marginal effect at average x
+linear_predictor <- alpha_hat + beta_hat * mean(x)
+beta_hat * exp(linear_predictor) / (1 + exp(linear_predictor))^2
+```
 
 ## Predicted Probabilities for Logistic Regression 
 
@@ -176,44 +221,20 @@ head(p_hat)
 ```
 
 
-### Exercise \#5
+### Exercise
 1. Use the results of `lreg` to calculate the predicted probability that $Y_i = 1$ when: (i) $X_i = 0$ and (ii) $X_i = \bar{X}$ *without using* `predict`. Check that your results match those calculated using `predict` above.
 ```{r, webex.hide = 'Show Solution'}
-bhat_0 <- coef(lreg)[1]
-bhat_1 <- coef(lreg)[2]
-plogis(bhat_0)
-plogis(bhat_0 + bhat_1 * mean(x))
+alpha_hat <- coef(lreg)[1]
+beta_hat <- coef(lreg)[2]
+plogis(alpha_hat)
+plogis(alpha_hat + beta_hat * mean(x))
 ```
 2. You may recall the function `augment()` from the `broom` package that we used in an earlier lesson on linear regression. Read the help file for `augment.glm()` from the `broom` package. This explains the behavior of `augment()` when applied to a `glm` object rather than an `lm` object. How can we use `augment()` to calculate the same predictions as `predict(lreg, type = 'response')` and append them to `mydat`?
 ```{r, webex.hide = 'Show Solution'}
 augment(lreg, mydat, type.predict = 'response')
 ```
 
-
-
-## Calculating Marginal Effects
-As we discussed above, $\beta_j$ is *not* the partial derivative of $P(X)$ with respect to $X_j$.
-But since we have a formula for this partial derivative, we can calculate it for any value of $X$.
-In the following exercise, you will compare the exact calculation to the approximation given by the "divide by 4" rule.
-
-### Exercise \#6
-(a) Use the "divide by 4" rule to calculate the *maximum* possible effect of $X$ on the predicted probability that $y_i = 1$ using the results of `lreg`.
-(b) Calculate the effect of $X$ on the predicted probability that $y_i= 1$ at $X_i = \bar{X}$.
-(c) Compare your answers to (a) and (b)
-
-### Solution to Exercise \#6
-<!-- ANS_START -->
-```{r}
-# Divide by 4 rule
-bhat_1 / 4
-
-# Marginal effect at average x
-linear_predictor <- bhat_0 + bhat_1 * mean(x)
-bhat_1 * exp(linear_predictor) / (1 + exp(linear_predictor))^2
-```
-<!-- ANS_END -->
-
-### Plotting a Logistic Regression
+## Plotting a Logistic Regression
 We can plot a logistic regression function using a method very similar to the one we used to plot a linear regression:
 ```{r}
 library(ggplot2)
@@ -254,7 +275,35 @@ ggplot(mydat, aes(x, y)) +
   geom_jitter(width = 0.5, height = 0.1)
 ```
 
-From this plot it is easy to tell that there are many more observations with $y = 1$ than $y = 0$, something that was not at all clear from the plot using `geom_point()`.
+From this plot it is easy to tell that there are many more observations with $Y = 1$ than $Y = 0$, something that was not at all clear from the plot using `geom_point()`.
+
+### Exercise
+Data from the "two truths and a lie" experiment described at the beginning of these lesson are available from `two-truths-and-a-lie-2022-cleaned.csv` in the `data` directory of my website: `https://ditraglia.com/data/`. 
+
+1. Read the dataset directly into R from the web, storing it in a tibble called `two_truths`.
+```{r, webex.hide = 'Show Solution', message = FALSE}
+library(tidyverse)
+data_url <- 'https://ditraglia.com/data/two-truths-and-a-lie-2022-cleaned.csv'
+two_truths <- read_csv(data_url)
+```
+2. Run a logistic regression that predicts `guessed_right` based on `certainty`. Make a nicely-formatted table of regression results using `modelsummary()` and comment briefly on your findings.
+`r hide('Show Solution')`
+The estimated coefficient for `certainty` is *negative*! This means that on average we predict more wrong guesses as students' subjective certainty in their guesses increases. But notice that our estimate is fairly noisy: the coefficient estimate is around -0.2 and the standard error is around 0.16. We haven't found any compelling evidence that the relationship runs in either direction. Maybe the 2023 Core ERM students will be more obliging!  
+```{r}
+two_truths_reg <- glm(guessed_right ~ certainty, family = binomial(link = 'logit'),
+                      data = two_truths)
+library(modelsummary)
+modelsummary(two_truths_reg)
+```
+`r unhide()`
+3. Use `ggplot()` to depict the regression from part 2, adding jittering to make the raw data clearly visible. You may need to adjust the `width` and `height` parameters of `geom_jitter()`. 
+```{r, message = FALSE, webex.hide = 'Show Solution'}
+two_truths %>%
+  ggplot(aes(x = certainty, y = guessed_right)) +
+  stat_smooth(method = 'glm', method.args = list(family = 'binomial'),
+              formula = y ~ x) +
+  geom_jitter(width = 0.1, height = 0.05)
+```
 
 
 ## Binary Outcome: Example 15.1 from Wooldridge (2010)
