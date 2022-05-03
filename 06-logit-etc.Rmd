@@ -332,39 +332,61 @@ two_truths %>%
 
 ## Probit Regression and the Linear Probability Model
 
-Thus far we've only discussed logistic regression, but there are many other models for binary outcome data. We've also restricted our attention to a model with a single regressor. In this section we'll introduce two common alterantives to logistic regression: "probit" and the "linear probability model." Then I'll turn you loose on a more substantial exercise with binary outcome data and *multiple* regressors.
+Thus far we've only discussed logistic regression, but there are many other models for binary outcome data. We've also restricted our attention to a model with a single regressor. In this section we'll introduce two common alternatives to logistic regression: "probit" and the "linear probability model." Then I'll turn you loose on a more substantial exercise with binary outcome data and *multiple* regressors.
 
 ### Probit Regression
+
+Whereas the logistic regression model posits that $P(Y=1|X) = \texttt{plogis}(X'\beta)$, the **probit regression model** replaces `plogis()` with `pnorm()`. In other words, it substitutes a standard normal CDF for a standard logistic:
+$$
+P(Y=1|X) = \texttt{pnorm}(X'\beta)
+$$
+To simulate from this model, we can either combine `rbinom()` with `pnorm()` or use the following latent variable characterization:
+$$
+ y_i^* = X_i'\beta + \epsilon_i, \quad
+ y_i = \left\{ \begin{array}{cc}
+ 1 & \mbox{if } y^*_i > 0\\
+ 0 & \mbox{if } y^*_i \leq 0\\
+ \end{array}\right., \quad
+ \epsilon_i \sim \mbox{ iid N}(0,1). 
+$$
+Modifying my code from above, for example, we can simulate the following data from a probit regression model:
+```{r}
+set.seed(1234)
+n <- 500
+alpha <- 0.5
+beta <- 1
+x <- rnorm(n, mean = 1.5, sd = 2)
+ystar <- alpha + beta * x + rnorm(n)
+y <- 1 * (ystar > 0)
+probit_dat <- data.frame(x, y)
+```
+The probit model is less convenient than logit mathematically because `pnorm()`, unlike `plogis()`, lacks a closed-form expression. This makes it much harder to give a simple interpretation to the regression coefficients: the various tricks that we used above with odds simply won't apply. We can still compute partial effects, however. Let $G(\cdot)$ be the CDF of a continuous random variable and $g(\cdot)$ be the corresponding density. Then we have
+$$
+\frac{\partial}{\partial x_j} G(x'\beta) = \beta_j \times g(x'\beta)
+$$
+For logistic regression $G$ becomes `plogis()` and $g$ becomes `dlogis()`; for probit regression these become `pnorm()` and `dnorm()`. This fact allows us to compute partial effects, average partial effects, and partial effects at the average almost exactly as we did for logistic regression above.
+
+Fitting and plotting probit regression in R are also a snap. Simply change `link = 'logit'` to `link = 'probit'` as follows:
+```{r}
+probit_reg <- glm(y ~ x, probit_dat, family = binomial(link = 'probit'))
+tidy(lreg)
+library(ggplot2)
+ggplot(mydat, aes(x, y)) +
+  stat_smooth(method='glm', method.args = list(family = binomial(link = 'probit')),
+              formula = y ~ x) + 
+  geom_jitter(width = 0.5, height = 0.1)
+```
+
 
 
 ### The Linear Probability Model
 
-The name makes it sound fancier that it is: the so-called linear probability model, or LPM for short, is just *ordinary least squares*. In other words, it's what you get if you *ignore* the fact that $Y$ is binary and just run a linear regression. Expressed as a probability model, the LMH amounts to $P(Y=1|X) = X'\beta$. There are three important things to know about this model. First, it's *definitely wrong* because it can make predictions that lie outside the range $[0,1]$. Second, it might nevertheless be a *reasonable approximation* over a range of values for $X$. In your plot from above, you probably noticed that `plogis(z)` is close to linear for `z` between say -1.5 and 1.5. 
+The name makes it sound fancier that it is: the so-called linear probability model, or LPM for short, is just *ordinary least squares*. In other words, it's what you get if you *ignore* the fact that $Y$ is binary and just run a linear regression. Expressed as a probability model, the LMH amounts to $P(Y=1|X) = X'\beta$. There are three important things to know about this model. First, it's *definitely wrong* because it can make predictions that lie outside the range $[0,1]$. Second, it can nevertheless be a *reasonable approximation* over a range of values for $X$. In your plot from above, you probably noticed that `plogis(z)` is close to linear for `z` between say -1.5 and 1.5. Third, the errors in this model are *necessarily* heteroskedastic. For more details on each of these three points, see [my lecture video](https://expl.ai/XSLDYZE).
 
 
 ### Exercise
-Have them do it!
-Mroz (1987, Econometrica) 
 
-```{r, message = FALSE}
-# Load packages for robust standard errors (install them first!)
-library(sandwich)
-library(lmtest)
-
-# Load the data from the wooldridge package (install it first!)
-library(wooldridge)
-
-# View the names of the columns
-names(mroz)
-```
-
-### Description of Variables: `mroz`
-
-```{r}
-# Specify the linear index
-labor_model <- inlf ~ nwifeinc + educ + exper + expersq + age +
-  kidslt6 + kidsge6
-```
+This exercise is based on data from [Mroz (1987; Econometrica)](https://www.jstor.org/stable/1911029), available as part of the R package `wooldridge`, a paper about married womens' labor supply decisions. For full details of the `mroz` dataset, enter `?mroz` at the R console after installing and loading the `wooldridge package`. The variables that you'll work with below are as follows:
 
 - `inlf` equals 1 if in labor force, 1975
 - `nwifeinc` non-wife income in $1000
@@ -375,44 +397,44 @@ labor_model <- inlf ~ nwifeinc + educ + exper + expersq + age +
 - `kidslt6` number of kids < 6 years
 - `kidsge6` number of kids 6-18
 
-### Fit LPM, Logit, and Probit 
-```{r}
-lpm <- lm(labor_model, data = mroz)
-logit <- glm(labor_model, family = binomial(link = 'logit'), 
-             data = mroz)
-probit <- glm(labor_model, family = binomial(link = 'probit'), 
-              data = mroz)
+The goal is to predict `infl` using the other variables in the preceding list. You'll consider three different models: logistic regression, probit regression, and the linear probability model.
+
+1. Create and store an R formula object called `labor_model` that specifies the regression we want to run: `infl` is regressed on all the other variables. This *formula* will be the same for the logit, probit, and LPM specifications so we only want to type it out once!. 
+```{r, webex.hide = 'Show Solution'}
+labor_model <- inlf ~ nwifeinc + educ + exper + expersq + age + kidslt6 + kidsge6
 ```
-
-### LPM Results - Robust SE
-```{r}
-coeftest(lpm, vcov. = vcovHC, type = 'HC0')
+2. Fit the linear probability model, logistic regression, and probit regression specifications based on `labor_model` and `mroz`. Store your results as `lpm`, `logit`, and `probit`, respectively. Use `lm_robust`
+```{r, message = FALSE, webex.hide = 'Show Solution'}
+library(wooldridge)
+library(estimatr)
+lpm <- lm_robust(labor_model, data = mroz)
+logit <- glm(labor_model, family = binomial(link = 'logit'), data = mroz)
+probit <- glm(labor_model, family = binomial(link = 'probit'), data = mroz)
 ```
-
-### Logistic Regression Results
-```{r}
-coeftest(logit)
+3. Use `modelsummary()` to produce a nicely-formatted table of results for all three of the regressions from the previous part.
+```{r, message = FALSE, webex.hide = 'Show Solution'}
+library(modelsummary)
+mroz_regressions <- list('LPM' = lpm,
+                         'logit' = logit,
+                         'probit' = probit)
+modelsummary(mroz_regressions)
 ```
-
-### Probit Regression Results
+4. The magnitudes of your logit, probit, and LPM coefficients from the preceding part are *not directly comparable*: they are on different scales. One way to make the logit and probit results roughly comparable to each other is by rescaling them to be *maximum* partial effects. You know how to do this for logistic regression: divide by four. Determine the equivalent rescaling for probit regression. Then rescale and compare the *slope coefficients* from `probit` and `logit` above.
+`r hide('Show Answer')`
+To find the appropriate re-scaling for probit regression, we need to know the maximum possible value of $\texttt{dnorm}(X'\beta)$. This occurs when $X'\beta$ is zero. Since $\texttt{dnorm}(0) = 1/\sqrt{2\pi}\approx 0.4$, we multiply our logit slope coefficients by 0.25 and our probit slope coefficients by 0.4 
 ```{r}
-coeftest(probit)
+cbind(lpm = coef(lpm)[-1], # remove first element (intercept)
+      logit = 0.25 * coef(logit)[-1], 
+      probit = 0.4 * coef(probit)[-1]) %>% # tidyverse needed for the pipe!
+  round(3)
 ```
-### Calculating Pseudo-$R^2$ 
-```{r}
-# Fit models with only an intercept
-model0 <- inlf ~ 1
-logit0 <- glm(model0, family = binomial(link = 'logit'), data = mroz)
-probit0 <- glm(model0, family = binomial(link = 'probit'), data = mroz)
+`r unhide()`
 
-# Pseudo R-squared for Logit
-1 - logLik(logit) / logLik(logit0)
-
-# Pseudo R-squared for Probit
-1 - logLik(probit) / logLik(probit0)
-```
-
-### Calculating Average Partial Effects
+5. A more involved but potentially more accurate way of making your results comparable across LPM, logit, and probit specifications is by reporting *average partial effects*. Compare the average partial effects of the three models.  
+`r hide('Show Hint')`
+The partial effects for linear regression are *constant*: lines have constant slopes. This means you only need to transform the logit and probit results. A helpful tip is to remember that if we *don't* specify `type = 'response'` when we apply the function `predict()` to a `glm` object, it will return predictions on the scale of $X'\beta$ rather than $Y$. Moreover, if we don't specify `newdata`, the predictions are made using the observed sample data for $X$. 
+`r unhide()`
+`r hide('Show Answer')`
 ```{r}
 # Average of g(x'beta_hat) where g is dlogis
 # (predict defaults to the scale of x'beta_hat)
@@ -423,10 +445,7 @@ logit_APE_factor
 # (predict defaults to the scale of x'beta_hat)
 probit_APE_factor <- mean(dnorm(predict(probit)))
 probit_APE_factor 
-```
 
-### Comparison of APEs - LPM, Logit & Probit
-```{r}
 # Extract estimated coefficients, excluding the first (the constant)
 lpm_est <- coefficients(lpm)[-1]
 logit_est <- coefficients(logit)[-1]
@@ -434,8 +453,10 @@ probit_est <- coefficients(probit)[-1]
 
 # Rescale the logit and probit estimates to obtain APEs
 cbind(lpm = lpm_est, logit_APE = logit_APE_factor * logit_est, 
-      probit_APE = probit_APE_factor * probit_est)
+      probit_APE = probit_APE_factor * probit_est) %>%
+  round(3)
 ```
+`r unhide()`
 
 ## Addendum: Odds and Ends about Risk
 ![](https://imgs.xkcd.com/comics/spacecraft_debris_odds_ratio.png)
@@ -468,3 +489,6 @@ Even in cases where the odds ratio and relative risk are similar, there's still 
 
 ### Exercise
 Explain the cartoon at the beginning of this section.
+`r hide('Show Solution')`
+If I gave you the answer, the joke wouldn't be funny anymore! But if you really want to spoil all the fun, see [this link](https://www.explainxkcd.com/wiki/index.php/2599:_Spacecraft_Debris_Odds_Ratio).
+`r unhide()`

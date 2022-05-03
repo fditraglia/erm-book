@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lesson 6 Logistic Regression and Friends | Empirical Research Methods</title>
+  <meta name="description" content="Lesson 6 Logistic Regression and Friends | Empirical Research Methods" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lesson 6 Logistic Regression and Friends | Empirical Research Methods" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lesson 6 Logistic Regression and Friends | Empirical Research Methods" />
+  
+  
+  
+
+<meta name="author" content="Francis J. DiTraglia" />
+
+
+<meta name="date" content="2022-05-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="running-a-simulation-study.html"/>
+<link rel="next" href="the-normal-distribution.html"/>
+<script src="libs/header-attrs-2.13/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/core-erm-logo.png"></a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#preface">Preface<span></span></a>
+<ul>
+<li><a href="index.html#about-this-book">About This Book<span></span></a></li>
+<li><a href="index.html#pre-requisites">Pre-requisites<span></span></a></li>
+<li><a href="index.html#good-coding-style">Good Coding Style<span></span></a></li>
+<li><a href="index.html#r-markdown">R Markdown<span></span></a></li>
+<li><a href="index.html#why-not-stata">Why not Stata?<span></span></a></li>
+<li><a href="index.html#why-not-matlab-julia-or-python">Why not Matlab, Julia, or Python?<span></span></a></li>
+<li><a href="index.html#you-can-help-make-this-book-better">You can help make this book better!<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html"><i class="fa fa-check"></i><b>1</b> Getting Started with <code>dplyr</code><span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#package-installation"><i class="fa fa-check"></i><b>1.1</b> Package Installation<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise"><i class="fa fa-check"></i><b>1.1.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#what-is-a-tibble"><i class="fa fa-check"></i><b>1.2</b> What is a tibble?<span></span></a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>1.3</b> Filter Rows with <code>filter</code><span></span></a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises"><i class="fa fa-check"></i><b>1.3.1</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#sort-data-with-arrange"><i class="fa fa-check"></i><b>1.4</b> Sort data with <code>arrange</code><span></span></a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises-1"><i class="fa fa-check"></i><b>1.4.1</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#choose-columns-with-select"><i class="fa fa-check"></i><b>1.5</b> Choose columns with <code>select</code><span></span></a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-1"><i class="fa fa-check"></i><b>1.5.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-summarize-verb"><i class="fa fa-check"></i><b>1.6</b> The <code>summarize</code> verb<span></span></a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-2"><i class="fa fa-check"></i><b>1.6.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-group_by-verb"><i class="fa fa-check"></i><b>1.7</b> The <code>group_by</code> verb<span></span></a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-3"><i class="fa fa-check"></i><b>1.7.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#understanding-the-pipe"><i class="fa fa-check"></i><b>1.8</b> Understanding the pipe: <code>%&gt;%</code><span></span></a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-4"><i class="fa fa-check"></i><b>1.8.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#chaining-commands"><i class="fa fa-check"></i><b>1.9</b> Chaining commands<span></span></a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-5"><i class="fa fa-check"></i><b>1.9.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#change-an-existing-variable-or-create-a-new-one-with-mutate"><i class="fa fa-check"></i><b>1.10</b> Change an existing variable or create a new one with <code>mutate</code><span></span></a>
+<ul>
+<li class="chapter" data-level="1.10.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-6"><i class="fa fa-check"></i><b>1.10.1</b> Exercise<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html"><i class="fa fa-check"></i><b>2</b> Getting Started with <code>ggplot2</code><span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#a-simple-scatterplot-using-ggplot2"><i class="fa fa-check"></i><b>2.1</b> A simple scatterplot using <code>ggplot2</code><span></span></a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-7"><i class="fa fa-check"></i><b>2.1.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-on-the-log-scale"><i class="fa fa-check"></i><b>2.2</b> Plotting on the log scale<span></span></a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-8"><i class="fa fa-check"></i><b>2.2.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#the-color-and-size-aesthetics"><i class="fa fa-check"></i><b>2.3</b> The color and size aesthetics<span></span></a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-9"><i class="fa fa-check"></i><b>2.3.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#faceting---plots-for-multiple-subsets"><i class="fa fa-check"></i><b>2.4</b> Faceting - Plots for Multiple Subsets<span></span></a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-10"><i class="fa fa-check"></i><b>2.4.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-summarized-data"><i class="fa fa-check"></i><b>2.5</b> Plotting summarized data<span></span></a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-11"><i class="fa fa-check"></i><b>2.5.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#line-plots"><i class="fa fa-check"></i><b>2.6</b> Line plots<span></span></a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-12"><i class="fa fa-check"></i><b>2.6.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#bar-plots"><i class="fa fa-check"></i><b>2.7</b> Bar plots<span></span></a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-13"><i class="fa fa-check"></i><b>2.7.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#cleveland-dot-charts"><i class="fa fa-check"></i><b>2.8</b> Cleveland Dot Charts<span></span></a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-14"><i class="fa fa-check"></i><b>2.8.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#histograms"><i class="fa fa-check"></i><b>2.9</b> Histograms<span></span></a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>2.9.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#boxplots"><i class="fa fa-check"></i><b>2.10</b> Boxplots<span></span></a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-16"><i class="fa fa-check"></i><b>2.10.1</b> Exercise<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html"><i class="fa fa-check"></i><b>3</b> Predictive Regression Part I<span></span></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction<span></span></a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-17"><i class="fa fa-check"></i><b>3.1.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-least-squares-problem"><i class="fa fa-check"></i><b>3.2</b> The Least Squares Problem<span></span></a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-18"><i class="fa fa-check"></i><b>3.2.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#linear-regression-with-lm"><i class="fa fa-check"></i><b>3.3</b> Linear Regression with <code>lm()</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-19"><i class="fa fa-check"></i><b>3.3.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#plotting-the-regression-line"><i class="fa fa-check"></i><b>3.4</b> Plotting the Regression Line<span></span></a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-20"><i class="fa fa-check"></i><b>3.4.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#getting-more-from-lm"><i class="fa fa-check"></i><b>3.5</b> Getting More from <code>lm()</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-21"><i class="fa fa-check"></i><b>3.5.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#summarizing-the-ouput-of-lm"><i class="fa fa-check"></i><b>3.6</b> Summarizing The Ouput of <code>lm()</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-22"><i class="fa fa-check"></i><b>3.6.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#tidying-up-with-broom"><i class="fa fa-check"></i><b>3.7</b> Tidying up with <code>broom</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-23"><i class="fa fa-check"></i><b>3.7.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#dummy-variables-with-lm"><i class="fa fa-check"></i><b>3.8</b> Dummy Variables with <code>lm()</code><span></span></a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-24"><i class="fa fa-check"></i><b>3.8.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#fun-with-r-formulas"><i class="fa fa-check"></i><b>3.9</b> Fun with R Formulas<span></span></a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#everything-else---the-dot-."><i class="fa fa-check"></i><b>3.9.1</b> "Everything Else" - The Dot <code>.</code><span></span></a></li>
+<li class="chapter" data-level="3.9.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#removing-predictors-with--"><i class="fa fa-check"></i><b>3.9.2</b> Removing Predictors with <code>-</code><span></span></a></li>
+<li class="chapter" data-level="3.9.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-intercept-1"><i class="fa fa-check"></i><b>3.9.3</b> The Intercept: <code>1</code><span></span></a></li>
+<li class="chapter" data-level="3.9.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-25"><i class="fa fa-check"></i><b>3.9.4</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="3.9.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#transforming-outcomes-and-predictors"><i class="fa fa-check"></i><b>3.9.5</b> Transforming Outcomes and Predictors<span></span></a></li>
+<li class="chapter" data-level="3.9.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#adding-interactions-with-and"><i class="fa fa-check"></i><b>3.9.6</b> Adding Interactions With <code>:</code>, <code>*</code>, and <code>^</code><span></span></a></li>
+<li class="chapter" data-level="3.9.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-26"><i class="fa fa-check"></i><b>3.9.7</b> Exercise<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html"><i class="fa fa-check"></i><b>4</b> Predictive Regression Part II<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#regressions-used-below"><i class="fa fa-check"></i><b>4.1</b> Regressions Used Below<span></span></a></li>
+<li class="chapter" data-level="4.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#predicting-new-observations"><i class="fa fa-check"></i><b>4.2</b> Predicting New Observations<span></span></a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-27"><i class="fa fa-check"></i><b>4.2.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#testing-a-linear-restriction"><i class="fa fa-check"></i><b>4.3</b> Testing a Linear Restriction<span></span></a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-28"><i class="fa fa-check"></i><b>4.3.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#heteroskedasticity-robust-standard-errors-and-tests"><i class="fa fa-check"></i><b>4.4</b> Heteroskedasticity-Robust Standard Errors and Tests<span></span></a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-29"><i class="fa fa-check"></i><b>4.4.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#publication-quality-tables"><i class="fa fa-check"></i><b>4.5</b> Publication Quality Tables<span></span></a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_skim"><i class="fa fa-check"></i><b>4.5.1</b> <code>datasummary_skim()</code><span></span></a></li>
+<li class="chapter" data-level="4.5.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_balance"><i class="fa fa-check"></i><b>4.5.2</b> <code>datasummary_balance()</code><span></span></a></li>
+<li class="chapter" data-level="4.5.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#modelsummary"><i class="fa fa-check"></i><b>4.5.3</b> <code>modelsummary()</code><span></span></a></li>
+<li class="chapter" data-level="4.5.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#robust-standard-errors"><i class="fa fa-check"></i><b>4.5.4</b> Robust Standard Errors<span></span></a></li>
+<li class="chapter" data-level="4.5.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-30"><i class="fa fa-check"></i><b>4.5.5</b> Exercise<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html"><i class="fa fa-check"></i><b>5</b> Running a Simulation Study<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#is-the-hot-hand-an-illusion"><i class="fa fa-check"></i><b>5.1</b> Is the Hot Hand an Illusion?<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#drawing-random-data-in-r"><i class="fa fa-check"></i><b>5.2</b> Drawing Random Data in R<span></span></a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#sample"><i class="fa fa-check"></i><b>5.2.1</b> <code>sample()</code><span></span></a></li>
+<li class="chapter" data-level="5.2.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#probability-distributions-in-r"><i class="fa fa-check"></i><b>5.2.2</b> Probability Distributions in R<span></span></a></li>
+<li class="chapter" data-level="5.2.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#set.seed"><i class="fa fa-check"></i><b>5.2.3</b> <code>set.seed()</code><span></span></a></li>
+<li class="chapter" data-level="5.2.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercises-2"><i class="fa fa-check"></i><b>5.2.4</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#the-skeleton-of-a-simulation-study"><i class="fa fa-check"></i><b>5.3</b> The Skeleton of a Simulation Study<span></span></a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#a-biased-estimator-of-sigma2"><i class="fa fa-check"></i><b>5.3.1</b> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span><span></span></a></li>
+<li class="chapter" data-level="5.3.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#draw_sim_data"><i class="fa fa-check"></i><b>5.3.2</b> <code>draw_sim_data()</code><span></span></a></li>
+<li class="chapter" data-level="5.3.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_estimate"><i class="fa fa-check"></i><b>5.3.3</b> <code>get_estimate()</code><span></span></a></li>
+<li class="chapter" data-level="5.3.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_bias"><i class="fa fa-check"></i><b>5.3.4</b> <code>get_bias()</code><span></span></a></li>
+<li class="chapter" data-level="5.3.5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#running-the-simulation-study"><i class="fa fa-check"></i><b>5.3.5</b> Running the Simulation Study<span></span></a></li>
+<li class="chapter" data-level="5.3.6" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#expand.grid-and-map"><i class="fa fa-check"></i><b>5.3.6</b> <code>expand.grid()</code> and <code>Map()</code><span></span></a></li>
+<li class="chapter" data-level="5.3.7" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#formatting-the-results"><i class="fa fa-check"></i><b>5.3.7</b> Formatting the Results<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercise---the-hot-hand"><i class="fa fa-check"></i><b>5.4</b> Exercise - The Hot Hand<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html"><i class="fa fa-check"></i><b>6</b> Logistic Regression and Friends<span></span></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#understanding-the-logistic-regression-model"><i class="fa fa-check"></i><b>6.1</b> Understanding the Logistic Regression Model<span></span></a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#odds-arent-so-odd"><i class="fa fa-check"></i><b>6.1.1</b> Odds aren't so odd!<span></span></a></li>
+<li class="chapter" data-level="6.1.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-31"><i class="fa fa-check"></i><b>6.1.2</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="6.1.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#interpreting-a-simple-logit-regression-model"><i class="fa fa-check"></i><b>6.1.3</b> Interpreting a Simple Logit Regression Model<span></span></a></li>
+<li class="chapter" data-level="6.1.4" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-32"><i class="fa fa-check"></i><b>6.1.4</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#simulating-data-from-a-logistic-regression"><i class="fa fa-check"></i><b>6.2</b> Simulating Data from a Logistic Regression<span></span></a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-33"><i class="fa fa-check"></i><b>6.2.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#running-a-logistic-regression-in-r"><i class="fa fa-check"></i><b>6.3</b> Running a Logistic Regression in R<span></span></a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-34"><i class="fa fa-check"></i><b>6.3.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#predicted-probabilities-for-logistic-regression"><i class="fa fa-check"></i><b>6.4</b> Predicted Probabilities for Logistic Regression<span></span></a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-35"><i class="fa fa-check"></i><b>6.4.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#plotting-a-logistic-regression"><i class="fa fa-check"></i><b>6.5</b> Plotting a Logistic Regression<span></span></a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-36"><i class="fa fa-check"></i><b>6.5.1</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#probit-regression-and-the-linear-probability-model"><i class="fa fa-check"></i><b>6.6</b> Probit Regression and the Linear Probability Model<span></span></a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#probit-regression"><i class="fa fa-check"></i><b>6.6.1</b> Probit Regression<span></span></a></li>
+<li class="chapter" data-level="6.6.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#the-linear-probability-model"><i class="fa fa-check"></i><b>6.6.2</b> The Linear Probability Model<span></span></a></li>
+<li class="chapter" data-level="6.6.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-37"><i class="fa fa-check"></i><b>6.6.3</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#addendum-odds-and-ends-about-risk"><i class="fa fa-check"></i><b>6.7</b> Addendum: Odds and Ends about Risk<span></span></a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-38"><i class="fa fa-check"></i><b>6.7.1</b> Exercise<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html"><i class="fa fa-check"></i><b>7</b> The Normal Distribution<span></span></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#standard-normals-as-building-blocks"><i class="fa fa-check"></i><b>7.1</b> Standard Normals as Building Blocks<span></span></a></li>
+<li class="chapter" data-level="7.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-one-dimensional-case"><i class="fa fa-check"></i><b>7.2</b> The One-Dimensional Case<span></span></a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pnorm"><i class="fa fa-check"></i><b>7.2.1</b> <code>pnorm()</code><span></span></a></li>
+<li class="chapter" data-level="7.2.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#dnorm"><i class="fa fa-check"></i><b>7.2.2</b> <code>dnorm()</code><span></span></a></li>
+<li class="chapter" data-level="7.2.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#qnorm"><i class="fa fa-check"></i><b>7.2.3</b> <code>qnorm()</code><span></span></a></li>
+<li class="chapter" data-level="7.2.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#rnorm"><i class="fa fa-check"></i><b>7.2.4</b> <code>rnorm()</code><span></span></a></li>
+<li class="chapter" data-level="7.2.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pqdrnorm-are-vectorized"><i class="fa fa-check"></i><b>7.2.5</b> <code>p/q/d/rnorm()</code> are Vectorized<span></span></a></li>
+<li class="chapter" data-level="7.2.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#be-careful"><i class="fa fa-check"></i><b>7.2.6</b> Be Careful!<span></span></a></li>
+<li class="chapter" data-level="7.2.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercises-3"><i class="fa fa-check"></i><b>7.2.7</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#generating-correlated-normal-rvs"><i class="fa fa-check"></i><b>7.3</b> Generating Correlated Normal RVs<span></span></a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#start-with-uncorrelated-normal-draws"><i class="fa fa-check"></i><b>7.3.1</b> Start with Uncorrelated Normal Draws<span></span></a></li>
+<li class="chapter" data-level="7.3.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-39"><i class="fa fa-check"></i><b>7.3.2</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="7.3.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#add-constants-to-shift-the-means"><i class="fa fa-check"></i><b>7.3.3</b> Add Constants to Shift the Means<span></span></a></li>
+<li class="chapter" data-level="7.3.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-40"><i class="fa fa-check"></i><b>7.3.4</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="7.3.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#multiply-by-scalars-to-change-the-variance"><i class="fa fa-check"></i><b>7.3.5</b> Multiply by Scalars to Change the Variance<span></span></a></li>
+<li class="chapter" data-level="7.3.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#combine-to-create-correlation"><i class="fa fa-check"></i><b>7.3.6</b> Combine to Create Correlation<span></span></a></li>
+<li class="chapter" data-level="7.3.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-41"><i class="fa fa-check"></i><b>7.3.7</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-cholesky-decomposition"><i class="fa fa-check"></i><b>7.4</b> The Cholesky Decomposition<span></span></a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#going-backwards"><i class="fa fa-check"></i><b>7.4.1</b> Going Backwards<span></span></a></li>
+<li class="chapter" data-level="7.4.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-42"><i class="fa fa-check"></i><b>7.4.2</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="7.4.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#whats-the-square-root-of-a-matrix"><i class="fa fa-check"></i><b>7.4.3</b> What's the Square Root of a Matrix?<span></span></a></li>
+<li class="chapter" data-level="7.4.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-43"><i class="fa fa-check"></i><b>7.4.4</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#epilogue"><i class="fa fa-check"></i><b>7.5</b> Epilogue<span></span></a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#affine-transformations-of-a-multivariate-normal"><i class="fa fa-check"></i><b>7.5.1</b> Affine Transformations of a Multivariate Normal<span></span></a></li>
+<li class="chapter" data-level="7.5.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#conditional-distributions-of-bivariate-normal"><i class="fa fa-check"></i><b>7.5.2</b> Conditional Distributions of Bivariate Normal<span></span></a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Empirical Research Methods</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="logistic-regression-and-friends" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Lesson 6</span> Logistic Regression and Friends<a href="logistic-regression-and-friends.html#logistic-regression-and-friends" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This chapter is about regression models for <em>binary outcomes</em>, models in which our outcome of interest <span class="math inline">\(Y\)</span> takes on one of two mutually exclusive values: yes/no, smoker/non-smoker, default/repay, etc. By convention we code one of the two possibilities as a "success," assigning it the value <code>1</code>, and the other a "failure," assigning it the value <code>0</code>. Here's a simple and entertaining example. I recently asked my MPhil students at Oxford to play a game called "two truths and a lie."<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> The class divided into groups of four, and we then took it in turns to make three statements to the other members of our groups: two true statements, and one lie. The remaining three group members were tasked with determining which statement was a lie and assigning an overall "certainty score" ranging from zero (just guessing) to ten (completely certain). So how accurate are these subjective certainty scores? This question amounts to asking how the probability of <em>guessing correctly</em>, <span class="math inline">\(Y = 1\)</span>, varies with the certainty score, <span class="math inline">\(X\)</span>.</p>
+<p>Our task in this lesson will be propose, interpret, and estimate regression models for the probability that <span class="math inline">\(Y= 1\)</span> given <span class="math inline">\(X\)</span>, where <span class="math inline">\(X\)</span> is a vector of one or more predictor variables. While <span class="math inline">\(Y\)</span> is binary, <span class="math inline">\(X\)</span> could be continuous, discrete, or a mix of the two. Models like this <em>can</em> be used for causal inference, but for now we will scrupulously avoid using any causal language. Our problem for the moment is simply to predict <span class="math inline">\(Y\)</span>. A natural question is "why not just use linear regression?" Indeed this is one possibility, as we'll discuss below. The fundamental problem is that lines have the same slope <em>everywhere</em>: they keep going up or down forever at the same rate. Probabilities, on the other hand, are bounded between zero and one. If we want a regression model that is guaranteed to make predictions in this range, it <em>can't</em> be linear.</p>
+<p>Our main focus in this lesson will be <em>logistic regression</em>, far and away the most popular model for binary outcomes. Towards the end, we'll briefly discuss <em>probit regression.</em> Each of these is an example of an <em>index model,</em> a model of the form <span class="math inline">\(P(Y=1|X) = G(X&#39;\beta)\)</span> where <span class="math inline">\(G(\cdot)\)</span> is known function. Roughly speaking, the idea is to stick our usual linear regression predictor <span class="math inline">\(X&#39;\beta\)</span> inside a function <span class="math inline">\(G(\cdot)\)</span> that makes predictions on the right scale. For logistic regression <span class="math inline">\(G(z) = \texttt{plogis}(z)\)</span> the <a href="https://en.wikipedia.org/wiki/Logistic_distribution">standard logistic CDF</a>; for probit regression <span class="math inline">\(G(z) = \texttt{pnorm}(z)\)</span>, the standard normal CDF. Setting <span class="math inline">\(G(\cdot)\)</span> equal to a CDF ensures that our predictions will indeed lie between zero and one!</p>
+<p>Compared to the usual treatment of logistic regression in econometrics, we will devote <em>much more time</em> to understanding the meaning of the model and much less time to technical details. This is because I assume that your econometrics course likely took the <em>opposite approach</em>. If you're hankering for more technical details, or if you want to brush up on the basic details of logistic regression, you can view my <a href="https://www.economictricks.com/">MPhil teaching materials here</a>.</p>
+<div id="understanding-the-logistic-regression-model" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> Understanding the Logistic Regression Model<a href="logistic-regression-and-friends.html#understanding-the-logistic-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>From a purely probabilistic perspective, there are two equivalent ways of thinking about logistic regression:
+<span class="math display">\[
+P(Y=1|X) = \texttt{plogis}(X&#39;\beta) \quad \iff \quad \log \left[\frac{P(Y=1|X)}{P(Y=0|X)}\right] = X&#39;\beta.
+\]</span>
+The first of these expresses the <em>probability</em> that <span class="math inline">\(Y=1\)</span> given <span class="math inline">\(X\)</span> as a nonlinear function of data and parameters; the second expresses the <em>log odds</em> that <span class="math inline">\(Y=1\)</span> given <span class="math inline">\(X\)</span> as a linear function of data and parameters.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> This means that we can either think of logit regression as an index model for <span class="math inline">\(P(Y=1|X)\)</span> or as a linear regression model for the <em>log odds</em>. Many people, even those with extensive training in probability, find odds to be a slightly strange concept. In fact odds, and especially log odds, are very natural.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> If you'll permit a short digression, I'd like to take this opportunity to change your mind about odds.</p>
+<div id="odds-arent-so-odd" class="section level3 hasAnchor" number="6.1.1">
+<h3><span class="header-section-number">6.1.1</span> Odds aren't so odd!<a href="logistic-regression-and-friends.html#odds-arent-so-odd" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Forget about regression for the moment and consider some event <span class="math inline">\(A\)</span> with probability <span class="math inline">\(p\)</span> of occurring. Then we say that the <strong>odds</strong> of <span class="math inline">\(A\)</span> are <span class="math inline">\(p/(1 - p)\)</span>. For example, if <span class="math inline">\(p = 1/3\)</span> then the event <span class="math inline">\(A\)</span> is equivalent to drawing a red ball from an urn that contains one red and two blue balls: the probability gives the <em>ratio of red balls to total balls</em>. The odds of <span class="math inline">\(A\)</span>, on the other hand, equal <span class="math inline">\(1/2\)</span>: odds give the <em>ratio of red balls to blue balls</em>. Viewed from this perspective, there's nothing inherently more intuitive about probabilities compared to odds. We're simply more familiar with probabilities.</p>
+<p>But perhaps you're still not convinced. Here's an example that you've surely seen before:</p>
+<blockquote>
+<p>One in a hundred women has breast cancer <span class="math inline">\((B)\)</span>. If you have breast cancer, there is a 95% chance that you will test positive <span class="math inline">\((T)\)</span>; if you do not have breast cancer <span class="math inline">\((B^C)\)</span>, there is a 2% chance that you will nonetheless test positive <span class="math inline">\((T)\)</span>. We know nothing about Alice other than the fact that she tested positive. How likely is it that she has breast cancer?</p>
+</blockquote>
+<p>It's easy enough to solve this problem using Bayes' Theorem, as long as you have pen and paper handy:
+<span class="math display">\[
+\begin{aligned}
+P(B | T) &amp;= \frac{P(T|B)P(B)}{P(T)} = \frac{P(T|B)P(B)}{P(T|B)P(B) + P(T|B^C)P(B^C)}\\
+&amp;= \frac{0.95 \times 0.01}{0.95 \times 0.01 + 0.02 \times 0.99} \approx 0.32.
+\end{aligned}
+\]</span>
+But what if I asked you how the result would change if only one in a thousand women had breast cancer? What if I changed the <a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">sensitivity</a> of the test from 95% to 99% or the <a href="https://en.wikipedia.org/wiki/Sensitivity_and_specificity">specificity</a> from 98% to 95%? If you're anything like me, you would struggle to do these calculations in your head. That's because <span class="math inline">\(P(B|T)\)</span> is a <em>highly non-linear</em> function of <span class="math inline">\(P(B)\)</span>, <span class="math inline">\(P(T|B)\)</span>, and <span class="math inline">\(P(T|B^C)\)</span>.</p>
+<p>In contrast, working with odds makes this problem a snap. The key point is that <span class="math inline">\(P(B|T)\)</span> and <span class="math inline">\(P(B^C|T)\)</span> have the same denominator, namely <span class="math inline">\(P(T)\)</span>:
+<span class="math display">\[
+P(B | T) = \frac{P(T|B)P(B)}{P(T)}, \quad
+P(B^C | T) = \frac{P(T|B^C)P(B^C)}{P(T)}
+\]</span>
+Notice that <span class="math inline">\(P(T)\)</span> was the "complicated" term in <span class="math inline">\(P(B|T)\)</span>; the numerator was simple. Since the odds of <span class="math inline">\(B\)</span> given <span class="math inline">\(T\)</span> is defined as the ratio of <span class="math inline">\(P(B|T)\)</span> to <span class="math inline">\(P(B^C|T)\)</span>, the denominator cancels and we're left with
+<span class="math display">\[
+\text{Odds}(B|T) \equiv \frac{P(B|T)}{P(B^C|T)} = \frac{P(T|B)}{P(T|B^C)} \times \frac{P(B)}{P(B^C)}.
+\]</span>
+In other words, the <em>posterior odds</em> of <span class="math inline">\(B\)</span> equal the <em>likelihood ratio</em>, <span class="math inline">\(P(T|B)/P(T|B^C)\)</span>, multiplied by the <em>prior odds</em> of <span class="math inline">\(B\)</span>, <span class="math inline">\(P(B)/P(B^C)\)</span>:
+<span class="math display">\[
+\text{Posterior Odds} = \text{(Likelihood Ratio)} \times \text{(Prior Odds)}.
+\]</span>
+Now we can easily solve the original problem in our head. The prior odds are 1/99 while the likelihood ratio is 95/2. Rounding these to 0.01 and 50 respectively, we find that the posterior odds are around 1/2. This mean's that Alice's chance of having breast cancer is roughly equivalent to the chance of drawing a red ball from an urn with one red and two blue balls. There's no need to convert this back to a probability since we can already answer the question: it's considerably more likely that Alice <em>does not</em> have breast cancer. But if you insist, odds of 1/2 give a probability of 1/3, so in spite of rounding and calculating in our heads we're within 0.3% of the exact answer!</p>
+<p>Repeat after me: <strong>odds are on a multiplicative scale</strong>. This is their key virtue and the reason why they make it so easy to explore variations on the original problem. If one in a thousand women has breast cancer, the prior odds become 1/999 so we simply divide our previous result by 10, giving posterior odds of around 1/20. If we instead changed the sensitivity from 95% to 99% and the specificity from 98% to 95%, then the likelihood ratio would change from <span class="math inline">\(95/2 \approx 50\)</span> to <span class="math inline">\(99/5 \approx 20\)</span>. It's also easy to work out the effect of conditioning on additional sources of information. To compute the posterior odds after a <em>second</em> positive test result with the same sensitivity and specificity as the first and conducted independently of it, simply multiply by the likelihood ratio a <em>second time</em>. This is worth repeating: each positive test result has the effect of multiplying the prior odds by the <em>same factor</em>.</p>
+<p>Since odds are on a multiplicative scale, <strong>log odds are on an additive scale</strong>
+<span class="math display">\[
+\log(\text{Posterior Odds}) = \log\text{(Likelihood Ratio)} + \log\text{(Prior Odds)}.
+\]</span>
+Base 2 logarithms are simplest for computers, natural logarithms are simplest for mathematics, and base 10 logarithms are simplest for human beings. So for a moment let's think in base 10. A good diagnostic test might have a sensitivity and specificity of around 90%; an better one might have values of 99%; an excellent one might have values of around 99.9%. These translate into likelihood ratios of 9, 99, and 999 respectively. On a log base ten scale these are approximately 1, 2, and 3. A common disease might have a prevalence of 10%; a rarer one 1%; and an even rarer one 0.1%. Expressed as prior odds, these values become 1/9, 1/99, and 1/999 or -1, -2, and -3 on the log base 10 scale. The log posterior odds are simply the <em>sum</em> of these two numbers. For example, a sensitivity and specificity of 10% and a prevalence of 1% gives log odds of approximately <span class="math inline">\(1 - 2 = -1\)</span>. This means that the odds of having the disease are around <span class="math inline">\(1/10\)</span>. A second positive result multiplies the odds by the likelihood ratio a second time. On the log scale this means adding 1, yielding log odds of 0 and odds of 1/2. This kind of reasoning is extremely helpful for quick, back-of-the-envelope calculations about how much to change our views in the light of new evidence. It's also <em>extremely</em> helpful for understanding logistic regression. But before returning to our regularly-scheduled programming, here are a few exercises to test your understanding.</p>
+</div>
+<div id="exercise-31" class="section level3 hasAnchor" number="6.1.2">
+<h3><span class="header-section-number">6.1.2</span> Exercise<a href="logistic-regression-and-friends.html#exercise-31" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>I haven't given you a closed-form expression for <code>plogis()</code>. Use the log-odds representation of logit regression to work out an explicit formula, then create a function called <code>myplogis()</code> that implements it in R. Check that your function gives the same results as the "real" <code>plogis()</code> function on a grid of 400 equally spaced points between -4 and 4. Then plot your function on the same range.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<p>Let <span class="math inline">\(p \equiv P(Y=1|X)\)</span>. We are given two expressions: <span class="math inline">\(p = \texttt{plogis}(X&#39;\beta)\)</span> and <span class="math inline">\(\log[p/(1-p)] = X&#39;\beta\)</span>. Exponentiating both sides and re-arranging gives <span class="math inline">\(\exp(-X&#39;\beta) = (1-p)/p\)</span>. Solving for <span class="math inline">\(p\)</span>, we obtain <span class="math inline">\(p = 1/[1 + \exp(-X&#39;\beta)]\)</span>. But since <span class="math inline">\(p = \texttt{plogis}(X&#39;\beta)\)</span> this means that <span class="math inline">\(\texttt{plogis}(z) = 1/[1 + \exp(-z)]\)</span>. Equivalently, we could multiply the numerator and denominator by <span class="math inline">\(\exp(z)\)</span> to write <span class="math inline">\(\texttt{plogis}(z) = \exp(z)/[1 + \exp(z)]\)</span>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="logistic-regression-and-friends.html#cb1-1" aria-hidden="true" tabindex="-1"></a>myplogis <span class="ot">&lt;-</span> <span class="cf">function</span>(z) {</span>
+<span id="cb1-2"><a href="logistic-regression-and-friends.html#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(<span class="sc">-</span>z))</span>
+<span id="cb1-3"><a href="logistic-regression-and-friends.html#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-4"><a href="logistic-regression-and-friends.html#cb1-4" aria-hidden="true" tabindex="-1"></a>z_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="at">to =</span> <span class="dv">4</span>, <span class="at">length.out =</span> <span class="dv">400</span>)</span>
+<span id="cb1-5"><a href="logistic-regression-and-friends.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(<span class="fu">myplogis</span>(z_seq), <span class="fu">plogis</span>(z_seq))</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="logistic-regression-and-friends.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="logistic-regression-and-friends.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(z_seq, <span class="fu">myplogis</span>(z_seq), <span class="at">geom =</span> <span class="st">&#39;line&#39;</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Exercise: probabilities are between 0 and 1. What about odds? What about log odds?</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<p>Odds are between 0 and <span class="math inline">\(+\infty\)</span>. Since <span class="math inline">\(p\in [0,1]\)</span> the ratio <span class="math inline">\(p/(1 - p)\)</span> cannot be negative, but we can make it arbitrarily large by taking <span class="math inline">\(p\)</span> close to one. Log odds are the log of something that is between zero and positive infinity, so they are between <span class="math inline">\(-\infty\)</span> and <span class="math inline">\(+\infty\)</span>.</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>If the probability of an event is <span class="math inline">\(1/2\)</span>, what are the odds? What about the log odds? What does this tell us about the qualitative interpretation of odds and log odds?</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<p>A probability of 1/2 corresponds to odds of <span class="math inline">\((1/2) / (1 - 1/2) = 1\)</span> and log odds of <span class="math inline">\(\log(1) = 0\)</span>. Thus, odds of one mean "as likely as not," odds greater than one mean "more likely than not," and odds less than one mean "less likely than not." Log odds of zero mean "as likely as not," positive log odds mean "more likely than not," and negative log odds mean "less likely than not."</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Generalizing the Bayes rule example from above, let <span class="math inline">\(\pi\)</span> be the prior probability of breast cancer, <span class="math inline">\(\text{SENS}\)</span> be the sensitivity of the test and <span class="math inline">\(\text{SPEC}\)</span> be the specificity of the test. Suppose that we observe the results of <span class="math inline">\(N\)</span>. Of these <span class="math inline">\(N^+\)</span> are positive the rest are negative. Write down an expression for the odds that Alice has breast cancer, assuming that each test statistically independent of the others conditional on a person's true breast cancer status. (Unconditionally, the tests <em>definitely</em> aren't independent!)</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<p>FILL IN LATER!</p>
+</div>
+</div>
+<div id="interpreting-a-simple-logit-regression-model" class="section level3 hasAnchor" number="6.1.3">
+<h3><span class="header-section-number">6.1.3</span> Interpreting a Simple Logit Regression Model<a href="logistic-regression-and-friends.html#interpreting-a-simple-logit-regression-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To summarize our digression and exercises from above: probabilities are mathematically inconvenient because they're bounded above and below. This is the reason for the non-linearity in Bayes' Theorem expressed on the probability scale. In contrast, odds are simpler: they're <em>multiplicative</em>, bounded below by zero, and unbounded above. Odds of one mean <span class="math inline">\(A\)</span> and <span class="math inline">\(A^C\)</span> are equally likely. Log odds are even simpler: they're additive and unbounded. Log odds of zero mean that <span class="math inline">\(A\)</span> and <span class="math inline">\(A^C\)</span> are equally likely. Now it's time to use this knowledge to help us understand logistic regression. Our goal is to understand how changing <span class="math inline">\(x\)</span> affects <span class="math inline">\(P(Y=1|X=x)\)</span> under the model.</p>
+<p>Let's start with the simplest possible example: <span class="math inline">\(p(x) \equiv P(Y=1|X=x) = \texttt{plogis}(\alpha + \beta x)\)</span> where <span class="math inline">\(X\)</span> is a scalar. What is the derivative of <span class="math inline">\(p(x)\)</span> with respect to <span class="math inline">\(x\)</span>? By the chain rule,
+<span class="math display">\[
+\frac{d}{dx} \texttt{plogis}(\alpha + \beta x) = \beta \times \texttt{dlogis}(\alpha + \beta x) 
+\]</span>
+where <span class="math inline">\(\texttt{dlogis}(\cdot)\)</span> is the standard logistic density. Since <span class="math inline">\(\texttt{dlogis}(\cdot)\)</span> is a density it can't be negative, so the derivative has the same sign as <span class="math inline">\(\beta\)</span>. Its magnitude, however, depends on the value of <span class="math inline">\(x\)</span> at which we evaluate it <em>and</em> on the value of <span class="math inline">\(\alpha\)</span>. On the <em>probability scale</em>, partial effects for logit regression are <em>non-linear</em>. Because it's a CDF, <span class="math inline">\(\texttt{plogis}(\cdot)\)</span> eventually "flattens out." Increasing <span class="math inline">\(x\)</span> by one unit therefore cannot have the same effect on <span class="math inline">\(P(Y=1|X=x)\)</span> when the baseline value of <span class="math inline">\(x\)</span> as it does when the baseline value is high.</p>
+<p>As above, everything's easier with odds. As you'll show in the exercise below,
+<span class="math display">\[
+\frac{\texttt{plogis}(z)}{1 - \texttt{plogis}(z)} = \exp(z) \implies
+\text{Odds}(Y=1|X=x) = \exp(\alpha + \beta x)
+\]</span>
+Therefore, increasing <span class="math inline">\(x\)</span> by one unit is equivalent to multiplying the <em>odds</em> that <span class="math inline">\(Y=1\)</span> by <span class="math inline">\(\exp(\beta)\)</span>. This holds true <em>regardless</em> of the values of <span class="math inline">\(\alpha\)</span> or <span class="math inline">\(x\)</span>. Log odds are even simpler since <span class="math inline">\(\text{log Odds}(Y=1|x) = \alpha + \beta x\)</span>. Notice that we've observed the same phenomenon here as in our Bayes' rule example from above. This is partly down to the magic of odds, and partly due to the <em>specific structure of the logit model</em>. These same results wouldn't go through for probit regression or other index models: the function <span class="math inline">\(\texttt{plogis}(\cdot)\)</span> is <em>extremely</em> mathematically convenient.</p>
+</div>
+<div id="exercise-32" class="section level3 hasAnchor" number="6.1.4">
+<h3><span class="header-section-number">6.1.4</span> Exercise<a href="logistic-regression-and-friends.html#exercise-32" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Perhaps you've heard of the "divide by four rule." It goes like this: if you divide a logistic regression coefficient by four, you'll obtain the <em>maximum possible</em> effect of changing the associated regressor by one unit on the predicted probability that <span class="math inline">\(Y = 1\)</span>. Where does this rule come from?</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<p>Above we found that the derivative of <span class="math inline">\(\texttt{plogis}(\alpha + \beta x)\)</span> with respect to <span class="math inline">\(x\)</span> was <span class="math inline">\(\beta \times \texttt{dlogis}(\alpha + \beta x)\)</span>. We also noted that <code>dlogis()</code> is the standard logistic density, so it can't be negative. This means that the sign of the effect equals the sign of <span class="math inline">\(\beta\)</span>. The magnitude, however, depends on the value of <span class="math inline">\(\texttt{dlogis}(\alpha + \beta x)\)</span>. To get the largest possible magnitude, we need to make <code>dlogis()</code> as large as possible. This density is symmetric with a mode at zero:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="logistic-regression-and-friends.html#cb4-1" aria-hidden="true" tabindex="-1"></a>x_seq <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">length.out =</span> <span class="dv">400</span>)</span>
+<span id="cb4-2"><a href="logistic-regression-and-friends.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(x_seq, <span class="fu">dlogis</span>(x_seq), <span class="at">geom =</span> <span class="st">&#39;line&#39;</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>The "divide by four" rule arises because the height of the logistic density at zero is 1/4</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="logistic-regression-and-friends.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dlogis</span>(<span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] 0.25</code></pre>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>The quantity <span class="math inline">\(\beta \times \texttt{dlogis}(\alpha + \beta x)\)</span> is usually called the partial effect of <span class="math inline">\(x\)</span>. I write <span class="math inline">\(x\)</span> to denote a realization of the random variable <span class="math inline">\(X\)</span>, so <span class="math inline">\(x\)</span> is constant whereas <span class="math inline">\(X\)</span> is random. In contrast, the <em>average partial effect</em> is defined as <span class="math inline">\(E[\beta \times \texttt{dlogis}(\alpha + \beta X)]\)</span>. and the <em>partial effect at the average</em> is <span class="math inline">\(\beta \times \texttt{dlogis}(\alpha + \beta E[X])\)</span>. Do these two coincide in general? Why or why not? What question does each of them answer?</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<p>They do not in general coincide because <span class="math inline">\(E[f(X)]\)</span> does not in general equal <span class="math inline">\(f(E[X])\)</span>. (Linear/affine functions are the special case in which you <em>can</em> exchange <span class="math inline">\(E\)</span> and <span class="math inline">\(f\)</span>.) The average partial effect answers this question: "suppose I slightly increased <code>x</code> for everyone in my population of interest; how would my predicted probabilities that <span class="math inline">\(Y = 1\)</span> change on average?" The partial effect at the average answers a different question: "suppose I found someone whose <code>x</code> value equals the population mean; if I increased her <code>x</code> by a small amount, how would my predicted probability that <span class="math inline">\(Y = 1\)</span> change?"</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Consider two people: one has <span class="math inline">\(X = x_2\)</span> and the other has <span class="math inline">\(X = x_1\)</span>. Under the simple logistic regression model from above, what is the <em>odds ratio</em> for these two people? In other words, what is the ratio of the odds that <span class="math inline">\(Y=1\)</span> for person two relative to those for person one?</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<p>The odds for person two are <span class="math inline">\(\exp(\alpha + \beta x_2)\)</span> while those for person one are <span class="math inline">\(\exp(\alpha + \beta x_1)\)</span>. Taking the ratio of these gives <span class="math inline">\(\exp\left\{\beta (x_2 - x_1) \right\}\)</span>.</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Show that <span class="math inline">\(\texttt{plogis}(z) / [1 - \texttt{plogis}(z)] = \exp(z)\)</span>.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<p>FILL IN LATER</p>
+</div>
+</div>
+</div>
+<div id="simulating-data-from-a-logistic-regression" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> Simulating Data from a Logistic Regression<a href="logistic-regression-and-friends.html#simulating-data-from-a-logistic-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are many different ways to simulate draws from a logistic regression. Here are two. One possibility is to simulate Bernoulli draws with probabilities determined by <code>plogis()</code> and <span class="math inline">\(X_i\)</span>, namely
+<span class="math display">\[
+Y_i|X_i \sim \text{indep. Bernoulli}(p_i), \quad p_i \equiv \texttt{plogis}(X_i&#39;\beta).
+\]</span>
+Another is to generate a <em>latent continuous variable</em> <span class="math inline">\(y^*_i\)</span> from a linear regression with logistic errors, and then transform the result into a binary observed outcome <span class="math inline">\(y_i\)</span>, in particular
+<span class="math display">\[
+ y_i^* = X_i&#39;\beta + \epsilon_i, \quad
+ y_i = \left\{ \begin{array}{cc}
+ 1 &amp; \mbox{if } y^*_i &gt; 0\\
+ 0 &amp; \mbox{if } y^*_i \leq 0\\
+ \end{array}\right., \quad
+ \epsilon_i \sim \mbox{ iid Logistic}(0,1). 
+\]</span>
+To give us some data to play with, I'll use the second approach. In an exercise below, you'll be asked to supply code for the first approach.</p>
+<p>The R function <code>rlogis()</code> creates iid draws from the logistic distribution. If we only specify one argument, <code>rlogis()</code> assumes that this is the number of random draws that we wish to make, and sets the values of its <em>location</em> and <em>scale</em> parameters to 0 and 1, respectively. This is what we want, since these parameters correspond to the Logistic<span class="math inline">\((0,1)\)</span> distribution that appears in the latent data formulation from above. Using <code>rlogis()</code>, we can simulate data from a logistic regression model as follows:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="logistic-regression-and-friends.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb7-2"><a href="logistic-regression-and-friends.html#cb7-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb7-3"><a href="logistic-regression-and-friends.html#cb7-3" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb7-4"><a href="logistic-regression-and-friends.html#cb7-4" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb7-5"><a href="logistic-regression-and-friends.html#cb7-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="fl">1.5</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb7-6"><a href="logistic-regression-and-friends.html#cb7-6" aria-hidden="true" tabindex="-1"></a>ystar <span class="ot">&lt;-</span> alpha <span class="sc">+</span> beta <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rlogis</span>(n)</span>
+<span id="cb7-7"><a href="logistic-regression-and-friends.html#cb7-7" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">*</span> (ystar <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb7-8"><a href="logistic-regression-and-friends.html#cb7-8" aria-hidden="true" tabindex="-1"></a>mydat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y)</span></code></pre></div>
+<p>In this case I've chosen to draw <code>x</code> from a normal distribution with mean <code>1.5</code> and standard deviation <code>2</code>. Given the values of <code>alpha</code> and <code>beta</code> that I've chosen, this means that <span class="math inline">\(Y=1\)</span> is considerably more likely than not:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="logistic-regression-and-friends.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(y)</span></code></pre></div>
+<pre><code>## [1] 0.756</code></pre>
+<div id="exercise-33" class="section level3 hasAnchor" number="6.2.1">
+<h3><span class="header-section-number">6.2.1</span> Exercise<a href="logistic-regression-and-friends.html#exercise-33" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>My simulation code from above employed the latent variable approach: rather than using the function <code>plogis()</code> I generated standard logistic draws using <code>rlogis()</code> to form an unobserved continuous outcome variable <code>ystar</code>. Write code that simulates from the <em>same</em> logistic regression model <em>without</em> generating any random logistic draws or creating a latent continuous variable <code>ystar</code>.</p>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="logistic-regression-and-friends.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># These lines are identical to those from above so we get the same x-values:</span></span>
+<span id="cb10-2"><a href="logistic-regression-and-friends.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb10-3"><a href="logistic-regression-and-friends.html#cb10-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb10-4"><a href="logistic-regression-and-friends.html#cb10-4" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb10-5"><a href="logistic-regression-and-friends.html#cb10-5" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb10-6"><a href="logistic-regression-and-friends.html#cb10-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="fl">1.5</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb10-7"><a href="logistic-regression-and-friends.html#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Here&#39;s the only thing that changes:</span></span>
+<span id="cb10-8"><a href="logistic-regression-and-friends.html#cb10-8" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> <span class="fu">plogis</span>(alpha <span class="sc">+</span> beta <span class="sc">*</span> x))</span>
+<span id="cb10-9"><a href="logistic-regression-and-friends.html#cb10-9" aria-hidden="true" tabindex="-1"></a>mydat2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y)</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="running-a-logistic-regression-in-r" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> Running a Logistic Regression in R<a href="logistic-regression-and-friends.html#running-a-logistic-regression-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Now we're reading to use the simulated dataset <code>mydat</code> to carry out logistic regression. Perhaps this strikes you as a silly idea. We generated the data so we <em>know</em> the true values of <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span>. Why bother carrying out logistic regression to <em>estimate</em> them?
+There are two answers to this question. First, this is only an example: don't be so picky!
+Second, it can be extremely valuable to work with simulated data to check whether our statistical methods are working correctly. If we <em>know</em> for sure that the data came from a logistic regression model, then our logistic regression estimates should be close to the truth. If they're not, then something is wrong with our computer code.</p>
+<p>The R function <code>glm</code> can be used to carry out logistic regression. The name of this function is an acronym for <em>generalized linear model</em>. Generalized linear models (GLMs) are exactly what their name says, a <em>generalization</em> of linear regression. GLMs include logistic regression as a special case. To tell <code>glm</code> that we want to carry out a logistic regression, we need to specify <code>family = binomial(link = 'logit')</code>. Otherwise the syntax is practically identical to that of <code>lm</code>. We specify a <em>formula</em>, <code>y ~ x</code>, and indicate a dataframe in which R should look to find <code>y</code> and <code>x</code>:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="logistic-regression-and-friends.html#cb11-1" aria-hidden="true" tabindex="-1"></a>lreg <span class="ot">&lt;-</span> <span class="fu">glm</span>(y <span class="sc">~</span> x, mydat, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&#39;logit&#39;</span>))</span>
+<span id="cb11-2"><a href="logistic-regression-and-friends.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lreg)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## glm(formula = y ~ x, family = binomial(link = &quot;logit&quot;), data = mydat)
+## 
+## Deviance Residuals: 
+##      Min        1Q    Median        3Q       Max  
+## -2.61173   0.04538   0.30466   0.63221   1.88450  
+## 
+## Coefficients:
+##             Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)   0.3630     0.1344   2.700  0.00693 ** 
+## x             0.9638     0.1004   9.596  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 555.65  on 499  degrees of freedom
+## Residual deviance: 381.74  on 498  degrees of freedom
+## AIC: 385.74
+## 
+## Number of Fisher Scoring iterations: 6</code></pre>
+<p>Notice that the output of <code>summary</code> when applied to a <code>glm</code> object is a little different from what we've seen for <code>lm</code> objects. For now, let's focus on what's the same. We still obtain the estimates of each of the coefficients in our model, along with standard errors, test statistics, and p-values. We can use this information to carry out statistical inference exactly as we do with linear regression: R has already done all the hard work for us by calculating the standard errors. As you'll see in the following exercises, the functions from the <code>broom</code> and <code>modelsummary</code> packages that you learned in our lessons on linear regression work just as well with <code>glm</code> objects as they do with <code>lm</code> objects.</p>
+<div id="exercise-34" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> Exercise<a href="logistic-regression-and-friends.html#exercise-34" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Construct approximate 95% confidence intervals for the parameters <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\beta_1\)</span> based on the logistic regression output from above. Do your confidence intervals include the true parameter values that we used to simulate the data?</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<p>The confidence interval for the regression intercept is approximately 0.36 <span class="math inline">\(\pm\)</span> 0.27 which includes the true value: <span class="math inline">\(\alpha=\)</span> 0.5.
+Similarly, the confidence interval for the regression slope is 0.96 <span class="math inline">\(\pm\)</span> 0.2 which includes the true value: <span class="math inline">\(\beta =\)</span> 1.</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Interpret the estimated slope coefficient from <code>lreg</code>.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<p>Consider two people: Alice has a value of <span class="math inline">\(x\)</span> that is one unit higher than Bob's value of <span class="math inline">\(x\)</span>. Our model predicts that the log odds of <span class="math inline">\(Y = 1\)</span> are 0.96 higher for Alice than for Bob. Equivalently, we predict that Alice's odds of <span class="math inline">\(Y=1\)</span> are a multiplicative factor of <span class="math inline">\(\exp(0.96) \approx 2.6\)</span> larger than Bob's odds. Whether this is a large or a small difference measured on the <em>probability scale</em> depends on Alice's specific value of <span class="math inline">\(x\)</span>.</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Try using <code>coef()</code> with <code>lreg</code>. What do you get? Does it work as expected? Now try the <code>broom</code> functions <code>tidy()</code> and <code>glance()</code> and long with the function <code>modelsummary()</code> from the <code>modelsummary</code> package. What do you get?</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="logistic-regression-and-friends.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># They work as expected!</span></span>
+<span id="cb13-2"><a href="logistic-regression-and-friends.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb13-3"><a href="logistic-regression-and-friends.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb13-4"><a href="logistic-regression-and-friends.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lreg)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)    0.363     0.134      2.70 6.93e- 3
+## 2 x              0.964     0.100      9.60 8.34e-22</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="logistic-regression-and-friends.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(lreg)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 8
+##   null.deviance df.null logLik   AIC   BIC deviance df.residual  nobs
+##           &lt;dbl&gt;   &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt; &lt;int&gt;
+## 1          556.     499  -191.  386.  394.     382.         498   500</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="logistic-regression-and-friends.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(lreg)</span></code></pre></div>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Model 1
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:center;">
+0.363
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(0.134)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+x
+</td>
+<td style="text-align:center;">
+0.964
+</td>
+</tr>
+<tr>
+<td style="text-align:left;box-shadow: 0px 1px">
+</td>
+<td style="text-align:center;box-shadow: 0px 1px">
+(0.100)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Num.Obs.
+</td>
+<td style="text-align:center;">
+500
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AIC
+</td>
+<td style="text-align:center;">
+385.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BIC
+</td>
+<td style="text-align:center;">
+394.2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Log.Lik.
+</td>
+<td style="text-align:center;">
+−190.872
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:center;">
+92.077
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RMSE
+</td>
+<td style="text-align:center;">
+0.88
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>As we discussed above, <span class="math inline">\(\beta\)</span> is <em>not</em> the partial derivative of <span class="math inline">\(\texttt{plogis}(\alpha + \beta x)\)</span> with respect to <span class="math inline">\(x\)</span>.
+<ol style="list-style-type: lower-alpha">
+<li>Use the "divide by 4" rule to calculate the <em>maximum</em> possible partial effect of <span class="math inline">\(x\)</span> on the predicted probability that <span class="math inline">\(Y = 1\)</span> using the results of <code>lreg</code>.</li>
+<li>Calculate the partial effect of <span class="math inline">\(x\)</span> on the predicted probability that <span class="math inline">\(Y= 1\)</span> at evaluated at the sample mean value of <span class="math inline">\(X\)</span> (the partial effect at the average).</li>
+<li>Calculate the average partial effect of <span class="math inline">\(x\)</span> over the observed sample.</li>
+<li>Compare your answers to (a), (b), and (c).</li>
+</ol></li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="logistic-regression-and-friends.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Divide by 4 rule</span></span>
+<span id="cb18-2"><a href="logistic-regression-and-friends.html#cb18-2" aria-hidden="true" tabindex="-1"></a>alpha_hat <span class="ot">&lt;-</span> <span class="fu">coef</span>(lreg)[<span class="dv">1</span>]</span>
+<span id="cb18-3"><a href="logistic-regression-and-friends.html#cb18-3" aria-hidden="true" tabindex="-1"></a>beta_hat <span class="ot">&lt;-</span> <span class="fu">coef</span>(lreg)[<span class="dv">2</span>]</span>
+<span id="cb18-4"><a href="logistic-regression-and-friends.html#cb18-4" aria-hidden="true" tabindex="-1"></a>beta_hat <span class="sc">/</span> <span class="dv">4</span></span></code></pre></div>
+<pre><code>##         x 
+## 0.2409399</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="logistic-regression-and-friends.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Partial effect at average x</span></span>
+<span id="cb20-2"><a href="logistic-regression-and-friends.html#cb20-2" aria-hidden="true" tabindex="-1"></a>beta_hat <span class="sc">*</span> <span class="fu">dlogis</span>(alpha_hat <span class="sc">+</span> beta_hat <span class="sc">*</span> <span class="fu">mean</span>(x))</span></code></pre></div>
+<pre><code>##         x 
+## 0.1162997</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="logistic-regression-and-friends.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Average partial effect</span></span>
+<span id="cb22-2"><a href="logistic-regression-and-friends.html#cb22-2" aria-hidden="true" tabindex="-1"></a>beta_hat <span class="sc">*</span> <span class="fu">mean</span>(<span class="fu">dlogis</span>(alpha_hat <span class="sc">+</span> beta_hat <span class="sc">*</span> x))</span></code></pre></div>
+<pre><code>##         x 
+## 0.1177498</code></pre>
+</div>
+</div>
+</div>
+<div id="predicted-probabilities-for-logistic-regression" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> Predicted Probabilities for Logistic Regression<a href="logistic-regression-and-friends.html#predicted-probabilities-for-logistic-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As you saw in the preceding exercises, many of the functions that we've already learned to use with <code>lm</code> objects generalize immediately to <code>glm</code> objects. One place were we need to be a bit careful is when we want to make <em>predictions</em> based on a fitted generalized linear model. The <code>predict()</code> function works for <code>glm</code> objects, but there's a slight wrinkle. If we want to calculate the predicted <em>probability</em> that <span class="math inline">\(Y_i = 1\)</span>, we need to specify the argument <code>type = 'response'</code>. For example, we can calculate the predicted probability that <span class="math inline">\(y_i = 1\)</span> given that <span class="math inline">\(X_i = 0\)</span> as follows:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="logistic-regression-and-friends.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(lreg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">0</span>), <span class="at">type =</span> <span class="st">&#39;response&#39;</span>)</span></code></pre></div>
+<pre><code>##         1 
+## 0.5897566</code></pre>
+<p>Similarly, we can calculate the predicted probability that <span class="math inline">\(y_i = 1\)</span> given that <span class="math inline">\(X_i\)</span> equals the <em>sample mean</em> of <span class="math inline">\(X\)</span> as follows:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="logistic-regression-and-friends.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(lreg, <span class="at">newdata =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">mean</span>(x)), <span class="at">type =</span> <span class="st">&#39;response&#39;</span>)</span></code></pre></div>
+<pre><code>##         1 
+## 0.8596206</code></pre>
+<p>If we don't specify anything for <code>newdata</code>, then predict will give us the predicted probabilities for the <em>observed</em> values of <span class="math inline">\(X\)</span>, exactly</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="logistic-regression-and-friends.html#cb28-1" aria-hidden="true" tabindex="-1"></a>p_hat <span class="ot">&lt;-</span> <span class="fu">predict</span>(lreg, <span class="at">type =</span> <span class="st">&#39;response&#39;</span>)</span>
+<span id="cb28-2"><a href="logistic-regression-and-friends.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(p_hat)</span></code></pre></div>
+<pre><code>##          1          2          3          4          5          6 
+## 0.37330981 0.91240407 0.98013788 0.06222354 0.93312689 0.94180674</code></pre>
+<div id="exercise-35" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> Exercise<a href="logistic-regression-and-friends.html#exercise-35" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Use the results of <code>lreg</code> to calculate the predicted probability that <span class="math inline">\(Y_i = 1\)</span> when: (i) <span class="math inline">\(X_i = 0\)</span> and (ii) <span class="math inline">\(X_i = \bar{X}\)</span> <em>without using</em> <code>predict</code>. Check that your results agree with <code>predict()</code>.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="logistic-regression-and-friends.html#cb30-1" aria-hidden="true" tabindex="-1"></a>alpha_hat <span class="ot">&lt;-</span> <span class="fu">coef</span>(lreg)[<span class="dv">1</span>]</span>
+<span id="cb30-2"><a href="logistic-regression-and-friends.html#cb30-2" aria-hidden="true" tabindex="-1"></a>beta_hat <span class="ot">&lt;-</span> <span class="fu">coef</span>(lreg)[<span class="dv">2</span>]</span>
+<span id="cb30-3"><a href="logistic-regression-and-friends.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plogis</span>(alpha_hat)</span></code></pre></div>
+<pre><code>## (Intercept) 
+##   0.5897566</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="logistic-regression-and-friends.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plogis</span>(alpha_hat <span class="sc">+</span> beta_hat <span class="sc">*</span> <span class="fu">mean</span>(x))</span></code></pre></div>
+<pre><code>## (Intercept) 
+##   0.8596206</code></pre>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>You may recall the function <code>augment()</code> from the <code>broom</code> package that we used in an earlier lesson on linear regression. Read the help file for <code>augment.glm()</code> from the <code>broom</code> package. This explains the behavior of <code>augment()</code> when applied to a <code>glm</code> object rather than an <code>lm</code> object. How can we use <code>augment()</code> to calculate the same predictions as <code>predict(lreg, type = 'response')</code> and append them to <code>mydat</code>?</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="logistic-regression-and-friends.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(lreg, mydat, <span class="at">type.predict =</span> <span class="st">&#39;response&#39;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 500 × 8
+##         x     y .fitted .resid .std.resid    .hat .sigma   .cooksd
+##     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
+##  1 -0.914     1  0.373   1.40       1.41  0.00797  0.874 0.00680  
+##  2  2.05      1  0.912   0.428      0.429 0.00349  0.876 0.000169 
+##  3  3.67      1  0.980   0.200      0.201 0.00240  0.876 0.0000245
+##  4 -3.19      0  0.0622 -0.358     -0.360 0.00859  0.876 0.000290 
+##  5  2.36      1  0.933   0.372      0.373 0.00341  0.876 0.000123 
+##  6  2.51      1  0.942   0.346      0.347 0.00334  0.876 0.000104 
+##  7  0.351     1  0.668   0.898      0.899 0.00364  0.875 0.000909 
+##  8  0.407     0  0.680  -1.51      -1.51  0.00356  0.874 0.00381  
+##  9  0.371     1  0.673   0.890      0.892 0.00361  0.875 0.000884 
+## 10 -0.280     1  0.523   1.14       1.14  0.00528  0.875 0.00243  
+## # … with 490 more rows</code></pre>
+</div>
+</div>
+</div>
+<div id="plotting-a-logistic-regression" class="section level2 hasAnchor" number="6.5">
+<h2><span class="header-section-number">6.5</span> Plotting a Logistic Regression<a href="logistic-regression-and-friends.html#plotting-a-logistic-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We can plot a logistic regression function using a method very similar to the one we used to plot a linear regression:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="logistic-regression-and-friends.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb36-2"><a href="logistic-regression-and-friends.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mydat, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb36-3"><a href="logistic-regression-and-friends.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&#39;glm&#39;</span>, </span>
+<span id="cb36-4"><a href="logistic-regression-and-friends.html#cb36-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>),</span>
+<span id="cb36-5"><a href="logistic-regression-and-friends.html#cb36-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> x) </span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>To add the datapoints, we just add <code>geom_point()</code></p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="logistic-regression-and-friends.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb37-2"><a href="logistic-regression-and-friends.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mydat, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb37-3"><a href="logistic-regression-and-friends.html#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&#39;glm&#39;</span>, <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>),</span>
+<span id="cb37-4"><a href="logistic-regression-and-friends.html#cb37-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> x) <span class="sc">+</span> </span>
+<span id="cb37-5"><a href="logistic-regression-and-friends.html#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>This doesn't look very nice!
+That's because there are only <em>two</em> possible <span class="math inline">\(y\)</span>-values meaning that the observations will overlap substantially.
+A helpful way to distinguish them visually is to add a bit of random noise to the points so they no longer overlap.
+This is called <em>jittering</em> and <code>ggplot2</code> will do it for us if we replace <code>geom_point()</code> with <code>geom_jitter()</code></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="logistic-regression-and-friends.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb38-2"><a href="logistic-regression-and-friends.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mydat, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb38-3"><a href="logistic-regression-and-friends.html#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&#39;glm&#39;</span>, <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>),</span>
+<span id="cb38-4"><a href="logistic-regression-and-friends.html#cb38-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> x) <span class="sc">+</span> </span>
+<span id="cb38-5"><a href="logistic-regression-and-friends.html#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>()</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>That's a bit <em>too much</em> random noise in the <span class="math inline">\(y\)</span>-dimension.
+We can control the amount of jittering by specifying <code>width</code> and <code>height</code> arguments to <code>geom_jitter</code> as follows</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="logistic-regression-and-friends.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb39-2"><a href="logistic-regression-and-friends.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mydat, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb39-3"><a href="logistic-regression-and-friends.html#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&#39;glm&#39;</span>, <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>),</span>
+<span id="cb39-4"><a href="logistic-regression-and-friends.html#cb39-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> x) <span class="sc">+</span> </span>
+<span id="cb39-5"><a href="logistic-regression-and-friends.html#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">height =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>From this plot it is easy to tell that there are many more observations with <span class="math inline">\(Y = 1\)</span> than <span class="math inline">\(Y = 0\)</span>, something that was not at all clear from the plot using <code>geom_point()</code>.</p>
+<div id="exercise-36" class="section level3 hasAnchor" number="6.5.1">
+<h3><span class="header-section-number">6.5.1</span> Exercise<a href="logistic-regression-and-friends.html#exercise-36" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Data from the "two truths and a lie" experiment described at the beginning of these lesson are available from <code>two-truths-and-a-lie-2022-cleaned.csv</code> in the <code>data</code> directory of my website: <code>https://ditraglia.com/data/</code>.</p>
+<ol style="list-style-type: decimal">
+<li>Read the dataset directly into R from the web, storing it in a tibble called <code>two_truths</code>.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="logistic-regression-and-friends.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb40-2"><a href="logistic-regression-and-friends.html#cb40-2" aria-hidden="true" tabindex="-1"></a>data_url <span class="ot">&lt;-</span> <span class="st">&#39;https://ditraglia.com/data/two-truths-and-a-lie-2022-cleaned.csv&#39;</span></span>
+<span id="cb40-3"><a href="logistic-regression-and-friends.html#cb40-3" aria-hidden="true" tabindex="-1"></a>two_truths <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(data_url)</span></code></pre></div>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Run a logistic regression that predicts <code>guessed_right</code> based on <code>certainty</code>. Make a nicely-formatted table of regression results using <code>modelsummary()</code> and comment briefly on your findings.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<p>The estimated coefficient for <code>certainty</code> is <em>negative</em>! This means that on average we predict more wrong guesses as students' subjective certainty in their guesses increases. But notice that our estimate is fairly noisy: the coefficient estimate is around -0.2 and the standard error is around 0.16. We haven't found any compelling evidence that the relationship runs in either direction. Maybe the 2023 Core ERM students will be more obliging!</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="logistic-regression-and-friends.html#cb41-1" aria-hidden="true" tabindex="-1"></a>two_truths_reg <span class="ot">&lt;-</span> <span class="fu">glm</span>(guessed_right <span class="sc">~</span> certainty, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&#39;logit&#39;</span>),</span>
+<span id="cb41-2"><a href="logistic-regression-and-friends.html#cb41-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">data =</span> two_truths)</span>
+<span id="cb41-3"><a href="logistic-regression-and-friends.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb41-4"><a href="logistic-regression-and-friends.html#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(two_truths_reg)</span></code></pre></div>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+Model 1
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:center;">
+1.020
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(0.932)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+certainty
+</td>
+<td style="text-align:center;">
+−0.196
+</td>
+</tr>
+<tr>
+<td style="text-align:left;box-shadow: 0px 1px">
+</td>
+<td style="text-align:center;box-shadow: 0px 1px">
+(0.159)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Num.Obs.
+</td>
+<td style="text-align:center;">
+50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AIC
+</td>
+<td style="text-align:center;">
+71.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BIC
+</td>
+<td style="text-align:center;">
+75.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Log.Lik.
+</td>
+<td style="text-align:center;">
+−33.814
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:center;">
+1.524
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RMSE
+</td>
+<td style="text-align:center;">
+1.19
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Use <code>ggplot()</code> to depict the regression from part 2, adding jittering to make the raw data clearly visible. You may need to adjust the <code>width</code> and <code>height</code> parameters of <code>geom_jitter()</code>.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="logistic-regression-and-friends.html#cb42-1" aria-hidden="true" tabindex="-1"></a>two_truths <span class="sc">%&gt;%</span></span>
+<span id="cb42-2"><a href="logistic-regression-and-friends.html#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> certainty, <span class="at">y =</span> guessed_right)) <span class="sc">+</span></span>
+<span id="cb42-3"><a href="logistic-regression-and-friends.html#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">&#39;glm&#39;</span>, <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">&#39;binomial&#39;</span>),</span>
+<span id="cb42-4"><a href="logistic-regression-and-friends.html#cb42-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> x) <span class="sc">+</span></span>
+<span id="cb42-5"><a href="logistic-regression-and-friends.html#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="fl">0.05</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="probit-regression-and-the-linear-probability-model" class="section level2 hasAnchor" number="6.6">
+<h2><span class="header-section-number">6.6</span> Probit Regression and the Linear Probability Model<a href="logistic-regression-and-friends.html#probit-regression-and-the-linear-probability-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Thus far we've only discussed logistic regression, but there are many other models for binary outcome data. We've also restricted our attention to a model with a single regressor. In this section we'll introduce two common alternatives to logistic regression: "probit" and the "linear probability model." Then I'll turn you loose on a more substantial exercise with binary outcome data and <em>multiple</em> regressors.</p>
+<div id="probit-regression" class="section level3 hasAnchor" number="6.6.1">
+<h3><span class="header-section-number">6.6.1</span> Probit Regression<a href="logistic-regression-and-friends.html#probit-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Whereas the logistic regression model posits that <span class="math inline">\(P(Y=1|X) = \texttt{plogis}(X&#39;\beta)\)</span>, the <strong>probit regression model</strong> replaces <code>plogis()</code> with <code>pnorm()</code>. In other words, it substitutes a standard normal CDF for a standard logistic:
+<span class="math display">\[
+P(Y=1|X) = \texttt{pnorm}(X&#39;\beta)
+\]</span>
+To simulate from this model, we can either combine <code>rbinom()</code> with <code>pnorm()</code> or use the following latent variable characterization:
+<span class="math display">\[
+ y_i^* = X_i&#39;\beta + \epsilon_i, \quad
+ y_i = \left\{ \begin{array}{cc}
+ 1 &amp; \mbox{if } y^*_i &gt; 0\\
+ 0 &amp; \mbox{if } y^*_i \leq 0\\
+ \end{array}\right., \quad
+ \epsilon_i \sim \mbox{ iid N}(0,1). 
+\]</span>
+Modifying my code from above, for example, we can simulate the following data from a probit regression model:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="logistic-regression-and-friends.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb43-2"><a href="logistic-regression-and-friends.html#cb43-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">500</span></span>
+<span id="cb43-3"><a href="logistic-regression-and-friends.html#cb43-3" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb43-4"><a href="logistic-regression-and-friends.html#cb43-4" aria-hidden="true" tabindex="-1"></a>beta <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb43-5"><a href="logistic-regression-and-friends.html#cb43-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="fl">1.5</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb43-6"><a href="logistic-regression-and-friends.html#cb43-6" aria-hidden="true" tabindex="-1"></a>ystar <span class="ot">&lt;-</span> alpha <span class="sc">+</span> beta <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb43-7"><a href="logistic-regression-and-friends.html#cb43-7" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">*</span> (ystar <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
+<span id="cb43-8"><a href="logistic-regression-and-friends.html#cb43-8" aria-hidden="true" tabindex="-1"></a>probit_dat <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(x, y)</span></code></pre></div>
+<p>The probit model is less convenient than logit mathematically because <code>pnorm()</code>, unlike <code>plogis()</code>, lacks a closed-form expression. This makes it much harder to give a simple interpretation to the regression coefficients: the various tricks that we used above with odds simply won't apply. We can still compute partial effects, however. Let <span class="math inline">\(G(\cdot)\)</span> be the CDF of a continuous random variable and <span class="math inline">\(g(\cdot)\)</span> be the corresponding density. Then we have
+<span class="math display">\[
+\frac{\partial}{\partial x_j} G(x&#39;\beta) = \beta_j \times g(x&#39;\beta)
+\]</span>
+For logistic regression <span class="math inline">\(G\)</span> becomes <code>plogis()</code> and <span class="math inline">\(g\)</span> becomes <code>dlogis()</code>; for probit regression these become <code>pnorm()</code> and <code>dnorm()</code>. This fact allows us to compute partial effects, average partial effects, and partial effects at the average almost exactly as we did for logistic regression above.</p>
+<p>Fitting and plotting probit regression in R are also a snap. Simply change <code>link = 'logit'</code> to <code>link = 'probit'</code> as follows:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="logistic-regression-and-friends.html#cb44-1" aria-hidden="true" tabindex="-1"></a>probit_reg <span class="ot">&lt;-</span> <span class="fu">glm</span>(y <span class="sc">~</span> x, probit_dat, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&#39;probit&#39;</span>))</span>
+<span id="cb44-2"><a href="logistic-regression-and-friends.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lreg)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)    0.363     0.134      2.70 6.93e- 3
+## 2 x              0.964     0.100      9.60 8.34e-22</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="logistic-regression-and-friends.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb46-2"><a href="logistic-regression-and-friends.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mydat, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb46-3"><a href="logistic-regression-and-friends.html#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&#39;glm&#39;</span>, <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&#39;probit&#39;</span>)),</span>
+<span id="cb46-4"><a href="logistic-regression-and-friends.html#cb46-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> y <span class="sc">~</span> x) <span class="sc">+</span> </span>
+<span id="cb46-5"><a href="logistic-regression-and-friends.html#cb46-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">height =</span> <span class="fl">0.1</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+</div>
+<div id="the-linear-probability-model" class="section level3 hasAnchor" number="6.6.2">
+<h3><span class="header-section-number">6.6.2</span> The Linear Probability Model<a href="logistic-regression-and-friends.html#the-linear-probability-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The name makes it sound fancier that it is: the so-called linear probability model, or LPM for short, is just <em>ordinary least squares</em>. In other words, it's what you get if you <em>ignore</em> the fact that <span class="math inline">\(Y\)</span> is binary and just run a linear regression. Expressed as a probability model, the LMH amounts to <span class="math inline">\(P(Y=1|X) = X&#39;\beta\)</span>. There are three important things to know about this model. First, it's <em>definitely wrong</em> because it can make predictions that lie outside the range <span class="math inline">\([0,1]\)</span>. Second, it can nevertheless be a <em>reasonable approximation</em> over a range of values for <span class="math inline">\(X\)</span>. In your plot from above, you probably noticed that <code>plogis(z)</code> is close to linear for <code>z</code> between say -1.5 and 1.5. Third, the errors in this model are <em>necessarily</em> heteroskedastic. For more details on each of these three points, see <a href="https://expl.ai/XSLDYZE">my lecture video</a>.</p>
+</div>
+<div id="exercise-37" class="section level3 hasAnchor" number="6.6.3">
+<h3><span class="header-section-number">6.6.3</span> Exercise<a href="logistic-regression-and-friends.html#exercise-37" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This exercise is based on data from <a href="https://www.jstor.org/stable/1911029">Mroz (1987; Econometrica)</a>, available as part of the R package <code>wooldridge</code>, a paper about married womens' labor supply decisions. For full details of the <code>mroz</code> dataset, enter <code>?mroz</code> at the R console after installing and loading the <code>wooldridge package</code>. The variables that you'll work with below are as follows:</p>
+<ul>
+<li><code>inlf</code> equals 1 if in labor force, 1975</li>
+<li><code>nwifeinc</code> non-wife income in $1000</li>
+<li><code>educ</code> years of schooling</li>
+<li><code>exper</code> actual labor market experience</li>
+<li><code>expersq</code> square of <code>exper</code></li>
+<li><code>age</code> woman's age in years</li>
+<li><code>kidslt6</code> number of kids &lt; 6 years</li>
+<li><code>kidsge6</code> number of kids 6-18</li>
+</ul>
+<p>The goal is to predict <code>infl</code> using the other variables in the preceding list. You'll consider three different models: logistic regression, probit regression, and the linear probability model.</p>
+<ol style="list-style-type: decimal">
+<li>Create and store an R formula object called <code>labor_model</code> that specifies the regression we want to run: <code>infl</code> is regressed on all the other variables. This <em>formula</em> will be the same for the logit, probit, and LPM specifications so we only want to type it out once!.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="logistic-regression-and-friends.html#cb47-1" aria-hidden="true" tabindex="-1"></a>labor_model <span class="ot">&lt;-</span> inlf <span class="sc">~</span> nwifeinc <span class="sc">+</span> educ <span class="sc">+</span> exper <span class="sc">+</span> expersq <span class="sc">+</span> age <span class="sc">+</span> kidslt6 <span class="sc">+</span> kidsge6</span></code></pre></div>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Fit the linear probability model, logistic regression, and probit regression specifications based on <code>labor_model</code> and <code>mroz</code>. Store your results as <code>lpm</code>, <code>logit</code>, and <code>probit</code>, respectively. Use <code>lm_robust</code></li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="logistic-regression-and-friends.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wooldridge)</span>
+<span id="cb48-2"><a href="logistic-regression-and-friends.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(estimatr)</span>
+<span id="cb48-3"><a href="logistic-regression-and-friends.html#cb48-3" aria-hidden="true" tabindex="-1"></a>lpm <span class="ot">&lt;-</span> <span class="fu">lm_robust</span>(labor_model, <span class="at">data =</span> mroz)</span>
+<span id="cb48-4"><a href="logistic-regression-and-friends.html#cb48-4" aria-hidden="true" tabindex="-1"></a>logit <span class="ot">&lt;-</span> <span class="fu">glm</span>(labor_model, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&#39;logit&#39;</span>), <span class="at">data =</span> mroz)</span>
+<span id="cb48-5"><a href="logistic-regression-and-friends.html#cb48-5" aria-hidden="true" tabindex="-1"></a>probit <span class="ot">&lt;-</span> <span class="fu">glm</span>(labor_model, <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">&#39;probit&#39;</span>), <span class="at">data =</span> mroz)</span></code></pre></div>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Use <code>modelsummary()</code> to produce a nicely-formatted table of results for all three of the regressions from the previous part.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="logistic-regression-and-friends.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb49-2"><a href="logistic-regression-and-friends.html#cb49-2" aria-hidden="true" tabindex="-1"></a>mroz_regressions <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">&#39;LPM&#39;</span> <span class="ot">=</span> lpm,</span>
+<span id="cb49-3"><a href="logistic-regression-and-friends.html#cb49-3" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&#39;logit&#39;</span> <span class="ot">=</span> logit,</span>
+<span id="cb49-4"><a href="logistic-regression-and-friends.html#cb49-4" aria-hidden="true" tabindex="-1"></a>                         <span class="st">&#39;probit&#39;</span> <span class="ot">=</span> probit)</span>
+<span id="cb49-5"><a href="logistic-regression-and-friends.html#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(mroz_regressions)</span></code></pre></div>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:center;">
+LPM
+</th>
+<th style="text-align:center;">
+logit
+</th>
+<th style="text-align:center;">
+probit
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+(Intercept)
+</td>
+<td style="text-align:center;">
+0.586
+</td>
+<td style="text-align:center;">
+0.425
+</td>
+<td style="text-align:center;">
+0.270
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(0.153)
+</td>
+<td style="text-align:center;">
+(0.860)
+</td>
+<td style="text-align:center;">
+(0.508)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+nwifeinc
+</td>
+<td style="text-align:center;">
+−0.003
+</td>
+<td style="text-align:center;">
+−0.021
+</td>
+<td style="text-align:center;">
+−0.012
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(0.002)
+</td>
+<td style="text-align:center;">
+(0.008)
+</td>
+<td style="text-align:center;">
+(0.005)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+educ
+</td>
+<td style="text-align:center;">
+0.038
+</td>
+<td style="text-align:center;">
+0.221
+</td>
+<td style="text-align:center;">
+0.131
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(0.007)
+</td>
+<td style="text-align:center;">
+(0.043)
+</td>
+<td style="text-align:center;">
+(0.025)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+exper
+</td>
+<td style="text-align:center;">
+0.039
+</td>
+<td style="text-align:center;">
+0.206
+</td>
+<td style="text-align:center;">
+0.123
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(0.006)
+</td>
+<td style="text-align:center;">
+(0.032)
+</td>
+<td style="text-align:center;">
+(0.019)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+expersq
+</td>
+<td style="text-align:center;">
+−0.001
+</td>
+<td style="text-align:center;">
+−0.003
+</td>
+<td style="text-align:center;">
+−0.002
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(0.000)
+</td>
+<td style="text-align:center;">
+(0.001)
+</td>
+<td style="text-align:center;">
+(0.001)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+age
+</td>
+<td style="text-align:center;">
+−0.016
+</td>
+<td style="text-align:center;">
+−0.088
+</td>
+<td style="text-align:center;">
+−0.053
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(0.002)
+</td>
+<td style="text-align:center;">
+(0.015)
+</td>
+<td style="text-align:center;">
+(0.008)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+kidslt6
+</td>
+<td style="text-align:center;">
+−0.262
+</td>
+<td style="text-align:center;">
+−1.443
+</td>
+<td style="text-align:center;">
+−0.868
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+(0.032)
+</td>
+<td style="text-align:center;">
+(0.204)
+</td>
+<td style="text-align:center;">
+(0.118)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+kidsge6
+</td>
+<td style="text-align:center;">
+0.013
+</td>
+<td style="text-align:center;">
+0.060
+</td>
+<td style="text-align:center;">
+0.036
+</td>
+</tr>
+<tr>
+<td style="text-align:left;box-shadow: 0px 1px">
+</td>
+<td style="text-align:center;box-shadow: 0px 1px">
+(0.014)
+</td>
+<td style="text-align:center;box-shadow: 0px 1px">
+(0.075)
+</td>
+<td style="text-align:center;box-shadow: 0px 1px">
+(0.044)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Num.Obs.
+</td>
+<td style="text-align:center;">
+753
+</td>
+<td style="text-align:center;">
+753
+</td>
+<td style="text-align:center;">
+753
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2
+</td>
+<td style="text-align:center;">
+0.264
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2 Adj.
+</td>
+<td style="text-align:center;">
+0.257
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AIC
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+819.5
+</td>
+<td style="text-align:center;">
+818.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+BIC
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+856.5
+</td>
+<td style="text-align:center;">
+855.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Log.Lik.
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+−401.765
+</td>
+<td style="text-align:center;">
+−401.302
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+F
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+21.785
+</td>
+<td style="text-align:center;">
+25.501
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RMSE
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+1.04
+</td>
+<td style="text-align:center;">
+1.04
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Std.Errors
+</td>
+<td style="text-align:center;">
+HC2
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>The magnitudes of your logit, probit, and LPM coefficients from the preceding part are <em>not directly comparable</em>: they are on different scales. One way to make the logit and probit results roughly comparable to each other is by rescaling them to be <em>maximum</em> partial effects. You know how to do this for logistic regression: divide by four. Determine the equivalent rescaling for probit regression. Then rescale and compare the <em>slope coefficients</em> from <code>probit</code> and <code>logit</code> above.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Answer
+</button>
+<p>To find the appropriate re-scaling for probit regression, we need to know the maximum possible value of <span class="math inline">\(\texttt{dnorm}(X&#39;\beta)\)</span>. This occurs when <span class="math inline">\(X&#39;\beta\)</span> is zero. Since <span class="math inline">\(\texttt{dnorm}(0) = 1/\sqrt{2\pi}\approx 0.4\)</span>, we multiply our logit slope coefficients by 0.25 and our probit slope coefficients by 0.4</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="logistic-regression-and-friends.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="at">lpm =</span> <span class="fu">coef</span>(lpm)[<span class="sc">-</span><span class="dv">1</span>], <span class="co"># remove first element (intercept)</span></span>
+<span id="cb50-2"><a href="logistic-regression-and-friends.html#cb50-2" aria-hidden="true" tabindex="-1"></a>      <span class="at">logit =</span> <span class="fl">0.25</span> <span class="sc">*</span> <span class="fu">coef</span>(logit)[<span class="sc">-</span><span class="dv">1</span>], </span>
+<span id="cb50-3"><a href="logistic-regression-and-friends.html#cb50-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">probit =</span> <span class="fl">0.4</span> <span class="sc">*</span> <span class="fu">coef</span>(probit)[<span class="sc">-</span><span class="dv">1</span>]) <span class="sc">%&gt;%</span> <span class="co"># tidyverse needed for the pipe!</span></span>
+<span id="cb50-4"><a href="logistic-regression-and-friends.html#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##             lpm  logit probit
+## nwifeinc -0.003 -0.005 -0.005
+## educ      0.038  0.055  0.052
+## exper     0.039  0.051  0.049
+## expersq  -0.001 -0.001 -0.001
+## age      -0.016 -0.022 -0.021
+## kidslt6  -0.262 -0.361 -0.347
+## kidsge6   0.013  0.015  0.014</code></pre>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>A more involved but potentially more accurate way of making your results comparable across LPM, logit, and probit specifications is by reporting <em>average partial effects</em>. Compare the average partial effects of the three models.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Hint
+</button>
+<p>The partial effects for linear regression are <em>constant</em>: lines have constant slopes. This means you only need to transform the logit and probit results. A helpful tip is to remember that if we <em>don't</em> specify <code>type = 'response'</code> when we apply the function <code>predict()</code> to a <code>glm</code> object, it will return predictions on the scale of <span class="math inline">\(X&#39;\beta\)</span> rather than <span class="math inline">\(Y\)</span>. Moreover, if we don't specify <code>newdata</code>, the predictions are made using the observed sample data for <span class="math inline">\(X\)</span>.</p>
+</div>
+<div class="webex-solution">
+<button>
+Show Answer
+</button>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="logistic-regression-and-friends.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Average of g(x&#39;beta_hat) where g is dlogis</span></span>
+<span id="cb52-2"><a href="logistic-regression-and-friends.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (predict defaults to the scale of x&#39;beta_hat)</span></span>
+<span id="cb52-3"><a href="logistic-regression-and-friends.html#cb52-3" aria-hidden="true" tabindex="-1"></a>logit_APE_factor <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">dlogis</span>(<span class="fu">predict</span>(logit))) </span>
+<span id="cb52-4"><a href="logistic-regression-and-friends.html#cb52-4" aria-hidden="true" tabindex="-1"></a>logit_APE_factor</span></code></pre></div>
+<pre><code>## [1] 0.1785796</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="logistic-regression-and-friends.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Average of g(x&#39;beta_hat) where g is dnorm </span></span>
+<span id="cb54-2"><a href="logistic-regression-and-friends.html#cb54-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (predict defaults to the scale of x&#39;beta_hat)</span></span>
+<span id="cb54-3"><a href="logistic-regression-and-friends.html#cb54-3" aria-hidden="true" tabindex="-1"></a>probit_APE_factor <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">dnorm</span>(<span class="fu">predict</span>(probit)))</span>
+<span id="cb54-4"><a href="logistic-regression-and-friends.html#cb54-4" aria-hidden="true" tabindex="-1"></a>probit_APE_factor </span></code></pre></div>
+<pre><code>## [1] 0.3007555</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="logistic-regression-and-friends.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract estimated coefficients, excluding the first (the constant)</span></span>
+<span id="cb56-2"><a href="logistic-regression-and-friends.html#cb56-2" aria-hidden="true" tabindex="-1"></a>lpm_est <span class="ot">&lt;-</span> <span class="fu">coefficients</span>(lpm)[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb56-3"><a href="logistic-regression-and-friends.html#cb56-3" aria-hidden="true" tabindex="-1"></a>logit_est <span class="ot">&lt;-</span> <span class="fu">coefficients</span>(logit)[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb56-4"><a href="logistic-regression-and-friends.html#cb56-4" aria-hidden="true" tabindex="-1"></a>probit_est <span class="ot">&lt;-</span> <span class="fu">coefficients</span>(probit)[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb56-5"><a href="logistic-regression-and-friends.html#cb56-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-6"><a href="logistic-regression-and-friends.html#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Rescale the logit and probit estimates to obtain APEs</span></span>
+<span id="cb56-7"><a href="logistic-regression-and-friends.html#cb56-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(<span class="at">lpm =</span> lpm_est, <span class="at">logit_APE =</span> logit_APE_factor <span class="sc">*</span> logit_est, </span>
+<span id="cb56-8"><a href="logistic-regression-and-friends.html#cb56-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">probit_APE =</span> probit_APE_factor <span class="sc">*</span> probit_est) <span class="sc">%&gt;%</span></span>
+<span id="cb56-9"><a href="logistic-regression-and-friends.html#cb56-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>##             lpm logit_APE probit_APE
+## nwifeinc -0.003    -0.004     -0.004
+## educ      0.038     0.039      0.039
+## exper     0.039     0.037      0.037
+## expersq  -0.001    -0.001     -0.001
+## age      -0.016    -0.016     -0.016
+## kidslt6  -0.262    -0.258     -0.261
+## kidsge6   0.013     0.011      0.011</code></pre>
+</div>
+</div>
+</div>
+<div id="addendum-odds-and-ends-about-risk" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> Addendum: Odds and Ends about Risk<a href="logistic-regression-and-friends.html#addendum-odds-and-ends-about-risk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="https://imgs.xkcd.com/comics/spacecraft_debris_odds_ratio.png" /></p>
+<p>Logistic regression is often used to talk about <em>risk</em>. For example: what is the risk that a baby born to a mother with characteristics <span class="math inline">\(X\)</span> will have a low birthweight? How does this risk vary across mothers with different characteristics? There are many different ways to pose this question, and it's important not to mix them up. Confusion on this score is common, so it's worth taking a moment to distinguish three concepts: <strong>risk differences</strong>, <strong>relative risk</strong>, and <strong>odds ratios</strong>.</p>
+<p>Consider two mothers: one with characteristics <span class="math inline">\(x_1\)</span> and another with characteristics <span class="math inline">\(x_2\)</span>. If we take <span class="math inline">\(x_1\)</span> as our "baseline," then the <strong>risk difference</strong> is
+<span class="math display">\[
+\begin{aligned}
+\text{Risk Difference} &amp;\equiv P(Y=1|X=x_2) - P(Y=1|X=x_1)\\
+&amp;= \texttt{plogis}(\alpha + x_2&#39;\beta) - \texttt{plogis}(\alpha + x_1&#39;\beta)
+\end{aligned}
+\]</span>
+This is simply the difference of probabilities: it tells us how much higher or lower the probability of having a low birthweight baby is for a mother with <span class="math inline">\(X=x_2\)</span> compared to <span class="math inline">\(X=x_1\)</span>. In contrast, the <strong>relative risk</strong> is a ratio:
+<span class="math display">\[
+\text{Relative Risk} \equiv \frac{P(Y=1|X=x_2)}{P(Y=1|X=x_1)} = \frac{\texttt{plogis}(\alpha + x_2&#39;\beta)}{\texttt{plogis}(\alpha + x_1&#39;\beta)}.
+\]</span>
+This tells us how many <em>times</em> more or less likely a mother with <span class="math inline">\(X = x_2\)</span> is to have a low birthweight baby compared to a mother with <span class="math inline">\(X = x_1\)</span>. The <strong>odds ratio</strong> is yet <em>another</em> ratio:
+<span class="math display">\[
+\begin{aligned}
+\text{Odds Ratio} &amp;\equiv \frac{P(Y=1|X=x_2)/P(Y=0|X=x_2)}{P(Y=1|X=x_1)/P(Y=1|X=x_1)} = \frac{\exp(\alpha + x_2&#39;\beta)}{\exp(\alpha + x_1&#39;\beta)}\\
+&amp;= \exp\left\{ (x_2 - x_1)&#39;\beta\right\}.
+\end{aligned}
+\]</span>
+Each of these measures is a perfectly reasonable answer to the question "how does the risk vary across the two mothers?" But each is also on a completely different scale: in general they are <em>not directly comparable</em>. Before asking if a number is big or small, we first have to be clear about what is being measured.</p>
+<p>People often confuse odds ratios with relative risk. This is tempting for three reasons. First, they're both ratios. Second, when the event <span class="math inline">\(\{Y=1\}\)</span> is <em>extremely rare</em>, the two measures give similar results.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> Third, when the two measures are not comparable, the odds ratio is often quite a lot larger, and therefore sounds more impressive! Consider two examples. In the first, <span class="math inline">\(P(Y=1|X=x_2) = 0.1\)</span> while <span class="math inline">\(P(Y=1|X=x_1)= 0.05\)</span>, so the relative risk is <span class="math inline">\(2\)</span> and the odds ratio is <span class="math inline">\(2.11\)</span>. In the second, <span class="math inline">\(P(Y=1|X=x_2)= 0.8\)</span> and <span class="math inline">\(P(Y=1|X=x_1)=0.4\)</span> so the relative risk remains <span class="math inline">\(2\)</span> while the odds ratio shoots up to <span class="math inline">\(6\)</span>. Again, there's nothing wrong with odds ratios: they're simply not equivalent to relative risk. In the second example it would be a gross exaggeration to claim that "setting <span class="math inline">\(X = x_2\)</span> makes <span class="math inline">\(Y=1\)</span> six times more likely!" It is the <em>odds</em> that increase by a factor of six, not the probability.</p>
+<p>Even in cases where the odds ratio and relative risk are similar, there's still room for confusion. Suppose I tell you that going from <span class="math inline">\(X=x_2\)</span> to <span class="math inline">\(X = x_1\)</span> increases your mortality risk: the relative risk and odds ratio are both around 2. Should this worry you? It depends. Increasing your probability of death from 0.000005% to 0.00001% gives a relative risk and odds ratio of 2, but pales in comparison to the danger of driving a car. When the baseline probability is low, the relative risk and odds ratio can be high despite the risks involved being negligible.</p>
+<div id="exercise-38" class="section level3 hasAnchor" number="6.7.1">
+<h3><span class="header-section-number">6.7.1</span> Exercise<a href="logistic-regression-and-friends.html#exercise-38" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Explain the cartoon at the beginning of this section.</p>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<p>If I gave you the answer, the joke wouldn't be funny anymore! But if you really want to spoil all the fun, see <a href="https://www.explainxkcd.com/wiki/index.php/2599:_Spacecraft_Debris_Odds_Ratio">this link</a>.</p>
+</div>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>This example was devised by <a href="http://www.stat.columbia.edu/~gelman/research/published/truths_paper.pdf">Andrew Gelman</a>. For more in-class examples and experiments, I highly recommend <a href="http://www.stat.columbia.edu/~gelman/bag-of-tricks/">Teaching Statistics: A Bag of Tricks</a>.<a href="logistic-regression-and-friends.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>When I write log in this book, unless I explicitly say otherwise this is the <em>natural log</em>, following R's usage: <code>log()</code> defaults to natural log unless you specify <code>base = [YOUR PREFERRED BASE HERE]</code>.<a href="logistic-regression-and-friends.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Pun intended!<a href="logistic-regression-and-friends.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>In epidemiology this is called the "rare disease assumption."<a href="logistic-regression-and-friends.html#fnref4" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="running-a-simulation-study.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="the-normal-distribution.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Lesson 6 The Normal Distribution | Empirical Research Methods</title>
-  <meta name="description" content="Lesson 6 The Normal Distribution | Empirical Research Methods" />
+  <title>Lesson 7 The Normal Distribution | Empirical Research Methods</title>
+  <meta name="description" content="Lesson 7 The Normal Distribution | Empirical Research Methods" />
   <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Lesson 6 The Normal Distribution | Empirical Research Methods" />
+  <meta property="og:title" content="Lesson 7 The Normal Distribution | Empirical Research Methods" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Lesson 6 The Normal Distribution | Empirical Research Methods" />
+  <meta name="twitter:title" content="Lesson 7 The Normal Distribution | Empirical Research Methods" />
   
   
   
@@ -24,14 +24,14 @@
 <meta name="author" content="Francis J. DiTraglia" />
 
 
-<meta name="date" content="2022-04-27" />
+<meta name="date" content="2022-05-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="running-a-simulation-study.html"/>
+<link rel="prev" href="logistic-regression-and-friends.html"/>
 
 <script src="libs/header-attrs-2.13/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -324,40 +324,72 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercise---the-hot-hand"><i class="fa fa-check"></i><b>5.4</b> Exercise - The Hot Hand<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html"><i class="fa fa-check"></i><b>6</b> The Normal Distribution<span></span></a>
+<li class="chapter" data-level="6" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html"><i class="fa fa-check"></i><b>6</b> Logistic Regression and Friends<span></span></a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#standard-normals-as-building-blocks"><i class="fa fa-check"></i><b>6.1</b> Standard Normals as Building Blocks<span></span></a></li>
-<li class="chapter" data-level="6.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-one-dimensional-case"><i class="fa fa-check"></i><b>6.2</b> The One-Dimensional Case<span></span></a>
+<li class="chapter" data-level="6.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#understanding-the-logistic-regression-model"><i class="fa fa-check"></i><b>6.1</b> Understanding the Logistic Regression Model<span></span></a>
 <ul>
-<li class="chapter" data-level="6.2.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pnorm"><i class="fa fa-check"></i><b>6.2.1</b> <code>pnorm()</code><span></span></a></li>
-<li class="chapter" data-level="6.2.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#dnorm"><i class="fa fa-check"></i><b>6.2.2</b> <code>dnorm()</code><span></span></a></li>
-<li class="chapter" data-level="6.2.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#qnorm"><i class="fa fa-check"></i><b>6.2.3</b> <code>qnorm()</code><span></span></a></li>
-<li class="chapter" data-level="6.2.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#rnorm"><i class="fa fa-check"></i><b>6.2.4</b> <code>rnorm()</code><span></span></a></li>
-<li class="chapter" data-level="6.2.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pqdrnorm-are-vectorized"><i class="fa fa-check"></i><b>6.2.5</b> <code>p/q/d/rnorm()</code> are Vectorized<span></span></a></li>
-<li class="chapter" data-level="6.2.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#be-careful"><i class="fa fa-check"></i><b>6.2.6</b> Be Careful!<span></span></a></li>
-<li class="chapter" data-level="6.2.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercises-3"><i class="fa fa-check"></i><b>6.2.7</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="6.1.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-31"><i class="fa fa-check"></i><b>6.1.1</b> Exercise<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#generating-correlated-normal-rvs"><i class="fa fa-check"></i><b>6.3</b> Generating Correlated Normal RVs<span></span></a>
+<li class="chapter" data-level="6.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#odds-and-ends-about-risk"><i class="fa fa-check"></i><b>6.2</b> Odds and Ends about Risk<span></span></a></li>
+<li class="chapter" data-level="6.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#the-latent-data-formulation-of-logistic-regression"><i class="fa fa-check"></i><b>6.3</b> The Latent Data Formulation of Logistic Regression<span></span></a>
 <ul>
-<li class="chapter" data-level="6.3.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#start-with-uncorrelated-normal-draws"><i class="fa fa-check"></i><b>6.3.1</b> Start with Uncorrelated Normal Draws<span></span></a></li>
-<li class="chapter" data-level="6.3.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-31"><i class="fa fa-check"></i><b>6.3.2</b> Exercise<span></span></a></li>
-<li class="chapter" data-level="6.3.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#add-constants-to-shift-the-means"><i class="fa fa-check"></i><b>6.3.3</b> Add Constants to Shift the Means<span></span></a></li>
-<li class="chapter" data-level="6.3.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-32"><i class="fa fa-check"></i><b>6.3.4</b> Exercise<span></span></a></li>
-<li class="chapter" data-level="6.3.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#multiply-by-scalars-to-change-the-variance"><i class="fa fa-check"></i><b>6.3.5</b> Multiply by Scalars to Change the Variance<span></span></a></li>
-<li class="chapter" data-level="6.3.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#combine-to-create-correlation"><i class="fa fa-check"></i><b>6.3.6</b> Combine to Create Correlation<span></span></a></li>
-<li class="chapter" data-level="6.3.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-33"><i class="fa fa-check"></i><b>6.3.7</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="6.3.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-3-1"><i class="fa fa-check"></i><b>6.3.1</b> Exercise #3<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-cholesky-decomposition"><i class="fa fa-check"></i><b>6.4</b> The Cholesky Decomposition<span></span></a>
+<li class="chapter" data-level="6.4" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#solution-to-exercise-3"><i class="fa fa-check"></i><b>6.4</b> Solution to Exercise #3<span></span></a></li>
+<li class="chapter" data-level="6.5" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#part-ii---logistic-regression-in-r"><i class="fa fa-check"></i><b>6.5</b> Part II - Logistic Regression in R<span></span></a></li>
+<li class="chapter" data-level="6.6" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#simulating-data-from-a-logistic-regression"><i class="fa fa-check"></i><b>6.6</b> Simulating Data from a Logistic Regression<span></span></a>
 <ul>
-<li class="chapter" data-level="6.4.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#going-backwards"><i class="fa fa-check"></i><b>6.4.1</b> Going Backwards<span></span></a></li>
-<li class="chapter" data-level="6.4.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-34"><i class="fa fa-check"></i><b>6.4.2</b> Exercise<span></span></a></li>
-<li class="chapter" data-level="6.4.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#whats-the-square-root-of-a-matrix"><i class="fa fa-check"></i><b>6.4.3</b> What's the Square Root of a Matrix?<span></span></a></li>
-<li class="chapter" data-level="6.4.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-35"><i class="fa fa-check"></i><b>6.4.4</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="6.6.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#running-a-logistic-regression-in-r"><i class="fa fa-check"></i><b>6.6.1</b> Running a Logistic Regression in R<span></span></a></li>
+<li class="chapter" data-level="6.6.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-4-1"><i class="fa fa-check"></i><b>6.6.2</b> Exercise #4<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#epilogue"><i class="fa fa-check"></i><b>6.5</b> Epilogue<span></span></a>
+<li class="chapter" data-level="6.7" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#solution-to-exercise-4"><i class="fa fa-check"></i><b>6.7</b> Solution to Exercise #4<span></span></a></li>
+<li class="chapter" data-level="6.8" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#predicted-probabilities-for-logistic-regression"><i class="fa fa-check"></i><b>6.8</b> Predicted Probabilities for Logistic Regression<span></span></a>
 <ul>
-<li class="chapter" data-level="6.5.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#affine-transformations-of-a-multivariate-normal"><i class="fa fa-check"></i><b>6.5.1</b> Affine Transformations of a Multivariate Normal<span></span></a></li>
-<li class="chapter" data-level="6.5.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#conditional-distributions-of-bivariate-normal"><i class="fa fa-check"></i><b>6.5.2</b> Conditional Distributions of Bivariate Normal<span></span></a></li>
+<li class="chapter" data-level="6.8.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-5-1"><i class="fa fa-check"></i><b>6.8.1</b> Exercise #5<span></span></a></li>
+<li class="chapter" data-level="6.8.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#solution-to-exercise-5"><i class="fa fa-check"></i><b>6.8.2</b> Solution to Exercise #5<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#calculating-marginal-effects"><i class="fa fa-check"></i><b>6.9</b> Calculating Marginal Effects<span></span></a>
+<ul>
+<li class="chapter" data-level="6.9.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-6-1"><i class="fa fa-check"></i><b>6.9.1</b> Exercise #6<span></span></a></li>
+<li class="chapter" data-level="6.9.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#solution-to-exercise-6"><i class="fa fa-check"></i><b>6.9.2</b> Solution to Exercise #6<span></span></a></li>
+<li class="chapter" data-level="6.9.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#plotting-a-logistic-regression"><i class="fa fa-check"></i><b>6.9.3</b> Plotting a Logistic Regression<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.10" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#alternatives"><i class="fa fa-check"></i><b>6.10</b> Alternatives<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html"><i class="fa fa-check"></i><b>7</b> The Normal Distribution<span></span></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#standard-normals-as-building-blocks"><i class="fa fa-check"></i><b>7.1</b> Standard Normals as Building Blocks<span></span></a></li>
+<li class="chapter" data-level="7.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-one-dimensional-case"><i class="fa fa-check"></i><b>7.2</b> The One-Dimensional Case<span></span></a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pnorm"><i class="fa fa-check"></i><b>7.2.1</b> <code>pnorm()</code><span></span></a></li>
+<li class="chapter" data-level="7.2.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#dnorm"><i class="fa fa-check"></i><b>7.2.2</b> <code>dnorm()</code><span></span></a></li>
+<li class="chapter" data-level="7.2.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#qnorm"><i class="fa fa-check"></i><b>7.2.3</b> <code>qnorm()</code><span></span></a></li>
+<li class="chapter" data-level="7.2.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#rnorm"><i class="fa fa-check"></i><b>7.2.4</b> <code>rnorm()</code><span></span></a></li>
+<li class="chapter" data-level="7.2.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pqdrnorm-are-vectorized"><i class="fa fa-check"></i><b>7.2.5</b> <code>p/q/d/rnorm()</code> are Vectorized<span></span></a></li>
+<li class="chapter" data-level="7.2.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#be-careful"><i class="fa fa-check"></i><b>7.2.6</b> Be Careful!<span></span></a></li>
+<li class="chapter" data-level="7.2.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercises-3"><i class="fa fa-check"></i><b>7.2.7</b> Exercises<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#generating-correlated-normal-rvs"><i class="fa fa-check"></i><b>7.3</b> Generating Correlated Normal RVs<span></span></a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#start-with-uncorrelated-normal-draws"><i class="fa fa-check"></i><b>7.3.1</b> Start with Uncorrelated Normal Draws<span></span></a></li>
+<li class="chapter" data-level="7.3.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-32"><i class="fa fa-check"></i><b>7.3.2</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="7.3.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#add-constants-to-shift-the-means"><i class="fa fa-check"></i><b>7.3.3</b> Add Constants to Shift the Means<span></span></a></li>
+<li class="chapter" data-level="7.3.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-33"><i class="fa fa-check"></i><b>7.3.4</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="7.3.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#multiply-by-scalars-to-change-the-variance"><i class="fa fa-check"></i><b>7.3.5</b> Multiply by Scalars to Change the Variance<span></span></a></li>
+<li class="chapter" data-level="7.3.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#combine-to-create-correlation"><i class="fa fa-check"></i><b>7.3.6</b> Combine to Create Correlation<span></span></a></li>
+<li class="chapter" data-level="7.3.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-34"><i class="fa fa-check"></i><b>7.3.7</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-cholesky-decomposition"><i class="fa fa-check"></i><b>7.4</b> The Cholesky Decomposition<span></span></a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#going-backwards"><i class="fa fa-check"></i><b>7.4.1</b> Going Backwards<span></span></a></li>
+<li class="chapter" data-level="7.4.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-35"><i class="fa fa-check"></i><b>7.4.2</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="7.4.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#whats-the-square-root-of-a-matrix"><i class="fa fa-check"></i><b>7.4.3</b> What's the Square Root of a Matrix?<span></span></a></li>
+<li class="chapter" data-level="7.4.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-36"><i class="fa fa-check"></i><b>7.4.4</b> Exercise<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#epilogue"><i class="fa fa-check"></i><b>7.5</b> Epilogue<span></span></a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#affine-transformations-of-a-multivariate-normal"><i class="fa fa-check"></i><b>7.5.1</b> Affine Transformations of a Multivariate Normal<span></span></a></li>
+<li class="chapter" data-level="7.5.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#conditional-distributions-of-bivariate-normal"><i class="fa fa-check"></i><b>7.5.2</b> Conditional Distributions of Bivariate Normal<span></span></a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -377,8 +409,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="the-normal-distribution" class="section level1 hasAnchor" number="6">
-<h1><span class="header-section-number">Lesson 6</span> The Normal Distribution<a href="the-normal-distribution.html#the-normal-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="the-normal-distribution" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Lesson 7</span> The Normal Distribution<a href="the-normal-distribution.html#the-normal-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
 <p>If you hear a "prominent" economist using the word "equilibrium," or "normal distribution," do not argue with him; just ignore him, or try to put a rat down his shirt.</p>
 <p>-- Nassim Nicholas Taleb</p>
@@ -392,8 +424,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Taleb's exhortation notwithstanding, this lesson is all about the normal distribution! While its importance as a description of naturally-occurring data has probably been overstated, the normal distribution still plays a central role in econometrics and statistics. This isn't because data follow a normal distribution; it's because <em>sampling distributions of estimators</em> tend to, at least <a href="https://en.wikipedia.org/wiki/Central_limit_theorem">in large samples</a>. The normal distribution is also important in model-building because we can use it as an <em>ingredient</em> to construct relatively simple models of complicated phenomena.</p>
 <p>From your introductory coursework in statistics and econometrics you're probably familiar with the one-dimensional normal distribution. This lesson will build on the intuition you already have in the one-dimensional case to help you gain a deeper understanding of the <em>multivariate</em> normal distribution. There's a good chance that you've seen some of this material before. But from past experience, many students are a bit fuzzy on the details.</p>
 <p>We'll start by reviewing the key commands for working with normal distributions in R: <code>d/p/q/rnorm()</code>. These will come up again and again in future lessons. Then we'll take up the challenge of simulating <em>correlated</em> normal draws. Along the way we'll learn how to calculate column means, variance-covariance matrices, and correlation matrices with the commands <code>colMeans()</code>, <code>cov()</code>, <code>cor()</code> and <code>cov2cor()</code>. We'll also learn to make <em>kernel density plots</em> using the <code>ggplot</code> commands <code>geom_density()</code> and <code>geom_density2d_filled()</code>. Our destination in this lecture is the <em>Cholesky Decomposition</em>, an important result from matrix algebra that's extremely helpful for understanding multivariate normal distributions. We'll work up to this result in easy steps, introducing some basic R commands for matrix algebra as we go, including <code>%*%</code>, <code>t()</code>, and <code>chol()</code>. At the very end, once you know how to generate correlated normals <em>from scratch</em>, I'll relent and allow you to use the extremely helpful command <code>rmvnorm()</code> from the <code>mvtnorm</code> package instead. An epilogue to this lesson makes the case for why doing things "the hard way" before you allow yourself to use a canned function like <code>rmvnorm()</code> is worth the trouble.</p>
-<div id="standard-normals-as-building-blocks" class="section level2 hasAnchor" number="6.1">
-<h2><span class="header-section-number">6.1</span> Standard Normals as Building Blocks<a href="the-normal-distribution.html#standard-normals-as-building-blocks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="standard-normals-as-building-blocks" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Standard Normals as Building Blocks<a href="the-normal-distribution.html#standard-normals-as-building-blocks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div style="float:left;position: relative; margin-right: 10px; height: 30%;">
 <div class="figure">
 <img src="http://www.andrewlipson.com/escher/relativity-1600.jpg" height="250" alt="" />
@@ -403,39 +435,39 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>What's the definition of a <span class="math inline">\(\text{N}(\mu, \sigma^2)\)</span> random variable? You might be tempted to write down a probability density function, but I have a better idea: let's pass the buck! The <span class="math inline">\(\text{N}(\mu, \sigma^2)\)</span> distribution is what you end up with if you shift and scale a standard normal. In particular: we say that <span class="math inline">\(X \sim \text{N}(\mu, \sigma^2)\)</span> if <span class="math inline">\(X = \mu + \sigma Z\)</span> for some constants <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma &gt; 0\)</span>, where <span class="math inline">\(Z\)</span> is a standard normal random variable. From this perspective, any properties of normal distributions <em>in general</em> follow from properties of the standard normal distribution <em>in particular</em>. Because the standard normal distribution is fairly simple, this turns out to be a very convenient approach.</p>
 <p>One-dimensional normal distributions can only take us so far. In many important applications we need to work with two or more <em>correlated</em> normal random variables. For example, to run a simulation study exploring the properties of the instrumental variables estimator we need a way of creating correlated "first stage" and "second stage" errors. Fortunately we can use the same basic approach as above to build up a multivariate normal random <em>vector</em> <span class="math inline">\(\mathbf{X}\)</span>. We start with a vector of independent standard normals, scale them with a matrix of constants and shift them with a vector of yet more constants. In other words: <span class="math inline">\(\mathbf{X} = \boldsymbol{\mu} + \mathbf{A}\mathbf{Z}\)</span>. If this looks forbidding, don't worry; we'll build up the intuition step-by-step in this lesson. For the moment, simply take my word for it: the <a href="https://en.wikipedia.org/wiki/Multivariate_normal_distribution">multivariate normal distribution</a> becomes much less formidable once you break it down into its constituent independent standard normals.</p>
 </div>
-<div id="the-one-dimensional-case" class="section level2 hasAnchor" number="6.2">
-<h2><span class="header-section-number">6.2</span> The One-Dimensional Case<a href="the-normal-distribution.html#the-one-dimensional-case" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-one-dimensional-case" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> The One-Dimensional Case<a href="the-normal-distribution.html#the-one-dimensional-case" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We'll start a quick review of the one-dimensional case. After introducing the key R functions for normal distributions, I'll turn you loose on some simple exercises.</p>
-<div id="pnorm" class="section level3 hasAnchor" number="6.2.1">
-<h3><span class="header-section-number">6.2.1</span> <code>pnorm()</code><a href="the-normal-distribution.html#pnorm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="pnorm" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> <code>pnorm()</code><a href="the-normal-distribution.html#pnorm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The R function for the cumulative distribution function (CDF) of a standard normal is <code>pnorm()</code>. In other words, <span class="math inline">\(\mathbb{P}(Z\leq z) = \texttt{pnorm}(z)\)</span> for <span class="math inline">\(Z\sim \text{N}(0,1)\)</span>. So what about the CDF of <span class="math inline">\(X \sim \text{N}(0, \sigma^2)\)</span>? Since <span class="math inline">\((X - \mu) / \sigma \sim \text{N}(0,1)\)</span>, we have
 <span class="math display">\[
 \mathbb{P}(X\leq x) = \mathbb{P}\left( \frac{X - \mu}{\sigma}  \leq \frac{x - \mu}{\sigma} \right) = \texttt{pnorm}\left(\frac{x - \mu}{\sigma}\right).
 \]</span>
 This shows that we don't actually <em>need</em> a separate function for general normal distributions: we can do everything with <code>pnorm()</code> after subtracting the mean (centering) and dividing by the standard deviation (standardizing). For convenience, R allows us to supply a <code>mean</code> and standard deviation <code>sd</code> to <code>pnorm()</code> to obtain the CDF of an arbitrary normal random variable. This gives exactly the same result as centering and standardizing:</p>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="the-normal-distribution.html#cb452-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="the-normal-distribution.html#cb475-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 0.3694413</code></pre>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="the-normal-distribution.html#cb454-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>((<span class="dv">1</span> <span class="sc">-</span> <span class="dv">2</span>) <span class="sc">/</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="the-normal-distribution.html#cb477-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>((<span class="dv">1</span> <span class="sc">-</span> <span class="dv">2</span>) <span class="sc">/</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 0.3694413</code></pre>
 </div>
-<div id="dnorm" class="section level3 hasAnchor" number="6.2.2">
-<h3><span class="header-section-number">6.2.2</span> <code>dnorm()</code><a href="the-normal-distribution.html#dnorm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="dnorm" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> <code>dnorm()</code><a href="the-normal-distribution.html#dnorm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The R function for the probability density function of a standard normal is <code>dnorm()</code>. The function <code>dnorm()</code> is the <em>derivative</em> of the function <code>pnorm()</code>. As with <code>pnorm()</code>, R allows us to supply a <code>mean</code> and standard deviation <code>sd</code> to obtain the density of a <span class="math inline">\(\text{N}(\mu, \sigma^2)\)</span> random variable, but this is only for convenience since
 <span class="math display">\[
 \frac{d}{dx} \mathbb{P}(X\leq x) = \frac{d}{dx} \text{pnorm} \left(\frac{x - \mu}{\sigma}\right) = \frac{1}{\sigma}\texttt{dnorm}\left(\frac{x - \mu}{\sigma}\right).
 \]</span>
 Accordingly, both of these give the same answer, although the first is easier to read:</p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="the-normal-distribution.html#cb456-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="the-normal-distribution.html#cb479-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 0.1257944</code></pre>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="the-normal-distribution.html#cb458-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dnorm</span>((<span class="dv">1</span> <span class="sc">-</span> <span class="dv">2</span>) <span class="sc">/</span> <span class="dv">3</span>) <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="the-normal-distribution.html#cb481-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dnorm</span>((<span class="dv">1</span> <span class="sc">-</span> <span class="dv">2</span>) <span class="sc">/</span> <span class="dv">3</span>) <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div>
 <pre><code>## [1] 0.1257944</code></pre>
 </div>
-<div id="qnorm" class="section level3 hasAnchor" number="6.2.3">
-<h3><span class="header-section-number">6.2.3</span> <code>qnorm()</code><a href="the-normal-distribution.html#qnorm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="qnorm" class="section level3 hasAnchor" number="7.2.3">
+<h3><span class="header-section-number">7.2.3</span> <code>qnorm()</code><a href="the-normal-distribution.html#qnorm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The R function for the quantile function of a standard normal distribution is <code>qnorm()</code>. This is the <em>inverse</em> of the function <code>pnorm()</code>. jWhereas <code>pnorm(z)</code> returns the probability that <span class="math inline">\(Z \sim \text{N}(0,1)\)</span> takes on a value no greater than <code>z</code>, <code>pnorm(p)</code> returns the value of <code>z</code> such that <span class="math inline">\(\mathbb{P}(Z \leq z) = p\)</span>. This means that <code>qnorm(pnorm(z))</code> equals <code>z</code> and <code>pnorm(qnorm(p))</code> equals <code>p</code>. For example:</p>
-<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="the-normal-distribution.html#cb460-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fu">pnorm</span>(<span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="the-normal-distribution.html#cb483-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fu">pnorm</span>(<span class="dv">2</span>))</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="the-normal-distribution.html#cb462-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="the-normal-distribution.html#cb485-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fu">qnorm</span>(<span class="fl">0.3</span>))</span></code></pre></div>
 <pre><code>## [1] 0.3</code></pre>
 <p>Like <code>dnorm()</code> and <code>pnorm()</code>, <code>qnorm()</code> allows us to specify a <code>mean</code> and standard deviation <code>sd</code> to obtain quantiles of an arbitrary normal random variable. But again, this is merely for convenience. Since <span class="math inline">\(\mathbb{P}(X \leq x) = \texttt{pnorm}\big((x - \mu)/\sigma\big)\)</span>,
 <span class="math display">\[
@@ -448,58 +480,58 @@ x &amp;= \mu + \sigma \times \texttt{qnorm}(p)
 \end{aligned}
 \]</span>
 In words: the <span class="math inline">\(p\)</span>th quantile of a <span class="math inline">\(\text{N}(\mu, \sigma^2)\)</span> RV equals <span class="math inline">\(\mu\)</span> plus <span class="math inline">\(\sigma\)</span> times the <span class="math inline">\(p\)</span>th quantile of a <em>standard</em> normal. For example:</p>
-<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="the-normal-distribution.html#cb464-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.75</span>, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="the-normal-distribution.html#cb487-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.75</span>, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 4.023469</code></pre>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="the-normal-distribution.html#cb466-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> <span class="fu">qnorm</span>(<span class="fl">0.75</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb489"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb489-1"><a href="the-normal-distribution.html#cb489-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> <span class="fu">qnorm</span>(<span class="fl">0.75</span>)</span></code></pre></div>
 <pre><code>## [1] 4.023469</code></pre>
 </div>
-<div id="rnorm" class="section level3 hasAnchor" number="6.2.4">
-<h3><span class="header-section-number">6.2.4</span> <code>rnorm()</code><a href="the-normal-distribution.html#rnorm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="rnorm" class="section level3 hasAnchor" number="7.2.4">
+<h3><span class="header-section-number">7.2.4</span> <code>rnorm()</code><a href="the-normal-distribution.html#rnorm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The R function for making simulated standard normal draws is <code>rnorm()</code>. For example, we can make ten standard normal draws as follows</p>
-<div class="sourceCode" id="cb468"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb468-1"><a href="the-normal-distribution.html#cb468-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1066</span>)</span>
-<span id="cb468-2"><a href="the-normal-distribution.html#cb468-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb491"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb491-1"><a href="the-normal-distribution.html#cb491-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1066</span>)</span>
+<span id="cb491-2"><a href="the-normal-distribution.html#cb491-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##  [1] -0.5917632  0.2926060 -0.9212630  0.2399853  0.9197199 -0.7864827
 ##  [7]  2.8104984 -0.9771701  1.7462778  0.1523001</code></pre>
 <p>To obtain draws from a general normal distribution we can set the optional arguments <code>mean</code> and <code>sd</code> as above. But as above, this is only for convenience. Remember that we <em>defined</em> a <span class="math inline">\(\text{N}(\mu, \sigma^2)\)</span> as what you get by shifting and scaling a standard normal. This means that shifting and scaling standard normal <em>simulation draws</em> is the same thing as simulating a <span class="math inline">\(\mathbf{N}(\mu, \sigma^2)\)</span> random variable, for example:</p>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="the-normal-distribution.html#cb470-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1066</span>)</span>
-<span id="cb470-2"><a href="the-normal-distribution.html#cb470-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span>
-<span id="cb470-3"><a href="the-normal-distribution.html#cb470-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1066</span>)</span>
-<span id="cb470-4"><a href="the-normal-distribution.html#cb470-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
-<span id="cb470-5"><a href="the-normal-distribution.html#cb470-5" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(x, y)</span></code></pre></div>
+<div class="sourceCode" id="cb493"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb493-1"><a href="the-normal-distribution.html#cb493-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1066</span>)</span>
+<span id="cb493-2"><a href="the-normal-distribution.html#cb493-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span>
+<span id="cb493-3"><a href="the-normal-distribution.html#cb493-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1066</span>)</span>
+<span id="cb493-4"><a href="the-normal-distribution.html#cb493-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
+<span id="cb493-5"><a href="the-normal-distribution.html#cb493-5" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(x, y)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
-<div id="pqdrnorm-are-vectorized" class="section level3 hasAnchor" number="6.2.5">
-<h3><span class="header-section-number">6.2.5</span> <code>p/q/d/rnorm()</code> are Vectorized<a href="the-normal-distribution.html#pqdrnorm-are-vectorized" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="pqdrnorm-are-vectorized" class="section level3 hasAnchor" number="7.2.5">
+<h3><span class="header-section-number">7.2.5</span> <code>p/q/d/rnorm()</code> are Vectorized<a href="the-normal-distribution.html#pqdrnorm-are-vectorized" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R accepts a vector as first argument to <code>pnorm()</code>, <code>dnorm()</code>, and <code>qnorm()</code>. This is very handy in practice, since it allows us to calculate the normal CDF/density/quantile function at many points in a single command. For example,</p>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="the-normal-distribution.html#cb472-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dnorm</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.96</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">1.96</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb495"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb495-1"><a href="the-normal-distribution.html#cb495-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dnorm</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.96</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">1.96</span>))</span></code></pre></div>
 <pre><code>## [1] 0.05844094 0.24197072 0.39894228 0.24197072 0.05844094</code></pre>
-<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="the-normal-distribution.html#cb474-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.96</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">1.96</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb497"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb497-1"><a href="the-normal-distribution.html#cb497-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.96</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">1.96</span>))</span></code></pre></div>
 <pre><code>## [1] 0.0249979 0.1586553 0.5000000 0.8413447 0.9750021</code></pre>
-<div class="sourceCode" id="cb476"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb476-1"><a href="the-normal-distribution.html#cb476-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.16</span>, <span class="fl">0.5</span>, <span class="fl">0.84</span>, <span class="fl">0.975</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb499"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb499-1"><a href="the-normal-distribution.html#cb499-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fu">c</span>(<span class="fl">0.025</span>, <span class="fl">0.16</span>, <span class="fl">0.5</span>, <span class="fl">0.84</span>, <span class="fl">0.975</span>))</span></code></pre></div>
 <pre><code>## [1] -1.9599640 -0.9944579  0.0000000  0.9944579  1.9599640</code></pre>
 <p>The function <code>rnorm()</code> is a bit different. Its first argument is the <em>number</em> of normal simulation draws we wish to make. When we pass it a vector as its first argument, <code>rnorm()</code> calculates the <em>length</em> of the vector and returns an equivalent number of normal draws:</p>
-<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="the-normal-distribution.html#cb478-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="the-normal-distribution.html#cb501-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] -0.56094004  0.27176376  0.47237903  0.62703516  0.01277877</code></pre>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="the-normal-distribution.html#cb480-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="the-normal-distribution.html#cb503-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span></code></pre></div>
 <pre><code>## [1]  0.01787882  0.31304030 -1.27600303</code></pre>
 <p>All four of the <code>p/q/d/rnorm()</code> functions accept a vector for their <code>mean</code> and <code>sd</code> arguments. This too can be handy in practice. We can use it, for example, to make normal draws with different means</p>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb482-1"><a href="the-normal-distribution.html#cb482-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">2</span>, <span class="at">mean =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">100</span>, <span class="dv">100</span>), <span class="at">sd =</span> <span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="the-normal-distribution.html#cb505-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">2</span>, <span class="at">mean =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">100</span>, <span class="dv">100</span>), <span class="at">sd =</span> <span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## [1] -102.7192  104.0509</code></pre>
 <p>different variances</p>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb484-1"><a href="the-normal-distribution.html#cb484-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">2</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">100</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb507-1"><a href="the-normal-distribution.html#cb507-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">2</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">100</span>))</span></code></pre></div>
 <pre><code>## [1]    0.6451931 -110.0389461</code></pre>
 <p>or both</p>
-<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="the-normal-distribution.html#cb486-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">2</span>, <span class="at">mean =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>), <span class="at">sd =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb509-1"><a href="the-normal-distribution.html#cb509-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">2</span>, <span class="at">mean =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>), <span class="at">sd =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="dv">1</span>))</span></code></pre></div>
 <pre><code>## [1] -9.995741  9.983758</code></pre>
 </div>
-<div id="be-careful" class="section level3 hasAnchor" number="6.2.6">
-<h3><span class="header-section-number">6.2.6</span> Be Careful!<a href="the-normal-distribution.html#be-careful" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="be-careful" class="section level3 hasAnchor" number="7.2.6">
+<h3><span class="header-section-number">7.2.6</span> Be Careful!<a href="the-normal-distribution.html#be-careful" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A common R mistake is specifying the <em>variance</em> rather than standard deviation inside of <code>dnorm()</code>, <code>pnorm()</code>, <code>qnorm()</code>, or <code>rnorm()</code>. The best way to avoid making this mistake is by explicitly writing <code>sd = [YOUR SD HERE]</code>. For example, <code>dnorm(2, mean = 1, sd = 3)</code> is much less likely to lead to confusion than <code>dnorm(2, 1, 3)</code> although both produce the same result:</p>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="the-normal-distribution.html#cb488-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">dnorm</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">dnorm</span>(<span class="dv">2</span>, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">3</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb511-1"><a href="the-normal-distribution.html#cb511-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">dnorm</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">dnorm</span>(<span class="dv">2</span>, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">3</span>))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </div>
-<div id="exercises-3" class="section level3 hasAnchor" number="6.2.7">
-<h3><span class="header-section-number">6.2.7</span> Exercises<a href="the-normal-distribution.html#exercises-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercises-3" class="section level3 hasAnchor" number="7.2.7">
+<h3><span class="header-section-number">7.2.7</span> Exercises<a href="the-normal-distribution.html#exercises-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Simulate 1000 normal draws with mean -3 and variance 4. Calculate the sample mean and variance of your simulation draws.</li>
 </ol>
@@ -507,9 +539,9 @@ In words: the <span class="math inline">\(p\)</span>th quantile of a <span class
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb490-1"><a href="the-normal-distribution.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1693</span>)</span>
-<span id="cb490-2"><a href="the-normal-distribution.html#cb490-2" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="sc">-</span><span class="dv">3</span>, <span class="at">sd =</span> <span class="dv">2</span>) </span>
-<span id="cb490-3"><a href="the-normal-distribution.html#cb490-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">sample_mean =</span> <span class="fu">mean</span>(sims), <span class="at">sample_var =</span> <span class="fu">var</span>(sims))</span></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb513-1"><a href="the-normal-distribution.html#cb513-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1693</span>)</span>
+<span id="cb513-2"><a href="the-normal-distribution.html#cb513-2" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> <span class="sc">-</span><span class="dv">3</span>, <span class="at">sd =</span> <span class="dv">2</span>) </span>
+<span id="cb513-3"><a href="the-normal-distribution.html#cb513-3" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">sample_mean =</span> <span class="fu">mean</span>(sims), <span class="at">sample_var =</span> <span class="fu">var</span>(sims))</span></code></pre></div>
 <pre><code>## sample_mean  sample_var 
 ##   -2.984270    3.890881</code></pre>
 </div>
@@ -520,8 +552,8 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb492-1"><a href="the-normal-distribution.html#cb492-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> (sims <span class="sc">-</span> <span class="fu">mean</span>(sims)) <span class="sc">/</span> <span class="fu">sd</span>(sims)</span>
-<span id="cb492-2"><a href="the-normal-distribution.html#cb492-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">sample_mean =</span> <span class="fu">mean</span>(z), <span class="at">sample_var =</span> <span class="fu">var</span>(z))</span></code></pre></div>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="the-normal-distribution.html#cb515-1" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> (sims <span class="sc">-</span> <span class="fu">mean</span>(sims)) <span class="sc">/</span> <span class="fu">sd</span>(sims)</span>
+<span id="cb515-2"><a href="the-normal-distribution.html#cb515-2" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">sample_mean =</span> <span class="fu">mean</span>(z), <span class="at">sample_var =</span> <span class="fu">var</span>(z))</span></code></pre></div>
 <pre><code>##  sample_mean   sample_var 
 ## 6.704999e-17 1.000000e+00</code></pre>
 </div>
@@ -532,7 +564,7 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb494"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb494-1"><a href="the-normal-distribution.html#cb494-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">5</span>, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="the-normal-distribution.html#cb517-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">5</span>, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [1] 0.1586553</code></pre>
 </div>
 <ol start="4" style="list-style-type: decimal">
@@ -542,7 +574,7 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb496-1"><a href="the-normal-distribution.html#cb496-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">2</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="the-normal-distribution.html#cb519-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">2</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 0.8185946</code></pre>
 </div>
 <ol start="5" style="list-style-type: decimal">
@@ -552,10 +584,10 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="the-normal-distribution.html#cb498-1" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">*</span> <span class="fu">qnorm</span>(<span class="fl">0.25</span>)</span>
-<span id="cb498-2"><a href="the-normal-distribution.html#cb498-2" aria-hidden="true" tabindex="-1"></a>k</span></code></pre></div>
+<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="the-normal-distribution.html#cb521-1" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">*</span> <span class="fu">qnorm</span>(<span class="fl">0.25</span>)</span>
+<span id="cb521-2"><a href="the-normal-distribution.html#cb521-2" aria-hidden="true" tabindex="-1"></a>k</span></code></pre></div>
 <pre><code>## [1] 0.6744898</code></pre>
-<div class="sourceCode" id="cb500"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb500-1"><a href="the-normal-distribution.html#cb500-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(k) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span>k)</span></code></pre></div>
+<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="the-normal-distribution.html#cb523-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(k) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="sc">-</span>k)</span></code></pre></div>
 <pre><code>## [1] 0.5</code></pre>
 </div>
 <ol start="6" style="list-style-type: decimal">
@@ -565,30 +597,30 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="the-normal-distribution.html#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb502-2"><a href="the-normal-distribution.html#cb502-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="at">len =</span> <span class="dv">100</span>)</span>
-<span id="cb502-3"><a href="the-normal-distribution.html#cb502-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">*</span> <span class="fu">dnorm</span>(<span class="dv">3</span> <span class="sc">*</span> (x <span class="sc">-</span> <span class="dv">1</span>))</span>
-<span id="cb502-4"><a href="the-normal-distribution.html#cb502-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb502-5"><a href="the-normal-distribution.html#cb502-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(x, y))</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-267-1.png" width="672" /></p>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb503-1"><a href="the-normal-distribution.html#cb503-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="the-normal-distribution.html#cb525-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb525-2"><a href="the-normal-distribution.html#cb525-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">2</span>, <span class="at">len =</span> <span class="dv">100</span>)</span>
+<span id="cb525-3"><a href="the-normal-distribution.html#cb525-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">*</span> <span class="fu">dnorm</span>(<span class="dv">3</span> <span class="sc">*</span> (x <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb525-4"><a href="the-normal-distribution.html#cb525-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb525-5"><a href="the-normal-distribution.html#cb525-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(x, y))</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-280-1.png" width="672" /></p>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="the-normal-distribution.html#cb526-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(y)</span></code></pre></div>
 <pre><code>## [1] 1.196277</code></pre>
 </div>
 </div>
 </div>
-<div id="generating-correlated-normal-rvs" class="section level2 hasAnchor" number="6.3">
-<h2><span class="header-section-number">6.3</span> Generating Correlated Normal RVs<a href="the-normal-distribution.html#generating-correlated-normal-rvs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="start-with-uncorrelated-normal-draws" class="section level3 hasAnchor" number="6.3.1">
-<h3><span class="header-section-number">6.3.1</span> Start with Uncorrelated Normal Draws<a href="the-normal-distribution.html#start-with-uncorrelated-normal-draws" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="generating-correlated-normal-rvs" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Generating Correlated Normal RVs<a href="the-normal-distribution.html#generating-correlated-normal-rvs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="start-with-uncorrelated-normal-draws" class="section level3 hasAnchor" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Start with Uncorrelated Normal Draws<a href="the-normal-distribution.html#start-with-uncorrelated-normal-draws" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We'll start by generating a large number of draws to represent two <em>independent</em> standard normals: <span class="math inline">\(Z_1\)</span> and <span class="math inline">\(Z_2\)</span></p>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="the-normal-distribution.html#cb505-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">99999</span>)</span>
-<span id="cb505-2"><a href="the-normal-distribution.html#cb505-2" aria-hidden="true" tabindex="-1"></a>large_number <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
-<span id="cb505-3"><a href="the-normal-distribution.html#cb505-3" aria-hidden="true" tabindex="-1"></a>z1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(large_number)</span>
-<span id="cb505-4"><a href="the-normal-distribution.html#cb505-4" aria-hidden="true" tabindex="-1"></a>z2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(large_number)</span>
-<span id="cb505-5"><a href="the-normal-distribution.html#cb505-5" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">cbind</span>(z1, z2)</span>
-<span id="cb505-6"><a href="the-normal-distribution.html#cb505-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(z1, z2)</span></code></pre></div>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="the-normal-distribution.html#cb528-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">99999</span>)</span>
+<span id="cb528-2"><a href="the-normal-distribution.html#cb528-2" aria-hidden="true" tabindex="-1"></a>large_number <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
+<span id="cb528-3"><a href="the-normal-distribution.html#cb528-3" aria-hidden="true" tabindex="-1"></a>z1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(large_number)</span>
+<span id="cb528-4"><a href="the-normal-distribution.html#cb528-4" aria-hidden="true" tabindex="-1"></a>z2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(large_number)</span>
+<span id="cb528-5"><a href="the-normal-distribution.html#cb528-5" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">cbind</span>(z1, z2)</span>
+<span id="cb528-6"><a href="the-normal-distribution.html#cb528-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(z1, z2)</span></code></pre></div>
 <p>Now we have a <em>matrix</em> with two columns: the first is <code>z1</code> and the second is <code>z2</code></p>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb506-1"><a href="the-normal-distribution.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="the-normal-distribution.html#cb529-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(z)</span></code></pre></div>
 <pre><code>##              z1          z2
 ## [1,] -0.4255127 -1.91351696
 ## [2,] -0.2829203  0.05775194
@@ -597,40 +629,40 @@ Show Solution
 ## [5,]  2.0916699  0.35882645
 ## [6,]  1.6356643 -0.54297591</code></pre>
 <p>To calculate the sample mean of each column, we can use the function <code>colMeans()</code></p>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb508-1"><a href="the-normal-distribution.html#cb508-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="the-normal-distribution.html#cb531-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(z)</span></code></pre></div>
 <pre><code>##           z1           z2 
 ## -0.001512035  0.002202837</code></pre>
 <p>To calculate the sample variance of each column of <code>z</code> along with the covariance between them in one fell swoop, we use the <code>cov()</code> function:</p>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb510-1"><a href="the-normal-distribution.html#cb510-1" aria-hidden="true" tabindex="-1"></a>cov_mat <span class="ot">&lt;-</span> <span class="fu">cov</span>(z)</span>
-<span id="cb510-2"><a href="the-normal-distribution.html#cb510-2" aria-hidden="true" tabindex="-1"></a>cov_mat</span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="the-normal-distribution.html#cb533-1" aria-hidden="true" tabindex="-1"></a>cov_mat <span class="ot">&lt;-</span> <span class="fu">cov</span>(z)</span>
+<span id="cb533-2"><a href="the-normal-distribution.html#cb533-2" aria-hidden="true" tabindex="-1"></a>cov_mat</span></code></pre></div>
 <pre><code>##             z1          z2
 ## z1 1.006378316 0.000473838
 ## z2 0.000473838 1.003673852</code></pre>
 <p>This is the <em>sample variance-covariance matrix</em> of <code>z</code>. Its diagonal elements are the sample variances of <code>z1</code> and <code>z2</code>, and its off-diagonal elements are the covariance between them. Because we simulated uncorrelated standard normal draws, the diagonal elements are approximately one and the off-diagonals are approximately zero. And since <code>cov(z1, z2)</code> equals <code>cov(z2, z1)</code>, this matrix is <em>symmetric</em>; its <code>[i,j]</code> element equals its <code>[j,i]</code> element:</p>
-<div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="the-normal-distribution.html#cb512-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(cov_mat[<span class="dv">1</span>, <span class="dv">2</span>], cov_mat[<span class="dv">2</span>, <span class="dv">1</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="the-normal-distribution.html#cb535-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(cov_mat[<span class="dv">1</span>, <span class="dv">2</span>], cov_mat[<span class="dv">2</span>, <span class="dv">1</span>])</span></code></pre></div>
 <pre><code>## [1] 0.000473838 0.000473838</code></pre>
 <p>When you supply a matrix as your argument, <code>var()</code> and <code>cov()</code> give exactly the same result:</p>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb514-1"><a href="the-normal-distribution.html#cb514-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">var</span>(z), <span class="fu">cov</span>(z))</span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="the-normal-distribution.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">var</span>(z), <span class="fu">cov</span>(z))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>That's because the variance-covariance matrix contains variances and covariances! To obtain the sample correlation matrix, use the function <code>cor()</code>:</p>
-<div class="sourceCode" id="cb516"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb516-1"><a href="the-normal-distribution.html#cb516-1" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">cor</span>(z)</span>
-<span id="cb516-2"><a href="the-normal-distribution.html#cb516-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(z)</span></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="the-normal-distribution.html#cb539-1" aria-hidden="true" tabindex="-1"></a>cor_mat <span class="ot">&lt;-</span> <span class="fu">cor</span>(z)</span>
+<span id="cb539-2"><a href="the-normal-distribution.html#cb539-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(z)</span></code></pre></div>
 <pre><code>##              z1           z2
 ## z1 1.0000000000 0.0004714688
 ## z2 0.0004714688 1.0000000000</code></pre>
 <p>Now the diagonal elements are one: <code>z1</code> is perfectly correlated with <em>itself</em> and so is <code>z2</code>. The off-diagonal elements are the correlation between <code>z1</code> and <code>z2</code>. Again, this matrix is symmetric since <code>cor(z1, z2)</code> equals <code>cor(z2, z1)</code>. Given a covariance matrix we can immediately compute the associated correlation matrix by dividing each covariance by the appropriate product of standard deviations:</p>
-<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="the-normal-distribution.html#cb518-1" aria-hidden="true" tabindex="-1"></a>cov_mat[<span class="dv">1</span>, <span class="dv">2</span>] <span class="sc">/</span> (<span class="fu">sqrt</span>(cov_mat[<span class="dv">1</span>, <span class="dv">1</span>] <span class="sc">*</span> cov_mat[<span class="dv">2</span>, <span class="dv">2</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="the-normal-distribution.html#cb541-1" aria-hidden="true" tabindex="-1"></a>cov_mat[<span class="dv">1</span>, <span class="dv">2</span>] <span class="sc">/</span> (<span class="fu">sqrt</span>(cov_mat[<span class="dv">1</span>, <span class="dv">1</span>] <span class="sc">*</span> cov_mat[<span class="dv">2</span>, <span class="dv">2</span>]))</span></code></pre></div>
 <pre><code>## [1] 0.0004714688</code></pre>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="the-normal-distribution.html#cb520-1" aria-hidden="true" tabindex="-1"></a>cor_mat[<span class="dv">1</span>, <span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="the-normal-distribution.html#cb543-1" aria-hidden="true" tabindex="-1"></a>cor_mat[<span class="dv">1</span>, <span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## [1] 0.0004714688</code></pre>
 <p>Alternatively we can use the R function <code>cov2cor()</code> to do this for us:</p>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="the-normal-distribution.html#cb522-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov2cor</span>(cor_mat)</span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="the-normal-distribution.html#cb545-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov2cor</span>(cor_mat)</span></code></pre></div>
 <pre><code>##              z1           z2
 ## z1 1.0000000000 0.0004714688
 ## z2 0.0004714688 1.0000000000</code></pre>
 </div>
-<div id="exercise-31" class="section level3 hasAnchor" number="6.3.2">
-<h3><span class="header-section-number">6.3.2</span> Exercise<a href="the-normal-distribution.html#exercise-31" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercise-32" class="section level3 hasAnchor" number="7.3.2">
+<h3><span class="header-section-number">7.3.2</span> Exercise<a href="the-normal-distribution.html#exercise-32" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>There's an R function called <code>cov2cor()</code> but there <em>isn't</em> one called <code>cor2cov()</code>. Why not?</li>
 </ol>
@@ -647,70 +679,70 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="the-normal-distribution.html#cb524-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb524-2"><a href="the-normal-distribution.html#cb524-2" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&#39;https://ditraglia.com/data/child_test_data.csv&#39;</span>)</span>
-<span id="cb524-3"><a href="the-normal-distribution.html#cb524-3" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
-<span id="cb524-4"><a href="the-normal-distribution.html#cb524-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mom.iq, kid.score)</span>
-<span id="cb524-5"><a href="the-normal-distribution.html#cb524-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(dat)</span></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="the-normal-distribution.html#cb547-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb547-2"><a href="the-normal-distribution.html#cb547-2" aria-hidden="true" tabindex="-1"></a>kids <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&#39;https://ditraglia.com/data/child_test_data.csv&#39;</span>)</span>
+<span id="cb547-3"><a href="the-normal-distribution.html#cb547-3" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> kids <span class="sc">%&gt;%</span></span>
+<span id="cb547-4"><a href="the-normal-distribution.html#cb547-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mom.iq, kid.score)</span>
+<span id="cb547-5"><a href="the-normal-distribution.html#cb547-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(dat)</span></code></pre></div>
 <pre><code>##    mom.iq kid.score 
 ## 100.00000  86.79724</code></pre>
-<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="the-normal-distribution.html#cb526-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(dat)</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="the-normal-distribution.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(dat)</span></code></pre></div>
 <pre><code>##             mom.iq kid.score
 ## mom.iq    225.0000  137.2443
 ## kid.score 137.2443  416.5962</code></pre>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="the-normal-distribution.html#cb528-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(dat)</span></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="the-normal-distribution.html#cb551-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(dat)</span></code></pre></div>
 <pre><code>##              mom.iq kid.score
 ## mom.iq    1.0000000 0.4482758
 ## kid.score 0.4482758 1.0000000</code></pre>
 </div>
 </div>
-<div id="add-constants-to-shift-the-means" class="section level3 hasAnchor" number="6.3.3">
-<h3><span class="header-section-number">6.3.3</span> Add Constants to Shift the Means<a href="the-normal-distribution.html#add-constants-to-shift-the-means" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="add-constants-to-shift-the-means" class="section level3 hasAnchor" number="7.3.3">
+<h3><span class="header-section-number">7.3.3</span> Add Constants to Shift the Means<a href="the-normal-distribution.html#add-constants-to-shift-the-means" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Summary statistics are useful, but pictures are far more informative. A helpful way of visualizing the simulation draws in <code>z</code> is by using <a href="https://en.wikipedia.org/wiki/Kernel_density_estimation">kernel density estimator</a>. We'll discuss the details of kernel density estimation in a future lesson. For now, you can think of it as a "smoothed histogram." For example, here's a pair of histograms for <code>z1</code> and <code>z2</code></p>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="the-normal-distribution.html#cb530-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
-<span id="cb530-2"><a href="the-normal-distribution.html#cb530-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb530-3"><a href="the-normal-distribution.html#cb530-3" aria-hidden="true" tabindex="-1"></a>z1_hist <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(z)) <span class="sc">+</span></span>
-<span id="cb530-4"><a href="the-normal-distribution.html#cb530-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> z1), <span class="at">fill =</span> <span class="st">&#39;black&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
-<span id="cb530-5"><a href="the-normal-distribution.html#cb530-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb530-6"><a href="the-normal-distribution.html#cb530-6" aria-hidden="true" tabindex="-1"></a>z2_hist <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(z)) <span class="sc">+</span></span>
-<span id="cb530-7"><a href="the-normal-distribution.html#cb530-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> z2), <span class="at">fill =</span> <span class="st">&#39;orange&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) </span>
-<span id="cb530-8"><a href="the-normal-distribution.html#cb530-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb530-9"><a href="the-normal-distribution.html#cb530-9" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(z1_hist, z2_hist, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-278-1.png" width="672" /></p>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="the-normal-distribution.html#cb553-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span>
+<span id="cb553-2"><a href="the-normal-distribution.html#cb553-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb553-3"><a href="the-normal-distribution.html#cb553-3" aria-hidden="true" tabindex="-1"></a>z1_hist <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(z)) <span class="sc">+</span></span>
+<span id="cb553-4"><a href="the-normal-distribution.html#cb553-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> z1), <span class="at">fill =</span> <span class="st">&#39;black&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
+<span id="cb553-5"><a href="the-normal-distribution.html#cb553-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb553-6"><a href="the-normal-distribution.html#cb553-6" aria-hidden="true" tabindex="-1"></a>z2_hist <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(z)) <span class="sc">+</span></span>
+<span id="cb553-7"><a href="the-normal-distribution.html#cb553-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> z2), <span class="at">fill =</span> <span class="st">&#39;orange&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) </span>
+<span id="cb553-8"><a href="the-normal-distribution.html#cb553-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb553-9"><a href="the-normal-distribution.html#cb553-9" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(z1_hist, z2_hist, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-291-1.png" width="672" /></p>
 <p>And here's the kernel density version of the same. Notice that the y-axis is no longer a <em>count</em> of observations that fall in a given bin, but a <em>density</em>; the total area under each curve equals one:</p>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="the-normal-distribution.html#cb531-1" aria-hidden="true" tabindex="-1"></a>z1_dens <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(z)) <span class="sc">+</span></span>
-<span id="cb531-2"><a href="the-normal-distribution.html#cb531-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> z1), <span class="at">fill =</span> <span class="st">&#39;black&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
-<span id="cb531-3"><a href="the-normal-distribution.html#cb531-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb531-4"><a href="the-normal-distribution.html#cb531-4" aria-hidden="true" tabindex="-1"></a>z2_dens <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(z)) <span class="sc">+</span></span>
-<span id="cb531-5"><a href="the-normal-distribution.html#cb531-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> z2), <span class="at">fill =</span> <span class="st">&#39;orange&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) </span>
-<span id="cb531-6"><a href="the-normal-distribution.html#cb531-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb531-7"><a href="the-normal-distribution.html#cb531-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(z1_dens, z2_dens, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-279-1.png" width="672" /></p>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="the-normal-distribution.html#cb554-1" aria-hidden="true" tabindex="-1"></a>z1_dens <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(z)) <span class="sc">+</span></span>
+<span id="cb554-2"><a href="the-normal-distribution.html#cb554-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> z1), <span class="at">fill =</span> <span class="st">&#39;black&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
+<span id="cb554-3"><a href="the-normal-distribution.html#cb554-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb554-4"><a href="the-normal-distribution.html#cb554-4" aria-hidden="true" tabindex="-1"></a>z2_dens <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(z)) <span class="sc">+</span></span>
+<span id="cb554-5"><a href="the-normal-distribution.html#cb554-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> z2), <span class="at">fill =</span> <span class="st">&#39;orange&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) </span>
+<span id="cb554-6"><a href="the-normal-distribution.html#cb554-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb554-7"><a href="the-normal-distribution.html#cb554-7" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(z1_dens, z2_dens, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-292-1.png" width="672" /></p>
 <p>The function <code>geom_density()</code> works in effectively the same way as <code>geom_histogram()</code> but its output is different. The preceding two sets of plots show the <strong>marginal distributions</strong> of <code>z1</code> and <code>z2</code>. This tells us how each random variable behaves taken by itself. To see how <code>z1</code> and <code>z2</code> co-vary, we need to examine the <em>joint distribution</em>. A two-dimensional kernel density plot is helpful way to do this. Rather than trying to plot a 3d surface, we'll take the "view from above," draw in contour lines, and add a color scale using <code>geom_density2d_filled()</code>:</p>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="the-normal-distribution.html#cb532-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(z)) <span class="sc">+</span></span>
-<span id="cb532-2"><a href="the-normal-distribution.html#cb532-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density2d_filled</span>(<span class="fu">aes</span>(<span class="at">x =</span> z1, <span class="at">y =</span> z2)) <span class="sc">+</span></span>
-<span id="cb532-3"><a href="the-normal-distribution.html#cb532-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="co"># forces the aspect ratio to be 1:1 so you see the circles!</span></span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-280-1.png" width="672" /></p>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="the-normal-distribution.html#cb555-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(z)) <span class="sc">+</span></span>
+<span id="cb555-2"><a href="the-normal-distribution.html#cb555-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density2d_filled</span>(<span class="fu">aes</span>(<span class="at">x =</span> z1, <span class="at">y =</span> z2)) <span class="sc">+</span></span>
+<span id="cb555-3"><a href="the-normal-distribution.html#cb555-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>() <span class="co"># forces the aspect ratio to be 1:1 so you see the circles!</span></span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-293-1.png" width="672" /></p>
 <p>The colors are darker in regions of <em>low density</em> and brighter in regions of <em>high density</em>. Because this plot is constructed from simulated data, it's a bit irregular but we can pick out some obvious features. First, the density is clearly highest around the point <span class="math inline">\((0,0)\)</span>, and falls as we move away from this point in any direction. This makes sense: the mean, median, and mode of both <code>z1</code> and <code>z2</code> are all zero. Second, the contours of equal density are <em>circles</em>.</p>
 <p>Notice that <span class="math inline">\(z_1\)</span> and <span class="math inline">\(z_2\)</span> only enter this function through the sum of squares <span class="math inline">\((z_1^2 + z_2^2)\)</span>. As long as this quantity remains fixed, the density stays the same. So what kind of shape does the expression <span class="math inline">\((z_1^2 + z_2^2) = c\)</span> describe, for some fixed constant <span class="math inline">\(c\)</span>? A circle centered at <span class="math inline">\((0,0)\)</span>!</p>
 <p>It may not surprise you to notice that we can shift the centers of these circles, by adding constants to <code>z1</code> and <code>z2</code>. You won't notice the difference in these plots unless you look carefully: only the axes have changed:</p>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="the-normal-distribution.html#cb533-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Shift the means from (0,0) to (1,-1)</span></span>
-<span id="cb533-2"><a href="the-normal-distribution.html#cb533-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">x1 =</span> z[,<span class="dv">1</span>] <span class="sc">+</span> <span class="dv">1</span>, <span class="at">x2 =</span> z[,<span class="dv">2</span>] <span class="sc">-</span> <span class="dv">1</span>) </span>
-<span id="cb533-3"><a href="the-normal-distribution.html#cb533-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb533-4"><a href="the-normal-distribution.html#cb533-4" aria-hidden="true" tabindex="-1"></a>x_marginals <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
-<span id="cb533-5"><a href="the-normal-distribution.html#cb533-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> x1), <span class="at">fill =</span> <span class="st">&#39;black&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb533-6"><a href="the-normal-distribution.html#cb533-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> x2), <span class="at">fill =</span> <span class="st">&#39;orange&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb533-7"><a href="the-normal-distribution.html#cb533-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&#39;&#39;</span>)</span>
-<span id="cb533-8"><a href="the-normal-distribution.html#cb533-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb533-9"><a href="the-normal-distribution.html#cb533-9" aria-hidden="true" tabindex="-1"></a>x_joint <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
-<span id="cb533-10"><a href="the-normal-distribution.html#cb533-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density2d_filled</span>(<span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2)) <span class="sc">+</span></span>
-<span id="cb533-11"><a href="the-normal-distribution.html#cb533-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()  <span class="co"># forces the aspect ratio to be 1:1 so you see the circles!</span></span>
-<span id="cb533-12"><a href="the-normal-distribution.html#cb533-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb533-13"><a href="the-normal-distribution.html#cb533-13" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(x_marginals, x_joint, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-281-1.png" width="672" /></p>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="the-normal-distribution.html#cb556-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Shift the means from (0,0) to (1,-1)</span></span>
+<span id="cb556-2"><a href="the-normal-distribution.html#cb556-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">x1 =</span> z[,<span class="dv">1</span>] <span class="sc">+</span> <span class="dv">1</span>, <span class="at">x2 =</span> z[,<span class="dv">2</span>] <span class="sc">-</span> <span class="dv">1</span>) </span>
+<span id="cb556-3"><a href="the-normal-distribution.html#cb556-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb556-4"><a href="the-normal-distribution.html#cb556-4" aria-hidden="true" tabindex="-1"></a>x_marginals <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
+<span id="cb556-5"><a href="the-normal-distribution.html#cb556-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> x1), <span class="at">fill =</span> <span class="st">&#39;black&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb556-6"><a href="the-normal-distribution.html#cb556-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> x2), <span class="at">fill =</span> <span class="st">&#39;orange&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb556-7"><a href="the-normal-distribution.html#cb556-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&#39;&#39;</span>)</span>
+<span id="cb556-8"><a href="the-normal-distribution.html#cb556-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb556-9"><a href="the-normal-distribution.html#cb556-9" aria-hidden="true" tabindex="-1"></a>x_joint <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
+<span id="cb556-10"><a href="the-normal-distribution.html#cb556-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density2d_filled</span>(<span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2)) <span class="sc">+</span></span>
+<span id="cb556-11"><a href="the-normal-distribution.html#cb556-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()  <span class="co"># forces the aspect ratio to be 1:1 so you see the circles!</span></span>
+<span id="cb556-12"><a href="the-normal-distribution.html#cb556-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb556-13"><a href="the-normal-distribution.html#cb556-13" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(x_marginals, x_joint, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-294-1.png" width="672" /></p>
 </div>
-<div id="exercise-32" class="section level3 hasAnchor" number="6.3.4">
-<h3><span class="header-section-number">6.3.4</span> Exercise<a href="the-normal-distribution.html#exercise-32" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercise-33" class="section level3 hasAnchor" number="7.3.4">
+<h3><span class="header-section-number">7.3.4</span> Exercise<a href="the-normal-distribution.html#exercise-33" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Continuing from the exercise from above, create both marginal and joint kernel density plots of <code>mom.iq</code> and <code>kid.score</code>. Do these appear to be normally distributed?</li>
 </ol>
@@ -718,15 +750,15 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="the-normal-distribution.html#cb534-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids) <span class="sc">+</span></span>
-<span id="cb534-2"><a href="the-normal-distribution.html#cb534-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom.iq), <span class="at">fill =</span> <span class="st">&#39;black&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-282-1.png" width="672" /></p>
-<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="the-normal-distribution.html#cb535-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids) <span class="sc">+</span> </span>
-<span id="cb535-2"><a href="the-normal-distribution.html#cb535-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> kid.score), <span class="at">fill =</span> <span class="st">&#39;orange&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-282-2.png" width="672" /></p>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="the-normal-distribution.html#cb536-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids) <span class="sc">+</span></span>
-<span id="cb536-2"><a href="the-normal-distribution.html#cb536-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density2d_filled</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom.iq, <span class="at">y =</span> kid.score)) </span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-282-3.png" width="672" /></p>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="the-normal-distribution.html#cb557-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids) <span class="sc">+</span></span>
+<span id="cb557-2"><a href="the-normal-distribution.html#cb557-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom.iq), <span class="at">fill =</span> <span class="st">&#39;black&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-295-1.png" width="672" /></p>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="the-normal-distribution.html#cb558-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids) <span class="sc">+</span> </span>
+<span id="cb558-2"><a href="the-normal-distribution.html#cb558-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> kid.score), <span class="at">fill =</span> <span class="st">&#39;orange&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-295-2.png" width="672" /></p>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="the-normal-distribution.html#cb559-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(kids) <span class="sc">+</span></span>
+<span id="cb559-2"><a href="the-normal-distribution.html#cb559-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density2d_filled</span>(<span class="fu">aes</span>(<span class="at">x =</span> mom.iq, <span class="at">y =</span> kid.score)) </span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-295-3.png" width="672" /></p>
 </div>
 <ol start="2" style="list-style-type: decimal">
 <li>Reading from the color scale, the height of the "peak" in each of the two-dimensional kernel density plots from above was around 0.16. Why is this?</li>
@@ -754,8 +786,8 @@ Show Solution
 <p>From the expression in the previous solution, <span class="math inline">\(f(z_1, z_2)\)</span> is constant whenever <span class="math inline">\((z_1^2 + z_2^2)\)</span> is constant, and the expression <span class="math inline">\((z_1^2 + z_2^2) = \text{C}\)</span> describes a circle centered at <span class="math inline">\((0,0)\)</span>.</p>
 </div>
 </div>
-<div id="multiply-by-scalars-to-change-the-variance" class="section level3 hasAnchor" number="6.3.5">
-<h3><span class="header-section-number">6.3.5</span> Multiply by Scalars to Change the Variance<a href="the-normal-distribution.html#multiply-by-scalars-to-change-the-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="multiply-by-scalars-to-change-the-variance" class="section level3 hasAnchor" number="7.3.5">
+<h3><span class="header-section-number">7.3.5</span> Multiply by Scalars to Change the Variance<a href="the-normal-distribution.html#multiply-by-scalars-to-change-the-variance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Shifting the means of two random variables by adding a constant to each has no effect on their respective variances or covariances. If <span class="math inline">\(Z_1, Z_2 \sim \text{ iid N}(0,1)\)</span> and <span class="math inline">\(c_1, c_2\)</span> are constants, then
 <span class="math display">\[
 \begin{aligned}
@@ -764,36 +796,36 @@ Show Solution
 \end{aligned}
 \]</span>
 For this reason we'll work with zero mean normals throughout most of this lesson. After we've created normal random variables with the desired variances and covariances, we can always shift their means as needed. To change the <em>variances</em> of <span class="math inline">\(Z_1\)</span> and <span class="math inline">\(Z_2\)</span> without creating any covariance between them, we simply multiply each by a constant. While we won't delve into the details of the geometry, this turns <em>circles</em> of equal density into <em>ellipses</em>. For example:</p>
-<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="the-normal-distribution.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change the variances from (1, 1) to (4, 25)</span></span>
-<span id="cb537-2"><a href="the-normal-distribution.html#cb537-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">x1 =</span> <span class="dv">2</span> <span class="sc">*</span> z[,<span class="dv">1</span>], <span class="at">x2 =</span> <span class="dv">5</span> <span class="sc">*</span> z[,<span class="dv">2</span>]) </span>
-<span id="cb537-3"><a href="the-normal-distribution.html#cb537-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb537-4"><a href="the-normal-distribution.html#cb537-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="the-normal-distribution.html#cb560-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change the variances from (1, 1) to (4, 25)</span></span>
+<span id="cb560-2"><a href="the-normal-distribution.html#cb560-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">x1 =</span> <span class="dv">2</span> <span class="sc">*</span> z[,<span class="dv">1</span>], <span class="at">x2 =</span> <span class="dv">5</span> <span class="sc">*</span> z[,<span class="dv">2</span>]) </span>
+<span id="cb560-3"><a href="the-normal-distribution.html#cb560-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb560-4"><a href="the-normal-distribution.html#cb560-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(x)</span></code></pre></div>
 <pre><code>##            x1          x2
 ## x1 4.02551326  0.00473838
 ## x2 0.00473838 25.09184630</code></pre>
-<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="the-normal-distribution.html#cb539-1" aria-hidden="true" tabindex="-1"></a>x_marginals <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
-<span id="cb539-2"><a href="the-normal-distribution.html#cb539-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> x1), <span class="at">fill =</span> <span class="st">&#39;black&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb539-3"><a href="the-normal-distribution.html#cb539-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> x2), <span class="at">fill =</span> <span class="st">&#39;orange&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb539-4"><a href="the-normal-distribution.html#cb539-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&#39;&#39;</span>)</span>
-<span id="cb539-5"><a href="the-normal-distribution.html#cb539-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb539-6"><a href="the-normal-distribution.html#cb539-6" aria-hidden="true" tabindex="-1"></a>x_joint <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
-<span id="cb539-7"><a href="the-normal-distribution.html#cb539-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density2d_filled</span>(<span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2)) <span class="sc">+</span></span>
-<span id="cb539-8"><a href="the-normal-distribution.html#cb539-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()  <span class="co"># forces the aspect ratio to be 1:1 so you see the ellipses!</span></span>
-<span id="cb539-9"><a href="the-normal-distribution.html#cb539-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb539-10"><a href="the-normal-distribution.html#cb539-10" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(x_marginals, x_joint, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-283-1.png" width="672" /></p>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="the-normal-distribution.html#cb562-1" aria-hidden="true" tabindex="-1"></a>x_marginals <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
+<span id="cb562-2"><a href="the-normal-distribution.html#cb562-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> x1), <span class="at">fill =</span> <span class="st">&#39;black&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb562-3"><a href="the-normal-distribution.html#cb562-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x =</span> x2), <span class="at">fill =</span> <span class="st">&#39;orange&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb562-4"><a href="the-normal-distribution.html#cb562-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&#39;&#39;</span>)</span>
+<span id="cb562-5"><a href="the-normal-distribution.html#cb562-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb562-6"><a href="the-normal-distribution.html#cb562-6" aria-hidden="true" tabindex="-1"></a>x_joint <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
+<span id="cb562-7"><a href="the-normal-distribution.html#cb562-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density2d_filled</span>(<span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2)) <span class="sc">+</span></span>
+<span id="cb562-8"><a href="the-normal-distribution.html#cb562-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()  <span class="co"># forces the aspect ratio to be 1:1 so you see the ellipses!</span></span>
+<span id="cb562-9"><a href="the-normal-distribution.html#cb562-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb562-10"><a href="the-normal-distribution.html#cb562-10" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(x_marginals, x_joint, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-296-1.png" width="672" /></p>
 </div>
-<div id="combine-to-create-correlation" class="section level3 hasAnchor" number="6.3.6">
-<h3><span class="header-section-number">6.3.6</span> Combine to Create Correlation<a href="the-normal-distribution.html#combine-to-create-correlation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>There's one more fact about normal distributions that we'll need: <strong>a sum of independent normal random variables is itself a normal random variable.</strong> For our purposes, this means that <span class="math inline">\(X \equiv a Z_1 + b Z_2 + c\)</span> is a normal random variable for any constants <span class="math inline">\(a, b\)</span>, and <span class="math inline">\(c\)</span>.<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a> Its mean and variance are determined from the values of <span class="math inline">\(a, b\)</span>, and <span class="math inline">\(c\)</span>.</p>
+<div id="combine-to-create-correlation" class="section level3 hasAnchor" number="7.3.6">
+<h3><span class="header-section-number">7.3.6</span> Combine to Create Correlation<a href="the-normal-distribution.html#combine-to-create-correlation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There's one more fact about normal distributions that we'll need: <strong>a sum of independent normal random variables is itself a normal random variable.</strong> For our purposes, this means that <span class="math inline">\(X \equiv a Z_1 + b Z_2 + c\)</span> is a normal random variable for any constants <span class="math inline">\(a, b\)</span>, and <span class="math inline">\(c\)</span>.<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a> Its mean and variance are determined from the values of <span class="math inline">\(a, b\)</span>, and <span class="math inline">\(c\)</span>.</p>
 <p>Now we're ready to construct some correlated normals. Suppose I define <span class="math inline">\(X_1 \equiv 2 Z_1 + Z_2\)</span> and <span class="math inline">\(X_2 \equiv Z_1 + 4 Z_2\)</span>. In other words, suppose that I <em>combine</em> <span class="math inline">\(Z_1\)</span> and <span class="math inline">\(Z_2\)</span> in two different ways by taking two distinct linear combinations. Because <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> depend on the same underlying standard normal random variables <span class="math inline">\((Z_1, Z_2)\)</span> we would expect them to be correlated, and indeed they are:</p>
-<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="the-normal-distribution.html#cb540-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">x1 =</span> <span class="dv">2</span> <span class="sc">*</span> z[,<span class="dv">1</span>] <span class="sc">+</span> z[,<span class="dv">2</span>],</span>
-<span id="cb540-2"><a href="the-normal-distribution.html#cb540-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">x2 =</span> z[,<span class="dv">1</span>] <span class="sc">+</span> <span class="dv">4</span> <span class="sc">*</span> z[,<span class="dv">2</span>])</span>
-<span id="cb540-3"><a href="the-normal-distribution.html#cb540-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="the-normal-distribution.html#cb563-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">x1 =</span> <span class="dv">2</span> <span class="sc">*</span> z[,<span class="dv">1</span>] <span class="sc">+</span> z[,<span class="dv">2</span>],</span>
+<span id="cb563-2"><a href="the-normal-distribution.html#cb563-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">x2 =</span> z[,<span class="dv">1</span>] <span class="sc">+</span> <span class="dv">4</span> <span class="sc">*</span> z[,<span class="dv">2</span>])</span>
+<span id="cb563-3"><a href="the-normal-distribution.html#cb563-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(x)</span></code></pre></div>
 <pre><code>##          x1        x2
 ## x1 5.031082  6.031717
 ## x2 6.031717 17.068951</code></pre>
-<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="the-normal-distribution.html#cb542-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="the-normal-distribution.html#cb565-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x)</span></code></pre></div>
 <pre><code>##           x1        x2
 ## x1 1.0000000 0.6508888
 ## x2 0.6508888 1.0000000</code></pre>
@@ -802,52 +834,52 @@ For this reason we'll work with zero mean normals throughout most of this lesson
 \mathbf{X} = \begin{bmatrix} X_1 \\ X_2 \end{bmatrix}, \quad  \mathbf{Z} = \begin{bmatrix} Z_1 \\ Z_2\end{bmatrix}, \quad \mathbf{A} \equiv \begin{bmatrix} 2 &amp; 1 \\ 1 &amp; 4\end{bmatrix}.
 \]</span>
 To implement this in R, we need to introduce a few new commands. First, <code>matrix()</code> is used to convert a vector of values into a matrix:</p>
-<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="the-normal-distribution.html#cb544-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, </span>
-<span id="cb544-2"><a href="the-normal-distribution.html#cb544-2" aria-hidden="true" tabindex="-1"></a>              <span class="dv">1</span>, <span class="dv">4</span>), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb544-3"><a href="the-normal-distribution.html#cb544-3" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="the-normal-distribution.html#cb567-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, </span>
+<span id="cb567-2"><a href="the-normal-distribution.html#cb567-2" aria-hidden="true" tabindex="-1"></a>              <span class="dv">1</span>, <span class="dv">4</span>), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb567-3"><a href="the-normal-distribution.html#cb567-3" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    2    1
 ## [2,]    1    4</code></pre>
 <p>The first argument of <code>matrix()</code> is the vector of values that we will use to fill our matrix; <code>ncol</code> and <code>nrow</code> are the desired numbers of columns and rows. By default, R fills matrices <em>by column</em>. To make things easier to read, I've added line breaks so you can "see" the matrix and set the argument <code>byrow = TRUE</code> so that R will fill <code>A</code> by row instead.</p>
 <p>Next we need to multiply <span class="math inline">\((Z_1, Z_2)&#39;\)</span> by <span class="math inline">\(\mathbf{A}\)</span>. Each <em>row</em> of the matrix <code>z</code> contains one simulated realization of <span class="math inline">\(Z_1\)</span> and <span class="math inline">\(Z_2\)</span>, but our expression <span class="math inline">\(\mathbf{X} = \mathbf{A}\mathbf{Z}\)</span> from above represents <span class="math inline">\(Z_1\)</span> and <span class="math inline">\(Z_2\)</span> as a <em>column</em> rather than a row. This means we'll need to transpose them using the <code>t()</code> function. Here's an example of <code>t()</code> in action:</p>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="the-normal-distribution.html#cb546-1" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="the-normal-distribution.html#cb569-1" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    2    1
 ## [2,]    1    4</code></pre>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="the-normal-distribution.html#cb548-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="the-normal-distribution.html#cb571-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(A)</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    2    1
 ## [2,]    1    4</code></pre>
 <p>Finally, we need to know how to multiply matrices in R. There are <em>two</em> notions of a "matrix product" in R. The first is <em>elementwise</em> multiplication: <code>A * B</code> multiplies every element of <code>A</code> by the corresponding element of <code>B</code> for example</p>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="the-normal-distribution.html#cb550-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">*</span> A</span></code></pre></div>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="the-normal-distribution.html#cb573-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">*</span> A</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    4    1
 ## [2,]    1   16</code></pre>
 <p>The second, and the one we need here, is <em>matrix multiplication</em>: <code>A %*% B</code> creates a matrix whose <code>[i,j]</code> element is the dot product of <code>A[i,]</code> with <code>B[,j]</code>. This is the "usual" matrix product that you know and love from linear algebra, for example:</p>
-<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="the-normal-distribution.html#cb552-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">%*%</span> A</span></code></pre></div>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="the-normal-distribution.html#cb575-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">%*%</span> A</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    5    6
 ## [2,]    6   17</code></pre>
 <p>Putting the pieces together gives a slicker way to construct the matrix <code>x</code> from above, namely <code>t(A %*% t(z))</code>:</p>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="the-normal-distribution.html#cb554-1" aria-hidden="true" tabindex="-1"></a>x_alt <span class="ot">&lt;-</span> <span class="fu">t</span>(A <span class="sc">%*%</span> <span class="fu">t</span>(z))</span>
-<span id="cb554-2"><a href="the-normal-distribution.html#cb554-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(x_alt) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;x1&#39;</span>, <span class="st">&#39;x2&#39;</span>) <span class="co"># give x_alt the same column names as x</span></span>
-<span id="cb554-3"><a href="the-normal-distribution.html#cb554-3" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(x, x_alt) <span class="co"># identical() is picky: it checks names as well as values!</span></span></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="the-normal-distribution.html#cb577-1" aria-hidden="true" tabindex="-1"></a>x_alt <span class="ot">&lt;-</span> <span class="fu">t</span>(A <span class="sc">%*%</span> <span class="fu">t</span>(z))</span>
+<span id="cb577-2"><a href="the-normal-distribution.html#cb577-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(x_alt) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;x1&#39;</span>, <span class="st">&#39;x2&#39;</span>) <span class="co"># give x_alt the same column names as x</span></span>
+<span id="cb577-3"><a href="the-normal-distribution.html#cb577-3" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(x, x_alt) <span class="co"># identical() is picky: it checks names as well as values!</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Because each of them is a sum of independent normals, both <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are <em>themselves</em> normal random variables. They are both <em>marginally</em> normal and <em>jointly</em> normal:</p>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="the-normal-distribution.html#cb556-1" aria-hidden="true" tabindex="-1"></a>x_marginals <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
-<span id="cb556-2"><a href="the-normal-distribution.html#cb556-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(x1), <span class="at">fill =</span> <span class="st">&#39;black&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb556-3"><a href="the-normal-distribution.html#cb556-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(x2), <span class="at">fill =</span> <span class="st">&#39;orange&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
-<span id="cb556-4"><a href="the-normal-distribution.html#cb556-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb556-5"><a href="the-normal-distribution.html#cb556-5" aria-hidden="true" tabindex="-1"></a>x_joint <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
-<span id="cb556-6"><a href="the-normal-distribution.html#cb556-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density2d_filled</span>(<span class="fu">aes</span>(x1, x2)) <span class="sc">+</span></span>
-<span id="cb556-7"><a href="the-normal-distribution.html#cb556-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()  <span class="co"># forces the aspect ratio to be 1:1 so you see the ellipses!</span></span>
-<span id="cb556-8"><a href="the-normal-distribution.html#cb556-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb556-9"><a href="the-normal-distribution.html#cb556-9" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(x_marginals, x_joint, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-290-1.png" width="672" /></p>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="the-normal-distribution.html#cb579-1" aria-hidden="true" tabindex="-1"></a>x_marginals <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
+<span id="cb579-2"><a href="the-normal-distribution.html#cb579-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(x1), <span class="at">fill =</span> <span class="st">&#39;black&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb579-3"><a href="the-normal-distribution.html#cb579-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(x2), <span class="at">fill =</span> <span class="st">&#39;orange&#39;</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
+<span id="cb579-4"><a href="the-normal-distribution.html#cb579-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb579-5"><a href="the-normal-distribution.html#cb579-5" aria-hidden="true" tabindex="-1"></a>x_joint <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
+<span id="cb579-6"><a href="the-normal-distribution.html#cb579-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density2d_filled</span>(<span class="fu">aes</span>(x1, x2)) <span class="sc">+</span></span>
+<span id="cb579-7"><a href="the-normal-distribution.html#cb579-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()  <span class="co"># forces the aspect ratio to be 1:1 so you see the ellipses!</span></span>
+<span id="cb579-8"><a href="the-normal-distribution.html#cb579-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb579-9"><a href="the-normal-distribution.html#cb579-9" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(x_marginals, x_joint, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-303-1.png" width="672" /></p>
 <p>Notice that the correlation between <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> produces a <em>tilted ellipse</em> in the joint density plot. The ellipse slopes upward because <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are positively correlated. So how can we tell what covariances we'll end up with for a particular choice of <code>A</code>? You'll work out the answer in the following exercise.</p>
 </div>
-<div id="exercise-33" class="section level3 hasAnchor" number="6.3.7">
-<h3><span class="header-section-number">6.3.7</span> Exercise<a href="the-normal-distribution.html#exercise-33" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercise-34" class="section level3 hasAnchor" number="7.3.7">
+<h3><span class="header-section-number">7.3.7</span> Exercise<a href="the-normal-distribution.html#exercise-34" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose that <span class="math inline">\(Z_1, Z_2 \sim \text{ iid N}(0,1)\)</span> and
 <span class="math display">\[
 \mathbf{X} = \mathbf{A}\mathbf{Z}, \quad \mathbf{X}= \begin{bmatrix} X_1 \\ X_2 \end{bmatrix}, \quad \mathbf{A} = \begin{bmatrix} a &amp; b \\ c &amp; d\end{bmatrix}, \quad \begin{bmatrix} Z_1 \\ Z_2 \end{bmatrix}.
@@ -899,30 +931,30 @@ ac + bd &amp; c^2 + d^2
 \end{bmatrix}
 \]</span>
 Finally, substituting the values from the example above</p>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="the-normal-distribution.html#cb557-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>,</span>
-<span id="cb557-2"><a href="the-normal-distribution.html#cb557-2" aria-hidden="true" tabindex="-1"></a>              <span class="dv">1</span>, <span class="dv">4</span>), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
-<span id="cb557-3"><a href="the-normal-distribution.html#cb557-3" aria-hidden="true" tabindex="-1"></a>A <span class="sc">%*%</span> <span class="fu">t</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="the-normal-distribution.html#cb580-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>,</span>
+<span id="cb580-2"><a href="the-normal-distribution.html#cb580-2" aria-hidden="true" tabindex="-1"></a>              <span class="dv">1</span>, <span class="dv">4</span>), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb580-3"><a href="the-normal-distribution.html#cb580-3" aria-hidden="true" tabindex="-1"></a>A <span class="sc">%*%</span> <span class="fu">t</span>(A)</span></code></pre></div>
 <pre><code>##      [,1] [,2]
 ## [1,]    5    6
 ## [2,]    6   17</code></pre>
 <p>The sample variance-covariance matrix from our simulations is quite close:</p>
-<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="the-normal-distribution.html#cb559-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="the-normal-distribution.html#cb582-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(x)</span></code></pre></div>
 <pre><code>##          x1        x2
 ## x1 5.031082  6.031717
 ## x2 6.031717 17.068951</code></pre>
 </div>
 </div>
 </div>
-<div id="the-cholesky-decomposition" class="section level2 hasAnchor" number="6.4">
-<h2><span class="header-section-number">6.4</span> The Cholesky Decomposition<a href="the-normal-distribution.html#the-cholesky-decomposition" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-cholesky-decomposition" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> The Cholesky Decomposition<a href="the-normal-distribution.html#the-cholesky-decomposition" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div style="float:left;position: relative; margin-right: 10px; height: 30%;">
 <div class="figure">
 <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Andre_Cholesky.jpg" alt="" />
 <p class="caption">André-Louis Cholesky (1875-1918)</p>
 </div>
 </div>
-<div id="going-backwards" class="section level3 hasAnchor" number="6.4.1">
-<h3><span class="header-section-number">6.4.1</span> Going Backwards<a href="the-normal-distribution.html#going-backwards" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="going-backwards" class="section level3 hasAnchor" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> Going Backwards<a href="the-normal-distribution.html#going-backwards" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>But we <em>still</em> don't know how to produce correlated normal draws! For example, suppose we need to generate two standard normals <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> with <span class="math inline">\(\text{Cor}(X_1, X_2) = 0.5\)</span>. How can we achieve this? In effect, this requires us to work through the preceding exercise <em>in reverse</em>. That is, we need to find constants <span class="math inline">\(a, b, c\)</span>, and <span class="math inline">\(d\)</span> such that<br />
 <span class="math display">\[
 \begin{aligned}
@@ -936,21 +968,21 @@ gives <span class="math inline">\(\text{Var}(X_1) = \text{Var}(X_2) = 1\)</span>
 \begin{bmatrix} 1 &amp; 0 \\ 0.5 &amp; \sqrt{1 - 0.5^2}\end{bmatrix} \begin{bmatrix} Z_1 \\ Z_1 \end{bmatrix} \sim \text{N}\left(\begin{bmatrix}0 \\ 0 \end{bmatrix}, \begin{bmatrix} 1 &amp; 0.5 \\ 0.5 &amp; 1\end{bmatrix} \right).
 \]</span>
 And this works exactly as expected:</p>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="the-normal-distribution.html#cb561-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>,</span>
-<span id="cb561-2"><a href="the-normal-distribution.html#cb561-2" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.5</span>, <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.5</span><span class="sc">^</span><span class="dv">2</span>)), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb561-3"><a href="the-normal-distribution.html#cb561-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">t</span>(A <span class="sc">%*%</span> <span class="fu">t</span>(z)) </span>
-<span id="cb561-4"><a href="the-normal-distribution.html#cb561-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;x1&#39;</span>, <span class="st">&#39;x2&#39;</span>)</span>
-<span id="cb561-5"><a href="the-normal-distribution.html#cb561-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="the-normal-distribution.html#cb584-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>,</span>
+<span id="cb584-2"><a href="the-normal-distribution.html#cb584-2" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.5</span>, <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.5</span><span class="sc">^</span><span class="dv">2</span>)), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb584-3"><a href="the-normal-distribution.html#cb584-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">t</span>(A <span class="sc">%*%</span> <span class="fu">t</span>(z)) </span>
+<span id="cb584-4"><a href="the-normal-distribution.html#cb584-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;x1&#39;</span>, <span class="st">&#39;x2&#39;</span>)</span>
+<span id="cb584-5"><a href="the-normal-distribution.html#cb584-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(x)</span></code></pre></div>
 <pre><code>##           x1        x2
 ## x1 1.0063783 0.5035995
 ## x2 0.5035995 1.0047603</code></pre>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="the-normal-distribution.html#cb563-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
-<span id="cb563-2"><a href="the-normal-distribution.html#cb563-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density2d_filled</span>(<span class="fu">aes</span>(x1, x2)) <span class="sc">+</span></span>
-<span id="cb563-3"><a href="the-normal-distribution.html#cb563-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()  <span class="co"># forces the aspect ratio to be 1:1 so you see the ellipses!</span></span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-293-1.png" width="672" /></p>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="the-normal-distribution.html#cb586-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
+<span id="cb586-2"><a href="the-normal-distribution.html#cb586-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density2d_filled</span>(<span class="fu">aes</span>(x1, x2)) <span class="sc">+</span></span>
+<span id="cb586-3"><a href="the-normal-distribution.html#cb586-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()  <span class="co"># forces the aspect ratio to be 1:1 so you see the ellipses!</span></span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-306-1.png" width="672" /></p>
 </div>
-<div id="exercise-34" class="section level3 hasAnchor" number="6.4.2">
-<h3><span class="header-section-number">6.4.2</span> Exercise<a href="the-normal-distribution.html#exercise-34" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercise-35" class="section level3 hasAnchor" number="7.4.2">
+<h3><span class="header-section-number">7.4.2</span> Exercise<a href="the-normal-distribution.html#exercise-35" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Suppose we wanted the correlation between <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> to be <span class="math inline">\(\rho\)</span>, a value that might not equal 0.5. Modify the argument from above accordingly.</li>
 </ol>
@@ -988,31 +1020,31 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="the-normal-distribution.html#cb564-1" aria-hidden="true" tabindex="-1"></a>s1 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb564-2"><a href="the-normal-distribution.html#cb564-2" aria-hidden="true" tabindex="-1"></a>s2 <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb564-3"><a href="the-normal-distribution.html#cb564-3" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
-<span id="cb564-4"><a href="the-normal-distribution.html#cb564-4" aria-hidden="true" tabindex="-1"></a>s12 <span class="ot">&lt;-</span> r <span class="sc">*</span> (s1 <span class="sc">*</span> s2)</span>
-<span id="cb564-5"><a href="the-normal-distribution.html#cb564-5" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(s1, <span class="dv">0</span>,</span>
-<span id="cb564-6"><a href="the-normal-distribution.html#cb564-6" aria-hidden="true" tabindex="-1"></a>              s12 <span class="sc">/</span> s1, <span class="fu">sqrt</span>(s2<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> s12<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> s1<span class="sc">^</span><span class="dv">2</span>)), </span>
-<span id="cb564-7"><a href="the-normal-distribution.html#cb564-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb564-8"><a href="the-normal-distribution.html#cb564-8" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">t</span>(A <span class="sc">%*%</span> <span class="fu">t</span>(z)) </span>
-<span id="cb564-9"><a href="the-normal-distribution.html#cb564-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;x1&#39;</span>, <span class="st">&#39;x2&#39;</span>)</span>
-<span id="cb564-10"><a href="the-normal-distribution.html#cb564-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="the-normal-distribution.html#cb587-1" aria-hidden="true" tabindex="-1"></a>s1 <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb587-2"><a href="the-normal-distribution.html#cb587-2" aria-hidden="true" tabindex="-1"></a>s2 <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb587-3"><a href="the-normal-distribution.html#cb587-3" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
+<span id="cb587-4"><a href="the-normal-distribution.html#cb587-4" aria-hidden="true" tabindex="-1"></a>s12 <span class="ot">&lt;-</span> r <span class="sc">*</span> (s1 <span class="sc">*</span> s2)</span>
+<span id="cb587-5"><a href="the-normal-distribution.html#cb587-5" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(s1, <span class="dv">0</span>,</span>
+<span id="cb587-6"><a href="the-normal-distribution.html#cb587-6" aria-hidden="true" tabindex="-1"></a>              s12 <span class="sc">/</span> s1, <span class="fu">sqrt</span>(s2<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> s12<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> s1<span class="sc">^</span><span class="dv">2</span>)), </span>
+<span id="cb587-7"><a href="the-normal-distribution.html#cb587-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb587-8"><a href="the-normal-distribution.html#cb587-8" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">t</span>(A <span class="sc">%*%</span> <span class="fu">t</span>(z)) </span>
+<span id="cb587-9"><a href="the-normal-distribution.html#cb587-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;x1&#39;</span>, <span class="st">&#39;x2&#39;</span>)</span>
+<span id="cb587-10"><a href="the-normal-distribution.html#cb587-10" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(x)</span></code></pre></div>
 <pre><code>##           x1        x2
 ## x1 1.0063783 0.8059712
 ## x2 0.8059712 4.0178160</code></pre>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="the-normal-distribution.html#cb566-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="the-normal-distribution.html#cb589-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x)</span></code></pre></div>
 <pre><code>##           x1        x2
 ## x1 1.0000000 0.4008149
 ## x2 0.4008149 1.0000000</code></pre>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="the-normal-distribution.html#cb568-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
-<span id="cb568-2"><a href="the-normal-distribution.html#cb568-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density2d_filled</span>(<span class="fu">aes</span>(x1, x2)) <span class="sc">+</span></span>
-<span id="cb568-3"><a href="the-normal-distribution.html#cb568-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()  <span class="co"># forces the aspect ratio to be 1:1 so you see the ellipses!</span></span></code></pre></div>
-<p><img src="erm-book_files/figure-html/unnamed-chunk-294-1.png" width="672" /></p>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="the-normal-distribution.html#cb591-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x)) <span class="sc">+</span></span>
+<span id="cb591-2"><a href="the-normal-distribution.html#cb591-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density2d_filled</span>(<span class="fu">aes</span>(x1, x2)) <span class="sc">+</span></span>
+<span id="cb591-3"><a href="the-normal-distribution.html#cb591-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>()  <span class="co"># forces the aspect ratio to be 1:1 so you see the ellipses!</span></span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-307-1.png" width="672" /></p>
 </div>
 </div>
-<div id="whats-the-square-root-of-a-matrix" class="section level3 hasAnchor" number="6.4.3">
-<h3><span class="header-section-number">6.4.3</span> What's the Square Root of a Matrix?<a href="the-normal-distribution.html#whats-the-square-root-of-a-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="whats-the-square-root-of-a-matrix" class="section level3 hasAnchor" number="7.4.3">
+<h3><span class="header-section-number">7.4.3</span> What's the Square Root of a Matrix?<a href="the-normal-distribution.html#whats-the-square-root-of-a-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In the preceding exercise, you found a way to take a <span class="math inline">\((2\times 2)\)</span> covariance matrix <span class="math inline">\(\boldsymbol{\Sigma}\)</span> and <em>decompose</em> it according to <span class="math inline">\(\boldsymbol{\Sigma} = \mathbf{A} \mathbf{A}&#39;\)</span> where <span class="math inline">\(\mathbf{A}\)</span> is a matrix of real numbers. Computing <span class="math inline">\(\mathbf{A}\)</span> is analogous to taking the positive square root of <span class="math inline">\(\sigma^2\)</span>.</p>
 <p>There are two important facts about square roots. First, they don't always exist: there's no real number that equals <span class="math inline">\(\sqrt{-4}\)</span>. Second, they're not necessarily unique: both <span class="math inline">\(-2\)</span> and <span class="math inline">\(2\)</span> equal four when squared. So is it always possible to write a variance-covariance matrix in the form <span class="math inline">\(\mathbf{A}\mathbf{A}&#39;\)</span>? The answer turns out to be <em>yes</em>.</p>
 <p>Variance-covariance matrices are symmetric, but not every symmetric matrix is a variance-covariance matrix. Here's an example:
@@ -1023,9 +1055,9 @@ Show Solution
 \end{bmatrix}
 \]</span>
 This can't be a variance-covariance matrix. Why not? Taking its correlation matrix gives</p>
-<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="the-normal-distribution.html#cb569-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">16</span>, </span>
-<span id="cb569-2"><a href="the-normal-distribution.html#cb569-2" aria-hidden="true" tabindex="-1"></a>              <span class="dv">16</span>, <span class="dv">9</span>), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb569-3"><a href="the-normal-distribution.html#cb569-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cov2cor</span>(M)</span></code></pre></div>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="the-normal-distribution.html#cb592-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">16</span>, </span>
+<span id="cb592-2"><a href="the-normal-distribution.html#cb592-2" aria-hidden="true" tabindex="-1"></a>              <span class="dv">16</span>, <span class="dv">9</span>), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb592-3"><a href="the-normal-distribution.html#cb592-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cov2cor</span>(M)</span></code></pre></div>
 <pre><code>##          [,1]     [,2]
 ## [1,] 1.000000 2.666667
 ## [2,] 2.666667 1.000000</code></pre>
@@ -1036,7 +1068,7 @@ This can't be a variance-covariance matrix. Why not? Taking its correlation matr
 \boldsymbol{\Sigma} = \begin{bmatrix} \sigma_1^2 &amp; \sigma_{12} \\
 \sigma_{12} &amp; \sigma_2^2\end{bmatrix}
 \]</span>
-as in the exercise above. Now define <span class="math inline">\(Y = \alpha X_1 + \beta X_2\)</span>. Unless <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are <em>both</em> zero, <span class="math inline">\(Y\)</span> is a normal random variable so it certainly must have a positive variance. If we define <span class="math inline">\(\mathbf{v}&#39; = \begin{bmatrix} \alpha &amp; \beta \end{bmatrix}\)</span> then, a bit of algebra shows that <span class="math inline">\(\text{Var}(Y) = \mathbf{v}&#39; \boldsymbol{\Sigma} \mathbf{v}\)</span>. (See the exercise below.) So requiring that <span class="math inline">\(\mathbf{v} \boldsymbol{\Sigma} \mathbf{v}&#39; &gt; 0\)</span> is <em>equivalent</em> to requiring that any random variable <span class="math inline">\(Y\)</span> that we form by taking a linear combination of <span class="math inline">\(\mathbf{X}\)</span> has a positive variance. There's nothing special about the two-dimensional case: this all applies in general. This is why a matrix that isn't positive definite can't be a variance-covariance matrix.<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a></p>
+as in the exercise above. Now define <span class="math inline">\(Y = \alpha X_1 + \beta X_2\)</span>. Unless <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are <em>both</em> zero, <span class="math inline">\(Y\)</span> is a normal random variable so it certainly must have a positive variance. If we define <span class="math inline">\(\mathbf{v}&#39; = \begin{bmatrix} \alpha &amp; \beta \end{bmatrix}\)</span> then, a bit of algebra shows that <span class="math inline">\(\text{Var}(Y) = \mathbf{v}&#39; \boldsymbol{\Sigma} \mathbf{v}\)</span>. (See the exercise below.) So requiring that <span class="math inline">\(\mathbf{v} \boldsymbol{\Sigma} \mathbf{v}&#39; &gt; 0\)</span> is <em>equivalent</em> to requiring that any random variable <span class="math inline">\(Y\)</span> that we form by taking a linear combination of <span class="math inline">\(\mathbf{X}\)</span> has a positive variance. There's nothing special about the two-dimensional case: this all applies in general. This is why a matrix that isn't positive definite can't be a variance-covariance matrix.<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a></p>
 <p>Fortunately for anyone who wants to generate correlated normal draws, <em>any</em> positive definite matrix <span class="math inline">\(\boldsymbol{\Sigma}\)</span>, has a "square root" in the sense that it can be written as <span class="math inline">\(\boldsymbol{\Sigma} = \mathbf{A}\mathbf{A}&#39;\)</span>. But just as the square root of a real number isn't unique, <span class="math inline">\(\mathbf{A}\)</span> likewise isn't unique. For example,
 <span class="math display">\[
 \begin{bmatrix}
@@ -1053,16 +1085,16 @@ as in the exercise above. Now define <span class="math inline">\(Y = \alpha X_1 
 \end{bmatrix}
 \]</span>
 Adopting the convention that <span class="math inline">\(\mathbf{A}\)</span> should be <a href="https://en.wikipedia.org/wiki/Triangular_matrix"><em>lower triangular</em></a> and that its diagonal elements should all be positive, however, <em>does</em> uniquely pin down <span class="math inline">\(\mathbf{A}\)</span>: it picks out the first of these alternatives. This <span class="math inline">\((2\times 2)\)</span> example is a special case of the so-called <a href="https://en.wikipedia.org/wiki/Cholesky_decomposition">Cholesky Decomposition</a>: any positive definite matrix <span class="math inline">\(\Sigma\)</span> can be expressed as <span class="math inline">\(\Sigma = \mathbf{L}\mathbf{L}&#39;\)</span> where <span class="math inline">\(\mathbf{L}\)</span> is a lower triangular matrix with positive diagonal elements. The R command for the Cholesky decomposition is <code>chol()</code>. <strong>Just to make life confusing</strong>, <code>chol()</code> returns <span class="math inline">\(\mathbf{L}&#39;\)</span> rather than <span class="math inline">\(\mathbf{L}\)</span>,</p>
-<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="the-normal-distribution.html#cb571-1" aria-hidden="true" tabindex="-1"></a>Sigma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.5</span>,</span>
-<span id="cb571-2"><a href="the-normal-distribution.html#cb571-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fl">0.5</span>, <span class="dv">1</span>), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb571-3"><a href="the-normal-distribution.html#cb571-3" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>,</span>
-<span id="cb571-4"><a href="the-normal-distribution.html#cb571-4" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.5</span>, <span class="fu">sqrt</span>(<span class="dv">3</span>)<span class="sc">/</span><span class="dv">2</span>), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb571-5"><a href="the-normal-distribution.html#cb571-5" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">t</span>(A), <span class="fu">chol</span>(Sigma))</span></code></pre></div>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="the-normal-distribution.html#cb594-1" aria-hidden="true" tabindex="-1"></a>Sigma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.5</span>,</span>
+<span id="cb594-2"><a href="the-normal-distribution.html#cb594-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fl">0.5</span>, <span class="dv">1</span>), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb594-3"><a href="the-normal-distribution.html#cb594-3" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>,</span>
+<span id="cb594-4"><a href="the-normal-distribution.html#cb594-4" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.5</span>, <span class="fu">sqrt</span>(<span class="dv">3</span>)<span class="sc">/</span><span class="dv">2</span>), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb594-5"><a href="the-normal-distribution.html#cb594-5" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(<span class="fu">t</span>(A), <span class="fu">chol</span>(Sigma))</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Here's how to remember this quirk: <em>true to its name</em> R returns an <em>upper</em> triangular matrix <span class="math inline">\(\mathbf{R}\)</span>, so its version of Cholesky is <span class="math inline">\(\boldsymbol{\Sigma} = \mathbf{R} \mathbf{R}&#39;\)</span>. Armed with this knowledge, we can now generate <em>more than two</em> correlated normal random variables, as you'll discover in the following exercise.</p>
 </div>
-<div id="exercise-35" class="section level3 hasAnchor" number="6.4.4">
-<h3><span class="header-section-number">6.4.4</span> Exercise<a href="the-normal-distribution.html#exercise-35" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="exercise-36" class="section level3 hasAnchor" number="7.4.4">
+<h3><span class="header-section-number">7.4.4</span> Exercise<a href="the-normal-distribution.html#exercise-36" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li>Suppose that <code>M</code> is a <span class="math inline">\((3 \times 3)\)</span> matrix. Here's how to check if it's positive definite. First check <code>M[1,1]</code>; this element needs to be positive. Next check the <span class="math inline">\((2\times 2)\)</span> sub-matrix <code>M[1:2,1:2]</code>; its <em>determinant</em>, which you can calculate using <code>det()</code> needs to be positive. Finally check the determinant of <code>M</code> itself; this too needs to be positive. If <code>M</code> passes all the tests then it's positive definite! The same procedure works for smaller matrices and larger ones: we check that the determinant of each <a href="https://en.wikipedia.org/wiki/Minor_(linear_algebra)"><em>leading principal minor</em></a> is positive. Here are two matrices, one of which is positive definite and one of which is not. Determine which is which.
 <span class="math display">\[
@@ -1083,20 +1115,20 @@ Adopting the convention that <span class="math inline">\(\mathbf{A}\)</span> sho
 Show Solution
 </button>
 <p>Both <span class="math inline">\(\mathbf{A}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> are symmetric. The matrix <span class="math inline">\(\mathbf{A}\)</span> is <em>not</em> positive definite because its determinant is negative:</p>
-<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="the-normal-distribution.html#cb573-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>,</span>
-<span id="cb573-2"><a href="the-normal-distribution.html#cb573-2" aria-hidden="true" tabindex="-1"></a>              <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>,</span>
-<span id="cb573-3"><a href="the-normal-distribution.html#cb573-3" aria-hidden="true" tabindex="-1"></a>              <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>), </span>
-<span id="cb573-4"><a href="the-normal-distribution.html#cb573-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>) </span>
-<span id="cb573-5"><a href="the-normal-distribution.html#cb573-5" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(A)</span></code></pre></div>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="the-normal-distribution.html#cb596-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>,</span>
+<span id="cb596-2"><a href="the-normal-distribution.html#cb596-2" aria-hidden="true" tabindex="-1"></a>              <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>,</span>
+<span id="cb596-3"><a href="the-normal-distribution.html#cb596-3" aria-hidden="true" tabindex="-1"></a>              <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>), </span>
+<span id="cb596-4"><a href="the-normal-distribution.html#cb596-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>) </span>
+<span id="cb596-5"><a href="the-normal-distribution.html#cb596-5" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(A)</span></code></pre></div>
 <pre><code>## [1] -13</code></pre>
 <p>The matrix <span class="math inline">\(\mathbf{B}\)</span> is positive definite since <code>B[1, 1]</code> is positive, the determinant of <code>B[1:2, 1:2]</code> is positive, and the determinant of <code>B</code> itself is positive:</p>
-<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="the-normal-distribution.html#cb575-1" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>,</span>
-<span id="cb575-2"><a href="the-normal-distribution.html#cb575-2" aria-hidden="true" tabindex="-1"></a>              <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>,</span>
-<span id="cb575-3"><a href="the-normal-distribution.html#cb575-3" aria-hidden="true" tabindex="-1"></a>              <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>), </span>
-<span id="cb575-4"><a href="the-normal-distribution.html#cb575-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb575-5"><a href="the-normal-distribution.html#cb575-5" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(B[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="the-normal-distribution.html#cb598-1" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>,</span>
+<span id="cb598-2"><a href="the-normal-distribution.html#cb598-2" aria-hidden="true" tabindex="-1"></a>              <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>,</span>
+<span id="cb598-3"><a href="the-normal-distribution.html#cb598-3" aria-hidden="true" tabindex="-1"></a>              <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">3</span>), </span>
+<span id="cb598-4"><a href="the-normal-distribution.html#cb598-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb598-5"><a href="the-normal-distribution.html#cb598-5" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(B[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="the-normal-distribution.html#cb577-1" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(B)</span></code></pre></div>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="the-normal-distribution.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="fu">det</span>(B)</span></code></pre></div>
 <pre><code>## [1] 13</code></pre>
 </div>
 <ol start="2" style="list-style-type: decimal">
@@ -1106,13 +1138,13 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb579-1"><a href="the-normal-distribution.html#cb579-1" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">chol</span>(B)</span>
-<span id="cb579-2"><a href="the-normal-distribution.html#cb579-2" aria-hidden="true" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">t</span>(R)</span>
-<span id="cb579-3"><a href="the-normal-distribution.html#cb579-3" aria-hidden="true" tabindex="-1"></a>n_sims <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
-<span id="cb579-4"><a href="the-normal-distribution.html#cb579-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">29837</span>)</span>
-<span id="cb579-5"><a href="the-normal-distribution.html#cb579-5" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">3</span> <span class="sc">*</span> n_sims), <span class="at">nrow =</span> n_sims, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
-<span id="cb579-6"><a href="the-normal-distribution.html#cb579-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">t</span>(L <span class="sc">%*%</span> <span class="fu">t</span>(z))</span>
-<span id="cb579-7"><a href="the-normal-distribution.html#cb579-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="the-normal-distribution.html#cb602-1" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">chol</span>(B)</span>
+<span id="cb602-2"><a href="the-normal-distribution.html#cb602-2" aria-hidden="true" tabindex="-1"></a>L <span class="ot">&lt;-</span> <span class="fu">t</span>(R)</span>
+<span id="cb602-3"><a href="the-normal-distribution.html#cb602-3" aria-hidden="true" tabindex="-1"></a>n_sims <span class="ot">&lt;-</span> <span class="fl">1e5</span></span>
+<span id="cb602-4"><a href="the-normal-distribution.html#cb602-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">29837</span>)</span>
+<span id="cb602-5"><a href="the-normal-distribution.html#cb602-5" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">3</span> <span class="sc">*</span> n_sims), <span class="at">nrow =</span> n_sims, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb602-6"><a href="the-normal-distribution.html#cb602-6" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">t</span>(L <span class="sc">%*%</span> <span class="fu">t</span>(z))</span>
+<span id="cb602-7"><a href="the-normal-distribution.html#cb602-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(x)</span></code></pre></div>
 <pre><code>##          [,1]     [,2]     [,3]
 ## [1,] 2.986340 1.985103 1.006587
 ## [2,] 1.985103 2.983812 1.001514
@@ -1125,11 +1157,11 @@ Show Solution
 <button>
 Show Solution
 </button>
-<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="the-normal-distribution.html#cb581-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.package(&#39;mvtnorm&#39;)</span></span>
-<span id="cb581-2"><a href="the-normal-distribution.html#cb581-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mvtnorm)</span>
-<span id="cb581-3"><a href="the-normal-distribution.html#cb581-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">29837</span>)</span>
-<span id="cb581-4"><a href="the-normal-distribution.html#cb581-4" aria-hidden="true" tabindex="-1"></a>x_alt <span class="ot">&lt;-</span> <span class="fu">rmvnorm</span>(n_sims, <span class="at">sigma =</span> B)</span>
-<span id="cb581-5"><a href="the-normal-distribution.html#cb581-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(x_alt)</span></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="the-normal-distribution.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.package(&#39;mvtnorm&#39;)</span></span>
+<span id="cb604-2"><a href="the-normal-distribution.html#cb604-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mvtnorm)</span>
+<span id="cb604-3"><a href="the-normal-distribution.html#cb604-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">29837</span>)</span>
+<span id="cb604-4"><a href="the-normal-distribution.html#cb604-4" aria-hidden="true" tabindex="-1"></a>x_alt <span class="ot">&lt;-</span> <span class="fu">rmvnorm</span>(n_sims, <span class="at">sigma =</span> B)</span>
+<span id="cb604-5"><a href="the-normal-distribution.html#cb604-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(x_alt)</span></code></pre></div>
 <pre><code>##          [,1]     [,2]     [,3]
 ## [1,] 2.984944 1.997268 1.003196
 ## [2,] 1.997268 2.992995 1.006207
@@ -1152,11 +1184,11 @@ Show Solution
 </div>
 </div>
 </div>
-<div id="epilogue" class="section level2 hasAnchor" number="6.5">
-<h2><span class="header-section-number">6.5</span> Epilogue<a href="the-normal-distribution.html#epilogue" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="epilogue" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Epilogue<a href="the-normal-distribution.html#epilogue" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>So why did I pack all of this matrix algebra into a book that is ostensibly about empirical research methods? There are several reasons. First, you will one day encounter an error in your code telling you that a certain matrix is <code>not positive definite!</code> You need to understand what this means and why it's important. Second, the Cholesky decomposition comes up all over the place in applied econometrics and statistics. Now that you understand <em>how to build it up from scratch</em> in the <span class="math inline">\((2\times 2)\)</span> case, I hope you will find the general idea intuitive rather than mystifying when you next encounter it. Third, and most importantly, the approach of building up everything from scratch by combining Cholesky with independent standard normals pays big dividends in helping you understand the multivariate normal distribution. To show you what I mean, here are two important facts that you can now deduce <em>effectively for free</em> from what you've worked out above.</p>
-<div id="affine-transformations-of-a-multivariate-normal" class="section level3 hasAnchor" number="6.5.1">
-<h3><span class="header-section-number">6.5.1</span> Affine Transformations of a Multivariate Normal<a href="the-normal-distribution.html#affine-transformations-of-a-multivariate-normal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="affine-transformations-of-a-multivariate-normal" class="section level3 hasAnchor" number="7.5.1">
+<h3><span class="header-section-number">7.5.1</span> Affine Transformations of a Multivariate Normal<a href="the-normal-distribution.html#affine-transformations-of-a-multivariate-normal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>You worked out the two-dimensional case above, but the same holds in <span class="math inline">\(p\)</span> dimensions: if <span class="math inline">\(\mathbf{Z}\)</span> is a <span class="math inline">\(p\)</span>-dimensional vector of standard normal random variables, <span class="math inline">\(\mathbf{A}\)</span> is a <span class="math inline">\((p\times p)\)</span> matrix of constants and <span class="math inline">\(\boldsymbol{\mu}\)</span> is a <span class="math inline">\(p\)</span>-dimensional vector of constants, then <span class="math inline">\(\mathbf{X} \equiv \boldsymbol{\mu} + \mathbf{A} \mathbf{Z}\)</span> is a multivariate normal random vector with mean vector <span class="math inline">\(\boldsymbol{\mu}\)</span> and variance-covariance matrix <span class="math inline">\(\boldsymbol{\Sigma} = \mathbf{A}\mathbf{A}&#39;\)</span>.</p>
 <p>The shifting and scaling operation that we use to go from <span class="math inline">\(\mathbf{Z}\)</span> to <span class="math inline">\(\mathbf{X}\)</span> has a name: it's called an <a href="https://en.wikipedia.org/wiki/Affine_transformation">affine transformation</a>. So what happens if we apply an affine transformation to <span class="math inline">\(\mathbf{X}\)</span>? Suppose that <span class="math inline">\(\mathbf{Y} = \mathbf{c} + \mathbf{B} \mathbf{X}\)</span> where <span class="math inline">\(\mathbf{c}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> are constant. What is the distribution of <span class="math inline">\(\mathbf{Y}\)</span>? This turns out to be a <a href="https://en.wikipedia.org/wiki/Lagniappe">free extra</a>. Writing <span class="math inline">\(\mathbf{X}\)</span> in terms of <span class="math inline">\(\mathbf{Z}\)</span> reveals that <span class="math inline">\(\mathbf{Y}\)</span> is <em>itself</em> an affine transformation of <span class="math inline">\(\mathbf{Y}\)</span>:
 <span class="math display">\[
@@ -1168,8 +1200,8 @@ Now we can simply apply our result from above with <span class="math inline">\(\
 \]</span>
 Since the transpose of a product equals the product of the transposes <a href="https://math.stackexchange.com/a/1280243"><em>in the reverse order</em></a>. In other words, <strong>affine transformations of normals are always normal.</strong></p>
 </div>
-<div id="conditional-distributions-of-bivariate-normal" class="section level3 hasAnchor" number="6.5.2">
-<h3><span class="header-section-number">6.5.2</span> Conditional Distributions of Bivariate Normal<a href="the-normal-distribution.html#conditional-distributions-of-bivariate-normal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="conditional-distributions-of-bivariate-normal" class="section level3 hasAnchor" number="7.5.2">
+<h3><span class="header-section-number">7.5.2</span> Conditional Distributions of Bivariate Normal<a href="the-normal-distribution.html#conditional-distributions-of-bivariate-normal" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Suppose that <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> are jointly normal with mean vector <span class="math inline">\(\boldsymbol{\mu}\)</span> and variance-covariance matrix <span class="math inline">\(\boldsymbol{Sigma}\)</span>. What is the <em>conditional</em> distribution of <span class="math inline">\(X_2\)</span> given <span class="math inline">\(X_1\)</span>? There's a <a href="https://en.wikipedia.org/wiki/Multivariate_normal_distribution#Conditional_distributions">formula you could memorize</a>, but if you're anything like me you'll forget this when you need it the most. Instead, let's use Cholesky to help us.</p>
 <p>If <span class="math inline">\(\boldsymbol{\Sigma}\)</span> is positive definite, then we can construct <span class="math inline">\(\mathbf{A}\)</span> such that
 <span class="math display">\[
@@ -1244,11 +1276,14 @@ And what is <span class="math inline">\(\rho_{12}^2\)</span>? It's the <em>R-squ
 
 
 
+
+
+
 <div class="footnotes">
 <hr />
-<ol start="21">
-<li id="fn21"><p>Okay, fine: if <span class="math inline">\(a = b = 0\)</span> then <span class="math inline">\(X\)</span> merely equals the constant <span class="math inline">\(c\)</span>. But in any other case, <span class="math inline">\(X\)</span> is normally distributed.<a href="the-normal-distribution.html#fnref21" class="footnote-back">↩︎</a></p></li>
-<li id="fn22"><p>Strictly speaking a variance-covariance matrix only needs to be positive <em>semi-definite</em>, i.e. <span class="math inline">\(\mathbf{v}&#39; \boldsymbol{\Sigma} \mathbf{v}\geq 0\)</span> for any <span class="math inline">\(\mathbf{v} \neq \mathbf{0}\)</span>. But if there's a non-zero vector <span class="math inline">\(\mathbf{v}\)</span> such that <span class="math inline">\(\mathbf{v} \boldsymbol{\Sigma} \mathbf{v} = \mathbf{0}\)</span> this means that one of the random variables contained in <span class="math inline">\(\mathbf{X}\)</span> is <em>redundant</em> in that it is perfectly correlated with some linear combination of the others. Such a variance-covariance matrix gives rise to what is called a <em>singular</em> normal distribution. These do come up from time to time, but discussing them further here would take us too far afield. There's already more than enough matrix algebra in this lesson!<a href="the-normal-distribution.html#fnref22" class="footnote-back">↩︎</a></p></li>
+<ol start="24">
+<li id="fn24"><p>Okay, fine: if <span class="math inline">\(a = b = 0\)</span> then <span class="math inline">\(X\)</span> merely equals the constant <span class="math inline">\(c\)</span>. But in any other case, <span class="math inline">\(X\)</span> is normally distributed.<a href="the-normal-distribution.html#fnref24" class="footnote-back">↩︎</a></p></li>
+<li id="fn25"><p>Strictly speaking a variance-covariance matrix only needs to be positive <em>semi-definite</em>, i.e. <span class="math inline">\(\mathbf{v}&#39; \boldsymbol{\Sigma} \mathbf{v}\geq 0\)</span> for any <span class="math inline">\(\mathbf{v} \neq \mathbf{0}\)</span>. But if there's a non-zero vector <span class="math inline">\(\mathbf{v}\)</span> such that <span class="math inline">\(\mathbf{v} \boldsymbol{\Sigma} \mathbf{v} = \mathbf{0}\)</span> this means that one of the random variables contained in <span class="math inline">\(\mathbf{X}\)</span> is <em>redundant</em> in that it is perfectly correlated with some linear combination of the others. Such a variance-covariance matrix gives rise to what is called a <em>singular</em> normal distribution. These do come up from time to time, but discussing them further here would take us too far afield. There's already more than enough matrix algebra in this lesson!<a href="the-normal-distribution.html#fnref25" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <script>
@@ -1427,7 +1462,7 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="running-a-simulation-study.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="logistic-regression-and-friends.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
