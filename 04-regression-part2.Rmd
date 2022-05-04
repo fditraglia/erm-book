@@ -218,7 +218,7 @@ These results make sense: `x` was randomly generated so it clearly has nothing t
 
 ## Heteroskedasticity-Robust Standard Errors and Tests
 
-Consider a linear regression model of the form $Y_i = X_i'\beta + epsilon_i$.
+Consider a linear regression model of the form $Y_i = X_i'\beta + \epsilon_i$.
 If the variance of $\epsilon_i$ is unrelated to the predictors $X_i$, we say that the regression errors are *homoskedastic*. This is just a fancy Greek work for *constant variance*. If instead, the variance of $\epsilon_i$ depends on the value of $x_i$, we say that the regression errors are *heteroskedastic*. This is just a fancy Greek word for *non-constant variance*. Heteroskedasticity does not invalidate our least squares estimates of $\beta$, but it does invalidate the formulas used by `lm()` to calculate standard errors and p-values. Fortunately there's a simple solution. In this lesson I'll show you how to implement the solution without explaining how it works. In a future lesson we'll take a closer look at robust standard errors
 
 The command `lm_robust()` from the `estimatr` package works exactly like `lm()` *except* that it uses heteroskedasticity-robust standard errors by default. If you're familiar with Stata, `lm_robust()` is the equivalent of `reg robust`. Let's test this out on our model `kid_score ~ mom_iq * mom_hs` from above. Notice that the coefficients in `reg_interact_robust` are identical to those from `reg_interact`

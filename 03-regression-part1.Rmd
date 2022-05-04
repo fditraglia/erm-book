@@ -100,12 +100,14 @@ library(ggplot2)
 ggplot(kids) +
   geom_point(aes(x = mom_iq, y = kid_score))
 ```
+
 To add the regression line, we'll use `geom_smooth()`, a function for plotting *smoothed conditional means*. We can use `geom_smooth()` in exactly the same way as `geom_point()` by specifying `aes()` to set the `x` and `y` variables. By default, `geom_smooth()` plots a *non-parametric* regression curve rather than a linear regression:
 ```{r}
 ggplot(kids) +
   geom_point(aes(x = mom_iq, y = kid_score)) +
   geom_smooth(aes(x = mom_iq, y = kid_score)) 
 ```
+
 Notice that we had to type `aes(x = mom_iq, y = kid_score)` *twice* in the preceding code chunk. This is tedious and error-prone. In more complicated plots that contain multiple `geom` functions, life is much simpler if we specify our desired `aes()` *once*. To do this, pass it as an argument to `ggplot` rather than to the `geom`, for example
 ```{r, message=FALSE, eval=FALSE}
 ggplot(kids, aes(x = mom_iq, y = kid_score)) +
@@ -119,6 +121,7 @@ ggplot(kids, aes(x = mom_iq, y = kid_score)) +
   geom_point() +
   geom_smooth(method = 'lm') 
 ```
+
 By default this plots the regression line from the regression `y ~ x`.
 
 ### Exercise
