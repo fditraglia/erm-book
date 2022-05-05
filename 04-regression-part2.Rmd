@@ -179,7 +179,7 @@ The `linearHypothesis()` command from the `car` package makes it easy to conduct
 library(car)
 linearHypothesis(reg_pooled, 'mom_iq = 1')
 ```
-To test that the intercept equals zero, a very silly hypothesis indeed, we simply need to replace `'mom_iq = 1'` with `'(Intercept) = 0'`
+To test that the intercept equals zero, a very silly hypothesis indeed, we simply need to replace `'mom_iq = 1'` with `'(Intercept) = 1'`
 ```{r}
 linearHypothesis(reg_pooled, '(Intercept) = 1')
 ```
