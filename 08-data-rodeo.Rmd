@@ -1,8 +1,9 @@
 # Data Rodeo
 
-![Commander Data in a Western Landscape (the only public domain image I could find!)](https://upload.wikimedia.org/wikipedia/commons/7/7d/Glenn_Cote_Brent_Spiner.jpg)
+![Commander Data from Star Trek TNG in a Western Landscape](https://upload.wikimedia.org/wikipedia/commons/7/7d/Glenn_Cote_Brent_Spiner.jpg)
 
-By this stage you've read a number of different datasets into R and done a bit of data [wrangling](https://en.wikipedia.org/wiki/Wrangler_(profession)) with `dplyr`. Now it's time for a full-fledged data [rodeo](https://en.wikipedia.org/wiki/Rodeo)! This goal of this lesson is to introduce you to more complicated data wrangling issues and more powerful tools to solve them. We'll dig deeper into `dplyr` to automate tedious tasks, we'll learn how to *merge* datasets, we'll see how [`tidyr`](https://tidyr.tidyverse.org/) can be used to *pivot* datasets between long and wide formats, we'll learn a bit more about the various kinds of "pipes" that are available in R, and we'll learn how to overcome the many challenges of importing data from Microsoft Excel.
+By this stage you've read a number of different datasets into R and done a bit of data [wrangling](https://en.wikipedia.org/wiki/Wrangler_(profession)) with `dplyr`. Now it's time for a full-fledged data [rodeo](https://en.wikipedia.org/wiki/Rodeo)! This goal of this lesson is to introduce you to more complicated data wrangling issues and more powerful tools to solve them.
+
 
 ## Joins
 
@@ -43,30 +44,30 @@ One of the goals of this book is to help you become comfortable learning new thi
 
 ### Exercise
 1. Run the command `right_join(gradebook, email_addresses)`. What happens? Explain how this command works, consulting the associated help file if needed.
-```{r}
+```{r, webex.hide = 'Show Solution'}
 # Result contains students whose ids are in email_addresses. Those with ids
 # in gradebook who are *not* in gradebook are dropped.
 right_join(gradebook, email_addresses)
 ```
 2. Run the command `full_join(gradebook, email_addresses)`. What happens? Explain how this command works, consulting the associated help file if needed.
-```{r}
+```{r, webex.hide = 'Show Solution'}
 # Result contains everyone whose id appears in *either* dataset. This
 # requires lots of padding out with missing values.
 full_join(gradebook, email_addresses)
 ```
 3. Run the command `inner_join(gradebook, email_addresses)`. What happens? Explain how this command works, consulting the associated help file if needed.
-```{r}
+```{r, webex.hide = 'Show Solution'}
 # Result contains only those whose id appears in *both* datasets. Everyone
 # else is dropped.
 inner_join(gradebook, email_addresses)
 ```
 4. Above I used the command `left_join(gradebook, email_addresses)`. How could I have achieved the same thing using the pipe `%>%`? 
-```{r}
+```{r, webex.hide = 'Show Solution'}
 gradebook %>% 
   left_join(email_addresses)
 ```
 5. Add a column called `name` to `email_addresses` that contains `c('Joe', 'Alice', 'Ethelburga', 'Mark', 'Bob')`. Then carry out a left join to merge `gradebook` with `email_addresses`. What happens? Does the result contain two instances of `name`? What if you set the argument `by = 'student_id'`. Explain, consulting the help file as needed.
-```{r}
+```{r, webex.hide = 'Show Solution'}
 email_addresses$name <- c('Joe', 'Alice', 'Ethelburga', 'Mark', 'Bob')
 left_join(gradebook, email_addresses)
 left_join(gradebook, email_addresses, by = 'student_id')
@@ -117,13 +118,12 @@ gradebook %>%
 
 ### Exercise
 1. Use `ends_with()` to select the columns `quiz2` and `midterm2` from `gradebook` with a minimum of typing.
-```{r}
+```{r, webex.hide = 'Show Solution'}
 gradebook %>%
   select(ends_with('2'))
 ```
 2. Use the function `contains()` to select the columns whose names contain the abbreviation for "Empirical Research Methods."
-```{r}
-# Select columns that contain the abbreviation of your favorite course
+```{r, webex.hide = 'Show Solution'}
 gradebook %>%
   select(contains('erm'))
 ```
@@ -131,7 +131,7 @@ gradebook %>%
     (a) Select only the columns of `starwars` that contain character data.
     (b) Select only the columns of `starwars` that contain an underscore.
     (c) Select only the columns of `starwars` that are either numeric *or* whose names end with "color".
-```{r}
+```{r, webex.hide = 'Show Solution'}
 starwars %>%
   select(where(is.character))
 
@@ -209,7 +209,7 @@ names(mean_var2)
 
 ### Exercise
 1. Create a table of sample standard deviations for each of the quizzes in `gradebook`, where the columns are named according to `[COLUMN NAME]_sd`.
-```{r}
+```{r, webex.hide = 'Show Solution'}
 gradebook %>%
   summarize(across(starts_with('quiz'), sd, .names = '{.col}_sd'))
 ```
@@ -219,14 +219,14 @@ starwars %>%
   summarize(across(where(is.character), n_distinct, .names = 'n_{.col}s'))
 ```
 3. Read the help file for the `dplyr` function `n()`. After you understand how this function works, combine it with `across()` and other `dplyr` functions you have learned to display the following table. Each row should correspond to a `homeworld` that occurs *at least twice* in the `starwars` tibble. There should be three columns, counting up the number of distinct values of `sex`, `species`, and `eye_color`. What happens to the observations for which `homeworld` is missing?  
-```{r}
+```{r, webex.hide = 'Show Solution'}
 starwars %>%
   group_by(homeworld) %>%
   filter(n() > 1) %>%
   summarize(across(c(sex, species, eye_color), n_distinct))
 ```
 4. For each `species` with at least two observations, calculate the sample median of all the *numeric* columns in `starwars`, dropping any missing observations. Why do we obtain the result that we do for members of the "Kaminoan" species?
-```{r}
+```{r, webex.hide = 'Show Solution'}
 starwars %>%
   group_by(species) %>%
   filter(n() > 1) %>%
@@ -236,7 +236,7 @@ starwars %>%
   filter(species == 'Kaminoan')
 ```
 5. Calculate the standard deviation and [interquartile range](https://en.wikipedia.org/wiki/Interquartile_range) all the numeric columns of `starwars`, dropping any missing observations. Attach meaningful names to your results so they're easy to read and understand. Hint: there's an R function for the interquartile range so you don't need to program it yourself.
-```{r}
+```{r, webex.hide = 'Show Solution'}
 SD_IQR <- list(
   SD = ~ sd(.x, na.rm = TRUE),
   IQR = ~ IQR(.x, na.rm = TRUE)
@@ -335,7 +335,7 @@ In the same way, we can use `ungroup()` to "return to normal" after a `group_by(
 
 
 ### Exercise
-**Add these later!**
+**Add some exercises in the future!**
 
 
 ## Pivoting: From Wider to Longer and Back Again 
@@ -343,7 +343,7 @@ In the same way, we can use `ungroup()` to "return to normal" after a `group_by(
 Sometimes it's helpful or even essential to *reshape* a dataset before making a plot or carrying out an analysis, a task that is sometimes called *pivoting*.
 The `tidyr` functions `pivot_wider()` and `pivot_longer()` make pivoting easy. It's a bit challenging to explain what pivoting means in the abstract, so in this section we'll explore some simple examples. After you understand the basic idea, you shouldn't have much trouble recognizing when you should think about pivoting. For more details, see the documentation for [`pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html) and [`pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html) and this [article on pivoting](https://tidyr.tidyverse.org/articles/pivot.html).
 
-## `pivot_longer()`
+### `pivot_longer()`
 
 Suppose we wanted to make a time series plot of quiz scores for each student in `gradebook`.
 It seems like we should be able to do this in `ggplot2`, but it's not clear how. This kind of plot asks us to view the quiz scores in `gradebook` as a *panel dataset*, a sequence of observations of the same individual made over time, but the way that I've arranged the information in `gradebook` doesn't reflect this structure. To make this look like a panel dataset, we need to *increase the number of rows* so that each student appears multiple times, once for every quiz. We can accomplish this using the function `pivot_longer()`: 
@@ -423,6 +423,8 @@ quiz_scores %>%
 
 
 ### Exercise
+**Fill in the answers here!**
+
 1. An example from the vignette!
 2. Complete the merge described above. What type of join makes sense here?
 3. Above we saw how to combine the function `drop1_avg()` with row-wise operations to calculate each student's quiz average after dropping the lowest score. Devise an *alternative* solution to this problem that uses `pivot_longer()` followed by `pivot_wider()` rather than row-wise operations.
@@ -433,7 +435,7 @@ gradebook %>%
   mutate(quiz_avg = drop1_avg(score)) 
 ```
 
-## Addendum: Put that in your pipe and smoke it!
+## Put that in your pipe and smoke it!
 
 ![Self portrait with Pipe by Vincent van Gogh](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Vincent_van_Gogh_-_Self-portrait_with_pipe_-_Google_Art_Project.jpg/837px-Vincent_van_Gogh_-_Self-portrait_with_pipe_-_Google_Art_Project.jpg){width=250px}
 
