@@ -1,0 +1,544 @@
+# Data Rodeo
+
+![Commander Data in a Western Landscape (the only public domain image I could find!)](https://upload.wikimedia.org/wikipedia/commons/7/7d/Glenn_Cote_Brent_Spiner.jpg)
+
+By this stage you've read a number of different datasets into R and done a bit of data [wrangling](https://en.wikipedia.org/wiki/Wrangler_(profession)) with `dplyr`. Now it's time for a full-fledged data [rodeo](https://en.wikipedia.org/wiki/Rodeo)! This goal of this lesson is to introduce you to more complicated data wrangling issues and more powerful tools to solve them. We'll dig deeper into `dplyr` to automate tedious tasks, we'll learn how to *merge* datasets, we'll see how [`tidyr`](https://tidyr.tidyverse.org/) can be used to *pivot* datasets between long and wide formats, we'll learn a bit more about the various kinds of "pipes" that are available in R, and we'll learn how to overcome the many challenges of importing data from Microsoft Excel.
+
+## Joins
+
+A common task in data cleaning involves *merging* or *joining* datasets from multiple sources. Here's a very simple example. Suppose we have a student gradebook listing quiz scores, exam scores, student names, and student id numbers:
+```{r, message = FALSE}
+library(tidyverse)
+set.seed(92815)
+
+gradebook <- tibble(
+  student_id = c(192297, 291857, 500286, 449192, 372152, 627561), 
+  name = c('Alice', 'Bob', 'Charlotte', 'Dante', 'Ethelburga', 'Felix'),
+  quiz1 = round(rnorm(6, 65, 15)),
+  quiz2 = round(rnorm(6, 88, 5)),
+  quiz3 = round(rnorm(6, 75, 10)),
+  midterm1 = round(rnorm(6, 75, 10)),
+  midterm2 = round(rnorm(6, 80, 8)), 
+  final = round(rnorm(6, 78, 11))
+)
+gradebook
+```
+Unfortunately, `gradebook` doesn't contain the students' email addresses. This information is contained in another tibble:
+```{r}
+email_addresses <- tibble(
+  student_id = c(101198, 192297, 372152, 918276, 291857), 
+  email = c('unclejoe@whitehouse.gov', 'alice.liddell@chch.ox.ac.uk',
+            'ethelburga@lyminge.org', 'mzuckerberg@gmail.com',
+            'microsoftbob@hotmail.com')
+)
+email_addresses
+```
+Both `gradebook` and `email_addresses` contain a column of student id numbers, unique identifiers for each student in the university. We can use this column to merge the two tibbles via a [`dplyr` mutating join](https://dplyr.tidyverse.org/reference/mutate-joins.html). There are many different kinds of joins, and the right one to use depends on the problem you want to solve. All of the join functions have two required arguments: `x` and `y` are the tibbles we want to join. A `left_join()` returns a tibble with the same number of rows as `x`, the "left" tibble inside the statement `left_joint(x, y)`. For example, the following command returns a tibble with one row for each student from `gradebook`:
+```{r}
+left_join(gradebook, email_addresses) 
+```
+Students whose id appears in `email_addresses` but not in `gradebook` have been dropped. Students whose id appears in `gradebook` but not in `email_addresses` have been retained, but since we don't know their email address, `left_join()` has filled in an `NA`.
+
+One of the goals of this book is to help you become comfortable learning new things about R own your own, through a combination of documentation files and internet searches. So rather than telling you how a `right_join()`, a `full_join()`, and an `inner_join()` work, I will ask you to discover this for yourself in the following exercise!
+
+### Exercise
+1. Run the command `right_join(gradebook, email_addresses)`. What happens? Explain how this command works, consulting the associated help file if needed.
+```{r}
+# Result contains students whose ids are in email_addresses. Those with ids
+# in gradebook who are *not* in gradebook are dropped.
+right_join(gradebook, email_addresses)
+```
+2. Run the command `full_join(gradebook, email_addresses)`. What happens? Explain how this command works, consulting the associated help file if needed.
+```{r}
+# Result contains everyone whose id appears in *either* dataset. This
+# requires lots of padding out with missing values.
+full_join(gradebook, email_addresses)
+```
+3. Run the command `inner_join(gradebook, email_addresses)`. What happens? Explain how this command works, consulting the associated help file if needed.
+```{r}
+# Result contains only those whose id appears in *both* datasets. Everyone
+# else is dropped.
+inner_join(gradebook, email_addresses)
+```
+4. Above I used the command `left_join(gradebook, email_addresses)`. How could I have achieved the same thing using the pipe `%>%`? 
+```{r}
+gradebook %>% 
+  left_join(email_addresses)
+```
+5. Add a column called `name` to `email_addresses` that contains `c('Joe', 'Alice', 'Ethelburga', 'Mark', 'Bob')`. Then carry out a left join to merge `gradebook` with `email_addresses`. What happens? Does the result contain two instances of `name`? What if you set the argument `by = 'student_id'`. Explain, consulting the help file as needed.
+```{r}
+email_addresses$name <- c('Joe', 'Alice', 'Ethelburga', 'Mark', 'Bob')
+left_join(gradebook, email_addresses)
+left_join(gradebook, email_addresses, by = 'student_id')
+```
+
+
+
+
+## `tidyselect`
+
+The `dplyr` package provides a very helpful collection of operators and functions that fall under the rubric of [`tidyselect`](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html). Thus far we've always specified columns within `select()` by writing their names *in full*. This is perfectly fine in small examples, but when you start working with large and complicated datasets, it quickly becomes unwieldy. The purpose of `tidyselect` is to make selection easier, faster, and more flexible. Here we'll explore a few common use cases. For more details see the [dplyr documentation](https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html).  
+
+Let's take a look at my gradebook:
+```{r}
+gradebook
+```
+As you can see, there were three quizzes: `quiz1`, `quiz2`, and `quiz3`. If I wanted to select only these columns, I could do so as follows:
+```{r}
+gradebook %>%
+  select(quiz1, quiz2, quiz3)
+```
+Easy enough.
+But I used to teach a course called [Econ 103](https://ditraglia.com/Econ103Public) that had *eleven quizzes*! Not only would it be a pain to type out `quiz01` all the way up to `quiz11`, but I could easily make a mistake and leave one one. Enter the `dplyr` "selection helper"  `starts_with()`. The columns I want to select here all begin with a common prefix, namely `quiz`. I can exploit this fact to select them as follows:
+```{r}
+gradebook %>%
+  select(starts_with('quiz'))
+```
+The selection helpers `ends_with()` and `contains()` work similarly: you can use them to select columns with a common *suffix* or columns that contain a particular literal string:
+```{r}
+gradebook %>%
+  select(ends_with('2'))
+
+gradebook %>%
+  select(contains('iz'))
+```
+Back when I used to give eleven quizzes in a single semester, I could really have benefitted from the `num_range()` selection helper. This selection helper allows us to specify both a *prefix*, like `starts_with()` and a *numeric range*, i.e. a sequence of integers. For example, I could select quizzes two and three as follows:
+```{r}
+gradebook %>%
+  select(num_range('quiz', 2:3))
+```
+If you know [regular expressions](https://en.wikipedia.org/wiki/Regular_expression) you'll want to check out the selection helper `matches()`. For more information on `starts_with()` and its friends and relations see the [`tidyselect` documentation](https://tidyselect.r-lib.org/reference/starts_with.html)
+
+Another extremely helpful `tidyselect` helper is `where()`. This function accepts a *function* as its input. It then applies this function to every column of the tibble and returns the columns for which the function evaluates to `TRUE`. A common use case of `where()` is to select columns by their *type*. For example, we could select only the *numeric* columns of the gradebook as follows:
+```{r}
+gradebook %>%
+  select(where(is.numeric))
+```
+
+### Exercise
+1. Use `ends_with()` to select the columns `quiz2` and `midterm2` from `gradebook` with a minimum of typing.
+```{r}
+gradebook %>%
+  select(ends_with('2'))
+```
+2. Use the function `contains()` to select the columns whose names contain the abbreviation for "Empirical Research Methods."
+```{r}
+# Select columns that contain the abbreviation of your favorite course
+gradebook %>%
+  select(contains('erm'))
+```
+3. The `dplyr` package includes a built-in dataset called `starwars`. Use the `glimpse()` function to get a quick overview of this dataset, and then read the associated help file before answering the following questions.
+    (a) Select only the columns of `starwars` that contain character data.
+    (b) Select only the columns of `starwars` that contain an underscore.
+    (c) Select only the columns of `starwars` that are either numeric *or* whose names end with "color".
+```{r}
+starwars %>%
+  select(where(is.character))
+
+starwars %>%
+  select(contains('_'))
+
+starwars %>%
+  select(ends_with('color') | where(is.numeric))
+```
+
+## Column-wise Operations with `across()`
+
+Students are often eager to know how well *everyone else* did on a particular assignment. Using what we know about `dplyr`, it's easy to compute the average score on each of the quizzes in `gradebook`:
+```{r}
+gradebook %>%
+  summarize(quiz1_avg = mean(quiz1),  
+            quiz2_avg = mean(quiz2),  
+            quiz3_avg = mean(quiz3)) 
+```
+But now suppose we wanted to do this for *eleven* quizzes. Or suppose that we wanted to compute both means *and* standard deviations. That would involve quite a lot of typing, introducing plenty of room for error. To avoid the tedium, and the risk of student complaints about inaccurate summary statistics, we'll rely on [column-wise operations](https://dplyr.tidyverse.org/articles/colwise.html) using the `dplyr` function `across()`. Here's how it can be used to solve the quiz average problem from above:
+```{r}
+# The easy way!
+gradebook %>%
+  summarize(across(starts_with('quiz'), mean, .names = '{.col}_avg'))
+```
+
+Let's unpack the preceding command. The first argument to `across()` is `.cols`. This specifies the columns that we want to work with. We can either type them out directly as a vector of strings, e.g. `c('col1name', 'col2name')` or use any of the `tidyselect` operations introduced above. In the example from above, I specified that I wanted to work with the columns `quiz1`, `quiz2`, and `quiz2` by using `starts_with('quiz')`. The second argument of `across()` is `.fns`. This specifies the function or functions that we will use to operate on each column that we've selected. Here I specified `mean` to refer to the base R function `mean()`. The third argument of `across()`, `.names()`, is optional but comes in handy. It allows us to set a rule for *automatically* constructing names for the transformed columns. The syntax comes from the [`glue` package](https://glue.tidyverse.org/). In my example from above, `{.col}` means "the name of a particular column." So we're instructing `across()` to take the name of each column that starts with `quiz`, compute its `mean()` and call the result `[COLUMN NAME]_avg`. 
+
+The function `across()` is most often used in concert with `summarize()` or `mutate()`. We've already seen an example with `summarize()`, namely computing summary statistics for a particular group of columns and automatically naming the results. Here's an example that uses `mutate()` to convert `quiz1`, `quiz2`, and `quiz3` to z-scores by subtracting the sample mean of each column and dividing by the sample standard deviation. Notice that in this case I supply a function that I have *created myself*
+```{r}
+zscore <- function(x) {
+  (x - mean(x, na.rm = TRUE)) / sd(x, na.rm = TRUE)
+}
+
+gradebook %>%
+  mutate(across(starts_with('quiz'), zscore, .names = '{.col}_zscore')) %>%
+  select(ends_with('zscore'))
+```
+We could alternatively have specified the z-score function using [`purrr` style](https://purrr.tidyverse.org/) syntax as follows:
+```{r}
+gradebook %>%
+  mutate(across(starts_with('quiz'), 
+                ~ (.x - mean(.x, na.rm = TRUE)) / sd(.x, na.rm = TRUE), 
+                .names = '{.col}_zscore')) %>%
+  select(ends_with('zscore'))
+```
+Without getting too deep into the weeds, `purrr` style syntax uses `.x` to refer to the function argument and `~` to indicate that everything to the right constitutes a function definition. 
+
+Both the `.fns` and `.names` arguments of `across()` accept a *list* in place of a single function or name. Suppose for example that we wanted to compute the mean and variance of the two midterm exams. We could do so as follows:
+```{r}
+mean_var <- list(
+  mean = ~ mean(.x, na.rm = TRUE),
+  var = ~ var(.x, na.rm = TRUE)
+)
+
+gradebook %>%
+  summarize(across(starts_with('midterm'), mean_var, .names = '{.col}_{.fn}'))
+```
+If you prefer not to use the `purrr` style syntax, this also works:
+```{r}
+mean_var2  <- list(
+  mean = function(x) mean(x, na.rm = TRUE),
+  var = function(x) var(x, na.rm = TRUE)
+)
+
+gradebook %>%
+  summarize(across(starts_with('midterm'), mean_var2, .names = '{.col}_{.fn}'))
+```
+Regardless of which version you prefer, notice how setting `.names` equal to `'{.col}_{.fn}'` has instructed `across()` to pull out the names from the list `mean_var` (or `mean_var2`), and combine them with the original column names that start with "midterm" to generate the column names for our table of summary statistics:
+```{r}
+names(mean_var)
+names(mean_var2)
+```
+
+
+### Exercise
+1. Create a table of sample standard deviations for each of the quizzes in `gradebook`, where the columns are named according to `[COLUMN NAME]_sd`.
+```{r}
+gradebook %>%
+  summarize(across(starts_with('quiz'), sd, .names = '{.col}_sd'))
+```
+2. Read the help file for the function `n_distinct()` in `dplyr`. What does it do? After you understand how it works, use it to count up the number of distinct values in each column of `starwars` that contains character data. Name your results according to `n_[COLUMN NAME]s`.
+```{r}
+starwars %>%
+  summarize(across(where(is.character), n_distinct, .names = 'n_{.col}s'))
+```
+3. Read the help file for the `dplyr` function `n()`. After you understand how this function works, combine it with `across()` and other `dplyr` functions you have learned to display the following table. Each row should correspond to a `homeworld` that occurs *at least twice* in the `starwars` tibble. There should be three columns, counting up the number of distinct values of `sex`, `species`, and `eye_color`. What happens to the observations for which `homeworld` is missing?  
+```{r}
+starwars %>%
+  group_by(homeworld) %>%
+  filter(n() > 1) %>%
+  summarize(across(c(sex, species, eye_color), n_distinct))
+```
+4. For each `species` with at least two observations, calculate the sample median of all the *numeric* columns in `starwars`, dropping any missing observations. Why do we obtain the result that we do for members of the "Kaminoan" species?
+```{r}
+starwars %>%
+  group_by(species) %>%
+  filter(n() > 1) %>%
+  summarize(across(where(is.numeric), ~ median(.x, na.rm = TRUE)))
+
+starwars %>%
+  filter(species == 'Kaminoan')
+```
+5. Calculate the standard deviation and [interquartile range](https://en.wikipedia.org/wiki/Interquartile_range) all the numeric columns of `starwars`, dropping any missing observations. Attach meaningful names to your results so they're easy to read and understand. Hint: there's an R function for the interquartile range so you don't need to program it yourself.
+```{r}
+SD_IQR <- list(
+  SD = ~ sd(.x, na.rm = TRUE),
+  IQR = ~ IQR(.x, na.rm = TRUE)
+)
+starwars %>%
+  summarize(across(where(is.numeric), SD_IQR, .names = '{.col}_{.fn}'))
+```
+
+## Row-wise operations 
+
+In the aforementioned course with eleven quizzes, my policy was to drop each student's two lowest quiz scores when calculating her overall "quiz average." In the hypothetical gradebook from above there are only three quizzes, so we'll have to be a bit less generous. Suppose we want to drop each student's *single* lowest quiz score. Given a vector of `quizzes` for an individual student, it's fairly easy to implement this in an R function:
+```{r}
+drop1_avg <- function(scores){
+# Calculate the mean of scores dropping the lowest value
+  scores <- sort(scores)
+  highest_scores <- scores[-1]
+  mean(highest_scores)
+}
+
+# Test that it works as expected
+all.equal(drop1_avg(c(95, 83, 91)),  mean(c(95, 91)))
+```
+It seems like there should be a way to use `drop1_avg()` to compute the quiz average of each student in `gradebook`, dropping his or her lowest quiz score. Here's what I think many people would try:
+```{r}
+gradebook %>%
+  mutate(quiz_avg = drop1_avg(c(quiz1, quiz2, quiz3))) %>%
+  select(name, quiz_avg)
+```
+But this is clearly wrong: it's not true that every student has the same quiz average! We've had lots of experience applying functions to all the observations in a particular *column*, but here we need to work with multiple observations in a give *row*. To solve this problem, we rely on the `dplyr` function `rowwise()`.
+
+### `rowwise()`
+
+To understand `rowwise()` it helps to recall a `dplyr` function we're already familiar with: `group_by()`. On its own, `group_by()` is useless. It doesn't compute summary statistics, generate new columns, filter out observations, or reorder them. Instead it *changes the behavior* of the other `dplyr` functions like `select()`, `filter()`, `summarize()`, `mutate()`, and `arrange()`. When we write
+```{r}
+starwars %>%
+  group_by(gender) %>%
+  summarize(avg_height = mean(height, na.rm = TRUE))
+```
+the `group_by(gender)` statement passes information to `summarize()` telling it to override its usual behavior, which would in this case be to compute the mean height of *all* observations, and instead to compute separate means for groups defined by the values of `gender`. 
+
+If you understand this nuance about `group_by()` you're primed and ready for `rowwise()`. Both of these commands tell `dplyr` to group particular observations together when executing the steps that follow. With `rowwise()`, the observations in the group are taken from a *single row* of our dataset. Here's how we can solve my quiz average problem from above using row-wise operations:
+```{r}
+gradebook %>%
+  rowwise() %>%
+  mutate(quiz_avg = drop1_avg(c(quiz1, quiz2, quiz3))) %>%
+  select(name, quiz_avg)
+```
+Behind the scenes, R is in effect looping over every row of `gradebook()`, pulling out the values of `quiz1`, `quiz2`, and `quiz3`, concatenating them into a vector with `c()` and then feeding them into our function `drop1_avg()` from above. While you could write such a loop yourself, the nice thing is that you don't have to: `dplyr` allows us to focus on the *description* of the task we want to achieve without specifying the details of how that task should be *implemented*.
+
+### `c_across()`
+
+Now that you've tasted the sweet, sweet nectar of `tidyselect`, you may find the preceding code a bit inelegant. What if I had eleven quizzes? I certainly wouldn't want to type out the following:
+```{r, eval = FALSE}
+drop1_avg(c(quiz01, quiz02, quiz03, quiz04, quiz05, quiz06, quiz07, 
+            quiz09, quiz10, quiz11))
+```
+(By the way, did you spot the error that I inserted intentionally?) You will be pleased to learn that everything you've learned about `tidyselect` carries over to row-wise operations: all you need to do is enclose your tidy selection operations within the function `c_across()`. For example, replacing `c()` and an explicit listing of column names with `c_across()` allows us to solve the quiz average problem as follows:
+```{r}
+gradebook %>%
+  rowwise() %>%
+  mutate(quiz_avg = drop1_avg(c_across(starts_with('quiz')))) %>%
+  select(name, quiz_avg)
+```
+
+### `across()` as an alternative to `rowwise()`
+
+As mentioned above, row-wise operations in `dplyr` are essentially for loops in disguise. And as a general rule, loops written in R are considerably slower than purpose-built "vectorized" functions that call FORTRAN/C/C++ to do the heavy lifting. Sometimes we should simply acknowledge this cost and pay it: better to write clear code that's a bit slower than to write unclear code that's a bit faster. But sometimes speed is too important to compromise. In these situations a useful approach is to search for an R function that operates on *many rows at once* and use `across()` instead of `row_wise()` combined with `c_across()`. 
+
+Suppose for example that we wanted to compute a quiz average without dropping *any* quizzes. We could easily solve this problem using row-wise operations, but if our tibble is very large this solution will be somewhat slow. An alternative uses the base R function `rowMeans()`. Given a matrix, data frame, or tibble `x` this function computes the mean of each row without the need for any looping within R. We can use it to solve the simplified quiz average problem as follows:
+```{r}
+gradebook %>%
+  mutate(quiz_avg = rowMeans(across(starts_with('quiz')))) %>%
+  select(name, quiz_avg)
+```
+Like `c_across()`, `across()` allows you to use all of your favorite `tidyselect` operations. The key difference is that `across()` does not pull out rows one at a time. Instead it extracts *all the rows* from the columns whose names start with `quiz` in one big block, and feeds them into the function `rowMeans()`. From here, `rowMeans()` takes over. When it's finished, `mutate()` attaches the result to `gradebook` in a column called `quiz_avg`.
+
+
+### `ungroup()`
+
+Both `rowwise()` and `group_by()` tell the other `dplyr` verbs that follow them to operate on particular *groups* rather than whole columns. But what if you want to tell `dplyr` to switch back to its "default" behavior? How could we say "hey stop working on rows now!" This may seem a bit abstract, so let's look at an example. Suppose that after creating my column `quiz_avg`, a *within student* average, I wanted to see how both average quiz scores and final exam scores varied *across* students. Here's what you might think to try:
+```{r}
+gradebook %>%
+  rowwise() %>%
+  mutate(quiz_avg = drop1_avg(c_across(starts_with('quiz')))) %>%
+  summarize(mean(quiz_avg), mean(final))
+```
+But it didn't work! The problem is that `dplyr` is still in row-wise mode. We need to tell it to leave row-wise mode and go back to working as normal. To do this, we insert the command `ungroup()` at the desired point in our pipeline:
+```{r}
+gradebook %>%
+  rowwise() %>%
+  mutate(quiz_avg = drop1_avg(c_across(starts_with('quiz')))) %>%
+  ungroup() %>%
+  summarize(mean(quiz_avg), mean(final))
+```
+In the same way, we can use `ungroup()` to "return to normal" after a `group_by()` step. It's often a good idea to add an `ungroup()` statement to the end of a pipeline that uses `group_by()`, particularly if you're *storing* the results for later use. This way the next set of `dplyr` operations that you carry out will work in the "usual" way. 
+
+
+### Exercise
+**Add these later!**
+
+
+## Pivoting: From Wider to Longer and Back Again 
+
+Sometimes it's helpful or even essential to *reshape* a dataset before making a plot or carrying out an analysis, a task that is sometimes called *pivoting*.
+The `tidyr` functions `pivot_wider()` and `pivot_longer()` make pivoting easy. It's a bit challenging to explain what pivoting means in the abstract, so in this section we'll explore some simple examples. After you understand the basic idea, you shouldn't have much trouble recognizing when you should think about pivoting. For more details, see the documentation for [`pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html) and [`pivot_wider()`](https://tidyr.tidyverse.org/reference/pivot_wider.html) and this [article on pivoting](https://tidyr.tidyverse.org/articles/pivot.html).
+
+## `pivot_longer()`
+
+Suppose we wanted to make a time series plot of quiz scores for each student in `gradebook`.
+It seems like we should be able to do this in `ggplot2`, but it's not clear how. This kind of plot asks us to view the quiz scores in `gradebook` as a *panel dataset*, a sequence of observations of the same individual made over time, but the way that I've arranged the information in `gradebook` doesn't reflect this structure. To make this look like a panel dataset, we need to *increase the number of rows* so that each student appears multiple times, once for every quiz. We can accomplish this using the function `pivot_longer()`: 
+```{r}
+gradebook %>% 
+  pivot_longer(starts_with('quiz'), names_to = 'quiz', values_to = 'score') %>%
+  select(student_id, name, quiz, score)
+```
+The first argument to `pivot_longer()`, `data`, is the tibble that we want to pivot. Here we supply this argument using the pipe `%>%`. The second argument, `cols`, specifies which columns we want to pivot. Here I use a `tidyselect` helper to choose the columns that contain quiz scores. The third argument, `names_to`, tells `pivot_longer()` how to handle the *column names* from `cols`. We need to keep track of these, since they correspond to the "time periods" in our panel. What `pivot_longer()` does is create a *new* column to store the names. Using `names_to` we can specify the name for this new column. I've chosen to call it `quiz`. Similarly, `values_to` is where we specify the name of the column in which `pivot_longer()` will store the *values* that it's extracted from `cols`. If this all sounds a bit abstract, focus on the example: we've gone from having three separate columns `quiz1`, `quiz2`, and `quiz3` to having two columns `quiz` and `score`. Before, our tibble had as many rows as students; now it has *three times* as many rows, one for each *combination* of student and quiz. 
+
+In this particular situation, it might be a bit nicer to store simply `1`, `2`, and `3` rather than `quiz1`, `quiz2`, and `quiz3` in the column `quiz`. An easy way to do this is by setting the optional argument `names_prefix` to `'quiz'`. This will strip out the string `'quiz'` during the pivot:
+```{r}
+gradebook %>% 
+  pivot_longer(starts_with('quiz'), 
+               names_to = 'quiz', 
+               names_prefix = 'quiz',
+               values_to = 'score') %>%
+  select(student_id, name, quiz, score)
+```
+This is almost exactly what we want. But if you look closely at the above output, you'll notice that `quiz` is stored as *character* data. We could easily change this with a `mutate()` command combined with `as.numeric()`, but there's a slicker approach: we can set the optional argument `names_transform` to carry out any transformation of the names that we like, for example
+```{r}
+gradebook %>% 
+  pivot_longer(starts_with('quiz'), 
+               names_to = 'quiz', 
+               names_prefix = 'quiz',
+               names_transform = list(quiz = as.numeric),
+               values_to = 'score') %>%
+  select(student_id, name, quiz, score)
+```
+And now we're finally ready to make the plot we set out to produce:
+```{r}
+gradebook %>% 
+  pivot_longer(starts_with('quiz'), 
+               names_to = 'quiz', 
+               names_prefix = 'quiz',
+               names_transform = list(quiz = as.numeric),
+               values_to = 'score') %>%
+  select(student_id, name, quiz, score) %>%
+  ggplot(aes(x = quiz, y = score)) +
+  geom_line() +
+  geom_point() +
+  facet_wrap(~ name)
+```
+
+  
+### `pivot_wider()`
+
+In effect, `pivot_wider()` and `pivot_longer()` are [inverse functions](https://en.wikipedia.org/wiki/Inverse_function); what the one does, the other undoes. Whereas `pivot_longer()` creates a tibble with *more rows*, `pivot_wider()` creates one with *fewer rows*. Just in case you're *still* not sick of my `gradebook` example let's revisit it one final time.
+
+Suppose that, as the course TA, your job is to maintain a record of all the quiz scores. You've stored them in a tibble called `quiz_scores` 
+```{r}
+quiz_scores <- gradebook %>% 
+  pivot_longer(starts_with('quiz'), 
+               names_to = 'quiz', 
+               names_prefix = 'quiz',
+               names_transform = list(quiz = as.numeric),
+               values_to = 'score') %>% 
+  select(student_id, name, quiz, score)
+```
+Your boss, the course instructor, maintains a separate tibble called `exam_scores`. This one is arranged in a completely different way:
+```{r}
+exam_scores <- gradebook %>%
+  select(student_id, name, midterm1, midterm2, final)
+
+exam_scores
+```
+Once the course is finished, these two tibbles need to be merged to create a final grade for each student. As the lowly TA, you have to defer to the wishes of your boss, who wants you to supply the quiz scores in a format that *matches* that of `exam_scores`. You are asked to provide a tibble with columns `student_id`, `name`, `quiz1`, `quiz2`, and `quiz3`. Rather than re-typing all of the quiz scores, you consult the `tidyr` documentation and discover that there's a fantastic tool called `pivot_wider()` that can do all the work for you:
+```{r}
+quiz_scores %>%
+  pivot_wider(names_from = quiz, names_prefix = 'quiz', values_from = score)
+```
+The `names_from` and `values_from` arguments of `pivot_wider()` are precisely the *opposite* of the `names_to` and `values_to` arguments of `pivot_longer()`. Similarly, when specified as an argument to `pivot_longer()`, `names_prefix` is the prefix we want to *remove*; when specified as an argument to `pivot_wider()` it is the prefix we want to *add*. Without it, our column names would have been `1`, `2`, and `3` in the preceding example:
+```{r}
+quiz_scores %>%
+  pivot_wider(names_from = quiz, values_from = score)
+```
+
+
+### Exercise
+1. An example from the vignette!
+2. Complete the merge described above. What type of join makes sense here?
+3. Above we saw how to combine the function `drop1_avg()` with row-wise operations to calculate each student's quiz average after dropping the lowest score. Devise an *alternative* solution to this problem that uses `pivot_longer()` followed by `pivot_wider()` rather than row-wise operations.
+```{r}
+gradebook %>% 
+  pivot_longer(starts_with('quiz'), names_to = 'quiz', values_to = 'score') %>%
+  group_by(name) %>%
+  mutate(quiz_avg = drop1_avg(score)) 
+```
+
+## Addendum: Put that in your pipe and smoke it!
+
+![Self portrait with Pipe by Vincent van Gogh](https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Vincent_van_Gogh_-_Self-portrait_with_pipe_-_Google_Art_Project.jpg/837px-Vincent_van_Gogh_-_Self-portrait_with_pipe_-_Google_Art_Project.jpg){width=250px}
+
+Fun fact: the expression that serves as a title for this section is [much older than you may have thought!](https://wordhistories.net/2020/01/06/put-pipe-and-smoke/) Joking aside, we've made heavy use of the pipe operator `%>%` in all of our lessons thus far. By this point I hope you're convinced that piping provides a simple and elegant approach to common data manipulation tasks. Now that you have sufficient experience under your belt, it's a good time to think a bit more carefully about piping as a computing strategy. The purpose of this section is to answer some frequently asked questions about the pipe, show you some more powerful ways that it can be used, and introduce you to a *whole new set of pipe operators*! Don't worry: you can get along just fine with `%>%`. But in case you encounter such exotic creatures as `%T>`, `%$%`, `%<>%`, and `|>` in the wild, it's good to know something about them.
+
+### To pipe or not to pipe?
+
+As you may recall from an earlier lesson, `%>%` provides an alternative way of supplying the *first argument* to a function. Rather than writing `f(x, y)` we can instead write `x %>% f(y)`. This is particularly helpful in data cleaning, where we want to repeatedly operate on the same tibble. Rather than writing a sequence of nested function calls `f(g(h(dat, arg1), arg2), arg3)` we can use a pipeline of the form `dat %>% h(arg1) %>% g(arg2) %>% f(arg3)`. This makes it much easier to tell that `h()` is applied first and `f()` is applied last. It also makes it much easier to see at a glance that `arg3` is an argument to `f()` while `arg1` is an argument to `h()`. Even better it removes the need for creating a large number of temporary objects or writing out a large number of assignment statements. There's nothing wrong with this code:
+```{r, eval = FALSE}
+dat <- h(dat, arg1)
+dat <- g(dat, arg2)
+dat <- f(dat, arg3)
+```
+but `%>%` allows us to do the same thing with a *single* assignment statement while typing out `dat` only twice rather than six times:
+```{r, eval = FALSE}
+dat <- dat %>%
+  h(arg1) %>%
+  g(arg2) %>%
+  f(arg3)
+```
+
+So when *shouldn't* we use the pipe? A common rule of thumb is to limit your pipelines to a maximum of *ten steps*. Beyond this point things often become too difficult to read. If you find yourself tempted to write an extremely long pipeline, think about whether some of the steps naturally "go together" and consider breaking them up accordingly into two or more pipelines. There are no hard and fast rules here, but don't lose sight of the key reason for using the pipe: making code *easier to understand*. If the pipe actually makes things more confusing, use a different approach.
+
+### Supplying an Arbitrary Argument
+
+By default, `%>%` supplies the *first argument* to a function: `x %>% f(y)` is synonymous with `f(x,y)`. But what if we wanted to supply the *second argument*? We can do this by using the dot `(.)` as a "placeholder." For example `y %>% f(x, .)` is synonymous with `f(x, y)`. For example:
+```{r}
+x <- c(1, 2, 3, NA, 4, 5)
+mean(x, na.rm = TRUE)
+TRUE %>% mean(x, na.rm = .)
+```
+We can also use the dot `(.)` as a placeholder on the *left hand side* of a pipeline. This is basically a sneaky way of creating a function. This could come in handy if we want to carry out the same data cleaning steps on more than one dataset. Here's an example in which the sequence of steps is a series of trigonometric functions:
+```{r}
+trigonometry_pipeline <- . %>%
+  sin() %>%
+  cos() %>%
+  tan()
+x <- c(-pi, 0, pi)
+y <- c(-0.5 * pi, 0.5 * pi)
+trigonometry_pipeline(x)
+trigonometry_pipeline(y)
+```
+
+### The many pipes of `magrittr`
+
+The pipe `%>%` originated in a package called [`magrittr`](https://magrittr.tidyverse.or), but is now fully-integrated into the `tidyverse`. If `dplyr` is loaded in your R session, then you already have access to `%>%`. But `%>%` is not the only pipe operator contained in the `magrittr` package. There is also the [assignment pipe `%<>%`](https://magrittr.tidyverse.org/reference/compound.html), the [exposition pipe `%$%`](https://magrittr.tidyverse.org/reference/exposition.html), and the [tee pipe `%T>%`](https://magrittr.tidyverse.org/reference/tee.html). To access these exotic pipes you will need to load `magrittr` explicitly, even if you've already loaded `dplyr`
+```{r, message=FALSE}
+library(magrittr)
+```
+
+The [assignment pipe `%<>%`](https://magrittr.tidyverse.org/reference/compound.html) is shorthand for a common pattern in which we pipe an object `x` into a function or sequence of functions and then *overwrite it* with the result of the pipeline. Rather that writing this:
+```{r, eval=FALSE}
+x <- x %>% 
+  h() %>%
+  g() %>%
+  f()
+```
+the assignment pipe `%<>%` allows us to instead write
+```{r, eval=FALSE}
+x %<>% 
+  h() %>%
+  g() %>%
+  f()
+```
+So should you use `%<>%`? This is a surprisingly controversial question. [Hadley Wickham](https://hadley.nz/), the driving force behind the `tidyverse`, says no. In his view, assignment is a sufficiently "special" operation that it's worth being explicit about, even when this requires more typing. I'm on the fence, so you'll have to make up your own mind!
+
+The [exposition pipe `%$%`](https://magrittr.tidyverse.org/reference/exposition.html) is broadly similar to the base R function `with()` in that it allows us to refer to elements of a list, or dataframe, without using `$`. For example, here are three equivalent ways of computing the average quiz score for each student in `gradebook` without `dplyr`:
+```{r}
+(gradebook$quiz1 + gradebook$quiz2 + gradebook$quiz3) / 3
+
+with(gradebook, (quiz1 + quiz2 + quiz3) / 3)
+
+gradebook %$%
+  (quiz1 + quiz2 + quiz3) / 3
+```
+Last but not least comes the [tee pipe `%T>%`](https://magrittr.tidyverse.org/reference/tee.html). Think of it like a [literal tee pipe](https://en.wikipedia.org/wiki/Piping_and_plumbing_fitting#Tee), a plumbing fitting that channels water in two directions simultaneously. Consider the following example:
+```{r}
+set.seed(1234)
+rnorm(200) %>%
+  matrix(ncol = 2) %T>%
+  plot() %>%
+  colSums()
+```
+If we had used a `%>%` instead of a `%T>%` in the second line this code wouldn't have worked: the function `plot()` just prints out a plot, it doesn't return a *result* that could be piped into `colSums()`. In effect the tee pipe takes the result of `rnorm(200) %>% matrix(col = 2)`, a matrix of normal random draws, and pipes it in *two directions at the same time*. One arm of the tee is `plot()`, which displays a scatter plot of the matrix, and the other is `colSums()`, which computes the column sums of *the same* matrix.
+
+### All About that Base: R's "Native" Pipe 
+As of version 4.1, base R has a "native" pipe operator `|>`. Like `%>%`, the native pipe `|>` supplies the first argument to a function:
+```{r}
+x <- 1:5
+x %>% mean()
+x |> mean()
+```
+As of R version 4.2, base R also has a placeholder: `_` can be used to change the behavior of `|>` so that it supplies an *arbitrary* argument to a function. For example:
+```{r}
+x <- c(5, 2, NA, 6, 9)
+TRUE %>%
+  mean(x, na.rm = .)
+
+TRUE |> 
+  mean(x, na.rm = _)
+```
+To learn more about R's native pipe, see the help file `?pipeOp`. You may be wondering: are `%>%` and `.` completely interchangeable with `|>` and `_`? Almost, but [not quite](https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe/72004083#72004083). To quote Dirk Eddelbuettel, R's native pipe `|>` is "a little faster ... a little simpler and more robust ... [and] a little more restrictive" than `%>%`. So how are we supposed to know which pipe to use? This is a good question, and it's not one for which I can provide a definitive answer. R's native pipe is so new that it's difficult to predict whether it will catch on and eventually supplant `%>%` in the `tidyverse` or if it will end up being an under-used feature of the language. For the moment, I'd suggest sticking with `%>%` for best results when working with `tidyverse` packages like `dplyr`.
+
+### How does `%>%` compare to `+` in `ggplot2`?
+
+Have you noticed how `+` in `ggplot2` works a bit like the pipe `%>%` but not quite? If you find this annoying and slightly confusing, [you're not the only one](https://www.reddit.com/r/dataisbeautiful/comments/3mp9r7/im_hadley_wickham_chief_scientist_at_rstudio_and/cvi19ly/)! For some years now a package called `ggvis` has been in the works. The hope is that it will one day replace `ggplot2`. Its syntax will be similar but with `%>%` instead of `+`, removing a common element of confusion. As of now the `ggvis` project is lying fallow. For updates see <https://ggvis.rstudio.com/> and <https://github.com/rstudio/ggvis>. 
+
+
