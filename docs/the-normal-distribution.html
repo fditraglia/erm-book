@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Lesson 7 The Normal Distribution | Empirical Research Methods</title>
   <meta name="description" content="Lesson 7 The Normal Distribution | Empirical Research Methods" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Lesson 7 The Normal Distribution | Empirical Research Methods" />
   <meta property="og:type" content="book" />
-  
   
   
   
@@ -24,7 +23,7 @@
 <meta name="author" content="Francis J. DiTraglia" />
 
 
-<meta name="date" content="2022-05-04" />
+<meta name="date" content="2022-05-11" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,9 +31,9 @@
   
   
 <link rel="prev" href="logistic-regression-and-friends.html"/>
-
-<script src="libs/header-attrs-2.13/header-attrs.js"></script>
+<link rel="next" href="data-rodeo.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -42,7 +41,6 @@
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
 
 
 
@@ -140,260 +138,298 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="toc-logo"><a href="./"><img src="images/core-erm-logo.png"></a></li>
 
 <li class="divider"></li>
-<li><a href="index.html#preface">Preface<span></span></a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
 <ul>
-<li><a href="index.html#about-this-book">About This Book<span></span></a></li>
-<li><a href="index.html#pre-requisites">Pre-requisites<span></span></a></li>
-<li><a href="index.html#good-coding-style">Good Coding Style<span></span></a></li>
-<li><a href="index.html#r-markdown">R Markdown<span></span></a></li>
-<li><a href="index.html#why-not-stata">Why not Stata?<span></span></a></li>
-<li><a href="index.html#why-not-matlab-julia-or-python">Why not Matlab, Julia, or Python?<span></span></a></li>
-<li><a href="index.html#you-can-help-make-this-book-better">You can help make this book better!<span></span></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i>About This Book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-requisites"><i class="fa fa-check"></i>Pre-requisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#good-coding-style"><i class="fa fa-check"></i>Good Coding Style</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-markdown"><i class="fa fa-check"></i>R Markdown</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-stata"><i class="fa fa-check"></i>Why not Stata?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab-julia-or-python"><i class="fa fa-check"></i>Why not Matlab, Julia, or Python?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#you-can-help-make-this-book-better"><i class="fa fa-check"></i>You can help make this book better!</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html"><i class="fa fa-check"></i><b>1</b> Getting Started with <code>dplyr</code><span></span></a>
+<li class="chapter" data-level="1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html"><i class="fa fa-check"></i><b>1</b> Getting Started with <code>dplyr</code></a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#package-installation"><i class="fa fa-check"></i><b>1.1</b> Package Installation<span></span></a>
+<li class="chapter" data-level="1.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#package-installation"><i class="fa fa-check"></i><b>1.1</b> Package Installation</a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise"><i class="fa fa-check"></i><b>1.1.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="1.1.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise"><i class="fa fa-check"></i><b>1.1.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#what-is-a-tibble"><i class="fa fa-check"></i><b>1.2</b> What is a tibble?<span></span></a></li>
-<li class="chapter" data-level="1.3" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>1.3</b> Filter Rows with <code>filter</code><span></span></a>
+<li class="chapter" data-level="1.2" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#what-is-a-tibble"><i class="fa fa-check"></i><b>1.2</b> What is a tibble?</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>1.3</b> Filter Rows with <code>filter</code></a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises"><i class="fa fa-check"></i><b>1.3.1</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="1.3.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises"><i class="fa fa-check"></i><b>1.3.1</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#sort-data-with-arrange"><i class="fa fa-check"></i><b>1.4</b> Sort data with <code>arrange</code><span></span></a>
+<li class="chapter" data-level="1.4" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#sort-data-with-arrange"><i class="fa fa-check"></i><b>1.4</b> Sort data with <code>arrange</code></a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises-1"><i class="fa fa-check"></i><b>1.4.1</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="1.4.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises-1"><i class="fa fa-check"></i><b>1.4.1</b> Exercises</a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#choose-columns-with-select"><i class="fa fa-check"></i><b>1.5</b> Choose columns with <code>select</code><span></span></a>
+<li class="chapter" data-level="1.5" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#choose-columns-with-select"><i class="fa fa-check"></i><b>1.5</b> Choose columns with <code>select</code></a>
 <ul>
-<li class="chapter" data-level="1.5.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-1"><i class="fa fa-check"></i><b>1.5.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="1.5.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-1"><i class="fa fa-check"></i><b>1.5.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="1.6" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-summarize-verb"><i class="fa fa-check"></i><b>1.6</b> The <code>summarize</code> verb<span></span></a>
+<li class="chapter" data-level="1.6" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-summarize-verb"><i class="fa fa-check"></i><b>1.6</b> The <code>summarize</code> verb</a>
 <ul>
-<li class="chapter" data-level="1.6.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-2"><i class="fa fa-check"></i><b>1.6.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="1.6.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-2"><i class="fa fa-check"></i><b>1.6.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="1.7" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-group_by-verb"><i class="fa fa-check"></i><b>1.7</b> The <code>group_by</code> verb<span></span></a>
+<li class="chapter" data-level="1.7" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-group_by-verb"><i class="fa fa-check"></i><b>1.7</b> The <code>group_by</code> verb</a>
 <ul>
-<li class="chapter" data-level="1.7.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-3"><i class="fa fa-check"></i><b>1.7.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="1.7.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-3"><i class="fa fa-check"></i><b>1.7.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="1.8" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#understanding-the-pipe"><i class="fa fa-check"></i><b>1.8</b> Understanding the pipe: <code>%&gt;%</code><span></span></a>
+<li class="chapter" data-level="1.8" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#understanding-the-pipe"><i class="fa fa-check"></i><b>1.8</b> Understanding the pipe: <code>%&gt;%</code></a>
 <ul>
-<li class="chapter" data-level="1.8.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-4"><i class="fa fa-check"></i><b>1.8.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="1.8.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-4"><i class="fa fa-check"></i><b>1.8.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="1.9" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#chaining-commands"><i class="fa fa-check"></i><b>1.9</b> Chaining commands<span></span></a>
+<li class="chapter" data-level="1.9" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#chaining-commands"><i class="fa fa-check"></i><b>1.9</b> Chaining commands</a>
 <ul>
-<li class="chapter" data-level="1.9.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-5"><i class="fa fa-check"></i><b>1.9.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="1.9.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-5"><i class="fa fa-check"></i><b>1.9.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="1.10" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#change-an-existing-variable-or-create-a-new-one-with-mutate"><i class="fa fa-check"></i><b>1.10</b> Change an existing variable or create a new one with <code>mutate</code><span></span></a>
+<li class="chapter" data-level="1.10" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#change-an-existing-variable-or-create-a-new-one-with-mutate"><i class="fa fa-check"></i><b>1.10</b> Change an existing variable or create a new one with <code>mutate</code></a>
 <ul>
-<li class="chapter" data-level="1.10.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-6"><i class="fa fa-check"></i><b>1.10.1</b> Exercise<span></span></a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html"><i class="fa fa-check"></i><b>2</b> Getting Started with <code>ggplot2</code><span></span></a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#a-simple-scatterplot-using-ggplot2"><i class="fa fa-check"></i><b>2.1</b> A simple scatterplot using <code>ggplot2</code><span></span></a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-7"><i class="fa fa-check"></i><b>2.1.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-on-the-log-scale"><i class="fa fa-check"></i><b>2.2</b> Plotting on the log scale<span></span></a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-8"><i class="fa fa-check"></i><b>2.2.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.3" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#the-color-and-size-aesthetics"><i class="fa fa-check"></i><b>2.3</b> The color and size aesthetics<span></span></a>
-<ul>
-<li class="chapter" data-level="2.3.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-9"><i class="fa fa-check"></i><b>2.3.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.4" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#faceting---plots-for-multiple-subsets"><i class="fa fa-check"></i><b>2.4</b> Faceting - Plots for Multiple Subsets<span></span></a>
-<ul>
-<li class="chapter" data-level="2.4.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-10"><i class="fa fa-check"></i><b>2.4.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.5" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-summarized-data"><i class="fa fa-check"></i><b>2.5</b> Plotting summarized data<span></span></a>
-<ul>
-<li class="chapter" data-level="2.5.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-11"><i class="fa fa-check"></i><b>2.5.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.6" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#line-plots"><i class="fa fa-check"></i><b>2.6</b> Line plots<span></span></a>
-<ul>
-<li class="chapter" data-level="2.6.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-12"><i class="fa fa-check"></i><b>2.6.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.7" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#bar-plots"><i class="fa fa-check"></i><b>2.7</b> Bar plots<span></span></a>
-<ul>
-<li class="chapter" data-level="2.7.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-13"><i class="fa fa-check"></i><b>2.7.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.8" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#cleveland-dot-charts"><i class="fa fa-check"></i><b>2.8</b> Cleveland Dot Charts<span></span></a>
-<ul>
-<li class="chapter" data-level="2.8.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-14"><i class="fa fa-check"></i><b>2.8.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.9" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#histograms"><i class="fa fa-check"></i><b>2.9</b> Histograms<span></span></a>
-<ul>
-<li class="chapter" data-level="2.9.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>2.9.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="2.10" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#boxplots"><i class="fa fa-check"></i><b>2.10</b> Boxplots<span></span></a>
-<ul>
-<li class="chapter" data-level="2.10.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-16"><i class="fa fa-check"></i><b>2.10.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="1.10.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-6"><i class="fa fa-check"></i><b>1.10.1</b> Exercise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html"><i class="fa fa-check"></i><b>3</b> Predictive Regression Part I<span></span></a>
+<li class="chapter" data-level="2" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html"><i class="fa fa-check"></i><b>2</b> Getting Started with <code>ggplot2</code></a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction<span></span></a>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#a-simple-scatterplot-using-ggplot2"><i class="fa fa-check"></i><b>2.1</b> A simple scatterplot using <code>ggplot2</code></a>
 <ul>
-<li class="chapter" data-level="3.1.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-17"><i class="fa fa-check"></i><b>3.1.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.1.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-7"><i class="fa fa-check"></i><b>2.1.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-least-squares-problem"><i class="fa fa-check"></i><b>3.2</b> The Least Squares Problem<span></span></a>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-on-the-log-scale"><i class="fa fa-check"></i><b>2.2</b> Plotting on the log scale</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-18"><i class="fa fa-check"></i><b>3.2.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-8"><i class="fa fa-check"></i><b>2.2.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#linear-regression-with-lm"><i class="fa fa-check"></i><b>3.3</b> Linear Regression with <code>lm()</code><span></span></a>
+<li class="chapter" data-level="2.3" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#the-color-and-size-aesthetics"><i class="fa fa-check"></i><b>2.3</b> The color and size aesthetics</a>
 <ul>
-<li class="chapter" data-level="3.3.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-19"><i class="fa fa-check"></i><b>3.3.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.3.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-9"><i class="fa fa-check"></i><b>2.3.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#plotting-the-regression-line"><i class="fa fa-check"></i><b>3.4</b> Plotting the Regression Line<span></span></a>
+<li class="chapter" data-level="2.4" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#faceting---plots-for-multiple-subsets"><i class="fa fa-check"></i><b>2.4</b> Faceting - Plots for Multiple Subsets</a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-20"><i class="fa fa-check"></i><b>3.4.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-10"><i class="fa fa-check"></i><b>2.4.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#getting-more-from-lm"><i class="fa fa-check"></i><b>3.5</b> Getting More from <code>lm()</code><span></span></a>
+<li class="chapter" data-level="2.5" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-summarized-data"><i class="fa fa-check"></i><b>2.5</b> Plotting summarized data</a>
 <ul>
-<li class="chapter" data-level="3.5.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-21"><i class="fa fa-check"></i><b>3.5.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.5.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-11"><i class="fa fa-check"></i><b>2.5.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#summarizing-the-ouput-of-lm"><i class="fa fa-check"></i><b>3.6</b> Summarizing The Ouput of <code>lm()</code><span></span></a>
+<li class="chapter" data-level="2.6" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#line-plots"><i class="fa fa-check"></i><b>2.6</b> Line plots</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-22"><i class="fa fa-check"></i><b>3.6.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.6.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-12"><i class="fa fa-check"></i><b>2.6.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#tidying-up-with-broom"><i class="fa fa-check"></i><b>3.7</b> Tidying up with <code>broom</code><span></span></a>
+<li class="chapter" data-level="2.7" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#bar-plots"><i class="fa fa-check"></i><b>2.7</b> Bar plots</a>
 <ul>
-<li class="chapter" data-level="3.7.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-23"><i class="fa fa-check"></i><b>3.7.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.7.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-13"><i class="fa fa-check"></i><b>2.7.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#dummy-variables-with-lm"><i class="fa fa-check"></i><b>3.8</b> Dummy Variables with <code>lm()</code><span></span></a>
+<li class="chapter" data-level="2.8" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#cleveland-dot-charts"><i class="fa fa-check"></i><b>2.8</b> Cleveland Dot Charts</a>
 <ul>
-<li class="chapter" data-level="3.8.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-24"><i class="fa fa-check"></i><b>3.8.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.8.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-14"><i class="fa fa-check"></i><b>2.8.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#fun-with-r-formulas"><i class="fa fa-check"></i><b>3.9</b> Fun with R Formulas<span></span></a>
+<li class="chapter" data-level="2.9" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#histograms"><i class="fa fa-check"></i><b>2.9</b> Histograms</a>
 <ul>
-<li class="chapter" data-level="3.9.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#everything-else---the-dot-."><i class="fa fa-check"></i><b>3.9.1</b> "Everything Else" - The Dot <code>.</code><span></span></a></li>
-<li class="chapter" data-level="3.9.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#removing-predictors-with--"><i class="fa fa-check"></i><b>3.9.2</b> Removing Predictors with <code>-</code><span></span></a></li>
-<li class="chapter" data-level="3.9.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-intercept-1"><i class="fa fa-check"></i><b>3.9.3</b> The Intercept: <code>1</code><span></span></a></li>
-<li class="chapter" data-level="3.9.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-25"><i class="fa fa-check"></i><b>3.9.4</b> Exercise<span></span></a></li>
-<li class="chapter" data-level="3.9.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#transforming-outcomes-and-predictors"><i class="fa fa-check"></i><b>3.9.5</b> Transforming Outcomes and Predictors<span></span></a></li>
-<li class="chapter" data-level="3.9.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#adding-interactions-with-and"><i class="fa fa-check"></i><b>3.9.6</b> Adding Interactions With <code>:</code>, <code>*</code>, and <code>^</code><span></span></a></li>
-<li class="chapter" data-level="3.9.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-26"><i class="fa fa-check"></i><b>3.9.7</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="2.9.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>2.9.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#boxplots"><i class="fa fa-check"></i><b>2.10</b> Boxplots</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-16"><i class="fa fa-check"></i><b>2.10.1</b> Exercise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html"><i class="fa fa-check"></i><b>4</b> Predictive Regression Part II<span></span></a>
+<li class="chapter" data-level="3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html"><i class="fa fa-check"></i><b>3</b> Predictive Regression Part I</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#regressions-used-below"><i class="fa fa-check"></i><b>4.1</b> Regressions Used Below<span></span></a></li>
-<li class="chapter" data-level="4.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#predicting-new-observations"><i class="fa fa-check"></i><b>4.2</b> Predicting New Observations<span></span></a>
+<li class="chapter" data-level="3.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-27"><i class="fa fa-check"></i><b>4.2.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="3.1.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-17"><i class="fa fa-check"></i><b>3.1.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#testing-a-linear-restriction"><i class="fa fa-check"></i><b>4.3</b> Testing a Linear Restriction<span></span></a>
+<li class="chapter" data-level="3.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-least-squares-problem"><i class="fa fa-check"></i><b>3.2</b> The Least Squares Problem</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-28"><i class="fa fa-check"></i><b>4.3.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="3.2.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-18"><i class="fa fa-check"></i><b>3.2.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#heteroskedasticity-robust-standard-errors-and-tests"><i class="fa fa-check"></i><b>4.4</b> Heteroskedasticity-Robust Standard Errors and Tests<span></span></a>
+<li class="chapter" data-level="3.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#linear-regression-with-lm"><i class="fa fa-check"></i><b>3.3</b> Linear Regression with <code>lm()</code></a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-29"><i class="fa fa-check"></i><b>4.4.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="3.3.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-19"><i class="fa fa-check"></i><b>3.3.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#publication-quality-tables"><i class="fa fa-check"></i><b>4.5</b> Publication Quality Tables<span></span></a>
+<li class="chapter" data-level="3.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#plotting-the-regression-line"><i class="fa fa-check"></i><b>3.4</b> Plotting the Regression Line</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_skim"><i class="fa fa-check"></i><b>4.5.1</b> <code>datasummary_skim()</code><span></span></a></li>
-<li class="chapter" data-level="4.5.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_balance"><i class="fa fa-check"></i><b>4.5.2</b> <code>datasummary_balance()</code><span></span></a></li>
-<li class="chapter" data-level="4.5.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#modelsummary"><i class="fa fa-check"></i><b>4.5.3</b> <code>modelsummary()</code><span></span></a></li>
-<li class="chapter" data-level="4.5.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#robust-standard-errors"><i class="fa fa-check"></i><b>4.5.4</b> Robust Standard Errors<span></span></a></li>
-<li class="chapter" data-level="4.5.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-30"><i class="fa fa-check"></i><b>4.5.5</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="3.4.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-20"><i class="fa fa-check"></i><b>3.4.1</b> Exercise</a></li>
 </ul></li>
+<li class="chapter" data-level="3.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#getting-more-from-lm"><i class="fa fa-check"></i><b>3.5</b> Getting More from <code>lm()</code></a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-21"><i class="fa fa-check"></i><b>3.5.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html"><i class="fa fa-check"></i><b>5</b> Running a Simulation Study<span></span></a>
+<li class="chapter" data-level="3.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#summarizing-the-ouput-of-lm"><i class="fa fa-check"></i><b>3.6</b> Summarizing The Ouput of <code>lm()</code></a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#is-the-hot-hand-an-illusion"><i class="fa fa-check"></i><b>5.1</b> Is the Hot Hand an Illusion?<span></span></a></li>
-<li class="chapter" data-level="5.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#drawing-random-data-in-r"><i class="fa fa-check"></i><b>5.2</b> Drawing Random Data in R<span></span></a>
-<ul>
-<li class="chapter" data-level="5.2.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#sample"><i class="fa fa-check"></i><b>5.2.1</b> <code>sample()</code><span></span></a></li>
-<li class="chapter" data-level="5.2.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#probability-distributions-in-r"><i class="fa fa-check"></i><b>5.2.2</b> Probability Distributions in R<span></span></a></li>
-<li class="chapter" data-level="5.2.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#set.seed"><i class="fa fa-check"></i><b>5.2.3</b> <code>set.seed()</code><span></span></a></li>
-<li class="chapter" data-level="5.2.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercises-2"><i class="fa fa-check"></i><b>5.2.4</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="3.6.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-22"><i class="fa fa-check"></i><b>3.6.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#the-skeleton-of-a-simulation-study"><i class="fa fa-check"></i><b>5.3</b> The Skeleton of a Simulation Study<span></span></a>
+<li class="chapter" data-level="3.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#tidying-up-with-broom"><i class="fa fa-check"></i><b>3.7</b> Tidying up with <code>broom</code></a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#a-biased-estimator-of-sigma2"><i class="fa fa-check"></i><b>5.3.1</b> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span><span></span></a></li>
-<li class="chapter" data-level="5.3.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#draw_sim_data"><i class="fa fa-check"></i><b>5.3.2</b> <code>draw_sim_data()</code><span></span></a></li>
-<li class="chapter" data-level="5.3.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_estimate"><i class="fa fa-check"></i><b>5.3.3</b> <code>get_estimate()</code><span></span></a></li>
-<li class="chapter" data-level="5.3.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_bias"><i class="fa fa-check"></i><b>5.3.4</b> <code>get_bias()</code><span></span></a></li>
-<li class="chapter" data-level="5.3.5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#running-the-simulation-study"><i class="fa fa-check"></i><b>5.3.5</b> Running the Simulation Study<span></span></a></li>
-<li class="chapter" data-level="5.3.6" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#expand.grid-and-map"><i class="fa fa-check"></i><b>5.3.6</b> <code>expand.grid()</code> and <code>Map()</code><span></span></a></li>
-<li class="chapter" data-level="5.3.7" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#formatting-the-results"><i class="fa fa-check"></i><b>5.3.7</b> Formatting the Results<span></span></a></li>
+<li class="chapter" data-level="3.7.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-23"><i class="fa fa-check"></i><b>3.7.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercise---the-hot-hand"><i class="fa fa-check"></i><b>5.4</b> Exercise - The Hot Hand<span></span></a></li>
+<li class="chapter" data-level="3.8" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#dummy-variables-with-lm"><i class="fa fa-check"></i><b>3.8</b> Dummy Variables with <code>lm()</code></a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-24"><i class="fa fa-check"></i><b>3.8.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html"><i class="fa fa-check"></i><b>6</b> Logistic Regression and Friends<span></span></a>
+<li class="chapter" data-level="3.9" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#fun-with-r-formulas"><i class="fa fa-check"></i><b>3.9</b> Fun with R Formulas</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#understanding-the-logistic-regression-model"><i class="fa fa-check"></i><b>6.1</b> Understanding the Logistic Regression Model<span></span></a>
-<ul>
-<li class="chapter" data-level="6.1.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#odds-arent-so-odd"><i class="fa fa-check"></i><b>6.1.1</b> Odds aren't so odd!<span></span></a></li>
-<li class="chapter" data-level="6.1.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-31"><i class="fa fa-check"></i><b>6.1.2</b> Exercise<span></span></a></li>
-<li class="chapter" data-level="6.1.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#interpreting-a-simple-logit-regression-model"><i class="fa fa-check"></i><b>6.1.3</b> Interpreting a Simple Logit Regression Model<span></span></a></li>
-<li class="chapter" data-level="6.1.4" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-32"><i class="fa fa-check"></i><b>6.1.4</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="6.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#simulating-data-from-a-logistic-regression"><i class="fa fa-check"></i><b>6.2</b> Simulating Data from a Logistic Regression<span></span></a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-33"><i class="fa fa-check"></i><b>6.2.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="6.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#running-a-logistic-regression-in-r"><i class="fa fa-check"></i><b>6.3</b> Running a Logistic Regression in R<span></span></a>
-<ul>
-<li class="chapter" data-level="6.3.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-34"><i class="fa fa-check"></i><b>6.3.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="6.4" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#predicted-probabilities-for-logistic-regression"><i class="fa fa-check"></i><b>6.4</b> Predicted Probabilities for Logistic Regression<span></span></a>
-<ul>
-<li class="chapter" data-level="6.4.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-35"><i class="fa fa-check"></i><b>6.4.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="6.5" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#plotting-a-logistic-regression"><i class="fa fa-check"></i><b>6.5</b> Plotting a Logistic Regression<span></span></a>
-<ul>
-<li class="chapter" data-level="6.5.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-36"><i class="fa fa-check"></i><b>6.5.1</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="6.6" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#probit-regression-and-the-linear-probability-model"><i class="fa fa-check"></i><b>6.6</b> Probit Regression and the Linear Probability Model<span></span></a>
-<ul>
-<li class="chapter" data-level="6.6.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#probit-regression"><i class="fa fa-check"></i><b>6.6.1</b> Probit Regression<span></span></a></li>
-<li class="chapter" data-level="6.6.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#the-linear-probability-model"><i class="fa fa-check"></i><b>6.6.2</b> The Linear Probability Model<span></span></a></li>
-<li class="chapter" data-level="6.6.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-37"><i class="fa fa-check"></i><b>6.6.3</b> Exercise<span></span></a></li>
-</ul></li>
-<li class="chapter" data-level="6.7" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#addendum-odds-and-ends-about-risk"><i class="fa fa-check"></i><b>6.7</b> Addendum: Odds and Ends about Risk<span></span></a>
-<ul>
-<li class="chapter" data-level="6.7.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-38"><i class="fa fa-check"></i><b>6.7.1</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="3.9.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#everything-else---the-dot-."><i class="fa fa-check"></i><b>3.9.1</b> "Everything Else" - The Dot <code>.</code></a></li>
+<li class="chapter" data-level="3.9.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#removing-predictors-with--"><i class="fa fa-check"></i><b>3.9.2</b> Removing Predictors with <code>-</code></a></li>
+<li class="chapter" data-level="3.9.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-intercept-1"><i class="fa fa-check"></i><b>3.9.3</b> The Intercept: <code>1</code></a></li>
+<li class="chapter" data-level="3.9.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-25"><i class="fa fa-check"></i><b>3.9.4</b> Exercise</a></li>
+<li class="chapter" data-level="3.9.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#transforming-outcomes-and-predictors"><i class="fa fa-check"></i><b>3.9.5</b> Transforming Outcomes and Predictors</a></li>
+<li class="chapter" data-level="3.9.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#adding-interactions-with-and"><i class="fa fa-check"></i><b>3.9.6</b> Adding Interactions With <code>:</code>, <code>*</code>, and <code>^</code></a></li>
+<li class="chapter" data-level="3.9.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-26"><i class="fa fa-check"></i><b>3.9.7</b> Exercise</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html"><i class="fa fa-check"></i><b>7</b> The Normal Distribution<span></span></a>
+<li class="chapter" data-level="4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html"><i class="fa fa-check"></i><b>4</b> Predictive Regression Part II</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#standard-normals-as-building-blocks"><i class="fa fa-check"></i><b>7.1</b> Standard Normals as Building Blocks<span></span></a></li>
-<li class="chapter" data-level="7.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-one-dimensional-case"><i class="fa fa-check"></i><b>7.2</b> The One-Dimensional Case<span></span></a>
+<li class="chapter" data-level="4.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#regressions-used-below"><i class="fa fa-check"></i><b>4.1</b> Regressions Used Below</a></li>
+<li class="chapter" data-level="4.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#predicting-new-observations"><i class="fa fa-check"></i><b>4.2</b> Predicting New Observations</a>
 <ul>
-<li class="chapter" data-level="7.2.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pnorm"><i class="fa fa-check"></i><b>7.2.1</b> <code>pnorm()</code><span></span></a></li>
-<li class="chapter" data-level="7.2.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#dnorm"><i class="fa fa-check"></i><b>7.2.2</b> <code>dnorm()</code><span></span></a></li>
-<li class="chapter" data-level="7.2.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#qnorm"><i class="fa fa-check"></i><b>7.2.3</b> <code>qnorm()</code><span></span></a></li>
-<li class="chapter" data-level="7.2.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#rnorm"><i class="fa fa-check"></i><b>7.2.4</b> <code>rnorm()</code><span></span></a></li>
-<li class="chapter" data-level="7.2.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pqdrnorm-are-vectorized"><i class="fa fa-check"></i><b>7.2.5</b> <code>p/q/d/rnorm()</code> are Vectorized<span></span></a></li>
-<li class="chapter" data-level="7.2.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#be-careful"><i class="fa fa-check"></i><b>7.2.6</b> Be Careful!<span></span></a></li>
-<li class="chapter" data-level="7.2.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercises-3"><i class="fa fa-check"></i><b>7.2.7</b> Exercises<span></span></a></li>
+<li class="chapter" data-level="4.2.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-27"><i class="fa fa-check"></i><b>4.2.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#generating-correlated-normal-rvs"><i class="fa fa-check"></i><b>7.3</b> Generating Correlated Normal RVs<span></span></a>
+<li class="chapter" data-level="4.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#testing-a-linear-restriction"><i class="fa fa-check"></i><b>4.3</b> Testing a Linear Restriction</a>
 <ul>
-<li class="chapter" data-level="7.3.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#start-with-uncorrelated-normal-draws"><i class="fa fa-check"></i><b>7.3.1</b> Start with Uncorrelated Normal Draws<span></span></a></li>
-<li class="chapter" data-level="7.3.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-39"><i class="fa fa-check"></i><b>7.3.2</b> Exercise<span></span></a></li>
-<li class="chapter" data-level="7.3.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#add-constants-to-shift-the-means"><i class="fa fa-check"></i><b>7.3.3</b> Add Constants to Shift the Means<span></span></a></li>
-<li class="chapter" data-level="7.3.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-40"><i class="fa fa-check"></i><b>7.3.4</b> Exercise<span></span></a></li>
-<li class="chapter" data-level="7.3.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#multiply-by-scalars-to-change-the-variance"><i class="fa fa-check"></i><b>7.3.5</b> Multiply by Scalars to Change the Variance<span></span></a></li>
-<li class="chapter" data-level="7.3.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#combine-to-create-correlation"><i class="fa fa-check"></i><b>7.3.6</b> Combine to Create Correlation<span></span></a></li>
-<li class="chapter" data-level="7.3.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-41"><i class="fa fa-check"></i><b>7.3.7</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="4.3.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-28"><i class="fa fa-check"></i><b>4.3.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-cholesky-decomposition"><i class="fa fa-check"></i><b>7.4</b> The Cholesky Decomposition<span></span></a>
+<li class="chapter" data-level="4.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#heteroskedasticity-robust-standard-errors-and-tests"><i class="fa fa-check"></i><b>4.4</b> Heteroskedasticity-Robust Standard Errors and Tests</a>
 <ul>
-<li class="chapter" data-level="7.4.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#going-backwards"><i class="fa fa-check"></i><b>7.4.1</b> Going Backwards<span></span></a></li>
-<li class="chapter" data-level="7.4.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-42"><i class="fa fa-check"></i><b>7.4.2</b> Exercise<span></span></a></li>
-<li class="chapter" data-level="7.4.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#whats-the-square-root-of-a-matrix"><i class="fa fa-check"></i><b>7.4.3</b> What's the Square Root of a Matrix?<span></span></a></li>
-<li class="chapter" data-level="7.4.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-43"><i class="fa fa-check"></i><b>7.4.4</b> Exercise<span></span></a></li>
+<li class="chapter" data-level="4.4.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-29"><i class="fa fa-check"></i><b>4.4.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#epilogue"><i class="fa fa-check"></i><b>7.5</b> Epilogue<span></span></a>
+<li class="chapter" data-level="4.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#publication-quality-tables"><i class="fa fa-check"></i><b>4.5</b> Publication Quality Tables</a>
 <ul>
-<li class="chapter" data-level="7.5.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#affine-transformations-of-a-multivariate-normal"><i class="fa fa-check"></i><b>7.5.1</b> Affine Transformations of a Multivariate Normal<span></span></a></li>
-<li class="chapter" data-level="7.5.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#conditional-distributions-of-bivariate-normal"><i class="fa fa-check"></i><b>7.5.2</b> Conditional Distributions of Bivariate Normal<span></span></a></li>
+<li class="chapter" data-level="4.5.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_skim"><i class="fa fa-check"></i><b>4.5.1</b> <code>datasummary_skim()</code></a></li>
+<li class="chapter" data-level="4.5.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_balance"><i class="fa fa-check"></i><b>4.5.2</b> <code>datasummary_balance()</code></a></li>
+<li class="chapter" data-level="4.5.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#modelsummary"><i class="fa fa-check"></i><b>4.5.3</b> <code>modelsummary()</code></a></li>
+<li class="chapter" data-level="4.5.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#robust-standard-errors"><i class="fa fa-check"></i><b>4.5.4</b> Robust Standard Errors</a></li>
+<li class="chapter" data-level="4.5.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-30"><i class="fa fa-check"></i><b>4.5.5</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html"><i class="fa fa-check"></i><b>5</b> Running a Simulation Study</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#is-the-hot-hand-an-illusion"><i class="fa fa-check"></i><b>5.1</b> Is the Hot Hand an Illusion?</a></li>
+<li class="chapter" data-level="5.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#drawing-random-data-in-r"><i class="fa fa-check"></i><b>5.2</b> Drawing Random Data in R</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#sample"><i class="fa fa-check"></i><b>5.2.1</b> <code>sample()</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#probability-distributions-in-r"><i class="fa fa-check"></i><b>5.2.2</b> Probability Distributions in R</a></li>
+<li class="chapter" data-level="5.2.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#set.seed"><i class="fa fa-check"></i><b>5.2.3</b> <code>set.seed()</code></a></li>
+<li class="chapter" data-level="5.2.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercises-2"><i class="fa fa-check"></i><b>5.2.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#the-skeleton-of-a-simulation-study"><i class="fa fa-check"></i><b>5.3</b> The Skeleton of a Simulation Study</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#a-biased-estimator-of-sigma2"><i class="fa fa-check"></i><b>5.3.1</b> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span></a></li>
+<li class="chapter" data-level="5.3.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#draw_sim_data"><i class="fa fa-check"></i><b>5.3.2</b> <code>draw_sim_data()</code></a></li>
+<li class="chapter" data-level="5.3.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_estimate"><i class="fa fa-check"></i><b>5.3.3</b> <code>get_estimate()</code></a></li>
+<li class="chapter" data-level="5.3.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_bias"><i class="fa fa-check"></i><b>5.3.4</b> <code>get_bias()</code></a></li>
+<li class="chapter" data-level="5.3.5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#running-the-simulation-study"><i class="fa fa-check"></i><b>5.3.5</b> Running the Simulation Study</a></li>
+<li class="chapter" data-level="5.3.6" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#expand.grid-and-map"><i class="fa fa-check"></i><b>5.3.6</b> <code>expand.grid()</code> and <code>Map()</code></a></li>
+<li class="chapter" data-level="5.3.7" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#formatting-the-results"><i class="fa fa-check"></i><b>5.3.7</b> Formatting the Results</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercise---the-hot-hand"><i class="fa fa-check"></i><b>5.4</b> Exercise - The Hot Hand</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html"><i class="fa fa-check"></i><b>6</b> Logistic Regression and Friends</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#understanding-the-logistic-regression-model"><i class="fa fa-check"></i><b>6.1</b> Understanding the Logistic Regression Model</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#odds-arent-so-odd"><i class="fa fa-check"></i><b>6.1.1</b> Odds aren't so odd!</a></li>
+<li class="chapter" data-level="6.1.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-31"><i class="fa fa-check"></i><b>6.1.2</b> Exercise</a></li>
+<li class="chapter" data-level="6.1.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#interpreting-a-simple-logit-regression-model"><i class="fa fa-check"></i><b>6.1.3</b> Interpreting a Simple Logit Regression Model</a></li>
+<li class="chapter" data-level="6.1.4" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-32"><i class="fa fa-check"></i><b>6.1.4</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#simulating-data-from-a-logistic-regression"><i class="fa fa-check"></i><b>6.2</b> Simulating Data from a Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-33"><i class="fa fa-check"></i><b>6.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#running-a-logistic-regression-in-r"><i class="fa fa-check"></i><b>6.3</b> Running a Logistic Regression in R</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-34"><i class="fa fa-check"></i><b>6.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#predicted-probabilities-for-logistic-regression"><i class="fa fa-check"></i><b>6.4</b> Predicted Probabilities for Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-35"><i class="fa fa-check"></i><b>6.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#plotting-a-logistic-regression"><i class="fa fa-check"></i><b>6.5</b> Plotting a Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-36"><i class="fa fa-check"></i><b>6.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#probit-regression-and-the-linear-probability-model"><i class="fa fa-check"></i><b>6.6</b> Probit Regression and the Linear Probability Model</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#probit-regression"><i class="fa fa-check"></i><b>6.6.1</b> Probit Regression</a></li>
+<li class="chapter" data-level="6.6.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#the-linear-probability-model"><i class="fa fa-check"></i><b>6.6.2</b> The Linear Probability Model</a></li>
+<li class="chapter" data-level="6.6.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-37"><i class="fa fa-check"></i><b>6.6.3</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#addendum-odds-and-ends-about-risk"><i class="fa fa-check"></i><b>6.7</b> Addendum: Odds and Ends about Risk</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-38"><i class="fa fa-check"></i><b>6.7.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html"><i class="fa fa-check"></i><b>7</b> The Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#standard-normals-as-building-blocks"><i class="fa fa-check"></i><b>7.1</b> Standard Normals as Building Blocks</a></li>
+<li class="chapter" data-level="7.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-one-dimensional-case"><i class="fa fa-check"></i><b>7.2</b> The One-Dimensional Case</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pnorm"><i class="fa fa-check"></i><b>7.2.1</b> <code>pnorm()</code></a></li>
+<li class="chapter" data-level="7.2.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#dnorm"><i class="fa fa-check"></i><b>7.2.2</b> <code>dnorm()</code></a></li>
+<li class="chapter" data-level="7.2.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#qnorm"><i class="fa fa-check"></i><b>7.2.3</b> <code>qnorm()</code></a></li>
+<li class="chapter" data-level="7.2.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#rnorm"><i class="fa fa-check"></i><b>7.2.4</b> <code>rnorm()</code></a></li>
+<li class="chapter" data-level="7.2.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pqdrnorm-are-vectorized"><i class="fa fa-check"></i><b>7.2.5</b> <code>p/q/d/rnorm()</code> are Vectorized</a></li>
+<li class="chapter" data-level="7.2.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#be-careful"><i class="fa fa-check"></i><b>7.2.6</b> Be Careful!</a></li>
+<li class="chapter" data-level="7.2.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercises-3"><i class="fa fa-check"></i><b>7.2.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#generating-correlated-normal-rvs"><i class="fa fa-check"></i><b>7.3</b> Generating Correlated Normal RVs</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#start-with-uncorrelated-normal-draws"><i class="fa fa-check"></i><b>7.3.1</b> Start with Uncorrelated Normal Draws</a></li>
+<li class="chapter" data-level="7.3.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-39"><i class="fa fa-check"></i><b>7.3.2</b> Exercise</a></li>
+<li class="chapter" data-level="7.3.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#add-constants-to-shift-the-means"><i class="fa fa-check"></i><b>7.3.3</b> Add Constants to Shift the Means</a></li>
+<li class="chapter" data-level="7.3.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-40"><i class="fa fa-check"></i><b>7.3.4</b> Exercise</a></li>
+<li class="chapter" data-level="7.3.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#multiply-by-scalars-to-change-the-variance"><i class="fa fa-check"></i><b>7.3.5</b> Multiply by Scalars to Change the Variance</a></li>
+<li class="chapter" data-level="7.3.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#combine-to-create-correlation"><i class="fa fa-check"></i><b>7.3.6</b> Combine to Create Correlation</a></li>
+<li class="chapter" data-level="7.3.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-41"><i class="fa fa-check"></i><b>7.3.7</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-cholesky-decomposition"><i class="fa fa-check"></i><b>7.4</b> The Cholesky Decomposition</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#going-backwards"><i class="fa fa-check"></i><b>7.4.1</b> Going Backwards</a></li>
+<li class="chapter" data-level="7.4.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-42"><i class="fa fa-check"></i><b>7.4.2</b> Exercise</a></li>
+<li class="chapter" data-level="7.4.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#whats-the-square-root-of-a-matrix"><i class="fa fa-check"></i><b>7.4.3</b> What's the Square Root of a Matrix?</a></li>
+<li class="chapter" data-level="7.4.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-43"><i class="fa fa-check"></i><b>7.4.4</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#epilogue"><i class="fa fa-check"></i><b>7.5</b> Epilogue</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#affine-transformations-of-a-multivariate-normal"><i class="fa fa-check"></i><b>7.5.1</b> Affine Transformations of a Multivariate Normal</a></li>
+<li class="chapter" data-level="7.5.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#conditional-distributions-of-bivariate-normal"><i class="fa fa-check"></i><b>7.5.2</b> Conditional Distributions of Bivariate Normal</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-rodeo.html"><a href="data-rodeo.html"><i class="fa fa-check"></i><b>8</b> Data Rodeo</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="data-rodeo.html"><a href="data-rodeo.html#joins"><i class="fa fa-check"></i><b>8.1</b> Joins</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-44"><i class="fa fa-check"></i><b>8.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="data-rodeo.html"><a href="data-rodeo.html#tidyselect"><i class="fa fa-check"></i><b>8.2</b> <code>tidyselect</code></a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-45"><i class="fa fa-check"></i><b>8.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="data-rodeo.html"><a href="data-rodeo.html#column-wise-operations-with-across"><i class="fa fa-check"></i><b>8.3</b> Column-wise Operations with <code>across()</code></a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-46"><i class="fa fa-check"></i><b>8.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="data-rodeo.html"><a href="data-rodeo.html#row-wise-operations"><i class="fa fa-check"></i><b>8.4</b> Row-wise operations</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="data-rodeo.html"><a href="data-rodeo.html#rowwise"><i class="fa fa-check"></i><b>8.4.1</b> <code>rowwise()</code></a></li>
+<li class="chapter" data-level="8.4.2" data-path="data-rodeo.html"><a href="data-rodeo.html#c_across"><i class="fa fa-check"></i><b>8.4.2</b> <code>c_across()</code></a></li>
+<li class="chapter" data-level="8.4.3" data-path="data-rodeo.html"><a href="data-rodeo.html#across-as-an-alternative-to-rowwise"><i class="fa fa-check"></i><b>8.4.3</b> <code>across()</code> as an alternative to <code>rowwise()</code></a></li>
+<li class="chapter" data-level="8.4.4" data-path="data-rodeo.html"><a href="data-rodeo.html#ungroup"><i class="fa fa-check"></i><b>8.4.4</b> <code>ungroup()</code></a></li>
+<li class="chapter" data-level="8.4.5" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-47"><i class="fa fa-check"></i><b>8.4.5</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="data-rodeo.html"><a href="data-rodeo.html#pivoting-from-wider-to-longer-and-back-again"><i class="fa fa-check"></i><b>8.5</b> Pivoting: From Wider to Longer and Back Again</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="data-rodeo.html"><a href="data-rodeo.html#pivot_longer"><i class="fa fa-check"></i><b>8.5.1</b> <code>pivot_longer()</code></a></li>
+<li class="chapter" data-level="8.5.2" data-path="data-rodeo.html"><a href="data-rodeo.html#pivot_wider"><i class="fa fa-check"></i><b>8.5.2</b> <code>pivot_wider()</code></a></li>
+<li class="chapter" data-level="8.5.3" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-48"><i class="fa fa-check"></i><b>8.5.3</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="data-rodeo.html"><a href="data-rodeo.html#put-that-in-your-pipe-and-smoke-it"><i class="fa fa-check"></i><b>8.6</b> Put that in your pipe and smoke it!</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="data-rodeo.html"><a href="data-rodeo.html#to-pipe-or-not-to-pipe"><i class="fa fa-check"></i><b>8.6.1</b> To pipe or not to pipe?</a></li>
+<li class="chapter" data-level="8.6.2" data-path="data-rodeo.html"><a href="data-rodeo.html#supplying-an-arbitrary-argument"><i class="fa fa-check"></i><b>8.6.2</b> Supplying an Arbitrary Argument</a></li>
+<li class="chapter" data-level="8.6.3" data-path="data-rodeo.html"><a href="data-rodeo.html#the-many-pipes-of-magrittr"><i class="fa fa-check"></i><b>8.6.3</b> The many pipes of <code>magrittr</code></a></li>
+<li class="chapter" data-level="8.6.4" data-path="data-rodeo.html"><a href="data-rodeo.html#all-about-that-base-rs-native-pipe"><i class="fa fa-check"></i><b>8.6.4</b> All About that Base: R's "Native" Pipe</a></li>
+<li class="chapter" data-level="8.6.5" data-path="data-rodeo.html"><a href="data-rodeo.html#how-does-compare-to-in-ggplot2"><i class="fa fa-check"></i><b>8.6.5</b> How does <code>%&gt;%</code> compare to <code>+</code> in <code>ggplot2</code>?</a></li>
+<li class="chapter" data-level="8.6.6" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-49"><i class="fa fa-check"></i><b>8.6.6</b> Exercise</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -821,7 +857,7 @@ For this reason we'll work with zero mean normals throughout most of this lesson
 </div>
 <div id="combine-to-create-correlation" class="section level3 hasAnchor" number="7.3.6">
 <h3><span class="header-section-number">7.3.6</span> Combine to Create Correlation<a href="the-normal-distribution.html#combine-to-create-correlation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>There's one more fact about normal distributions that we'll need: <strong>a sum of independent normal random variables is itself a normal random variable.</strong> For our purposes, this means that <span class="math inline">\(X \equiv a Z_1 + b Z_2 + c\)</span> is a normal random variable for any constants <span class="math inline">\(a, b\)</span>, and <span class="math inline">\(c\)</span>.<a href="the-normal-distribution.html#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a> Its mean and variance are determined from the values of <span class="math inline">\(a, b\)</span>, and <span class="math inline">\(c\)</span>.</p>
+<p>There's one more fact about normal distributions that we'll need: <strong>a sum of independent normal random variables is itself a normal random variable.</strong> For our purposes, this means that <span class="math inline">\(X \equiv a Z_1 + b Z_2 + c\)</span> is a normal random variable for any constants <span class="math inline">\(a, b\)</span>, and <span class="math inline">\(c\)</span>.<a href="#fn25" class="footnote-ref" id="fnref25"><sup>25</sup></a> Its mean and variance are determined from the values of <span class="math inline">\(a, b\)</span>, and <span class="math inline">\(c\)</span>.</p>
 <p>Now we're ready to construct some correlated normals. Suppose I define <span class="math inline">\(X_1 \equiv 2 Z_1 + Z_2\)</span> and <span class="math inline">\(X_2 \equiv Z_1 + 4 Z_2\)</span>. In other words, suppose that I <em>combine</em> <span class="math inline">\(Z_1\)</span> and <span class="math inline">\(Z_2\)</span> in two different ways by taking two distinct linear combinations. Because <span class="math inline">\(X_1\)</span> and <span class="math inline">\(X_2\)</span> depend on the same underlying standard normal random variables <span class="math inline">\((Z_1, Z_2)\)</span> we would expect them to be correlated, and indeed they are:</p>
 <div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb597-1"><a href="the-normal-distribution.html#cb597-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="at">x1 =</span> <span class="dv">2</span> <span class="sc">*</span> z[,<span class="dv">1</span>] <span class="sc">+</span> z[,<span class="dv">2</span>],</span>
 <span id="cb597-2"><a href="the-normal-distribution.html#cb597-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">x2 =</span> z[,<span class="dv">1</span>] <span class="sc">+</span> <span class="dv">4</span> <span class="sc">*</span> z[,<span class="dv">2</span>])</span>
@@ -1072,7 +1108,7 @@ This can't be a variance-covariance matrix. Why not? Taking its correlation matr
 \boldsymbol{\Sigma} = \begin{bmatrix} \sigma_1^2 &amp; \sigma_{12} \\
 \sigma_{12} &amp; \sigma_2^2\end{bmatrix}
 \]</span>
-as in the exercise above. Now define <span class="math inline">\(Y = \alpha X_1 + \beta X_2\)</span>. Unless <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are <em>both</em> zero, <span class="math inline">\(Y\)</span> is a normal random variable so it certainly must have a positive variance. If we define <span class="math inline">\(\mathbf{v}&#39; = \begin{bmatrix} \alpha &amp; \beta \end{bmatrix}\)</span> then, a bit of algebra shows that <span class="math inline">\(\text{Var}(Y) = \mathbf{v}&#39; \boldsymbol{\Sigma} \mathbf{v}\)</span>. (See the exercise below.) So requiring that <span class="math inline">\(\mathbf{v} \boldsymbol{\Sigma} \mathbf{v}&#39; &gt; 0\)</span> is <em>equivalent</em> to requiring that any random variable <span class="math inline">\(Y\)</span> that we form by taking a linear combination of <span class="math inline">\(\mathbf{X}\)</span> has a positive variance. There's nothing special about the two-dimensional case: this all applies in general. This is why a matrix that isn't positive definite can't be a variance-covariance matrix.<a href="the-normal-distribution.html#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a></p>
+as in the exercise above. Now define <span class="math inline">\(Y = \alpha X_1 + \beta X_2\)</span>. Unless <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are <em>both</em> zero, <span class="math inline">\(Y\)</span> is a normal random variable so it certainly must have a positive variance. If we define <span class="math inline">\(\mathbf{v}&#39; = \begin{bmatrix} \alpha &amp; \beta \end{bmatrix}\)</span> then, a bit of algebra shows that <span class="math inline">\(\text{Var}(Y) = \mathbf{v}&#39; \boldsymbol{\Sigma} \mathbf{v}\)</span>. (See the exercise below.) So requiring that <span class="math inline">\(\mathbf{v} \boldsymbol{\Sigma} \mathbf{v}&#39; &gt; 0\)</span> is <em>equivalent</em> to requiring that any random variable <span class="math inline">\(Y\)</span> that we form by taking a linear combination of <span class="math inline">\(\mathbf{X}\)</span> has a positive variance. There's nothing special about the two-dimensional case: this all applies in general. This is why a matrix that isn't positive definite can't be a variance-covariance matrix.<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a></p>
 <p>Fortunately for anyone who wants to generate correlated normal draws, <em>any</em> positive definite matrix <span class="math inline">\(\boldsymbol{\Sigma}\)</span>, has a "square root" in the sense that it can be written as <span class="math inline">\(\boldsymbol{\Sigma} = \mathbf{A}\mathbf{A}&#39;\)</span>. But just as the square root of a real number isn't unique, <span class="math inline">\(\mathbf{A}\)</span> likewise isn't unique. For example,
 <span class="math display">\[
 \begin{bmatrix}
@@ -1252,34 +1288,9 @@ And what is <span class="math inline">\(\rho_{12}^2\)</span>? It's the <em>R-squ
 </div>
 </div>
 </div>
-<div class="footnotes footnotes-end-of-document">
+<div class="footnotes">
 <hr />
-<ol>
-<li id="fn1"><p>Arguably, Stata is <em>too easy to learn</em> precisely because of the incentives faced by a software developer with monopoly power: see Hal Varian's paper: <a href="https://people.ischool.berkeley.edu/~hal/Papers/Software.pdf">Economic Incentives in Software Design</a>.<a href="index.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>These figures were accurate as of March 2021. For the latest prices, see <a href="https://www.stata.com/order/dl/" class="uri">https://www.stata.com/order/dl/</a>.<a href="index.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p><a href="https://www.stata.com/new-in-stata/" class="uri">https://www.stata.com/new-in-stata/</a><a href="index.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p><a href="https://rss.onlinelibrary.wiley.com/doi/pdfdirect/10.1111/j.2517-6161.1996.tb02080.x">Tibshirani (1996) - Regression Shrinkage and Selection via the Lasso</a><a href="index.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p><a href="https://www.jstatsoft.org/article/view/v033i01">Friedman et al (2010) - Regularization Paths for Generalized Linear Models via Coordinate Descent</a><a href="index.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>For a history of linear programming, see <a href="https://link.springer.com/content/pdf/10.1007/978-3-642-68874-4_4.pdf">Dantzig (1983)</a>. To be completely fair, the linear programming <a href="https://www.stata.com/new-in-stata/linear-programming/">algorithm</a>
-implemented in Stata 16 was only developed in 1992, a lag of merely 28 years.<a href="index.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>Reproducible reporting in R started with <a href="https://cran.r-project.org/doc/Rnews/Rnews_2002-3.pdf">sweave</a>. These days we have a fantastic successor package called <a href="https://yihui.org/knitr/">knitr</a>, which I cover below.<a href="index.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>The "Mata" programming language was added in Stata 9: <a href="https://www.stata.com/stata9/" class="uri">https://www.stata.com/stata9/</a>. For a timeline of Stata versions, see <a href="https://www.stata.com/support/faqs/resources/history-of-stata/" class="uri">https://www.stata.com/support/faqs/resources/history-of-stata/</a>.<a href="index.html#fnref8" class="footnote-back">↩︎</a></p></li>
-<li id="fn9"><p>A good resources aimed at economists is <a href="https://quantecon.org" class="uri">https://quantecon.org</a>, available in both <a href="https://python.quantecon.org/">Python</a> and <a href="https://julia.quantecon.org/">Julia</a> versions.<a href="index.html#fnref9" class="footnote-back">↩︎</a></p></li>
-<li id="fn10"><p>If you're rusty on the F-test, <a href="https://www.econometrics.blog/post/understanding-the-f-statistic/">this may help</a>.<a href="predictive-regression-part-i.html#fnref10" class="footnote-back">↩︎</a></p></li>
-<li id="fn11"><p>To make a long story short: it's almost never plausible that the null hypothesis holds <em>exactly</em>. If the null is even slightly incorrect then we're certain to reject it if we gather enough data, but this doesn't tell us anything of scientific interest. What really matters is <em>effect sizes</em> and the precision with which we can estimate them; not p-values.<a href="predictive-regression-part-ii.html#fnref11" class="footnote-back">↩︎</a></p></li>
-<li id="fn12"><p>Recall that a Wald test compares the estimated coefficients from an unrestricted model to their hypothesized values under a specified restriction.<a href="predictive-regression-part-ii.html#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p>See for example <a href="https://www.nber.org/digest-202202/exploring-hot-hand-basketball">this write-up</a> of <a href="https://www.nber.org/papers/w29468">Lantis &amp; Nessen (2021)</a> in the <a href="https://www.nber.org/digest-2022-02">February 2022 NBER digest</a>.<a href="running-a-simulation-study.html#fnref13" class="footnote-back">↩︎</a></p></li>
-<li id="fn14"><p>An ungated version of Benjamin (2019) is <a href="https://www.cb.cityu.edu.hk/ef/doc/GRU/WPS/GRU%232018-023%20Benjamin.pdf">available here</a>.<a href="running-a-simulation-study.html#fnref14" class="footnote-back">↩︎</a></p></li>
-<li id="fn15"><p>See <a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.33.3.144">Miller &amp; Sanjurjo (2019)</a> for a more accessible explanation that connects to several related probability puzzles.<a href="running-a-simulation-study.html#fnref15" class="footnote-back">↩︎</a></p></li>
-<li id="fn16"><p>Technically, "random" draws made on a computer are only <a href="https://en.wikipedia.org/wiki/Pseudorandomness">pseudorandom</a>. We'll discuss this further below.<a href="running-a-simulation-study.html#fnref16" class="footnote-back">↩︎</a></p></li>
-<li id="fn17"><p>For less common distributions, see <a href="https://cran.r-project.org/web/views/Distributions.html">CRAN Task View: Probability Distributions</a><a href="running-a-simulation-study.html#fnref17" class="footnote-back">↩︎</a></p></li>
-<li id="fn18"><p>A Bernoulli trial is a model for a possibly biased coin flip: if <span class="math inline">\(X \sim \text{Bernoulli}(p)\)</span> then <span class="math inline">\(\mathbb{P}(X=1) = p\)</span> and <span class="math inline">\(\mathbb{P}(X=0) = 1-p\)</span>.<a href="running-a-simulation-study.html#fnref18" class="footnote-back">↩︎</a></p></li>
-<li id="fn19"><p>To see this, first rewrite <span class="math inline">\(\sum_{i=1}^n (X_i - \bar{X}_n)^2\)</span> as <span class="math inline">\(\sum_{i=1}^n (X_i - \mu)^2 - n(\bar{X}_n - \mu)^2\)</span>. This step is just algebra. Then take expectations, using the fact that the <span class="math inline">\(X_i\)</span> are independent and identically distributed.<a href="running-a-simulation-study.html#fnref19" class="footnote-back">↩︎</a></p></li>
-<li id="fn20"><p>If you're unfamiliar with the Normal Q-Q plot that I used to check the normality of <code>test_sims</code>, you can read about it this <a href="https://www.econometrics.blog/post/thirty-isn-t-the-magic-number/">blog post</a>.<a href="running-a-simulation-study.html#fnref20" class="footnote-back">↩︎</a></p></li>
-<li id="fn21"><p>This example was devised by <a href="http://www.stat.columbia.edu/~gelman/research/published/truths_paper.pdf">Andrew Gelman</a>. For more in-class examples and experiments, I highly recommend <a href="http://www.stat.columbia.edu/~gelman/bag-of-tricks/">Teaching Statistics: A Bag of Tricks</a>.<a href="logistic-regression-and-friends.html#fnref21" class="footnote-back">↩︎</a></p></li>
-<li id="fn22"><p>When I write log in this book, unless I explicitly say otherwise this is the <em>natural log</em>, following R's usage: <code>log()</code> defaults to natural log unless you specify <code>base = [YOUR PREFERRED BASE HERE]</code>.<a href="logistic-regression-and-friends.html#fnref22" class="footnote-back">↩︎</a></p></li>
-<li id="fn23"><p>Pun intended!<a href="logistic-regression-and-friends.html#fnref23" class="footnote-back">↩︎</a></p></li>
-<li id="fn24"><p>In epidemiology this is called the "rare disease assumption."<a href="logistic-regression-and-friends.html#fnref24" class="footnote-back">↩︎</a></p></li>
+<ol start="25">
 <li id="fn25"><p>Okay, fine: if <span class="math inline">\(a = b = 0\)</span> then <span class="math inline">\(X\)</span> merely equals the constant <span class="math inline">\(c\)</span>. But in any other case, <span class="math inline">\(X\)</span> is normally distributed.<a href="the-normal-distribution.html#fnref25" class="footnote-back">↩︎</a></p></li>
 <li id="fn26"><p>Strictly speaking a variance-covariance matrix only needs to be positive <em>semi-definite</em>, i.e. <span class="math inline">\(\mathbf{v}&#39; \boldsymbol{\Sigma} \mathbf{v}\geq 0\)</span> for any <span class="math inline">\(\mathbf{v} \neq \mathbf{0}\)</span>. But if there's a non-zero vector <span class="math inline">\(\mathbf{v}\)</span> such that <span class="math inline">\(\mathbf{v} \boldsymbol{\Sigma} \mathbf{v} = \mathbf{0}\)</span> this means that one of the random variables contained in <span class="math inline">\(\mathbf{X}\)</span> is <em>redundant</em> in that it is perfectly correlated with some linear combination of the others. Such a variance-covariance matrix gives rise to what is called a <em>singular</em> normal distribution. These do come up from time to time, but discussing them further here would take us too far afield. There's already more than enough matrix algebra in this lesson!<a href="the-normal-distribution.html#fnref26" class="footnote-back">↩︎</a></p></li>
 </ol>
@@ -1460,12 +1471,11 @@ window.onload = function() {
           </div>
         </div>
       </div>
-<a href="logistic-regression-and-friends.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="logistic-regression-and-friends.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-rodeo.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1506,7 +1516,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
