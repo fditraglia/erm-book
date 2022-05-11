@@ -214,7 +214,7 @@ gradebook %>%
   summarize(across(starts_with('quiz'), sd, .names = '{.col}_sd'))
 ```
 2. Read the help file for the function `n_distinct()` in `dplyr`. What does it do? After you understand how it works, use it to count up the number of distinct values in each column of `starwars` that contains character data. Name your results according to `n_[COLUMN NAME]s`.
-```{r}
+```{r, webex.hide = 'Show Solution'}
 starwars %>%
   summarize(across(where(is.character), n_distinct, .names = 'n_{.col}s'))
 ```
@@ -335,7 +335,15 @@ In the same way, we can use `ungroup()` to "return to normal" after a `group_by(
 
 
 ### Exercise
-**Add some exercises in the future!**
+Suppose we wanted to calculate each student's *maximum* quiz score and store it in a column called `quiz_max`. Write code to accomplish this using row-wise operations. 
+```{r, webex.hide = 'Show Solution'}
+gradebook %>%
+  rowwise() %>%
+  mutate(quiz_max = max(c_across(starts_with('quiz')))) %>%
+  ungroup() %>%
+  select(student_id, name, quiz_max)
+```
+
 
 
 ## Pivoting: From Wider to Longer and Back Again 
@@ -423,16 +431,30 @@ quiz_scores %>%
 
 
 ### Exercise
-**Fill in the answers here!**
 
-1. An example from the vignette!
-2. Complete the merge described above. What type of join makes sense here?
+1. Read the documentation file for the dataset `billboard` from `tidyr`. Then use `pivot_longer()` to convert this tibble into a "panel data layout," as we did with the gradebook example from above.
+```{r, webex.hide = 'Show Solution'}
+billboard
+billboard %>% pivot_longer(cols = starts_with('wk'),
+                           names_to = 'week', 
+                           values_to = 'rank')
+```
+2. In my silly example with a TA and course instructor, I described a planned merge of `quiz_scores` with `exam_scores`, after pivoting `quiz_scores` appropriately. Carry out this merge. What kind of "join" makes sense here? 
+```{r, webex.hide = 'Show Solution'}
+# A full join ensures that we end up with a row for any student who appears in
+# *either* exam_scores or the pivoted version of quiz_scores.
+quiz_scores %>%
+  pivot_wider(names_from = quiz, names_prefix = 'quiz', values_from = score) %>%
+  full_join(exam_scores)
+```
+
 3. Above we saw how to combine the function `drop1_avg()` with row-wise operations to calculate each student's quiz average after dropping the lowest score. Devise an *alternative* solution to this problem that uses `pivot_longer()` followed by `pivot_wider()` rather than row-wise operations.
-```{r}
+```{r, webex.hide = 'Show Solution'}
 gradebook %>% 
   pivot_longer(starts_with('quiz'), names_to = 'quiz', values_to = 'score') %>%
   group_by(name) %>%
-  mutate(quiz_avg = drop1_avg(score)) 
+  mutate(quiz_avg = drop1_avg(score)) %>%
+  pivot_wider(names_from = 'quiz', values_from = 'score')
 ```
 
 ## Put that in your pipe and smoke it!
@@ -543,4 +565,5 @@ To learn more about R's native pipe, see the help file `?pipeOp`. You may be won
 
 Have you noticed how `+` in `ggplot2` works a bit like the pipe `%>%` but not quite? If you find this annoying and slightly confusing, [you're not the only one](https://www.reddit.com/r/dataisbeautiful/comments/3mp9r7/im_hadley_wickham_chief_scientist_at_rstudio_and/cvi19ly/)! For some years now a package called `ggvis` has been in the works. The hope is that it will one day replace `ggplot2`. Its syntax will be similar but with `%>%` instead of `+`, removing a common element of confusion. As of now the `ggvis` project is lying fallow. For updates see <https://ggvis.rstudio.com/> and <https://github.com/rstudio/ggvis>. 
 
-
+### Exercise
+Go back through some of the examples in which we've used `%>%` in previous lessons and experiment with the new pipes you've learned above. Does any of them break code you've already written? If so, can you figure out why?
