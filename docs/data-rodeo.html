@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lesson 8 Data Rodeo | Empirical Research Methods</title>
+  <meta name="description" content="Lesson 8 Data Rodeo | Empirical Research Methods" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lesson 8 Data Rodeo | Empirical Research Methods" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lesson 8 Data Rodeo | Empirical Research Methods" />
+  
+  
+  
+
+<meta name="author" content="Francis J. DiTraglia" />
+
+
+<meta name="date" content="2022-05-11" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="the-normal-distribution.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/core-erm-logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i>About This Book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-requisites"><i class="fa fa-check"></i>Pre-requisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#good-coding-style"><i class="fa fa-check"></i>Good Coding Style</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-markdown"><i class="fa fa-check"></i>R Markdown</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-stata"><i class="fa fa-check"></i>Why not Stata?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab-julia-or-python"><i class="fa fa-check"></i>Why not Matlab, Julia, or Python?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#you-can-help-make-this-book-better"><i class="fa fa-check"></i>You can help make this book better!</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html"><i class="fa fa-check"></i><b>1</b> Getting Started with <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#package-installation"><i class="fa fa-check"></i><b>1.1</b> Package Installation</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise"><i class="fa fa-check"></i><b>1.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#what-is-a-tibble"><i class="fa fa-check"></i><b>1.2</b> What is a tibble?</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>1.3</b> Filter Rows with <code>filter</code></a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises"><i class="fa fa-check"></i><b>1.3.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#sort-data-with-arrange"><i class="fa fa-check"></i><b>1.4</b> Sort data with <code>arrange</code></a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises-1"><i class="fa fa-check"></i><b>1.4.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#choose-columns-with-select"><i class="fa fa-check"></i><b>1.5</b> Choose columns with <code>select</code></a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-1"><i class="fa fa-check"></i><b>1.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-summarize-verb"><i class="fa fa-check"></i><b>1.6</b> The <code>summarize</code> verb</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-2"><i class="fa fa-check"></i><b>1.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-group_by-verb"><i class="fa fa-check"></i><b>1.7</b> The <code>group_by</code> verb</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-3"><i class="fa fa-check"></i><b>1.7.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#understanding-the-pipe"><i class="fa fa-check"></i><b>1.8</b> Understanding the pipe: <code>%&gt;%</code></a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-4"><i class="fa fa-check"></i><b>1.8.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#chaining-commands"><i class="fa fa-check"></i><b>1.9</b> Chaining commands</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-5"><i class="fa fa-check"></i><b>1.9.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#change-an-existing-variable-or-create-a-new-one-with-mutate"><i class="fa fa-check"></i><b>1.10</b> Change an existing variable or create a new one with <code>mutate</code></a>
+<ul>
+<li class="chapter" data-level="1.10.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-6"><i class="fa fa-check"></i><b>1.10.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html"><i class="fa fa-check"></i><b>2</b> Getting Started with <code>ggplot2</code></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#a-simple-scatterplot-using-ggplot2"><i class="fa fa-check"></i><b>2.1</b> A simple scatterplot using <code>ggplot2</code></a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-7"><i class="fa fa-check"></i><b>2.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-on-the-log-scale"><i class="fa fa-check"></i><b>2.2</b> Plotting on the log scale</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-8"><i class="fa fa-check"></i><b>2.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#the-color-and-size-aesthetics"><i class="fa fa-check"></i><b>2.3</b> The color and size aesthetics</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-9"><i class="fa fa-check"></i><b>2.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#faceting---plots-for-multiple-subsets"><i class="fa fa-check"></i><b>2.4</b> Faceting - Plots for Multiple Subsets</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-10"><i class="fa fa-check"></i><b>2.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-summarized-data"><i class="fa fa-check"></i><b>2.5</b> Plotting summarized data</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-11"><i class="fa fa-check"></i><b>2.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#line-plots"><i class="fa fa-check"></i><b>2.6</b> Line plots</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-12"><i class="fa fa-check"></i><b>2.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#bar-plots"><i class="fa fa-check"></i><b>2.7</b> Bar plots</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-13"><i class="fa fa-check"></i><b>2.7.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#cleveland-dot-charts"><i class="fa fa-check"></i><b>2.8</b> Cleveland Dot Charts</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-14"><i class="fa fa-check"></i><b>2.8.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#histograms"><i class="fa fa-check"></i><b>2.9</b> Histograms</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>2.9.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#boxplots"><i class="fa fa-check"></i><b>2.10</b> Boxplots</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-16"><i class="fa fa-check"></i><b>2.10.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html"><i class="fa fa-check"></i><b>3</b> Predictive Regression Part I</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-17"><i class="fa fa-check"></i><b>3.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-least-squares-problem"><i class="fa fa-check"></i><b>3.2</b> The Least Squares Problem</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-18"><i class="fa fa-check"></i><b>3.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#linear-regression-with-lm"><i class="fa fa-check"></i><b>3.3</b> Linear Regression with <code>lm()</code></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-19"><i class="fa fa-check"></i><b>3.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#plotting-the-regression-line"><i class="fa fa-check"></i><b>3.4</b> Plotting the Regression Line</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-20"><i class="fa fa-check"></i><b>3.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#getting-more-from-lm"><i class="fa fa-check"></i><b>3.5</b> Getting More from <code>lm()</code></a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-21"><i class="fa fa-check"></i><b>3.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#summarizing-the-ouput-of-lm"><i class="fa fa-check"></i><b>3.6</b> Summarizing The Ouput of <code>lm()</code></a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-22"><i class="fa fa-check"></i><b>3.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#tidying-up-with-broom"><i class="fa fa-check"></i><b>3.7</b> Tidying up with <code>broom</code></a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-23"><i class="fa fa-check"></i><b>3.7.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#dummy-variables-with-lm"><i class="fa fa-check"></i><b>3.8</b> Dummy Variables with <code>lm()</code></a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-24"><i class="fa fa-check"></i><b>3.8.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#fun-with-r-formulas"><i class="fa fa-check"></i><b>3.9</b> Fun with R Formulas</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#everything-else---the-dot-."><i class="fa fa-check"></i><b>3.9.1</b> "Everything Else" - The Dot <code>.</code></a></li>
+<li class="chapter" data-level="3.9.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#removing-predictors-with--"><i class="fa fa-check"></i><b>3.9.2</b> Removing Predictors with <code>-</code></a></li>
+<li class="chapter" data-level="3.9.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-intercept-1"><i class="fa fa-check"></i><b>3.9.3</b> The Intercept: <code>1</code></a></li>
+<li class="chapter" data-level="3.9.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-25"><i class="fa fa-check"></i><b>3.9.4</b> Exercise</a></li>
+<li class="chapter" data-level="3.9.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#transforming-outcomes-and-predictors"><i class="fa fa-check"></i><b>3.9.5</b> Transforming Outcomes and Predictors</a></li>
+<li class="chapter" data-level="3.9.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#adding-interactions-with-and"><i class="fa fa-check"></i><b>3.9.6</b> Adding Interactions With <code>:</code>, <code>*</code>, and <code>^</code></a></li>
+<li class="chapter" data-level="3.9.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-26"><i class="fa fa-check"></i><b>3.9.7</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html"><i class="fa fa-check"></i><b>4</b> Predictive Regression Part II</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#regressions-used-below"><i class="fa fa-check"></i><b>4.1</b> Regressions Used Below</a></li>
+<li class="chapter" data-level="4.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#predicting-new-observations"><i class="fa fa-check"></i><b>4.2</b> Predicting New Observations</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-27"><i class="fa fa-check"></i><b>4.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#testing-a-linear-restriction"><i class="fa fa-check"></i><b>4.3</b> Testing a Linear Restriction</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-28"><i class="fa fa-check"></i><b>4.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#heteroskedasticity-robust-standard-errors-and-tests"><i class="fa fa-check"></i><b>4.4</b> Heteroskedasticity-Robust Standard Errors and Tests</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-29"><i class="fa fa-check"></i><b>4.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#publication-quality-tables"><i class="fa fa-check"></i><b>4.5</b> Publication Quality Tables</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_skim"><i class="fa fa-check"></i><b>4.5.1</b> <code>datasummary_skim()</code></a></li>
+<li class="chapter" data-level="4.5.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_balance"><i class="fa fa-check"></i><b>4.5.2</b> <code>datasummary_balance()</code></a></li>
+<li class="chapter" data-level="4.5.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#modelsummary"><i class="fa fa-check"></i><b>4.5.3</b> <code>modelsummary()</code></a></li>
+<li class="chapter" data-level="4.5.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#robust-standard-errors"><i class="fa fa-check"></i><b>4.5.4</b> Robust Standard Errors</a></li>
+<li class="chapter" data-level="4.5.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-30"><i class="fa fa-check"></i><b>4.5.5</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html"><i class="fa fa-check"></i><b>5</b> Running a Simulation Study</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#is-the-hot-hand-an-illusion"><i class="fa fa-check"></i><b>5.1</b> Is the Hot Hand an Illusion?</a></li>
+<li class="chapter" data-level="5.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#drawing-random-data-in-r"><i class="fa fa-check"></i><b>5.2</b> Drawing Random Data in R</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#sample"><i class="fa fa-check"></i><b>5.2.1</b> <code>sample()</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#probability-distributions-in-r"><i class="fa fa-check"></i><b>5.2.2</b> Probability Distributions in R</a></li>
+<li class="chapter" data-level="5.2.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#set.seed"><i class="fa fa-check"></i><b>5.2.3</b> <code>set.seed()</code></a></li>
+<li class="chapter" data-level="5.2.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercises-2"><i class="fa fa-check"></i><b>5.2.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#the-skeleton-of-a-simulation-study"><i class="fa fa-check"></i><b>5.3</b> The Skeleton of a Simulation Study</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#a-biased-estimator-of-sigma2"><i class="fa fa-check"></i><b>5.3.1</b> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span></a></li>
+<li class="chapter" data-level="5.3.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#draw_sim_data"><i class="fa fa-check"></i><b>5.3.2</b> <code>draw_sim_data()</code></a></li>
+<li class="chapter" data-level="5.3.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_estimate"><i class="fa fa-check"></i><b>5.3.3</b> <code>get_estimate()</code></a></li>
+<li class="chapter" data-level="5.3.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_bias"><i class="fa fa-check"></i><b>5.3.4</b> <code>get_bias()</code></a></li>
+<li class="chapter" data-level="5.3.5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#running-the-simulation-study"><i class="fa fa-check"></i><b>5.3.5</b> Running the Simulation Study</a></li>
+<li class="chapter" data-level="5.3.6" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#expand.grid-and-map"><i class="fa fa-check"></i><b>5.3.6</b> <code>expand.grid()</code> and <code>Map()</code></a></li>
+<li class="chapter" data-level="5.3.7" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#formatting-the-results"><i class="fa fa-check"></i><b>5.3.7</b> Formatting the Results</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercise---the-hot-hand"><i class="fa fa-check"></i><b>5.4</b> Exercise - The Hot Hand</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html"><i class="fa fa-check"></i><b>6</b> Logistic Regression and Friends</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#understanding-the-logistic-regression-model"><i class="fa fa-check"></i><b>6.1</b> Understanding the Logistic Regression Model</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#odds-arent-so-odd"><i class="fa fa-check"></i><b>6.1.1</b> Odds aren't so odd!</a></li>
+<li class="chapter" data-level="6.1.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-31"><i class="fa fa-check"></i><b>6.1.2</b> Exercise</a></li>
+<li class="chapter" data-level="6.1.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#interpreting-a-simple-logit-regression-model"><i class="fa fa-check"></i><b>6.1.3</b> Interpreting a Simple Logit Regression Model</a></li>
+<li class="chapter" data-level="6.1.4" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-32"><i class="fa fa-check"></i><b>6.1.4</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#simulating-data-from-a-logistic-regression"><i class="fa fa-check"></i><b>6.2</b> Simulating Data from a Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-33"><i class="fa fa-check"></i><b>6.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#running-a-logistic-regression-in-r"><i class="fa fa-check"></i><b>6.3</b> Running a Logistic Regression in R</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-34"><i class="fa fa-check"></i><b>6.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#predicted-probabilities-for-logistic-regression"><i class="fa fa-check"></i><b>6.4</b> Predicted Probabilities for Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-35"><i class="fa fa-check"></i><b>6.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#plotting-a-logistic-regression"><i class="fa fa-check"></i><b>6.5</b> Plotting a Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-36"><i class="fa fa-check"></i><b>6.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#probit-regression-and-the-linear-probability-model"><i class="fa fa-check"></i><b>6.6</b> Probit Regression and the Linear Probability Model</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#probit-regression"><i class="fa fa-check"></i><b>6.6.1</b> Probit Regression</a></li>
+<li class="chapter" data-level="6.6.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#the-linear-probability-model"><i class="fa fa-check"></i><b>6.6.2</b> The Linear Probability Model</a></li>
+<li class="chapter" data-level="6.6.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-37"><i class="fa fa-check"></i><b>6.6.3</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#addendum-odds-and-ends-about-risk"><i class="fa fa-check"></i><b>6.7</b> Addendum: Odds and Ends about Risk</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-38"><i class="fa fa-check"></i><b>6.7.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html"><i class="fa fa-check"></i><b>7</b> The Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#standard-normals-as-building-blocks"><i class="fa fa-check"></i><b>7.1</b> Standard Normals as Building Blocks</a></li>
+<li class="chapter" data-level="7.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-one-dimensional-case"><i class="fa fa-check"></i><b>7.2</b> The One-Dimensional Case</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pnorm"><i class="fa fa-check"></i><b>7.2.1</b> <code>pnorm()</code></a></li>
+<li class="chapter" data-level="7.2.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#dnorm"><i class="fa fa-check"></i><b>7.2.2</b> <code>dnorm()</code></a></li>
+<li class="chapter" data-level="7.2.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#qnorm"><i class="fa fa-check"></i><b>7.2.3</b> <code>qnorm()</code></a></li>
+<li class="chapter" data-level="7.2.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#rnorm"><i class="fa fa-check"></i><b>7.2.4</b> <code>rnorm()</code></a></li>
+<li class="chapter" data-level="7.2.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pqdrnorm-are-vectorized"><i class="fa fa-check"></i><b>7.2.5</b> <code>p/q/d/rnorm()</code> are Vectorized</a></li>
+<li class="chapter" data-level="7.2.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#be-careful"><i class="fa fa-check"></i><b>7.2.6</b> Be Careful!</a></li>
+<li class="chapter" data-level="7.2.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercises-3"><i class="fa fa-check"></i><b>7.2.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#generating-correlated-normal-rvs"><i class="fa fa-check"></i><b>7.3</b> Generating Correlated Normal RVs</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#start-with-uncorrelated-normal-draws"><i class="fa fa-check"></i><b>7.3.1</b> Start with Uncorrelated Normal Draws</a></li>
+<li class="chapter" data-level="7.3.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-39"><i class="fa fa-check"></i><b>7.3.2</b> Exercise</a></li>
+<li class="chapter" data-level="7.3.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#add-constants-to-shift-the-means"><i class="fa fa-check"></i><b>7.3.3</b> Add Constants to Shift the Means</a></li>
+<li class="chapter" data-level="7.3.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-40"><i class="fa fa-check"></i><b>7.3.4</b> Exercise</a></li>
+<li class="chapter" data-level="7.3.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#multiply-by-scalars-to-change-the-variance"><i class="fa fa-check"></i><b>7.3.5</b> Multiply by Scalars to Change the Variance</a></li>
+<li class="chapter" data-level="7.3.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#combine-to-create-correlation"><i class="fa fa-check"></i><b>7.3.6</b> Combine to Create Correlation</a></li>
+<li class="chapter" data-level="7.3.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-41"><i class="fa fa-check"></i><b>7.3.7</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-cholesky-decomposition"><i class="fa fa-check"></i><b>7.4</b> The Cholesky Decomposition</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#going-backwards"><i class="fa fa-check"></i><b>7.4.1</b> Going Backwards</a></li>
+<li class="chapter" data-level="7.4.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-42"><i class="fa fa-check"></i><b>7.4.2</b> Exercise</a></li>
+<li class="chapter" data-level="7.4.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#whats-the-square-root-of-a-matrix"><i class="fa fa-check"></i><b>7.4.3</b> What's the Square Root of a Matrix?</a></li>
+<li class="chapter" data-level="7.4.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-43"><i class="fa fa-check"></i><b>7.4.4</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#epilogue"><i class="fa fa-check"></i><b>7.5</b> Epilogue</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#affine-transformations-of-a-multivariate-normal"><i class="fa fa-check"></i><b>7.5.1</b> Affine Transformations of a Multivariate Normal</a></li>
+<li class="chapter" data-level="7.5.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#conditional-distributions-of-bivariate-normal"><i class="fa fa-check"></i><b>7.5.2</b> Conditional Distributions of Bivariate Normal</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="data-rodeo.html"><a href="data-rodeo.html"><i class="fa fa-check"></i><b>8</b> Data Rodeo</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="data-rodeo.html"><a href="data-rodeo.html#joins"><i class="fa fa-check"></i><b>8.1</b> Joins</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-44"><i class="fa fa-check"></i><b>8.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="data-rodeo.html"><a href="data-rodeo.html#tidyselect"><i class="fa fa-check"></i><b>8.2</b> <code>tidyselect</code></a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-45"><i class="fa fa-check"></i><b>8.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="data-rodeo.html"><a href="data-rodeo.html#column-wise-operations-with-across"><i class="fa fa-check"></i><b>8.3</b> Column-wise Operations with <code>across()</code></a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-46"><i class="fa fa-check"></i><b>8.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="data-rodeo.html"><a href="data-rodeo.html#row-wise-operations"><i class="fa fa-check"></i><b>8.4</b> Row-wise operations</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="data-rodeo.html"><a href="data-rodeo.html#rowwise"><i class="fa fa-check"></i><b>8.4.1</b> <code>rowwise()</code></a></li>
+<li class="chapter" data-level="8.4.2" data-path="data-rodeo.html"><a href="data-rodeo.html#c_across"><i class="fa fa-check"></i><b>8.4.2</b> <code>c_across()</code></a></li>
+<li class="chapter" data-level="8.4.3" data-path="data-rodeo.html"><a href="data-rodeo.html#across-as-an-alternative-to-rowwise"><i class="fa fa-check"></i><b>8.4.3</b> <code>across()</code> as an alternative to <code>rowwise()</code></a></li>
+<li class="chapter" data-level="8.4.4" data-path="data-rodeo.html"><a href="data-rodeo.html#ungroup"><i class="fa fa-check"></i><b>8.4.4</b> <code>ungroup()</code></a></li>
+<li class="chapter" data-level="8.4.5" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-47"><i class="fa fa-check"></i><b>8.4.5</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="data-rodeo.html"><a href="data-rodeo.html#pivoting-from-wider-to-longer-and-back-again"><i class="fa fa-check"></i><b>8.5</b> Pivoting: From Wider to Longer and Back Again</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="data-rodeo.html"><a href="data-rodeo.html#pivot_longer"><i class="fa fa-check"></i><b>8.5.1</b> <code>pivot_longer()</code></a></li>
+<li class="chapter" data-level="8.5.2" data-path="data-rodeo.html"><a href="data-rodeo.html#pivot_wider"><i class="fa fa-check"></i><b>8.5.2</b> <code>pivot_wider()</code></a></li>
+<li class="chapter" data-level="8.5.3" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-48"><i class="fa fa-check"></i><b>8.5.3</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="data-rodeo.html"><a href="data-rodeo.html#put-that-in-your-pipe-and-smoke-it"><i class="fa fa-check"></i><b>8.6</b> Put that in your pipe and smoke it!</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="data-rodeo.html"><a href="data-rodeo.html#to-pipe-or-not-to-pipe"><i class="fa fa-check"></i><b>8.6.1</b> To pipe or not to pipe?</a></li>
+<li class="chapter" data-level="8.6.2" data-path="data-rodeo.html"><a href="data-rodeo.html#supplying-an-arbitrary-argument"><i class="fa fa-check"></i><b>8.6.2</b> Supplying an Arbitrary Argument</a></li>
+<li class="chapter" data-level="8.6.3" data-path="data-rodeo.html"><a href="data-rodeo.html#the-many-pipes-of-magrittr"><i class="fa fa-check"></i><b>8.6.3</b> The many pipes of <code>magrittr</code></a></li>
+<li class="chapter" data-level="8.6.4" data-path="data-rodeo.html"><a href="data-rodeo.html#all-about-that-base-rs-native-pipe"><i class="fa fa-check"></i><b>8.6.4</b> All About that Base: R's "Native" Pipe</a></li>
+<li class="chapter" data-level="8.6.5" data-path="data-rodeo.html"><a href="data-rodeo.html#how-does-compare-to-in-ggplot2"><i class="fa fa-check"></i><b>8.6.5</b> How does <code>%&gt;%</code> compare to <code>+</code> in <code>ggplot2</code>?</a></li>
+<li class="chapter" data-level="8.6.6" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-49"><i class="fa fa-check"></i><b>8.6.6</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Empirical Research Methods</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-rodeo" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Lesson 8</span> Data Rodeo<a href="data-rodeo.html#data-rodeo" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Glenn_Cote_Brent_Spiner.jpg" alt="" />
+<p class="caption">Commander Data from Star Trek TNG in a Western Landscape</p>
+</div>
+<p>By this stage you've read a number of different datasets into R and done a bit of data <a href="https://en.wikipedia.org/wiki/Wrangler_(profession)">wrangling</a> with <code>dplyr</code>. Now it's time for a full-fledged data <a href="https://en.wikipedia.org/wiki/Rodeo">rodeo</a>! This goal of this lesson is to introduce you to more complicated data wrangling issues and more powerful tools to solve them.</p>
+<div id="joins" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Joins<a href="data-rodeo.html#joins" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A common task in data cleaning involves <em>merging</em> or <em>joining</em> datasets from multiple sources. Here's a very simple example. Suppose we have a student gradebook listing quiz scores, exam scores, student names, and student id numbers:</p>
+<div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="data-rodeo.html#cb640-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb640-2"><a href="data-rodeo.html#cb640-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">92815</span>)</span>
+<span id="cb640-3"><a href="data-rodeo.html#cb640-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb640-4"><a href="data-rodeo.html#cb640-4" aria-hidden="true" tabindex="-1"></a>gradebook <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb640-5"><a href="data-rodeo.html#cb640-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">student_id =</span> <span class="fu">c</span>(<span class="dv">192297</span>, <span class="dv">291857</span>, <span class="dv">500286</span>, <span class="dv">449192</span>, <span class="dv">372152</span>, <span class="dv">627561</span>), </span>
+<span id="cb640-6"><a href="data-rodeo.html#cb640-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">c</span>(<span class="st">&#39;Alice&#39;</span>, <span class="st">&#39;Bob&#39;</span>, <span class="st">&#39;Charlotte&#39;</span>, <span class="st">&#39;Dante&#39;</span>, <span class="st">&#39;Ethelburga&#39;</span>, <span class="st">&#39;Felix&#39;</span>),</span>
+<span id="cb640-7"><a href="data-rodeo.html#cb640-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">quiz1 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="dv">65</span>, <span class="dv">15</span>)),</span>
+<span id="cb640-8"><a href="data-rodeo.html#cb640-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">quiz2 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="dv">88</span>, <span class="dv">5</span>)),</span>
+<span id="cb640-9"><a href="data-rodeo.html#cb640-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">quiz3 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="dv">75</span>, <span class="dv">10</span>)),</span>
+<span id="cb640-10"><a href="data-rodeo.html#cb640-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">midterm1 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="dv">75</span>, <span class="dv">10</span>)),</span>
+<span id="cb640-11"><a href="data-rodeo.html#cb640-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">midterm2 =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="dv">80</span>, <span class="dv">8</span>)), </span>
+<span id="cb640-12"><a href="data-rodeo.html#cb640-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">final =</span> <span class="fu">round</span>(<span class="fu">rnorm</span>(<span class="dv">6</span>, <span class="dv">78</span>, <span class="dv">11</span>))</span>
+<span id="cb640-13"><a href="data-rodeo.html#cb640-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb640-14"><a href="data-rodeo.html#cb640-14" aria-hidden="true" tabindex="-1"></a>gradebook</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 8
+##   student_id name       quiz1 quiz2 quiz3 midterm1 midterm2 final
+##        &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+## 1     192297 Alice         64    96    68       81       90    99
+## 2     291857 Bob           58    91    91       75       75    79
+## 3     500286 Charlotte     70    94    71       81       70    74
+## 4     449192 Dante         57    85    84       83       94    83
+## 5     372152 Ethelburga    74    91    70       63       73    96
+## 6     627561 Felix         77    86    68       78       83    75</code></pre>
+<p>Unfortunately, <code>gradebook</code> doesn't contain the students' email addresses. This information is contained in another tibble:</p>
+<div class="sourceCode" id="cb642"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb642-1"><a href="data-rodeo.html#cb642-1" aria-hidden="true" tabindex="-1"></a>email_addresses <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb642-2"><a href="data-rodeo.html#cb642-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">student_id =</span> <span class="fu">c</span>(<span class="dv">101198</span>, <span class="dv">192297</span>, <span class="dv">372152</span>, <span class="dv">918276</span>, <span class="dv">291857</span>), </span>
+<span id="cb642-3"><a href="data-rodeo.html#cb642-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">email =</span> <span class="fu">c</span>(<span class="st">&#39;unclejoe@whitehouse.gov&#39;</span>, <span class="st">&#39;alice.liddell@chch.ox.ac.uk&#39;</span>,</span>
+<span id="cb642-4"><a href="data-rodeo.html#cb642-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">&#39;ethelburga@lyminge.org&#39;</span>, <span class="st">&#39;mzuckerberg@gmail.com&#39;</span>,</span>
+<span id="cb642-5"><a href="data-rodeo.html#cb642-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">&#39;microsoftbob@hotmail.com&#39;</span>)</span>
+<span id="cb642-6"><a href="data-rodeo.html#cb642-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb642-7"><a href="data-rodeo.html#cb642-7" aria-hidden="true" tabindex="-1"></a>email_addresses</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 2
+##   student_id email                      
+##        &lt;dbl&gt; &lt;chr&gt;                      
+## 1     101198 unclejoe@whitehouse.gov    
+## 2     192297 alice.liddell@chch.ox.ac.uk
+## 3     372152 ethelburga@lyminge.org     
+## 4     918276 mzuckerberg@gmail.com      
+## 5     291857 microsoftbob@hotmail.com</code></pre>
+<p>Both <code>gradebook</code> and <code>email_addresses</code> contain a column of student id numbers, unique identifiers for each student in the university. We can use this column to merge the two tibbles via a <a href="https://dplyr.tidyverse.org/reference/mutate-joins.html"><code>dplyr</code> mutating join</a>. There are many different kinds of joins, and the right one to use depends on the problem you want to solve. All of the join functions have two required arguments: <code>x</code> and <code>y</code> are the tibbles we want to join. A <code>left_join()</code> returns a tibble with the same number of rows as <code>x</code>, the "left" tibble inside the statement <code>left_joint(x, y)</code>. For example, the following command returns a tibble with one row for each student from <code>gradebook</code>:</p>
+<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="data-rodeo.html#cb644-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(gradebook, email_addresses) </span></code></pre></div>
+<pre><code>## Joining, by = &quot;student_id&quot;</code></pre>
+<pre><code>## # A tibble: 6 × 9
+##   student_id name       quiz1 quiz2 quiz3 midterm1 midterm2 final email         
+##        &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;         
+## 1     192297 Alice         64    96    68       81       90    99 alice.liddell…
+## 2     291857 Bob           58    91    91       75       75    79 microsoftbob@…
+## 3     500286 Charlotte     70    94    71       81       70    74 &lt;NA&gt;          
+## 4     449192 Dante         57    85    84       83       94    83 &lt;NA&gt;          
+## 5     372152 Ethelburga    74    91    70       63       73    96 ethelburga@ly…
+## 6     627561 Felix         77    86    68       78       83    75 &lt;NA&gt;</code></pre>
+<p>Students whose id appears in <code>email_addresses</code> but not in <code>gradebook</code> have been dropped. Students whose id appears in <code>gradebook</code> but not in <code>email_addresses</code> have been retained, but since we don't know their email address, <code>left_join()</code> has filled in an <code>NA</code>.</p>
+<p>One of the goals of this book is to help you become comfortable learning new things about R own your own, through a combination of documentation files and internet searches. So rather than telling you how a <code>right_join()</code>, a <code>full_join()</code>, and an <code>inner_join()</code> work, I will ask you to discover this for yourself in the following exercise!</p>
+<div id="exercise-44" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Exercise<a href="data-rodeo.html#exercise-44" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Run the command <code>right_join(gradebook, email_addresses)</code>. What happens? Explain how this command works, consulting the associated help file if needed.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="data-rodeo.html#cb647-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Result contains students whose ids are in email_addresses. Those with ids</span></span>
+<span id="cb647-2"><a href="data-rodeo.html#cb647-2" aria-hidden="true" tabindex="-1"></a><span class="co"># in gradebook who are *not* in gradebook are dropped.</span></span>
+<span id="cb647-3"><a href="data-rodeo.html#cb647-3" aria-hidden="true" tabindex="-1"></a><span class="fu">right_join</span>(gradebook, email_addresses)</span></code></pre></div>
+<pre><code>## Joining, by = &quot;student_id&quot;</code></pre>
+<pre><code>## # A tibble: 5 × 9
+##   student_id name       quiz1 quiz2 quiz3 midterm1 midterm2 final email         
+##        &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;         
+## 1     192297 Alice         64    96    68       81       90    99 alice.liddell…
+## 2     291857 Bob           58    91    91       75       75    79 microsoftbob@…
+## 3     372152 Ethelburga    74    91    70       63       73    96 ethelburga@ly…
+## 4     101198 &lt;NA&gt;          NA    NA    NA       NA       NA    NA unclejoe@whit…
+## 5     918276 &lt;NA&gt;          NA    NA    NA       NA       NA    NA mzuckerberg@g…</code></pre>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Run the command <code>full_join(gradebook, email_addresses)</code>. What happens? Explain how this command works, consulting the associated help file if needed.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="data-rodeo.html#cb650-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Result contains everyone whose id appears in *either* dataset. This</span></span>
+<span id="cb650-2"><a href="data-rodeo.html#cb650-2" aria-hidden="true" tabindex="-1"></a><span class="co"># requires lots of padding out with missing values.</span></span>
+<span id="cb650-3"><a href="data-rodeo.html#cb650-3" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(gradebook, email_addresses)</span></code></pre></div>
+<pre><code>## Joining, by = &quot;student_id&quot;</code></pre>
+<pre><code>## # A tibble: 8 × 9
+##   student_id name       quiz1 quiz2 quiz3 midterm1 midterm2 final email         
+##        &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;         
+## 1     192297 Alice         64    96    68       81       90    99 alice.liddell…
+## 2     291857 Bob           58    91    91       75       75    79 microsoftbob@…
+## 3     500286 Charlotte     70    94    71       81       70    74 &lt;NA&gt;          
+## 4     449192 Dante         57    85    84       83       94    83 &lt;NA&gt;          
+## 5     372152 Ethelburga    74    91    70       63       73    96 ethelburga@ly…
+## 6     627561 Felix         77    86    68       78       83    75 &lt;NA&gt;          
+## 7     101198 &lt;NA&gt;          NA    NA    NA       NA       NA    NA unclejoe@whit…
+## 8     918276 &lt;NA&gt;          NA    NA    NA       NA       NA    NA mzuckerberg@g…</code></pre>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Run the command <code>inner_join(gradebook, email_addresses)</code>. What happens? Explain how this command works, consulting the associated help file if needed.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb653-1"><a href="data-rodeo.html#cb653-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Result contains only those whose id appears in *both* datasets. Everyone</span></span>
+<span id="cb653-2"><a href="data-rodeo.html#cb653-2" aria-hidden="true" tabindex="-1"></a><span class="co"># else is dropped.</span></span>
+<span id="cb653-3"><a href="data-rodeo.html#cb653-3" aria-hidden="true" tabindex="-1"></a><span class="fu">inner_join</span>(gradebook, email_addresses)</span></code></pre></div>
+<pre><code>## Joining, by = &quot;student_id&quot;</code></pre>
+<pre><code>## # A tibble: 3 × 9
+##   student_id name       quiz1 quiz2 quiz3 midterm1 midterm2 final email         
+##        &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;         
+## 1     192297 Alice         64    96    68       81       90    99 alice.liddell…
+## 2     291857 Bob           58    91    91       75       75    79 microsoftbob@…
+## 3     372152 Ethelburga    74    91    70       63       73    96 ethelburga@ly…</code></pre>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Above I used the command <code>left_join(gradebook, email_addresses)</code>. How could I have achieved the same thing using the pipe <code>%&gt;%</code>?</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="data-rodeo.html#cb656-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span> </span>
+<span id="cb656-2"><a href="data-rodeo.html#cb656-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(email_addresses)</span></code></pre></div>
+<pre><code>## Joining, by = &quot;student_id&quot;</code></pre>
+<pre><code>## # A tibble: 6 × 9
+##   student_id name       quiz1 quiz2 quiz3 midterm1 midterm2 final email         
+##        &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;         
+## 1     192297 Alice         64    96    68       81       90    99 alice.liddell…
+## 2     291857 Bob           58    91    91       75       75    79 microsoftbob@…
+## 3     500286 Charlotte     70    94    71       81       70    74 &lt;NA&gt;          
+## 4     449192 Dante         57    85    84       83       94    83 &lt;NA&gt;          
+## 5     372152 Ethelburga    74    91    70       63       73    96 ethelburga@ly…
+## 6     627561 Felix         77    86    68       78       83    75 &lt;NA&gt;</code></pre>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>Add a column called <code>name</code> to <code>email_addresses</code> that contains <code>c('Joe', 'Alice', 'Ethelburga', 'Mark', 'Bob')</code>. Then carry out a left join to merge <code>gradebook</code> with <code>email_addresses</code>. What happens? Does the result contain two instances of <code>name</code>? What if you set the argument <code>by = 'student_id'</code>. Explain, consulting the help file as needed.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb659-1"><a href="data-rodeo.html#cb659-1" aria-hidden="true" tabindex="-1"></a>email_addresses<span class="sc">$</span>name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Joe&#39;</span>, <span class="st">&#39;Alice&#39;</span>, <span class="st">&#39;Ethelburga&#39;</span>, <span class="st">&#39;Mark&#39;</span>, <span class="st">&#39;Bob&#39;</span>)</span>
+<span id="cb659-2"><a href="data-rodeo.html#cb659-2" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(gradebook, email_addresses)</span></code></pre></div>
+<pre><code>## Joining, by = c(&quot;student_id&quot;, &quot;name&quot;)</code></pre>
+<pre><code>## # A tibble: 6 × 9
+##   student_id name       quiz1 quiz2 quiz3 midterm1 midterm2 final email         
+##        &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;         
+## 1     192297 Alice         64    96    68       81       90    99 alice.liddell…
+## 2     291857 Bob           58    91    91       75       75    79 microsoftbob@…
+## 3     500286 Charlotte     70    94    71       81       70    74 &lt;NA&gt;          
+## 4     449192 Dante         57    85    84       83       94    83 &lt;NA&gt;          
+## 5     372152 Ethelburga    74    91    70       63       73    96 ethelburga@ly…
+## 6     627561 Felix         77    86    68       78       83    75 &lt;NA&gt;</code></pre>
+<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="data-rodeo.html#cb662-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(gradebook, email_addresses, <span class="at">by =</span> <span class="st">&#39;student_id&#39;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 10
+##   student_id name.x     quiz1 quiz2 quiz3 midterm1 midterm2 final email   name.y
+##        &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; 
+## 1     192297 Alice         64    96    68       81       90    99 alice.… Alice 
+## 2     291857 Bob           58    91    91       75       75    79 micros… Bob   
+## 3     500286 Charlotte     70    94    71       81       70    74 &lt;NA&gt;    &lt;NA&gt;  
+## 4     449192 Dante         57    85    84       83       94    83 &lt;NA&gt;    &lt;NA&gt;  
+## 5     372152 Ethelburga    74    91    70       63       73    96 ethelb… Ethel…
+## 6     627561 Felix         77    86    68       78       83    75 &lt;NA&gt;    &lt;NA&gt;</code></pre>
+</div>
+</div>
+</div>
+<div id="tidyselect" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> <code>tidyselect</code><a href="data-rodeo.html#tidyselect" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <code>dplyr</code> package provides a very helpful collection of operators and functions that fall under the rubric of <a href="https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html"><code>tidyselect</code></a>. Thus far we've always specified columns within <code>select()</code> by writing their names <em>in full</em>. This is perfectly fine in small examples, but when you start working with large and complicated datasets, it quickly becomes unwieldy. The purpose of <code>tidyselect</code> is to make selection easier, faster, and more flexible. Here we'll explore a few common use cases. For more details see the <a href="https://dplyr.tidyverse.org/reference/dplyr_tidy_select.html">dplyr documentation</a>.</p>
+<p>Let's take a look at my gradebook:</p>
+<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="data-rodeo.html#cb664-1" aria-hidden="true" tabindex="-1"></a>gradebook</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 8
+##   student_id name       quiz1 quiz2 quiz3 midterm1 midterm2 final
+##        &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+## 1     192297 Alice         64    96    68       81       90    99
+## 2     291857 Bob           58    91    91       75       75    79
+## 3     500286 Charlotte     70    94    71       81       70    74
+## 4     449192 Dante         57    85    84       83       94    83
+## 5     372152 Ethelburga    74    91    70       63       73    96
+## 6     627561 Felix         77    86    68       78       83    75</code></pre>
+<p>As you can see, there were three quizzes: <code>quiz1</code>, <code>quiz2</code>, and <code>quiz3</code>. If I wanted to select only these columns, I could do so as follows:</p>
+<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="data-rodeo.html#cb666-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb666-2"><a href="data-rodeo.html#cb666-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(quiz1, quiz2, quiz3)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   quiz1 quiz2 quiz3
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1    64    96    68
+## 2    58    91    91
+## 3    70    94    71
+## 4    57    85    84
+## 5    74    91    70
+## 6    77    86    68</code></pre>
+<p>Easy enough.
+But I used to teach a course called <a href="https://ditraglia.com/Econ103Public">Econ 103</a> that had <em>eleven quizzes</em>! Not only would it be a pain to type out <code>quiz01</code> all the way up to <code>quiz11</code>, but I could easily make a mistake and leave one one. Enter the <code>dplyr</code> "selection helper" <code>starts_with()</code>. The columns I want to select here all begin with a common prefix, namely <code>quiz</code>. I can exploit this fact to select them as follows:</p>
+<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb668-1"><a href="data-rodeo.html#cb668-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb668-2"><a href="data-rodeo.html#cb668-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&#39;quiz&#39;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   quiz1 quiz2 quiz3
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1    64    96    68
+## 2    58    91    91
+## 3    70    94    71
+## 4    57    85    84
+## 5    74    91    70
+## 6    77    86    68</code></pre>
+<p>The selection helpers <code>ends_with()</code> and <code>contains()</code> work similarly: you can use them to select columns with a common <em>suffix</em> or columns that contain a particular literal string:</p>
+<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb670-1"><a href="data-rodeo.html#cb670-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb670-2"><a href="data-rodeo.html#cb670-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&#39;2&#39;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##   quiz2 midterm2
+##   &lt;dbl&gt;    &lt;dbl&gt;
+## 1    96       90
+## 2    91       75
+## 3    94       70
+## 4    85       94
+## 5    91       73
+## 6    86       83</code></pre>
+<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb672-1"><a href="data-rodeo.html#cb672-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb672-2"><a href="data-rodeo.html#cb672-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">&#39;iz&#39;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   quiz1 quiz2 quiz3
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1    64    96    68
+## 2    58    91    91
+## 3    70    94    71
+## 4    57    85    84
+## 5    74    91    70
+## 6    77    86    68</code></pre>
+<p>Back when I used to give eleven quizzes in a single semester, I could really have benefitted from the <code>num_range()</code> selection helper. This selection helper allows us to specify both a <em>prefix</em>, like <code>starts_with()</code> and a <em>numeric range</em>, i.e. a sequence of integers. For example, I could select quizzes two and three as follows:</p>
+<div class="sourceCode" id="cb674"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb674-1"><a href="data-rodeo.html#cb674-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb674-2"><a href="data-rodeo.html#cb674-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">num_range</span>(<span class="st">&#39;quiz&#39;</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##   quiz2 quiz3
+##   &lt;dbl&gt; &lt;dbl&gt;
+## 1    96    68
+## 2    91    91
+## 3    94    71
+## 4    85    84
+## 5    91    70
+## 6    86    68</code></pre>
+<p>If you know <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a> you'll want to check out the selection helper <code>matches()</code>. For more information on <code>starts_with()</code> and its friends and relations see the <a href="https://tidyselect.r-lib.org/reference/starts_with.html"><code>tidyselect</code> documentation</a></p>
+<p>Another extremely helpful <code>tidyselect</code> helper is <code>where()</code>. This function accepts a <em>function</em> as its input. It then applies this function to every column of the tibble and returns the columns for which the function evaluates to <code>TRUE</code>. A common use case of <code>where()</code> is to select columns by their <em>type</em>. For example, we could select only the <em>numeric</em> columns of the gradebook as follows:</p>
+<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="data-rodeo.html#cb676-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb676-2"><a href="data-rodeo.html#cb676-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.numeric))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 7
+##   student_id quiz1 quiz2 quiz3 midterm1 midterm2 final
+##        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+## 1     192297    64    96    68       81       90    99
+## 2     291857    58    91    91       75       75    79
+## 3     500286    70    94    71       81       70    74
+## 4     449192    57    85    84       83       94    83
+## 5     372152    74    91    70       63       73    96
+## 6     627561    77    86    68       78       83    75</code></pre>
+<div id="exercise-45" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Exercise<a href="data-rodeo.html#exercise-45" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Use <code>ends_with()</code> to select the columns <code>quiz2</code> and <code>midterm2</code> from <code>gradebook</code> with a minimum of typing.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="data-rodeo.html#cb678-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb678-2"><a href="data-rodeo.html#cb678-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&#39;2&#39;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##   quiz2 midterm2
+##   &lt;dbl&gt;    &lt;dbl&gt;
+## 1    96       90
+## 2    91       75
+## 3    94       70
+## 4    85       94
+## 5    91       73
+## 6    86       83</code></pre>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Use the function <code>contains()</code> to select the columns whose names contain the abbreviation for "Empirical Research Methods."</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="data-rodeo.html#cb680-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb680-2"><a href="data-rodeo.html#cb680-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">&#39;erm&#39;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##   midterm1 midterm2
+##      &lt;dbl&gt;    &lt;dbl&gt;
+## 1       81       90
+## 2       75       75
+## 3       81       70
+## 4       83       94
+## 5       63       73
+## 6       78       83</code></pre>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>The <code>dplyr</code> package includes a built-in dataset called <code>starwars</code>. Use the <code>glimpse()</code> function to get a quick overview of this dataset, and then read the associated help file before answering the following questions.
+<ol style="list-style-type: lower-alpha">
+<li>Select only the columns of <code>starwars</code> that contain character data.</li>
+<li>Select only the columns of <code>starwars</code> that contain an underscore.</li>
+<li>Select only the columns of <code>starwars</code> that are either numeric <em>or</em> whose names end with "color".</li>
+</ol></li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="data-rodeo.html#cb682-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span></span>
+<span id="cb682-2"><a href="data-rodeo.html#cb682-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.character))</span></code></pre></div>
+<pre><code>## # A tibble: 87 × 8
+##    name           hair_color skin_color eye_color sex   gender homeworld species
+##    &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;  
+##  1 Luke Skywalker blond      fair       blue      male  mascu… Tatooine  Human  
+##  2 C-3PO          &lt;NA&gt;       gold       yellow    none  mascu… Tatooine  Droid  
+##  3 R2-D2          &lt;NA&gt;       white, bl… red       none  mascu… Naboo     Droid  
+##  4 Darth Vader    none       white      yellow    male  mascu… Tatooine  Human  
+##  5 Leia Organa    brown      light      brown     fema… femin… Alderaan  Human  
+##  6 Owen Lars      brown, gr… light      blue      male  mascu… Tatooine  Human  
+##  7 Beru Whitesun… brown      light      blue      fema… femin… Tatooine  Human  
+##  8 R5-D4          &lt;NA&gt;       white, red red       none  mascu… Tatooine  Droid  
+##  9 Biggs Darklig… black      light      brown     male  mascu… Tatooine  Human  
+## 10 Obi-Wan Kenobi auburn, w… fair       blue-gray male  mascu… Stewjon   Human  
+## # … with 77 more rows</code></pre>
+<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="data-rodeo.html#cb684-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span></span>
+<span id="cb684-2"><a href="data-rodeo.html#cb684-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">contains</span>(<span class="st">&#39;_&#39;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 87 × 4
+##    hair_color    skin_color  eye_color birth_year
+##    &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt;
+##  1 blond         fair        blue            19  
+##  2 &lt;NA&gt;          gold        yellow         112  
+##  3 &lt;NA&gt;          white, blue red             33  
+##  4 none          white       yellow          41.9
+##  5 brown         light       brown           19  
+##  6 brown, grey   light       blue            52  
+##  7 brown         light       blue            47  
+##  8 &lt;NA&gt;          white, red  red             NA  
+##  9 black         light       brown           24  
+## 10 auburn, white fair        blue-gray       57  
+## # … with 77 more rows</code></pre>
+<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="data-rodeo.html#cb686-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span></span>
+<span id="cb686-2"><a href="data-rodeo.html#cb686-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&#39;color&#39;</span>) <span class="sc">|</span> <span class="fu">where</span>(is.numeric))</span></code></pre></div>
+<pre><code>## # A tibble: 87 × 6
+##    hair_color    skin_color  eye_color height  mass birth_year
+##    &lt;chr&gt;         &lt;chr&gt;       &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt;      &lt;dbl&gt;
+##  1 blond         fair        blue         172    77       19  
+##  2 &lt;NA&gt;          gold        yellow       167    75      112  
+##  3 &lt;NA&gt;          white, blue red           96    32       33  
+##  4 none          white       yellow       202   136       41.9
+##  5 brown         light       brown        150    49       19  
+##  6 brown, grey   light       blue         178   120       52  
+##  7 brown         light       blue         165    75       47  
+##  8 &lt;NA&gt;          white, red  red           97    32       NA  
+##  9 black         light       brown        183    84       24  
+## 10 auburn, white fair        blue-gray    182    77       57  
+## # … with 77 more rows</code></pre>
+</div>
+</div>
+</div>
+<div id="column-wise-operations-with-across" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Column-wise Operations with <code>across()</code><a href="data-rodeo.html#column-wise-operations-with-across" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Students are often eager to know how well <em>everyone else</em> did on a particular assignment. Using what we know about <code>dplyr</code>, it's easy to compute the average score on each of the quizzes in <code>gradebook</code>:</p>
+<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="data-rodeo.html#cb688-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb688-2"><a href="data-rodeo.html#cb688-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">quiz1_avg =</span> <span class="fu">mean</span>(quiz1),  </span>
+<span id="cb688-3"><a href="data-rodeo.html#cb688-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">quiz2_avg =</span> <span class="fu">mean</span>(quiz2),  </span>
+<span id="cb688-4"><a href="data-rodeo.html#cb688-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">quiz3_avg =</span> <span class="fu">mean</span>(quiz3)) </span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##   quiz1_avg quiz2_avg quiz3_avg
+##       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1      66.7      90.5      75.3</code></pre>
+<p>But now suppose we wanted to do this for <em>eleven</em> quizzes. Or suppose that we wanted to compute both means <em>and</em> standard deviations. That would involve quite a lot of typing, introducing plenty of room for error. To avoid the tedium, and the risk of student complaints about inaccurate summary statistics, we'll rely on <a href="https://dplyr.tidyverse.org/articles/colwise.html">column-wise operations</a> using the <code>dplyr</code> function <code>across()</code>. Here's how it can be used to solve the quiz average problem from above:</p>
+<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="data-rodeo.html#cb690-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The easy way!</span></span>
+<span id="cb690-2"><a href="data-rodeo.html#cb690-2" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb690-3"><a href="data-rodeo.html#cb690-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&#39;quiz&#39;</span>), mean, <span class="at">.names =</span> <span class="st">&#39;{.col}_avg&#39;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##   quiz1_avg quiz2_avg quiz3_avg
+##       &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1      66.7      90.5      75.3</code></pre>
+<p>Let's unpack the preceding command. The first argument to <code>across()</code> is <code>.cols</code>. This specifies the columns that we want to work with. We can either type them out directly as a vector of strings, e.g. <code>c('col1name', 'col2name')</code> or use any of the <code>tidyselect</code> operations introduced above. In the example from above, I specified that I wanted to work with the columns <code>quiz1</code>, <code>quiz2</code>, and <code>quiz2</code> by using <code>starts_with('quiz')</code>. The second argument of <code>across()</code> is <code>.fns</code>. This specifies the function or functions that we will use to operate on each column that we've selected. Here I specified <code>mean</code> to refer to the base R function <code>mean()</code>. The third argument of <code>across()</code>, <code>.names()</code>, is optional but comes in handy. It allows us to set a rule for <em>automatically</em> constructing names for the transformed columns. The syntax comes from the <a href="https://glue.tidyverse.org/"><code>glue</code> package</a>. In my example from above, <code>{.col}</code> means "the name of a particular column." So we're instructing <code>across()</code> to take the name of each column that starts with <code>quiz</code>, compute its <code>mean()</code> and call the result <code>[COLUMN NAME]_avg</code>.</p>
+<p>The function <code>across()</code> is most often used in concert with <code>summarize()</code> or <code>mutate()</code>. We've already seen an example with <code>summarize()</code>, namely computing summary statistics for a particular group of columns and automatically naming the results. Here's an example that uses <code>mutate()</code> to convert <code>quiz1</code>, <code>quiz2</code>, and <code>quiz3</code> to z-scores by subtracting the sample mean of each column and dividing by the sample standard deviation. Notice that in this case I supply a function that I have <em>created myself</em></p>
+<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="data-rodeo.html#cb692-1" aria-hidden="true" tabindex="-1"></a>zscore <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb692-2"><a href="data-rodeo.html#cb692-2" aria-hidden="true" tabindex="-1"></a>  (x <span class="sc">-</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> <span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb692-3"><a href="data-rodeo.html#cb692-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb692-4"><a href="data-rodeo.html#cb692-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb692-5"><a href="data-rodeo.html#cb692-5" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb692-6"><a href="data-rodeo.html#cb692-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&#39;quiz&#39;</span>), zscore, <span class="at">.names =</span> <span class="st">&#39;{.col}_zscore&#39;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb692-7"><a href="data-rodeo.html#cb692-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&#39;zscore&#39;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   quiz1_zscore quiz2_zscore quiz3_zscore
+##          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+## 1       -0.320        1.27        -0.752
+## 2       -1.04         0.116        1.61 
+## 3        0.400        0.809       -0.444
+## 4       -1.16        -1.27         0.889
+## 5        0.880        0.116       -0.547
+## 6        1.24        -1.04        -0.752</code></pre>
+<p>We could alternatively have specified the z-score function using <a href="https://purrr.tidyverse.org/"><code>purrr</code> style</a> syntax as follows:</p>
+<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="data-rodeo.html#cb694-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb694-2"><a href="data-rodeo.html#cb694-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&#39;quiz&#39;</span>), </span>
+<span id="cb694-3"><a href="data-rodeo.html#cb694-3" aria-hidden="true" tabindex="-1"></a>                <span class="sc">~</span> (.x <span class="sc">-</span> <span class="fu">mean</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> <span class="fu">sd</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb694-4"><a href="data-rodeo.html#cb694-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">.names =</span> <span class="st">&#39;{.col}_zscore&#39;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb694-5"><a href="data-rodeo.html#cb694-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">&#39;zscore&#39;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   quiz1_zscore quiz2_zscore quiz3_zscore
+##          &lt;dbl&gt;        &lt;dbl&gt;        &lt;dbl&gt;
+## 1       -0.320        1.27        -0.752
+## 2       -1.04         0.116        1.61 
+## 3        0.400        0.809       -0.444
+## 4       -1.16        -1.27         0.889
+## 5        0.880        0.116       -0.547
+## 6        1.24        -1.04        -0.752</code></pre>
+<p>Without getting too deep into the weeds, <code>purrr</code> style syntax uses <code>.x</code> to refer to the function argument and <code>~</code> to indicate that everything to the right constitutes a function definition.</p>
+<p>Both the <code>.fns</code> and <code>.names</code> arguments of <code>across()</code> accept a <em>list</em> in place of a single function or name. Suppose for example that we wanted to compute the mean and variance of the two midterm exams. We could do so as follows:</p>
+<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="data-rodeo.html#cb696-1" aria-hidden="true" tabindex="-1"></a>mean_var <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb696-2"><a href="data-rodeo.html#cb696-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean =</span> <span class="sc">~</span> <span class="fu">mean</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb696-3"><a href="data-rodeo.html#cb696-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="sc">~</span> <span class="fu">var</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb696-4"><a href="data-rodeo.html#cb696-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb696-5"><a href="data-rodeo.html#cb696-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb696-6"><a href="data-rodeo.html#cb696-6" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb696-7"><a href="data-rodeo.html#cb696-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&#39;midterm&#39;</span>), mean_var, <span class="at">.names =</span> <span class="st">&#39;{.col}_{.fn}&#39;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 4
+##   midterm1_mean midterm1_var midterm2_mean midterm2_var
+##           &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt;        &lt;dbl&gt;
+## 1          76.8         53.8          80.8         95.0</code></pre>
+<p>If you prefer not to use the <code>purrr</code> style syntax, this also works:</p>
+<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="data-rodeo.html#cb698-1" aria-hidden="true" tabindex="-1"></a>mean_var2  <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb698-2"><a href="data-rodeo.html#cb698-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean =</span> <span class="cf">function</span>(x) <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb698-3"><a href="data-rodeo.html#cb698-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">var =</span> <span class="cf">function</span>(x) <span class="fu">var</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb698-4"><a href="data-rodeo.html#cb698-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb698-5"><a href="data-rodeo.html#cb698-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb698-6"><a href="data-rodeo.html#cb698-6" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb698-7"><a href="data-rodeo.html#cb698-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&#39;midterm&#39;</span>), mean_var2, <span class="at">.names =</span> <span class="st">&#39;{.col}_{.fn}&#39;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 4
+##   midterm1_mean midterm1_var midterm2_mean midterm2_var
+##           &lt;dbl&gt;        &lt;dbl&gt;         &lt;dbl&gt;        &lt;dbl&gt;
+## 1          76.8         53.8          80.8         95.0</code></pre>
+<p>Regardless of which version you prefer, notice how setting <code>.names</code> equal to <code>'{.col}_{.fn}'</code> has instructed <code>across()</code> to pull out the names from the list <code>mean_var</code> (or <code>mean_var2</code>), and combine them with the original column names that start with "midterm" to generate the column names for our table of summary statistics:</p>
+<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="data-rodeo.html#cb700-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mean_var)</span></code></pre></div>
+<pre><code>## [1] &quot;mean&quot; &quot;var&quot;</code></pre>
+<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="data-rodeo.html#cb702-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mean_var2)</span></code></pre></div>
+<pre><code>## [1] &quot;mean&quot; &quot;var&quot;</code></pre>
+<div id="exercise-46" class="section level3 hasAnchor" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> Exercise<a href="data-rodeo.html#exercise-46" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Create a table of sample standard deviations for each of the quizzes in <code>gradebook</code>, where the columns are named according to <code>[COLUMN NAME]_sd</code>.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb704-1"><a href="data-rodeo.html#cb704-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb704-2"><a href="data-rodeo.html#cb704-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&#39;quiz&#39;</span>), sd, <span class="at">.names =</span> <span class="st">&#39;{.col}_sd&#39;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 3
+##   quiz1_sd quiz2_sd quiz3_sd
+##      &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+## 1     8.33     4.32     9.75</code></pre>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>Read the help file for the function <code>n_distinct()</code> in <code>dplyr</code>. What does it do? After you understand how it works, use it to count up the number of distinct values in each column of <code>starwars</code> that contains character data. Name your results according to <code>n_[COLUMN NAME]s</code>.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb706-1"><a href="data-rodeo.html#cb706-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span></span>
+<span id="cb706-2"><a href="data-rodeo.html#cb706-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), n_distinct, <span class="at">.names =</span> <span class="st">&#39;n_{.col}s&#39;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 8
+##   n_names n_hair_colors n_skin_colors n_eye_colors n_sexs n_genders n_homeworlds
+##     &lt;int&gt;         &lt;int&gt;         &lt;int&gt;        &lt;int&gt;  &lt;int&gt;     &lt;int&gt;        &lt;int&gt;
+## 1      87            13            31           15      5         3           49
+## # … with 1 more variable: n_speciess &lt;int&gt;</code></pre>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Read the help file for the <code>dplyr</code> function <code>n()</code>. After you understand how this function works, combine it with <code>across()</code> and other <code>dplyr</code> functions you have learned to display the following table. Each row should correspond to a <code>homeworld</code> that occurs <em>at least twice</em> in the <code>starwars</code> tibble. There should be three columns, counting up the number of distinct values of <code>sex</code>, <code>species</code>, and <code>eye_color</code>. What happens to the observations for which <code>homeworld</code> is missing?</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="data-rodeo.html#cb708-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span></span>
+<span id="cb708-2"><a href="data-rodeo.html#cb708-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(homeworld) <span class="sc">%&gt;%</span></span>
+<span id="cb708-3"><a href="data-rodeo.html#cb708-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n</span>() <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb708-4"><a href="data-rodeo.html#cb708-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">c</span>(sex, species, eye_color), n_distinct))</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 4
+##    homeworld   sex species eye_color
+##    &lt;chr&gt;     &lt;int&gt;   &lt;int&gt;     &lt;int&gt;
+##  1 Alderaan      2       1         1
+##  2 Corellia      1       1         2
+##  3 Coruscant     2       2         1
+##  4 Kamino        2       2         2
+##  5 Kashyyyk      1       1         1
+##  6 Mirial        1       1         1
+##  7 Naboo         4       4         5
+##  8 Ryloth        2       1         2
+##  9 Tatooine      3       2         4
+## 10 &lt;NA&gt;          4       4         8</code></pre>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>For each <code>species</code> with at least two observations, calculate the sample median of all the <em>numeric</em> columns in <code>starwars</code>, dropping any missing observations. Why do we obtain the result that we do for members of the "Kaminoan" species?</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="data-rodeo.html#cb710-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span></span>
+<span id="cb710-2"><a href="data-rodeo.html#cb710-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species) <span class="sc">%&gt;%</span></span>
+<span id="cb710-3"><a href="data-rodeo.html#cb710-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">n</span>() <span class="sc">&gt;</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb710-4"><a href="data-rodeo.html#cb710-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), <span class="sc">~</span> <span class="fu">median</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)))</span></code></pre></div>
+<pre><code>## # A tibble: 9 × 4
+##   species  height  mass birth_year
+##   &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;      &lt;dbl&gt;
+## 1 Droid        97  53.5         33
+## 2 Gungan      206  74           52
+## 3 Human       180  79           48
+## 4 Kaminoan    221  88           NA
+## 5 Mirialan    168  53.1         49
+## 6 Twi&#39;lek     179  55           48
+## 7 Wookiee     231 124          200
+## 8 Zabrak      173  80           54
+## 9 &lt;NA&gt;        183  48           62</code></pre>
+<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb712-1"><a href="data-rodeo.html#cb712-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span></span>
+<span id="cb712-2"><a href="data-rodeo.html#cb712-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">&#39;Kaminoan&#39;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 14
+##   name    height  mass hair_color skin_color eye_color birth_year sex    gender 
+##   &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;  
+## 1 Lama Su    229    88 none       grey       black             NA male   mascul…
+## 2 Taun We    213    NA none       grey       black             NA female femini…
+## # … with 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+## #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>Calculate the standard deviation and <a href="https://en.wikipedia.org/wiki/Interquartile_range">interquartile range</a> all the numeric columns of <code>starwars</code>, dropping any missing observations. Attach meaningful names to your results so they're easy to read and understand. Hint: there's an R function for the interquartile range so you don't need to program it yourself.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="data-rodeo.html#cb714-1" aria-hidden="true" tabindex="-1"></a>SD_IQR <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb714-2"><a href="data-rodeo.html#cb714-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">SD =</span> <span class="sc">~</span> <span class="fu">sd</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb714-3"><a href="data-rodeo.html#cb714-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">IQR =</span> <span class="sc">~</span> <span class="fu">IQR</span>(.x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb714-4"><a href="data-rodeo.html#cb714-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb714-5"><a href="data-rodeo.html#cb714-5" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span></span>
+<span id="cb714-6"><a href="data-rodeo.html#cb714-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), SD_IQR, <span class="at">.names =</span> <span class="st">&#39;{.col}_{.fn}&#39;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 6
+##   height_SD height_IQR mass_SD mass_IQR birth_year_SD birth_year_IQR
+##       &lt;dbl&gt;      &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;         &lt;dbl&gt;          &lt;dbl&gt;
+## 1      34.8         24    169.     28.9          155.             37</code></pre>
+</div>
+</div>
+</div>
+<div id="row-wise-operations" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Row-wise operations<a href="data-rodeo.html#row-wise-operations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In the aforementioned course with eleven quizzes, my policy was to drop each student's two lowest quiz scores when calculating her overall "quiz average." In the hypothetical gradebook from above there are only three quizzes, so we'll have to be a bit less generous. Suppose we want to drop each student's <em>single</em> lowest quiz score. Given a vector of <code>quizzes</code> for an individual student, it's fairly easy to implement this in an R function:</p>
+<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="data-rodeo.html#cb716-1" aria-hidden="true" tabindex="-1"></a>drop1_avg <span class="ot">&lt;-</span> <span class="cf">function</span>(scores){</span>
+<span id="cb716-2"><a href="data-rodeo.html#cb716-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean of scores dropping the lowest value</span></span>
+<span id="cb716-3"><a href="data-rodeo.html#cb716-3" aria-hidden="true" tabindex="-1"></a>  scores <span class="ot">&lt;-</span> <span class="fu">sort</span>(scores)</span>
+<span id="cb716-4"><a href="data-rodeo.html#cb716-4" aria-hidden="true" tabindex="-1"></a>  highest_scores <span class="ot">&lt;-</span> scores[<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb716-5"><a href="data-rodeo.html#cb716-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(highest_scores)</span>
+<span id="cb716-6"><a href="data-rodeo.html#cb716-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb716-7"><a href="data-rodeo.html#cb716-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb716-8"><a href="data-rodeo.html#cb716-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Test that it works as expected</span></span>
+<span id="cb716-9"><a href="data-rodeo.html#cb716-9" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(<span class="fu">drop1_avg</span>(<span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">83</span>, <span class="dv">91</span>)),  <span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">95</span>, <span class="dv">91</span>)))</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>It seems like there should be a way to use <code>drop1_avg()</code> to compute the quiz average of each student in <code>gradebook</code>, dropping his or her lowest quiz score. Here's what I think many people would try:</p>
+<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="data-rodeo.html#cb718-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb718-2"><a href="data-rodeo.html#cb718-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quiz_avg =</span> <span class="fu">drop1_avg</span>(<span class="fu">c</span>(quiz1, quiz2, quiz3))) <span class="sc">%&gt;%</span></span>
+<span id="cb718-3"><a href="data-rodeo.html#cb718-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, quiz_avg)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##   name       quiz_avg
+##   &lt;chr&gt;         &lt;dbl&gt;
+## 1 Alice          78.7
+## 2 Bob            78.7
+## 3 Charlotte      78.7
+## 4 Dante          78.7
+## 5 Ethelburga     78.7
+## 6 Felix          78.7</code></pre>
+<p>But this is clearly wrong: it's not true that every student has the same quiz average! We've had lots of experience applying functions to all the observations in a particular <em>column</em>, but here we need to work with multiple observations in a give <em>row</em>. To solve this problem, we rely on the <code>dplyr</code> function <code>rowwise()</code>.</p>
+<div id="rowwise" class="section level3 hasAnchor" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> <code>rowwise()</code><a href="data-rodeo.html#rowwise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To understand <code>rowwise()</code> it helps to recall a <code>dplyr</code> function we're already familiar with: <code>group_by()</code>. On its own, <code>group_by()</code> is useless. It doesn't compute summary statistics, generate new columns, filter out observations, or reorder them. Instead it <em>changes the behavior</em> of the other <code>dplyr</code> functions like <code>select()</code>, <code>filter()</code>, <code>summarize()</code>, <code>mutate()</code>, and <code>arrange()</code>. When we write</p>
+<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="data-rodeo.html#cb720-1" aria-hidden="true" tabindex="-1"></a>starwars <span class="sc">%&gt;%</span></span>
+<span id="cb720-2"><a href="data-rodeo.html#cb720-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender) <span class="sc">%&gt;%</span></span>
+<span id="cb720-3"><a href="data-rodeo.html#cb720-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_height =</span> <span class="fu">mean</span>(height, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##   gender    avg_height
+##   &lt;chr&gt;          &lt;dbl&gt;
+## 1 feminine        165.
+## 2 masculine       177.
+## 3 &lt;NA&gt;            181.</code></pre>
+<p>the <code>group_by(gender)</code> statement passes information to <code>summarize()</code> telling it to override its usual behavior, which would in this case be to compute the mean height of <em>all</em> observations, and instead to compute separate means for groups defined by the values of <code>gender</code>.</p>
+<p>If you understand this nuance about <code>group_by()</code> you're primed and ready for <code>rowwise()</code>. Both of these commands tell <code>dplyr</code> to group particular observations together when executing the steps that follow. With <code>rowwise()</code>, the observations in the group are taken from a <em>single row</em> of our dataset. Here's how we can solve my quiz average problem from above using row-wise operations:</p>
+<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="data-rodeo.html#cb722-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb722-2"><a href="data-rodeo.html#cb722-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb722-3"><a href="data-rodeo.html#cb722-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quiz_avg =</span> <span class="fu">drop1_avg</span>(<span class="fu">c</span>(quiz1, quiz2, quiz3))) <span class="sc">%&gt;%</span></span>
+<span id="cb722-4"><a href="data-rodeo.html#cb722-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, quiz_avg)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+## # Rowwise: 
+##   name       quiz_avg
+##   &lt;chr&gt;         &lt;dbl&gt;
+## 1 Alice          82  
+## 2 Bob            91  
+## 3 Charlotte      82.5
+## 4 Dante          84.5
+## 5 Ethelburga     82.5
+## 6 Felix          81.5</code></pre>
+<p>Behind the scenes, R is in effect looping over every row of <code>gradebook()</code>, pulling out the values of <code>quiz1</code>, <code>quiz2</code>, and <code>quiz3</code>, concatenating them into a vector with <code>c()</code> and then feeding them into our function <code>drop1_avg()</code> from above. While you could write such a loop yourself, the nice thing is that you don't have to: <code>dplyr</code> allows us to focus on the <em>description</em> of the task we want to achieve without specifying the details of how that task should be <em>implemented</em>.</p>
+</div>
+<div id="c_across" class="section level3 hasAnchor" number="8.4.2">
+<h3><span class="header-section-number">8.4.2</span> <code>c_across()</code><a href="data-rodeo.html#c_across" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Now that you've tasted the sweet, sweet nectar of <code>tidyselect</code>, you may find the preceding code a bit inelegant. What if I had eleven quizzes? I certainly wouldn't want to type out the following:</p>
+<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="data-rodeo.html#cb724-1" aria-hidden="true" tabindex="-1"></a><span class="fu">drop1_avg</span>(<span class="fu">c</span>(quiz01, quiz02, quiz03, quiz04, quiz05, quiz06, quiz07, </span>
+<span id="cb724-2"><a href="data-rodeo.html#cb724-2" aria-hidden="true" tabindex="-1"></a>            quiz09, quiz10, quiz11))</span></code></pre></div>
+<p>(By the way, did you spot the error that I inserted intentionally?) You will be pleased to learn that everything you've learned about <code>tidyselect</code> carries over to row-wise operations: all you need to do is enclose your tidy selection operations within the function <code>c_across()</code>. For example, replacing <code>c()</code> and an explicit listing of column names with <code>c_across()</code> allows us to solve the quiz average problem as follows:</p>
+<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb725-1"><a href="data-rodeo.html#cb725-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb725-2"><a href="data-rodeo.html#cb725-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb725-3"><a href="data-rodeo.html#cb725-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quiz_avg =</span> <span class="fu">drop1_avg</span>(<span class="fu">c_across</span>(<span class="fu">starts_with</span>(<span class="st">&#39;quiz&#39;</span>)))) <span class="sc">%&gt;%</span></span>
+<span id="cb725-4"><a href="data-rodeo.html#cb725-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, quiz_avg)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+## # Rowwise: 
+##   name       quiz_avg
+##   &lt;chr&gt;         &lt;dbl&gt;
+## 1 Alice          82  
+## 2 Bob            91  
+## 3 Charlotte      82.5
+## 4 Dante          84.5
+## 5 Ethelburga     82.5
+## 6 Felix          81.5</code></pre>
+</div>
+<div id="across-as-an-alternative-to-rowwise" class="section level3 hasAnchor" number="8.4.3">
+<h3><span class="header-section-number">8.4.3</span> <code>across()</code> as an alternative to <code>rowwise()</code><a href="data-rodeo.html#across-as-an-alternative-to-rowwise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As mentioned above, row-wise operations in <code>dplyr</code> are essentially for loops in disguise. And as a general rule, loops written in R are considerably slower than purpose-built "vectorized" functions that call FORTRAN/C/C++ to do the heavy lifting. Sometimes we should simply acknowledge this cost and pay it: better to write clear code that's a bit slower than to write unclear code that's a bit faster. But sometimes speed is too important to compromise. In these situations a useful approach is to search for an R function that operates on <em>many rows at once</em> and use <code>across()</code> instead of <code>row_wise()</code> combined with <code>c_across()</code>.</p>
+<p>Suppose for example that we wanted to compute a quiz average without dropping <em>any</em> quizzes. We could easily solve this problem using row-wise operations, but if our tibble is very large this solution will be somewhat slow. An alternative uses the base R function <code>rowMeans()</code>. Given a matrix, data frame, or tibble <code>x</code> this function computes the mean of each row without the need for any looping within R. We can use it to solve the simplified quiz average problem as follows:</p>
+<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb727-1"><a href="data-rodeo.html#cb727-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb727-2"><a href="data-rodeo.html#cb727-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quiz_avg =</span> <span class="fu">rowMeans</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">&#39;quiz&#39;</span>)))) <span class="sc">%&gt;%</span></span>
+<span id="cb727-3"><a href="data-rodeo.html#cb727-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, quiz_avg)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##   name       quiz_avg
+##   &lt;chr&gt;         &lt;dbl&gt;
+## 1 Alice          76  
+## 2 Bob            80  
+## 3 Charlotte      78.3
+## 4 Dante          75.3
+## 5 Ethelburga     78.3
+## 6 Felix          77</code></pre>
+<p>Like <code>c_across()</code>, <code>across()</code> allows you to use all of your favorite <code>tidyselect</code> operations. The key difference is that <code>across()</code> does not pull out rows one at a time. Instead it extracts <em>all the rows</em> from the columns whose names start with <code>quiz</code> in one big block, and feeds them into the function <code>rowMeans()</code>. From here, <code>rowMeans()</code> takes over. When it's finished, <code>mutate()</code> attaches the result to <code>gradebook</code> in a column called <code>quiz_avg</code>.</p>
+</div>
+<div id="ungroup" class="section level3 hasAnchor" number="8.4.4">
+<h3><span class="header-section-number">8.4.4</span> <code>ungroup()</code><a href="data-rodeo.html#ungroup" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Both <code>rowwise()</code> and <code>group_by()</code> tell the other <code>dplyr</code> verbs that follow them to operate on particular <em>groups</em> rather than whole columns. But what if you want to tell <code>dplyr</code> to switch back to its "default" behavior? How could we say "hey stop working on rows now!" This may seem a bit abstract, so let's look at an example. Suppose that after creating my column <code>quiz_avg</code>, a <em>within student</em> average, I wanted to see how both average quiz scores and final exam scores varied <em>across</em> students. Here's what you might think to try:</p>
+<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb729-1"><a href="data-rodeo.html#cb729-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb729-2"><a href="data-rodeo.html#cb729-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb729-3"><a href="data-rodeo.html#cb729-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quiz_avg =</span> <span class="fu">drop1_avg</span>(<span class="fu">c_across</span>(<span class="fu">starts_with</span>(<span class="st">&#39;quiz&#39;</span>)))) <span class="sc">%&gt;%</span></span>
+<span id="cb729-4"><a href="data-rodeo.html#cb729-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(quiz_avg), <span class="fu">mean</span>(final))</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 2
+##   `mean(quiz_avg)` `mean(final)`
+##              &lt;dbl&gt;         &lt;dbl&gt;
+## 1             82              99
+## 2             91              79
+## 3             82.5            74
+## 4             84.5            83
+## 5             82.5            96
+## 6             81.5            75</code></pre>
+<p>But it didn't work! The problem is that <code>dplyr</code> is still in row-wise mode. We need to tell it to leave row-wise mode and go back to working as normal. To do this, we insert the command <code>ungroup()</code> at the desired point in our pipeline:</p>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="data-rodeo.html#cb731-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb731-2"><a href="data-rodeo.html#cb731-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb731-3"><a href="data-rodeo.html#cb731-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quiz_avg =</span> <span class="fu">drop1_avg</span>(<span class="fu">c_across</span>(<span class="fu">starts_with</span>(<span class="st">&#39;quiz&#39;</span>)))) <span class="sc">%&gt;%</span></span>
+<span id="cb731-4"><a href="data-rodeo.html#cb731-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb731-5"><a href="data-rodeo.html#cb731-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(quiz_avg), <span class="fu">mean</span>(final))</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 2
+##   `mean(quiz_avg)` `mean(final)`
+##              &lt;dbl&gt;         &lt;dbl&gt;
+## 1               84          84.3</code></pre>
+<p>In the same way, we can use <code>ungroup()</code> to "return to normal" after a <code>group_by()</code> step. It's often a good idea to add an <code>ungroup()</code> statement to the end of a pipeline that uses <code>group_by()</code>, particularly if you're <em>storing</em> the results for later use. This way the next set of <code>dplyr</code> operations that you carry out will work in the "usual" way.</p>
+</div>
+<div id="exercise-47" class="section level3 hasAnchor" number="8.4.5">
+<h3><span class="header-section-number">8.4.5</span> Exercise<a href="data-rodeo.html#exercise-47" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose we wanted to calculate each student's <em>maximum</em> quiz score and store it in a column called <code>quiz_max</code>. Write code to accomplish this using row-wise operations.</p>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb733-1"><a href="data-rodeo.html#cb733-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb733-2"><a href="data-rodeo.html#cb733-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb733-3"><a href="data-rodeo.html#cb733-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quiz_max =</span> <span class="fu">max</span>(<span class="fu">c_across</span>(<span class="fu">starts_with</span>(<span class="st">&#39;quiz&#39;</span>)))) <span class="sc">%&gt;%</span></span>
+<span id="cb733-4"><a href="data-rodeo.html#cb733-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb733-5"><a href="data-rodeo.html#cb733-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(student_id, name, quiz_max)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 3
+##   student_id name       quiz_max
+##        &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;
+## 1     192297 Alice            96
+## 2     291857 Bob              91
+## 3     500286 Charlotte        94
+## 4     449192 Dante            85
+## 5     372152 Ethelburga       91
+## 6     627561 Felix            86</code></pre>
+</div>
+</div>
+</div>
+<div id="pivoting-from-wider-to-longer-and-back-again" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> Pivoting: From Wider to Longer and Back Again<a href="data-rodeo.html#pivoting-from-wider-to-longer-and-back-again" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Sometimes it's helpful or even essential to <em>reshape</em> a dataset before making a plot or carrying out an analysis, a task that is sometimes called <em>pivoting</em>.
+The <code>tidyr</code> functions <code>pivot_wider()</code> and <code>pivot_longer()</code> make pivoting easy. It's a bit challenging to explain what pivoting means in the abstract, so in this section we'll explore some simple examples. After you understand the basic idea, you shouldn't have much trouble recognizing when you should think about pivoting. For more details, see the documentation for <a href="https://tidyr.tidyverse.org/reference/pivot_longer.html"><code>pivot_longer()</code></a> and <a href="https://tidyr.tidyverse.org/reference/pivot_wider.html"><code>pivot_wider()</code></a> and this <a href="https://tidyr.tidyverse.org/articles/pivot.html">article on pivoting</a>.</p>
+<div id="pivot_longer" class="section level3 hasAnchor" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> <code>pivot_longer()</code><a href="data-rodeo.html#pivot_longer" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Suppose we wanted to make a time series plot of quiz scores for each student in <code>gradebook</code>.
+It seems like we should be able to do this in <code>ggplot2</code>, but it's not clear how. This kind of plot asks us to view the quiz scores in <code>gradebook</code> as a <em>panel dataset</em>, a sequence of observations of the same individual made over time, but the way that I've arranged the information in <code>gradebook</code> doesn't reflect this structure. To make this look like a panel dataset, we need to <em>increase the number of rows</em> so that each student appears multiple times, once for every quiz. We can accomplish this using the function <code>pivot_longer()</code>:</p>
+<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb735-1"><a href="data-rodeo.html#cb735-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span> </span>
+<span id="cb735-2"><a href="data-rodeo.html#cb735-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">starts_with</span>(<span class="st">&#39;quiz&#39;</span>), <span class="at">names_to =</span> <span class="st">&#39;quiz&#39;</span>, <span class="at">values_to =</span> <span class="st">&#39;score&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb735-3"><a href="data-rodeo.html#cb735-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(student_id, name, quiz, score)</span></code></pre></div>
+<pre><code>## # A tibble: 18 × 4
+##    student_id name       quiz  score
+##         &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;dbl&gt;
+##  1     192297 Alice      quiz1    64
+##  2     192297 Alice      quiz2    96
+##  3     192297 Alice      quiz3    68
+##  4     291857 Bob        quiz1    58
+##  5     291857 Bob        quiz2    91
+##  6     291857 Bob        quiz3    91
+##  7     500286 Charlotte  quiz1    70
+##  8     500286 Charlotte  quiz2    94
+##  9     500286 Charlotte  quiz3    71
+## 10     449192 Dante      quiz1    57
+## 11     449192 Dante      quiz2    85
+## 12     449192 Dante      quiz3    84
+## 13     372152 Ethelburga quiz1    74
+## 14     372152 Ethelburga quiz2    91
+## 15     372152 Ethelburga quiz3    70
+## 16     627561 Felix      quiz1    77
+## 17     627561 Felix      quiz2    86
+## 18     627561 Felix      quiz3    68</code></pre>
+<p>The first argument to <code>pivot_longer()</code>, <code>data</code>, is the tibble that we want to pivot. Here we supply this argument using the pipe <code>%&gt;%</code>. The second argument, <code>cols</code>, specifies which columns we want to pivot. Here I use a <code>tidyselect</code> helper to choose the columns that contain quiz scores. The third argument, <code>names_to</code>, tells <code>pivot_longer()</code> how to handle the <em>column names</em> from <code>cols</code>. We need to keep track of these, since they correspond to the "time periods" in our panel. What <code>pivot_longer()</code> does is create a <em>new</em> column to store the names. Using <code>names_to</code> we can specify the name for this new column. I've chosen to call it <code>quiz</code>. Similarly, <code>values_to</code> is where we specify the name of the column in which <code>pivot_longer()</code> will store the <em>values</em> that it's extracted from <code>cols</code>. If this all sounds a bit abstract, focus on the example: we've gone from having three separate columns <code>quiz1</code>, <code>quiz2</code>, and <code>quiz3</code> to having two columns <code>quiz</code> and <code>score</code>. Before, our tibble had as many rows as students; now it has <em>three times</em> as many rows, one for each <em>combination</em> of student and quiz.</p>
+<p>In this particular situation, it might be a bit nicer to store simply <code>1</code>, <code>2</code>, and <code>3</code> rather than <code>quiz1</code>, <code>quiz2</code>, and <code>quiz3</code> in the column <code>quiz</code>. An easy way to do this is by setting the optional argument <code>names_prefix</code> to <code>'quiz'</code>. This will strip out the string <code>'quiz'</code> during the pivot:</p>
+<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb737-1"><a href="data-rodeo.html#cb737-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span> </span>
+<span id="cb737-2"><a href="data-rodeo.html#cb737-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">starts_with</span>(<span class="st">&#39;quiz&#39;</span>), </span>
+<span id="cb737-3"><a href="data-rodeo.html#cb737-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&#39;quiz&#39;</span>, </span>
+<span id="cb737-4"><a href="data-rodeo.html#cb737-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_prefix =</span> <span class="st">&#39;quiz&#39;</span>,</span>
+<span id="cb737-5"><a href="data-rodeo.html#cb737-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&#39;score&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb737-6"><a href="data-rodeo.html#cb737-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(student_id, name, quiz, score)</span></code></pre></div>
+<pre><code>## # A tibble: 18 × 4
+##    student_id name       quiz  score
+##         &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt; &lt;dbl&gt;
+##  1     192297 Alice      1        64
+##  2     192297 Alice      2        96
+##  3     192297 Alice      3        68
+##  4     291857 Bob        1        58
+##  5     291857 Bob        2        91
+##  6     291857 Bob        3        91
+##  7     500286 Charlotte  1        70
+##  8     500286 Charlotte  2        94
+##  9     500286 Charlotte  3        71
+## 10     449192 Dante      1        57
+## 11     449192 Dante      2        85
+## 12     449192 Dante      3        84
+## 13     372152 Ethelburga 1        74
+## 14     372152 Ethelburga 2        91
+## 15     372152 Ethelburga 3        70
+## 16     627561 Felix      1        77
+## 17     627561 Felix      2        86
+## 18     627561 Felix      3        68</code></pre>
+<p>This is almost exactly what we want. But if you look closely at the above output, you'll notice that <code>quiz</code> is stored as <em>character</em> data. We could easily change this with a <code>mutate()</code> command combined with <code>as.numeric()</code>, but there's a slicker approach: we can set the optional argument <code>names_transform</code> to carry out any transformation of the names that we like, for example</p>
+<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb739-1"><a href="data-rodeo.html#cb739-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span> </span>
+<span id="cb739-2"><a href="data-rodeo.html#cb739-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">starts_with</span>(<span class="st">&#39;quiz&#39;</span>), </span>
+<span id="cb739-3"><a href="data-rodeo.html#cb739-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&#39;quiz&#39;</span>, </span>
+<span id="cb739-4"><a href="data-rodeo.html#cb739-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_prefix =</span> <span class="st">&#39;quiz&#39;</span>,</span>
+<span id="cb739-5"><a href="data-rodeo.html#cb739-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_transform =</span> <span class="fu">list</span>(<span class="at">quiz =</span> as.numeric),</span>
+<span id="cb739-6"><a href="data-rodeo.html#cb739-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&#39;score&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb739-7"><a href="data-rodeo.html#cb739-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(student_id, name, quiz, score)</span></code></pre></div>
+<pre><code>## # A tibble: 18 × 4
+##    student_id name        quiz score
+##         &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+##  1     192297 Alice          1    64
+##  2     192297 Alice          2    96
+##  3     192297 Alice          3    68
+##  4     291857 Bob            1    58
+##  5     291857 Bob            2    91
+##  6     291857 Bob            3    91
+##  7     500286 Charlotte      1    70
+##  8     500286 Charlotte      2    94
+##  9     500286 Charlotte      3    71
+## 10     449192 Dante          1    57
+## 11     449192 Dante          2    85
+## 12     449192 Dante          3    84
+## 13     372152 Ethelburga     1    74
+## 14     372152 Ethelburga     2    91
+## 15     372152 Ethelburga     3    70
+## 16     627561 Felix          1    77
+## 17     627561 Felix          2    86
+## 18     627561 Felix          3    68</code></pre>
+<p>And now we're finally ready to make the plot we set out to produce:</p>
+<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb741-1"><a href="data-rodeo.html#cb741-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span> </span>
+<span id="cb741-2"><a href="data-rodeo.html#cb741-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">starts_with</span>(<span class="st">&#39;quiz&#39;</span>), </span>
+<span id="cb741-3"><a href="data-rodeo.html#cb741-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&#39;quiz&#39;</span>, </span>
+<span id="cb741-4"><a href="data-rodeo.html#cb741-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_prefix =</span> <span class="st">&#39;quiz&#39;</span>,</span>
+<span id="cb741-5"><a href="data-rodeo.html#cb741-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_transform =</span> <span class="fu">list</span>(<span class="at">quiz =</span> as.numeric),</span>
+<span id="cb741-6"><a href="data-rodeo.html#cb741-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&#39;score&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb741-7"><a href="data-rodeo.html#cb741-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(student_id, name, quiz, score) <span class="sc">%&gt;%</span></span>
+<span id="cb741-8"><a href="data-rodeo.html#cb741-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> quiz, <span class="at">y =</span> score)) <span class="sc">+</span></span>
+<span id="cb741-9"><a href="data-rodeo.html#cb741-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb741-10"><a href="data-rodeo.html#cb741-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb741-11"><a href="data-rodeo.html#cb741-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> name)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-373-1.png" width="672" /></p>
+</div>
+<div id="pivot_wider" class="section level3 hasAnchor" number="8.5.2">
+<h3><span class="header-section-number">8.5.2</span> <code>pivot_wider()</code><a href="data-rodeo.html#pivot_wider" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>In effect, <code>pivot_wider()</code> and <code>pivot_longer()</code> are <a href="https://en.wikipedia.org/wiki/Inverse_function">inverse functions</a>; what the one does, the other undoes. Whereas <code>pivot_longer()</code> creates a tibble with <em>more rows</em>, <code>pivot_wider()</code> creates one with <em>fewer rows</em>. Just in case you're <em>still</em> not sick of my <code>gradebook</code> example let's revisit it one final time.</p>
+<p>Suppose that, as the course TA, your job is to maintain a record of all the quiz scores. You've stored them in a tibble called <code>quiz_scores</code></p>
+<div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb742-1"><a href="data-rodeo.html#cb742-1" aria-hidden="true" tabindex="-1"></a>quiz_scores <span class="ot">&lt;-</span> gradebook <span class="sc">%&gt;%</span> </span>
+<span id="cb742-2"><a href="data-rodeo.html#cb742-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">starts_with</span>(<span class="st">&#39;quiz&#39;</span>), </span>
+<span id="cb742-3"><a href="data-rodeo.html#cb742-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">&#39;quiz&#39;</span>, </span>
+<span id="cb742-4"><a href="data-rodeo.html#cb742-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_prefix =</span> <span class="st">&#39;quiz&#39;</span>,</span>
+<span id="cb742-5"><a href="data-rodeo.html#cb742-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_transform =</span> <span class="fu">list</span>(<span class="at">quiz =</span> as.numeric),</span>
+<span id="cb742-6"><a href="data-rodeo.html#cb742-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&#39;score&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb742-7"><a href="data-rodeo.html#cb742-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(student_id, name, quiz, score)</span></code></pre></div>
+<p>Your boss, the course instructor, maintains a separate tibble called <code>exam_scores</code>. This one is arranged in a completely different way:</p>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="data-rodeo.html#cb743-1" aria-hidden="true" tabindex="-1"></a>exam_scores <span class="ot">&lt;-</span> gradebook <span class="sc">%&gt;%</span></span>
+<span id="cb743-2"><a href="data-rodeo.html#cb743-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(student_id, name, midterm1, midterm2, final)</span>
+<span id="cb743-3"><a href="data-rodeo.html#cb743-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb743-4"><a href="data-rodeo.html#cb743-4" aria-hidden="true" tabindex="-1"></a>exam_scores</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##   student_id name       midterm1 midterm2 final
+##        &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+## 1     192297 Alice            81       90    99
+## 2     291857 Bob              75       75    79
+## 3     500286 Charlotte        81       70    74
+## 4     449192 Dante            83       94    83
+## 5     372152 Ethelburga       63       73    96
+## 6     627561 Felix            78       83    75</code></pre>
+<p>Once the course is finished, these two tibbles need to be merged to create a final grade for each student. As the lowly TA, you have to defer to the wishes of your boss, who wants you to supply the quiz scores in a format that <em>matches</em> that of <code>exam_scores</code>. You are asked to provide a tibble with columns <code>student_id</code>, <code>name</code>, <code>quiz1</code>, <code>quiz2</code>, and <code>quiz3</code>. Rather than re-typing all of the quiz scores, you consult the <code>tidyr</code> documentation and discover that there's a fantastic tool called <code>pivot_wider()</code> that can do all the work for you:</p>
+<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="data-rodeo.html#cb745-1" aria-hidden="true" tabindex="-1"></a>quiz_scores <span class="sc">%&gt;%</span></span>
+<span id="cb745-2"><a href="data-rodeo.html#cb745-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> quiz, <span class="at">names_prefix =</span> <span class="st">&#39;quiz&#39;</span>, <span class="at">values_from =</span> score)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##   student_id name       quiz1 quiz2 quiz3
+##        &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     192297 Alice         64    96    68
+## 2     291857 Bob           58    91    91
+## 3     500286 Charlotte     70    94    71
+## 4     449192 Dante         57    85    84
+## 5     372152 Ethelburga    74    91    70
+## 6     627561 Felix         77    86    68</code></pre>
+<p>The <code>names_from</code> and <code>values_from</code> arguments of <code>pivot_wider()</code> are precisely the <em>opposite</em> of the <code>names_to</code> and <code>values_to</code> arguments of <code>pivot_longer()</code>. Similarly, when specified as an argument to <code>pivot_longer()</code>, <code>names_prefix</code> is the prefix we want to <em>remove</em>; when specified as an argument to <code>pivot_wider()</code> it is the prefix we want to <em>add</em>. Without it, our column names would have been <code>1</code>, <code>2</code>, and <code>3</code> in the preceding example:</p>
+<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="data-rodeo.html#cb747-1" aria-hidden="true" tabindex="-1"></a>quiz_scores <span class="sc">%&gt;%</span></span>
+<span id="cb747-2"><a href="data-rodeo.html#cb747-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> quiz, <span class="at">values_from =</span> score)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 5
+##   student_id name         `1`   `2`   `3`
+##        &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     192297 Alice         64    96    68
+## 2     291857 Bob           58    91    91
+## 3     500286 Charlotte     70    94    71
+## 4     449192 Dante         57    85    84
+## 5     372152 Ethelburga    74    91    70
+## 6     627561 Felix         77    86    68</code></pre>
+</div>
+<div id="exercise-48" class="section level3 hasAnchor" number="8.5.3">
+<h3><span class="header-section-number">8.5.3</span> Exercise<a href="data-rodeo.html#exercise-48" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li>Read the documentation file for the dataset <code>billboard</code> from <code>tidyr</code>. Then use <code>pivot_longer()</code> to convert this tibble into a "panel data layout," as we did with the gradebook example from above.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="data-rodeo.html#cb749-1" aria-hidden="true" tabindex="-1"></a>billboard</span></code></pre></div>
+<pre><code>## # A tibble: 317 × 79
+##    artist     track date.entered   wk1   wk2   wk3   wk4   wk5   wk6   wk7   wk8
+##    &lt;chr&gt;      &lt;chr&gt; &lt;date&gt;       &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+##  1 2 Pac      Baby… 2000-02-26      87    82    72    77    87    94    99    NA
+##  2 2Ge+her    The … 2000-09-02      91    87    92    NA    NA    NA    NA    NA
+##  3 3 Doors D… Kryp… 2000-04-08      81    70    68    67    66    57    54    53
+##  4 3 Doors D… Loser 2000-10-21      76    76    72    69    67    65    55    59
+##  5 504 Boyz   Wobb… 2000-04-15      57    34    25    17    17    31    36    49
+##  6 98^0       Give… 2000-08-19      51    39    34    26    26    19     2     2
+##  7 A*Teens    Danc… 2000-07-08      97    97    96    95   100    NA    NA    NA
+##  8 Aaliyah    I Do… 2000-01-29      84    62    51    41    38    35    35    38
+##  9 Aaliyah    Try … 2000-03-18      59    53    38    28    21    18    16    14
+## 10 Adams, Yo… Open… 2000-08-26      76    76    74    69    68    67    61    58
+## # … with 307 more rows, and 68 more variables: wk9 &lt;dbl&gt;, wk10 &lt;dbl&gt;,
+## #   wk11 &lt;dbl&gt;, wk12 &lt;dbl&gt;, wk13 &lt;dbl&gt;, wk14 &lt;dbl&gt;, wk15 &lt;dbl&gt;, wk16 &lt;dbl&gt;,
+## #   wk17 &lt;dbl&gt;, wk18 &lt;dbl&gt;, wk19 &lt;dbl&gt;, wk20 &lt;dbl&gt;, wk21 &lt;dbl&gt;, wk22 &lt;dbl&gt;,
+## #   wk23 &lt;dbl&gt;, wk24 &lt;dbl&gt;, wk25 &lt;dbl&gt;, wk26 &lt;dbl&gt;, wk27 &lt;dbl&gt;, wk28 &lt;dbl&gt;,
+## #   wk29 &lt;dbl&gt;, wk30 &lt;dbl&gt;, wk31 &lt;dbl&gt;, wk32 &lt;dbl&gt;, wk33 &lt;dbl&gt;, wk34 &lt;dbl&gt;,
+## #   wk35 &lt;dbl&gt;, wk36 &lt;dbl&gt;, wk37 &lt;dbl&gt;, wk38 &lt;dbl&gt;, wk39 &lt;dbl&gt;, wk40 &lt;dbl&gt;,
+## #   wk41 &lt;dbl&gt;, wk42 &lt;dbl&gt;, wk43 &lt;dbl&gt;, wk44 &lt;dbl&gt;, wk45 &lt;dbl&gt;, wk46 &lt;dbl&gt;, …</code></pre>
+<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="data-rodeo.html#cb751-1" aria-hidden="true" tabindex="-1"></a>billboard <span class="sc">%&gt;%</span> <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">&#39;wk&#39;</span>),</span>
+<span id="cb751-2"><a href="data-rodeo.html#cb751-2" aria-hidden="true" tabindex="-1"></a>                           <span class="at">names_to =</span> <span class="st">&#39;week&#39;</span>, </span>
+<span id="cb751-3"><a href="data-rodeo.html#cb751-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">values_to =</span> <span class="st">&#39;rank&#39;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 24,092 × 5
+##    artist track                   date.entered week   rank
+##    &lt;chr&gt;  &lt;chr&gt;                   &lt;date&gt;       &lt;chr&gt; &lt;dbl&gt;
+##  1 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk1      87
+##  2 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk2      82
+##  3 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk3      72
+##  4 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk4      77
+##  5 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk5      87
+##  6 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk6      94
+##  7 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk7      99
+##  8 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk8      NA
+##  9 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk9      NA
+## 10 2 Pac  Baby Don&#39;t Cry (Keep... 2000-02-26   wk10     NA
+## # … with 24,082 more rows</code></pre>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li>In my silly example with a TA and course instructor, I described a planned merge of <code>quiz_scores</code> with <code>exam_scores</code>, after pivoting <code>quiz_scores</code> appropriately. Carry out this merge. What kind of "join" makes sense here?</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="data-rodeo.html#cb753-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A full join ensures that we end up with a row for any student who appears in</span></span>
+<span id="cb753-2"><a href="data-rodeo.html#cb753-2" aria-hidden="true" tabindex="-1"></a><span class="co"># *either* exam_scores or the pivoted version of quiz_scores.</span></span>
+<span id="cb753-3"><a href="data-rodeo.html#cb753-3" aria-hidden="true" tabindex="-1"></a>quiz_scores <span class="sc">%&gt;%</span></span>
+<span id="cb753-4"><a href="data-rodeo.html#cb753-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> quiz, <span class="at">names_prefix =</span> <span class="st">&#39;quiz&#39;</span>, <span class="at">values_from =</span> score) <span class="sc">%&gt;%</span></span>
+<span id="cb753-5"><a href="data-rodeo.html#cb753-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(exam_scores)</span></code></pre></div>
+<pre><code>## Joining, by = c(&quot;student_id&quot;, &quot;name&quot;)</code></pre>
+<pre><code>## # A tibble: 6 × 8
+##   student_id name       quiz1 quiz2 quiz3 midterm1 midterm2 final
+##        &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+## 1     192297 Alice         64    96    68       81       90    99
+## 2     291857 Bob           58    91    91       75       75    79
+## 3     500286 Charlotte     70    94    71       81       70    74
+## 4     449192 Dante         57    85    84       83       94    83
+## 5     372152 Ethelburga    74    91    70       63       73    96
+## 6     627561 Felix         77    86    68       78       83    75</code></pre>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Above we saw how to combine the function <code>drop1_avg()</code> with row-wise operations to calculate each student's quiz average after dropping the lowest score. Devise an <em>alternative</em> solution to this problem that uses <code>pivot_longer()</code> followed by <code>pivot_wider()</code> rather than row-wise operations.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="data-rodeo.html#cb756-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%&gt;%</span> </span>
+<span id="cb756-2"><a href="data-rodeo.html#cb756-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="fu">starts_with</span>(<span class="st">&#39;quiz&#39;</span>), <span class="at">names_to =</span> <span class="st">&#39;quiz&#39;</span>, <span class="at">values_to =</span> <span class="st">&#39;score&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb756-3"><a href="data-rodeo.html#cb756-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(name) <span class="sc">%&gt;%</span></span>
+<span id="cb756-4"><a href="data-rodeo.html#cb756-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">quiz_avg =</span> <span class="fu">drop1_avg</span>(score)) <span class="sc">%&gt;%</span></span>
+<span id="cb756-5"><a href="data-rodeo.html#cb756-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">&#39;quiz&#39;</span>, <span class="at">values_from =</span> <span class="st">&#39;score&#39;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 6 × 9
+## # Groups:   name [6]
+##   student_id name       midterm1 midterm2 final quiz_avg quiz1 quiz2 quiz3
+##        &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     192297 Alice            81       90    99     82      64    96    68
+## 2     291857 Bob              75       75    79     91      58    91    91
+## 3     500286 Charlotte        81       70    74     82.5    70    94    71
+## 4     449192 Dante            83       94    83     84.5    57    85    84
+## 5     372152 Ethelburga       63       73    96     82.5    74    91    70
+## 6     627561 Felix            78       83    75     81.5    77    86    68</code></pre>
+</div>
+</div>
+</div>
+<div id="put-that-in-your-pipe-and-smoke-it" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Put that in your pipe and smoke it!<a href="data-rodeo.html#put-that-in-your-pipe-and-smoke-it" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Vincent_van_Gogh_-_Self-portrait_with_pipe_-_Google_Art_Project.jpg/837px-Vincent_van_Gogh_-_Self-portrait_with_pipe_-_Google_Art_Project.jpg" width="250" alt="" />
+<p class="caption">Self portrait with Pipe by Vincent van Gogh</p>
+</div>
+<p>Fun fact: the expression that serves as a title for this section is <a href="https://wordhistories.net/2020/01/06/put-pipe-and-smoke/">much older than you may have thought!</a> Joking aside, we've made heavy use of the pipe operator <code>%&gt;%</code> in all of our lessons thus far. By this point I hope you're convinced that piping provides a simple and elegant approach to common data manipulation tasks. Now that you have sufficient experience under your belt, it's a good time to think a bit more carefully about piping as a computing strategy. The purpose of this section is to answer some frequently asked questions about the pipe, show you some more powerful ways that it can be used, and introduce you to a <em>whole new set of pipe operators</em>! Don't worry: you can get along just fine with <code>%&gt;%</code>. But in case you encounter such exotic creatures as <code>%T&gt;</code>, <code>%$%</code>, <code>%&lt;&gt;%</code>, and <code>|&gt;</code> in the wild, it's good to know something about them.</p>
+<div id="to-pipe-or-not-to-pipe" class="section level3 hasAnchor" number="8.6.1">
+<h3><span class="header-section-number">8.6.1</span> To pipe or not to pipe?<a href="data-rodeo.html#to-pipe-or-not-to-pipe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As you may recall from an earlier lesson, <code>%&gt;%</code> provides an alternative way of supplying the <em>first argument</em> to a function. Rather than writing <code>f(x, y)</code> we can instead write <code>x %&gt;% f(y)</code>. This is particularly helpful in data cleaning, where we want to repeatedly operate on the same tibble. Rather than writing a sequence of nested function calls <code>f(g(h(dat, arg1), arg2), arg3)</code> we can use a pipeline of the form <code>dat %&gt;% h(arg1) %&gt;% g(arg2) %&gt;% f(arg3)</code>. This makes it much easier to tell that <code>h()</code> is applied first and <code>f()</code> is applied last. It also makes it much easier to see at a glance that <code>arg3</code> is an argument to <code>f()</code> while <code>arg1</code> is an argument to <code>h()</code>. Even better it removes the need for creating a large number of temporary objects or writing out a large number of assignment statements. There's nothing wrong with this code:</p>
+<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="data-rodeo.html#cb758-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">h</span>(dat, arg1)</span>
+<span id="cb758-2"><a href="data-rodeo.html#cb758-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">g</span>(dat, arg2)</span>
+<span id="cb758-3"><a href="data-rodeo.html#cb758-3" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">f</span>(dat, arg3)</span></code></pre></div>
+<p>but <code>%&gt;%</code> allows us to do the same thing with a <em>single</em> assignment statement while typing out <code>dat</code> only twice rather than six times:</p>
+<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb759-1"><a href="data-rodeo.html#cb759-1" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
+<span id="cb759-2"><a href="data-rodeo.html#cb759-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">h</span>(arg1) <span class="sc">%&gt;%</span></span>
+<span id="cb759-3"><a href="data-rodeo.html#cb759-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">g</span>(arg2) <span class="sc">%&gt;%</span></span>
+<span id="cb759-4"><a href="data-rodeo.html#cb759-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">f</span>(arg3)</span></code></pre></div>
+<p>So when <em>shouldn't</em> we use the pipe? A common rule of thumb is to limit your pipelines to a maximum of <em>ten steps</em>. Beyond this point things often become too difficult to read. If you find yourself tempted to write an extremely long pipeline, think about whether some of the steps naturally "go together" and consider breaking them up accordingly into two or more pipelines. There are no hard and fast rules here, but don't lose sight of the key reason for using the pipe: making code <em>easier to understand</em>. If the pipe actually makes things more confusing, use a different approach.</p>
+</div>
+<div id="supplying-an-arbitrary-argument" class="section level3 hasAnchor" number="8.6.2">
+<h3><span class="header-section-number">8.6.2</span> Supplying an Arbitrary Argument<a href="data-rodeo.html#supplying-an-arbitrary-argument" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>By default, <code>%&gt;%</code> supplies the <em>first argument</em> to a function: <code>x %&gt;% f(y)</code> is synonymous with <code>f(x,y)</code>. But what if we wanted to supply the <em>second argument</em>? We can do this by using the dot <code>(.)</code> as a "placeholder." For example <code>y %&gt;% f(x, .)</code> is synonymous with <code>f(x, y)</code>. For example:</p>
+<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="data-rodeo.html#cb760-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb760-2"><a href="data-rodeo.html#cb760-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="data-rodeo.html#cb762-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">%&gt;%</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> .)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>We can also use the dot <code>(.)</code> as a placeholder on the <em>left hand side</em> of a pipeline. This is basically a sneaky way of creating a function. This could come in handy if we want to carry out the same data cleaning steps on more than one dataset. Here's an example in which the sequence of steps is a series of trigonometric functions:</p>
+<div class="sourceCode" id="cb764"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb764-1"><a href="data-rodeo.html#cb764-1" aria-hidden="true" tabindex="-1"></a>trigonometry_pipeline <span class="ot">&lt;-</span> . <span class="sc">%&gt;%</span></span>
+<span id="cb764-2"><a href="data-rodeo.html#cb764-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sin</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb764-3"><a href="data-rodeo.html#cb764-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cos</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb764-4"><a href="data-rodeo.html#cb764-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tan</span>()</span>
+<span id="cb764-5"><a href="data-rodeo.html#cb764-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span>pi, <span class="dv">0</span>, pi)</span>
+<span id="cb764-6"><a href="data-rodeo.html#cb764-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.5</span> <span class="sc">*</span> pi, <span class="fl">0.5</span> <span class="sc">*</span> pi)</span>
+<span id="cb764-7"><a href="data-rodeo.html#cb764-7" aria-hidden="true" tabindex="-1"></a><span class="fu">trigonometry_pipeline</span>(x)</span></code></pre></div>
+<pre><code>## [1] 1.557408 1.557408 1.557408</code></pre>
+<div class="sourceCode" id="cb766"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb766-1"><a href="data-rodeo.html#cb766-1" aria-hidden="true" tabindex="-1"></a><span class="fu">trigonometry_pipeline</span>(y)</span></code></pre></div>
+<pre><code>## [1] 0.5998406 0.5998406</code></pre>
+</div>
+<div id="the-many-pipes-of-magrittr" class="section level3 hasAnchor" number="8.6.3">
+<h3><span class="header-section-number">8.6.3</span> The many pipes of <code>magrittr</code><a href="data-rodeo.html#the-many-pipes-of-magrittr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The pipe <code>%&gt;%</code> originated in a package called <a href="https://magrittr.tidyverse.or"><code>magrittr</code></a>, but is now fully-integrated into the <code>tidyverse</code>. If <code>dplyr</code> is loaded in your R session, then you already have access to <code>%&gt;%</code>. But <code>%&gt;%</code> is not the only pipe operator contained in the <code>magrittr</code> package. There is also the <a href="https://magrittr.tidyverse.org/reference/compound.html">assignment pipe <code>%&lt;&gt;%</code></a>, the <a href="https://magrittr.tidyverse.org/reference/exposition.html">exposition pipe <code>%$%</code></a>, and the <a href="https://magrittr.tidyverse.org/reference/tee.html">tee pipe <code>%T&gt;%</code></a>. To access these exotic pipes you will need to load <code>magrittr</code> explicitly, even if you've already loaded <code>dplyr</code></p>
+<div class="sourceCode" id="cb768"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb768-1"><a href="data-rodeo.html#cb768-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span></code></pre></div>
+<p>The <a href="https://magrittr.tidyverse.org/reference/compound.html">assignment pipe <code>%&lt;&gt;%</code></a> is shorthand for a common pattern in which we pipe an object <code>x</code> into a function or sequence of functions and then <em>overwrite it</em> with the result of the pipeline. Rather that writing this:</p>
+<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="data-rodeo.html#cb769-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> x <span class="sc">%&gt;%</span> </span>
+<span id="cb769-2"><a href="data-rodeo.html#cb769-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">h</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb769-3"><a href="data-rodeo.html#cb769-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">g</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb769-4"><a href="data-rodeo.html#cb769-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">f</span>()</span></code></pre></div>
+<p>the assignment pipe <code>%&lt;&gt;%</code> allows us to instead write</p>
+<div class="sourceCode" id="cb770"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb770-1"><a href="data-rodeo.html#cb770-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb770-2"><a href="data-rodeo.html#cb770-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">h</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb770-3"><a href="data-rodeo.html#cb770-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">g</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb770-4"><a href="data-rodeo.html#cb770-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">f</span>()</span></code></pre></div>
+<p>So should you use <code>%&lt;&gt;%</code>? This is a surprisingly controversial question. <a href="https://hadley.nz/">Hadley Wickham</a>, the driving force behind the <code>tidyverse</code>, says no. In his view, assignment is a sufficiently "special" operation that it's worth being explicit about, even when this requires more typing. I'm on the fence, so you'll have to make up your own mind!</p>
+<p>The <a href="https://magrittr.tidyverse.org/reference/exposition.html">exposition pipe <code>%$%</code></a> is broadly similar to the base R function <code>with()</code> in that it allows us to refer to elements of a list, or dataframe, without using <code>$</code>. For example, here are three equivalent ways of computing the average quiz score for each student in <code>gradebook</code> without <code>dplyr</code>:</p>
+<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="data-rodeo.html#cb771-1" aria-hidden="true" tabindex="-1"></a>(gradebook<span class="sc">$</span>quiz1 <span class="sc">+</span> gradebook<span class="sc">$</span>quiz2 <span class="sc">+</span> gradebook<span class="sc">$</span>quiz3) <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 76.00000 80.00000 78.33333 75.33333 78.33333 77.00000</code></pre>
+<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="data-rodeo.html#cb773-1" aria-hidden="true" tabindex="-1"></a><span class="fu">with</span>(gradebook, (quiz1 <span class="sc">+</span> quiz2 <span class="sc">+</span> quiz3) <span class="sc">/</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 76.00000 80.00000 78.33333 75.33333 78.33333 77.00000</code></pre>
+<div class="sourceCode" id="cb775"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb775-1"><a href="data-rodeo.html#cb775-1" aria-hidden="true" tabindex="-1"></a>gradebook <span class="sc">%$%</span></span>
+<span id="cb775-2"><a href="data-rodeo.html#cb775-2" aria-hidden="true" tabindex="-1"></a>  (quiz1 <span class="sc">+</span> quiz2 <span class="sc">+</span> quiz3) <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 76.00000 80.00000 78.33333 75.33333 78.33333 77.00000</code></pre>
+<p>Last but not least comes the <a href="https://magrittr.tidyverse.org/reference/tee.html">tee pipe <code>%T&gt;%</code></a>. Think of it like a <a href="https://en.wikipedia.org/wiki/Piping_and_plumbing_fitting#Tee">literal tee pipe</a>, a plumbing fitting that channels water in two directions simultaneously. Consider the following example:</p>
+<div class="sourceCode" id="cb777"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb777-1"><a href="data-rodeo.html#cb777-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb777-2"><a href="data-rodeo.html#cb777-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">200</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb777-3"><a href="data-rodeo.html#cb777-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">matrix</span>(<span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">%T&gt;%</span></span>
+<span id="cb777-4"><a href="data-rodeo.html#cb777-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb777-5"><a href="data-rodeo.html#cb777-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colSums</span>()</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-389-1.png" width="672" /></p>
+<pre><code>## [1] -15.676174   4.124318</code></pre>
+<p>If we had used a <code>%&gt;%</code> instead of a <code>%T&gt;%</code> in the second line this code wouldn't have worked: the function <code>plot()</code> just prints out a plot, it doesn't return a <em>result</em> that could be piped into <code>colSums()</code>. In effect the tee pipe takes the result of <code>rnorm(200) %&gt;% matrix(col = 2)</code>, a matrix of normal random draws, and pipes it in <em>two directions at the same time</em>. One arm of the tee is <code>plot()</code>, which displays a scatter plot of the matrix, and the other is <code>colSums()</code>, which computes the column sums of <em>the same</em> matrix.</p>
+</div>
+<div id="all-about-that-base-rs-native-pipe" class="section level3 hasAnchor" number="8.6.4">
+<h3><span class="header-section-number">8.6.4</span> All About that Base: R's "Native" Pipe<a href="data-rodeo.html#all-about-that-base-rs-native-pipe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As of version 4.1, base R has a "native" pipe operator <code>|&gt;</code>. Like <code>%&gt;%</code>, the native pipe <code>|&gt;</code> supplies the first argument to a function:</p>
+<div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb779-1"><a href="data-rodeo.html#cb779-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb779-2"><a href="data-rodeo.html#cb779-2" aria-hidden="true" tabindex="-1"></a>x <span class="sc">%&gt;%</span> <span class="fu">mean</span>()</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb781"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb781-1"><a href="data-rodeo.html#cb781-1" aria-hidden="true" tabindex="-1"></a>x <span class="sc">|&gt;</span> <span class="fu">mean</span>()</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>As of R version 4.2, base R also has a placeholder: <code>_</code> can be used to change the behavior of <code>|&gt;</code> so that it supplies an <em>arbitrary</em> argument to a function. For example:</p>
+<div class="sourceCode" id="cb783"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb783-1"><a href="data-rodeo.html#cb783-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">2</span>, <span class="cn">NA</span>, <span class="dv">6</span>, <span class="dv">9</span>)</span>
+<span id="cb783-2"><a href="data-rodeo.html#cb783-2" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">%&gt;%</span></span>
+<span id="cb783-3"><a href="data-rodeo.html#cb783-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(x, <span class="at">na.rm =</span> .)</span></code></pre></div>
+<pre><code>## [1] 5.5</code></pre>
+<div class="sourceCode" id="cb785"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb785-1"><a href="data-rodeo.html#cb785-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">|&gt;</span> </span>
+<span id="cb785-2"><a href="data-rodeo.html#cb785-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(x, <span class="at">na.rm =</span> _)</span></code></pre></div>
+<pre><code>## [1] 5.5</code></pre>
+<p>To learn more about R's native pipe, see the help file <code>?pipeOp</code>. You may be wondering: are <code>%&gt;%</code> and <code>.</code> completely interchangeable with <code>|&gt;</code> and <code>_</code>? Almost, but <a href="https://stackoverflow.com/questions/67633022/what-are-the-differences-between-rs-new-native-pipe-and-the-magrittr-pipe/72004083#72004083">not quite</a>. To quote Dirk Eddelbuettel, R's native pipe <code>|&gt;</code> is "a little faster ... a little simpler and more robust ... [and] a little more restrictive" than <code>%&gt;%</code>. So how are we supposed to know which pipe to use? This is a good question, and it's not one for which I can provide a definitive answer. R's native pipe is so new that it's difficult to predict whether it will catch on and eventually supplant <code>%&gt;%</code> in the <code>tidyverse</code> or if it will end up being an under-used feature of the language. For the moment, I'd suggest sticking with <code>%&gt;%</code> for best results when working with <code>tidyverse</code> packages like <code>dplyr</code>.</p>
+</div>
+<div id="how-does-compare-to-in-ggplot2" class="section level3 hasAnchor" number="8.6.5">
+<h3><span class="header-section-number">8.6.5</span> How does <code>%&gt;%</code> compare to <code>+</code> in <code>ggplot2</code>?<a href="data-rodeo.html#how-does-compare-to-in-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Have you noticed how <code>+</code> in <code>ggplot2</code> works a bit like the pipe <code>%&gt;%</code> but not quite? If you find this annoying and slightly confusing, <a href="https://www.reddit.com/r/dataisbeautiful/comments/3mp9r7/im_hadley_wickham_chief_scientist_at_rstudio_and/cvi19ly/">you're not the only one</a>! For some years now a package called <code>ggvis</code> has been in the works. The hope is that it will one day replace <code>ggplot2</code>. Its syntax will be similar but with <code>%&gt;%</code> instead of <code>+</code>, removing a common element of confusion. As of now the <code>ggvis</code> project is lying fallow. For updates see <a href="https://ggvis.rstudio.com/" class="uri">https://ggvis.rstudio.com/</a> and <a href="https://github.com/rstudio/ggvis" class="uri">https://github.com/rstudio/ggvis</a>.</p>
+</div>
+<div id="exercise-49" class="section level3 hasAnchor" number="8.6.6">
+<h3><span class="header-section-number">8.6.6</span> Exercise<a href="data-rodeo.html#exercise-49" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Go back through some of the examples in which we've used <code>%&gt;%</code> in previous lessons and experiment with the new pipes you've learned above. Does any of them break code you've already written? If so, can you figure out why?</p>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="the-normal-distribution.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
