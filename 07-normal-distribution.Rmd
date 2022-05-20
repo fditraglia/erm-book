@@ -204,7 +204,7 @@ cor_mat[1, 2]
 ```
 Alternatively we can use the R function `cov2cor()` to do this for us:
 ```{r}
-cov2cor(cor_mat)
+cov2cor(cov_mat)
 ```
 
 ### Exercise
