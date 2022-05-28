@@ -1,6 +1,4 @@
----
-title: "Text Data"
----
+# Text Data
 
 This is a ridiculously short introduction to working with text data in R using the [`tidytext` package](https://github.com/juliasilge/tidytext). For more details on this package, see [Text Mining with R](https://www.tidytextmining.com/index.html) and [Supervised Machine Learning for Text Analysis in R](https://smltar.com/). For an introduction to the use of text as a data source in applied economics see [Gentzkow, Kelly, & Taddy (2019)](https://pubs.aeaweb.org/doi/pdfplus/10.1257/jel.20181020).
 
@@ -41,10 +39,9 @@ The first argument of `unnest_tokens()`, `tbl`, is the tibble containing our tex
 ### Exercise
 Create a character vector called `crocodile` by typing out the eight lines of the poem [*How Doth the Little Crocodile*](https://en.wikipedia.org/wiki/How_Doth_the_Little_Crocodile) from *Alice in Wonderland* by Lewis Carroll. The length of `crocodile` should be `8` so that each element of the vector corresponds to a line of the poem. After creating this vector, follow the same procedure as we used above for `tyger` to create a tibble with columns `line` and `word` in which each *row* is a token from `crocodile`. Inspect your results. What happened to the two exclamation points in the poem, and why is the word "Nile" no longer capitalized?
 
-
-**Solution**
-By default `unnest_tokens()` strips out all punctuation and capitalization:
-```{r}
+<!--
+```{r, webex.hide = 'Show Solution'}
+# By default unnest_tokens() strips out all punctuation and capitalization:
 crocodile <- c('How doth the little crocodile',
                'Improve his shining tail',
                'And pour the waters of the Nile', 
@@ -57,6 +54,7 @@ crocodile_tbl <- tibble(line = seq_along(crocodile), text = crocodile)
 crocodile_tbl %>%
   unnest_tokens(output = word, input = text)
 ```
+-->
 
 
 ## `stop_words` and Word Clouds
@@ -102,8 +100,8 @@ tidy_smith %>%
 ### Exercise
 Visit [Project Gutenberg](https://www.gutenberg.org/) and find the id for David Ricardo's [*On the Principles of Political Economy and Taxation*](https://en.wikipedia.org/wiki/On_the_Principles_of_Political_Economy_and_Taxation). Follow the steps from above to make a word cloud for this book, and compare it to the one we made for *The Wealth of Nations*. You may need to adjust the argument `min.freq` in `wordcloud()` to obtain a wordcloud with a similar number of words.
 
-**Solution**
-```{r}
+<!--
+```{r, webex.hide = 'Show Solution'}
 ricardo <- gutenberg_download(33310, mirror = my_mirror)
 ricardo <- ricardo %>%
   unnest_tokens(word, text) %>%
@@ -113,6 +111,7 @@ ricardo
 ricardo %>%
   with(wordcloud(word, n, min.freq = 100))
 ```
+-->
 
 ## Stemming and Removing Numbers
 As we saw above, `unnest_tokens()` does a fair amount of clean-up by default, removing punctuation and capitalization. But sometimes we may want to carry out a bit of additional clean-up before carrying out our text analysis. Let's look at the top thirty tokens from `tidy_smith`:
@@ -142,7 +141,25 @@ tidy_smith %>%
   with(wordcloud(stem, n, min.freq = 400))
 ```
 
-### Zipf's Law 
+### Exercise
+Repeat the exercise from above in which you made a word cloud for Ricardo's *On the Principles of Political Economy and Taxation*, but this time work with *stems* rather than words and remove numeric tokens. How do the results change?
+
+<!--
+```{r, webex.hide = 'Show Solution'}
+ricardo <- gutenberg_download(33310, mirror = my_mirror)
+ricardo <- ricardo %>%
+  unnest_tokens(word, text, strip_numeric = TRUE) %>%
+  anti_join(stop_words) %>%
+  mutate(stem = wordStem(word)) %>%
+  count(stem, sort = TRUE)
+ricardo
+ricardo %>%
+  with(wordcloud(stem, n, min.freq = 100))
+```
+-->
+
+
+## Zipf's Law 
 
 The so-called "Zipf" distribution is a discrete probability mass function defined by
 $$
@@ -168,12 +185,12 @@ This suggests both a way of estimating the parameter $\alpha$ and of checking wh
 
 [Peter Norvig](https://en.wikipedia.org/wiki/Peter_Norvig) maintains a website with data from the [Google Web Trillion Word Corpus](https://ai.googleblog.com/2006/08/all-our-n-gram-are-belong-to-you.html). The file `count_1w.txt` available from <http://norvig.com/ngrams/> contains a list of the 1/3 million most common words in this corpus along with their counts. 
 
-1. Read `count_1w.txt` into a tibble called `norvig` using `read_delim()` from the `readr` package. I suggest setting meaningful column names using the argument `col_names`.
-2. Use `norvig` to make a plot with the log rank on x-axis and log count on the y-axis. If these data come from a Zipf distribution, what shape should this relationship take? 
-3. Fit an appropriate linear regression to assess whether the counts and ranks from `norvig` are consistent with Zipf's law.
+a. Read `count_1w.txt` into a tibble called `norvig` using `read_delim()` from the `readr` package. I suggest setting meaningful column names using the argument `col_names`.
+b. Use `norvig` to make a plot with the log rank on x-axis and log count on the y-axis. If these data come from a Zipf distribution, what shape should this relationship take? 
+c. Fit an appropriate linear regression to assess whether the counts and ranks from `norvig` are consistent with Zipf's law.
 
-**Solution**
-```{r, message = FALSE}
+<!--
+```{r, message = FALSE, webex.hide = 'Show Solution'}
 library(readr)
 library(ggplot2)
 norvig <- read_delim('http://norvig.com/ngrams/count_1w.txt', 
@@ -188,6 +205,7 @@ norvig %>%
 
 lm(log(n) ~ log(rank), norvig)
 ```
+-->
 
 
 
@@ -237,9 +255,8 @@ Notice that `bind_tf_idf()` calculates term frequency as a *proportion* rather t
 ### Exercise 
 Above we used `bind_tf_idf()` to calculate the tf-idf for `austen_words`. Suppose you *didn't* have access to this helpful function. You could nonetheless calculate the tf-idf if `austen_words` "by hand" using `dplyr`. Write code to accomplish this, and make sure that your results match those from above.
 
-**Solution**
-```{r}
-# compute by hand
+<!--
+```{r, webex.hide = 'Show Solution'}
 austen_words %>%
   group_by(book) %>%
   mutate(total_words = sum(n)) %>%
@@ -253,6 +270,7 @@ austen_words %>%
   arrange(desc(tf_idf)) %>%
   select(-total_words, -book_count)
 ```
+-->
 
 
 
@@ -285,7 +303,7 @@ federalist <- tidy(federalist_raw, collapse = '') %>%
 federalist
 ```
 Expanding this pipeline, we can tokenize, remove stop words, and stem each of these texts as follows:
-```{r}
+```{r, message = FALSE}
 names(federalist$text) <- NULL # This is a named column; remove names to 
 # prevent a warning from showing with unnest_tokens()
 
@@ -300,9 +318,8 @@ federalist
 ### Exercise
 What are the ten "most important" words in Federalist Papers number 12 and 24 as measured by tf-idf? Does it matter whether you work with words or stems?
 
-**Solution**
-
-```{r}
+<!--
+```{r, webex.hide = 'Show Solution'}
 federalist_words <- federalist %>%
   count(paper, word, sort = TRUE) %>%
   bind_tf_idf(word, paper, n)
@@ -326,13 +343,12 @@ federalist_words %>%
   select(word, tf_idf) %>%
   arrange(desc(tf_idf))
 
-
-
 federalist_stems %>%
   filter(paper == 24) %>%
   select(stem, tf_idf) %>%
   arrange(desc(tf_idf))
 ```
+-->
 
 <!--## Latent Dirichlet Allocation 
 
