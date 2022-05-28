@@ -1,0 +1,366 @@
+---
+title: "Text Data"
+---
+
+This is a ridiculously short introduction to working with text data in R using the [`tidytext` package](https://github.com/juliasilge/tidytext). For more details on this package, see [Text Mining with R](https://www.tidytextmining.com/index.html) and [Supervised Machine Learning for Text Analysis in R](https://smltar.com/). For an introduction to the use of text as a data source in applied economics see [Gentzkow, Kelly, & Taddy (2019)](https://pubs.aeaweb.org/doi/pdfplus/10.1257/jel.20181020).
+
+
+## `unnest_tokens()`
+![The Tyger by William Blake](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/The_Tyger_LC_1826.jpg/363px-The_Tyger_LC_1826.jpg)
+
+After loading text data into R--more on that anon!--our first step is to break our text into its constitutent parts. This process is called *tokenization* and the resulting parts are called *tokens*. In most applications a token will be a *word*, but in some cases it might be an [n-gram](https://en.wikipedia.org/wiki/N-gram) or a whole sentence or phrase. The `tidytext` function for tokenization is called `unnest_tokens()`. Let's try it out on a simple example. 
+
+Here is the first stanza of a famous poem by the English poet [William Blake](https://en.wikipedia.org/wiki/William_Blake)
+```{r}
+tyger <- c('Tyger Tyger, burning bright,', 
+           'In the forests of the night;',  
+           'What immortal hand or eye,',
+           'Could frame thy fearful symmetry?')
+```
+I've typed this out by hand, which certainly isn't the way that you'll usually get text data into your computer, but will suffice for this example. The vector `tyger` has length `4` and contains character data:
+```{r}
+str(tyger)
+```
+To work with `tidytext` we'll first need to convert `tyger` into a [tibble](https://tibble.tidyverse.org/) using `dplyr`
+```{r, message = FALSE}
+library(dplyr)
+tyger_tbl <- tibble(line = seq_along(tyger), text = tyger)
+```
+Notice that I created a tibble with two columns: the first is the *line number* and the second is the text contained in that line of the poem:
+```{r}
+tyger_tbl
+```
+Now we're ready to tokenize! After installing `tidytext` we can run the following command to generate a tibble in which each *row* corresponds to a token:
+```{r}
+library(tidytext)
+tyger_tbl %>%
+  unnest_tokens(output = word, input = text)
+```
+The first argument of `unnest_tokens()`, `tbl`, is the tibble containing our text. The second argument, `output`, is the name that we want to give to the column of output containing our tokens. The third argument, `input`, is the name of the column of `tbl` that contains the actual text. In our example, `tbl` is `tyger_tbl` and `input` is `text`. By default `unnest_tokens()` **strips all punctuation and capitalization** and treats *words* as tokens, so I've named `output` accordingly. Notice that `unnest_tokens()` has left our column `line` from `tyger_tbl` intact.
+
+### Exercise
+Create a character vector called `crocodile` by typing out the eight lines of the poem [*How Doth the Little Crocodile*](https://en.wikipedia.org/wiki/How_Doth_the_Little_Crocodile) from *Alice in Wonderland* by Lewis Carroll. The length of `crocodile` should be `8` so that each element of the vector corresponds to a line of the poem. After creating this vector, follow the same procedure as we used above for `tyger` to create a tibble with columns `line` and `word` in which each *row* is a token from `crocodile`. Inspect your results. What happened to the two exclamation points in the poem, and why is the word "Nile" no longer capitalized?
+
+
+**Solution**
+By default `unnest_tokens()` strips out all punctuation and capitalization:
+```{r}
+crocodile <- c('How doth the little crocodile',
+               'Improve his shining tail',
+               'And pour the waters of the Nile', 
+               'On every golden scale!', 
+               'How cheerfully he seems to grin', 
+               'How neatly spreads his claws', 
+               'And welcomes little fishes in',
+               'With gently smiling jaws!')
+crocodile_tbl <- tibble(line = seq_along(crocodile), text = crocodile)
+crocodile_tbl %>%
+  unnest_tokens(output = word, input = text)
+```
+
+
+## `stop_words` and Word Clouds
+The [`gutenbergr` package](https://docs.ropensci.org/gutenbergr/) makes it easy to download books from [Project Gutenberg](https://www.gutenberg.org/) directly into R. The Project Gutenberg id number for [Adam Smith's *Wealth of Nations*](https://www.gutenberg.org/ebooks/3300) is `3300`, so we can download it as follows:
+```{r}
+library(gutenbergr)
+my_mirror <- "http://mirrors.xmission.com/gutenberg/"
+smith <- gutenberg_download(3300, mirror = my_mirror)
+smith
+```
+After tokenizing with `unnest_tokens()`, we can use `count()` from `dplyr` to calculate the most common words in this book:
+```{r}
+smith %>%
+  unnest_tokens(word, text) %>%
+  count(word, sort = TRUE) 
+```
+*none of which has anything to do with economics!* These are simply the most common words in the English language. Before carrying out text analysis, it's tupical to remove *extremely common* words. These are called **stop words**. The `tidytext` package contains a helpful list of these in the tibble `stop_words`
+```{r}
+stop_words
+```
+We can remove these from our *Wealth of Nations* tibble by using the `anti_join()` function from `dplyr`. The command `anti_join(x, y)` returns a tibble containing all rows of `x` that *do not* match those of `y`. Applying this to `smith` gives a much more reasonable result: 
+```{r}
+tidy_smith <- smith %>%
+  unnest_tokens(word, text) %>%
+  anti_join(stop_words) %>%
+  count(word, sort = TRUE) 
+tidy_smith
+```
+
+We can visualize the word frequencies in `tidy_smith` as a [word cloud](https://en.wikipedia.org/wiki/Tag_cloud#Text_cloud) using the package `wordcloud`. The function `wordcloud()` takes three main arguments: `words` is the vector of words, `freq` is the vector of their frequencies, and `min.freq` indicates the frequency *below which* words will not be plotted. We can use this function to plot the words from the `tidy_smith` that appear at least 300 times as follows:
+```{r, warning = FALSE, message = FALSE}
+library(wordcloud)
+wordcloud(words = tidy_smith$word, freq = tidy_smith$n, min.freq = 300)
+```
+
+A slightly cleaner way of writing the preceding command uses the base R function `with()` to avoid those pesky `$` characters and is even compatible with the pipe `%>%`
+```{r, eval=FALSE}
+# not run
+tidy_smith %>%
+  with(wordcloud(word, n, min.freq = 400))
+```
+
+### Exercise
+Visit [Project Gutenberg](https://www.gutenberg.org/) and find the id for David Ricardo's [*On the Principles of Political Economy and Taxation*](https://en.wikipedia.org/wiki/On_the_Principles_of_Political_Economy_and_Taxation). Follow the steps from above to make a word cloud for this book, and compare it to the one we made for *The Wealth of Nations*. You may need to adjust the argument `min.freq` in `wordcloud()` to obtain a wordcloud with a similar number of words.
+
+**Solution**
+```{r}
+ricardo <- gutenberg_download(33310, mirror = my_mirror)
+ricardo <- ricardo %>%
+  unnest_tokens(word, text) %>%
+  anti_join(stop_words) %>%
+  count(word, sort = TRUE) 
+ricardo
+ricardo %>%
+  with(wordcloud(word, n, min.freq = 100))
+```
+
+## Stemming and Removing Numbers
+As we saw above, `unnest_tokens()` does a fair amount of clean-up by default, removing punctuation and capitalization. But sometimes we may want to carry out a bit of additional clean-up before carrying out our text analysis. Let's look at the top thirty tokens from `tidy_smith`:
+```{r}
+cbind(tidy_smith[1:15,], tidy_smith[16:30,])
+```
+With over 400 occurrences, '0' is one of the most common tokens in *The Wealth of Nations!* Further down in the list you'll find '1' and '2' and indeed all the other digits. To remove these, we can modify our `tidy_smith` pipeline from above by setting `strip_numeric` to `TRUE` as an argument to `unnest_tokens()`
+```{r}
+tidy_smith <- smith %>%
+  unnest_tokens(word, text, strip_numeric = TRUE) %>%
+  anti_join(stop_words) %>%
+  count(word, sort = TRUE) 
+cbind(tidy_smith[1:15,], tidy_smith[16:30,])
+```
+This is an improvement, but notice that `country` and `countries` are treated as *separate tokens*. Depending on our application, this may not be a sensible choice: these aren't really different words, they're merely different *forms* of the same word. To treat these as a single token, we can use a procedure called [stemming](https://en.wikipedia.org/wiki/Stemming). The function `wordStem()` from the R package `SnowballC` implements the "Porter stemmming algorithm." To stem the text of *The Wealth of Nations* we simply add a `mutate()` step to our pipeline from above:
+```{r, message=FALSE}
+library(SnowballC)
+tidy_smith <- smith %>%
+  unnest_tokens(word, text, strip_numeric = TRUE) %>%
+  anti_join(stop_words) %>%
+  mutate(stem = wordStem(word)) %>%
+  count(stem, sort = TRUE)
+  
+cbind(tidy_smith[1:15,], tidy_smith[16:30,])
+
+tidy_smith %>%
+  with(wordcloud(stem, n, min.freq = 400))
+```
+
+### Zipf's Law 
+
+The so-called "Zipf" distribution is a discrete probability mass function defined by
+$$
+X \sim \text{Zipf}(\alpha) \iff P(X=x) = \frac{C}{x^{\alpha + 1}}, \quad x \in \{1, 2, 3, ...\}
+$$
+where $\alpha>0$ is the parameters of the distribution, $C$ is the normalizing constant that makes the probabilities sum to one over $x = 1, 2, ...$ namely
+$$
+\quad C = \left[ \sum_{k=1}^\infty \left(\frac{1}{k}\right)^{\alpha + 1}\right]^{-1}
+$$
+What's so special about this distribution? For $\alpha$ close to zero we have
+$$
+P(X = x)= \frac{C}{x^{\alpha + 1}} \approx \frac{C}{x} \implies \frac{P(X=1)}{P(X=x)}  \approx x.
+$$
+Now suppose $X$ is a probability model for a randomly-chosen word from a large corpus, sorted by their frequency. Let $\{X=1\}$ denote the event that we observe the *most common* word in the corpus, let $\{X=2\}$ denote the event that we observe the *second most common* word in the corpus, and so on. In a typical English language example, $\{X = 1\}$ is "the," $\{X=2\}$ is "of," and $\{X=3\}$ is "and." The Zipf model with $\alpha \approx 0$ from above suggests that "the" should be about *twice* as common as "of" and about four times as common as "and." This approximation is called [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law), and it is thought to be a fairly good approximation in practice. 
+
+The key point is that common words are *extremely common* relative to less common words, so that word frequency distributions are highly *right skewed*. For a general Zipf distribution with parameter $\alpha$, 
+$$
+\log P(X=x) = \log(C) - (1 + \alpha) \log(x).
+$$
+This suggests both a way of estimating the parameter $\alpha$ and of checking whether a given set of frequencies match those implied by the Zipf distribution: we could regress log counts on a constant and the log rank. This is precisely what you'll do in the following exercise! 
+
+### Exercise
+
+[Peter Norvig](https://en.wikipedia.org/wiki/Peter_Norvig) maintains a website with data from the [Google Web Trillion Word Corpus](https://ai.googleblog.com/2006/08/all-our-n-gram-are-belong-to-you.html). The file `count_1w.txt` available from <http://norvig.com/ngrams/> contains a list of the 1/3 million most common words in this corpus along with their counts. 
+
+1. Read `count_1w.txt` into a tibble called `norvig` using `read_delim()` from the `readr` package. I suggest setting meaningful column names using the argument `col_names`.
+2. Use `norvig` to make a plot with the log rank on x-axis and log count on the y-axis. If these data come from a Zipf distribution, what shape should this relationship take? 
+3. Fit an appropriate linear regression to assess whether the counts and ranks from `norvig` are consistent with Zipf's law.
+
+**Solution**
+```{r, message = FALSE}
+library(readr)
+library(ggplot2)
+norvig <- read_delim('http://norvig.com/ngrams/count_1w.txt', 
+                     col_names = c('word', 'n')) %>%
+  mutate(rank = row_number())
+
+norvig %>% 
+  ggplot() + 
+  geom_line(aes(x = rank, y = n)) +
+  scale_x_log10() +
+  scale_y_log10()
+
+lm(log(n) ~ log(rank), norvig)
+```
+
+
+
+
+
+## `bind_tf_idf()`
+
+![Jane Austen](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Jane_Austen.jpg/388px-Jane_Austen.jpg)
+
+The **term frequency** (tf) of a token is a measure of how often this token appears in a given document. Let's count term frequency of every word in the complete novels of Jane Austen. To start we'll load these novels using the [`janeaustenr` package](https://github.com/juliasilge/janeaustenr):
+```{r}
+library(janeaustenr)
+austen_books()
+```
+After tokenizing with `unnest_tokens()`, we can count the occurrences of each word in each novel as follows:
+```{r, message = FALSE}
+austen_words <- austen_books() %>%
+  unnest_tokens(word, text) %>%
+  count(book, word, sort = TRUE)
+
+austen_words
+```
+Notice that in this example I haven't removed any stop words. While words like "the" or "and" are unlikely to contain any useful information, more broadly it can be difficult to know which words can be safely treated as "unimportant" without knowing something about the *context* of our analysis. In a corpus of FOMC minutes we're probably interested in very different words than in a corpus of 19th centry novels! Or to put it another way: ["one researcher's stop words are another's subject of interest."](https://pubs.aeaweb.org/doi/pdfplus/10.1257/jel.20181020) The notion of **term frequency inverse document frequency** (tf-idf) is a rule of thumb that aims to provide an *empirical*, rather than *a priori*, measure of which words are "most important" for comparing documents within a given corpus.
+
+The **inverse document frequency** (idf) of a term is defined as the log of the *inverse* of the share of documents in a corpus that contain that term, in other words
+$$
+\text{idf}(\text{term}) = \log\left( \frac{\# \text{Documents}}{\# \text{Documents containing term}}\right).
+$$
+Imagine a corpus of academic papers written in English, spanning all disciplines from Archaeology to Zoology. The term "the" will certainly appear in every one of these papers, so its idf is zero. Now imagine a corpus of academic papers. In contrast, the term "heteroskedasticity" will only appear in a small fraction of the papers, those that concern econometrics or statistics in some way. The idf of this term is high. Encountering the term "the" tells us effectively nothing about the kind of document that we're reading; encountering the term "heteroskedasticity" tells us a lot. While this is only a heuristic, it's a useful one. And it becomes even more useful when *combined* with the notion of term frequency.
+
+A term that is both *common in a given document*, high tf, and is *only contained in a few documents* is a good candidate for an important word. This is the idea that tf-idf tries to capture by *multiplying* term frequency by inverse document frequency. We can use the `tidytext` function `bind_tf_idf()` to attach term frequency, inverse document frequency, and tf-idf to `austen_words` as follows:
+```{r}
+austen_words %>%
+  bind_tf_idf(word, book, n) 
+```
+The first argument to `bind_tf_idf()` is a tidy text dataset (a tibble) with *one row per term per document*. In our case, this is `austen_words`, supplied using the pipe. The second argument is `term`, the name of the column of the input tibble that contains our terms. Above, this is the `word` column of `austen_words`. The next argument is `document`, the name of the column in our input tibble that cotains the document ids. In our case this is `book`. Finally, `n` is the column of our input tibble that contains the *counts* of each term by document. 
+
+Sorting by `tf_idf` in descending order allows us to see which words are most distinctive to each document. Unsurprisingly, these turn out to be the *names of the main characters* from each novel!
+```{r}
+austen_words %>%
+  bind_tf_idf(word, book, n) %>%
+  arrange(desc(tf_idf))
+```
+
+Notice that `bind_tf_idf()` calculates term frequency as a *proportion* rather than a count: "the number of times that a word appears in a novel given novel divided by the number of terms (words) in that novel." There doesn't appear to be a universal definition of "term frequency." Some people treat this as a *count*, others as the logarithm of a count plus one, and others as a proportion. The use of logarithms aims to reflect the observation that underlies Zipf's Law: the distribution of word frequencies is highly skewed.
+
+### Exercise 
+Above we used `bind_tf_idf()` to calculate the tf-idf for `austen_words`. Suppose you *didn't* have access to this helpful function. You could nonetheless calculate the tf-idf if `austen_words` "by hand" using `dplyr`. Write code to accomplish this, and make sure that your results match those from above.
+
+**Solution**
+```{r}
+# compute by hand
+austen_words %>%
+  group_by(book) %>%
+  mutate(total_words = sum(n)) %>%
+  ungroup() %>% 
+  group_by(word) %>%
+  mutate(book_count = n()) %>% 
+  ungroup() %>%
+  mutate(tf = n / total_words, 
+         idf = log(length(unique(book)) / book_count),
+         tf_idf = tf * idf) %>%
+  arrange(desc(tf_idf)) %>%
+  select(-total_words, -book_count)
+```
+
+
+
+
+## Reading a Corpus into R
+A *corpus* is a collection of text documents, for example the [*Federalist Papers*](https://en.wikipedia.org/wiki/The_Federalist_Papers). A [classic problem in text analysis](https://www.tandfonline.com/doi/abs/10.1080/01621459.1963.10500849) is trying to determine who wrote each of them: [Hamilton](https://en.wikipedia.org/wiki/Alexander_Hamilton) or [Madison](https://en.wikipedia.org/wiki/James_Madison). I've posted a zip archive containing text files of all 85 of the *Federalist Papers* on my website: `https://ditraglia.com/data/federalist.zip`. We can read this corpus into R using the functions `ZipSource()` and `VCorpus()` from the `tm` package as follows: 
+```{r, message = FALSE}
+library(tm)
+federalist_raw <- VCorpus(ZipSource('https://ditraglia.com/data/federalist.zip', 
+                                    recursive = TRUE))
+federalist_raw
+```
+To apply our favorite tidy tools to `federalist_raw` we'll first [tidy](https://juliasilge.github.io/tidytext/reference/tidy.Corpus.html) the corpus 
+```{r}
+tidy(federalist_raw)
+```
+and then remove the extraneous columns from the result
+```{r}
+tidy(federalist_raw) %>%
+  select(id, text)
+```
+By default `tidy.corpus()` replaces linebreaks in each of the documents from the corpus with `\n`. We can override this behavior by setting the argument `collapse`. For example to completely ignore linebreaks, we could set `collapse = ''`. To make things a bit easier to work with, we can use `str_extract()` from the [`stringr` package](https://stringr.tidyverse.org/) to create a column called `paper` that gives the number of the particular Federalist Paper whose text is stored in `text`
+```{r}
+library(stringr)
+federalist <- tidy(federalist_raw, collapse = '') %>%
+  select(id, text) %>%
+  mutate(paper = as.numeric(str_extract(id, '[:digit:]+'))) %>%
+  select(paper, text)
+
+federalist
+```
+Expanding this pipeline, we can tokenize, remove stop words, and stem each of these texts as follows:
+```{r}
+names(federalist$text) <- NULL # This is a named column; remove names to 
+# prevent a warning from showing with unnest_tokens()
+
+federalist <- federalist %>%
+  unnest_tokens(word, text, strip_numeric = TRUE) %>%
+  anti_join(stop_words) %>%
+  mutate(stem = wordStem(word))
+
+federalist
+```
+
+### Exercise
+What are the ten "most important" words in Federalist Papers number 12 and 24 as measured by tf-idf? Does it matter whether you work with words or stems?
+
+**Solution**
+
+```{r}
+federalist_words <- federalist %>%
+  count(paper, word, sort = TRUE) %>%
+  bind_tf_idf(word, paper, n)
+
+federalist_stems <- federalist %>%
+  count(paper, stem, sort = TRUE) %>%
+  bind_tf_idf(stem, paper, n)
+
+federalist_words %>%
+  filter(paper == 12) %>%
+  select(word, tf_idf) %>%
+  arrange(desc(tf_idf))
+
+federalist_stems %>%
+  filter(paper == 12) %>%
+  select(stem, tf_idf) %>%
+  arrange(desc(tf_idf))
+
+federalist_words %>%
+  filter(paper == 24) %>%
+  select(word, tf_idf) %>%
+  arrange(desc(tf_idf))
+
+
+
+federalist_stems %>%
+  filter(paper == 24) %>%
+  select(stem, tf_idf) %>%
+  arrange(desc(tf_idf))
+```
+
+<!--## Latent Dirichlet Allocation 
+
+[Latent Dirichelt Allocation](https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf?ref=https://githubhelp.com), or LDA for short, is an extremely popular method for "topic modelling," 
+
+
+## Update below here!
+
+
+### What is a document-term matrix?
+
+A DTM is a matrix that summarizes the frequency of particular words (terms) within a corpus of documents. Each row is a document and each column is a word. The $(i,j)$ entry in the matrix tells us how many times word $j$ occurs in document $i$. Remember: it's arranged as $(\text{document}, \text{word})$. See also: <https://en.wikipedia.org/wiki/Document-term_matrix>. DTMs are an extremely common format in packages for analyzing text data. They are also *extremely inconvenient* for doing anything other than feeding data into such packages! Store in a tidy format, and then convert to DTM if needed <https://www.tidytextmining.com/dtm.html?q=document%20term#tidying-documenttermmatrix-objects>
+
+
+
+### Pre-processing
+Want to create a *term-document matrix*. (What is this?) But first we need to do some pre-processing:
+
+
+### Using a Dictionary
+
+What does all this pre-processing do for us? Dramatically reduces the dimension of the problem because we end up with many fewer *terms* than we started with: stop words are removed, similar words are stemmed to be the same word, capital letters converted to lowercase etc. But still, we typically have way too many words after pre-processing! What to do about this? Use a **dictionary**. List the words we're interested in, and restrict attention to thses. An example is a **sentiment dictionary** <https://www.tidytextmining.com/sentiment.html?q=dictionary#comparing-the-three-sentiment-dictionaries>
+
+
+### Cosine Similarity
+There's an example in Imai that we could use here.
+
+-->
+
+
+
