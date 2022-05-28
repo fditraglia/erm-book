@@ -6,7 +6,7 @@ This is a ridiculously short introduction to working with text data in R using t
 ## `unnest_tokens()`
 ![The Tyger by William Blake](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/The_Tyger_LC_1826.jpg/363px-The_Tyger_LC_1826.jpg)
 
-After loading text data into R--more on that anon!--our first step is to break our text into its constitutent parts. This process is called *tokenization* and the resulting parts are called *tokens*. In most applications a token will be a *word*, but in some cases it might be an [n-gram](https://en.wikipedia.org/wiki/N-gram) or a whole sentence or phrase. The `tidytext` function for tokenization is called `unnest_tokens()`. Let's try it out on a simple example. 
+After loading text data into R--more on that anon!--our first step is to break it down into its constitutent parts. This process is called *tokenization* and the resulting parts are called *tokens*. In most applications a token will be a *word*, but in some cases it might be an [n-gram](https://en.wikipedia.org/wiki/N-gram) or a whole sentence or phrase. The `tidytext` function for tokenization is called `unnest_tokens()`. Let's try it out on a simple example. 
 
 Here is the first stanza of a famous poem by the English poet [William Blake](https://en.wikipedia.org/wiki/William_Blake)
 ```{r}
@@ -94,7 +94,7 @@ A slightly cleaner way of writing the preceding command uses the base R function
 ```{r, eval=FALSE}
 # not run
 tidy_smith %>%
-  with(wordcloud(word, n, min.freq = 400))
+  with(wordcloud(word, n, min.freq = 300))
 ```
 
 ### Exercise
@@ -114,7 +114,7 @@ ricardo %>%
 -->
 
 ## Stemming and Removing Numbers
-As we saw above, `unnest_tokens()` does a fair amount of clean-up by default, removing punctuation and capitalization. But sometimes we may want to carry out a bit of additional clean-up before carrying out our text analysis. Let's look at the top thirty tokens from `tidy_smith`:
+As we saw above, `unnest_tokens()` does a fair amount of clean-up by default, removing punctuation and capitalization. But sometimes it makes sense to do some additional cleaning before beginning our analysis. Let's look at the top thirty tokens from `tidy_smith`:
 ```{r}
 cbind(tidy_smith[1:15,], tidy_smith[16:30,])
 ```
@@ -165,15 +165,15 @@ The so-called "Zipf" distribution is a discrete probability mass function define
 $$
 X \sim \text{Zipf}(\alpha) \iff P(X=x) = \frac{C}{x^{\alpha + 1}}, \quad x \in \{1, 2, 3, ...\}
 $$
-where $\alpha>0$ is the parameters of the distribution, $C$ is the normalizing constant that makes the probabilities sum to one over $x = 1, 2, ...$ namely
+where $\alpha>0$ is the parameter of the distribution and $C$ is the normalizing constant that makes the probabilities sum to one over $x = 1, 2, ...$ namely
 $$
-\quad C = \left[ \sum_{k=1}^\infty \left(\frac{1}{k}\right)^{\alpha + 1}\right]^{-1}
+\quad C = \left[ \sum_{k=1}^\infty \left(\frac{1}{k}\right)^{\alpha + 1}\right]^{-1}.
 $$
 What's so special about this distribution? For $\alpha$ close to zero we have
 $$
 P(X = x)= \frac{C}{x^{\alpha + 1}} \approx \frac{C}{x} \implies \frac{P(X=1)}{P(X=x)}  \approx x.
 $$
-Now suppose $X$ is a probability model for a randomly-chosen word from a large corpus, sorted by their frequency. Let $\{X=1\}$ denote the event that we observe the *most common* word in the corpus, let $\{X=2\}$ denote the event that we observe the *second most common* word in the corpus, and so on. In a typical English language example, $\{X = 1\}$ is "the," $\{X=2\}$ is "of," and $\{X=3\}$ is "and." The Zipf model with $\alpha \approx 0$ from above suggests that "the" should be about *twice* as common as "of" and about four times as common as "and." This approximation is called [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law), and it is thought to be a fairly good approximation in practice. 
+Now suppose that $X$ is a probability model for a randomly-chosen word from a large corpus. In particular, let $\{X=1\}$ denote the event that we observe the *most common* word in the corpus, let $\{X=2\}$ denote the event that we observe the *second most common* word in the corpus, and so on. In a typical English language example, $\{X = 1\}$ is "the," $\{X=2\}$ is "of," and $\{X=3\}$ is "and." The Zipf model with $\alpha \approx 0$ from above suggests that "the" should be about *twice* as common as "of" and about four times as common as "and." This approximation is called [Zipf's law](https://en.wikipedia.org/wiki/Zipf%27s_law), and it is thought to be fairly accurate in practice. 
 
 The key point is that common words are *extremely common* relative to less common words, so that word frequency distributions are highly *right skewed*. For a general Zipf distribution with parameter $\alpha$, 
 $$
@@ -215,7 +215,7 @@ lm(log(n) ~ log(rank), norvig)
 
 ![Jane Austen](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Jane_Austen.jpg/388px-Jane_Austen.jpg)
 
-The **term frequency** (tf) of a token is a measure of how often this token appears in a given document. Let's count term frequency of every word in the complete novels of Jane Austen. To start we'll load these novels using the [`janeaustenr` package](https://github.com/juliasilge/janeaustenr):
+The **term frequency** (tf) of a token is a measure of how often it appears in a given document. Let's calculate the term frequency of every word in the complete novels of Jane Austen. To start we'll load these novels using the [`janeaustenr` package](https://github.com/juliasilge/janeaustenr):
 ```{r}
 library(janeaustenr)
 austen_books()
@@ -234,14 +234,14 @@ The **inverse document frequency** (idf) of a term is defined as the log of the 
 $$
 \text{idf}(\text{term}) = \log\left( \frac{\# \text{Documents}}{\# \text{Documents containing term}}\right).
 $$
-Imagine a corpus of academic papers written in English, spanning all disciplines from Archaeology to Zoology. The term "the" will certainly appear in every one of these papers, so its idf is zero. Now imagine a corpus of academic papers. In contrast, the term "heteroskedasticity" will only appear in a small fraction of the papers, those that concern econometrics or statistics in some way. The idf of this term is high. Encountering the term "the" tells us effectively nothing about the kind of document that we're reading; encountering the term "heteroskedasticity" tells us a lot. While this is only a heuristic, it's a useful one. And it becomes even more useful when *combined* with the notion of term frequency.
+Imagine a corpus of academic papers written in English, spanning all disciplines from Archaeology to Zoology. The term "the" will certainly appear in every one of these papers, so its idf is zero. In contrast, the term "heteroskedasticity" will only appear in a small fraction of the papers, those that concern econometrics or statistics. The idf of this term is high. Encountering the term "the" tells us effectively nothing about the kind of document that we're reading; encountering the term "heteroskedasticity" tells us a lot. While this is only a heuristic, it's a useful one. And it becomes even more useful when *combined* with the term frequency.
 
-A term that is both *common in a given document*, high tf, and is *only contained in a few documents* is a good candidate for an important word. This is the idea that tf-idf tries to capture by *multiplying* term frequency by inverse document frequency. We can use the `tidytext` function `bind_tf_idf()` to attach term frequency, inverse document frequency, and tf-idf to `austen_words` as follows:
+A term that is both *common in a given document*, high tf, and is *only contained in a few documents*, high idf, is a good candidate for an important word. This is the idea that tf-idf captures by *multiplying* term frequency by inverse document frequency. We can use the `tidytext` function `bind_tf_idf()` to attach term frequency, inverse document frequency, and tf-idf to `austen_words` as follows:
 ```{r}
 austen_words %>%
   bind_tf_idf(word, book, n) 
 ```
-The first argument to `bind_tf_idf()` is a tidy text dataset (a tibble) with *one row per term per document*. In our case, this is `austen_words`, supplied using the pipe. The second argument is `term`, the name of the column of the input tibble that contains our terms. Above, this is the `word` column of `austen_words`. The next argument is `document`, the name of the column in our input tibble that cotains the document ids. In our case this is `book`. Finally, `n` is the column of our input tibble that contains the *counts* of each term by document. 
+The first argument to `bind_tf_idf()` is a tidy text dataset (a tibble) with *one row per term per document*. In our case, this is `austen_words`, supplied using the pipe. The second argument is `term`, the name of the column of the input tibble that contains our terms. Above, this is the `word` column of `austen_words`. The next argument is `document`, the name of the column in our input tibble that contains the document ids. In our case this is `book`. Finally, `n` is the column of our input tibble that contains the *counts* of each term by document. 
 
 Sorting by `tf_idf` in descending order allows us to see which words are most distinctive to each document. Unsurprisingly, these turn out to be the *names of the main characters* from each novel!
 ```{r}
