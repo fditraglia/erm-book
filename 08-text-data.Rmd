@@ -127,7 +127,7 @@ tidy_smith <- smith %>%
 cbind(tidy_smith[1:15,], tidy_smith[16:30,])
 ```
 This is an improvement, but notice that `country` and `countries` are treated as *separate tokens*. Depending on our application, this may not be a sensible choice: these aren't really different words, they're merely different *forms* of the same word. To treat these as a single token, we can use a procedure called [stemming](https://en.wikipedia.org/wiki/Stemming). The function `wordStem()` from the R package `SnowballC` implements the "Porter stemmming algorithm." To stem the text of *The Wealth of Nations* we simply add a `mutate()` step to our pipeline from above:
-```{r, message=FALSE}
+```{r, message=FALSE,warning=FALSE}
 library(SnowballC)
 tidy_smith <- smith %>%
   unnest_tokens(word, text, strip_numeric = TRUE) %>%
