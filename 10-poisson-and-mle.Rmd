@@ -1,4 +1,4 @@
-# Poisson Regression and Maximum Likelihood Estimation
+# Poisson Regression and MLE
 
 
 ## The Poisson Distribution
@@ -18,8 +18,7 @@ Unlike the Binomial distribution, the Poisson distribution has no upper bound: i
 
 ### Exercise
 
-1. Use the R functions `dpois()`, `ppois()`, and `rpois()` to: 
-    (a) Plot the probability mass function of a Poisson(1), Repeat for a Poisson(3) random variable.
+1. Plot the probability mass function of a Poisson(1), Repeat for a Poisson(3) random variable.
 `r hide('Show Hint')`
 `geom_col()` is a useful alternative to `geom_bar()` that "leaves the data alone" rather than counting observations in different bins.     
 `r unhide()`
@@ -41,7 +40,7 @@ pois3 <- ggplot(poisson_probs) +
 
 grid.arrange(pois1, pois3, ncol = 2)
 ```
-    (b) Simulate a large number of draws from both a Poisson(1) and Poisson(3) distribution. Check that the mean and variance of the simulation draws are approximately equal.
+2. Simulate a large number of draws from both a Poisson(1) and Poisson(3) distribution. Check that the mean and variance of the simulation draws are approximately equal.
 
 ```{r, webex.hide = 'Show Solution'} 
 set.seed(1875)
@@ -103,13 +102,13 @@ tibble(x = 0:16) %>%
   print(n = 40)
 ```
 
-5. In this exercise, I hope to convince you that computing the Poisson probability mass function is harder than it looks! For this part you will need to use the R functions `factorial()` and, later on, `lfactorial()`. 
+5. In this exercise, I hope to convince you that computing the Poisson probability mass function is harder than it looks! For this part you will need to use the R functions `factorial()` and `lfactorial()`. 
     (a) Suppose that $X \sim \text{Poisson}(171)$. Calculate the probability that $X$ equals its mean two different ways: first using `dpois()` and second by direct calculation using the Poisson probability mass function from above. Why do your results disagree? 
+    (b) Write out an expression for the *natural log* of the Poisson probability mass function. How can you use this expression to solve the problem you encountered in the preceding part? 
 ```{r, webex.hide = 'Show Solution'}
+# Part (a)
 c('by hand' = exp(-171) * 171^171 / factorial(171), 'dpois' = dpois(171, 171))
-```
-    (b) Write out an expression for the *natural log* of the Poisson probability mass function. Can you think of a way to use this expression to solve the problem you encountered in the preceding part? 
-```{r, webex.hide = 'Show Solution'}
+# Part (b)
 log_prob <- 171 * log(171) - 171 - lfactorial(171)
 c('by hand' = exp(log_prob), 'dpois' =  dpois(171, 171))
 ```
@@ -424,7 +423,7 @@ h_gradient <- function(x) {
 }
 optim(par = c(-100, 100), fn = h, gr = h_gradient, method = 'BFGS')
 ```
-We converge in only two iterations and get the solution exactly correct, up to the precision with which R displays numerical results by default. Please don't interpret this to mean that Nelder-Mead is always a bad idea: it isn't! But for simple problems, like logit or Poisson regression, there are better alternatives.
+We converge in only two iterations and get the solution exactly correct, up to the precision with which R displays numerical results by default. Please don't interpret this to mean that Nelder-Mead is always a bad idea and BFGS always better: this isn't true! The point of this comparison was to show you that different optimization routines can give different results and to illustrate how valuable it can be to supply derivative information.
 
 ### Exercise
 1. Make a contour plot of `pois_ll()` over a grid of values for $\alpha$ and $\beta$ ranging from -1 to 1. Use vertical and horizontal lines to indicate the maximum likelihood estimates from `preg`. 
@@ -466,7 +465,7 @@ results_BFGS
 ```
 
 
-## Bonus Material: Stirling's Approximation
+## Bonus: Stirling's Approximation
 
 In the exercises above, you saw that $171!$ is too large a number for R to represent: it evaluates to `Inf`. We were nevertheless able to evaluate the Poisson pmf "by hand" by taking logs and then exponentiating the result. To do this, we relied on the function `lfactorial()` to compute the *logarithm* of a factorial. But if R can't calculate $171!$, how is it supposed to calculate the *log* of this quantity? This section will not explain the precise method that R uses to compute `lfactorial()`, but it *will* show you a simple and surprisingly accurate approximation to the logarithm of a factorial that can be very useful in practice.
 

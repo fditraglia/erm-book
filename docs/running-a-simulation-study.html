@@ -23,7 +23,7 @@
 <meta name="author" content="Francis J. DiTraglia" />
 
 
-<meta name="date" content="2022-05-28" />
+<meta name="date" content="2022-06-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -458,6 +458,32 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.6.5" data-path="data-rodeo.html"><a href="data-rodeo.html#how-does-compare-to-in-ggplot2"><i class="fa fa-check"></i><b>9.6.5</b> How does <code>%&gt;%</code> compare to <code>+</code> in <code>ggplot2</code>?</a></li>
 <li class="chapter" data-level="9.6.6" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-55"><i class="fa fa-check"></i><b>9.6.6</b> Exercise</a></li>
 </ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html"><i class="fa fa-check"></i><b>10</b> Poisson Regression and MLE</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#the-poisson-distribution"><i class="fa fa-check"></i><b>10.1</b> The Poisson Distribution</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#exercise-56"><i class="fa fa-check"></i><b>10.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#the-poisson-regression-model"><i class="fa fa-check"></i><b>10.2</b> The Poisson Regression Model</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#exercise-57"><i class="fa fa-check"></i><b>10.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#whats-a-link-function"><i class="fa fa-check"></i><b>10.3</b> What's a link function?</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#exercise-58"><i class="fa fa-check"></i><b>10.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#dude-wheres-my-r-squared"><i class="fa fa-check"></i><b>10.4</b> Dude, where's my R-squared?</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#aic-and-bic"><i class="fa fa-check"></i><b>10.4.1</b> AIC and BIC</a></li>
+<li class="chapter" data-level="10.4.2" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#deviance-and-null-deviance"><i class="fa fa-check"></i><b>10.4.2</b> Deviance and Null Deviance</a></li>
+<li class="chapter" data-level="10.4.3" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#exercises-4"><i class="fa fa-check"></i><b>10.4.3</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#roll-your-own-poisson-mle"><i class="fa fa-check"></i><b>10.5</b> Roll Your Own Poisson MLE</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#exercise-59"><i class="fa fa-check"></i><b>10.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#bonus-stirlings-approximation"><i class="fa fa-check"></i><b>10.6</b> Bonus: Stirling's Approximation</a></li>
 </ul></li>
 </ul>
 
@@ -1145,12 +1171,12 @@ head(results_parallel)
 
 ```
 ##      bias       variance 
-## [1,] -0.3346306 0.4519052
-## [2,] -0.235508  0.4030803
-## [3,] -0.1921928 0.335782 
-## [4,] -0.1636481 0.2940496
-## [5,] -0.1418136 0.2411847
-## [6,] -0.1222393 0.2223334
+## [1,] -0.3213644 0.446147 
+## [2,] -0.2494002 0.3841755
+## [3,] -0.2101012 0.3214799
+## [4,] -0.1682342 0.2731134
+## [5,] -0.1356107 0.2446946
+## [6,] -0.1199587 0.2221121
 ```
 -->
 </div>

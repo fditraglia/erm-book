@@ -178,3 +178,17 @@ the-many-pipes-of-magrittr
 all-about-that-base-rs-native-pipe
 how-does-compare-to-in-ggplot2
 exercise-55
+poisson-regression-and-mle
+the-poisson-distribution
+exercise-56
+the-poisson-regression-model
+exercise-57
+whats-a-link-function
+exercise-58
+dude-wheres-my-r-squared
+aic-and-bic
+deviance-and-null-deviance
+exercises-4
+roll-your-own-poisson-mle
+exercise-59
+bonus-stirlings-approximation
