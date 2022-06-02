@@ -39,7 +39,6 @@ The first argument of `unnest_tokens()`, `tbl`, is the tibble containing our tex
 ### Exercise
 Create a character vector called `crocodile` by typing out the eight lines of the poem [*How Doth the Little Crocodile*](https://en.wikipedia.org/wiki/How_Doth_the_Little_Crocodile) from *Alice in Wonderland* by Lewis Carroll. The length of `crocodile` should be `8` so that each element of the vector corresponds to a line of the poem. After creating this vector, follow the same procedure as we used above for `tyger` to create a tibble with columns `line` and `word` in which each *row* is a token from `crocodile`. Inspect your results. What happened to the two exclamation points in the poem, and why is the word "Nile" no longer capitalized?
 
-<!--
 ```{r, webex.hide = 'Show Solution'}
 # By default unnest_tokens() strips out all punctuation and capitalization:
 crocodile <- c('How doth the little crocodile',
@@ -54,7 +53,6 @@ crocodile_tbl <- tibble(line = seq_along(crocodile), text = crocodile)
 crocodile_tbl %>%
   unnest_tokens(output = word, input = text)
 ```
--->
 
 
 ## `stop_words` and Word Clouds
@@ -100,7 +98,6 @@ tidy_smith %>%
 ### Exercise
 Visit [Project Gutenberg](https://www.gutenberg.org/) and find the id for David Ricardo's [*On the Principles of Political Economy and Taxation*](https://en.wikipedia.org/wiki/On_the_Principles_of_Political_Economy_and_Taxation). Follow the steps from above to make a word cloud for this book, and compare it to the one we made for *The Wealth of Nations*. You may need to adjust the argument `min.freq` in `wordcloud()` to obtain a wordcloud with a similar number of words.
 
-<!--
 ```{r, webex.hide = 'Show Solution'}
 ricardo <- gutenberg_download(33310, mirror = my_mirror)
 ricardo <- ricardo %>%
@@ -111,7 +108,6 @@ ricardo
 ricardo %>%
   with(wordcloud(word, n, min.freq = 100))
 ```
--->
 
 ## Stemming and Removing Numbers
 As we saw above, `unnest_tokens()` does a fair amount of clean-up by default, removing punctuation and capitalization. But sometimes it makes sense to do some additional cleaning before beginning our analysis. Let's look at the top thirty tokens from `tidy_smith`:
@@ -144,7 +140,6 @@ tidy_smith %>%
 ### Exercise
 Repeat the exercise from above in which you made a word cloud for Ricardo's *On the Principles of Political Economy and Taxation*, but this time work with *stems* rather than words and remove numeric tokens. How do the results change?
 
-<!--
 ```{r, webex.hide = 'Show Solution'}
 ricardo <- gutenberg_download(33310, mirror = my_mirror)
 ricardo <- ricardo %>%
@@ -156,7 +151,6 @@ ricardo
 ricardo %>%
   with(wordcloud(stem, n, min.freq = 100))
 ```
--->
 
 
 ## Zipf's Law 
@@ -189,7 +183,6 @@ a. Read `count_1w.txt` into a tibble called `norvig` using `read_delim()` from t
 b. Use `norvig` to make a plot with the log rank on x-axis and log count on the y-axis. If these data come from a Zipf distribution, what shape should this relationship take? 
 c. Fit an appropriate linear regression to assess whether the counts and ranks from `norvig` are consistent with Zipf's law.
 
-<!--
 ```{r, message = FALSE, webex.hide = 'Show Solution'}
 library(readr)
 library(ggplot2)
@@ -205,7 +198,6 @@ norvig %>%
 
 lm(log(n) ~ log(rank), norvig)
 ```
--->
 
 
 
@@ -255,7 +247,6 @@ Notice that `bind_tf_idf()` calculates term frequency as a *proportion* rather t
 ### Exercise 
 Above we used `bind_tf_idf()` to calculate the tf-idf for `austen_words`. Suppose you *didn't* have access to this helpful function. You could nonetheless calculate the tf-idf if `austen_words` "by hand" using `dplyr`. Write code to accomplish this, and make sure that your results match those from above.
 
-<!--
 ```{r, webex.hide = 'Show Solution'}
 austen_words %>%
   group_by(book) %>%
@@ -270,7 +261,6 @@ austen_words %>%
   arrange(desc(tf_idf)) %>%
   select(-total_words, -book_count)
 ```
--->
 
 
 
@@ -318,7 +308,6 @@ federalist
 ### Exercise
 What are the ten "most important" words in Federalist Papers number 12 and 24 as measured by tf-idf? Does it matter whether you work with words or stems?
 
-<!--
 ```{r, webex.hide = 'Show Solution'}
 federalist_words <- federalist %>%
   count(paper, word, sort = TRUE) %>%
@@ -348,35 +337,7 @@ federalist_stems %>%
   select(stem, tf_idf) %>%
   arrange(desc(tf_idf))
 ```
--->
 
-<!--## Latent Dirichlet Allocation 
-
-[Latent Dirichelt Allocation](https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf?ref=https://githubhelp.com), or LDA for short, is an extremely popular method for "topic modelling," 
-
-
-## Update below here!
-
-
-### What is a document-term matrix?
-
-A DTM is a matrix that summarizes the frequency of particular words (terms) within a corpus of documents. Each row is a document and each column is a word. The $(i,j)$ entry in the matrix tells us how many times word $j$ occurs in document $i$. Remember: it's arranged as $(\text{document}, \text{word})$. See also: <https://en.wikipedia.org/wiki/Document-term_matrix>. DTMs are an extremely common format in packages for analyzing text data. They are also *extremely inconvenient* for doing anything other than feeding data into such packages! Store in a tidy format, and then convert to DTM if needed <https://www.tidytextmining.com/dtm.html?q=document%20term#tidying-documenttermmatrix-objects>
-
-
-
-### Pre-processing
-Want to create a *term-document matrix*. (What is this?) But first we need to do some pre-processing:
-
-
-### Using a Dictionary
-
-What does all this pre-processing do for us? Dramatically reduces the dimension of the problem because we end up with many fewer *terms* than we started with: stop words are removed, similar words are stemmed to be the same word, capital letters converted to lowercase etc. But still, we typically have way too many words after pre-processing! What to do about this? Use a **dictionary**. List the words we're interested in, and restrict attention to thses. An example is a **sentiment dictionary** <https://www.tidytextmining.com/sentiment.html?q=dictionary#comparing-the-three-sentiment-dictionaries>
-
-
-### Cosine Similarity
-There's an example in Imai that we could use here.
-
--->
 
 
 
