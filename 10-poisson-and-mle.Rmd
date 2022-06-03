@@ -18,7 +18,7 @@ Unlike the Binomial distribution, the Poisson distribution has no upper bound: i
 
 ### Exercise
 
-1. Plot the probability mass function of a Poisson(1), Repeat for a Poisson(3) random variable.
+1. Plot the probability mass function of a Poisson(1). Repeat for a Poisson(3) random variable.
 `r hide('Show Hint')`
 `geom_col()` is a useful alternative to `geom_bar()` that "leaves the data alone" rather than counting observations in different bins.     
 `r unhide()`
@@ -50,7 +50,7 @@ x3 <- rpois(1e5, 3)
 cbind('mean' = mean(x3), 'var' = var(x3))
 ```
     
-2. If $X_1 \sim \text{Poisson}(\mu_1)$  is independent of $X_2 \sim \text{Poisson}(\mu_2)$ then it can be shown that $X_1 + X_2 \sim \text{Poisson}(\mu_1 + \mu_2)$. Check this property using your simulation draws from the previous part. 
+3. If $X_1 \sim \text{Poisson}(\mu_1)$  is independent of $X_2 \sim \text{Poisson}(\mu_2)$ then it can be shown that $X_1 + X_2 \sim \text{Poisson}(\mu_1 + \mu_2)$. Check this property using your simulation draws from the previous part. 
 
 `r hide('Show Hint')`
 The `count()` function from `dplyr` is very helpful if you need to construct an empirical frequency distribution, and `geom_col()` is useful too!
@@ -69,7 +69,7 @@ tibble(x1, x3) %>%
   print(n = 15)
 ```
 
-3. For $\mu$ large, the Poisson$(\mu)$ probability mass function is well-approximated by a Normal$(\mu, \mu)$ density. Use `dnorm()` and `dpois()` to check the quality of this approximation for $\mu = 20$. Can you explain why this approximation holds?  
+4. For $\mu$ large, the Poisson$(\mu)$ probability mass function is well-approximated by a Normal$(\mu, \mu)$ density. Use `dnorm()` and `dpois()` to check the quality of this approximation for $\mu = 20$. Can you explain why this approximation holds?  
 
 `r hide('Show Solution')`
 ```{r}
@@ -92,7 +92,7 @@ and $n\bar{X}_n$ is precisely the random variable that wanted to approximate: a 
 `r unhide()`
 
 
-4. The Poisson$(\mu)$ distribution is closely related to the Binomial distribution. In fact, the Poisson$(\mu)$ probability mass function is the *limit* of the Binomial$(n,p)$ probability mass function as $n\rightarrow \infty$ and $p \rightarrow 0$ such that $np\rightarrow \mu$. In other words, if $p$ is small and $n$ is large, then the Binomial$(n,p)$ distribution is extremely similar to the Poisson$(np)$ distribution. Use `dbinom()` and `dpois()` to verify the quality of this approximation for $n = 1000$ and $p = 0.005$.
+5. The Poisson$(\mu)$ distribution is closely related to the Binomial distribution. In fact, the Poisson$(\mu)$ probability mass function is the *limit* of the Binomial$(n,p)$ probability mass function as $n\rightarrow \infty$ and $p \rightarrow 0$ such that $np\rightarrow \mu$. In other words, if $p$ is small and $n$ is large, then the Binomial$(n,p)$ distribution is extremely similar to the Poisson$(np)$ distribution. Use `dbinom()` and `dpois()` to verify the quality of this approximation for $n = 1000$ and $p = 0.005$.
 ```{r, webex.hide = 'Show Solution'}
 n <- 1000
 p <- 0.005
@@ -102,7 +102,7 @@ tibble(x = 0:16) %>%
   print(n = 40)
 ```
 
-5. In this exercise, I hope to convince you that computing the Poisson probability mass function is harder than it looks! For this part you will need to use the R functions `factorial()` and `lfactorial()`. 
+6. In this exercise, I hope to convince you that computing the Poisson probability mass function is harder than it looks! For this part you will need to use the R functions `factorial()` and `lfactorial()`. 
     (a) Suppose that $X \sim \text{Poisson}(171)$. Calculate the probability that $X$ equals its mean two different ways: first using `dpois()` and second by direct calculation using the Poisson probability mass function from above. Why do your results disagree? 
     (b) Write out an expression for the *natural log* of the Poisson probability mass function. How can you use this expression to solve the problem you encountered in the preceding part? 
 ```{r, webex.hide = 'Show Solution'}

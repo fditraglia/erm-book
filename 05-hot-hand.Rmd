@@ -465,7 +465,7 @@ draw_shots <- function(n_shots, prob_success) {
 set.seed(420508570)
 mean(draw_shots(1e4, 0.5))
 ```
-3. Write a function called `get_hot_handedness()` that combines `draw_shots()` and  `get_avg_after_streak()` to calculated "hot handedness" of a randomly-drawn sequence. In words: `get_est()` should draw a sequence `shots` of simulated basketball shots and then calculate and return the fraction of successes in `sim_shots` among the shots that immediately follow a streak of three successes. Think carefully about what arguments `get_est()` needs to take if we want to be able to vary the length and success probability of our simulated sequence of basketball shots. 
+3. Write a function called `get_hot_handedness()` that combines `draw_shots()` and  `get_avg_after_streak()` to calculated "hot handedness" of a randomly-drawn sequence. In words: `get_hot_handedness()` should draw a sequence `shots` of simulated basketball shots and then calculate and return the fraction of successes in `sim_shots` among the shots that immediately follow a streak of three successes. Think carefully about what arguments `get_hot_handedness()` needs to take if we want to be able to vary the length and success probability of our simulated sequence of basketball shots. 
 ```{r, webex.hide = 'Show Solution'}
 get_hot_handedness <- function(n_shots, prob_success) {
   sim_shots <- draw_shots(n_shots, prob_success)
