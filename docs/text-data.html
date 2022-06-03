@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Lesson 8 Text Data | Empirical Research Methods</title>
+  <meta name="description" content="Lesson 8 Text Data | Empirical Research Methods" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Lesson 8 Text Data | Empirical Research Methods" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Lesson 8 Text Data | Empirical Research Methods" />
+  
+  
+  
+
+<meta name="author" content="Francis J. DiTraglia" />
+
+
+<meta name="date" content="2022-06-02" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="the-normal-distribution.html"/>
+<link rel="next" href="data-rodeo.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="include/webex.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="toc-logo"><a href="./"><img src="images/core-erm-logo.png"></a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-book"><i class="fa fa-check"></i>About This Book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-requisites"><i class="fa fa-check"></i>Pre-requisites</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#good-coding-style"><i class="fa fa-check"></i>Good Coding Style</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-markdown"><i class="fa fa-check"></i>R Markdown</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-stata"><i class="fa fa-check"></i>Why not Stata?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-not-matlab-julia-or-python"><i class="fa fa-check"></i>Why not Matlab, Julia, or Python?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#you-can-help-make-this-book-better"><i class="fa fa-check"></i>You can help make this book better!</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html"><i class="fa fa-check"></i><b>1</b> Getting Started with <code>dplyr</code></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#package-installation"><i class="fa fa-check"></i><b>1.1</b> Package Installation</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise"><i class="fa fa-check"></i><b>1.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#what-is-a-tibble"><i class="fa fa-check"></i><b>1.2</b> What is a tibble?</a></li>
+<li class="chapter" data-level="1.3" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#filter-rows-with-filter"><i class="fa fa-check"></i><b>1.3</b> Filter Rows with <code>filter</code></a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises"><i class="fa fa-check"></i><b>1.3.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#sort-data-with-arrange"><i class="fa fa-check"></i><b>1.4</b> Sort data with <code>arrange</code></a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercises-1"><i class="fa fa-check"></i><b>1.4.1</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="1.5" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#choose-columns-with-select"><i class="fa fa-check"></i><b>1.5</b> Choose columns with <code>select</code></a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-1"><i class="fa fa-check"></i><b>1.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-summarize-verb"><i class="fa fa-check"></i><b>1.6</b> The <code>summarize</code> verb</a>
+<ul>
+<li class="chapter" data-level="1.6.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-2"><i class="fa fa-check"></i><b>1.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="1.7" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#the-group_by-verb"><i class="fa fa-check"></i><b>1.7</b> The <code>group_by</code> verb</a>
+<ul>
+<li class="chapter" data-level="1.7.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-3"><i class="fa fa-check"></i><b>1.7.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#understanding-the-pipe"><i class="fa fa-check"></i><b>1.8</b> Understanding the pipe: <code>%&gt;%</code></a>
+<ul>
+<li class="chapter" data-level="1.8.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-4"><i class="fa fa-check"></i><b>1.8.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="1.9" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#chaining-commands"><i class="fa fa-check"></i><b>1.9</b> Chaining commands</a>
+<ul>
+<li class="chapter" data-level="1.9.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-5"><i class="fa fa-check"></i><b>1.9.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="1.10" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#change-an-existing-variable-or-create-a-new-one-with-mutate"><i class="fa fa-check"></i><b>1.10</b> Change an existing variable or create a new one with <code>mutate</code></a>
+<ul>
+<li class="chapter" data-level="1.10.1" data-path="getting-started-with-dplyr.html"><a href="getting-started-with-dplyr.html#exercise-6"><i class="fa fa-check"></i><b>1.10.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html"><i class="fa fa-check"></i><b>2</b> Getting Started with <code>ggplot2</code></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#a-simple-scatterplot-using-ggplot2"><i class="fa fa-check"></i><b>2.1</b> A simple scatterplot using <code>ggplot2</code></a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-7"><i class="fa fa-check"></i><b>2.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-on-the-log-scale"><i class="fa fa-check"></i><b>2.2</b> Plotting on the log scale</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-8"><i class="fa fa-check"></i><b>2.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#the-color-and-size-aesthetics"><i class="fa fa-check"></i><b>2.3</b> The color and size aesthetics</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-9"><i class="fa fa-check"></i><b>2.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#faceting---plots-for-multiple-subsets"><i class="fa fa-check"></i><b>2.4</b> Faceting - Plots for Multiple Subsets</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-10"><i class="fa fa-check"></i><b>2.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#plotting-summarized-data"><i class="fa fa-check"></i><b>2.5</b> Plotting summarized data</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-11"><i class="fa fa-check"></i><b>2.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#line-plots"><i class="fa fa-check"></i><b>2.6</b> Line plots</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-12"><i class="fa fa-check"></i><b>2.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#bar-plots"><i class="fa fa-check"></i><b>2.7</b> Bar plots</a>
+<ul>
+<li class="chapter" data-level="2.7.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-13"><i class="fa fa-check"></i><b>2.7.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.8" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#cleveland-dot-charts"><i class="fa fa-check"></i><b>2.8</b> Cleveland Dot Charts</a>
+<ul>
+<li class="chapter" data-level="2.8.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-14"><i class="fa fa-check"></i><b>2.8.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#histograms"><i class="fa fa-check"></i><b>2.9</b> Histograms</a>
+<ul>
+<li class="chapter" data-level="2.9.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-15"><i class="fa fa-check"></i><b>2.9.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#boxplots"><i class="fa fa-check"></i><b>2.10</b> Boxplots</a>
+<ul>
+<li class="chapter" data-level="2.10.1" data-path="getting-started-with-ggplot2.html"><a href="getting-started-with-ggplot2.html#exercise-16"><i class="fa fa-check"></i><b>2.10.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html"><i class="fa fa-check"></i><b>3</b> Predictive Regression Part I</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-17"><i class="fa fa-check"></i><b>3.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-least-squares-problem"><i class="fa fa-check"></i><b>3.2</b> The Least Squares Problem</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-18"><i class="fa fa-check"></i><b>3.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#linear-regression-with-lm"><i class="fa fa-check"></i><b>3.3</b> Linear Regression with <code>lm()</code></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-19"><i class="fa fa-check"></i><b>3.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#plotting-the-regression-line"><i class="fa fa-check"></i><b>3.4</b> Plotting the Regression Line</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-20"><i class="fa fa-check"></i><b>3.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#getting-more-from-lm"><i class="fa fa-check"></i><b>3.5</b> Getting More from <code>lm()</code></a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-21"><i class="fa fa-check"></i><b>3.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#summarizing-the-ouput-of-lm"><i class="fa fa-check"></i><b>3.6</b> Summarizing The Ouput of <code>lm()</code></a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-22"><i class="fa fa-check"></i><b>3.6.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#tidying-up-with-broom"><i class="fa fa-check"></i><b>3.7</b> Tidying up with <code>broom</code></a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-23"><i class="fa fa-check"></i><b>3.7.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#dummy-variables-with-lm"><i class="fa fa-check"></i><b>3.8</b> Dummy Variables with <code>lm()</code></a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-24"><i class="fa fa-check"></i><b>3.8.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#fun-with-r-formulas"><i class="fa fa-check"></i><b>3.9</b> Fun with R Formulas</a>
+<ul>
+<li class="chapter" data-level="3.9.1" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#everything-else---the-dot-."><i class="fa fa-check"></i><b>3.9.1</b> "Everything Else" - The Dot <code>.</code></a></li>
+<li class="chapter" data-level="3.9.2" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#removing-predictors-with--"><i class="fa fa-check"></i><b>3.9.2</b> Removing Predictors with <code>-</code></a></li>
+<li class="chapter" data-level="3.9.3" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#the-intercept-1"><i class="fa fa-check"></i><b>3.9.3</b> The Intercept: <code>1</code></a></li>
+<li class="chapter" data-level="3.9.4" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-25"><i class="fa fa-check"></i><b>3.9.4</b> Exercise</a></li>
+<li class="chapter" data-level="3.9.5" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#transforming-outcomes-and-predictors"><i class="fa fa-check"></i><b>3.9.5</b> Transforming Outcomes and Predictors</a></li>
+<li class="chapter" data-level="3.9.6" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#adding-interactions-with-and"><i class="fa fa-check"></i><b>3.9.6</b> Adding Interactions With <code>:</code>, <code>*</code>, and <code>^</code></a></li>
+<li class="chapter" data-level="3.9.7" data-path="predictive-regression-part-i.html"><a href="predictive-regression-part-i.html#exercise-26"><i class="fa fa-check"></i><b>3.9.7</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html"><i class="fa fa-check"></i><b>4</b> Predictive Regression Part II</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#regressions-used-below"><i class="fa fa-check"></i><b>4.1</b> Regressions Used Below</a></li>
+<li class="chapter" data-level="4.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#predicting-new-observations"><i class="fa fa-check"></i><b>4.2</b> Predicting New Observations</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-27"><i class="fa fa-check"></i><b>4.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#testing-a-linear-restriction"><i class="fa fa-check"></i><b>4.3</b> Testing a Linear Restriction</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-28"><i class="fa fa-check"></i><b>4.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#heteroskedasticity-robust-standard-errors-and-tests"><i class="fa fa-check"></i><b>4.4</b> Heteroskedasticity-Robust Standard Errors and Tests</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-29"><i class="fa fa-check"></i><b>4.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#publication-quality-tables"><i class="fa fa-check"></i><b>4.5</b> Publication Quality Tables</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_skim"><i class="fa fa-check"></i><b>4.5.1</b> <code>datasummary_skim()</code></a></li>
+<li class="chapter" data-level="4.5.2" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#datasummary_balance"><i class="fa fa-check"></i><b>4.5.2</b> <code>datasummary_balance()</code></a></li>
+<li class="chapter" data-level="4.5.3" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#modelsummary"><i class="fa fa-check"></i><b>4.5.3</b> <code>modelsummary()</code></a></li>
+<li class="chapter" data-level="4.5.4" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#robust-standard-errors"><i class="fa fa-check"></i><b>4.5.4</b> Robust Standard Errors</a></li>
+<li class="chapter" data-level="4.5.5" data-path="predictive-regression-part-ii.html"><a href="predictive-regression-part-ii.html#exercise-30"><i class="fa fa-check"></i><b>4.5.5</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html"><i class="fa fa-check"></i><b>5</b> Running a Simulation Study</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#is-the-hot-hand-an-illusion"><i class="fa fa-check"></i><b>5.1</b> Is the Hot Hand an Illusion?</a></li>
+<li class="chapter" data-level="5.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#drawing-random-data-in-r"><i class="fa fa-check"></i><b>5.2</b> Drawing Random Data in R</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#sample"><i class="fa fa-check"></i><b>5.2.1</b> <code>sample()</code></a></li>
+<li class="chapter" data-level="5.2.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#probability-distributions-in-r"><i class="fa fa-check"></i><b>5.2.2</b> Probability Distributions in R</a></li>
+<li class="chapter" data-level="5.2.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#set.seed"><i class="fa fa-check"></i><b>5.2.3</b> <code>set.seed()</code></a></li>
+<li class="chapter" data-level="5.2.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercises-2"><i class="fa fa-check"></i><b>5.2.4</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#the-skeleton-of-a-simulation-study"><i class="fa fa-check"></i><b>5.3</b> The Skeleton of a Simulation Study</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#a-biased-estimator-of-sigma2"><i class="fa fa-check"></i><b>5.3.1</b> A Biased Estimator of <span class="math inline">\(\sigma^2\)</span></a></li>
+<li class="chapter" data-level="5.3.2" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#draw_sim_data"><i class="fa fa-check"></i><b>5.3.2</b> <code>draw_sim_data()</code></a></li>
+<li class="chapter" data-level="5.3.3" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_estimate"><i class="fa fa-check"></i><b>5.3.3</b> <code>get_estimate()</code></a></li>
+<li class="chapter" data-level="5.3.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#get_bias"><i class="fa fa-check"></i><b>5.3.4</b> <code>get_bias()</code></a></li>
+<li class="chapter" data-level="5.3.5" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#running-the-simulation-study"><i class="fa fa-check"></i><b>5.3.5</b> Running the Simulation Study</a></li>
+<li class="chapter" data-level="5.3.6" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#expand.grid-and-map"><i class="fa fa-check"></i><b>5.3.6</b> <code>expand.grid()</code> and <code>Map()</code></a></li>
+<li class="chapter" data-level="5.3.7" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#formatting-the-results"><i class="fa fa-check"></i><b>5.3.7</b> Formatting the Results</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="running-a-simulation-study.html"><a href="running-a-simulation-study.html#exercise---the-hot-hand"><i class="fa fa-check"></i><b>5.4</b> Exercise - The Hot Hand</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html"><i class="fa fa-check"></i><b>6</b> Logistic Regression and Friends</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#understanding-the-logistic-regression-model"><i class="fa fa-check"></i><b>6.1</b> Understanding the Logistic Regression Model</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#odds-arent-so-odd"><i class="fa fa-check"></i><b>6.1.1</b> Odds aren't so odd!</a></li>
+<li class="chapter" data-level="6.1.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-31"><i class="fa fa-check"></i><b>6.1.2</b> Exercise</a></li>
+<li class="chapter" data-level="6.1.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#interpreting-a-simple-logit-regression-model"><i class="fa fa-check"></i><b>6.1.3</b> Interpreting a Simple Logit Regression Model</a></li>
+<li class="chapter" data-level="6.1.4" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-32"><i class="fa fa-check"></i><b>6.1.4</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#simulating-data-from-a-logistic-regression"><i class="fa fa-check"></i><b>6.2</b> Simulating Data from a Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-33"><i class="fa fa-check"></i><b>6.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#running-a-logistic-regression-in-r"><i class="fa fa-check"></i><b>6.3</b> Running a Logistic Regression in R</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-34"><i class="fa fa-check"></i><b>6.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#predicted-probabilities-for-logistic-regression"><i class="fa fa-check"></i><b>6.4</b> Predicted Probabilities for Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-35"><i class="fa fa-check"></i><b>6.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#plotting-a-logistic-regression"><i class="fa fa-check"></i><b>6.5</b> Plotting a Logistic Regression</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-36"><i class="fa fa-check"></i><b>6.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#probit-regression-and-the-linear-probability-model"><i class="fa fa-check"></i><b>6.6</b> Probit Regression and the Linear Probability Model</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#probit-regression"><i class="fa fa-check"></i><b>6.6.1</b> Probit Regression</a></li>
+<li class="chapter" data-level="6.6.2" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#the-linear-probability-model"><i class="fa fa-check"></i><b>6.6.2</b> The Linear Probability Model</a></li>
+<li class="chapter" data-level="6.6.3" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-37"><i class="fa fa-check"></i><b>6.6.3</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#addendum-odds-and-ends-about-risk"><i class="fa fa-check"></i><b>6.7</b> Addendum: Odds and Ends about Risk</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="logistic-regression-and-friends.html"><a href="logistic-regression-and-friends.html#exercise-38"><i class="fa fa-check"></i><b>6.7.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html"><i class="fa fa-check"></i><b>7</b> The Normal Distribution</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#standard-normals-as-building-blocks"><i class="fa fa-check"></i><b>7.1</b> Standard Normals as Building Blocks</a></li>
+<li class="chapter" data-level="7.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-one-dimensional-case"><i class="fa fa-check"></i><b>7.2</b> The One-Dimensional Case</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pnorm"><i class="fa fa-check"></i><b>7.2.1</b> <code>pnorm()</code></a></li>
+<li class="chapter" data-level="7.2.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#dnorm"><i class="fa fa-check"></i><b>7.2.2</b> <code>dnorm()</code></a></li>
+<li class="chapter" data-level="7.2.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#qnorm"><i class="fa fa-check"></i><b>7.2.3</b> <code>qnorm()</code></a></li>
+<li class="chapter" data-level="7.2.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#rnorm"><i class="fa fa-check"></i><b>7.2.4</b> <code>rnorm()</code></a></li>
+<li class="chapter" data-level="7.2.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#pqdrnorm-are-vectorized"><i class="fa fa-check"></i><b>7.2.5</b> <code>p/q/d/rnorm()</code> are Vectorized</a></li>
+<li class="chapter" data-level="7.2.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#be-careful"><i class="fa fa-check"></i><b>7.2.6</b> Be Careful!</a></li>
+<li class="chapter" data-level="7.2.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercises-3"><i class="fa fa-check"></i><b>7.2.7</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#generating-correlated-normal-rvs"><i class="fa fa-check"></i><b>7.3</b> Generating Correlated Normal RVs</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#start-with-uncorrelated-normal-draws"><i class="fa fa-check"></i><b>7.3.1</b> Start with Uncorrelated Normal Draws</a></li>
+<li class="chapter" data-level="7.3.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-39"><i class="fa fa-check"></i><b>7.3.2</b> Exercise</a></li>
+<li class="chapter" data-level="7.3.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#add-constants-to-shift-the-means"><i class="fa fa-check"></i><b>7.3.3</b> Add Constants to Shift the Means</a></li>
+<li class="chapter" data-level="7.3.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-40"><i class="fa fa-check"></i><b>7.3.4</b> Exercise</a></li>
+<li class="chapter" data-level="7.3.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#multiply-by-scalars-to-change-the-variance"><i class="fa fa-check"></i><b>7.3.5</b> Multiply by Scalars to Change the Variance</a></li>
+<li class="chapter" data-level="7.3.6" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#combine-to-create-correlation"><i class="fa fa-check"></i><b>7.3.6</b> Combine to Create Correlation</a></li>
+<li class="chapter" data-level="7.3.7" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-41"><i class="fa fa-check"></i><b>7.3.7</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#the-cholesky-decomposition"><i class="fa fa-check"></i><b>7.4</b> The Cholesky Decomposition</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#going-backwards"><i class="fa fa-check"></i><b>7.4.1</b> Going Backwards</a></li>
+<li class="chapter" data-level="7.4.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-42"><i class="fa fa-check"></i><b>7.4.2</b> Exercise</a></li>
+<li class="chapter" data-level="7.4.3" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#whats-the-square-root-of-a-matrix"><i class="fa fa-check"></i><b>7.4.3</b> What's the Square Root of a Matrix?</a></li>
+<li class="chapter" data-level="7.4.4" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#exercise-43"><i class="fa fa-check"></i><b>7.4.4</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#epilogue"><i class="fa fa-check"></i><b>7.5</b> Epilogue</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#affine-transformations-of-a-multivariate-normal"><i class="fa fa-check"></i><b>7.5.1</b> Affine Transformations of a Multivariate Normal</a></li>
+<li class="chapter" data-level="7.5.2" data-path="the-normal-distribution.html"><a href="the-normal-distribution.html#conditional-distributions-of-bivariate-normal"><i class="fa fa-check"></i><b>7.5.2</b> Conditional Distributions of Bivariate Normal</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="text-data.html"><a href="text-data.html"><i class="fa fa-check"></i><b>8</b> Text Data</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="text-data.html"><a href="text-data.html#unnest_tokens"><i class="fa fa-check"></i><b>8.1</b> <code>unnest_tokens()</code></a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="text-data.html"><a href="text-data.html#exercise-44"><i class="fa fa-check"></i><b>8.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="text-data.html"><a href="text-data.html#stop_words-and-word-clouds"><i class="fa fa-check"></i><b>8.2</b> <code>stop_words</code> and Word Clouds</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="text-data.html"><a href="text-data.html#exercise-45"><i class="fa fa-check"></i><b>8.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="text-data.html"><a href="text-data.html#stemming-and-removing-numbers"><i class="fa fa-check"></i><b>8.3</b> Stemming and Removing Numbers</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="text-data.html"><a href="text-data.html#exercise-46"><i class="fa fa-check"></i><b>8.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="text-data.html"><a href="text-data.html#zipfs-law"><i class="fa fa-check"></i><b>8.4</b> Zipf's Law</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="text-data.html"><a href="text-data.html#exercise-47"><i class="fa fa-check"></i><b>8.4.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="text-data.html"><a href="text-data.html#bind_tf_idf"><i class="fa fa-check"></i><b>8.5</b> <code>bind_tf_idf()</code></a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="text-data.html"><a href="text-data.html#exercise-48"><i class="fa fa-check"></i><b>8.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="text-data.html"><a href="text-data.html#reading-a-corpus-into-r"><i class="fa fa-check"></i><b>8.6</b> Reading a Corpus into R</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="text-data.html"><a href="text-data.html#exercise-49"><i class="fa fa-check"></i><b>8.6.1</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="data-rodeo.html"><a href="data-rodeo.html"><i class="fa fa-check"></i><b>9</b> Data Rodeo</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="data-rodeo.html"><a href="data-rodeo.html#joins"><i class="fa fa-check"></i><b>9.1</b> Joins</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-50"><i class="fa fa-check"></i><b>9.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="data-rodeo.html"><a href="data-rodeo.html#tidyselect"><i class="fa fa-check"></i><b>9.2</b> <code>tidyselect</code></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-51"><i class="fa fa-check"></i><b>9.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="data-rodeo.html"><a href="data-rodeo.html#column-wise-operations-with-across"><i class="fa fa-check"></i><b>9.3</b> Column-wise Operations with <code>across()</code></a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-52"><i class="fa fa-check"></i><b>9.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="data-rodeo.html"><a href="data-rodeo.html#row-wise-operations"><i class="fa fa-check"></i><b>9.4</b> Row-wise operations</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="data-rodeo.html"><a href="data-rodeo.html#rowwise"><i class="fa fa-check"></i><b>9.4.1</b> <code>rowwise()</code></a></li>
+<li class="chapter" data-level="9.4.2" data-path="data-rodeo.html"><a href="data-rodeo.html#c_across"><i class="fa fa-check"></i><b>9.4.2</b> <code>c_across()</code></a></li>
+<li class="chapter" data-level="9.4.3" data-path="data-rodeo.html"><a href="data-rodeo.html#across-as-an-alternative-to-rowwise"><i class="fa fa-check"></i><b>9.4.3</b> <code>across()</code> as an alternative to <code>rowwise()</code></a></li>
+<li class="chapter" data-level="9.4.4" data-path="data-rodeo.html"><a href="data-rodeo.html#ungroup"><i class="fa fa-check"></i><b>9.4.4</b> <code>ungroup()</code></a></li>
+<li class="chapter" data-level="9.4.5" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-53"><i class="fa fa-check"></i><b>9.4.5</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="data-rodeo.html"><a href="data-rodeo.html#pivoting-from-wider-to-longer-and-back-again"><i class="fa fa-check"></i><b>9.5</b> Pivoting: From Wider to Longer and Back Again</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="data-rodeo.html"><a href="data-rodeo.html#pivot_longer"><i class="fa fa-check"></i><b>9.5.1</b> <code>pivot_longer()</code></a></li>
+<li class="chapter" data-level="9.5.2" data-path="data-rodeo.html"><a href="data-rodeo.html#pivot_wider"><i class="fa fa-check"></i><b>9.5.2</b> <code>pivot_wider()</code></a></li>
+<li class="chapter" data-level="9.5.3" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-54"><i class="fa fa-check"></i><b>9.5.3</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="data-rodeo.html"><a href="data-rodeo.html#put-that-in-your-pipe-and-smoke-it"><i class="fa fa-check"></i><b>9.6</b> Put that in your pipe and smoke it!</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="data-rodeo.html"><a href="data-rodeo.html#to-pipe-or-not-to-pipe"><i class="fa fa-check"></i><b>9.6.1</b> To pipe or not to pipe?</a></li>
+<li class="chapter" data-level="9.6.2" data-path="data-rodeo.html"><a href="data-rodeo.html#supplying-an-arbitrary-argument"><i class="fa fa-check"></i><b>9.6.2</b> Supplying an Arbitrary Argument</a></li>
+<li class="chapter" data-level="9.6.3" data-path="data-rodeo.html"><a href="data-rodeo.html#the-many-pipes-of-magrittr"><i class="fa fa-check"></i><b>9.6.3</b> The many pipes of <code>magrittr</code></a></li>
+<li class="chapter" data-level="9.6.4" data-path="data-rodeo.html"><a href="data-rodeo.html#all-about-that-base-rs-native-pipe"><i class="fa fa-check"></i><b>9.6.4</b> All About that Base: R's "Native" Pipe</a></li>
+<li class="chapter" data-level="9.6.5" data-path="data-rodeo.html"><a href="data-rodeo.html#how-does-compare-to-in-ggplot2"><i class="fa fa-check"></i><b>9.6.5</b> How does <code>%&gt;%</code> compare to <code>+</code> in <code>ggplot2</code>?</a></li>
+<li class="chapter" data-level="9.6.6" data-path="data-rodeo.html"><a href="data-rodeo.html#exercise-55"><i class="fa fa-check"></i><b>9.6.6</b> Exercise</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html"><i class="fa fa-check"></i><b>10</b> Poisson Regression and MLE</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#the-poisson-distribution"><i class="fa fa-check"></i><b>10.1</b> The Poisson Distribution</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#exercise-56"><i class="fa fa-check"></i><b>10.1.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#the-poisson-regression-model"><i class="fa fa-check"></i><b>10.2</b> The Poisson Regression Model</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#exercise-57"><i class="fa fa-check"></i><b>10.2.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#whats-a-link-function"><i class="fa fa-check"></i><b>10.3</b> What's a link function?</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#exercise-58"><i class="fa fa-check"></i><b>10.3.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#dude-wheres-my-r-squared"><i class="fa fa-check"></i><b>10.4</b> Dude, where's my R-squared?</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#aic-and-bic"><i class="fa fa-check"></i><b>10.4.1</b> AIC and BIC</a></li>
+<li class="chapter" data-level="10.4.2" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#deviance-and-null-deviance"><i class="fa fa-check"></i><b>10.4.2</b> Deviance and Null Deviance</a></li>
+<li class="chapter" data-level="10.4.3" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#exercises-4"><i class="fa fa-check"></i><b>10.4.3</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#roll-your-own-poisson-mle"><i class="fa fa-check"></i><b>10.5</b> Roll Your Own Poisson MLE</a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#exercise-59"><i class="fa fa-check"></i><b>10.5.1</b> Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="poisson-regression-and-mle.html"><a href="poisson-regression-and-mle.html#bonus-stirlings-approximation"><i class="fa fa-check"></i><b>10.6</b> Bonus: Stirling's Approximation</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Empirical Research Methods</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="text-data" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Lesson 8</span> Text Data<a href="text-data.html#text-data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>This is a ridiculously short introduction to working with text data in R using the <a href="https://github.com/juliasilge/tidytext"><code>tidytext</code> package</a>. For more details on this package, see <a href="https://www.tidytextmining.com/index.html">Text Mining with R</a> and <a href="https://smltar.com/">Supervised Machine Learning for Text Analysis in R</a>. For an introduction to the use of text as a data source in applied economics see <a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/jel.20181020">Gentzkow, Kelly, &amp; Taddy (2019)</a>.</p>
+<div id="unnest_tokens" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> <code>unnest_tokens()</code><a href="text-data.html#unnest_tokens" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/The_Tyger_LC_1826.jpg/363px-The_Tyger_LC_1826.jpg" alt="" />
+<p class="caption">The Tyger by William Blake</p>
+</div>
+<p>After loading text data into R--more on that anon!--our first step is to break it down into its constitutent parts. This process is called <em>tokenization</em> and the resulting parts are called <em>tokens</em>. In most applications a token will be a <em>word</em>, but in some cases it might be an <a href="https://en.wikipedia.org/wiki/N-gram">n-gram</a> or a whole sentence or phrase. The <code>tidytext</code> function for tokenization is called <code>unnest_tokens()</code>. Let's try it out on a simple example.</p>
+<p>Here is the first stanza of a famous poem by the English poet <a href="https://en.wikipedia.org/wiki/William_Blake">William Blake</a></p>
+<div class="sourceCode" id="cb640"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb640-1"><a href="text-data.html#cb640-1" aria-hidden="true" tabindex="-1"></a>tyger <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Tyger Tyger, burning bright,&#39;</span>, </span>
+<span id="cb640-2"><a href="text-data.html#cb640-2" aria-hidden="true" tabindex="-1"></a>           <span class="st">&#39;In the forests of the night;&#39;</span>,  </span>
+<span id="cb640-3"><a href="text-data.html#cb640-3" aria-hidden="true" tabindex="-1"></a>           <span class="st">&#39;What immortal hand or eye,&#39;</span>,</span>
+<span id="cb640-4"><a href="text-data.html#cb640-4" aria-hidden="true" tabindex="-1"></a>           <span class="st">&#39;Could frame thy fearful symmetry?&#39;</span>)</span></code></pre></div>
+<p>I've typed this out by hand, which certainly isn't the way that you'll usually get text data into your computer, but will suffice for this example. The vector <code>tyger</code> has length <code>4</code> and contains character data:</p>
+<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="text-data.html#cb641-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tyger)</span></code></pre></div>
+<pre><code>##  chr [1:4] &quot;Tyger Tyger, burning bright,&quot; &quot;In the forests of the night;&quot; ...</code></pre>
+<p>To work with <code>tidytext</code> we'll first need to convert <code>tyger</code> into a <a href="https://tibble.tidyverse.org/">tibble</a> using <code>dplyr</code></p>
+<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="text-data.html#cb643-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb643-2"><a href="text-data.html#cb643-2" aria-hidden="true" tabindex="-1"></a>tyger_tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">line =</span> <span class="fu">seq_along</span>(tyger), <span class="at">text =</span> tyger)</span></code></pre></div>
+<p>Notice that I created a tibble with two columns: the first is the <em>line number</em> and the second is the text contained in that line of the poem:</p>
+<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="text-data.html#cb644-1" aria-hidden="true" tabindex="-1"></a>tyger_tbl</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 2
+##    line text                             
+##   &lt;int&gt; &lt;chr&gt;                            
+## 1     1 Tyger Tyger, burning bright,     
+## 2     2 In the forests of the night;     
+## 3     3 What immortal hand or eye,       
+## 4     4 Could frame thy fearful symmetry?</code></pre>
+<p>Now we're ready to tokenize! After installing <code>tidytext</code> we can run the following command to generate a tibble in which each <em>row</em> corresponds to a token:</p>
+<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="text-data.html#cb646-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb646-2"><a href="text-data.html#cb646-2" aria-hidden="true" tabindex="-1"></a>tyger_tbl <span class="sc">%&gt;%</span></span>
+<span id="cb646-3"><a href="text-data.html#cb646-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(<span class="at">output =</span> word, <span class="at">input =</span> text)</span></code></pre></div>
+<pre><code>## # A tibble: 20 × 2
+##     line word    
+##    &lt;int&gt; &lt;chr&gt;   
+##  1     1 tyger   
+##  2     1 tyger   
+##  3     1 burning 
+##  4     1 bright  
+##  5     2 in      
+##  6     2 the     
+##  7     2 forests 
+##  8     2 of      
+##  9     2 the     
+## 10     2 night   
+## 11     3 what    
+## 12     3 immortal
+## 13     3 hand    
+## 14     3 or      
+## 15     3 eye     
+## 16     4 could   
+## 17     4 frame   
+## 18     4 thy     
+## 19     4 fearful 
+## 20     4 symmetry</code></pre>
+<p>The first argument of <code>unnest_tokens()</code>, <code>tbl</code>, is the tibble containing our text. The second argument, <code>output</code>, is the name that we want to give to the column of output containing our tokens. The third argument, <code>input</code>, is the name of the column of <code>tbl</code> that contains the actual text. In our example, <code>tbl</code> is <code>tyger_tbl</code> and <code>input</code> is <code>text</code>. By default <code>unnest_tokens()</code> <strong>strips all punctuation and capitalization</strong> and treats <em>words</em> as tokens, so I've named <code>output</code> accordingly. Notice that <code>unnest_tokens()</code> has left our column <code>line</code> from <code>tyger_tbl</code> intact.</p>
+<div id="exercise-44" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Exercise<a href="text-data.html#exercise-44" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Create a character vector called <code>crocodile</code> by typing out the eight lines of the poem <a href="https://en.wikipedia.org/wiki/How_Doth_the_Little_Crocodile"><em>How Doth the Little Crocodile</em></a> from <em>Alice in Wonderland</em> by Lewis Carroll. The length of <code>crocodile</code> should be <code>8</code> so that each element of the vector corresponds to a line of the poem. After creating this vector, follow the same procedure as we used above for <code>tyger</code> to create a tibble with columns <code>line</code> and <code>word</code> in which each <em>row</em> is a token from <code>crocodile</code>. Inspect your results. What happened to the two exclamation points in the poem, and why is the word "Nile" no longer capitalized?</p>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="text-data.html#cb648-1" aria-hidden="true" tabindex="-1"></a><span class="co"># By default unnest_tokens() strips out all punctuation and capitalization:</span></span>
+<span id="cb648-2"><a href="text-data.html#cb648-2" aria-hidden="true" tabindex="-1"></a>crocodile <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;How doth the little crocodile&#39;</span>,</span>
+<span id="cb648-3"><a href="text-data.html#cb648-3" aria-hidden="true" tabindex="-1"></a>               <span class="st">&#39;Improve his shining tail&#39;</span>,</span>
+<span id="cb648-4"><a href="text-data.html#cb648-4" aria-hidden="true" tabindex="-1"></a>               <span class="st">&#39;And pour the waters of the Nile&#39;</span>, </span>
+<span id="cb648-5"><a href="text-data.html#cb648-5" aria-hidden="true" tabindex="-1"></a>               <span class="st">&#39;On every golden scale!&#39;</span>, </span>
+<span id="cb648-6"><a href="text-data.html#cb648-6" aria-hidden="true" tabindex="-1"></a>               <span class="st">&#39;How cheerfully he seems to grin&#39;</span>, </span>
+<span id="cb648-7"><a href="text-data.html#cb648-7" aria-hidden="true" tabindex="-1"></a>               <span class="st">&#39;How neatly spreads his claws&#39;</span>, </span>
+<span id="cb648-8"><a href="text-data.html#cb648-8" aria-hidden="true" tabindex="-1"></a>               <span class="st">&#39;And welcomes little fishes in&#39;</span>,</span>
+<span id="cb648-9"><a href="text-data.html#cb648-9" aria-hidden="true" tabindex="-1"></a>               <span class="st">&#39;With gently smiling jaws!&#39;</span>)</span>
+<span id="cb648-10"><a href="text-data.html#cb648-10" aria-hidden="true" tabindex="-1"></a>crocodile_tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">line =</span> <span class="fu">seq_along</span>(crocodile), <span class="at">text =</span> crocodile)</span>
+<span id="cb648-11"><a href="text-data.html#cb648-11" aria-hidden="true" tabindex="-1"></a>crocodile_tbl <span class="sc">%&gt;%</span></span>
+<span id="cb648-12"><a href="text-data.html#cb648-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(<span class="at">output =</span> word, <span class="at">input =</span> text)</span></code></pre></div>
+<pre><code>## # A tibble: 40 × 2
+##     line word     
+##    &lt;int&gt; &lt;chr&gt;    
+##  1     1 how      
+##  2     1 doth     
+##  3     1 the      
+##  4     1 little   
+##  5     1 crocodile
+##  6     2 improve  
+##  7     2 his      
+##  8     2 shining  
+##  9     2 tail     
+## 10     3 and      
+## # … with 30 more rows</code></pre>
+</div>
+</div>
+</div>
+<div id="stop_words-and-word-clouds" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> <code>stop_words</code> and Word Clouds<a href="text-data.html#stop_words-and-word-clouds" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The <a href="https://docs.ropensci.org/gutenbergr/"><code>gutenbergr</code> package</a> makes it easy to download books from <a href="https://www.gutenberg.org/">Project Gutenberg</a> directly into R. The Project Gutenberg id number for <a href="https://www.gutenberg.org/ebooks/3300">Adam Smith's <em>Wealth of Nations</em></a> is <code>3300</code>, so we can download it as follows:</p>
+<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="text-data.html#cb650-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span>
+<span id="cb650-2"><a href="text-data.html#cb650-2" aria-hidden="true" tabindex="-1"></a>my_mirror <span class="ot">&lt;-</span> <span class="st">&quot;http://mirrors.xmission.com/gutenberg/&quot;</span></span>
+<span id="cb650-3"><a href="text-data.html#cb650-3" aria-hidden="true" tabindex="-1"></a>smith <span class="ot">&lt;-</span> <span class="fu">gutenberg_download</span>(<span class="dv">3300</span>, <span class="at">mirror =</span> my_mirror)</span>
+<span id="cb650-4"><a href="text-data.html#cb650-4" aria-hidden="true" tabindex="-1"></a>smith</span></code></pre></div>
+<pre><code>## # A tibble: 34,546 × 2
+##    gutenberg_id text                                                            
+##           &lt;int&gt; &lt;chr&gt;                                                           
+##  1         3300 &quot;An Inquiry into the Nature and Causes of the Wealth of Nations&quot;
+##  2         3300 &quot;&quot;                                                              
+##  3         3300 &quot;&quot;                                                              
+##  4         3300 &quot;&quot;                                                              
+##  5         3300 &quot;by Adam Smith&quot;                                                 
+##  6         3300 &quot;&quot;                                                              
+##  7         3300 &quot;&quot;                                                              
+##  8         3300 &quot;&quot;                                                              
+##  9         3300 &quot;&quot;                                                              
+## 10         3300 &quot;&quot;                                                              
+## # … with 34,536 more rows</code></pre>
+<p>After tokenizing with <code>unnest_tokens()</code>, we can use <code>count()</code> from <code>dplyr</code> to calculate the most common words in this book:</p>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="text-data.html#cb652-1" aria-hidden="true" tabindex="-1"></a>smith <span class="sc">%&gt;%</span></span>
+<span id="cb652-2"><a href="text-data.html#cb652-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
+<span id="cb652-3"><a href="text-data.html#cb652-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<pre><code>## # A tibble: 10,241 × 2
+##    word      n
+##    &lt;chr&gt; &lt;int&gt;
+##  1 the   32240
+##  2 of    24294
+##  3 to    11708
+##  4 and   10284
+##  5 in     9637
+##  6 a      6673
+##  7 it     5391
+##  8 which  4824
+##  9 is     4685
+## 10 be     3827
+## # … with 10,231 more rows</code></pre>
+<p><em>none of which has anything to do with economics!</em> These are simply the most common words in the English language. Before carrying out text analysis, it's tupical to remove <em>extremely common</em> words. These are called <strong>stop words</strong>. The <code>tidytext</code> package contains a helpful list of these in the tibble <code>stop_words</code></p>
+<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="text-data.html#cb654-1" aria-hidden="true" tabindex="-1"></a>stop_words</span></code></pre></div>
+<pre><code>## # A tibble: 1,149 × 2
+##    word        lexicon
+##    &lt;chr&gt;       &lt;chr&gt;  
+##  1 a           SMART  
+##  2 a&#39;s         SMART  
+##  3 able        SMART  
+##  4 about       SMART  
+##  5 above       SMART  
+##  6 according   SMART  
+##  7 accordingly SMART  
+##  8 across      SMART  
+##  9 actually    SMART  
+## 10 after       SMART  
+## # … with 1,139 more rows</code></pre>
+<p>We can remove these from our <em>Wealth of Nations</em> tibble by using the <code>anti_join()</code> function from <code>dplyr</code>. The command <code>anti_join(x, y)</code> returns a tibble containing all rows of <code>x</code> that <em>do not</em> match those of <code>y</code>. Applying this to <code>smith</code> gives a much more reasonable result:</p>
+<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="text-data.html#cb656-1" aria-hidden="true" tabindex="-1"></a>tidy_smith <span class="ot">&lt;-</span> smith <span class="sc">%&gt;%</span></span>
+<span id="cb656-2"><a href="text-data.html#cb656-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
+<span id="cb656-3"><a href="text-data.html#cb656-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb656-4"><a href="text-data.html#cb656-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<pre><code>## Joining, by = &quot;word&quot;</code></pre>
+<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb658-1"><a href="text-data.html#cb658-1" aria-hidden="true" tabindex="-1"></a>tidy_smith</span></code></pre></div>
+<pre><code>## # A tibble: 9,714 × 2
+##    word         n
+##    &lt;chr&gt;    &lt;int&gt;
+##  1 price     1264
+##  2 country   1240
+##  3 labour    1011
+##  4 trade      970
+##  5 produce    944
+##  6 quantity   797
+##  7 people     777
+##  8 money      770
+##  9 land       720
+## 10 revenue    691
+## # … with 9,704 more rows</code></pre>
+<p>We can visualize the word frequencies in <code>tidy_smith</code> as a <a href="https://en.wikipedia.org/wiki/Tag_cloud#Text_cloud">word cloud</a> using the package <code>wordcloud</code>. The function <code>wordcloud()</code> takes three main arguments: <code>words</code> is the vector of words, <code>freq</code> is the vector of their frequencies, and <code>min.freq</code> indicates the frequency <em>below which</em> words will not be plotted. We can use this function to plot the words from the <code>tidy_smith</code> that appear at least 300 times as follows:</p>
+<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="text-data.html#cb660-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wordcloud)</span>
+<span id="cb660-2"><a href="text-data.html#cb660-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wordcloud</span>(<span class="at">words =</span> tidy_smith<span class="sc">$</span>word, <span class="at">freq =</span> tidy_smith<span class="sc">$</span>n, <span class="at">min.freq =</span> <span class="dv">300</span>)</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-341-1.png" width="672" /></p>
+<p>A slightly cleaner way of writing the preceding command uses the base R function <code>with()</code> to avoid those pesky <code>$</code> characters and is even compatible with the pipe <code>%&gt;%</code></p>
+<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="text-data.html#cb661-1" aria-hidden="true" tabindex="-1"></a><span class="co"># not run</span></span>
+<span id="cb661-2"><a href="text-data.html#cb661-2" aria-hidden="true" tabindex="-1"></a>tidy_smith <span class="sc">%&gt;%</span></span>
+<span id="cb661-3"><a href="text-data.html#cb661-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">wordcloud</span>(word, n, <span class="at">min.freq =</span> <span class="dv">300</span>))</span></code></pre></div>
+<div id="exercise-45" class="section level3 hasAnchor" number="8.2.1">
+<h3><span class="header-section-number">8.2.1</span> Exercise<a href="text-data.html#exercise-45" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Visit <a href="https://www.gutenberg.org/">Project Gutenberg</a> and find the id for David Ricardo's <a href="https://en.wikipedia.org/wiki/On_the_Principles_of_Political_Economy_and_Taxation"><em>On the Principles of Political Economy and Taxation</em></a>. Follow the steps from above to make a word cloud for this book, and compare it to the one we made for <em>The Wealth of Nations</em>. You may need to adjust the argument <code>min.freq</code> in <code>wordcloud()</code> to obtain a wordcloud with a similar number of words.</p>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb662-1"><a href="text-data.html#cb662-1" aria-hidden="true" tabindex="-1"></a>ricardo <span class="ot">&lt;-</span> <span class="fu">gutenberg_download</span>(<span class="dv">33310</span>, <span class="at">mirror =</span> my_mirror)</span>
+<span id="cb662-2"><a href="text-data.html#cb662-2" aria-hidden="true" tabindex="-1"></a>ricardo <span class="ot">&lt;-</span> ricardo <span class="sc">%&gt;%</span></span>
+<span id="cb662-3"><a href="text-data.html#cb662-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
+<span id="cb662-4"><a href="text-data.html#cb662-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb662-5"><a href="text-data.html#cb662-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<pre><code>## Joining, by = &quot;word&quot;</code></pre>
+<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb664-1"><a href="text-data.html#cb664-1" aria-hidden="true" tabindex="-1"></a>ricardo</span></code></pre></div>
+<pre><code>## # A tibble: 4,755 × 2
+##    word            n
+##    &lt;chr&gt;       &lt;int&gt;
+##  1 price        1032
+##  2 labour        629
+##  3 produce       595
+##  4 capital       593
+##  5 corn          565
+##  6 rent          545
+##  7 quantity      527
+##  8 commodities   514
+##  9 money         507
+## 10 profits       502
+## # … with 4,745 more rows</code></pre>
+<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb666-1"><a href="text-data.html#cb666-1" aria-hidden="true" tabindex="-1"></a>ricardo <span class="sc">%&gt;%</span></span>
+<span id="cb666-2"><a href="text-data.html#cb666-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">wordcloud</span>(word, n, <span class="at">min.freq =</span> <span class="dv">100</span>))</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-343-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="stemming-and-removing-numbers" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Stemming and Removing Numbers<a href="text-data.html#stemming-and-removing-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As we saw above, <code>unnest_tokens()</code> does a fair amount of clean-up by default, removing punctuation and capitalization. But sometimes it makes sense to do some additional cleaning before beginning our analysis. Let's look at the top thirty tokens from <code>tidy_smith</code>:</p>
+<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb667-1"><a href="text-data.html#cb667-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(tidy_smith[<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>,], tidy_smith[<span class="dv">16</span><span class="sc">:</span><span class="dv">30</span>,])</span></code></pre></div>
+<pre><code>##        word    n       word   n
+## 1     price 1264  countries 577
+## 2   country 1240    expense 561
+## 3    labour 1011        tax 513
+## 4     trade  970       gold 508
+## 5   produce  944       rent 495
+## 6  quantity  797    foreign 486
+## 7    people  777 proportion 481
+## 8     money  770     profit 479
+## 9      land  720   employed 459
+## 10  revenue  691       corn 445
+## 11   silver  661          0 440
+## 12  capital  657   industry 410
+## 13     time  636     europe 407
+## 14    stock  601     public 407
+## 15   market  582    england 402</code></pre>
+<p>With over 400 occurrences, '0' is one of the most common tokens in <em>The Wealth of Nations!</em> Further down in the list you'll find '1' and '2' and indeed all the other digits. To remove these, we can modify our <code>tidy_smith</code> pipeline from above by setting <code>strip_numeric</code> to <code>TRUE</code> as an argument to <code>unnest_tokens()</code></p>
+<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb669-1"><a href="text-data.html#cb669-1" aria-hidden="true" tabindex="-1"></a>tidy_smith <span class="ot">&lt;-</span> smith <span class="sc">%&gt;%</span></span>
+<span id="cb669-2"><a href="text-data.html#cb669-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text, <span class="at">strip_numeric =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb669-3"><a href="text-data.html#cb669-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb669-4"><a href="text-data.html#cb669-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<pre><code>## Joining, by = &quot;word&quot;</code></pre>
+<div class="sourceCode" id="cb671"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb671-1"><a href="text-data.html#cb671-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(tidy_smith[<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>,], tidy_smith[<span class="dv">16</span><span class="sc">:</span><span class="dv">30</span>,])</span></code></pre></div>
+<pre><code>##        word    n       word   n
+## 1     price 1264  countries 577
+## 2   country 1240    expense 561
+## 3    labour 1011        tax 513
+## 4     trade  970       gold 508
+## 5   produce  944       rent 495
+## 6  quantity  797    foreign 486
+## 7    people  777 proportion 481
+## 8     money  770     profit 479
+## 9      land  720   employed 459
+## 10  revenue  691       corn 445
+## 11   silver  661   industry 410
+## 12  capital  657     europe 407
+## 13     time  636     public 407
+## 14    stock  601    england 402
+## 15   market  582     manner 394</code></pre>
+<p>This is an improvement, but notice that <code>country</code> and <code>countries</code> are treated as <em>separate tokens</em>. Depending on our application, this may not be a sensible choice: these aren't really different words, they're merely different <em>forms</em> of the same word. To treat these as a single token, we can use a procedure called <a href="https://en.wikipedia.org/wiki/Stemming">stemming</a>. The function <code>wordStem()</code> from the R package <code>SnowballC</code> implements the "Porter stemmming algorithm." To stem the text of <em>The Wealth of Nations</em> we simply add a <code>mutate()</code> step to our pipeline from above:</p>
+<div class="sourceCode" id="cb673"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb673-1"><a href="text-data.html#cb673-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SnowballC)</span>
+<span id="cb673-2"><a href="text-data.html#cb673-2" aria-hidden="true" tabindex="-1"></a>tidy_smith <span class="ot">&lt;-</span> smith <span class="sc">%&gt;%</span></span>
+<span id="cb673-3"><a href="text-data.html#cb673-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text, <span class="at">strip_numeric =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb673-4"><a href="text-data.html#cb673-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb673-5"><a href="text-data.html#cb673-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">stem =</span> <span class="fu">wordStem</span>(word)) <span class="sc">%&gt;%</span></span>
+<span id="cb673-6"><a href="text-data.html#cb673-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(stem, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb673-7"><a href="text-data.html#cb673-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb673-8"><a href="text-data.html#cb673-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(tidy_smith[<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>,], tidy_smith[<span class="dv">16</span><span class="sc">:</span><span class="dv">30</span>,])</span></code></pre></div>
+<pre><code>##        stem    n       stem   n
+## 1   countri 1817 manufactur 702
+## 2     price 1341     expens 693
+## 3    labour 1217      natur 663
+## 4     trade 1134     silver 661
+## 5    produc 1123      stock 632
+## 6      time  990     market 623
+## 7       tax  927    increas 589
+## 8      land  915       rent 552
+## 9  quantiti  869    proport 525
+## 10   profit  792       gold 508
+## 11    capit  788    foreign 504
+## 12    peopl  783        pai 496
+## 13    monei  771      equal 495
+## 14   emploi  712     commod 474
+## 15   revenu  705     improv 467</code></pre>
+<div class="sourceCode" id="cb675"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb675-1"><a href="text-data.html#cb675-1" aria-hidden="true" tabindex="-1"></a>tidy_smith <span class="sc">%&gt;%</span></span>
+<span id="cb675-2"><a href="text-data.html#cb675-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">wordcloud</span>(stem, n, <span class="at">min.freq =</span> <span class="dv">400</span>))</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-346-1.png" width="672" /></p>
+<div id="exercise-46" class="section level3 hasAnchor" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> Exercise<a href="text-data.html#exercise-46" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Repeat the exercise from above in which you made a word cloud for Ricardo's <em>On the Principles of Political Economy and Taxation</em>, but this time work with <em>stems</em> rather than words and remove numeric tokens. How do the results change?</p>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb676-1"><a href="text-data.html#cb676-1" aria-hidden="true" tabindex="-1"></a>ricardo <span class="ot">&lt;-</span> <span class="fu">gutenberg_download</span>(<span class="dv">33310</span>, <span class="at">mirror =</span> my_mirror)</span>
+<span id="cb676-2"><a href="text-data.html#cb676-2" aria-hidden="true" tabindex="-1"></a>ricardo <span class="ot">&lt;-</span> ricardo <span class="sc">%&gt;%</span></span>
+<span id="cb676-3"><a href="text-data.html#cb676-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text, <span class="at">strip_numeric =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb676-4"><a href="text-data.html#cb676-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb676-5"><a href="text-data.html#cb676-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">stem =</span> <span class="fu">wordStem</span>(word)) <span class="sc">%&gt;%</span></span>
+<span id="cb676-6"><a href="text-data.html#cb676-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(stem, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Joining, by = &quot;word&quot;</code></pre>
+<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb678-1"><a href="text-data.html#cb678-1" aria-hidden="true" tabindex="-1"></a>ricardo</span></code></pre></div>
+<pre><code>## # A tibble: 2,870 × 2
+##    stem         n
+##    &lt;chr&gt;    &lt;int&gt;
+##  1 price     1150
+##  2 labour     831
+##  3 produc     811
+##  4 tax        723
+##  5 commod     706
+##  6 profit     654
+##  7 capit      626
+##  8 corn       565
+##  9 rent       564
+## 10 quantiti   546
+## # … with 2,860 more rows</code></pre>
+<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb680-1"><a href="text-data.html#cb680-1" aria-hidden="true" tabindex="-1"></a>ricardo <span class="sc">%&gt;%</span></span>
+<span id="cb680-2"><a href="text-data.html#cb680-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>(<span class="fu">wordcloud</span>(stem, n, <span class="at">min.freq =</span> <span class="dv">100</span>))</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-347-1.png" width="672" /></p>
+</div>
+</div>
+</div>
+<div id="zipfs-law" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Zipf's Law<a href="text-data.html#zipfs-law" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The so-called "Zipf" distribution is a discrete probability mass function defined by
+<span class="math display">\[
+X \sim \text{Zipf}(\alpha) \iff P(X=x) = \frac{C}{x^{\alpha + 1}}, \quad x \in \{1, 2, 3, ...\}
+\]</span>
+where <span class="math inline">\(\alpha&gt;0\)</span> is the parameter of the distribution and <span class="math inline">\(C\)</span> is the normalizing constant that makes the probabilities sum to one over <span class="math inline">\(x = 1, 2, ...\)</span> namely
+<span class="math display">\[
+\quad C = \left[ \sum_{k=1}^\infty \left(\frac{1}{k}\right)^{\alpha + 1}\right]^{-1}.
+\]</span>
+What's so special about this distribution? For <span class="math inline">\(\alpha\)</span> close to zero we have
+<span class="math display">\[
+P(X = x)= \frac{C}{x^{\alpha + 1}} \approx \frac{C}{x} \implies \frac{P(X=1)}{P(X=x)}  \approx x.
+\]</span>
+Now suppose that <span class="math inline">\(X\)</span> is a probability model for a randomly-chosen word from a large corpus. In particular, let <span class="math inline">\(\{X=1\}\)</span> denote the event that we observe the <em>most common</em> word in the corpus, let <span class="math inline">\(\{X=2\}\)</span> denote the event that we observe the <em>second most common</em> word in the corpus, and so on. In a typical English language example, <span class="math inline">\(\{X = 1\}\)</span> is "the," <span class="math inline">\(\{X=2\}\)</span> is "of," and <span class="math inline">\(\{X=3\}\)</span> is "and." The Zipf model with <span class="math inline">\(\alpha \approx 0\)</span> from above suggests that "the" should be about <em>twice</em> as common as "of" and about four times as common as "and." This approximation is called <a href="https://en.wikipedia.org/wiki/Zipf%27s_law">Zipf's law</a>, and it is thought to be fairly accurate in practice.</p>
+<p>The key point is that common words are <em>extremely common</em> relative to less common words, so that word frequency distributions are highly <em>right skewed</em>. For a general Zipf distribution with parameter <span class="math inline">\(\alpha\)</span>,
+<span class="math display">\[
+\log P(X=x) = \log(C) - (1 + \alpha) \log(x).
+\]</span>
+This suggests both a way of estimating the parameter <span class="math inline">\(\alpha\)</span> and of checking whether a given set of frequencies match those implied by the Zipf distribution: we could regress log counts on a constant and the log rank. This is precisely what you'll do in the following exercise!</p>
+<div id="exercise-47" class="section level3 hasAnchor" number="8.4.1">
+<h3><span class="header-section-number">8.4.1</span> Exercise<a href="text-data.html#exercise-47" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><a href="https://en.wikipedia.org/wiki/Peter_Norvig">Peter Norvig</a> maintains a website with data from the <a href="https://ai.googleblog.com/2006/08/all-our-n-gram-are-belong-to-you.html">Google Web Trillion Word Corpus</a>. The file <code>count_1w.txt</code> available from <a href="http://norvig.com/ngrams/" class="uri">http://norvig.com/ngrams/</a> contains a list of the 1/3 million most common words in this corpus along with their counts.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Read <code>count_1w.txt</code> into a tibble called <code>norvig</code> using <code>read_delim()</code> from the <code>readr</code> package. I suggest setting meaningful column names using the argument <code>col_names</code>.</li>
+<li>Use <code>norvig</code> to make a plot with the log rank on x-axis and log count on the y-axis. If these data come from a Zipf distribution, what shape should this relationship take?</li>
+<li>Fit an appropriate linear regression to assess whether the counts and ranks from <code>norvig</code> are consistent with Zipf's law.</li>
+</ol>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb681"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb681-1"><a href="text-data.html#cb681-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb681-2"><a href="text-data.html#cb681-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb681-3"><a href="text-data.html#cb681-3" aria-hidden="true" tabindex="-1"></a>norvig <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&#39;http://norvig.com/ngrams/count_1w.txt&#39;</span>, </span>
+<span id="cb681-4"><a href="text-data.html#cb681-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">col_names =</span> <span class="fu">c</span>(<span class="st">&#39;word&#39;</span>, <span class="st">&#39;n&#39;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb681-5"><a href="text-data.html#cb681-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank =</span> <span class="fu">row_number</span>())</span>
+<span id="cb681-6"><a href="text-data.html#cb681-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb681-7"><a href="text-data.html#cb681-7" aria-hidden="true" tabindex="-1"></a>norvig <span class="sc">%&gt;%</span> </span>
+<span id="cb681-8"><a href="text-data.html#cb681-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb681-9"><a href="text-data.html#cb681-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> rank, <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb681-10"><a href="text-data.html#cb681-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb681-11"><a href="text-data.html#cb681-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>()</span></code></pre></div>
+<p><img src="erm-book_files/figure-html/unnamed-chunk-348-1.png" width="672" /></p>
+<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb682-1"><a href="text-data.html#cb682-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="fu">log</span>(n) <span class="sc">~</span> <span class="fu">log</span>(rank), norvig)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = log(n) ~ log(rank), data = norvig)
+## 
+## Coefficients:
+## (Intercept)    log(rank)  
+##      30.434       -1.646</code></pre>
+</div>
+</div>
+</div>
+<div id="bind_tf_idf" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> <code>bind_tf_idf()</code><a href="text-data.html#bind_tf_idf" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Jane_Austen.jpg/388px-Jane_Austen.jpg" alt="" />
+<p class="caption">Jane Austen</p>
+</div>
+<p>The <strong>term frequency</strong> (tf) of a token is a measure of how often it appears in a given document. Let's calculate the term frequency of every word in the complete novels of Jane Austen. To start we'll load these novels using the <a href="https://github.com/juliasilge/janeaustenr"><code>janeaustenr</code> package</a>:</p>
+<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb684-1"><a href="text-data.html#cb684-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janeaustenr)</span>
+<span id="cb684-2"><a href="text-data.html#cb684-2" aria-hidden="true" tabindex="-1"></a><span class="fu">austen_books</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 73,422 × 2
+##    text                    book               
+##  * &lt;chr&gt;                   &lt;fct&gt;              
+##  1 &quot;SENSE AND SENSIBILITY&quot; Sense &amp; Sensibility
+##  2 &quot;&quot;                      Sense &amp; Sensibility
+##  3 &quot;by Jane Austen&quot;        Sense &amp; Sensibility
+##  4 &quot;&quot;                      Sense &amp; Sensibility
+##  5 &quot;(1811)&quot;                Sense &amp; Sensibility
+##  6 &quot;&quot;                      Sense &amp; Sensibility
+##  7 &quot;&quot;                      Sense &amp; Sensibility
+##  8 &quot;&quot;                      Sense &amp; Sensibility
+##  9 &quot;&quot;                      Sense &amp; Sensibility
+## 10 &quot;CHAPTER 1&quot;             Sense &amp; Sensibility
+## # … with 73,412 more rows</code></pre>
+<p>After tokenizing with <code>unnest_tokens()</code>, we can count the occurrences of each word in each novel as follows:</p>
+<div class="sourceCode" id="cb686"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb686-1"><a href="text-data.html#cb686-1" aria-hidden="true" tabindex="-1"></a>austen_words <span class="ot">&lt;-</span> <span class="fu">austen_books</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb686-2"><a href="text-data.html#cb686-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span></span>
+<span id="cb686-3"><a href="text-data.html#cb686-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(book, word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb686-4"><a href="text-data.html#cb686-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb686-5"><a href="text-data.html#cb686-5" aria-hidden="true" tabindex="-1"></a>austen_words</span></code></pre></div>
+<pre><code>## # A tibble: 40,379 × 3
+##    book              word      n
+##    &lt;fct&gt;             &lt;chr&gt; &lt;int&gt;
+##  1 Mansfield Park    the    6206
+##  2 Mansfield Park    to     5475
+##  3 Mansfield Park    and    5438
+##  4 Emma              to     5239
+##  5 Emma              the    5201
+##  6 Emma              and    4896
+##  7 Mansfield Park    of     4778
+##  8 Pride &amp; Prejudice the    4331
+##  9 Emma              of     4291
+## 10 Pride &amp; Prejudice to     4162
+## # … with 40,369 more rows</code></pre>
+<p>Notice that in this example I haven't removed any stop words. While words like "the" or "and" are unlikely to contain any useful information, more broadly it can be difficult to know which words can be safely treated as "unimportant" without knowing something about the <em>context</em> of our analysis. In a corpus of FOMC minutes we're probably interested in very different words than in a corpus of 19th centry novels! Or to put it another way: <a href="https://pubs.aeaweb.org/doi/pdfplus/10.1257/jel.20181020">"one researcher's stop words are another's subject of interest."</a> The notion of <strong>term frequency inverse document frequency</strong> (tf-idf) is a rule of thumb that aims to provide an <em>empirical</em>, rather than <em>a priori</em>, measure of which words are "most important" for comparing documents within a given corpus.</p>
+<p>The <strong>inverse document frequency</strong> (idf) of a term is defined as the log of the <em>inverse</em> of the share of documents in a corpus that contain that term, in other words
+<span class="math display">\[
+\text{idf}(\text{term}) = \log\left( \frac{\# \text{Documents}}{\# \text{Documents containing term}}\right).
+\]</span>
+Imagine a corpus of academic papers written in English, spanning all disciplines from Archaeology to Zoology. The term "the" will certainly appear in every one of these papers, so its idf is zero. In contrast, the term "heteroskedasticity" will only appear in a small fraction of the papers, those that concern econometrics or statistics. The idf of this term is high. Encountering the term "the" tells us effectively nothing about the kind of document that we're reading; encountering the term "heteroskedasticity" tells us a lot. While this is only a heuristic, it's a useful one. And it becomes even more useful when <em>combined</em> with the term frequency.</p>
+<p>A term that is both <em>common in a given document</em>, high tf, and is <em>only contained in a few documents</em>, high idf, is a good candidate for an important word. This is the idea that tf-idf captures by <em>multiplying</em> term frequency by inverse document frequency. We can use the <code>tidytext</code> function <code>bind_tf_idf()</code> to attach term frequency, inverse document frequency, and tf-idf to <code>austen_words</code> as follows:</p>
+<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb688-1"><a href="text-data.html#cb688-1" aria-hidden="true" tabindex="-1"></a>austen_words <span class="sc">%&gt;%</span></span>
+<span id="cb688-2"><a href="text-data.html#cb688-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_tf_idf</span>(word, book, n) </span></code></pre></div>
+<pre><code>## # A tibble: 40,379 × 6
+##    book              word      n     tf   idf tf_idf
+##    &lt;fct&gt;             &lt;chr&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1 Mansfield Park    the    6206 0.0387     0      0
+##  2 Mansfield Park    to     5475 0.0341     0      0
+##  3 Mansfield Park    and    5438 0.0339     0      0
+##  4 Emma              to     5239 0.0325     0      0
+##  5 Emma              the    5201 0.0323     0      0
+##  6 Emma              and    4896 0.0304     0      0
+##  7 Mansfield Park    of     4778 0.0298     0      0
+##  8 Pride &amp; Prejudice the    4331 0.0354     0      0
+##  9 Emma              of     4291 0.0267     0      0
+## 10 Pride &amp; Prejudice to     4162 0.0341     0      0
+## # … with 40,369 more rows</code></pre>
+<p>The first argument to <code>bind_tf_idf()</code> is a tidy text dataset (a tibble) with <em>one row per term per document</em>. In our case, this is <code>austen_words</code>, supplied using the pipe. The second argument is <code>term</code>, the name of the column of the input tibble that contains our terms. Above, this is the <code>word</code> column of <code>austen_words</code>. The next argument is <code>document</code>, the name of the column in our input tibble that contains the document ids. In our case this is <code>book</code>. Finally, <code>n</code> is the column of our input tibble that contains the <em>counts</em> of each term by document.</p>
+<p>Sorting by <code>tf_idf</code> in descending order allows us to see which words are most distinctive to each document. Unsurprisingly, these turn out to be the <em>names of the main characters</em> from each novel!</p>
+<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb690-1"><a href="text-data.html#cb690-1" aria-hidden="true" tabindex="-1"></a>austen_words <span class="sc">%&gt;%</span></span>
+<span id="cb690-2"><a href="text-data.html#cb690-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_tf_idf</span>(word, book, n) <span class="sc">%&gt;%</span></span>
+<span id="cb690-3"><a href="text-data.html#cb690-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(tf_idf))</span></code></pre></div>
+<pre><code>## # A tibble: 40,379 × 6
+##    book                word          n      tf   idf  tf_idf
+##    &lt;fct&gt;               &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Sense &amp; Sensibility elinor      623 0.00519  1.79 0.00931
+##  2 Sense &amp; Sensibility marianne    492 0.00410  1.79 0.00735
+##  3 Mansfield Park      crawford    493 0.00307  1.79 0.00551
+##  4 Pride &amp; Prejudice   darcy       373 0.00305  1.79 0.00547
+##  5 Persuasion          elliot      254 0.00304  1.79 0.00544
+##  6 Emma                emma        786 0.00488  1.10 0.00536
+##  7 Northanger Abbey    tilney      196 0.00252  1.79 0.00452
+##  8 Emma                weston      389 0.00242  1.79 0.00433
+##  9 Pride &amp; Prejudice   bennet      294 0.00241  1.79 0.00431
+## 10 Persuasion          wentworth   191 0.00228  1.79 0.00409
+## # … with 40,369 more rows</code></pre>
+<p>Notice that <code>bind_tf_idf()</code> calculates term frequency as a <em>proportion</em> rather than a count: "the number of times that a word appears in a novel given novel divided by the number of terms (words) in that novel." There doesn't appear to be a universal definition of "term frequency." Some people treat this as a <em>count</em>, others as the logarithm of a count plus one, and others as a proportion. The use of logarithms aims to reflect the observation that underlies Zipf's Law: the distribution of word frequencies is highly skewed.</p>
+<div id="exercise-48" class="section level3 hasAnchor" number="8.5.1">
+<h3><span class="header-section-number">8.5.1</span> Exercise<a href="text-data.html#exercise-48" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Above we used <code>bind_tf_idf()</code> to calculate the tf-idf for <code>austen_words</code>. Suppose you <em>didn't</em> have access to this helpful function. You could nonetheless calculate the tf-idf if <code>austen_words</code> "by hand" using <code>dplyr</code>. Write code to accomplish this, and make sure that your results match those from above.</p>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb692-1"><a href="text-data.html#cb692-1" aria-hidden="true" tabindex="-1"></a>austen_words <span class="sc">%&gt;%</span></span>
+<span id="cb692-2"><a href="text-data.html#cb692-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(book) <span class="sc">%&gt;%</span></span>
+<span id="cb692-3"><a href="text-data.html#cb692-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">total_words =</span> <span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb692-4"><a href="text-data.html#cb692-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb692-5"><a href="text-data.html#cb692-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(word) <span class="sc">%&gt;%</span></span>
+<span id="cb692-6"><a href="text-data.html#cb692-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">book_count =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb692-7"><a href="text-data.html#cb692-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb692-8"><a href="text-data.html#cb692-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tf =</span> n <span class="sc">/</span> total_words, </span>
+<span id="cb692-9"><a href="text-data.html#cb692-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">idf =</span> <span class="fu">log</span>(<span class="fu">length</span>(<span class="fu">unique</span>(book)) <span class="sc">/</span> book_count),</span>
+<span id="cb692-10"><a href="text-data.html#cb692-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">tf_idf =</span> tf <span class="sc">*</span> idf) <span class="sc">%&gt;%</span></span>
+<span id="cb692-11"><a href="text-data.html#cb692-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(tf_idf)) <span class="sc">%&gt;%</span></span>
+<span id="cb692-12"><a href="text-data.html#cb692-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>total_words, <span class="sc">-</span>book_count)</span></code></pre></div>
+<pre><code>## # A tibble: 40,379 × 6
+##    book                word          n      tf   idf  tf_idf
+##    &lt;fct&gt;               &lt;chr&gt;     &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Sense &amp; Sensibility elinor      623 0.00519  1.79 0.00931
+##  2 Sense &amp; Sensibility marianne    492 0.00410  1.79 0.00735
+##  3 Mansfield Park      crawford    493 0.00307  1.79 0.00551
+##  4 Pride &amp; Prejudice   darcy       373 0.00305  1.79 0.00547
+##  5 Persuasion          elliot      254 0.00304  1.79 0.00544
+##  6 Emma                emma        786 0.00488  1.10 0.00536
+##  7 Northanger Abbey    tilney      196 0.00252  1.79 0.00452
+##  8 Emma                weston      389 0.00242  1.79 0.00433
+##  9 Pride &amp; Prejudice   bennet      294 0.00241  1.79 0.00431
+## 10 Persuasion          wentworth   191 0.00228  1.79 0.00409
+## # … with 40,369 more rows</code></pre>
+</div>
+</div>
+</div>
+<div id="reading-a-corpus-into-r" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Reading a Corpus into R<a href="text-data.html#reading-a-corpus-into-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A <em>corpus</em> is a collection of text documents, for example the <a href="https://en.wikipedia.org/wiki/The_Federalist_Papers"><em>Federalist Papers</em></a>. A <a href="https://www.tandfonline.com/doi/abs/10.1080/01621459.1963.10500849">classic problem in text analysis</a> is trying to determine who wrote each of them: <a href="https://en.wikipedia.org/wiki/Alexander_Hamilton">Hamilton</a> or <a href="https://en.wikipedia.org/wiki/James_Madison">Madison</a>. I've posted a zip archive containing text files of all 85 of the <em>Federalist Papers</em> on my website: <code>https://ditraglia.com/data/federalist.zip</code>. We can read this corpus into R using the functions <code>ZipSource()</code> and <code>VCorpus()</code> from the <code>tm</code> package as follows:</p>
+<div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb694-1"><a href="text-data.html#cb694-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tm)</span>
+<span id="cb694-2"><a href="text-data.html#cb694-2" aria-hidden="true" tabindex="-1"></a>federalist_raw <span class="ot">&lt;-</span> <span class="fu">VCorpus</span>(<span class="fu">ZipSource</span>(<span class="st">&#39;https://ditraglia.com/data/federalist.zip&#39;</span>, </span>
+<span id="cb694-3"><a href="text-data.html#cb694-3" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">recursive =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb694-4"><a href="text-data.html#cb694-4" aria-hidden="true" tabindex="-1"></a>federalist_raw</span></code></pre></div>
+<pre><code>## &lt;&lt;VCorpus&gt;&gt;
+## Metadata:  corpus specific: 0, document level (indexed): 0
+## Content:  documents: 85</code></pre>
+<p>To apply our favorite tidy tools to <code>federalist_raw</code> we'll first <a href="https://juliasilge.github.io/tidytext/reference/tidy.Corpus.html">tidy</a> the corpus</p>
+<div class="sourceCode" id="cb696"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb696-1"><a href="text-data.html#cb696-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(federalist_raw)</span></code></pre></div>
+<pre><code>## # A tibble: 85 × 8
+##    author datetimestamp       description heading id       language origin text 
+##    &lt;lgl&gt;  &lt;dttm&gt;              &lt;lgl&gt;       &lt;lgl&gt;   &lt;chr&gt;    &lt;chr&gt;    &lt;lgl&gt;  &lt;chr&gt;
+##  1 NA     2022-06-02 09:32:07 NA          NA      fp01.txt en       NA     &quot;AFT…
+##  2 NA     2022-06-02 09:32:07 NA          NA      fp02.txt en       NA     &quot;WHE…
+##  3 NA     2022-06-02 09:32:07 NA          NA      fp03.txt en       NA     &quot;IT …
+##  4 NA     2022-06-02 09:32:07 NA          NA      fp04.txt en       NA     &quot;MY …
+##  5 NA     2022-06-02 09:32:07 NA          NA      fp05.txt en       NA     &quot;QUE…
+##  6 NA     2022-06-02 09:32:07 NA          NA      fp06.txt en       NA     &quot;THE…
+##  7 NA     2022-06-02 09:32:07 NA          NA      fp07.txt en       NA     &quot;IT …
+##  8 NA     2022-06-02 09:32:07 NA          NA      fp08.txt en       NA     &quot;ASS…
+##  9 NA     2022-06-02 09:32:07 NA          NA      fp09.txt en       NA     &quot;A F…
+## 10 NA     2022-06-02 09:32:07 NA          NA      fp10.txt en       NA     &quot;AMO…
+## # … with 75 more rows</code></pre>
+<p>and then remove the extraneous columns from the result</p>
+<div class="sourceCode" id="cb698"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb698-1"><a href="text-data.html#cb698-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(federalist_raw) <span class="sc">%&gt;%</span></span>
+<span id="cb698-2"><a href="text-data.html#cb698-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, text)</span></code></pre></div>
+<pre><code>## # A tibble: 85 × 2
+##    id       text                                                                
+##    &lt;chr&gt;    &lt;chr&gt;                                                               
+##  1 fp01.txt &quot;AFTER an unequivocal experience of the inefficiency of the subsist…
+##  2 fp02.txt &quot;WHEN the people of America reflect that they are now called upon t…
+##  3 fp03.txt &quot;IT IS not a new observation that the people of any country (if, li…
+##  4 fp04.txt &quot;MY LAST paper assigned several reasons why the safety of the peopl…
+##  5 fp05.txt &quot;QUEEN ANNE, in her letter of the 1st July, 1706, to the Scotch Par…
+##  6 fp06.txt &quot;THE three last numbers of this paper have been dedicated to an enu…
+##  7 fp07.txt &quot;IT IS sometimes asked, with an air of seeming triumph, what induce…
+##  8 fp08.txt &quot;ASSUMING it therefore as an established truth that the several Sta…
+##  9 fp09.txt &quot;A FIRM Union will be of the utmost moment to the peace and liberty…
+## 10 fp10.txt &quot;AMONG the numerous advantages promised by a well-constructed Union…
+## # … with 75 more rows</code></pre>
+<p>By default <code>tidy.corpus()</code> replaces linebreaks in each of the documents from the corpus with <code>\n</code>. We can override this behavior by setting the argument <code>collapse</code>. For example to completely ignore linebreaks, we could set <code>collapse = ''</code>. To make things a bit easier to work with, we can use <code>str_extract()</code> from the <a href="https://stringr.tidyverse.org/"><code>stringr</code> package</a> to create a column called <code>paper</code> that gives the number of the particular Federalist Paper whose text is stored in <code>text</code></p>
+<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="text-data.html#cb700-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb700-2"><a href="text-data.html#cb700-2" aria-hidden="true" tabindex="-1"></a>federalist <span class="ot">&lt;-</span> <span class="fu">tidy</span>(federalist_raw, <span class="at">collapse =</span> <span class="st">&#39;&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb700-3"><a href="text-data.html#cb700-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, text) <span class="sc">%&gt;%</span></span>
+<span id="cb700-4"><a href="text-data.html#cb700-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">paper =</span> <span class="fu">as.numeric</span>(<span class="fu">str_extract</span>(id, <span class="st">&#39;[:digit:]+&#39;</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb700-5"><a href="text-data.html#cb700-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(paper, text)</span>
+<span id="cb700-6"><a href="text-data.html#cb700-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb700-7"><a href="text-data.html#cb700-7" aria-hidden="true" tabindex="-1"></a>federalist</span></code></pre></div>
+<pre><code>## # A tibble: 85 × 2
+##    paper text                                                                   
+##    &lt;dbl&gt; &lt;chr&gt;                                                                  
+##  1     1 &quot;AFTER an unequivocal experience of the inefficiency of the subsisting…
+##  2     2 &quot;WHEN the people of America reflect that they are now called upon to d…
+##  3     3 &quot;IT IS not a new observation that the people of any country (if, like …
+##  4     4 &quot;MY LAST paper assigned several reasons why the safety of the people w…
+##  5     5 &quot;QUEEN ANNE, in her letter of the 1st July, 1706, to the Scotch Parlia…
+##  6     6 &quot;THE three last numbers of this paper have been dedicated to an enumer…
+##  7     7 &quot;IT IS sometimes asked, with an air of seeming triumph, what inducemen…
+##  8     8 &quot;ASSUMING it therefore as an established truth that the several States…
+##  9     9 &quot;A FIRM Union will be of the utmost moment to the peace and liberty of…
+## 10    10 &quot;AMONG the numerous advantages promised by a well-constructed Union, n…
+## # … with 75 more rows</code></pre>
+<p>Expanding this pipeline, we can tokenize, remove stop words, and stem each of these texts as follows:</p>
+<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="text-data.html#cb702-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(federalist<span class="sc">$</span>text) <span class="ot">&lt;-</span> <span class="cn">NULL</span> <span class="co"># This is a named column; remove names to </span></span>
+<span id="cb702-2"><a href="text-data.html#cb702-2" aria-hidden="true" tabindex="-1"></a><span class="co"># prevent a warning from showing with unnest_tokens()</span></span>
+<span id="cb702-3"><a href="text-data.html#cb702-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb702-4"><a href="text-data.html#cb702-4" aria-hidden="true" tabindex="-1"></a>federalist <span class="ot">&lt;-</span> federalist <span class="sc">%&gt;%</span></span>
+<span id="cb702-5"><a href="text-data.html#cb702-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, text, <span class="at">strip_numeric =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb702-6"><a href="text-data.html#cb702-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span></span>
+<span id="cb702-7"><a href="text-data.html#cb702-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">stem =</span> <span class="fu">wordStem</span>(word))</span>
+<span id="cb702-8"><a href="text-data.html#cb702-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb702-9"><a href="text-data.html#cb702-9" aria-hidden="true" tabindex="-1"></a>federalist</span></code></pre></div>
+<pre><code>## # A tibble: 64,114 × 3
+##    paper word         stem     
+##    &lt;dbl&gt; &lt;chr&gt;        &lt;chr&gt;    
+##  1     1 unequivocal  unequivoc
+##  2     1 experience   experi   
+##  3     1 inefficiency ineffici 
+##  4     1 subsisting   subsist  
+##  5     1 federal      feder    
+##  6     1 government   govern   
+##  7     1 called       call     
+##  8     1 deliberate   deliber  
+##  9     1 constitution constitut
+## 10     1 united       unit     
+## # … with 64,104 more rows</code></pre>
+<div id="exercise-49" class="section level3 hasAnchor" number="8.6.1">
+<h3><span class="header-section-number">8.6.1</span> Exercise<a href="text-data.html#exercise-49" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>What are the ten "most important" words in Federalist Papers number 12 and 24 as measured by tf-idf? Does it matter whether you work with words or stems?</p>
+<div class="webex-solution">
+<button>
+Show Solution
+</button>
+<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb704-1"><a href="text-data.html#cb704-1" aria-hidden="true" tabindex="-1"></a>federalist_words <span class="ot">&lt;-</span> federalist <span class="sc">%&gt;%</span></span>
+<span id="cb704-2"><a href="text-data.html#cb704-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(paper, word, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb704-3"><a href="text-data.html#cb704-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_tf_idf</span>(word, paper, n)</span>
+<span id="cb704-4"><a href="text-data.html#cb704-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb704-5"><a href="text-data.html#cb704-5" aria-hidden="true" tabindex="-1"></a>federalist_stems <span class="ot">&lt;-</span> federalist <span class="sc">%&gt;%</span></span>
+<span id="cb704-6"><a href="text-data.html#cb704-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(paper, stem, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb704-7"><a href="text-data.html#cb704-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_tf_idf</span>(stem, paper, n)</span>
+<span id="cb704-8"><a href="text-data.html#cb704-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb704-9"><a href="text-data.html#cb704-9" aria-hidden="true" tabindex="-1"></a>federalist_words <span class="sc">%&gt;%</span></span>
+<span id="cb704-10"><a href="text-data.html#cb704-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(paper <span class="sc">==</span> <span class="dv">12</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb704-11"><a href="text-data.html#cb704-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(word, tf_idf) <span class="sc">%&gt;%</span></span>
+<span id="cb704-12"><a href="text-data.html#cb704-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(tf_idf))</span></code></pre></div>
+<pre><code>## # A tibble: 589 × 2
+##    word        tf_idf
+##    &lt;chr&gt;        &lt;dbl&gt;
+##  1 contraband  0.0167
+##  2 patrols     0.0167
+##  3 revenue     0.0152
+##  4 trade       0.0130
+##  5 duties      0.0127
+##  6 taxes       0.0117
+##  7 importation 0.0115
+##  8 cent        0.0111
+##  9 excise      0.0111
+## 10 spirits     0.0111
+## # … with 579 more rows</code></pre>
+<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb706-1"><a href="text-data.html#cb706-1" aria-hidden="true" tabindex="-1"></a>federalist_stems <span class="sc">%&gt;%</span></span>
+<span id="cb706-2"><a href="text-data.html#cb706-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(paper <span class="sc">==</span> <span class="dv">12</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb706-3"><a href="text-data.html#cb706-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(stem, tf_idf) <span class="sc">%&gt;%</span></span>
+<span id="cb706-4"><a href="text-data.html#cb706-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(tf_idf))</span></code></pre></div>
+<pre><code>## # A tibble: 516 × 2
+##    stem       tf_idf
+##    &lt;chr&gt;       &lt;dbl&gt;
+##  1 revenu     0.0169
+##  2 contraband 0.0167
+##  3 patrol     0.0167
+##  4 excis      0.0166
+##  5 coast      0.0141
+##  6 tax        0.0131
+##  7 trade      0.0130
+##  8 cent       0.0111
+##  9 gallon     0.0111
+## 10 commerc    0.0111
+## # … with 506 more rows</code></pre>
+<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="text-data.html#cb708-1" aria-hidden="true" tabindex="-1"></a>federalist_words <span class="sc">%&gt;%</span></span>
+<span id="cb708-2"><a href="text-data.html#cb708-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(paper <span class="sc">==</span> <span class="dv">24</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb708-3"><a href="text-data.html#cb708-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(word, tf_idf) <span class="sc">%&gt;%</span></span>
+<span id="cb708-4"><a href="text-data.html#cb708-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(tf_idf))</span></code></pre></div>
+<pre><code>## # A tibble: 491 × 2
+##    word           tf_idf
+##    &lt;chr&gt;           &lt;dbl&gt;
+##  1 garrisons      0.0262
+##  2 dock           0.0206
+##  3 settlements    0.0206
+##  4 yards          0.0206
+##  5 establishments 0.0168
+##  6 spain          0.0146
+##  7 posts          0.0141
+##  8 standing       0.0139
+##  9 armies         0.0134
+## 10 frontier       0.0131
+## # … with 481 more rows</code></pre>
+<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="text-data.html#cb710-1" aria-hidden="true" tabindex="-1"></a>federalist_stems <span class="sc">%&gt;%</span></span>
+<span id="cb710-2"><a href="text-data.html#cb710-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(paper <span class="sc">==</span> <span class="dv">24</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb710-3"><a href="text-data.html#cb710-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(stem, tf_idf) <span class="sc">%&gt;%</span></span>
+<span id="cb710-4"><a href="text-data.html#cb710-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(tf_idf))</span></code></pre></div>
+<pre><code>## # A tibble: 437 × 2
+##    stem       tf_idf
+##    &lt;chr&gt;       &lt;dbl&gt;
+##  1 garrison   0.0262
+##  2 dock       0.0206
+##  3 yard       0.0206
+##  4 settlement 0.0174
+##  5 spain      0.0146
+##  6 armi       0.0137
+##  7 frontier   0.0131
+##  8 arsen      0.0116
+##  9 western    0.0116
+## 10 nearer     0.0103
+## # … with 427 more rows</code></pre>
+</div>
+
+</div>
+</div>
+</div>
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  if (t = document.getElementById("webex-total_correct")) {
+    var correct = document.getElementsByClassName("webex-correct").length;
+    var solvemes = document.getElementsByClassName("webex-solveme").length;
+    var radiogroups = document.getElementsByClassName("webex-radiogroup").length;
+    var selects = document.getElementsByClassName("webex-select").length;
+    
+    t.innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+  
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+  
+  var cl = this.classList
+  
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+  
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+  
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+  
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+  }
+  
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+  
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+  }
+
+  update_total_correct();
+}
+
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="the-normal-distribution.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-rodeo.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": false
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
